@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barsi Screener - Resultados</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0f1a;
+            color: #e2e8f0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .header h1 { color: #10b981; font-size: 1.8rem; margin-bottom: 5px; }
+        .header p { color: #64748b; font-size: 0.9rem; }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px; }
+        .stat-card { background: #1e293b; padding: 20px; border-radius: 12px; border-left: 4px solid #f59e0b; }
+        .stat-card h3 { font-size: 0.85rem; color: #94a3b8; margin-bottom: 8px; }
+        .stat-card .value { font-size: 2rem; font-weight: 700; color: #fff; }
+        .stat-card .sub { font-size: 0.8rem; color: #64748b; }
+        table { width: 100%; background: #1e293b; border-radius: 12px; overflow: hidden; margin-bottom: 30px; }
+        th, td { padding: 15px; text-align: left; }
+        th { background: #0f172a; color: #94a3b8; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+        tr { border-bottom: 1px solid #334155; }
+        tr:hover { background: #334155; }
+        .ticker { font-weight: 700; color: #fff; font-size: 1.1rem; }
+        .nome { color: #cbd5e1; }
+        .setor { background: #059669; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; }
+        .dy { color: #10b981; font-weight: 600; }
+        .pvpa-good { color: #3b82f6; font-weight: 600; }
+        .score-badge { background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; padding: 4px 12px; border-radius: 20px; font-weight: 600; font-size: 0.85rem; }
+        .methodology { background: #1e293b; padding: 25px; border-radius: 12px; margin-bottom: 30px; }
+        .methodology h2 { color: #10b981; margin-bottom: 15px; font-size: 1.3rem; }
+        .methodology ul { list-style: none; }
+        .methodology li { padding: 8px 0; color: #cbd5e1; }
+        .methodology li::before { content: "✓ "; color: #10b981; font-weight: bold; }
+        .footer { text-align: center; color: #64748b; font-size: 0.85rem; margin-top: 30px; }
+        select { background: #334155; color: #fff; border: 1px solid #475569; padding: 8px 12px; border-radius: 6px; margin-left: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📈 Barsi Screener</h1>
+            <p>Metodologia "O Rei dos Dividendos" • Atualizado: 12/02/2026</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <h3>Total Analisado</h3>
+                <div class="value">33</div>
+                <div class="sub">setores perenes</div>
+            </div>
+            <div class="stat-card">
+                <h3>Dados Obtidos</h3>
+                <div class="value" style="color: #10b981;">27</div>
+                <div class="sub">tickers</div>
+            </div>
+            <div class="stat-card">
+                <h3>Oportunidades</h3>
+                <div class="value" style="color: #f59e0b;">11</div>
+                <div class="sub">após filtros</div>
+            </div>
+            <div class="stat-card">
+                <h3>Maior DY</h3>
+                <div class="value" style="color: #ef4444;">13.20%</div>
+                <div class="sub">CSNA3</div>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 20px; text-align: center;">
+            <label style="color: #94a3b8;">Ordenar por: </label>
+            <select id="sort-select">
+                <option value="score">Score (maior)</option>
+                <option value="dy">Dividend Yield</option>
+                <option value="pvpa">P/VPA (menor)</option>
+                <option value="market_cap">Market Cap</option>
+                <option value="ticker">Ticker A-Z</option>
+            </select>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Ticker</th>
+                    <th>Empresa</th>
+                    <th>Setor</th>
+                    <th>Preço</th>
+                    <th>DY</th>
+                    <th>Div/Anual</th>
+                    <th>P/VPA</th>
+                    <th>P/L</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+        </table>
+
+        <div class="methodology">
+            <h2>📚 Critérios Barsi</h2>
+            <ul>
+                <li>Dividend Yield ≥ 3% ao ano</li>
+                <li>P/VPA ≤ 2.0 (valor justo)</li>
+                <li>Market cap ≥ R$ 1 bilhão</li>
+                <li>Mínimo 5 anos listed</li>
+                <li>Histórico ≥ 3 anos de dividendos</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>Dados: Yahoo Finance •Não é recomendação de investimento</p>
+        </div>
+    </div>
+
+    <script>
+        const data = [
+            ["PETR4","PETROBRAS","Energy","Oil & Gas Integrated","PERENE",38.08,511702138880,12.16,4.63,1.16,6.79,20.0,18,72.3],
+            ["ENGI3","ENERGISA","Utilities","Utilities - Regulated Electric","PERENE",12.6,31683895296,5.16,0.65,0.26,9.62,20.0,18,67.9],
+            ["KLBN4","KLABIN S/A","Basic Materials","Paper & Paper Products","PERENE",4.18,25646018560,7.89,0.33,0.5,14.93,20.0,16,67.5],
+            ["KLBN3","KLABIN S/A","Basic Materials","Paper & Paper Products","PERENE",4.21,25830080512,7.84,0.33,0.5,15.04,20.0,18,67.4],
+            ["CSNA3","SID NACIONAL","Basic Materials","Steel","PERENE",9.62,12757023744,13.2,1.27,0.9,null,20.0,14,63.7],
+            ["PETR3","PETROBRAS","Energy","Oil & Gas Integrated","PERENE",41.06,529211392000,11.28,4.63,1.25,7.32,20.0,14,61.2],
+            ["SANB11","SANTANDER BR","Financial Services","Banks - Regional","PERENE",37.07,174986018816,4.77,1.77,1.12,18.12,20.0,17,56.9],
+            ["VALE3","VALE","Basic Materials","Other Industrial Metals & Mining","PERENE",90.09,384574390272,7.66,6.9,1.76,13.45,20.0,18,48.9],
+            ["ENGI11","ENERGISA","Utilities","Utilities - Regulated Electric","PERENE",52.12,23825639424,6.27,3.27,1.08,37.77,20.0,16,48.2],
+            ["EQTL3","EQUATORIAL","Utilities","Utilities - Regulated Electric","PERENE",42.05,52909023232,5.64,2.37,1.85,16.24,20.0,18,41.1],
+            ["VIVT3","TELEF BRASIL","Communication Services","Telecom Services","PERENE",40.81,130412699648,3.21,1.31,1.91,21.82,20.0,17,37.9]
+        ];
+
+        function formatMoney(num) {
+            if (num === null || num === undefined) return '-';
+            if (num >= 1e9) return 'R$ ' + (num / 1e9).toFixed(2) + ' Bi';
+            if (num >= 1e6) return 'R$ ' + (num / 1e6).toFixed(2) + ' Mi';
+            return 'R$ ' + num.toFixed(2);
+        }
+
+        function renderTable(arr) {
+            const tbody = document.getElementById('table-body');
+            tbody.innerHTML = '';
+            arr.forEach((row, idx) => {
+                const [ticker, nome, setor, segmento, classificacao, preco, market_cap, dy, div_rate, pvpa, pl, anos_listed, anos_div, score] = row;
+                const rank = idx + 1;
+                const medal = rank <= 3 ? ['🥇','🥈','🥉'][rank-1] : rank;
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${medal}</td>
+                    <td><span class="ticker">${ticker}</span></td>
+                    <td>
+                        <div class="nome">${nome}</div>
+                        <div style="font-size: 0.8rem; color: #64748b;">${segmento}</div>
+                    </td>
+                    <td><span class="setor">${setor.split(' ')[0]}</span></td>
+                    <td class="font-mono">${formatMoney(preco)}</td>
+                    <td class="dy">${dy.toFixed(2)}%</td>
+                    <td class="font-mono">${formatMoney(div_rate)}</td>
+                    <td class="${pvpa <= 2 ? 'pvpa-good' : ''}">${pvpa.toFixed(2)}</td>
+                    <td class="font-mono">${pl ? pl.toFixed(2) : '-'}</td>
+                    <td><span class="score-badge">${score.toFixed(1)}</span></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function sortData() {
+            const sortBy = document.getElementById('sort-select').value;
+            const sorted = [...data];
+            switch(sortBy) {
+                case 'score': sorted.sort((a,b) => b[13] - a[13]); break;
+                case 'dy': sorted.sort((a,b) => b[7] - a[7]); break;
+                case 'pvpa': sorted.sort((a,b) => a[10] - b[10]); break;
+                case 'market_cap': sorted.sort((a,b) => b[6] - a[6]); break;
+                case 'ticker': sorted.sort((a,b) => a[0].localeCompare(b[0])); break;
+            }
+            renderTable(sorted);
+        }
+
+        document.getElementById('sort-select').addEventListener('change', sortData);
+        renderTable([...data].sort((a,b) => b[13] - a[13])); // ordenar por score
+    </script>
+</body>
+</html>
