@@ -1,87 +1,126 @@
-# Barsi Screener 📈
+# 🧠 IA em Loop - Site Público
 
-Pipeline para filtrar ações brasileiras (B3) seguindo a metodologia de Luiz Barsi Filho do livro **"O Rei dos Dividendos"**.
+> Investimentos com Inteligência Artificial • Skin in the Game
 
-## Filosofia
-
-- Dividendos, não especulação
-- Empresas perenes (energia, papel/celulose, bancos, saneamento, telecom)
-- Comprar barato, guardar e reinvestir dividendos
-- Horizonte de 10-30 anos
-
-## Como usar
-
-### 1. Instalar dependências
-
-```bash
-pip install -r requirements.txt
-```
-
-### 2. Executar pipeline
-
-```bash
-python pipeline.py
-```
-
-### 3. Resultados
-
-Os arquivos são gerados em `outputs/`:
-- `barsi_screener_[timestamp].csv` - planilha completa
-- `barsi_screener_latest.csv` - última execução
-- `relatorio_[timestamp].md` - resumo formatado
-
-## Critérios de filtragem
-
-| Critério | Threshold |
-|----------|-----------|
-| Dividend Yield | > 5% ao ano |
-| P/VPA (Preço/Valor Patrimonial) | < 1.5 |
-| Tempo de listed | > 10 anos |
-| Volume médio diário | > R$ 1 milhão |
-| Market cap mínimo | > R$ 500 milhões |
-| Histórico de dividendos | ≥ 5 anos consecutivos |
-| Setor | Apenas setores perenes (energia, papel/celulose, bancos, saneamento, telecom, mineração, química/petróleo, seguros) |
-
-## Setores perenes incluídos
-
-- **Energia** (ELETROBRAS, EQUATORIAL, ENERGISA, ENGIE, EDP-BR, CPFL)
-- **Papel e Celulose** (KLABIN, SUZANO, FIBRIA)
-- **Bancos** (BBAS3, ITUB4, BBDC4, SANB11, BPAC11)
-- **Saneamento** (SABESP, COPASA)
-- **Telecom** (VIVT3, TIMB3, TOTS3)
-- **Mineração** (VALE3)
-- **Química/Petróleo** (UNIPAR, BRAP4, PETR4, PETR3)
-- **Seguros** (PSSA3, SULA11, IRBR3)
-
-## Score
-
-As ações são ranqueadas por um score que considera:
-- Dividend Yield (quanto maior, melhor)
-- P/VPA (quanto menor, melhor)
-- Liquidez (volume)
-- Anos de listed
-- Consistência de dividendos
-
-## Personalização
-
-Altere os thresholds no topo do `pipeline.py`:
-
-```python
-MIN_DIVIDEND_YIELD = 0.05    # 5%
-MAX_PVPA = 1.5               # Preço <= 1.5x valor patrimonial
-MIN_HISTORY_YEARS = 10       # Mínimo 10 anos na bolsa
-MIN_VOLUME_BRL = 1_000_000   # Volume mínimo R$ 1M/dia
-MIN_MARKET_CAP = 500_000_000 # Market cap mínimo R$ 500M
-```
-
-## Adicionar novos tickers
-
-Edite a função `get_b3_tickers()` no `pipeline.py` para incluir mais ações.
-
-## Nota
-
-Esta pipeline é uma homenagem à metodologia de Barsi, mas **não é recomendação de investimento**. Faça sua própria due diligence.
+Este repositório contém o **código aberto e land pages** das carteiras de investimento do canal [IA em Loop](https://www.youtube.com/@IAemLoop).
 
 ---
 
-🧙‍♂️ *"Com paciência e disciplina, é impossível perder dinheiro com ações."* - Luiz Barsi Filho
+## 📂 Estrutura
+
+```
+.
+├── index.html                    # Página principal com links
+├── landpage_final.html          # Carteira Barsi (Dividendos)
+├── greenblatt_landing.html      # Carteira Greenblatt (Fórmula Mágica)
+├── youtube_banner_2560x1440.html # Banner do canal
+├── pipeline.py                  # Pipeline de filtragem (Barsi)
+├── greenblatt_ranking.py        # Pipeline da Fórmula Mágica
+├── empresas_info.csv            # Mapeamento ticker → empresa/setor
+├── outputs/                     # Resultados das execuções
+└── references/                  # (VAZIO - memórias privadas em repo separado)
+```
+
+---
+
+## 🎯 Carteiras
+
+### 1. Carteira Barsi (Dividendos)
+- **Metodologia**: Luiz Barsi Filho - "O Rei dos Dividendos"
+- **Critérios**: DY ≥3%, P/VPA ≤2.0, setores perenes
+- **Capital**: R$500
+- **Resultado**: 11 ações selecionadas (execução 12/02/2026)
+- **Land page**: `landpage_final.html`
+
+### 2. Carteira Greenblatt (Fórmula Mágica)
+- **Metodologia**: Joel Greenblatt - "The Little Book That Beats the Market"
+- **Critérios**: ROIC + Earnings Yield (top 30)
+- **Capital**: R$500
+- **Resultado**: Top 30 ações da B3
+- **Land page**: `greenblatt_landing.html`
+
+---
+
+## 🚀 Como Executar
+
+### Pipeline Barsi
+```bash
+pip install -r requirements.txt
+python pipeline.py
+```
+Saída em `outputs/`.
+
+### Pipeline Greenblatt
+```bash
+python generate_greenblatt_landing.py
+```
+Gera `greenblatt_landing.html` e `greenblatt_top30.csv`.
+
+---
+
+## 🌐 Visualizar Land Pages
+
+Execute o servidor local:
+```bash
+python3 -m http.server 8081
+```
+
+Acesse:
+- http://localhost:8081/ →lista de land pages
+- http://localhost:8081/landpage_final.html →Barsi
+- http://localhost:8081/greenblatt_landing.html →Greenblatt
+
+---
+
+## 📊 Dados
+
+- Fonte B3: yfinance (com fallback para Fundamentus via scraping)
+- Empresas_info.csv: mapeamento manual de tickers para nomes/setores
+- Arquivos CSV gerados em formatos compatíveis
+
+---
+
+## 🔐 Repositório Privado
+
+As **memórias** (MEMORY.md, memory/, references/) estão em repo separado e privado:
+
+**Tyrion Hand Memories** (privado) - contém:
+- Anotações de livros (Buffett, Barsi, Greenblatt)
+- Diário de sessões
+- Configurações internas
+- Scripts de backup
+
+**Este repo aqui (`iaemloop`) é público** e contém apenas código e dados abertos.
+
+---
+
+## 📺 Canal YouTube
+
+- Nome: **IA em Loop**
+- URL: https://www.youtube.com/@IAemLoop
+- Abordagem: Skin in the game, transparência total
+- Duas carteiras reais com R$500 cada
+- Começa sem rosto, depois voz, depois aparição gradual
+
+---
+
+## 🤝 Contribuindo
+
+Este repo é mantido pelo bot Tyrion. Issues e PRs são bem-vindos, mas note que:
+- Estratégias são pessoais e não são recomendações de investimento
+- Faça sua própria due diligence
+- Não nos responsabilizamos por perdas
+
+---
+
+## 📝 Licença
+
+Código: MIT (ver LICENSE)
+
+Dados: Para uso educacional. Consulte as fontes originais (B3, yfinance).
+
+---
+
+🧙‍♂️ *Mantido por Tyrion Bot*
+
+**Última atualização**: 2026-02-14
