@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏆 Ranking FGC - Melhores Renda Fixa</title>
+    <style>
+        :root {
+            --primary: #60a5fa; /* azul principal (blue-400) */
+            --secondary: #a78bfa; /* violeta para destaque/gradiente */
+            --positive: #10b981; /* verde para resultados positivos */
+            --warning: #f59e0b; /* amber para atenção */
+            --negative: #ef4444; /* vermelho para negativo */
+            --muted: #94a3b8;
+            --bg: #0f172a; /* fundo escuro */
+            --card: #1e293b; /* cartão escuro */
+            --text: #e2e8f0; /* texto claro */
+            --border: #334155;
+        }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin: 0 0 0.5rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            color: var(--muted);
+            font-size: 1.1rem;
+        }
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .filter-group label {
+            font-weight: 600;
+        }
+        .filter-group select {
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            font-size: 0.9rem;
+            background: var(--card);
+            color: var(--text);
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        .stat {
+            background: var(--card);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        th, td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            background: #0f172a;
+            font-weight: 600;
+            color: var(--text);
+            text-align: center;
+        }
+        td {
+            text-align: center;
+        }
+        tr:hover {
+            background: #334155;
+        }
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--muted);
+            font-size: 0.9rem;
+            padding: 1rem;
+        }
+        @media (max-width: 900px) {
+            table { font-size: 0.85rem; }
+            th, td { padding: 0.5rem; }
+        }
+        @media (max-width: 600px) {
+            .filters { flex-direction: column; align-items: stretch; }
+            .stats { gap: 1rem; }
+            h1 { font-size: 1.8rem; }
+            table { display: block; overflow-x: auto; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏆 Ranking FGC</h1>
+            <p class="subtitle">Melhores produtos de Renda Fixa com proteção do Fundo Garantidor de Créditos</p>
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="indexador-filter">Indexador:</label>
+                    <select id="indexador-filter">
+                        <option value="all">Todos</option>
+                        <option value="CDI">CDI</option>
+                        <option value="IPCA+">IPCA+</option>
+                        <option value="Selic">Selic</option>
+                        <option value="Pré-fixado">Pré-fixado</option>
+                        <option value="Pós-fixado">Pós-fixado</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="prazo-filter">Prazo:</label>
+                    <select id="prazo-filter">
+                        <option value="all">Todos</option>
+                        <option value="curto">Curto (≤2 anos)</option>
+                        <option value="medio">Médio (2-5 anos)</option>
+                        <option value="longo">Longo (+5 anos)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value">78</div>
+                    <div class="stat-label">Produtos FGC</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Novos (24h)</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">11.51%</div>
+                    <div class="stat-label">Rent. Média Líq.</div>
+                </div>
+            </div>
+        </header>
+
+        <div style="text-align: center; margin-bottom: 20px;">
+          <a href="index.html" style="display: inline-block; background: rgba(96,165,250,0.2); color: #60a5fa; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-size: 0.9rem;">← Voltar ao Menu</a>
+        </div>
+
+            <main>
+            <table id="ranking-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Produto</th>
+                        <th>Rating</th>
+                        <th>Indexador</th>
+                        <th>Tipo</th>
+                        <th>Rent. Bruta</th>
+                        <th>Rent. Líquida</th>
+                        <th>Mínimo</th>
+                        <th>Prazo</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                                <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#1</td>
+                <td>
+                    <strong>Original 95% CDI</strong><br>
+                    <small style="color:var(--muted)">Original • XP Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">LCA</td>
+                <td style="text-align:center;color:#22c55e">13.66% a.a.</td>
+                <td style="text-align:center;color:#22c55e">13.66% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">13/02/2027<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/original-xp-investimentos-95-cdi-lca-364-dias-1000-minimo/investir-agora/xp-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#2</td>
+                <td>
+                    <strong>Bari 98% CDI</strong><br>
+                    <small style="color:var(--muted)">Bari • Bari</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">LCI</td>
+                <td style="text-align:center;color:#22c55e">13.55% a.a.</td>
+                <td style="text-align:center;color:#22c55e">13.55% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">14/02/2029<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/barigui-financeira-98-cdi-lci-1096-dias-1000-minimo/investir-agora/bari" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#3</td>
+                <td>
+                    <strong>Bari 97% CDI</strong><br>
+                    <small style="color:var(--muted)">Bari • Bari</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">LCI</td>
+                <td style="text-align:center;color:#22c55e">13.46% a.a.</td>
+                <td style="text-align:center;color:#22c55e">13.46% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">14/02/2028<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/barigui-financeira-97-cdi-lci-730-dias-1000-minimo/investir-agora/bari" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#4</td>
+                <td>
+                    <strong>Original 97% CDI</strong><br>
+                    <small style="color:var(--muted)">Original • XP Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">LCA</td>
+                <td style="text-align:center;color:#22c55e">13.46% a.a.</td>
+                <td style="text-align:center;color:#22c55e">13.46% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">13/02/2028<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/original-xp-investimentos-97-cdi-lca-729-dias-1000-minimo/investir-agora/xp-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#5</td>
+                <td>
+                    <strong>Pine 95% CDI</strong><br>
+                    <small style="color:var(--muted)">Pine • Pine Online</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">LCA</td>
+                <td style="text-align:center;color:#22c55e">13.19% a.a.</td>
+                <td style="text-align:center;color:#22c55e">13.19% a.a.</td>
+                <td style="text-align:center">R$ 500,00</td>
+                <td style="text-align:center">15/02/2028<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/pine-95-cdi-lca-731-dias-500-minimo/investir-agora/pine-online" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="Pré-fixado" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#6</td>
+                <td>
+                    <strong>Bari Prefixado 13,1%</strong><br>
+                    <small style="color:var(--muted)">Bari • Bari</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">Pré-fixado</span></td>
+                <td style="text-align:center">LCI</td>
+                <td style="text-align:center;color:#22c55e">13.10% a.a.</td>
+                <td style="text-align:center;color:#22c55e">13.10% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">14/02/2029<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/barigui-financeira-prefixado-13-1-lci-1096-dias-1000-minimo/investir-agora/bari" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#7</td>
+                <td>
+                    <strong>China Construction Bank 91% CDI</strong><br>
+                    <small style="color:var(--muted)">China Construction Bank • Ágora Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">LCA</td>
+                <td style="text-align:center;color:#22c55e">13.09% a.a.</td>
+                <td style="text-align:center;color:#22c55e">13.09% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">16/02/2027<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/china-construction-bank-agora-investimentos-91-cdi-lca-367-dias-1000-minimo/investir-agora/agora-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#8</td>
+                <td>
+                    <strong>Banco Inter 91% CDI</strong><br>
+                    <small style="color:var(--muted)">Banco Inter • Banco Inter</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">LCI</td>
+                <td style="text-align:center;color:#22c55e">13.09% a.a.</td>
+                <td style="text-align:center;color:#22c55e">13.09% a.a.</td>
+                <td style="text-align:center">R$ 50,00</td>
+                <td style="text-align:center">09/02/2027<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/banco-inter-91-cdi-lci-360-dias-50-minimo/investir-agora/banco-inter" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#9</td>
+                <td>
+                    <strong>Banco Inter 91% CDI</strong><br>
+                    <small style="color:var(--muted)">Banco Inter • Banco Inter</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">LCA</td>
+                <td style="text-align:center;color:#22c55e">13.09% a.a.</td>
+                <td style="text-align:center;color:#22c55e">13.09% a.a.</td>
+                <td style="text-align:center">R$ 100,00</td>
+                <td style="text-align:center">09/02/2027<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/banco-inter-91-cdi-lca-360-dias-100-minimo/investir-agora/banco-inter" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#10</td>
+                <td>
+                    <strong>BTG Pactual 90% CDI</strong><br>
+                    <small style="color:var(--muted)">BTG Pactual • Nu invest</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">LCA</td>
+                <td style="text-align:center;color:#f59e0b">12.94% a.a.</td>
+                <td style="text-align:center;color:#f59e0b">12.94% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">16/02/2027<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/banco-btg-pactual-nu-invest-90-cdi-lca-367-dias-1000-minimo/investir-agora/nu-invest" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#11</td>
+                <td>
+                    <strong>Bancoob 90% CDI</strong><br>
+                    <small style="color:var(--muted)">Bancoob • XP Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">LCA</td>
+                <td style="text-align:center;color:#f59e0b">12.94% a.a.</td>
+                <td style="text-align:center;color:#f59e0b">12.94% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">13/02/2027<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/bancoob-xp-investimentos-90-cdi-lca-364-dias-1000-minimo/investir-agora/xp-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#12</td>
+                <td>
+                    <strong>BTG Pactual 89% CDI</strong><br>
+                    <small style="color:var(--muted)">BTG Pactual • BTG Pactual</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">LCA</td>
+                <td style="text-align:center;color:#f59e0b">12.80% a.a.</td>
+                <td style="text-align:center;color:#f59e0b">12.80% a.a.</td>
+                <td style="text-align:center">R$ 500,00</td>
+                <td style="text-align:center">16/02/2027<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/banco-btg-pactual-btg-pactual-89-cdi-lca-367-dias-500-minimo/investir-agora/btg-pactual" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#13</td>
+                <td>
+                    <strong>BDMG 89% CDI</strong><br>
+                    <small style="color:var(--muted)">BDMG • BTG Pactual</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">LCA</td>
+                <td style="text-align:center;color:#f59e0b">12.80% a.a.</td>
+                <td style="text-align:center;color:#f59e0b">12.80% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">16/02/2027<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/bdmg-btg-pactual-89-cdi-lca-367-dias-1000-minimo/investir-agora/btg-pactual" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#14</td>
+                <td>
+                    <strong>BTG Pactual 89% CDI</strong><br>
+                    <small style="color:var(--muted)">BTG Pactual • BTG Pactual</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">LCA</td>
+                <td style="text-align:center;color:#f59e0b">12.67% a.a.</td>
+                <td style="text-align:center;color:#f59e0b">12.67% a.a.</td>
+                <td style="text-align:center">R$ 500,00</td>
+                <td style="text-align:center">17/02/2027<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/banco-btg-pactual-btg-pactual-89-cdi-lca-368-dias-500-minimo/investir-agora/btg-pactual" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#15</td>
+                <td>
+                    <strong>Original 118% CDI</strong><br>
+                    <small style="color:var(--muted)">Original • Nu invest</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#f59e0b">14.15% a.a.</td>
+                <td style="text-align:center;color:#f59e0b">12.03% a.a.</td>
+                <td style="text-align:center">R$ 100,00</td>
+                <td style="text-align:center">14/02/2029<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/original-nu-invest-118-cdi-cdb-1096-dias-100-minimo/investir-agora/nu-invest" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#16</td>
+                <td>
+                    <strong>Paulista 115% CDI</strong><br>
+                    <small style="color:var(--muted)">Paulista • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#f59e0b">14.15% a.a.</td>
+                <td style="text-align:center;color:#f59e0b">12.03% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">14/02/2031<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/paulista-guide-investimentos-115-cdi-cdb-1826-dias-1000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#17</td>
+                <td>
+                    <strong>Digimais 117% CDI</strong><br>
+                    <small style="color:var(--muted)">Digimais • Nu invest</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">14.03% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.93% a.a.</td>
+                <td style="text-align:center">R$ 100,00</td>
+                <td style="text-align:center">31/01/2029<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/digimais-nu-invest-117-cdi-cdb-1082-dias-100-minimo/investir-agora/nu-invest" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="longo">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#18</td>
+                <td>
+                    <strong>Luso Brasileiro 114% CDI</strong><br>
+                    <small style="color:var(--muted)">Luso Brasileiro • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">14.03% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.93% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">20/02/2031<br><small>Longo</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/luso-brasileiro-guide-investimentos-114-cdi-cdb-1832-dias-1000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#19</td>
+                <td>
+                    <strong>Original 115,5% CDI</strong><br>
+                    <small style="color:var(--muted)">Original • Órama</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.85% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.77% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">03/02/2029<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/original-orama-115-5-cdi-cdb-1085-dias-1000-minimo/investir-agora/orama" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#20</td>
+                <td>
+                    <strong>Omni Banco 115% CDI</strong><br>
+                    <small style="color:var(--muted)">Omni Banco • Órama</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.78% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.71% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">03/02/2029<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/omni-banco-orama-115-cdi-cdb-1085-dias-1000-minimo/investir-agora/orama" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#21</td>
+                <td>
+                    <strong>Ourinvest 111,5% CDI</strong><br>
+                    <small style="color:var(--muted)">Ourinvest • XP Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.71% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.65% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">12/02/2031<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/ourinvest-xp-investimentos-111-5-cdi-cdb-1824-dias-1000-minimo/investir-agora/xp-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#22</td>
+                <td>
+                    <strong>Paulista 114% CDI</strong><br>
+                    <small style="color:var(--muted)">Paulista • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.67% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.62% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">14/02/2029<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/paulista-guide-investimentos-114-cdi-cdb-1096-dias-1000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#23</td>
+                <td>
+                    <strong>Luso Brasileiro 114% CDI</strong><br>
+                    <small style="color:var(--muted)">Luso Brasileiro • Órama</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.66% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.61% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">03/02/2029<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/luso-brasileiro-orama-114-cdi-cdb-1085-dias-1000-minimo/investir-agora/orama" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#24</td>
+                <td>
+                    <strong>Arbi 114% CDI</strong><br>
+                    <small style="color:var(--muted)">Arbi • Órama</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.66% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.61% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">03/02/2029<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/arbi-orama-114-cdi-cdb-1085-dias-1000-minimo/investir-agora/orama" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="longo">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#25</td>
+                <td>
+                    <strong>Omni Banco 111% CDI</strong><br>
+                    <small style="color:var(--muted)">Omni Banco • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.65% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.60% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">20/02/2031<br><small>Longo</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/omni-banco-guide-investimentos-111-cdi-cdb-1832-dias-1000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="longo">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#26</td>
+                <td>
+                    <strong>BMG 111% CDI</strong><br>
+                    <small style="color:var(--muted)">BMG • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.65% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.60% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">20/02/2031<br><small>Longo</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/bmg-guide-investimentos-111-cdi-cdb-1832-dias-1000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#27</td>
+                <td>
+                    <strong>Ourinvest 111% CDI</strong><br>
+                    <small style="color:var(--muted)">Ourinvest • Nu invest</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.65% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.60% a.a.</td>
+                <td style="text-align:center">R$ 100,00</td>
+                <td style="text-align:center">14/02/2031<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/ourinvest-nu-invest-111-cdi-cdb-1826-dias-100-minimo/investir-agora/nu-invest" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#28</td>
+                <td>
+                    <strong>Luso Brasileiro 113% CDI</strong><br>
+                    <small style="color:var(--muted)">Luso Brasileiro • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.52% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.49% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">17/02/2029<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/luso-brasileiro-guide-investimentos-113-cdi-cdb-1099-dias-1000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#29</td>
+                <td>
+                    <strong>Luso Brasileiro 110% CDI</strong><br>
+                    <small style="color:var(--muted)">Luso Brasileiro • XP Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.52% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.49% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">12/02/2031<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/luso-brasileiro-xp-investimentos-110-cdi-cdb-1824-dias-1000-minimo/investir-agora/xp-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#30</td>
+                <td>
+                    <strong>Bari 112% CDI</strong><br>
+                    <small style="color:var(--muted)">Bari • Bari</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.42% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.41% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">14/02/2029<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/barigui-financeira-112-cdi-cdb-1096-dias-1000-minimo/investir-agora/bari" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#31</td>
+                <td>
+                    <strong>Paraná Banco 112% CDI</strong><br>
+                    <small style="color:var(--muted)">Paraná Banco • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.42% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.41% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">31/01/2029<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/parana-banco-guide-investimentos-112-cdi-cdb-1082-dias-1000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="longo">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#32</td>
+                <td>
+                    <strong>Banco Industrial do Brasil 109% CDI</strong><br>
+                    <small style="color:var(--muted)">Banco Industrial do Brasil • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.40% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.39% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">20/02/2031<br><small>Longo</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/banco-industrial-do-brasil-guide-investimentos-109-cdi-cdb-1832-dias-1000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#33</td>
+                <td>
+                    <strong>Agibank 111,5% CDI</strong><br>
+                    <small style="color:var(--muted)">Agibank • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.34% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.34% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">17/02/2029<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/agibank-guide-investimentos-111-5-cdi-cdb-1099-dias-1000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#34</td>
+                <td>
+                    <strong>Original 115% CDI</strong><br>
+                    <small style="color:var(--muted)">Original • Nu invest</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.71% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.31% a.a.</td>
+                <td style="text-align:center">R$ 100,00</td>
+                <td style="text-align:center">05/02/2028<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/original-nu-invest-115-cdi-cdb-721-dias-100-minimo/investir-agora/nu-invest" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#35</td>
+                <td>
+                    <strong>Original 111% CDI</strong><br>
+                    <small style="color:var(--muted)">Original • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.30% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.30% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">31/01/2029<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/original-guide-investimentos-111-cdi-cdb-1082-dias-1000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#36</td>
+                <td>
+                    <strong>BS2 112% CDI</strong><br>
+                    <small style="color:var(--muted)">BS2 • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.29% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.30% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">18/02/2028<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/bs2-guide-investimentos-112-cdi-cdb-734-dias-1000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#37</td>
+                <td>
+                    <strong>Omni Banco 111% CDI</strong><br>
+                    <small style="color:var(--muted)">Omni Banco • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.28% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.29% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">17/02/2029<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/omni-banco-guide-investimentos-111-cdi-cdb-1099-dias-1000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#38</td>
+                <td>
+                    <strong>Original 114,5% CDI</strong><br>
+                    <small style="color:var(--muted)">Original • Órama</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.65% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.26% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">10/02/2028<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/original-orama-114-5-cdi-cdb-726-dias-1000-minimo/investir-agora/orama" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#39</td>
+                <td>
+                    <strong>Paulista 111% CDI</strong><br>
+                    <small style="color:var(--muted)">Paulista • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.23% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.25% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">16/02/2028<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/paulista-guide-investimentos-111-cdi-cdb-732-dias-1000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#40</td>
+                <td>
+                    <strong>Digimais 107,5% CDI</strong><br>
+                    <small style="color:var(--muted)">Digimais • BTG Pactual</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.21% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.23% a.a.</td>
+                <td style="text-align:center">R$ 5.000,00</td>
+                <td style="text-align:center">13/02/2031<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/digimais-btg-pactual-107-5-cdi-cdb-1825-dias-5000-minimo/investir-agora/btg-pactual" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#41</td>
+                <td>
+                    <strong>Omni Banco 114% CDI</strong><br>
+                    <small style="color:var(--muted)">Omni Banco • Órama</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.59% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.21% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">10/02/2028<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/omni-banco-orama-114-cdi-cdb-726-dias-1000-minimo/investir-agora/orama" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#42</td>
+                <td>
+                    <strong>Pine 110% CDI</strong><br>
+                    <small style="color:var(--muted)">Pine • Pine Online</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.18% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.20% a.a.</td>
+                <td style="text-align:center">R$ 500,00</td>
+                <td style="text-align:center">14/02/2029<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/pine-110-cdi-cdb-1096-dias-500-minimo/investir-agora/pine-online" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#43</td>
+                <td>
+                    <strong>Luso Brasileiro 110% CDI</strong><br>
+                    <small style="color:var(--muted)">Luso Brasileiro • XP Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.18% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.20% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">12/02/2029<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/luso-brasileiro-xp-investimentos-110-cdi-cdb-1094-dias-1000-minimo/investir-agora/xp-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#44</td>
+                <td>
+                    <strong>BMG 110% CDI</strong><br>
+                    <small style="color:var(--muted)">BMG • Órama</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.18% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.20% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">03/02/2029<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/bmg-orama-110-cdi-cdb-1085-dias-1000-minimo/investir-agora/orama" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#45</td>
+                <td>
+                    <strong>RNX 110% CDI</strong><br>
+                    <small style="color:var(--muted)">RNX • Órama</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.18% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.20% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">03/02/2029<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/rnx-orama-110-cdi-cdb-1085-dias-1000-minimo/investir-agora/orama" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#46</td>
+                <td>
+                    <strong>Digimais 111% CDI</strong><br>
+                    <small style="color:var(--muted)">Digimais • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.17% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.19% a.a.</td>
+                <td style="text-align:center">R$ 5.000,00</td>
+                <td style="text-align:center">18/02/2028<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/digimais-guide-investimentos-111-cdi-cdb-734-dias-5000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#47</td>
+                <td>
+                    <strong>Tribanco 107% CDI</strong><br>
+                    <small style="color:var(--muted)">Tribanco • Ágora Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.14% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.17% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">14/02/2031<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/tribanco-agora-investimentos-107-cdi-cdb-1826-dias-1000-minimo/investir-agora/agora-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#48</td>
+                <td>
+                    <strong>BS2 113% CDI</strong><br>
+                    <small style="color:var(--muted)">BS2 • Órama</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.47% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.11% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">10/02/2028<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/bs2-orama-113-cdi-cdb-726-dias-1000-minimo/investir-agora/orama" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#49</td>
+                <td>
+                    <strong>Topázio 113% CDI</strong><br>
+                    <small style="color:var(--muted)">Topázio • Órama</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.47% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.11% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">10/02/2028<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/topazio-orama-113-cdi-cdb-726-dias-1000-minimo/investir-agora/orama" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#50</td>
+                <td>
+                    <strong>Luso Brasileiro 110% CDI</strong><br>
+                    <small style="color:var(--muted)">Luso Brasileiro • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.05% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.09% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">18/02/2028<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/luso-brasileiro-guide-investimentos-110-cdi-cdb-734-dias-1000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#51</td>
+                <td>
+                    <strong>BMG 109% CDI</strong><br>
+                    <small style="color:var(--muted)">BMG • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.04% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.08% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">17/02/2029<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/bmg-guide-investimentos-109-cdi-cdb-1099-dias-1000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#52</td>
+                <td>
+                    <strong>Ourinvest 108,5% CDI</strong><br>
+                    <small style="color:var(--muted)">Ourinvest • XP Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.00% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.05% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">12/02/2029<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/ourinvest-xp-investimentos-108-5-cdi-cdb-1094-dias-1000-minimo/investir-agora/xp-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#53</td>
+                <td>
+                    <strong>Agibank 109% CDI</strong><br>
+                    <small style="color:var(--muted)">Agibank • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">12.99% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.04% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">17/02/2028<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/agibank-guide-investimentos-109-cdi-cdb-733-dias-1000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#54</td>
+                <td>
+                    <strong>Arbi 112% CDI</strong><br>
+                    <small style="color:var(--muted)">Arbi • Órama</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.35% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.01% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">10/02/2028<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/arbi-orama-112-cdi-cdb-726-dias-1000-minimo/investir-agora/orama" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="Pré-fixado" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#55</td>
+                <td>
+                    <strong>NBC Prefixado 14,72%</strong><br>
+                    <small style="color:var(--muted)">NBC • BTG Pactual</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">Pré-fixado</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">12.95% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.01% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">14/02/2031<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/nbc-bank-btg-pactual-prefixado-14-72-cdb-1826-dias-1000-minimo/investir-agora/btg-pactual" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#56</td>
+                <td>
+                    <strong>BS2 112% CDI</strong><br>
+                    <small style="color:var(--muted)">BS2 • Nu invest</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.34% a.a.</td>
+                <td style="text-align:center;color:#64748b">11.01% a.a.</td>
+                <td style="text-align:center">R$ 100,00</td>
+                <td style="text-align:center">05/02/2028<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/bs2-nu-invest-112-cdi-cdb-721-dias-100-minimo/investir-agora/nu-invest" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#57</td>
+                <td>
+                    <strong>BMG 109% CDI</strong><br>
+                    <small style="color:var(--muted)">BMG • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">12.93% a.a.</td>
+                <td style="text-align:center;color:#64748b">10.99% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">18/02/2028<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/bmg-guide-investimentos-109-cdi-cdb-734-dias-1000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#58</td>
+                <td>
+                    <strong>Tribanco 105% CDI</strong><br>
+                    <small style="color:var(--muted)">Tribanco • BTG Pactual</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">12.89% a.a.</td>
+                <td style="text-align:center;color:#64748b">10.96% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">14/02/2031<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/tribanco-btg-pactual-105-cdi-cdb-1826-dias-1000-minimo/investir-agora/btg-pactual" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#59</td>
+                <td>
+                    <strong>BS2 112% CDI</strong><br>
+                    <small style="color:var(--muted)">BS2 • Nu invest</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.28% a.a.</td>
+                <td style="text-align:center;color:#64748b">10.96% a.a.</td>
+                <td style="text-align:center">R$ 100,00</td>
+                <td style="text-align:center">10/02/2027<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/bs2-nu-invest-112-cdi-cdb-361-dias-100-minimo/investir-agora/nu-invest" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#60</td>
+                <td>
+                    <strong>Pine CDI + 0,57%</strong><br>
+                    <small style="color:var(--muted)">Pine • Nova Futura Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">12.85% a.a.</td>
+                <td style="text-align:center;color:#64748b">10.92% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">14/02/2031<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/pine-nova-futura-investimentos-cdi-0-57-cdb-1826-dias-1000-minimo/investir-agora/nova-futura-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#61</td>
+                <td>
+                    <strong>Bari 111% CDI</strong><br>
+                    <small style="color:var(--muted)">Bari • Bari</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.23% a.a.</td>
+                <td style="text-align:center;color:#64748b">10.91% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">14/02/2028<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/barigui-financeira-111-cdi-cdb-730-dias-1000-minimo/investir-agora/bari" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#62</td>
+                <td>
+                    <strong>Digimais 111% CDI</strong><br>
+                    <small style="color:var(--muted)">Digimais • Nu invest</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.22% a.a.</td>
+                <td style="text-align:center;color:#64748b">10.91% a.a.</td>
+                <td style="text-align:center">R$ 100,00</td>
+                <td style="text-align:center">05/02/2028<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/digimais-nu-invest-111-cdi-cdb-721-dias-100-minimo/investir-agora/nu-invest" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#63</td>
+                <td>
+                    <strong>Pine 104,5% CDI</strong><br>
+                    <small style="color:var(--muted)">Pine • Pine Online</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">12.83% a.a.</td>
+                <td style="text-align:center;color:#64748b">10.91% a.a.</td>
+                <td style="text-align:center">R$ 500,00</td>
+                <td style="text-align:center">14/02/2031<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/pine-104-5-cdi-cdb-1826-dias-500-minimo/investir-agora/pine-online" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="medio">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#64</td>
+                <td>
+                    <strong>C6 Bank 104,5% CDI</strong><br>
+                    <small style="color:var(--muted)">C6 Bank • Nova Futura Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">12.83% a.a.</td>
+                <td style="text-align:center;color:#64748b">10.91% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">14/02/2031<br><small>Medio</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/c6-bank-nova-futura-investimentos-104-5-cdi-cdb-1826-dias-1000-minimo/investir-agora/nova-futura-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#65</td>
+                <td>
+                    <strong>Pine 110% CDI</strong><br>
+                    <small style="color:var(--muted)">Pine • Pine Online</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.11% a.a.</td>
+                <td style="text-align:center;color:#64748b">10.82% a.a.</td>
+                <td style="text-align:center">R$ 500,00</td>
+                <td style="text-align:center">14/02/2028<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/pine-110-cdi-cdb-1096-dias-500-minimo/investir-agora/pine-online" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#66</td>
+                <td>
+                    <strong>BMG 110% CDI</strong><br>
+                    <small style="color:var(--muted)">BMG • Órama</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.11% a.a.</td>
+                <td style="text-align:center;color:#64748b">10.82% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">10/02/2028<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/bmg-orama-110-cdi-cdb-726-dias-1000-minimo/investir-agora/orama" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#67</td>
+                <td>
+                    <strong>RNX 110% CDI</strong><br>
+                    <small style="color:var(--muted)">RNX • Órama</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.11% a.a.</td>
+                <td style="text-align:center;color:#64748b">10.82% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">10/02/2028<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/rnx-orama-110-cdi-cdb-726-dias-1000-minimo/investir-agora/orama" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#68</td>
+                <td>
+                    <strong>Pine 110% CDI</strong><br>
+                    <small style="color:var(--muted)">Pine • Pine Online</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.05% a.a.</td>
+                <td style="text-align:center;color:#64748b">10.77% a.a.</td>
+                <td style="text-align:center">R$ 500,00</td>
+                <td style="text-align:center">14/02/2027<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/pine-110-cdi-cdb-1096-dias-500-minimo/investir-agora/pine-online" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#69</td>
+                <td>
+                    <strong>BS2 110% CDI</strong><br>
+                    <small style="color:var(--muted)">BS2 • Órama</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">13.05% a.a.</td>
+                <td style="text-align:center;color:#64748b">10.77% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">14/02/2027<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/bs2-orama-110-cdi-cdb-365-dias-1000-minimo/investir-agora/orama" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#70</td>
+                <td>
+                    <strong>PagBank 109% CDI</strong><br>
+                    <small style="color:var(--muted)">PagBank • Nu invest</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">12.93% a.a.</td>
+                <td style="text-align:center;color:#64748b">10.67% a.a.</td>
+                <td style="text-align:center">R$ 100,00</td>
+                <td style="text-align:center">14/02/2027<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/pagbank-nu-invest-109-cdi-cdb-365-dias-100-minimo/investir-agora/nu-invest" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#71</td>
+                <td>
+                    <strong>Topázio 109% CDI</strong><br>
+                    <small style="color:var(--muted)">Topázio • Órama</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">12.93% a.a.</td>
+                <td style="text-align:center;color:#64748b">10.67% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">14/02/2027<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/topazio-orama-109-cdi-cdb-365-dias-1000-minimo/investir-agora/orama" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#72</td>
+                <td>
+                    <strong>BS2 110% CDI</strong><br>
+                    <small style="color:var(--muted)">BS2 • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">12.92% a.a.</td>
+                <td style="text-align:center;color:#64748b">10.66% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">20/02/2027<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/bs2-guide-investimentos-110-cdi-cdb-371-dias-1000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#73</td>
+                <td>
+                    <strong>Digimais 107,5% CDI</strong><br>
+                    <small style="color:var(--muted)">Digimais • Nova Futura Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">12.75% a.a.</td>
+                <td style="text-align:center;color:#64748b">10.52% a.a.</td>
+                <td style="text-align:center">R$ 5.000,00</td>
+                <td style="text-align:center">16/02/2027<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/digimais-nova-futura-investimentos-107-5-cdi-cdb-367-dias-5000-minimo/investir-agora/nova-futura-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="Pré-fixado" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#74</td>
+                <td>
+                    <strong>Pine Prefixado 15,45%</strong><br>
+                    <small style="color:var(--muted)">Pine • Pine Online</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">Pré-fixado</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">12.74% a.a.</td>
+                <td style="text-align:center;color:#64748b">10.51% a.a.</td>
+                <td style="text-align:center">R$ 500,00</td>
+                <td style="text-align:center">16/02/2027<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/pine-prefixado-15-45-cdb-367-dias-500-minimo/investir-agora/pine-online" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#75</td>
+                <td>
+                    <strong>PagBank 107% CDI</strong><br>
+                    <small style="color:var(--muted)">PagBank • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">12.56% a.a.</td>
+                <td style="text-align:center;color:#64748b">10.36% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">20/02/2027<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/pagbank-guide-investimentos-107-cdi-cdb-371-dias-1000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#76</td>
+                <td>
+                    <strong>Banco Industrial do Brasil 107% CDI</strong><br>
+                    <small style="color:var(--muted)">Banco Industrial do Brasil • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">12.56% a.a.</td>
+                <td style="text-align:center;color:#64748b">10.36% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">20/02/2027<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/banco-industrial-do-brasil-guide-investimentos-107-cdi-cdb-371-dias-1000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#77</td>
+                <td>
+                    <strong>BMG 106% CDI</strong><br>
+                    <small style="color:var(--muted)">BMG • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">12.45% a.a.</td>
+                <td style="text-align:center;color:#64748b">10.27% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">20/02/2027<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/bmg-guide-investimentos-106-cdi-cdb-371-dias-1000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+            <tr data-indexador="CDI" data-prazo="curto">
+                <td style="text-align:center;font-weight:700;color:var(--primary);">#78</td>
+                <td>
+                    <strong>Luso Brasileiro 106% CDI</strong><br>
+                    <small style="color:var(--muted)">Luso Brasileiro • Guide Investimentos</small>
+                </td>
+                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
+                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
+                <td style="text-align:center">CDB</td>
+                <td style="text-align:center;color:#64748b">12.45% a.a.</td>
+                <td style="text-align:center;color:#64748b">10.27% a.a.</td>
+                <td style="text-align:center">R$ 1.000,00</td>
+                <td style="text-align:center">20/02/2027<br><small>Curto</small></td>
+                <td style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">FGC ✅</span><a href="https://yubb.com.br/investimentos/renda-fixa/luso-brasileiro-guide-investimentos-106-cdi-cdb-371-dias-1000-minimo/investir-agora/guide-investimentos" target="_blank" rel="noopener" style="background:var(--primary);color:white;text-decoration:none;padding:4px 12px;border-radius:6px;font-size:0.85rem;font-weight:600;">Ver</a></td>
+            </tr>
+        
+                </tbody>
+            </table>
+        </main>
+
+        <footer>
+            <p>Atualizado em 14/02/2026 16:57 • Dados coletados via Yubb</p>
+            <p>Isenção de responsabilidade: Esta página é educativa, não constitui recomendação de investimento.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const indexadorFilter = document.getElementById('indexador-filter');
+            const prazoFilter = document.getElementById('prazo-filter');
+            const rows = document.querySelectorAll('#ranking-table tbody tr');
+
+            function applyFilters() {
+                const indexador = indexadorFilter.value;
+                const prazo = prazoFilter.value;
+                let visibleCount = 0;
+                rows.forEach(row => {
+                    const cardIndexador = row.getAttribute('data-indexador');
+                    const cardPrazo = row.getAttribute('data-prazo');
+                    const matchIndexador = indexador === 'all' || (indexador === 'Pós-fixado' ? cardIndexador !== 'Pré-fixado' : cardIndexador === indexador);
+                    const matchPrazo = prazo === 'all' || cardPrazo === prazo;
+                    if (matchIndexador && matchPrazo) {
+                        row.style.display = '';
+                        visibleCount++;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+                console.log(`Mostrando ${visibleCount} de ${rows.length} produtos`);
+            }
+
+            indexadorFilter.addEventListener('change', applyFilters);
+            prazoFilter.addEventListener('change', applyFilters);
+        });
+    </script>
+</body>
+</html>
