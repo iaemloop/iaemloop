@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://iaemloop.com.br/sitemap.xml
+
+# Block sensitive directories
+Disallow: /outputs/
+Disallow: /data/
+Disallow: /scripts/
+Disallow: /.git/
+Disallow: /.nvm/
