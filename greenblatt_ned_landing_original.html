@@ -68,37 +68,34 @@
         }
         .back-button:hover { background: #a78bfa; transform: translateY(-1px); }
         @media (max-width: 768px) { .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; } }
-        .indicator-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
+        .indicator-list {
+            list-style: none;
+            padding-left: 0;
             margin-top: 20px;
         }
-        .indicator-card {
-            background: rgba(96,165,250,0.08);
-            border: 1px solid rgba(96,165,250,0.2);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
+        .indicator-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding: 12px;
+            background: rgba(96,165,250,0.05);
+            border-radius: 8px;
+            border-left: 3px solid #60a5fa;
         }
-        .indicator-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(96,165,250,0.15);
+        .indicator-list .emoji {
+            font-size: 1.3rem;
+            line-height: 1;
         }
-        .indicator-card .emoji {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-        .indicator-card h3 {
+        .indicator-list strong {
             color: #60a5fa;
-            margin: 0 0 8px;
-            font-size: 1rem;
+            display: block;
+            margin-bottom: 4px;
         }
-        .indicator-card p {
+        .indicator-list p {
             margin: 0;
             color: #cbd5e1;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             line-height: 1.5;
         }
         .section-pill {
@@ -136,9 +133,65 @@
         <section class="card">
             <span class="section-pill">📘 Guia de Interpretação</span>
             <h2>📊 Entenda os Indicadores</h2>
-            <div class="indicator-grid">
-                <div class="indicator-card">
-                    <div class="emoji">🏷️</div>
+                        <ul class="indicator-list">
+                <li>
+                    <span class="emoji">🏷️</span>
+                    <div>
+                        <strong>Ticker</strong>
+                        <p>Código de negociação na B3.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="emoji">🏢</span>
+                    <div>
+                        <strong>Empresa</strong>
+                        <p>Nome completo da empresa.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="emoji">🏭</span>
+                    <div>
+                        <strong>Setor</strong>
+                        <p>Segmento de atuação.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="emoji">📈</span>
+                    <div>
+                        <strong>ROIC</strong>
+                        <p>Return on Invested Capital. Retorno sobre capital investido. Quanto maior, melhor.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="emoji">💰</span>
+                    <div>
+                        <strong>Earnings Yield</strong>
+                        <p>Rendimento dos lucros (EBIT/EV).</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="emoji">🏆</span>
+                    <div>
+                        <strong>Rank ROIC</strong>
+                        <p>Posição no ranking de ROIC (1 = maior).</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="emoji">📊</span>
+                    <div>
+                        <strong>Rank EY</strong>
+                        <p>Posição no ranking de Earnings Yield (1 = maior).</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="emoji">🎯</span>
+                    <div>
+                        <strong>Score</strong>
+                        <p>Soma dos dois rankings. Menor = melhor.</p>
+                    </div>
+                </li>
+            </ul>
+
                     <h3>Ticker</h3>
                     <p>Código de negociação na B3.</p>
                 </div>
