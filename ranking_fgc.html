@@ -134,9 +134,13 @@
             h1 { font-size: 1.8rem; }
             table { display: block; overflow-x: auto; }
         }
-    </style>
+    
+    .novo { background: #10b981; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-left: 5px; }
+    .data-nova { color: #10b981; font-weight: 600; }
+</style>
 </head>
 <body>
+    <p style="background:#059669; color:white; padding:10px; border-radius:8px; margin-bottom:20px;">🟢 Selo <strong>Novo</strong> indica produto detectado nesta atualização. Atualizado semanalmente.</p>>
     <div class="container">
         <header>
             <h1>🏆 Ranking FGC</h1>
@@ -206,7 +210,8 @@
                         <th>Mínimo</th>
                         <th>Prazo</th>
                         <th>Ação</th>
-                    </tr>
+                    <th>Primeira aparição</th>
+</tr>
                 </thead>
                 <tbody>
                                 <tr data-indexador="CDI" data-prazo="curto">
@@ -1496,5 +1501,6 @@
             prazoFilter.addEventListener('change', applyFilters);
         });
     </script>
+<!-- FGCHISTORY: data/fgc_history.json com {id: data_primeira} -->
 </body>
 </html>
