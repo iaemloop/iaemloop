@@ -137,9 +137,40 @@
     
     .novo { background: #10b981; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-left: 5px; }
     .data-nova { color: #10b981; font-weight: 600; }
-</style>
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(96, 165, 250, 0.9);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: background 0.2s, transform 0.1s;
+            z-index: 1000;
+        }
+        .back-button:hover {
+            background: #a78bfa;
+            transform: translateY(-1px);
+        }
+        @media (max-width: 768px) {
+            .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; }
+        }
+
+    </style>
 </head>
 <body>
+<a href="../index.html" class="back-button" title="Voltar ao menu">
+        ← Menu
+    </a>
+
     <p style="background:#059669; color:white; padding:10px; border-radius:8px; margin-bottom:20px;">🟢 Selo <strong>Novo</strong> indica produto detectado nesta atualização. Atualizado semanalmente.</p>>
     <div class="container">
         <header>
