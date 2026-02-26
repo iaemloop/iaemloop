@@ -40,12 +40,21 @@
             margin: 0 auto 20px;
             overflow: hidden;
             box-shadow: 0 10px 40px rgba(96,165,250,0.3);
+            position: relative;
+        }
+        .logo::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: #06080D; /* mesma cor do fundo para mascarar bordas */
+            z-index: -1;
+            filter: blur(1px);
         }
         .logo[style*="background-image"] {
             background-size: cover !important;
             background-position: center !important;
             background-repeat: no-repeat !important;
-            filter: brightness(1) contrast(1); /*保持原色 */
         }
         h1 {
             font-size: 2.5rem;
@@ -170,7 +179,7 @@
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
             <a href="metodologia_barsi.html?v=3" class="card" style="text-decoration: none; color: inherit;">
-                <h2>💎 Carteira de Dividendos: BESST & Buffett</h2>
+                <h2>Carteira de Dividendos: BESST & Buffett</h2>
                 <div class="meta">
                     <span>Luiz Barsi Filho</span>
                     <span>Warren Buffett</span>
@@ -184,7 +193,7 @@
             </a>
 
             <a href="greenblatt_ned_landing_original.html" class="card" style="text-decoration: none; color: inherit;">
-                <h2>📊 Fórmula Mágica – Ranking Ned Stark</h2>
+                <h2>Fórmula Mágica – Ranking Ned Stark</h2>
                 <div class="meta">
                     <span>Joel Greenblatt</span>
                     <span>Ned Stark</span>
@@ -197,7 +206,7 @@
             </a>
 
             <a href="ranking_fgc.html" class="card" style="text-decoration: none; color: inherit;">
-                <h2>🏆 Ranking FGC</h2>
+                <h2>Ranking FGC</h2>
                 <div class="meta">
                     <span>Renda Fixa</span>
                     <span>Produtos FGC</span>
@@ -211,7 +220,7 @@
             </a>
 
             <a href="bitcoin_landing.html" class="card" style="text-decoration: none; color: inherit;">
-                <h2>📚 Guia Bitcoin</h2>
+                <h2>Guia Bitcoin</h2>
                 <div class="meta">
                     <span>Bitcoin</span>
                     <span>Do básico ao avançado</span>
