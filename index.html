@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IA em Loop - Investimentos</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Google AdSense (substitua ca-pub-XXXXXX pelo seu ID real) -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1004632420072229" crossorigin="anonymous"></script>
+    <title>IA em Loop – Investimentos com Inteligência Artificial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* v3.0 - Paleta futurista noturna (azul profundo + dourado + ciano) */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Inter', sans-serif;
@@ -21,13 +16,11 @@
             min-height: 100vh;
             padding: 40px 20px;
         }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .header {
+        .container { max-width: 1200px; margin: 0 auto; }
+        header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
+            padding-top: 20px;
         }
         .logo {
             width: 140px;
@@ -47,7 +40,7 @@
             position: absolute;
             inset: 0;
             border-radius: 50%;
-            background: #06080D; /* mesma cor do fundo para mascarar bordas */
+            background: #06080D;
             z-index: -1;
             filter: blur(1px);
         }
@@ -56,17 +49,18 @@
             background-position: center !important;
             background-repeat: no-repeat !important;
         }
-        h1 {
-            font-size: 2.5rem;
-            background: linear-gradient(135deg, #19364D, #AA8451);
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6EE4EF, #E4D17F);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
         }
         .tagline {
-            color: #cbd5e1;
+            color: #94a3b8;
             font-size: 1.1rem;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         .yt-button {
             display: inline-flex;
@@ -75,19 +69,18 @@
             background: #FF0000;
             color: white;
             padding: 10px 20px;
-            border-radius: 8px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            transition: opacity 0.2s;
+            font-size: 1rem;
             margin-top: 10px;
         }
-        .yt-button:hover {
-            opacity: 0.9;
-        }
+        .yt-button:hover { opacity: 0.9; }
         .grid {
             display: grid;
-            gap: 20px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
         }
         .card {
             background: rgba(19, 29, 39, 0.75);
@@ -104,20 +97,13 @@
         }
         .card h2 {
             font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #fff; background: linear-gradient(135deg, #6EE4EF, #E4D17F); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background: linear-gradient(135deg, #6EE4EF, #E4D17F);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .card p {
-            color: #cbd5e1;
-            margin-bottom: 15px;
-            line-height: 1.6;
+            margin-bottom: 12px;
+            color: #fff;
         }
         .card .meta {
             display: flex;
-            gap: 15px;
+            gap: 10px;
+            flex-wrap: wrap;
             font-size: 0.85rem;
             color: #577781;
             margin-bottom: 15px;
@@ -128,49 +114,65 @@
             padding: 4px 12px;
             border-radius: 20px;
         }
-        .btn { background: linear-gradient(135deg, #19364D, #AA8451); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; }
-        .btn:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
+        .card p {
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #19364D, #AA8451);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s, transform 0.1s;
+        }
+        .btn:hover { opacity: 0.9; transform: translateY(-1px); }
+        .back-button {
+            position: fixed;
+            top: 20px; left: 20px;
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(25,54,77,0.9); color: white;
+            padding: 8px 16px; border-radius: 8px;
+            text-decoration: none; font-weight: 600; font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000;
+        }
+        .back-button:hover { background: #E4D17F; color: #06080D; }
         .footer {
             text-align: center;
             color: #64748b;
-            margin-top: 40px;
             font-size: 0.9rem;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
-        .footer a {
-            color: #E4D17F;
-            text-decoration: none;
+        .footer a { color: #E4D17F; }
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
+    <a href="index.html" class="back-button" title="Voltar ao menu">← Menu</a>
     <div class="container">
-        <div class="header">
-            <div class="logo" style="background-image: url(../assets/l_logo.jpg); background-size: cover; background-position: center; width:120px; height:120px; border-radius:50%; box-shadow:0 10px 40px rgba(96,165,250,0.3);"></div>
-            <h1>IA em LOOP</h1>
+        <header>
+            <div class="logo" style="background-image: url(../assets/l_logo.jpg);"></div>
+            <h1>IA em Loop</h1>
             <p class="tagline">Investimentos com Inteligência Artificial • Skin in the Game</p>
-        <a href="https://www.youtube.com/@IAemLoop?utm_source=iaemloop" class="yt-button" target="_blank">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-            </svg>
-            Acesse nosso canal no YouTube
-        </a>
-        </div>
+            <a href="https://www.youtube.com/@IAemLoop" class="yt-button" target="_blank">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                Canal YouTube
+            </a>
+        </header>
 
         <div class="grid">
-            <!-- AdSense responsive ad -->
-            <ins class="adsbygoogle"
-                 style="display:block; margin: 20px auto; text-align: center;"
-                 data-ad-client="ca-pub-1004632420072229"
-                
-                 data-ad-format="auto"
-                ></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-            <a href="metodologia_barsi.html?v=3" class="card" style="text-decoration: none; color: inherit;">
-                <h2>Carteira de Dividendos: BESST & Buffett</h2>
+            <a href="metodologia_barsi.html" class="card" style="text-decoration: none; color: inherit;">
+                <h2>💎 Carteira de Dividendos</h2>
                 <div class="meta">
                     <span>Luiz Barsi Filho</span>
                     <span>Warren Buffett</span>
@@ -178,73 +180,51 @@
                 </div>
                 <p>
                     Duas metodologias consagradas: BESST (Barsi) para dividendos de setores perenes e Value Investing (Buffett) para empresas com moat e valor intrínseco.
-                    Capital: R$500. Resultados da última execução.
                 </p>
                 <span class="btn">Ver carteira completa</span>
             </a>
 
             <a href="greenblatt_ned_landing_original.html" class="card" style="text-decoration: none; color: inherit;">
-                <h2>Fórmula Mágica – Ranking Ned Stark</h2>
+                <h2>💎 Carteira IA Magic Formula</h2>
                 <div class="meta">
                     <span>Joel Greenblatt</span>
                     <span>Value Investing</span>
                     <span>Top 30 ações</span>
                 </div>
                 <p>
-                    Ranking baseado na Fórmula Mágica: combina ROIC + Earnings Yield para identificar as melhores oportunidades da B3.
+                    Ranking das melhores oportunidades da B3 baseado na Fórmula Mágica (ROIC + Earnings Yield).
                 </p>
                 <span class="btn">Ver ranking</span>
             </a>
 
             <a href="ranking_fgc.html" class="card" style="text-decoration: none; color: inherit;">
-                <h2>Ranking FGC</h2>
+                <h2>🏆 Ranking Renda Fixa FGC</h2>
                 <div class="meta">
-                    <span>Renda Fixa</span>
-                    <span>Produtos FGC</span>
-                    <span>Atualizado diariamente</span>
+                    <span>FGC</span>
+                    <span>CDI/DI</span>
+                    <span>Atualizado semanalmente</span>
                 </div>
                 <p>
-                    Melhores produtos de renda fixa com proteção FGC. Filtros por indexador, prazo
-                    e classificação de risco. Dados coletados via Yubb.
+                    Ranking de produtos de renda fixa com selo "Novo" para fácil identificação.
                 </p>
                 <span class="btn">Ver ranking</span>
             </a>
 
             <a href="bitcoin_landing.html" class="card" style="text-decoration: none; color: inherit;">
-                <h2>Guia Bitcoin</h2>
+                <h2>📚 Guia Bitcoin</h2>
                 <div class="meta">
                     <span>Bitcoin</span>
-                    <span>Do básico ao avançado</span>
-                    <span>Educação</span>
+                    <span>Cripto</span>
+                    <span>Preço em tempo real</span>
                 </div>
                 <p>
-                    Guia completo sobre Bitcoin: como funciona, blockchain, mineração, chaves,
-                    wallets, compra, preço, usos, riscos, Lightning e segurança.
+                    Análise de indicadores como MVRV, Mayer Multiple e Fear & Greed para decisões de investimento.
                 </p>
                 <span class="btn">Ler guia</span>
             </a>
         </div>
 
-        
-
-    <!-- AdSense footer ad -->
-    <ins class="adsbygoogle"
-         style="display:block; margin: 20px auto; text-align: center;"
-         data-ad-client="ca-pub-1004632420072229"
-         data-ad-slot="auto"
-         data-ad-format="auto"></ins>
-
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>        
-    <!-- AdSense in-feed ad -->
-    <ins class="adsbygoogle"
-         style="display:block; margin: 20px auto; text-align: center;"
-         data-ad-client="ca-pub-1004632420072229"
-         data-ad-slot="auto"
-         data-ad-format="auto"></ins>
-
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<div class="footer">
+        <div class="footer">
             <p>Mantido por <a href="#">Tyrion Bot</a> • Última atualização: 14/02/2026</p>
             <p style="margin-top: 8px; font-size: 0.85rem;">
                 <a href="https://github.com/diegotxr/iaemloop" target="_blank">GitHub</a> •
