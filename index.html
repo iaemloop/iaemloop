@@ -16,7 +16,7 @@
             min-height: 100vh;
             padding: 40px 20px;
         }
-        .container { max-width: 1200px; margin: 0 auto; }
+        .container { max-width: 1000px; margin: 0 auto; }
         header {
             text-align: center;
             margin-bottom: 60px;
@@ -76,48 +76,49 @@
             margin-top: 10px;
         }
         .yt-button:hover { opacity: 0.9; }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-        .card {
+        .unified-card {
             background: rgba(19, 29, 39, 0.75);
             border-radius: 16px;
             padding: 30px;
             border-left: 4px solid #19364D;
-            transition: transform 0.2s, box-shadow 0.2s;
-            cursor: pointer;
         }
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-            border-left-color: #E4D17F;
-        }
-        .card h2 {
-            font-size: 1.5rem;
-            margin-bottom: 12px;
+        .unified-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
             color: #fff;
         }
-        .card .meta {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            font-size: 0.85rem;
-            color: #577781;
-            margin-bottom: 15px;
+        .feature-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
         }
-        .card .meta span {
-            background: rgba(170,132,81,0.15);
-            color: #AA8451;
-            padding: 4px 12px;
-            border-radius: 20px;
+        .feature-list li {
+            background: rgba(25, 54, 77, 0.6);
+            border-radius: 12px;
+            padding: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        .card p {
+        .feature-list li:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+        .feature-list li a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .feature-list .title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #E4D17F;
+            margin-bottom: 6px;
+        }
+        .feature-list .desc {
             color: #cbd5e1;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
         .btn {
             display: inline-block;
@@ -128,18 +129,9 @@
             text-decoration: none;
             font-weight: 600;
             transition: opacity 0.2s, transform 0.1s;
+            margin-top: 10px;
         }
         .btn:hover { opacity: 0.9; transform: translateY(-1px); }
-        .back-button {
-            position: fixed;
-            top: 20px; left: 20px;
-            display: inline-flex; align-items: center; gap: 6px;
-            background: rgba(25,54,77,0.9); color: white;
-            padding: 8px 16px; border-radius: 8px;
-            text-decoration: none; font-weight: 600; font-size: 0.9rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000;
-        }
-        .back-button:hover { background: #E4D17F; color: #06080D; }
         .footer {
             text-align: center;
             color: #64748b;
@@ -150,13 +142,12 @@
         }
         .footer a { color: #E4D17F; }
         @media (max-width: 768px) {
-            .grid { grid-template-columns: 1fr; }
+            .feature-list { grid-template-columns: 1fr; }
             header h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-button" title="Voltar ao menu">← Menu</a>
     <div class="container">
         <header>
             <div class="logo" style="background-image: url(../assets/l_logo.jpg);"></div>
@@ -170,58 +161,59 @@
             </a>
         </header>
 
-        <div class="grid">
-            <a href="metodologia_barsi.html" class="card" style="text-decoration: none; color: inherit;">
-                <h2>💎 Carteira de Dividendos</h2>
-                <div class="meta">
-                    <span>Luiz Barsi Filho</span>
-                    <span>Warren Buffett</span>
-                    <span>9 ações selecionadas</span>
-                </div>
-                <p>
-                    Duas metodologias consagradas: BESST (Barsi) para dividendos de setores perenes e Value Investing (Buffett) para empresas com moat e valor intrínseco.
-                </p>
-                <span class="btn">Ver carteira completa</span>
-            </a>
-
-            <a href="greenblatt_ned_landing_original.html" class="card" style="text-decoration: none; color: inherit;">
-                <h2>💎 Carteira IA Magic Formula</h2>
-                <div class="meta">
-                    <span>Joel Greenblatt</span>
-                    <span>Value Investing</span>
-                    <span>Top 30 ações</span>
-                </div>
-                <p>
-                    Ranking das melhores oportunidades da B3 baseado na Fórmula Mágica (ROIC + Earnings Yield).
-                </p>
-                <span class="btn">Ver ranking</span>
-            </a>
-
-            <a href="ranking_fgc.html" class="card" style="text-decoration: none; color: inherit;">
-                <h2>🏆 Ranking Renda Fixa FGC</h2>
-                <div class="meta">
-                    <span>FGC</span>
-                    <span>CDI/DI</span>
-                    <span>Atualizado semanalmente</span>
-                </div>
-                <p>
-                    Ranking de produtos de renda fixa com selo "Novo" para fácil identificação.
-                </p>
-                <span class="btn">Ver ranking</span>
-            </a>
-
-            <a href="bitcoin_landing.html" class="card" style="text-decoration: none; color: inherit;">
-                <h2>📚 Guia Bitcoin</h2>
-                <div class="meta">
-                    <span>Bitcoin</span>
-                    <span>Cripto</span>
-                    <span>Preço em tempo real</span>
-                </div>
-                <p>
-                    Análise de indicadores como MVRV, Mayer Multiple e Fear & Greed para decisões de investimento.
-                </p>
-                <span class="btn">Ler guia</span>
-            </a>
+        <div class="unified-card">
+            <h2>📊 Painel de Investimentos</h2>
+            <ul class="feature-list">
+                <li>
+                    <a href="metodologia_barsi.html">
+                        <div class="title">💎 Carteira de Dividendos – Barsi (BESST)</div>
+                        <div class="desc">Metodologia focada em dividendos de setores perenes e sustentáveis.</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="metodologia_barsi.html">
+                        <div class="title">💎 Carteira de Dividendos – Buffett (Value Investing)</div>
+                        <div class="desc">Seleção de empresas com moat defensivo e valor intrínseco sólido.</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="greenblatt_ned_landing_original.html">
+                        <div class="title">💎 Carteira IA Magic Formula – Joel Greenblatt</div>
+                        <div class="desc">Ranking das melhores oportunidades da B3 usando ROIC e Earnings Yield.</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="ranking_fgc.html">
+                        <div class="title">🏆 Ranking Renda Fixa FGC</div>
+                        <div class="desc">Produtos de renda fixa com proteção do FGC, ordenados por atratividade.</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="ranking_fgc.html">
+                        <div class="title">🏆 Selo "Novo" FGC</div>
+                        <div class="desc">Identificação fácil dos produtos mais recentes no ranking.</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="bitcoin_landing.html">
+                        <div class="title">📚 Análise Bitcoin – MVRV</div>
+                        <div class="desc">Indicador de valor de mercado para posicionamento de ciclo.</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="bitcoin_landing.html">
+                        <div class="title">📚 Análise Bitcoin – Mayer Multiple</div>
+                        <div class="desc">Múltiplo de preço sobre média móvel de 200 dias.</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="bitcoin_landing.html">
+                        <div class="title">📚 Análise Bitcoin – Fear & Greed Index</div>
+                        <div class="desc">Medo e ganância do mercado para timing de entrada/saída.</div>
+                    </a>
+                </li>
+            </ul>
+            <a href="metodologia_barsi.html" class="btn">Explorar tudo</a>
         </div>
 
         <div class="footer">
