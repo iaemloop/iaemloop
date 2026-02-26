@@ -260,12 +260,33 @@ def main():
     df_out['market_cap'] = df_out['market_cap'].round(0).astype('Int64')
     df_out['anos_listed'] = df_out['anos_listed'].round(1)
 
-    # Salvar
+    # Salvar CSV (já existente)
     ts = datetime.now().strftime('%Y%m%d_%H%M%S')
     csv_path = f'outputs/barsi_screener_{ts}.csv'
     df_out.to_csv(csv_path, index=False, encoding='utf-8-sig')
     df_out.to_csv('outputs/barsi_screener_latest.csv', index=False, encoding='utf-8-sig')
     print(f"\n💾 CSV salvo: {csv_path}")
+
+    # Salvar JSON para site dinâmico
+    json_data = {
+        "meta": {
+            "updated_at": datetime.now().isoformat(),
+            "total_assets": len(df_out),
+            "filters": {
+                "min_dividend_yield": MIN_DIVIDEND_YIELD,
+                "max_pvpa": MAX_PVPA,
+                "min_market_cap": MIN_MARKET_CAP,
+                "min_history_years": MIN_HISTORY_YEARS,
+                "min_dividend_years": MIN_DIVIDEND_HISTORY
+            }
+        },
+        "assets": df_out.to_dict(orient='records')
+    }
+    json_path = 'outputs/barsi_latest.json'
+    with open(json_path, 'w', encoding='utf-8') as jf:
+        import json
+        json.dump(json_data, jf, ensure_ascii=False, indent=2)
+    print(f"💾 JSON para site: {json_path}")
 
     # Relatório markdown
     md_path = f'outputs/relatorio_{ts}.md'
@@ -278,7 +299,10 @@ def main():
         f.write(f'**Após filtros:** {len(df_filtrado) if len(df_filtrado)>0 else 0}\n\n')
         if len(df_filtrado) > 0:
             f.write('## Top 10 oportunidades\n\n')
-            f.write(df_out.head(10).to_markdown(index=False))
+            f.write('| Ticker | Nome | Setor | DY | P/VPA | Score |\n')
+            f.write('|--------|------|-------|----|-------|-------|\n')
+            for i, row in df_out.head(10).iterrows():
+                f.write(f"| {row['ticker']} | {row['nome']} | {row['setor']} | {row['dividend_yield']:.2f}% | {row['p_vpa']:.2f} | {row['score']:.1f} |\n")
         else:
             f.write('## Nenhuma ação atendeu aos critérios\n')
         f.write('\n## Critérios\n')
