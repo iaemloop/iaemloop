@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fórmula Mágica de Joel Greenblatt – Ranking (Ned Stark)</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #e2e8f0;
+      --accent: #60a5fa;
+      --highlight: #a78bfa;
+      --muted: #94a3b8;
+      --border: #334155;
+      --positive: #10b981;
+      --negative: #ef4444;
+      --warning: #fbbf24;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem;
+    }
+    .container { max-width: 1400px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #334155; }
+    h1 { font-size: 2rem; color: var(--accent); margin-bottom: .5rem; }
+    h2 { font-size: 1.5rem; margin: 2rem 0 1rem; color: var(--highlight); }
+    h3 { margin: 1.5rem 0 .75rem; color: var(--accent); }
+    p { margin-bottom: 1rem; }
+    ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+    li { margin-bottom: .5rem; }
+    .card { background: var(--card); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #334155; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .metric { background: rgba(96, 165, 250, 0.1); border-left: 4px solid var(--accent); padding: 1rem; border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.8rem; }
+    th, td { padding: .75rem; text-align: left; border-bottom: 1px solid #334155; }
+    th { background: rgba(96, 165, 250, 0.2); color: var(--accent); font-weight: 600; }
+    tr:hover { background: rgba(255,255,255,0.05); }
+    .footer { text-align: center; margin-top: 3rem; color: var(--muted); font-size: .9rem; }
+    .toc { background: var(--card); padding: 1rem; border-radius: 8px; margin-bottom: 2rem; }
+    .toc ol { margin-left: 1.2rem; }
+    .toc li { margin-bottom: .4rem; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: rgba(0,0,0,0.3); padding: .2rem .4rem; border-radius: 4px; font-family: monospace; font-size: .9em; }
+  
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(96, 165, 250, 0.9);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: background 0.2s, transform 0.1s;
+            z-index: 1000;
+        }
+        .back-button:hover {
+            background: #a78bfa;
+            transform: translateY(-1px);
+        }
+        @media (max-width: 768px) {
+            .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; }
+        }
+
+    </style>
+</head>
+<body>
+<a href="../index.html" class="back-button" title="Voltar ao menu">
+        ← Menu
+    </a>
+
+  <div class="container">
+    <header>
+      <h1>📊 Fórmula Mágica de Joel Greenblatt</h1>
+      <p>Estratégia de <em>value investing</em> que combina qualidade e preço para rankear as melhores ações</p>
+      <p><small><em>Esta é a planilha original (Ned Stark) – 155 ações da B3</em></small></p>
+    </header>
+    <div style="text-align: center; margin-bottom: 20px;">
+      <a href="index.html" style="display: inline-block; background: rgba(96,165,250,0.2); color: #60a5fa; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-size: 0.9rem;">← Voltar ao Menu</a>
+    </div>
+
+    <div class="toc">
+      <h3>Sumário</h3>
+      <ol>
+        <li><a href="#o-que-e">O que é?</a></li>
+        <li><a href="#formulas">Fórmulas</a></li>
+        <li><a href="#metodo">Método passo a passo</a></li>
+        <li><a href="#exemplo">Exemplo prático</a></li>
+        <li><a href="#carteira">Montagem da carteira</a></li>
+        <li><a href="#consideracoes">Considerações importantes</a></li>
+        <li><a href="#como-usar">Como usar com seus dados</a></li>
+        <li><a href="#exemplo-real">Exemplo real – Top 30 B3</a></li>
+      </ol>
+    </div>
+
+    <section id="o-que-e">
+      <div class="card">
+        <h2>🎯 O que é?</h2>
+        <p>Estratégia criada por Joel Greenblatt (autor de "The Little Book That Beats the Market") que combina <strong>DOIS</strong> indicadores para rankear as melhores ações:</p>
+        <ul>
+          <li><strong>ROIC</strong> (Return on Invested Capital) – Qualidade do negócio</li>
+          <li><strong>Earnings Yield</strong> – Preço atrativo (inverso do P/L)</li>
+        </ul>
+        <p>A ideia: comprar empresas de alta qualidade (alto ROIC) que também estejam baratas (alto EY).</p>
+      </div>
+    </section>
+
+    <section id="formulas">
+      <div class="card">
+        <h2>🔢 Fórmulas</h2>
+        <div class="grid">
+          <div class="metric">
+            <h3>ROIC</h3>
+            <p><code>ROIC = EBIT / Capital Investido</code></p>
+            <ul>
+              <li><strong>EBIT</strong>: lucro operacional (antes de juros e impostos)</li>
+              <li><strong>Capital Investido</strong>: Ativo total − Caixa livre (ou: Patrimônio Líquido + Dívida Bruta)</li>
+            </ul>
+            <p><em>Interpretação:</em> Quanto maior, melhor. Empresas com ROIC alto geram mais retorno por cada real investido.</p>
+          </div>
+          <div class="metric">
+            <h3>Earnings Yield</h3>
+            <p><code>Earnings Yield = EBIT / Enterprise Value (EV)</code></p>
+            <ul>
+              <li><strong>EV</strong>: Valor da empresa = Market Cap + Dívida Bruta − Caixa</li>
+            </ul>
+            <p><em>Interpretação:</em> Quanto maior, melhor. É como o "P/L invertido" – mostra quanto você paga por cada unidade de lucro operacional.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="metodo">
+      <div class="card">
+        <h2>📈 Método de aplicação (Ranking)</h2>
+        <p><strong>Para cada ação:</strong></p>
+        <ol>
+          <li><strong>Ranking ROIC:</strong> Ordene TODAS as ações do maior ROIC → menor.
+            <br>A ação com maior ROIC = posição 1, segunda maior = posição 2, etc.</li>
+          <li><strong>Ranking Earnings Yield:</strong> Ordene TODAS as ações do maior EY → menor.</li>
+          <li><strong>Soma dos rankings:</strong> <code>Pontuação Final = Rank ROIC + Rank EY</code></li>
+          <li><strong>Ranking final:</strong> Ordene pela menor pontuação (quanto menor, melhor).</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="exemplo">
+      <div class="card">
+        <h2>🏆 Exemplo prático</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Ticker</th>
+              <th>ROIC</th>
+              <th>Earnings Yield</th>
+              <th>Rank ROIC</th>
+              <th>Rank EY</th>
+              <th>Total</th>
+              <th>Rank Final</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>A</td><td>30%</td><td>15%</td><td>1</td><td>2</td><td>3</td><td>1</td></tr>
+            <tr><td>B</td><td>25%</td><td>20%</td><td>2</td><td>1</td><td>3</td><td>1</td></tr>
+            <tr><td>C</td><td>20%</td><td>10%</td><td>3</td><td>3</td><td>6</td><td>3</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Resultado:</strong> A e B são as melhores (mesma pontuação), C é a terceira.</p>
+      </div>
+    </section>
+
+    <section id="carteira">
+      <div class="card">
+        <h2>💼 Montagem da carteira</h2>
+        <p><strong>Recomendações de Greenblatt:</strong></p>
+        <ul>
+          <li>Comprar 30–50 ações com menor soma (score).</li>
+          <li>Pesar igualmente (1/N) ou dar peso maior às primeiras.</li>
+          <li>Rebalancear 1× por ano (vender piores, comprar melhores).</li>
+        </ul>
+        <p><em>Observação:</em> No livro, ele usou 30 ações com melhor_score.</p>
+      </div>
+    </section>
+
+    <section id="consideracoes">
+      <div class="card">
+        <h2>⚠️ Considerações importantes</h2>
+        <div class="grid">
+          <div>
+            <h3>Vantagens</h3>
+            <ul>
+              <li>Combina qualidade (ROIC) + preço (Earnings Yield).</li>
+              <li>Funciona em mercados globais.</li>
+              <li>Baseada em dados fundamentalistas reais.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Desvantagens</h3>
+            <ul>
+              <li>Pode gerar concentração em setores cíclicos (mineração, siderurgia).</li>
+              <li>Não analisa dívida excessiva diretamente.</li>
+              <li>Pode apanhar em crises setoriais.</li>
+              <li><strong>NÃO é para buy & hold forever</strong> – requer rebalanceamento anual.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-usar">
+      <div class="card">
+        <h2>🛠️ Como usar com seus dados</h2>
+        <p>Com um CSV contendo colunas <code>ticker</code>, <code>roic</code>, <code>earnings_yield</code> (decimais, ex: 0.15 para 15%):</p>
+        <ol>
+          <li><strong>Limpe os dados:</strong> Remova ROICs negativos ou extremos (>100% podem ser distorcidos).</li>
+          <li><strong>Ordene por ROIC</strong> decrescente → atribua ranks.</li>
+          <li><strong>Ordene por Earnings Yield</strong> decrescente → atribua ranks.</li>
+          <li><strong>Some os ranks</strong> → ordene pela soma (menor = melhor).</li>
+          <li><strong>Selecione top 30–50</strong> para a carteira.</li>
+        </ol>
+        <p>No OpenClaw, use o comando:</p>
+        <p><code>[[greenblatt]] caminho/para/seu_arquivo.csv</code></p>
+        <p>Ou, para testar com dados exemplo: <code>[[greenblatt]]</code></p>
+      </div>
+    </section>
+
+    <section id="exemplo-real">
+      <div class="card">
+        <h2>📈 Exemplo real – Top 30 B3 (planilha original – 155 ações)</h2>
+        <p>Resultado da aplicação da Fórmula Mágica a uma planilha da B3 com 155 ações. Incluindo nomes e setores das empresas.</p>
+        <div style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Ticker</th>
+                <th>Empresa</th>
+                <th>Setor</th>
+                <th>ROIC</th>
+                <th>EY</th>
+                <th>Rank ROIC</th>
+                <th>Rank EY</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>PSSA3</td><td>Porto Seguro</td><td>Seguros</td><td>77.44%</td><td>158.73%</td><td>1</td><td>1</td><td>2</td></tr>
+              <tr><td>2</td><td>WIZC3</td><td>Wiz Soluções</td><td>Tecnologia/Fintech</td><td>35.46%</td><td>42.19%</td><td>4</td><td>2</td><td>6</td></tr>
+              <tr><td>3</td><td>PLPL3</td><td>Plucplan</td><td>Tecnologia</td><td>29.26%</td><td>23.98%</td><td>8</td><td>12</td><td>20</td></tr>
+              <tr><td>4</td><td>LREN3</td><td>Lojas Renner</td><td>Varejo/Moda</td><td>22.96%</td><td>24.33%</td><td>12</td><td>10</td><td>22</td></tr>
+              <tr><td>5</td><td>QUAL3</td><td>Qualicorp</td><td>Saúde/Planos</td><td>19.33%</td><td>37.17%</td><td>19</td><td>3</td><td>22</td></tr>
+              <tr><td>6</td><td>CMIN3</td><td>Cemig</td><td>Energia</td><td>26.67%</td><td>19.61%</td><td>10</td><td>19</td><td>29</td></tr>
+              <tr><td>7</td><td>ASAI3</td><td>Assai (Pão de Açúcar)</td><td>Varejo/Supermercados</td><td>19.41%</td><td>24.04%</td><td>18</td><td>11</td><td>29</td></tr>
+              <tr><td>8</td><td>PETR4</td><td>Petrobras</td><td>Petróleo/Gás</td><td>17.85%</td><td>25.25%</td><td>22</td><td>7</td><td>29</td></tr>
+              <tr><td>9</td><td>PETR3</td><td>Petrobras</td><td>Petróleo/Gás</td><td>17.85%</td><td>24.39%</td><td>23</td><td>9</td><td>32</td></tr>
+              <tr><td>10</td><td>CEAB3</td><td>Cemig (Cia Energética)</td><td>Energia</td><td>16.14%</td><td>24.88%</td><td>30</td><td>8</td><td>38</td></tr>
+              <tr><td>11</td><td>LEVE3</td><td>Leapfrog</td><td>Tecnologia/Infraestrutura</td><td>34.85%</td><td>15.77%</td><td>5</td><td>34</td><td>39</td></tr>
+              <tr><td>12</td><td>CSUD3</td><td>CSU (CS Up&Down)</td><td>Construção Civil</td><td>20.52%</td><td>16.50%</td><td>13</td><td>30</td><td>43</td></tr>
+              <tr><td>13</td><td>POMO3</td><td>Ponto Frio</td><td>Varejo/Eletrodomésticos</td><td>20.09%</td><td>16.23%</td><td>16</td><td>31</td><td>47</td></tr>
+              <tr><td>14</td><td>VTRU3</td><td>Vivo (Telefónica)</td><td>Telecomunicações</td><td>15.04%</td><td>21.01%</td><td>35</td><td>15</td><td>50</td></tr>
+              <tr><td>15</td><td>CSED3</td><td>C&S (Construcão e Mineração)</td><td>Construção Civil</td><td>14.82%</td><td>20.28%</td><td>36</td><td>16</td><td>52</td></tr>
+              <tr><td>16</td><td>POMO4</td><td>N/A</td><td>N/A</td><td>20.09%</td><td>15.36%</td><td>17</td><td>36</td><td>53</td></tr>
+              <tr><td>17</td><td>TGMA3</td><td>Tega (Máquinas Agrícolas)</td><td>Máquinas/Agro</td><td>32.04%</td><td>13.72%</td><td>6</td><td>48</td><td>54</td></tr>
+              <tr><td>18</td><td>ANIM3</td><td>Anima Holding</td><td>Educação</td><td>14.37%</td><td>20.28%</td><td>40</td><td>17</td><td>57</td></tr>
+              <tr><td>19</td><td>ODPV3</td><td>OdontoPrev</td><td>Saúde/Odontologia</td><td>47.54%</td><td>12.77%</td><td>2</td><td>56</td><td>58</td></tr>
+              <tr><td>20</td><td>MOVI3</td><td>Movida</td><td>Locação de Veículos</td><td>15.29%</td><td>16.61%</td><td>33</td><td>29</td><td>62</td></tr>
+              <tr><td>21</td><td>VLID3</td><td>Vilber</td><td>Alimentos/Bebidas</td><td>14.69%</td><td>17.15%</td><td>37</td><td>25</td><td>62</td></tr>
+              <tr><td>22</td><td>SEER3</td><td>Seren Energia</td><td>Energia Renovável</td><td>14.03%</td><td>20.20%</td><td>44</td><td>18</td><td>62</td></tr>
+              <tr><td>23</td><td>VALE3</td><td>Vale</td><td>Mineradora</td><td>16.71%</td><td>15.53%</td><td>28</td><td>35</td><td>63</td></tr>
+              <tr><td>24</td><td>CASH3</td><td>Banco DM</td><td>Banco Digital</td><td>13.13%</td><td>23.20%</td><td>50</td><td>13</td><td>63</td></tr>
+              <tr><td>25</td><td>VAMO3</td><td>Vamos</td><td>Fretes/Logística</td><td>15.20%</td><td>16.03%</td><td>34</td><td>32</td><td>66</td></tr>
+              <tr><td>26</td><td>RECV3</td><td>Recovery</td><td>Recuperação de Crédito</td><td>13.22%</td><td>19.05%</td><td>49</td><td>20</td><td>69</td></tr>
+              <tr><td>27</td><td>RANI3</td><td>Ranata</td><td>Energia Renovável</td><td>15.32%</td><td>14.43%</td><td>32</td><td>40</td><td>72</td></tr>
+              <tr><td>28</td><td>CPFE3</td><td>Cpel (Celesc)</td><td>Energia</td><td>15.64%</td><td>14.20%</td><td>31</td><td>43</td><td>74</td></tr>
+              <tr><td>29</td><td>MILS3</td><td>Mills</td><td>Máquinas/Equipamentos</td><td>18.59%</td><td>12.74%</td><td>20</td><td>57</td><td>77</td></tr>
+              <tr><td>30</td><td>GMAT3</td><td>GR</td><td>Tecnologia/Serviços</td><td>12.49%</td><td>17.83%</td><td>55</td><td>22</td><td>77</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><small>*EY calculado como 1/EV/EBIT. Fonte: planilha original da B3 (Ned Stark).</small></p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Atualizado em 2026-02-13 • Dados coletados via Yubb e planilha B3</p>
+      <p>Isenção de responsabilidade: Esta página é educativa, não constitui recomendação de investimento.</p>
+    </footer>
+  </div>
+</body>
+</html>
