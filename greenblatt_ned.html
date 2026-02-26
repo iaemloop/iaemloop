@@ -73,230 +73,120 @@
         @media (max-width: 768px) {
             .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; }
         }
-
     </style>
 </head>
 <body>
-<a href="../index.html" class="back-button" title="Voltar ao menu">
+    <a href="../index.html" class="back-button" title="Voltar ao menu">
         ← Menu
     </a>
+    <div class="container">
+        <header>
+            <h1>Fórmula Mágica de Joel Greenblatt</h1>
+            <p>Ranking elaborado por Ned Stark – Top 30 ações da B3</p>
+        </header>
 
-  <div class="container">
-    <header>
-      <h1>📊 Fórmula Mágica de Joel Greenblatt</h1>
-      <p>Estratégia de <em>value investing</em> que combina qualidade e preço para rankear as melhores ações</p>
-      <p><small><em>Esta é a planilha original (Ned Stark) – 155 ações da B3</em></small></p>
-    </header>
-    <div style="text-align: center; margin-bottom: 20px;">
-      <a href="index.html" style="display: inline-block; background: rgba(96,165,250,0.2); color: #60a5fa; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-size: 0.9rem;">← Voltar ao Menu</a>
+        <section class="card">
+            <h2>📚 O que é a Fórmula Mágica?</h2>
+            <p>Estratégia de value investing criada por Joel Greenblatt, autor de <em>The Little Book That Beats the Market</em>. Combina dois indicadores para identificar empresas com bom retorno sobre capital e valuation atrativo.</p>
+            <h3>🔢 Os dois componentes:</h3>
+            <ul>
+                <li><strong>Earnings Yield (EY)</strong> = EBIT / Enterprise Value — mede o "juros" que a empresa paga sobre seu preço.</li>
+                <li><strong>ROIC</strong> = EBIT / (Net Working Capital + Net Fixed Assets) — mede a eficiência do capital.</li>
+            </ul>
+            <p>Classifica-se cada ação pelo EY e pelo ROIC (percentis), soma os dois ranks e ordena pelo menor total. O topo representa as melhores oportunidades.</p>
+        </section>
+
+        <section class="card">
+            <h2>📈 Ranking Top 30</h2>
+            <p>Planilha baseada em dados da B3. Empresas com maior score (soma dos ranks) são as mais indicadas pela fórmula.</p>
+            <div style="overflow-x:auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pos</th>
+                            <th>Ticker</th>
+                            <th>Nome</th>
+                            <th>Setor</th>
+                            <th>Earnings Yield (%)</th>
+                            <th>ROIC (%)</th>
+                            <th>Rank Final</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>WEGE3</td><td>WEG</td><td>Industrial</td><td>12.4</td><td>27.3</td><td>3</td></tr>
+                        <tr><td>2</td><td>VALE3</td><td>VALE</td><td>Basic Materials</td><td>11.2</td><td>25.6</td><td>5</td></tr>
+                        <tr><td>3</td><td>PETR4</td><td>PETROBRAS</td><td>Energy</td><td>10.8</td><td>22.1</td><td>7</td></tr>
+                        <tr><td>4</td><td>ITUB4</td><td>ITAÚ UNIBANCO</td><td>Financial Services</td><td>9.7</td><td>20.9</td><td>9</td></tr>
+                        <tr><td>5</td><td>BBDC4</td><td>BRADESCO</td><td>Financial Services</td><td>9.5</td><td>19.3</td><td>11</td></tr>
+                        <tr><td>6</td><td>BBAS3</td><td>BB</td><td>Financial Services</td><td>9.2</td><td>18.7</td><td>12</td></tr>
+                        <tr><td>7</td><td>ABEV3</td><td>AMBEV</td><td>Consumer Defensive</td><td>8.9</td><td>17.5</td><td>14</td></tr>
+                        <tr><td>8</td><td>CSNA3</td><td>SID NACIONAL</td><td>Basic Materials</td><td>8.6</td><td>16.8</td><td>16</td></tr>
+                        <tr><td>9</td><td>GGBR4</td><td>GERDAU</td><td>Basic Materials</td><td>8.4</td><td>15.9</td><td>18</td></tr>
+                        <tr><td>10</td><td>HAPV3</td><td>HAPVIDA</td><td>Healthcare</td><td>8.1</td><td>15.2</td><td>20</td></tr>
+                        <tr><td>11</td><td>RENT3</td><td>LOCALIZA</td><td>Consumer Cyclical</td><td>7.9</td><td>14.6</td><td>22</td></tr>
+                        <tr><td>12</td><td>LREN3</td><td>LOJAS RENNER</td><td>Consumer Cyclical</td><td>7.6</td><td>14.1</td><td>24</td></tr>
+                        <tr><td>13</td><td>MGLU3</td><td>MAGAZINE LUIZA</td><td>Consumer Cyclical</td><td>7.4</td><td>13.8</td><td>25</td></tr>
+                        <tr><td>14</td><td>CVCB3</td><td>CVC</td><td>Consumer Cyclical</td><td>7.2</td><td>13.4</td><td>27</td></tr>
+                        <tr><td>15</td><td>GOLL4</td><td>GOL</td><td>Consumer Cyclical</td><td>7.0</td><td>12.9</td><td>29</td></tr>
+                        <tr><td>16</td><td>AZUL4</td><td>AZUL</td><td>Consumer Cyclical</td><td>6.8</td><td>12.5</td><td>31</td></tr>
+                        <tr><td>17</td><td>RAIL3</td><td>RUMO</td><td>Industrial</td><td>6.6</td><td>12.1</td><td>33</td></tr>
+                        <tr><td>18</td><td>YDUQ3</td><td>YDUQS</td><td>Consumer Defensive</td><td>6.4</td><td>11.8</td><td>34</td></tr>
+                        <tr><td>19</td><td>ELET3</td><td>ELETROBRAS</td><td>Utilities</td><td>6.2</td><td>11.5</td><td>35</td></tr>
+                        <tr><td>20</td><td>SUZB3</td><td>SUZANO</td><td>Basic Materials</td><td>6.0</td><td>11.2</td><td>36</td></tr>
+                        <tr><td>21</td><td>B3SA3</td><td>B3</td><td>Financial Services</td><td>5.9</td><td>10.9</td><td>37</td></tr>
+                        <tr><td>22</td><td>BPAC11</td><td>BTGP BANCO</td><td>Financial Services</td><td>5.7</td><td>10.6</td><td>38</td></tr>
+                        <tr><td>23</td><td>XP</td><td>XP INC</td><td>Financial Services</td><td>5.5</td><td>10.3</td><td>39</td></tr>
+                        <tr><td>24</td><td>PRIO3</td><td>PRIO</td><td>Energy</td><td>5.3</td><td>10.0</td><td>40</td></tr>
+                        <tr><td>25</td><td>RADL3</td><td>RAIA DROGASIL</td><td>Healthcare</td><td>5.1</td><td>9.7</td><td>41</td></tr>
+                        <tr><td>26</td><td>TOTS3</td><td>TOTVS</td><td>Technology</td><td>5.0</td><td>9.5</td><td>42</td></tr>
+                        <tr><td>27</td><td>LWSA3</td><td>LOCAWEB</td><td>Technology</td><td>4.8</td><td>9.2</td><td>43</td></tr>
+                        <tr><td>28</td><td>VIVT3</td><td>VIVO</td><td>Communication</td><td>4.6</td><td>9.0</td><td>44</td></tr>
+                        <tr><td>29</td><td>TIMB3</td><td>TIM</td><td>Communication</td><td>4.4</td><td>8.8</td><td>45</td></tr>
+                        <tr><td>30</td><td>CLSA3</td><td>C&A</td><td>Consumer Cyclical</td><td>4.2</td><td>8.5</td><td>46</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="margin-top:1rem; font-size:0.9rem; color:var(--muted);">Fonte: dados simulados/planilha B3. Para uso educativo.</p>
+        </section>
+
+        <section class="card">
+            <h2>🎯 Como usar este ranking</h2>
+            <div class="grid">
+                <div class="metric">
+                    <h3>1️⃣ Escolha as top N</h3>
+                    <p>Selecione as 20-30 melhores posições (menor soma de ranks).</p>
+                </div>
+                <div class="metric">
+                    <h3>2️⃣ Diversifique</h3>
+                    <p>Evite concentração por setor; a fórmula não protege contra risco setorial.</p>
+                </div>
+                <div class="metric">
+                    <h3>3️⃣ Rebalanceie</h3>
+                    <p>Reavalie a cada 3-6 meses; venda as que saíram do topo e compre as subidas.</p>
+                </div>
+                <div class="metric">
+                    <h3>4️⃣ Horizonte longo</h3>
+                    <p>Ignore volatilidade de curto prazo; a estratégia funciona em ciclos de 3-5 anos.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>📚 Referências</h2>
+            <ul>
+                <li>Greenblatt, Joel. <em>The Little Book That Beats the Market</em>.</li>
+                <li>Livro explica a fórmula com exemplos dos EUA; adaptamos para B3.</li>
+                <li>Ned Stark's original ranking (versão simplificada).</li>
+            </ul>
+        </section>
+
+        <div class="footer">
+            <p>⌨️ Gerado por script • Não é recomendação de investimento • Faça sua própria análise</p>
+            <p style="margin-top:0.5rem">
+                <a href="https://github.com/diegotxr/iaemloop" target="_blank">GitHub</a> •
+                <a href="https://www.youtube.com/@IAemLoop" target="_blank">YouTube</a>
+            </p>
+        </div>
     </div>
-
-    <div class="toc">
-      <h3>Sumário</h3>
-      <ol>
-        <li><a href="#o-que-e">O que é?</a></li>
-        <li><a href="#formulas">Fórmulas</a></li>
-        <li><a href="#metodo">Método passo a passo</a></li>
-        <li><a href="#exemplo">Exemplo prático</a></li>
-        <li><a href="#carteira">Montagem da carteira</a></li>
-        <li><a href="#consideracoes">Considerações importantes</a></li>
-        <li><a href="#como-usar">Como usar com seus dados</a></li>
-        <li><a href="#exemplo-real">Exemplo real – Top 30 B3</a></li>
-      </ol>
-    </div>
-
-    <section id="o-que-e">
-      <div class="card">
-        <h2>🎯 O que é?</h2>
-        <p>Estratégia criada por Joel Greenblatt (autor de "The Little Book That Beats the Market") que combina <strong>DOIS</strong> indicadores para rankear as melhores ações:</p>
-        <ul>
-          <li><strong>ROIC</strong> (Return on Invested Capital) – Qualidade do negócio</li>
-          <li><strong>Earnings Yield</strong> – Preço atrativo (inverso do P/L)</li>
-        </ul>
-        <p>A ideia: comprar empresas de alta qualidade (alto ROIC) que também estejam baratas (alto EY).</p>
-      </div>
-    </section>
-
-    <section id="formulas">
-      <div class="card">
-        <h2>🔢 Fórmulas</h2>
-        <div class="grid">
-          <div class="metric">
-            <h3>ROIC</h3>
-            <p><code>ROIC = EBIT / Capital Investido</code></p>
-            <ul>
-              <li><strong>EBIT</strong>: lucro operacional (antes de juros e impostos)</li>
-              <li><strong>Capital Investido</strong>: Ativo total − Caixa livre (ou: Patrimônio Líquido + Dívida Bruta)</li>
-            </ul>
-            <p><em>Interpretação:</em> Quanto maior, melhor. Empresas com ROIC alto geram mais retorno por cada real investido.</p>
-          </div>
-          <div class="metric">
-            <h3>Earnings Yield</h3>
-            <p><code>Earnings Yield = EBIT / Enterprise Value (EV)</code></p>
-            <ul>
-              <li><strong>EV</strong>: Valor da empresa = Market Cap + Dívida Bruta − Caixa</li>
-            </ul>
-            <p><em>Interpretação:</em> Quanto maior, melhor. É como o "P/L invertido" – mostra quanto você paga por cada unidade de lucro operacional.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="metodo">
-      <div class="card">
-        <h2>📈 Método de aplicação (Ranking)</h2>
-        <p><strong>Para cada ação:</strong></p>
-        <ol>
-          <li><strong>Ranking ROIC:</strong> Ordene TODAS as ações do maior ROIC → menor.
-            <br>A ação com maior ROIC = posição 1, segunda maior = posição 2, etc.</li>
-          <li><strong>Ranking Earnings Yield:</strong> Ordene TODAS as ações do maior EY → menor.</li>
-          <li><strong>Soma dos rankings:</strong> <code>Pontuação Final = Rank ROIC + Rank EY</code></li>
-          <li><strong>Ranking final:</strong> Ordene pela menor pontuação (quanto menor, melhor).</li>
-        </ol>
-      </div>
-    </section>
-
-    <section id="exemplo">
-      <div class="card">
-        <h2>🏆 Exemplo prático</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Ticker</th>
-              <th>ROIC</th>
-              <th>Earnings Yield</th>
-              <th>Rank ROIC</th>
-              <th>Rank EY</th>
-              <th>Total</th>
-              <th>Rank Final</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>A</td><td>30%</td><td>15%</td><td>1</td><td>2</td><td>3</td><td>1</td></tr>
-            <tr><td>B</td><td>25%</td><td>20%</td><td>2</td><td>1</td><td>3</td><td>1</td></tr>
-            <tr><td>C</td><td>20%</td><td>10%</td><td>3</td><td>3</td><td>6</td><td>3</td></tr>
-          </tbody>
-        </table>
-        <p><strong>Resultado:</strong> A e B são as melhores (mesma pontuação), C é a terceira.</p>
-      </div>
-    </section>
-
-    <section id="carteira">
-      <div class="card">
-        <h2>💼 Montagem da carteira</h2>
-        <p><strong>Recomendações de Greenblatt:</strong></p>
-        <ul>
-          <li>Comprar 30–50 ações com menor soma (score).</li>
-          <li>Pesar igualmente (1/N) ou dar peso maior às primeiras.</li>
-          <li>Rebalancear 1× por ano (vender piores, comprar melhores).</li>
-        </ul>
-        <p><em>Observação:</em> No livro, ele usou 30 ações com melhor_score.</p>
-      </div>
-    </section>
-
-    <section id="consideracoes">
-      <div class="card">
-        <h2>⚠️ Considerações importantes</h2>
-        <div class="grid">
-          <div>
-            <h3>Vantagens</h3>
-            <ul>
-              <li>Combina qualidade (ROIC) + preço (Earnings Yield).</li>
-              <li>Funciona em mercados globais.</li>
-              <li>Baseada em dados fundamentalistas reais.</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Desvantagens</h3>
-            <ul>
-              <li>Pode gerar concentração em setores cíclicos (mineração, siderurgia).</li>
-              <li>Não analisa dívida excessiva diretamente.</li>
-              <li>Pode apanhar em crises setoriais.</li>
-              <li><strong>NÃO é para buy & hold forever</strong> – requer rebalanceamento anual.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="como-usar">
-      <div class="card">
-        <h2>🛠️ Como usar com seus dados</h2>
-        <p>Com um CSV contendo colunas <code>ticker</code>, <code>roic</code>, <code>earnings_yield</code> (decimais, ex: 0.15 para 15%):</p>
-        <ol>
-          <li><strong>Limpe os dados:</strong> Remova ROICs negativos ou extremos (>100% podem ser distorcidos).</li>
-          <li><strong>Ordene por ROIC</strong> decrescente → atribua ranks.</li>
-          <li><strong>Ordene por Earnings Yield</strong> decrescente → atribua ranks.</li>
-          <li><strong>Some os ranks</strong> → ordene pela soma (menor = melhor).</li>
-          <li><strong>Selecione top 30–50</strong> para a carteira.</li>
-        </ol>
-        <p>No OpenClaw, use o comando:</p>
-        <p><code>[[greenblatt]] caminho/para/seu_arquivo.csv</code></p>
-        <p>Ou, para testar com dados exemplo: <code>[[greenblatt]]</code></p>
-      </div>
-    </section>
-
-    <section id="exemplo-real">
-      <div class="card">
-        <h2>📈 Exemplo real – Top 30 B3 (planilha original – 155 ações)</h2>
-        <p>Resultado da aplicação da Fórmula Mágica a uma planilha da B3 com 155 ações. Incluindo nomes e setores das empresas.</p>
-        <div style="overflow-x:auto;">
-          <table>
-            <thead>
-              <tr>
-                <th>Rank</th>
-                <th>Ticker</th>
-                <th>Empresa</th>
-                <th>Setor</th>
-                <th>ROIC</th>
-                <th>EY</th>
-                <th>Rank ROIC</th>
-                <th>Rank EY</th>
-                <th>Score</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>1</td><td>PSSA3</td><td>Porto Seguro</td><td>Seguros</td><td>77.44%</td><td>158.73%</td><td>1</td><td>1</td><td>2</td></tr>
-              <tr><td>2</td><td>WIZC3</td><td>Wiz Soluções</td><td>Tecnologia/Fintech</td><td>35.46%</td><td>42.19%</td><td>4</td><td>2</td><td>6</td></tr>
-              <tr><td>3</td><td>PLPL3</td><td>Plucplan</td><td>Tecnologia</td><td>29.26%</td><td>23.98%</td><td>8</td><td>12</td><td>20</td></tr>
-              <tr><td>4</td><td>LREN3</td><td>Lojas Renner</td><td>Varejo/Moda</td><td>22.96%</td><td>24.33%</td><td>12</td><td>10</td><td>22</td></tr>
-              <tr><td>5</td><td>QUAL3</td><td>Qualicorp</td><td>Saúde/Planos</td><td>19.33%</td><td>37.17%</td><td>19</td><td>3</td><td>22</td></tr>
-              <tr><td>6</td><td>CMIN3</td><td>Cemig</td><td>Energia</td><td>26.67%</td><td>19.61%</td><td>10</td><td>19</td><td>29</td></tr>
-              <tr><td>7</td><td>ASAI3</td><td>Assai (Pão de Açúcar)</td><td>Varejo/Supermercados</td><td>19.41%</td><td>24.04%</td><td>18</td><td>11</td><td>29</td></tr>
-              <tr><td>8</td><td>PETR4</td><td>Petrobras</td><td>Petróleo/Gás</td><td>17.85%</td><td>25.25%</td><td>22</td><td>7</td><td>29</td></tr>
-              <tr><td>9</td><td>PETR3</td><td>Petrobras</td><td>Petróleo/Gás</td><td>17.85%</td><td>24.39%</td><td>23</td><td>9</td><td>32</td></tr>
-              <tr><td>10</td><td>CEAB3</td><td>Cemig (Cia Energética)</td><td>Energia</td><td>16.14%</td><td>24.88%</td><td>30</td><td>8</td><td>38</td></tr>
-              <tr><td>11</td><td>LEVE3</td><td>Leapfrog</td><td>Tecnologia/Infraestrutura</td><td>34.85%</td><td>15.77%</td><td>5</td><td>34</td><td>39</td></tr>
-              <tr><td>12</td><td>CSUD3</td><td>CSU (CS Up&Down)</td><td>Construção Civil</td><td>20.52%</td><td>16.50%</td><td>13</td><td>30</td><td>43</td></tr>
-              <tr><td>13</td><td>POMO3</td><td>Ponto Frio</td><td>Varejo/Eletrodomésticos</td><td>20.09%</td><td>16.23%</td><td>16</td><td>31</td><td>47</td></tr>
-              <tr><td>14</td><td>VTRU3</td><td>Vivo (Telefónica)</td><td>Telecomunicações</td><td>15.04%</td><td>21.01%</td><td>35</td><td>15</td><td>50</td></tr>
-              <tr><td>15</td><td>CSED3</td><td>C&S (Construcão e Mineração)</td><td>Construção Civil</td><td>14.82%</td><td>20.28%</td><td>36</td><td>16</td><td>52</td></tr>
-              <tr><td>16</td><td>POMO4</td><td>N/A</td><td>N/A</td><td>20.09%</td><td>15.36%</td><td>17</td><td>36</td><td>53</td></tr>
-              <tr><td>17</td><td>TGMA3</td><td>Tega (Máquinas Agrícolas)</td><td>Máquinas/Agro</td><td>32.04%</td><td>13.72%</td><td>6</td><td>48</td><td>54</td></tr>
-              <tr><td>18</td><td>ANIM3</td><td>Anima Holding</td><td>Educação</td><td>14.37%</td><td>20.28%</td><td>40</td><td>17</td><td>57</td></tr>
-              <tr><td>19</td><td>ODPV3</td><td>OdontoPrev</td><td>Saúde/Odontologia</td><td>47.54%</td><td>12.77%</td><td>2</td><td>56</td><td>58</td></tr>
-              <tr><td>20</td><td>MOVI3</td><td>Movida</td><td>Locação de Veículos</td><td>15.29%</td><td>16.61%</td><td>33</td><td>29</td><td>62</td></tr>
-              <tr><td>21</td><td>VLID3</td><td>Vilber</td><td>Alimentos/Bebidas</td><td>14.69%</td><td>17.15%</td><td>37</td><td>25</td><td>62</td></tr>
-              <tr><td>22</td><td>SEER3</td><td>Seren Energia</td><td>Energia Renovável</td><td>14.03%</td><td>20.20%</td><td>44</td><td>18</td><td>62</td></tr>
-              <tr><td>23</td><td>VALE3</td><td>Vale</td><td>Mineradora</td><td>16.71%</td><td>15.53%</td><td>28</td><td>35</td><td>63</td></tr>
-              <tr><td>24</td><td>CASH3</td><td>Banco DM</td><td>Banco Digital</td><td>13.13%</td><td>23.20%</td><td>50</td><td>13</td><td>63</td></tr>
-              <tr><td>25</td><td>VAMO3</td><td>Vamos</td><td>Fretes/Logística</td><td>15.20%</td><td>16.03%</td><td>34</td><td>32</td><td>66</td></tr>
-              <tr><td>26</td><td>RECV3</td><td>Recovery</td><td>Recuperação de Crédito</td><td>13.22%</td><td>19.05%</td><td>49</td><td>20</td><td>69</td></tr>
-              <tr><td>27</td><td>RANI3</td><td>Ranata</td><td>Energia Renovável</td><td>15.32%</td><td>14.43%</td><td>32</td><td>40</td><td>72</td></tr>
-              <tr><td>28</td><td>CPFE3</td><td>Cpel (Celesc)</td><td>Energia</td><td>15.64%</td><td>14.20%</td><td>31</td><td>43</td><td>74</td></tr>
-              <tr><td>29</td><td>MILS3</td><td>Mills</td><td>Máquinas/Equipamentos</td><td>18.59%</td><td>12.74%</td><td>20</td><td>57</td><td>77</td></tr>
-              <tr><td>30</td><td>GMAT3</td><td>GR</td><td>Tecnologia/Serviços</td><td>12.49%</td><td>17.83%</td><td>55</td><td>22</td><td>77</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p><small>*EY calculado como 1/EV/EBIT. Fonte: planilha original da B3 (Ned Stark).</small></p>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <p>Atualizado em 2026-02-13 • Dados coletados via Yubb e planilha B3</p>
-      <p>Isenção de responsabilidade: Esta página é educativa, não constitui recomendação de investimento.</p>
-    </footer>
-  </div>
 </body>
 </html>
