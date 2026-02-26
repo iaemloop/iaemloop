@@ -10,11 +10,11 @@
     <!-- Google AdSense (substitua ca-pub-XXXXXX pelo seu ID real) -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1004632420072229" crossorigin="anonymous"></script>
     <style>
-        /* v2.0 - Paleta dourada, logo atualizado */
+        /* v3.0 - Paleta futurista noturna (azul profundo + dourado + ciano) */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(rgba(15, 23, 42, 0.80), rgba(15, 23, 42, 0.80)),
+            background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)),
                         url('../assets/fundo_site.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #e2e8f0;
@@ -49,7 +49,7 @@
         }
         h1 {
             font-size: 2.5rem;
-            background: linear-gradient(135deg, #60a5fa, #fbbf24);
+            background: linear-gradient(135deg, #19364D, #AA8451);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
@@ -81,22 +81,25 @@
             margin-bottom: 40px;
         }
         .card {
-            background: rgba(30, 41, 59, 0.75);
+            background: rgba(19, 29, 39, 0.75);
             border-radius: 16px;
             padding: 30px;
-            border-left: 4px solid #60a5fa;
+            border-left: 4px solid #19364D;
             transition: transform 0.2s, box-shadow 0.2s;
             cursor: pointer;
         }
         .card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-            border-left-color: #fbbf24;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+            border-left-color: #E4D17F;
         }
         .card h2 {
             font-size: 1.5rem;
             margin-bottom: 10px;
             color: #fff;
+            background: linear-gradient(135deg, #6EE4EF, #E4D17F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .card p {
             color: #cbd5e1;
@@ -107,27 +110,28 @@
             display: flex;
             gap: 15px;
             font-size: 0.85rem;
-            color: #64748b;
+            color: #577781;
             margin-bottom: 15px;
         }
         .card .meta span {
-            background: rgba(251,191,36,0.15);
-            color: #fbbf24;
+            background: rgba(170,132,81,0.15);
+            color: #AA8451;
             padding: 4px 12px;
             border-radius: 20px;
         }
         .btn {
             display: inline-block;
-            background: linear-gradient(135deg, #60a5fa, #fbbf24);
+            background: linear-gradient(135deg, #19364D, #AA8451);
             color: white;
             padding: 12px 24px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            transition: opacity 0.2s;
+            transition: opacity 0.2s, transform 0.1s;
         }
         .btn:hover {
             opacity: 0.9;
+            transform: translateY(-1px);
         }
         .footer {
             text-align: center;
@@ -136,7 +140,7 @@
             font-size: 0.9rem;
         }
         .footer a {
-            color: #fbbf24;
+            color: #E4D17F;
             text-decoration: none;
         }
     </style>
