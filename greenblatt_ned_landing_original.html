@@ -68,7 +68,49 @@
         }
         .back-button:hover { background: #a78bfa; transform: translateY(-1px); }
         @media (max-width: 768px) { .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; } }
-
+        .indicator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+        .indicator-card {
+            background: rgba(96,165,250,0.08);
+            border: 1px solid rgba(96,165,250,0.2);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .indicator-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(96,165,250,0.15);
+        }
+        .indicator-card .emoji {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .indicator-card h3 {
+            color: #60a5fa;
+            margin: 0 0 8px;
+            font-size: 1rem;
+        }
+        .indicator-card p {
+            margin: 0;
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .section-pill {
+            display: inline-block;
+            background: rgba(167,139,250,0.2);
+            color: #a78bfa;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -90,67 +132,52 @@
             <p>Para cada ação, classifica-se pelo EY e pelo ROIC (percentis), soma-se as posições (ranks) e ordena-se pelo menor total. O topo representa as melhores oportunidades.</p>
         </section>
 
-        <!-- Entenda os Indicadores (lista com emojis) -->
+                <!-- Entenda os Indicadores -->
         <section class="card">
+            <span class="section-pill">📘 Guia de Interpretação</span>
             <h2>📊 Entenda os Indicadores</h2>
-            <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
-                <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px;">
-                    <span style="font-size: 1.2rem;">🏷️</span>
-                    <div>
-                        <strong style="color: #60a5fa;">Ticker</strong>
-                        <p style="margin: 4px 0 0; color: #cbd5e1; font-size: 0.95rem;">Código de negociação na B3.</p>
-                    </div>
-                </li>
-                <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px;">
-                    <span style="font-size: 1.2rem;">🏢</span>
-                    <div>
-                        <strong style="color: #60a5fa;">Empresa</strong>
-                        <p style="margin: 4px 0 0; color: #cbd5e1; font-size: 0.95rem;">Nome completo da empresa.</p>
-                    </div>
-                </li>
-                <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px;">
-                    <span style="font-size: 1.2rem;">🏭</span>
-                    <div>
-                        <strong style="color: #60a5fa;">Setor</strong>
-                        <p style="margin: 4px 0 0; color: #cbd5e1; font-size: 0.95rem;">Segmento de atuação.</p>
-                    </div>
-                </li>
-                <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px;">
-                    <span style="font-size: 1.2rem;">📈</span>
-                    <div>
-                        <strong style="color: #60a5fa;">ROIC</strong>
-                        <p style="margin: 4px 0 0; color: #cbd5e1; font-size: 0.95rem;">Return on Invested Capital. Retorno sobre capital investido. Quanto maior, melhor.</p>
-                    </div>
-                </li>
-                <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px;">
-                    <span style="font-size: 1.2rem;">💰</span>
-                    <div>
-                        <strong style="color: #60a5fa;">Earnings Yield</strong>
-                        <p style="margin: 4px 0 0; color: #cbd5e1; font-size: 0.95rem;">Rendimento dos lucros (EBIT/EV).</p>
-                    </div>
-                </li>
-                <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px;">
-                    <span style="font-size: 1.2rem;">🏆</span>
-                    <div>
-                        <strong style="color: #60a5fa;">Rank ROIC</strong>
-                        <p style="margin: 4px 0 0; color: #cbd5e1; font-size: 0.95rem;">Posição no ranking de ROIC (1 = maior).</p>
-                    </div>
-                </li>
-                <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px;">
-                    <span style="font-size: 1.2rem;">📊</span>
-                    <div>
-                        <strong style="color: #60a5fa;">Rank EY</strong>
-                        <p style="margin: 4px 0 0; color: #cbd5e1; font-size: 0.95rem;">Posição no ranking de Earnings Yield (1 = maior).</p>
-                    </div>
-                </li>
-                <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 0;">
-                    <span style="font-size: 1.2rem;">🎯</span>
-                    <div>
-                        <strong style="color: #60a5fa;">Score</strong>
-                        <p style="margin: 4px 0 0; color: #cbd5e1; font-size: 0.95rem;">Soma dos dois rankings. Menor = melhor.</p>
-                    </div>
-                </li>
-            </ul>
+            <div class="indicator-grid">
+                <div class="indicator-card">
+                    <div class="emoji">🏷️</div>
+                    <h3>Ticker</h3>
+                    <p>Código de negociação na B3.</p>
+                </div>
+                <div class="indicator-card">
+                    <div class="emoji">🏢</div>
+                    <h3>Empresa</h3>
+                    <p>Nome completo da empresa.</p>
+                </div>
+                <div class="indicator-card">
+                    <div class="emoji">🏭</div>
+                    <h3>Setor</h3>
+                    <p>Segmento de atuação.</p>
+                </div>
+                <div class="indicator-card">
+                    <div class="emoji">📈</div>
+                    <h3>ROIC</h3>
+                    <p>Return on Invested Capital. Quanto maior, melhor.</p>
+                </div>
+                <div class="indicator-card">
+                    <div class="emoji">💰</div>
+                    <h3>Earnings Yield</h3>
+                    <p>Rendimento dos lucros (EBIT/EV).</p>
+                </div>
+                <div class="indicator-card">
+                    <div class="emoji">🏆</div>
+                    <h3>Rank ROIC</h3>
+                    <p>Posição no ranking de ROIC (1 = maior).</p>
+                </div>
+                <div class="indicator-card">
+                    <div class="emoji">📊</div>
+                    <h3>Rank EY</h3>
+                    <p>Posição no ranking de Earnings Yield (1 = maior).</p>
+                </div>
+                <div class="indicator-card">
+                    <div class="emoji">🎯</div>
+                    <h3>Score</h3>
+                    <p>Soma dos dois rankings. Menor = melhor.</p>
+                </div>
+            </div>
         </section>
 
         <section class="card">
