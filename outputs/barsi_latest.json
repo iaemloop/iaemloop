@@ -9,6 +9,33 @@
     "score":19.86
   },
   {
+    "ticker":"BRSR5",
+    "setor":"Bancos",
+    "dy":"10,05%",
+    "p_vp":"0,69",
+    "patrimonio_liq":"11.175.000.000,00",
+    "roic":"0,00%",
+    "score":14.57
+  },
+  {
+    "ticker":"BMGB4",
+    "setor":"Bancos",
+    "dy":"10,78%",
+    "p_vp":"0,76",
+    "patrimonio_liq":"3.892.010.000,00",
+    "roic":"0,00%",
+    "score":14.18
+  },
+  {
+    "ticker":"BRSR6",
+    "setor":"Bancos",
+    "dy":"8,59%",
+    "p_vp":"0,68",
+    "patrimonio_liq":"11.175.000.000,00",
+    "roic":"0,00%",
+    "score":12.63
+  },
+  {
     "ticker":"BRAP4",
     "setor":"Mineração\/Siderurgia",
     "dy":"13,14%",
@@ -16,6 +43,15 @@
     "patrimonio_liq":"9.123.790.000,00",
     "roic":"-0,40%",
     "score":12.28
+  },
+  {
+    "ticker":"BRSR3",
+    "setor":"Bancos",
+    "dy":"8,15%",
+    "p_vp":"0,72",
+    "patrimonio_liq":"11.175.000.000,00",
+    "roic":"0,00%",
+    "score":11.32
   },
   {
     "ticker":"FESA4",
@@ -54,6 +90,15 @@
     "score":6.59
   },
   {
+    "ticker":"BBDC3",
+    "setor":"Bancos",
+    "dy":"7,15%",
+    "p_vp":"1,12",
+    "patrimonio_liq":"172.239.000.000,00",
+    "roic":"0,00%",
+    "score":6.38
+  },
+  {
     "ticker":"BRGE6",
     "setor":"Bancos",
     "dy":"4,36%",
@@ -61,6 +106,15 @@
     "patrimonio_liq":"1.324.180.000,00",
     "roic":"-50,03%",
     "score":6.06
+  },
+  {
+    "ticker":"BBAS3",
+    "setor":"Bancos",
+    "dy":"5,13%",
+    "p_vp":"0,85",
+    "patrimonio_liq":"184.588.000.000,00",
+    "roic":"0,00%",
+    "score":6.04
   },
   {
     "ticker":"UNIP3",
@@ -81,6 +135,15 @@
     "score":5.82
   },
   {
+    "ticker":"BBDC4",
+    "setor":"Bancos",
+    "dy":"6,85%",
+    "p_vp":"1,29",
+    "patrimonio_liq":"172.239.000.000,00",
+    "roic":"0,00%",
+    "score":5.31
+  },
+  {
     "ticker":"RANI3",
     "setor":"Papel e Celulose",
     "dy":"7,85%",
@@ -99,13 +162,22 @@
     "score":4.91
   },
   {
-    "ticker":"ALPA4",
-    "setor":"Telecomunicações",
-    "dy":"11,76%",
-    "p_vp":"2,42",
-    "patrimonio_liq":"4.301.190.000,00",
-    "roic":"11,84%",
-    "score":4.86
+    "ticker":"SANB11",
+    "setor":"Bancos",
+    "dy":"6,32%",
+    "p_vp":"1,36",
+    "patrimonio_liq":"95.191.800.000,00",
+    "roic":"0,00%",
+    "score":4.65
+  },
+  {
+    "ticker":"SANB3",
+    "setor":"Bancos",
+    "dy":"6,13%",
+    "p_vp":"1,33",
+    "patrimonio_liq":"95.191.800.000,00",
+    "roic":"0,00%",
+    "score":4.61
   },
   {
     "ticker":"CPLE3",
@@ -115,6 +187,15 @@
     "patrimonio_liq":"23.130.000.000,00",
     "roic":"8,58%",
     "score":4.24
+  },
+  {
+    "ticker":"BRIV4",
+    "setor":"Bancos",
+    "dy":"2,61%",
+    "p_vp":"0,66",
+    "patrimonio_liq":"1.671.490.000,00",
+    "roic":"0,00%",
+    "score":3.95
   },
   {
     "ticker":"VALE3",
@@ -162,15 +243,6 @@
     "score":3.67
   },
   {
-    "ticker":"TAEE11",
-    "setor":"Energia",
-    "dy":"7,23%",
-    "p_vp":"2,01",
-    "patrimonio_liq":"7.645.340.000,00",
-    "roic":"11,27%",
-    "score":3.6
-  },
-  {
     "ticker":"BRGE11",
     "setor":"Bancos",
     "dy":"2,14%",
@@ -189,6 +261,24 @@
     "score":2.81
   },
   {
+    "ticker":"ITUB3",
+    "setor":"Bancos",
+    "dy":"6,91%",
+    "p_vp":"2,51",
+    "patrimonio_liq":"195.980.000.000,00",
+    "roic":"0,00%",
+    "score":2.75
+  },
+  {
+    "ticker":"ITUB4",
+    "setor":"Bancos",
+    "dy":"6,46%",
+    "p_vp":"2,68",
+    "patrimonio_liq":"195.980.000.000,00",
+    "roic":"0,00%",
+    "score":2.41
+  },
+  {
     "ticker":"CPFE3",
     "setor":"Energia",
     "dy":"5,41%",
@@ -196,15 +286,6 @@
     "patrimonio_liq":"22.670.100.000,00",
     "roic":"15,64%",
     "score":2.06
-  },
-  {
-    "ticker":"ENGI4",
-    "setor":"Energia",
-    "dy":"2,92%",
-    "p_vp":"1,44",
-    "patrimonio_liq":"18.484.500.000,00",
-    "roic":"9,70%",
-    "score":2.03
   },
   {
     "ticker":"ENGI11",
@@ -268,5 +349,23 @@
     "patrimonio_liq":"42.710.300.000,00",
     "roic":"12,78%",
     "score":1.55
+  },
+  {
+    "ticker":"ENGI3",
+    "setor":"Energia",
+    "dy":"2,44%",
+    "p_vp":"1,73",
+    "patrimonio_liq":"18.484.500.000,00",
+    "roic":"9,70%",
+    "score":1.41
+  },
+  {
+    "ticker":"VIVT3",
+    "setor":"Telecomunicações",
+    "dy":"2,57%",
+    "p_vp":"2,01",
+    "patrimonio_liq":"68.721.700.000,00",
+    "roic":"8,60%",
+    "score":1.28
   }
 ]
