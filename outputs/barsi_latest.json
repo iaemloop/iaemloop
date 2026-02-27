@@ -1,159 +1,272 @@
-{
-  "meta": {
-    "updated_at": "2026-02-26T10:29:40.392003",
-    "total_assets": 9,
-    "filters": {
-      "min_dividend_yield": 0.03,
-      "max_pvpa": 2.0,
-      "min_market_cap": 1000000000.0,
-      "min_history_years": 5,
-      "min_dividend_years": 3
-    }
+[
+  {
+    "ticker":"RECV3",
+    "setor":"Petróleo\/Gás",
+    "dy":"15,69%",
+    "p_vp":"0,79",
+    "patrimonio_liq":"4.563.500.000,00",
+    "roic":"13,22%",
+    "score":19.86
   },
-  "assets": [
-    {
-      "ticker": "PETR4",
-      "nome": "PETROBRAS   PN      N2",
-      "setor": "Energy",
-      "segmento": "Oil & Gas Integrated",
-      "classificacao_setor": "PERENE",
-      "preco": 39.28,
-      "market_cap": 527827173376,
-      "dividend_yield": 11.81,
-      "dividend_rate": 4.64,
-      "p_vpa": 1.2,
-      "p_l": 7.06,
-      "anos_listed": 20.0,
-      "anos_com_dividendos": 18,
-      "score": 71.9
-    },
-    {
-      "ticker": "ENGI3",
-      "nome": "ENERGISA    ON      N2",
-      "setor": "Utilities",
-      "segmento": "Utilities - Regulated Electric",
-      "classificacao_setor": "PERENE",
-      "preco": 12.9,
-      "market_cap": 32438272000,
-      "dividend_yield": 5.04,
-      "dividend_rate": 0.65,
-      "p_vpa": 0.27,
-      "p_l": 9.85,
-      "anos_listed": 20.0,
-      "anos_com_dividendos": 18,
-      "score": 67.7
-    },
-    {
-      "ticker": "KLBN4",
-      "nome": "KLABIN S/A  PN      N2",
-      "setor": "Basic Materials",
-      "segmento": "Paper & Paper Products",
-      "classificacao_setor": "PERENE",
-      "preco": 4.13,
-      "market_cap": 25336952832,
-      "dividend_yield": 7.99,
-      "dividend_rate": 0.33,
-      "p_vpa": 0.64,
-      "p_l": 17.96,
-      "anos_listed": 20.0,
-      "anos_com_dividendos": 16,
-      "score": 66.0
-    },
-    {
-      "ticker": "KLBN3",
-      "nome": "KLABIN S/A  ON      N2",
-      "setor": "Basic Materials",
-      "segmento": "Paper & Paper Products",
-      "classificacao_setor": "PERENE",
-      "preco": 4.16,
-      "market_cap": 25520996352,
-      "dividend_yield": 7.93,
-      "dividend_rate": 0.33,
-      "p_vpa": 0.65,
-      "p_l": 18.09,
-      "anos_listed": 20.0,
-      "anos_com_dividendos": 18,
-      "score": 65.9
-    },
-    {
-      "ticker": "CSNA3",
-      "nome": "SID NACIONALON  ATZ",
-      "setor": "Basic Materials",
-      "segmento": "Steel",
-      "classificacao_setor": "PERENE",
-      "preco": 8.64,
-      "market_cap": 11457452032,
-      "dividend_yield": 14.7,
-      "dividend_rate": 1.27,
-      "p_vpa": 0.81,
-      "p_l": NaN,
-      "anos_listed": 20.0,
-      "anos_com_dividendos": 14,
-      "score": 65.0
-    },
-    {
-      "ticker": "PETR3",
-      "nome": "PETROBRAS   ON      N2",
-      "setor": "Energy",
-      "segmento": "Oil & Gas Integrated",
-      "classificacao_setor": "PERENE",
-      "preco": 42.49,
-      "market_cap": 547642277888,
-      "dividend_yield": 10.92,
-      "dividend_rate": 4.64,
-      "p_vpa": 1.29,
-      "p_l": 7.64,
-      "anos_listed": 20.0,
-      "anos_com_dividendos": 14,
-      "score": 60.8
-    },
-    {
-      "ticker": "ENGI11",
-      "nome": "ENERGISA    UNT     N2",
-      "setor": "Utilities",
-      "segmento": "Utilities - Regulated Electric",
-      "classificacao_setor": "PERENE",
-      "preco": 54.78,
-      "market_cap": 25041606656,
-      "dividend_yield": 5.97,
-      "dividend_rate": 3.27,
-      "p_vpa": 1.13,
-      "p_l": 39.7,
-      "anos_listed": 20.0,
-      "anos_com_dividendos": 16,
-      "score": 48.0
-    },
-    {
-      "ticker": "SANB11",
-      "nome": "SANTANDER BRUNT",
-      "setor": "Financial Services",
-      "segmento": "Banks - Regional",
-      "classificacao_setor": "PERENE",
-      "preco": 34.85,
-      "market_cap": 164506681344,
-      "dividend_yield": 5.08,
-      "dividend_rate": 1.77,
-      "p_vpa": 1.36,
-      "p_l": 17.03,
-      "anos_listed": 20.0,
-      "anos_com_dividendos": 17,
-      "score": 47.6
-    },
-    {
-      "ticker": "EQTL3",
-      "nome": "EQUATORIAL  ON      NM",
-      "setor": "Utilities",
-      "segmento": "Utilities - Regulated Electric",
-      "classificacao_setor": "PERENE",
-      "preco": 42.73,
-      "market_cap": 53764628480,
-      "dividend_yield": 5.55,
-      "dividend_rate": 2.37,
-      "p_vpa": 1.88,
-      "p_l": 16.5,
-      "anos_listed": 20.0,
-      "anos_com_dividendos": 18,
-      "score": 40.9
-    }
-  ]
-}
+  {
+    "ticker":"BRAP4",
+    "setor":"Mineração\/Siderurgia",
+    "dy":"13,14%",
+    "p_vp":"1,07",
+    "patrimonio_liq":"9.123.790.000,00",
+    "roic":"-0,40%",
+    "score":12.28
+  },
+  {
+    "ticker":"FESA4",
+    "setor":"Saneamento",
+    "dy":"8,73%",
+    "p_vp":"0,87",
+    "patrimonio_liq":"3.387.880.000,00",
+    "roic":"5,23%",
+    "score":10.03
+  },
+  {
+    "ticker":"PETR4",
+    "setor":"Petróleo\/Gás",
+    "dy":"8,16%",
+    "p_vp":"1,21",
+    "patrimonio_liq":"422.934.000.000,00",
+    "roic":"17,85%",
+    "score":6.74
+  },
+  {
+    "ticker":"ALPA3",
+    "setor":"Telecomunicações",
+    "dy":"13,53%",
+    "p_vp":"2,05",
+    "patrimonio_liq":"4.301.190.000,00",
+    "roic":"11,84%",
+    "score":6.6
+  },
+  {
+    "ticker":"BLAU3",
+    "setor":"Bancos",
+    "dy":"7,18%",
+    "p_vp":"1,09",
+    "patrimonio_liq":"2.350.160.000,00",
+    "roic":"12,22%",
+    "score":6.59
+  },
+  {
+    "ticker":"BRGE6",
+    "setor":"Bancos",
+    "dy":"4,36%",
+    "p_vp":"0,72",
+    "patrimonio_liq":"1.324.180.000,00",
+    "roic":"-50,03%",
+    "score":6.06
+  },
+  {
+    "ticker":"UNIP3",
+    "setor":"Petróleo\/Gás",
+    "dy":"17,46%",
+    "p_vp":"2,98",
+    "patrimonio_liq":"2.470.310.000,00",
+    "roic":"17,08%",
+    "score":5.86
+  },
+  {
+    "ticker":"PETR3",
+    "setor":"Petróleo\/Gás",
+    "dy":"7,56%",
+    "p_vp":"1,30",
+    "patrimonio_liq":"422.934.000.000,00",
+    "roic":"17,85%",
+    "score":5.82
+  },
+  {
+    "ticker":"RANI3",
+    "setor":"Papel e Celulose",
+    "dy":"7,85%",
+    "p_vp":"1,54",
+    "patrimonio_liq":"1.451.930.000,00",
+    "roic":"15,38%",
+    "score":5.1
+  },
+  {
+    "ticker":"GOAU4",
+    "setor":"Mineração\/Siderurgia",
+    "dy":"3,19%",
+    "p_vp":"0,65",
+    "patrimonio_liq":"19.131.300.000,00",
+    "roic":"8,29%",
+    "score":4.91
+  },
+  {
+    "ticker":"ALPA4",
+    "setor":"Telecomunicações",
+    "dy":"11,76%",
+    "p_vp":"2,42",
+    "patrimonio_liq":"4.301.190.000,00",
+    "roic":"11,84%",
+    "score":4.86
+  },
+  {
+    "ticker":"CPLE3",
+    "setor":"Energia",
+    "dy":"8,18%",
+    "p_vp":"1,93",
+    "patrimonio_liq":"23.130.000.000,00",
+    "roic":"8,58%",
+    "score":4.24
+  },
+  {
+    "ticker":"VALE3",
+    "setor":"Mineração\/Siderurgia",
+    "dy":"8,54%",
+    "p_vp":"2,20",
+    "patrimonio_liq":"184.299.000.000,00",
+    "roic":"17,62%",
+    "score":3.88
+  },
+  {
+    "ticker":"GGBR4",
+    "setor":"Mineração\/Siderurgia",
+    "dy":"3,00%",
+    "p_vp":"0,78",
+    "patrimonio_liq":"53.585.400.000,00",
+    "roic":"8,32%",
+    "score":3.85
+  },
+  {
+    "ticker":"TAEE3",
+    "setor":"Energia",
+    "dy":"7,38%",
+    "p_vp":"1,97",
+    "patrimonio_liq":"7.645.340.000,00",
+    "roic":"11,27%",
+    "score":3.75
+  },
+  {
+    "ticker":"SAPR11",
+    "setor":"Saneamento",
+    "dy":"4,23%",
+    "p_vp":"1,14",
+    "patrimonio_liq":"12.347.800.000,00",
+    "roic":"9,65%",
+    "score":3.71
+  },
+  {
+    "ticker":"TAEE4",
+    "setor":"Energia",
+    "dy":"7,30%",
+    "p_vp":"1,99",
+    "patrimonio_liq":"7.645.340.000,00",
+    "roic":"11,27%",
+    "score":3.67
+  },
+  {
+    "ticker":"TAEE11",
+    "setor":"Energia",
+    "dy":"7,23%",
+    "p_vp":"2,01",
+    "patrimonio_liq":"7.645.340.000,00",
+    "roic":"11,27%",
+    "score":3.6
+  },
+  {
+    "ticker":"BRGE11",
+    "setor":"Bancos",
+    "dy":"2,14%",
+    "p_vp":"0,73",
+    "patrimonio_liq":"1.324.180.000,00",
+    "roic":"-50,03%",
+    "score":2.93
+  },
+  {
+    "ticker":"EQTL3",
+    "setor":"Energia",
+    "dy":"5,31%",
+    "p_vp":"1,89",
+    "patrimonio_liq":"28.549.100.000,00",
+    "roic":"9,60%",
+    "score":2.81
+  },
+  {
+    "ticker":"CPFE3",
+    "setor":"Energia",
+    "dy":"5,41%",
+    "p_vp":"2,63",
+    "patrimonio_liq":"22.670.100.000,00",
+    "roic":"15,64%",
+    "score":2.06
+  },
+  {
+    "ticker":"ENGI4",
+    "setor":"Energia",
+    "dy":"2,92%",
+    "p_vp":"1,44",
+    "patrimonio_liq":"18.484.500.000,00",
+    "roic":"9,70%",
+    "score":2.03
+  },
+  {
+    "ticker":"ENGI11",
+    "setor":"Energia",
+    "dy":"2,79%",
+    "p_vp":"1,51",
+    "patrimonio_liq":"18.484.500.000,00",
+    "roic":"9,70%",
+    "score":1.85
+  },
+  {
+    "ticker":"CPLE5",
+    "setor":"Energia",
+    "dy":"3,22%",
+    "p_vp":"1,75",
+    "patrimonio_liq":"23.130.000.000,00",
+    "roic":"8,58%",
+    "score":1.84
+  },
+  {
+    "ticker":"PSSA3",
+    "setor":"Seguros",
+    "dy":"3,77%",
+    "p_vp":"2,17",
+    "patrimonio_liq":"15.741.200.000,00",
+    "roic":"77,44%",
+    "score":1.74
+  },
+  {
+    "ticker":"CPLE6",
+    "setor":"Energia",
+    "dy":"3,07%",
+    "p_vp":"1,84",
+    "patrimonio_liq":"23.130.000.000,00",
+    "roic":"8,58%",
+    "score":1.67
+  },
+  {
+    "ticker":"CSMG3",
+    "setor":"Saneamento",
+    "dy":"4,10%",
+    "p_vp":"2,47",
+    "patrimonio_liq":"8.578.300.000,00",
+    "roic":"13,39%",
+    "score":1.66
+  },
+  {
+    "ticker":"ECOR3",
+    "setor":"Energia",
+    "dy":"2,87%",
+    "p_vp":"1,78",
+    "patrimonio_liq":"4.207.980.000,00",
+    "roic":"12,89%",
+    "score":1.61
+  },
+  {
+    "ticker":"SBSP3",
+    "setor":"Saneamento",
+    "dy":"3,97%",
+    "p_vp":"2,56",
+    "patrimonio_liq":"42.710.300.000,00",
+    "roic":"12,78%",
+    "score":1.55
+  }
+]
