@@ -202,36 +202,40 @@
         }
 
         
-            .back-to-top {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 45px;
-        height: 45px;
-        background: rgba(251, 191, 36, 0.9);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        font-size: 1.5rem;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        transition: all 0.3s ease;
-        z-index: 9999;
-        opacity: 0;
-        visibility: hidden;
-    }
+            
+        
+            
+
+                .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: rgba(251, 191, 36, 0.9);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+        }
         .back-to-top.visible {
             opacity: 1;
             visibility: visible;
         }
-            .back-to-top:hover {
-        background: var(--accent);
-        transform: translateY(-3px);
-        box-shadow: 0 6px 16px rgba(0,0,0,0.4);
-    }
+        .back-to-top:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
 
         </style>
 </head>
@@ -374,7 +378,11 @@
         
 
 
-                <a href="#" class="back-to-top visible" id="backToTop">↑</a>
+                
+
+        
+
+        <a href="#" class="back-to-top" id="backToTop">↑</a>
 
         <script>
             const backToTop = document.getElementById('backToTop');
