@@ -1,0 +1,90 @@
+<script>
+async function updateBTCPrice() {
+    const priceElBRL = document.getElementById('btc-price');
+    const changeElBRL = document.getElementById('btc-change');
+    const volumeElBRL = document.getElementById('btc-volume-brl');
+    const priceElUSD = document.getElementById('btc-price-usd');
+    const changeElUSD = document.getElementById('btc-change-usd');
+    const volumeElUSD = document.getElementById('btc-volume-usd');
+    const updatedEl = document.getElementById('btc-last-updated');
+    
+    if (!priceElBRL) {
+        console.log('Elementos não encontrados');
+        return;
+    }
+    
+    try {
+        console.log('Buscando dados...');
+        const [usdData, brlData] = await Promise.all([
+            fetch('https://api.coingecko.com/api/v3/coins/markets?ids=bitcoin&vs_currency=usd&price_change_percentage=24h').then(r => r.json()),
+            fetch('https://api.coingecko.com/api/v3/coins/markets?ids=bitcoin&vs_currency=brl&price_change_percentage=24h').then(r => r.json())
+        ]);
+        
+        if (usdData && usdData.length > 0 && brlData && brlData.length > 0) {
+            const btcUSD = usdData[0];
+            const btcBRL = brlData[0];
+            
+            const priceUSD = btcUSD.current_price;
+            const changeUSD = btcUSD.price_change_percentage_24h || 0;
+            const volumeUSD = btcUSD.total_volume || 0;
+            
+            const priceBRL = btcBRL.current_price;
+            const changeBRL = btcBRL.price_change_percentage_24h || 0;
+            const volumeBRL = btcBRL.total_volume || 0;
+            
+            // Formatar USD
+            const formattedUSD = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(priceUSD);
+            const formattedVolumeUSD = formatVolume(volumeUSD, 'US$');
+            
+            priceElUSD.innerHTML = '<span style="color: #6EE4EF; font-size: 1.5rem; font-weight: 700;">' + formattedUSD + '</span>';
+            if (changeElUSD) changeElUSD.innerHTML = '24h change: <span style="color: ' + (changeUSD >= 0 ? '#4ade80' : '#f87171') + ';">' + (changeUSD >= 0 ? '+' : '') + changeUSD.toFixed(2) + '%</span>';
+            if (volumeElUSD) volumeElUSD.querySelector('span').textContent = formattedVolumeUSD;
+            
+            // Formatar BRL
+            const formattedBRL = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(priceBRL);
+            const formattedVolumeBRL = formatVolume(volumeBRL, 'R$');
+            
+            priceElBRL.innerHTML = '<span style="color: #AA8451; font-size: 1.5rem; font-weight: 700;">' + formattedBRL + '</span>';
+            if (changeElBRL) changeElBRL.innerHTML = 'Variação 24h: <span style="color: ' + (changeBRL >= 0 ? '#4ade80' : '#f87171') + ';">' + (changeBRL >= 0 ? '+' : '') + changeBRL.toFixed(2) + '%</span>';
+            if (volumeElBRL) volumeElBRL.querySelector('span').textContent = formattedVolumeBRL;
+            
+            if (updatedEl) updatedEl.textContent = 'Atualizado: ' + new Date().toLocaleString('pt-BR');
+            console.log('Preços atualizados');
+        }
+    } catch (error) {
+        console.error('Erro ao buscar preço Bitcoin:', error);
+        if (priceElBRL) priceElBRL.innerHTML = '<span style="color: #94a3b8;">Indisponível</span>';
+        if (priceElUSD) priceElUSD.innerHTML = '<span style="color: #94a3b8;">Indisponível</span>';
+    }
+}
+
+function formatVolume(volume, currency) {
+    if (!volume || volume === 0) return currency + ' N/A';
+    
+    if (volume >= 1e12) {
+        return currency + ' $' + (volume / 1e12).toFixed(2) + ' trilhões';
+    } else if (volume >= 1e9) {
+        return currency + ' $' + (volume / 1e9).toFixed(2) + ' bilhões';
+    } else if (volume >= 1e6) {
+        return currency + ' $' + (volume / 1e6).toFixed(2) + ' milhões';
+    } else {
+        return currency + ' $' + volume.toLocaleString('pt-BR');
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM carregado, iniciando...');
+    updateBTCPrice();
+    setInterval(updateBTCPrice, 300000);
+});
+</script>

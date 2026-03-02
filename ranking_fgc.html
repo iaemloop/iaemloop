@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
-    <link rel="preconnect" href="https://googleads.g.doubleclick.net">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🏆 Ranking FGC - Melhores Renda Fixa</title>
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1004632420072229" crossorigin="anonymous"></script>
     <style>
         :root {
             --primary: #19364D; /* azul principal (blue-400) */
@@ -35,20 +31,44 @@
             margin: 0 auto;
             padding: 2rem 1rem;
         }
-        header {
+        .header-card {
+            background: rgba(19, 29, 39, 0.75);
+            border-radius: 12px;
+            padding: 30px;
+            border-left: 4px solid var(--primary);
+            border: 1px solid rgba(228, 209, 127, 0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
             text-align: center;
-            margin-bottom: 2rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
-        h1 {
+        .header-card:hover {
+            border-color: rgba(212, 181, 106, 0.4);
+            box-shadow: 0 6px 25px rgba(212, 181, 106, 0.15);
+        }
+        .header-card h1 {
             font-size: 2.5rem;
-            margin: 0 0 0.5rem 0;
+            margin: 0 0 5px 0;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .subtitle {
+        .header-card .tagline {
             color: var(--muted);
             font-size: 1.1rem;
+            margin: 0;
+        }
+        .header-card h1 {
+            font-size: 2.5rem;
+            margin: 0 0 5px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header-card .tagline {
+            color: var(--muted);
+            font-size: 1.1rem;
+            margin: 0;
         }
         .filters {
             display: flex;
@@ -95,14 +115,13 @@
             font-size: 0.9rem;
             color: var(--muted);
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--card);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-        }
+        
+        
+        
+        
+        table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.3); }
+        
+        thead th { position: sticky; top: 0; background: #06080D; z-index: 10; box-shadow: 0 2px 4px rgba(0,0,0,0.3); }
         th, td {
             padding: 0.75rem 1rem;
             border-bottom: 1px solid var(--border);
@@ -112,6 +131,16 @@
             font-weight: 600;
             color: var(--text);
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        /* Largura das colunas */
+        #ranking-table th:nth-child(4), /* Indexador */
+        #ranking-table td:nth-child(4) {
+            min-width: 120px;
+            white-space: nowrap;
         }
         td {
             text-align: center;
@@ -127,14 +156,14 @@
             padding: 1rem;
         }
         @media (max-width: 900px) {
-            table { font-size: 0.85rem; }
+            table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.3); }
             th, td { padding: 0.5rem; }
         }
         @media (max-width: 600px) {
             .filters { flex-direction: column; align-items: stretch; }
             .stats { gap: 1rem; }
             h1 { font-size: 1.8rem; }
-            table { display: block; overflow-x: auto; }
+            table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.3); }
         }
     
     .novo { background: #10b981; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-left: 5px; }
@@ -146,18 +175,32 @@
             .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; }
         }
 
-    </style>
+    
+/* Glow dourado suave */
+.card, .metric, .legend, section.card, .meta-info, .container > header, .back-button {
+    border: 1px solid rgba(228, 209, 127, 0.15);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.card:hover, .metric:hover, .legend:hover, section.card:hover, .meta-info:hover, .container > header:hover, .back-button:hover {
+    border-color: rgba(212, 181, 106, 0.4);
+    box-shadow: 0 6px 25px rgba(212, 181, 106, 0.15);
+}
+
+</style>
 </head>
 <body>
 <a href="../index.html" class="back-button" title="Voltar ao menu">
         ← Menu
     </a>
 
-    <p style="background:#059669; color:white; padding:10px; border-radius:8px; margin-bottom:20px;">🟢 Selo <strong>Novo</strong> indica produto detectado nesta atualização. Atualizado semanalmente.</p>>
     <div class="container">
-        <header>
-            <h1>Ranking FGC</h1>
-            <p class="subtitle">Melhores produtos de Renda Fixa com proteção do Fundo Garantidor de Créditos</p>
+        <div class="header-card">
+            <header>
+                <h1>Ranking Renda Fixa FGC</h1>
+                <p class="tagline">Melhores produtos de Renda Fixa com proteção do Fundo Garantidor de Créditos</p>
+            </header>
+        </div>
             <div class="filters">
                 <div class="filter-group">
                     <label for="indexador-filter">Indexador:</label>
@@ -182,29 +225,19 @@
             </div>
             <div class="stats">
                 <div class="stat">
-                    <div class="stat-value">78</div>
+                    <div class="stat-value" id="total-produtos">78</div>
                     <div class="stat-label">Produtos FGC</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-value">0</div>
-                    <div class="stat-label">Novos (24h)</div>
+                    <div class="stat-value" id="produtos-novos">1</div>
+                    <div class="stat-label">Novos (última Atualização)</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-value">11.51%</div>
+                    <div class="stat-value" id="rent-media">11.51%</div>
                     <div class="stat-label">Rent. Média Líq.</div>
                 </div>
             </div>
-        </header>
-
-            <main>
-        <!-- AdSense responsive ad -->
-        <ins class="adsbygoogle"
-             style="display:block; margin: 20px auto; text-align: center;"
-             data-ad-client="ca-pub-1004632420072229"
-            
-             data-ad-format="auto"
-            ></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div> <!-- Fecha header-card -->
 
             <table id="ranking-table">
                 <thead>
@@ -218,1265 +251,15 @@
                         <th>Rent. Líquida</th>
                         <th>Mínimo</th>
                         <th>Prazo</th>
-                        <th>Ação</th>
-                    <th>Primeira aparição</th>
+                        <th>Primeira aparição</th>
 </tr>
                 </thead>
-                <tbody>
-                                <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#1</td>
-                <td>
-                    <strong>Original 95% CDI</strong><br>
-                    <small style="color:var(--muted)">Original • XP Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">LCA</td>
-                <td style="text-align:center;color:#22c55e">13.66% a.a.</td>
-                <td style="text-align:center;color:#22c55e">13.66% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">13/02/2027<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#2</td>
-                <td>
-                    <strong>Bari 98% CDI</strong><br>
-                    <small style="color:var(--muted)">Bari • Bari</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">LCI</td>
-                <td style="text-align:center;color:#22c55e">13.55% a.a.</td>
-                <td style="text-align:center;color:#22c55e">13.55% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">14/02/2029<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#3</td>
-                <td>
-                    <strong>Bari 97% CDI</strong><br>
-                    <small style="color:var(--muted)">Bari • Bari</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">LCI</td>
-                <td style="text-align:center;color:#22c55e">13.46% a.a.</td>
-                <td style="text-align:center;color:#22c55e">13.46% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">14/02/2028<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#4</td>
-                <td>
-                    <strong>Original 97% CDI</strong><br>
-                    <small style="color:var(--muted)">Original • XP Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">LCA</td>
-                <td style="text-align:center;color:#22c55e">13.46% a.a.</td>
-                <td style="text-align:center;color:#22c55e">13.46% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">13/02/2028<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#5</td>
-                <td>
-                    <strong>Pine 95% CDI</strong><br>
-                    <small style="color:var(--muted)">Pine • Pine Online</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">LCA</td>
-                <td style="text-align:center;color:#22c55e">13.19% a.a.</td>
-                <td style="text-align:center;color:#22c55e">13.19% a.a.</td>
-                <td style="text-align:center">R$ 500,00</td>
-                <td style="text-align:center">15/02/2028<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="Pré-fixado" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#6</td>
-                <td>
-                    <strong>Bari Prefixado 13,1%</strong><br>
-                    <small style="color:var(--muted)">Bari • Bari</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">Pré-fixado</span></td>
-                <td style="text-align:center">LCI</td>
-                <td style="text-align:center;color:#22c55e">13.10% a.a.</td>
-                <td style="text-align:center;color:#22c55e">13.10% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">14/02/2029<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#7</td>
-                <td>
-                    <strong>China Construction Bank 91% CDI</strong><br>
-                    <small style="color:var(--muted)">China Construction Bank • Ágora Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">LCA</td>
-                <td style="text-align:center;color:#22c55e">13.09% a.a.</td>
-                <td style="text-align:center;color:#22c55e">13.09% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">16/02/2027<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#8</td>
-                <td>
-                    <strong>Banco Inter 91% CDI</strong><br>
-                    <small style="color:var(--muted)">Banco Inter • Banco Inter</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">LCI</td>
-                <td style="text-align:center;color:#22c55e">13.09% a.a.</td>
-                <td style="text-align:center;color:#22c55e">13.09% a.a.</td>
-                <td style="text-align:center">R$ 50,00</td>
-                <td style="text-align:center">09/02/2027<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#9</td>
-                <td>
-                    <strong>Banco Inter 91% CDI</strong><br>
-                    <small style="color:var(--muted)">Banco Inter • Banco Inter</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">LCA</td>
-                <td style="text-align:center;color:#22c55e">13.09% a.a.</td>
-                <td style="text-align:center;color:#22c55e">13.09% a.a.</td>
-                <td style="text-align:center">R$ 100,00</td>
-                <td style="text-align:center">09/02/2027<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#10</td>
-                <td>
-                    <strong>BTG Pactual 90% CDI</strong><br>
-                    <small style="color:var(--muted)">BTG Pactual • Nu invest</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">LCA</td>
-                <td style="text-align:center;color:#f59e0b">12.94% a.a.</td>
-                <td style="text-align:center;color:#f59e0b">12.94% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">16/02/2027<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#11</td>
-                <td>
-                    <strong>Bancoob 90% CDI</strong><br>
-                    <small style="color:var(--muted)">Bancoob • XP Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">LCA</td>
-                <td style="text-align:center;color:#f59e0b">12.94% a.a.</td>
-                <td style="text-align:center;color:#f59e0b">12.94% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">13/02/2027<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#12</td>
-                <td>
-                    <strong>BTG Pactual 89% CDI</strong><br>
-                    <small style="color:var(--muted)">BTG Pactual • BTG Pactual</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">LCA</td>
-                <td style="text-align:center;color:#f59e0b">12.80% a.a.</td>
-                <td style="text-align:center;color:#f59e0b">12.80% a.a.</td>
-                <td style="text-align:center">R$ 500,00</td>
-                <td style="text-align:center">16/02/2027<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#13</td>
-                <td>
-                    <strong>BDMG 89% CDI</strong><br>
-                    <small style="color:var(--muted)">BDMG • BTG Pactual</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">LCA</td>
-                <td style="text-align:center;color:#f59e0b">12.80% a.a.</td>
-                <td style="text-align:center;color:#f59e0b">12.80% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">16/02/2027<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#14</td>
-                <td>
-                    <strong>BTG Pactual 89% CDI</strong><br>
-                    <small style="color:var(--muted)">BTG Pactual • BTG Pactual</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">LCA</td>
-                <td style="text-align:center;color:#f59e0b">12.67% a.a.</td>
-                <td style="text-align:center;color:#f59e0b">12.67% a.a.</td>
-                <td style="text-align:center">R$ 500,00</td>
-                <td style="text-align:center">17/02/2027<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#15</td>
-                <td>
-                    <strong>Original 118% CDI</strong><br>
-                    <small style="color:var(--muted)">Original • Nu invest</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#f59e0b">14.15% a.a.</td>
-                <td style="text-align:center;color:#f59e0b">12.03% a.a.</td>
-                <td style="text-align:center">R$ 100,00</td>
-                <td style="text-align:center">14/02/2029<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#16</td>
-                <td>
-                    <strong>Paulista 115% CDI</strong><br>
-                    <small style="color:var(--muted)">Paulista • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#f59e0b">14.15% a.a.</td>
-                <td style="text-align:center;color:#f59e0b">12.03% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">14/02/2031<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#17</td>
-                <td>
-                    <strong>Digimais 117% CDI</strong><br>
-                    <small style="color:var(--muted)">Digimais • Nu invest</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">14.03% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.93% a.a.</td>
-                <td style="text-align:center">R$ 100,00</td>
-                <td style="text-align:center">31/01/2029<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="longo">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#18</td>
-                <td>
-                    <strong>Luso Brasileiro 114% CDI</strong><br>
-                    <small style="color:var(--muted)">Luso Brasileiro • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">14.03% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.93% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">20/02/2031<br><small>Longo</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#19</td>
-                <td>
-                    <strong>Original 115,5% CDI</strong><br>
-                    <small style="color:var(--muted)">Original • Órama</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.85% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.77% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">03/02/2029<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#20</td>
-                <td>
-                    <strong>Omni Banco 115% CDI</strong><br>
-                    <small style="color:var(--muted)">Omni Banco • Órama</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.78% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.71% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">03/02/2029<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#21</td>
-                <td>
-                    <strong>Ourinvest 111,5% CDI</strong><br>
-                    <small style="color:var(--muted)">Ourinvest • XP Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.71% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.65% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">12/02/2031<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#22</td>
-                <td>
-                    <strong>Paulista 114% CDI</strong><br>
-                    <small style="color:var(--muted)">Paulista • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.67% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.62% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">14/02/2029<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#23</td>
-                <td>
-                    <strong>Luso Brasileiro 114% CDI</strong><br>
-                    <small style="color:var(--muted)">Luso Brasileiro • Órama</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.66% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.61% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">03/02/2029<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#24</td>
-                <td>
-                    <strong>Arbi 114% CDI</strong><br>
-                    <small style="color:var(--muted)">Arbi • Órama</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.66% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.61% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">03/02/2029<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="longo">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#25</td>
-                <td>
-                    <strong>Omni Banco 111% CDI</strong><br>
-                    <small style="color:var(--muted)">Omni Banco • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.65% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.60% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">20/02/2031<br><small>Longo</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="longo">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#26</td>
-                <td>
-                    <strong>BMG 111% CDI</strong><br>
-                    <small style="color:var(--muted)">BMG • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.65% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.60% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">20/02/2031<br><small>Longo</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#27</td>
-                <td>
-                    <strong>Ourinvest 111% CDI</strong><br>
-                    <small style="color:var(--muted)">Ourinvest • Nu invest</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.65% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.60% a.a.</td>
-                <td style="text-align:center">R$ 100,00</td>
-                <td style="text-align:center">14/02/2031<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#28</td>
-                <td>
-                    <strong>Luso Brasileiro 113% CDI</strong><br>
-                    <small style="color:var(--muted)">Luso Brasileiro • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.52% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.49% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">17/02/2029<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#29</td>
-                <td>
-                    <strong>Luso Brasileiro 110% CDI</strong><br>
-                    <small style="color:var(--muted)">Luso Brasileiro • XP Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.52% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.49% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">12/02/2031<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#30</td>
-                <td>
-                    <strong>Bari 112% CDI</strong><br>
-                    <small style="color:var(--muted)">Bari • Bari</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.42% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.41% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">14/02/2029<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#31</td>
-                <td>
-                    <strong>Paraná Banco 112% CDI</strong><br>
-                    <small style="color:var(--muted)">Paraná Banco • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.42% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.41% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">31/01/2029<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="longo">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#32</td>
-                <td>
-                    <strong>Banco Industrial do Brasil 109% CDI</strong><br>
-                    <small style="color:var(--muted)">Banco Industrial do Brasil • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.40% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.39% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">20/02/2031<br><small>Longo</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#33</td>
-                <td>
-                    <strong>Agibank 111,5% CDI</strong><br>
-                    <small style="color:var(--muted)">Agibank • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.34% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.34% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">17/02/2029<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#34</td>
-                <td>
-                    <strong>Original 115% CDI</strong><br>
-                    <small style="color:var(--muted)">Original • Nu invest</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.71% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.31% a.a.</td>
-                <td style="text-align:center">R$ 100,00</td>
-                <td style="text-align:center">05/02/2028<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#35</td>
-                <td>
-                    <strong>Original 111% CDI</strong><br>
-                    <small style="color:var(--muted)">Original • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.30% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.30% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">31/01/2029<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#36</td>
-                <td>
-                    <strong>BS2 112% CDI</strong><br>
-                    <small style="color:var(--muted)">BS2 • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.29% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.30% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">18/02/2028<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#37</td>
-                <td>
-                    <strong>Omni Banco 111% CDI</strong><br>
-                    <small style="color:var(--muted)">Omni Banco • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.28% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.29% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">17/02/2029<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#38</td>
-                <td>
-                    <strong>Original 114,5% CDI</strong><br>
-                    <small style="color:var(--muted)">Original • Órama</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.65% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.26% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">10/02/2028<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#39</td>
-                <td>
-                    <strong>Paulista 111% CDI</strong><br>
-                    <small style="color:var(--muted)">Paulista • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.23% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.25% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">16/02/2028<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#40</td>
-                <td>
-                    <strong>Digimais 107,5% CDI</strong><br>
-                    <small style="color:var(--muted)">Digimais • BTG Pactual</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.21% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.23% a.a.</td>
-                <td style="text-align:center">R$ 5.000,00</td>
-                <td style="text-align:center">13/02/2031<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#41</td>
-                <td>
-                    <strong>Omni Banco 114% CDI</strong><br>
-                    <small style="color:var(--muted)">Omni Banco • Órama</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.59% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.21% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">10/02/2028<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#42</td>
-                <td>
-                    <strong>Pine 110% CDI</strong><br>
-                    <small style="color:var(--muted)">Pine • Pine Online</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.18% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.20% a.a.</td>
-                <td style="text-align:center">R$ 500,00</td>
-                <td style="text-align:center">14/02/2029<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#43</td>
-                <td>
-                    <strong>Luso Brasileiro 110% CDI</strong><br>
-                    <small style="color:var(--muted)">Luso Brasileiro • XP Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.18% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.20% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">12/02/2029<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#44</td>
-                <td>
-                    <strong>BMG 110% CDI</strong><br>
-                    <small style="color:var(--muted)">BMG • Órama</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.18% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.20% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">03/02/2029<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#45</td>
-                <td>
-                    <strong>RNX 110% CDI</strong><br>
-                    <small style="color:var(--muted)">RNX • Órama</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.18% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.20% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">03/02/2029<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#46</td>
-                <td>
-                    <strong>Digimais 111% CDI</strong><br>
-                    <small style="color:var(--muted)">Digimais • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.17% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.19% a.a.</td>
-                <td style="text-align:center">R$ 5.000,00</td>
-                <td style="text-align:center">18/02/2028<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#47</td>
-                <td>
-                    <strong>Tribanco 107% CDI</strong><br>
-                    <small style="color:var(--muted)">Tribanco • Ágora Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.14% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.17% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">14/02/2031<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#48</td>
-                <td>
-                    <strong>BS2 113% CDI</strong><br>
-                    <small style="color:var(--muted)">BS2 • Órama</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.47% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.11% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">10/02/2028<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#49</td>
-                <td>
-                    <strong>Topázio 113% CDI</strong><br>
-                    <small style="color:var(--muted)">Topázio • Órama</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.47% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.11% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">10/02/2028<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#50</td>
-                <td>
-                    <strong>Luso Brasileiro 110% CDI</strong><br>
-                    <small style="color:var(--muted)">Luso Brasileiro • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.05% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.09% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">18/02/2028<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#51</td>
-                <td>
-                    <strong>BMG 109% CDI</strong><br>
-                    <small style="color:var(--muted)">BMG • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.04% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.08% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">17/02/2029<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#52</td>
-                <td>
-                    <strong>Ourinvest 108,5% CDI</strong><br>
-                    <small style="color:var(--muted)">Ourinvest • XP Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.00% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.05% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">12/02/2029<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#53</td>
-                <td>
-                    <strong>Agibank 109% CDI</strong><br>
-                    <small style="color:var(--muted)">Agibank • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">12.99% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.04% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">17/02/2028<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#54</td>
-                <td>
-                    <strong>Arbi 112% CDI</strong><br>
-                    <small style="color:var(--muted)">Arbi • Órama</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.35% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.01% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">10/02/2028<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="Pré-fixado" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#55</td>
-                <td>
-                    <strong>NBC Prefixado 14,72%</strong><br>
-                    <small style="color:var(--muted)">NBC • BTG Pactual</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">Pré-fixado</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">12.95% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.01% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">14/02/2031<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#56</td>
-                <td>
-                    <strong>BS2 112% CDI</strong><br>
-                    <small style="color:var(--muted)">BS2 • Nu invest</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.34% a.a.</td>
-                <td style="text-align:center;color:#64748b">11.01% a.a.</td>
-                <td style="text-align:center">R$ 100,00</td>
-                <td style="text-align:center">05/02/2028<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#57</td>
-                <td>
-                    <strong>BMG 109% CDI</strong><br>
-                    <small style="color:var(--muted)">BMG • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">12.93% a.a.</td>
-                <td style="text-align:center;color:#64748b">10.99% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">18/02/2028<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#58</td>
-                <td>
-                    <strong>Tribanco 105% CDI</strong><br>
-                    <small style="color:var(--muted)">Tribanco • BTG Pactual</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">12.89% a.a.</td>
-                <td style="text-align:center;color:#64748b">10.96% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">14/02/2031<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#59</td>
-                <td>
-                    <strong>BS2 112% CDI</strong><br>
-                    <small style="color:var(--muted)">BS2 • Nu invest</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.28% a.a.</td>
-                <td style="text-align:center;color:#64748b">10.96% a.a.</td>
-                <td style="text-align:center">R$ 100,00</td>
-                <td style="text-align:center">10/02/2027<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#60</td>
-                <td>
-                    <strong>Pine CDI + 0,57%</strong><br>
-                    <small style="color:var(--muted)">Pine • Nova Futura Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">12.85% a.a.</td>
-                <td style="text-align:center;color:#64748b">10.92% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">14/02/2031<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#61</td>
-                <td>
-                    <strong>Bari 111% CDI</strong><br>
-                    <small style="color:var(--muted)">Bari • Bari</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.23% a.a.</td>
-                <td style="text-align:center;color:#64748b">10.91% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">14/02/2028<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#62</td>
-                <td>
-                    <strong>Digimais 111% CDI</strong><br>
-                    <small style="color:var(--muted)">Digimais • Nu invest</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.22% a.a.</td>
-                <td style="text-align:center;color:#64748b">10.91% a.a.</td>
-                <td style="text-align:center">R$ 100,00</td>
-                <td style="text-align:center">05/02/2028<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#63</td>
-                <td>
-                    <strong>Pine 104,5% CDI</strong><br>
-                    <small style="color:var(--muted)">Pine • Pine Online</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">12.83% a.a.</td>
-                <td style="text-align:center;color:#64748b">10.91% a.a.</td>
-                <td style="text-align:center">R$ 500,00</td>
-                <td style="text-align:center">14/02/2031<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="medio">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#64</td>
-                <td>
-                    <strong>C6 Bank 104,5% CDI</strong><br>
-                    <small style="color:var(--muted)">C6 Bank • Nova Futura Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">12.83% a.a.</td>
-                <td style="text-align:center;color:#64748b">10.91% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">14/02/2031<br><small>Medio</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#65</td>
-                <td>
-                    <strong>Pine 110% CDI</strong><br>
-                    <small style="color:var(--muted)">Pine • Pine Online</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.11% a.a.</td>
-                <td style="text-align:center;color:#64748b">10.82% a.a.</td>
-                <td style="text-align:center">R$ 500,00</td>
-                <td style="text-align:center">14/02/2028<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#66</td>
-                <td>
-                    <strong>BMG 110% CDI</strong><br>
-                    <small style="color:var(--muted)">BMG • Órama</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.11% a.a.</td>
-                <td style="text-align:center;color:#64748b">10.82% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">10/02/2028<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#67</td>
-                <td>
-                    <strong>RNX 110% CDI</strong><br>
-                    <small style="color:var(--muted)">RNX • Órama</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.11% a.a.</td>
-                <td style="text-align:center;color:#64748b">10.82% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">10/02/2028<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#68</td>
-                <td>
-                    <strong>Pine 110% CDI</strong><br>
-                    <small style="color:var(--muted)">Pine • Pine Online</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.05% a.a.</td>
-                <td style="text-align:center;color:#64748b">10.77% a.a.</td>
-                <td style="text-align:center">R$ 500,00</td>
-                <td style="text-align:center">14/02/2027<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#69</td>
-                <td>
-                    <strong>BS2 110% CDI</strong><br>
-                    <small style="color:var(--muted)">BS2 • Órama</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">13.05% a.a.</td>
-                <td style="text-align:center;color:#64748b">10.77% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">14/02/2027<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#70</td>
-                <td>
-                    <strong>PagBank 109% CDI</strong><br>
-                    <small style="color:var(--muted)">PagBank • Nu invest</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">12.93% a.a.</td>
-                <td style="text-align:center;color:#64748b">10.67% a.a.</td>
-                <td style="text-align:center">R$ 100,00</td>
-                <td style="text-align:center">14/02/2027<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#71</td>
-                <td>
-                    <strong>Topázio 109% CDI</strong><br>
-                    <small style="color:var(--muted)">Topázio • Órama</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">12.93% a.a.</td>
-                <td style="text-align:center;color:#64748b">10.67% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">14/02/2027<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#72</td>
-                <td>
-                    <strong>BS2 110% CDI</strong><br>
-                    <small style="color:var(--muted)">BS2 • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">12.92% a.a.</td>
-                <td style="text-align:center;color:#64748b">10.66% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">20/02/2027<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#73</td>
-                <td>
-                    <strong>Digimais 107,5% CDI</strong><br>
-                    <small style="color:var(--muted)">Digimais • Nova Futura Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">12.75% a.a.</td>
-                <td style="text-align:center;color:#64748b">10.52% a.a.</td>
-                <td style="text-align:center">R$ 5.000,00</td>
-                <td style="text-align:center">16/02/2027<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="Pré-fixado" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#74</td>
-                <td>
-                    <strong>Pine Prefixado 15,45%</strong><br>
-                    <small style="color:var(--muted)">Pine • Pine Online</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">Pré-fixado</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">12.74% a.a.</td>
-                <td style="text-align:center;color:#64748b">10.51% a.a.</td>
-                <td style="text-align:center">R$ 500,00</td>
-                <td style="text-align:center">16/02/2027<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#75</td>
-                <td>
-                    <strong>PagBank 107% CDI</strong><br>
-                    <small style="color:var(--muted)">PagBank • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">BBB</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">12.56% a.a.</td>
-                <td style="text-align:center;color:#64748b">10.36% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">20/02/2027<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#76</td>
-                <td>
-                    <strong>Banco Industrial do Brasil 107% CDI</strong><br>
-                    <small style="color:var(--muted)">Banco Industrial do Brasil • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">12.56% a.a.</td>
-                <td style="text-align:center;color:#64748b">10.36% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">20/02/2027<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#77</td>
-                <td>
-                    <strong>BMG 106% CDI</strong><br>
-                    <small style="color:var(--muted)">BMG • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">12.45% a.a.</td>
-                <td style="text-align:center;color:#64748b">10.27% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">20/02/2027<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
-            <tr data-indexador="CDI" data-prazo="curto">
-                <td style="text-align:center;font-weight:700;color:var(--primary);">#78</td>
-                <td>
-                    <strong>Luso Brasileiro 106% CDI</strong><br>
-                    <small style="color:var(--muted)">Luso Brasileiro • Guide Investimentos</small>
-                </td>
-                <td style="text-align:center"><span style="background:#f1f5f9;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">N/A</span></td>
-                <td style="text-align:center"><span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">CDI</span></td>
-                <td style="text-align:center">CDB</td>
-                <td style="text-align:center;color:#64748b">12.45% a.a.</td>
-                <td style="text-align:center;color:#64748b">10.27% a.a.</td>
-                <td style="text-align:center">R$ 1.000,00</td>
-                <td style="text-align:center">20/02/2027<br><small>Curto</small></td>
-                <td style="text-align:center; vertical-align:middle;"><span style="background:var(--positive);color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; white-space: nowrap;">FGC ✅</span></td>
-            </tr>
-        
+                                <tbody id="ranking-body">
                 </tbody>
             </table>
-        </main>
 
         <footer>
-            <p>Atualizado em 14/02/2026 16:57 • Dados coletados via Yubb</p>
+            <p><span id="last-updated">Atualizado em 14/02/2026 16:57</span> • Dados coletados via Yubb</p>
             <p>Isenção de responsabilidade: Esta página é educativa, não constitui recomendação de investimento.</p>
         </footer>
     </div>
@@ -1511,5 +294,6 @@
         });
     </script>
 <!-- FGCHISTORY: data/fgc_history.json com {id: data_primeira} -->
+        <script src="scripts/fgc-dynamic.js"></script>
 </body>
 </html>

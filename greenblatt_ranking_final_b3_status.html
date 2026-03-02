@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Ranking Greenblatt - Final (B3 + Recuperação)</title>
+    <style>
+        :root{--bg:#06080D;--card:rgba(19,29,39,0.75);--text:#e2e8f0;--primary:#19364D;--secondary:#AA8451;--accent:#E4D17F;--muted:#94a3b8;--border:#334155;--positive:#10b981;--negative:#ef4444}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:Inter,sans-serif;background:var(--bg);color:var(--text);padding:1rem;line-height:1.6}
+        .container{max-width:100%;margin:0 auto;overflow-x:auto}
+        h1{background:linear-gradient(135deg,#19364D,#AA8451);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem;font-size:1.5rem}
+        .alert{background:rgba(239,68,68,0.15);border:1px solid var(--negative);border-radius:8px;padding:0.75rem;margin-bottom:1rem;color:#fca5a5}
+        table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.3);margin-top:1rem;min-width:950px}
+        th{background:rgba(25,54,77,0.3);color:var(--accent);font-weight:600;padding:0.75rem 0.5rem;text-align:left;font-size:0.85rem}
+        td{padding:0.6rem 0.5rem;border-bottom:1px solid var(--border);font-size:0.8rem}
+        tr:hover{background:rgba(228,209,127,0.05)}
+        .pos{width:40px;text-align:center;color:var(--accent);font-weight:700}
+        .ticker{font-weight:600;color:var(--secondary)}
+        .roic{color:var(--positive);text-align:right}
+        .ey,.ev,.dy{text-align:right}
+        .dy{color:var(--positive)}
+        .vol{text-align:right;color:var(--muted)}
+        .score{text-align:center;font-weight:600;color:var(--accent)}
+        .footer{margin-top:1rem;color:var(--muted);font-size:0.8rem;text-align:center}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ranking Greenblatt - Magic Formula (B3 + Recuperação)</h1>
+        <div class="alert">
+            ⚠️ <strong>Atenção:</strong> 1 empresa está em recuperação judicial (ODPV3, Pos 9). 
+            Isso implica risco elevado – considere na sua análise.
+        </div>
+        <table>
+            <thead><tr><th>Pos</th><th>Ticker</th><th>Empresa</th><th>Setor (B3)</th><th>ROIC</th><th>EY</th><th>EV/EBIT</th><th>DY%</th><th>Volume</th><th>Score</th><th>Status</th></tr></thead>
+            <tbody>
+                <tr >
+                    <td class="pos" style="color: var(--accent); font-weight: 700;">1</td>
+                    <td class="ticker" style="color: var(--secondary); font-weight: 600;">QUAL3</td>
+                    <td>Qualicorp Consultoria e C</td>
+                    <td>Saúde / Serviços de Saúde</td>
+                    <td class="roic" style="color: var(--positive);">19.33%</td>
+                    <td class="ey">37.17%</td>
+                    <td class="ev">2.69</td>
+                    <td class="dy" >0.26%</td>
+                    <td class="vol">R$ 3.7M</td>
+                    <td class="score">9</td>
+                    <td></td>
+                </tr>
+                <tr >
+                    <td class="pos" style="color: var(--accent); font-weight: 700;">2</td>
+                    <td class="ticker" style="color: var(--secondary); font-weight: 600;">PLPL3</td>
+                    <td>Plano & Plano Desenvolvim</td>
+                    <td>Financeiro e Outros / Exploração, Desenvolvimento e Incorporação Imobiliária</td>
+                    <td class="roic" style="color: var(--positive);">29.26%</td>
+                    <td class="ey">23.98%</td>
+                    <td class="ev">4.17</td>
+                    <td class="dy" style="color: var(--positive);">9.69%</td>
+                    <td class="vol">R$ 1.7M</td>
+                    <td class="score">10</td>
+                    <td></td>
+                </tr>
+                <tr >
+                    <td class="pos" style="color: var(--accent); font-weight: 700;">2</td>
+                    <td class="ticker" style="color: var(--secondary); font-weight: 600;">LREN3</td>
+                    <td>Lojas Renner S.A.</td>
+                    <td>Consumo Cíclico</td>
+                    <td class="roic" style="color: var(--positive);">22.96%</td>
+                    <td class="ey">24.33%</td>
+                    <td class="ev">4.11</td>
+                    <td class="dy" style="color: var(--positive);">5.85%</td>
+                    <td class="vol">R$ 16.8M</td>
+                    <td class="score">10</td>
+                    <td></td>
+                </tr>
+                <tr >
+                    <td class="pos" >4</td>
+                    <td class="ticker" style="color: var(--secondary); font-weight: 600;">PETR4</td>
+                    <td>Petróleo Brasileiro S.A. </td>
+                    <td>Petróleo, Gás e Biocombustíveis / Exploração, Refino e Distribuição</td>
+                    <td class="roic" style="color: var(--positive);">17.85%</td>
+                    <td class="ey">25.25%</td>
+                    <td class="ev">3.96</td>
+                    <td class="dy" style="color: var(--positive);">11.79%</td>
+                    <td class="vol">R$ 40.5M</td>
+                    <td class="score">12</td>
+                    <td></td>
+                </tr>
+                <tr >
+                    <td class="pos" >5</td>
+                    <td class="ticker" style="color: var(--secondary); font-weight: 600;">ASAI3</td>
+                    <td>Sendas Distribuidora S.A.</td>
+                    <td>Consumo Não Cíclico / Comércio Varejista de Supermercados</td>
+                    <td class="roic" style="color: var(--positive);">19.41%</td>
+                    <td class="ey">24.04%</td>
+                    <td class="ev">4.16</td>
+                    <td class="dy" >1.27%</td>
+                    <td class="vol">R$ 17.7M</td>
+                    <td class="score">13</td>
+                    <td></td>
+                </tr>
+                <tr >
+                    <td class="pos" >6</td>
+                    <td class="ticker" style="color: var(--secondary); font-weight: 600;">PETR3</td>
+                    <td>Petróleo Brasileiro S.A. </td>
+                    <td>Petróleo, Gás e Biocombustíveis / Exploração, Refino e Distribuição</td>
+                    <td class="roic" style="color: var(--positive);">17.85%</td>
+                    <td class="ey">24.39%</td>
+                    <td class="ev">4.10</td>
+                    <td class="dy" style="color: var(--positive);">10.85%</td>
+                    <td class="vol">R$ 12.8M</td>
+                    <td class="score">14</td>
+                    <td></td>
+                </tr>
+                <tr >
+                    <td class="pos" >7</td>
+                    <td class="ticker" style="color: var(--secondary); font-weight: 600;">CMIN3</td>
+                    <td>CSN Mineração S.A.</td>
+                    <td>Materiais Básicos / Mineração</td>
+                    <td class="roic" style="color: var(--positive);">26.67%</td>
+                    <td class="ey">19.61%</td>
+                    <td class="ev">5.10</td>
+                    <td class="dy" style="color: var(--positive);">9.61%</td>
+                    <td class="vol">R$ 7.9M</td>
+                    <td class="score">15</td>
+                    <td></td>
+                </tr>
+                <tr >
+                    <td class="pos" >8</td>
+                    <td class="ticker" style="color: var(--secondary); font-weight: 600;">CEAB3</td>
+                    <td>C&A Modas S.A.</td>
+                    <td>Consumo Não Cíclico / Comércio Varejista de Vestuário</td>
+                    <td class="roic" style="color: var(--positive);">16.14%</td>
+                    <td class="ey">24.88%</td>
+                    <td class="ev">4.02</td>
+                    <td class="dy" style="color: var(--positive);">6.99%</td>
+                    <td class="vol">R$ 12.9M</td>
+                    <td class="score">16</td>
+                    <td></td>
+                </tr>
+                <tr style="background: rgba(239, 68, 68, 0.1);">
+                    <td class="pos" >9</td>
+                    <td class="ticker" style="color: var(--secondary); font-weight: 600;">ODPV3</td>
+                    <td>Odontoprev S.A.</td>
+                    <td>Saúde / Serviços de Saúde</td>
+                    <td class="roic" style="color: var(--positive);">47.54%</td>
+                    <td class="ey">12.77%</td>
+                    <td class="ev">7.83</td>
+                    <td class="dy" style="color: var(--positive);">6.84%</td>
+                    <td class="vol">R$ 2.8M</td>
+                    <td class="score">21</td>
+                    <td style="color: #ef4444; font-weight: 600; text-align: center; font-size: 0.8rem;">⚠️ RECUPERAÇÃO</td>
+                </tr>
+                <tr >
+                    <td class="pos" >10</td>
+                    <td class="ticker" style="color: var(--secondary); font-weight: 600;">PSSA3</td>
+                    <td>Porto Seguro S.A.</td>
+                    <td>Serviços Financeiros</td>
+                    <td class="roic" >11.72%</td>
+                    <td class="ey">158.73%</td>
+                    <td class="ev">0.63</td>
+                    <td class="dy" style="color: var(--positive);">4.11%</td>
+                    <td class="vol">R$ 2.1M</td>
+                    <td class="score">22</td>
+                    <td></td>
+                </tr>
+                <tr >
+                    <td class="pos" >11</td>
+                    <td class="ticker" style="color: var(--secondary); font-weight: 600;">POMO4</td>
+                    <td>Marcopolo S.A.</td>
+                    <td>Bens Industriais / Transportes e Logística</td>
+                    <td class="roic" style="color: var(--positive);">20.09%</td>
+                    <td class="ey">15.36%</td>
+                    <td class="ev">6.51</td>
+                    <td class="dy" style="color: var(--positive);">16.65%</td>
+                    <td class="vol">R$ 12.5M</td>
+                    <td class="score">23</td>
+                    <td></td>
+                </tr>
+                <tr >
+                    <td class="pos" >12</td>
+                    <td class="ticker" style="color: var(--secondary); font-weight: 600;">ANIM3</td>
+                    <td>Ânima Holding S.A.</td>
+                    <td>Consumo Não Cíclico / Educação</td>
+                    <td class="roic" >14.37%</td>
+                    <td class="ey">20.28%</td>
+                    <td class="ev">4.93</td>
+                    <td class="dy" >1.04%</td>
+                    <td class="vol">R$ 8.2M</td>
+                    <td class="score">26</td>
+                    <td></td>
+                </tr>
+                <tr >
+                    <td class="pos" >13</td>
+                    <td class="ticker" style="color: var(--secondary); font-weight: 600;">SEER3</td>
+                    <td>Ser Educacional S.A.</td>
+                    <td>Consumo Não Cíclico / Educação</td>
+                    <td class="roic" >14.03%</td>
+                    <td class="ey">20.20%</td>
+                    <td class="ev">4.95</td>
+                    <td class="dy" >1.25%</td>
+                    <td class="vol">R$ 1.3M</td>
+                    <td class="score">28</td>
+                    <td></td>
+                </tr>
+                <tr >
+                    <td class="pos" >13</td>
+                    <td class="ticker" style="color: var(--secondary); font-weight: 600;">VALE3</td>
+                    <td>Vale S.A.</td>
+                    <td>Materiais Básicos / Mineração</td>
+                    <td class="roic" style="color: var(--positive);">16.71%</td>
+                    <td class="ey">15.53%</td>
+                    <td class="ev">6.44</td>
+                    <td class="dy" style="color: var(--positive);">7.79%</td>
+                    <td class="vol">R$ 30.9M</td>
+                    <td class="score">28</td>
+                    <td></td>
+                </tr>
+                <tr >
+                    <td class="pos" >13</td>
+                    <td class="ticker" style="color: var(--secondary); font-weight: 600;">CASH3</td>
+                    <td>Méliuz S.A.</td>
+                    <td>Tecnologia da Informação / Serviços de Tecnologia da Informação</td>
+                    <td class="roic" >13.13%</td>
+                    <td class="ey">23.20%</td>
+                    <td class="ev">4.31</td>
+                    <td class="dy" >0.00%</td>
+                    <td class="vol">R$ 1.7M</td>
+                    <td class="score">28</td>
+                    <td></td>
+                </tr>
+                <tr >
+                    <td class="pos" >16</td>
+                    <td class="ticker" style="color: var(--secondary); font-weight: 600;">MOVI3</td>
+                    <td>Movida Participações S.A.</td>
+                    <td>Bens Industriais / Locação de Equipamentos</td>
+                    <td class="roic" style="color: var(--positive);">15.29%</td>
+                    <td class="ey">16.61%</td>
+                    <td class="ev">6.02</td>
+                    <td class="dy" style="color: var(--positive);">6.28%</td>
+                    <td class="vol">R$ 5.0M</td>
+                    <td class="score">29</td>
+                    <td></td>
+                </tr>
+                <tr >
+                    <td class="pos" >16</td>
+                    <td class="ticker" style="color: var(--secondary); font-weight: 600;">MILS3</td>
+                    <td>Mills Locação, Serviços e</td>
+                    <td>Bens Industriais / Locação de Equipamentos</td>
+                    <td class="roic" style="color: var(--positive);">18.59%</td>
+                    <td class="ey">12.74%</td>
+                    <td class="ev">7.85</td>
+                    <td class="dy" style="color: var(--positive);">4.97%</td>
+                    <td class="vol">R$ 1.3M</td>
+                    <td class="score">29</td>
+                    <td></td>
+                </tr>
+                <tr >
+                    <td class="pos" >18</td>
+                    <td class="ticker" style="color: var(--secondary); font-weight: 600;">VAMO3</td>
+                    <td>Vamos Locação de Caminhõe</td>
+                    <td>Bens Industriais / Locação de Equipamentos</td>
+                    <td class="roic" style="color: var(--positive);">15.20%</td>
+                    <td class="ey">16.03%</td>
+                    <td class="ev">6.24</td>
+                    <td class="dy" style="color: var(--positive);">3.20%</td>
+                    <td class="vol">R$ 17.1M</td>
+                    <td class="score">31</td>
+                    <td></td>
+                </tr>
+                <tr >
+                    <td class="pos" >18</td>
+                    <td class="ticker" style="color: var(--secondary); font-weight: 600;">RECV3</td>
+                    <td>Petroreconcavo S.A.</td>
+                    <td>Petróleo, Gás e Biocombustíveis / Exploração e Produção de Óleo e Gás</td>
+                    <td class="roic" >13.22%</td>
+                    <td class="ey">19.05%</td>
+                    <td class="ev">5.25</td>
+                    <td class="dy" style="color: var(--positive);">15.62%</td>
+                    <td class="vol">R$ 4.1M</td>
+                    <td class="score">31</td>
+                    <td></td>
+                </tr>
+                <tr >
+                    <td class="pos" >20</td>
+                    <td class="ticker" style="color: var(--secondary); font-weight: 600;">CPFE3</td>
+                    <td>CPFL Energia S.A.</td>
+                    <td>Utilidades Públicas / Energia Elétrica</td>
+                    <td class="roic" style="color: var(--positive);">15.64%</td>
+                    <td class="ey">14.20%</td>
+                    <td class="ev">7.04</td>
+                    <td class="dy" style="color: var(--positive);">5.55%</td>
+                    <td class="vol">R$ 2.1M</td>
+                    <td class="score">32</td>
+                    <td></td>
+                </tr>
+                <tr >
+                    <td class="pos" >21</td>
+                    <td class="ticker" style="color: var(--secondary); font-weight: 600;">GMAT3</td>
+                    <td>Grupo Mateus S.A.</td>
+                    <td>Consumo Não Cíclico / Serviços de Alimentação</td>
+                    <td class="roic" >12.49%</td>
+                    <td class="ey">17.83%</td>
+                    <td class="ev">5.61</td>
+                    <td class="dy" style="color: var(--positive);">4.36%</td>
+                    <td class="vol">R$ 9.0M</td>
+                    <td class="score">34</td>
+                    <td></td>
+                </tr>
+
+            </tbody>
+        </table>
+        <div class="footer">Dados: Fundamentus + yfinance (01/03/2026). Setores: classificação B3. Recuperação: verificação manual (parcial).</div>
+    </div>
+</body>
+</html>
