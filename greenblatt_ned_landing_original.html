@@ -18,19 +18,19 @@
         --negative: #ef4444;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
+                        body {
         font-family: system-ui, -apple-system, sans-serif;
         background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)),
                     url('../assets/fundo_site.jpg') no-repeat repeat fixed;
         background-size: cover;
         color: var(--text);
         line-height: 1.6;
-        padding: 60px 20px 2rem;
+        padding: 0 20px 2rem;
     }
-            .container {
+                .container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 2rem 1rem;
+        padding: 0 1rem;
     }
                     
                     
@@ -77,9 +77,34 @@
     a:hover { text-decoration: underline; }
     code { background: rgba(0,0,0,0.3); padding: .2rem .4rem; border-radius: 4px; font-family: monospace; font-size: .9em; }
   
-        .back-button { background: rgba(251,191,36,0.9); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: background 0.2s, transform 0.1s; z-index: 1000; }
+                .back-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(251, 191, 36, 0.9);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        transition: background 0.2s, transform 0.1s;
+        z-index: 1000;
+    }
         .back-button:hover { background: var(--accent); transform: translateY(-1px); }
-        @media (max-width: 768px) { .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; } }
+                @media (max-width: 768px) {
+        .back-button {
+            top: 10px;
+            left: 10px;
+            padding: 6px 12px;
+            font-size: 0.8rem;
+        }
+    }
+    } }
         .indicator-list {
             list-style: none;
             padding-left: 0;
@@ -136,14 +161,14 @@
         
         
         
-            .header-card {
+                            .header-card {
         background: rgba(19, 29, 39, 0.75);
         border-radius: 12px;
-        padding: 30px;
+        padding: 16px;
         border-left: 4px solid var(--primary);
         border: 1px solid rgba(228, 209, 127, 0.2);
         box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-        margin: 0 auto 30px auto;
+        margin: 2rem auto 30px auto;
         text-align: center;
         transition: border-color 0.3s, box-shadow 0.3s;
         display: flex;
