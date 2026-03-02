@@ -27,8 +27,8 @@
         line-height: 1.6;
         padding: 0 20px 2rem;
     }
-                .container {
-        max-width: 1200px;
+                    .container {
+        max-width: 1400px;
         margin: 0 auto;
         padding: 0 1rem;
     }
@@ -48,14 +48,17 @@
     p { margin-bottom: 1rem; }
     ul { margin-left: 1.5rem; margin-bottom: 1rem; }
     li { margin-bottom: .5rem; }
-        .card {
+            .card {
         background: var(--card);
         border-radius: 12px;
         padding: 1rem;
         margin-bottom: 1.5rem;
-        border-left: 4px solid #19364D;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        border-left: 4px solid var(--primary);
+        ;
         transition: all 0.3s ease;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
     }
         
     .card:hover {
@@ -149,7 +152,7 @@
 /* Glow dourado suave */
 .card, .metric, .legend, .table-wrapper, section.card, .meta-info, .container > header, .back-button {
     border: 1px solid rgba(228, 209, 127, 0.15);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    ;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 .card:hover, .metric:hover, .legend:hover, .table-wrapper:hover, section.card:hover, .meta-info:hover, .container > header:hover, .back-button:hover {
@@ -167,7 +170,7 @@
         padding: 16px;
         border-left: 4px solid var(--primary);
         border: 1px solid rgba(228, 209, 127, 0.2);
-        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        ;
         margin: 2rem auto 30px auto;
         text-align: center;
         transition: border-color 0.3s, box-shadow 0.3s;
@@ -195,7 +198,50 @@
             margin: 0;
         }
         
-</style>
+
+        
+        #backToTop:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+        #backToTop.show {
+            display: flex;
+        }
+
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: rgba(251, 191, 36, 0.9);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+
+        </style>
 </head>
 <body>
     
@@ -283,10 +329,10 @@
 
 
         <!-- Ranking Greenblatt -->
-        <section 
+        <section class="card">
             <h2>Ranking Greenblatt - Magic Formula</h2>
             <div class="table-wrapper" style="overflow-x: auto;">
-                <table style="width: 100%; border-collapse: collapse; background: rgba(19, 29, 39, 0.75); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.3); margin-top: 1rem; table-layout: fixed; min-width: 1100px;">
+                <table style=">
                     <colgroup>
                         <col style="width: 50px">
                         <col style="width: 70px">
@@ -572,5 +618,30 @@
             </p>
         </div>
     </div>
+
+        
+
+        
+
+
+        <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+        <script>
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                });
+                backToTop.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        </script>
+
 </body>
 </html>
