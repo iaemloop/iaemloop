@@ -178,28 +178,8 @@
             color: var(--primary);
             text-decoration: none;
         }
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: var(--primary);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none;
-        }
-        .back-to-top.visible {
-            opacity: 1;
-            pointer-events: auto;
-        }
+        
+        
         a { color: var(--primary); text-decoration: none; }
         a:hover { text-decoration: underline; }
         @media (max-width: 768px) {
@@ -285,6 +265,49 @@ main { overflow-x: hidden; }
         border-color: rgba(212, 181, 106, 0.4);
         box-shadow: 0 6px 25px rgba(212, 181, 106, 0.15);
     }
+        
+        
+        #backToTop:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+        #backToTop.show {
+            display: flex;
+        }
+
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: rgba(251, 191, 36, 0.9);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+
         </style>
 </head>
 <body>
@@ -608,7 +631,7 @@ main { overflow-x: hidden; }
         <p>Conteúdo educativo – não é advice financeiro</p>
     </footer>
 
-    <a href="#" class="back-to-top" id="backToTop">↑</a>
+    
 
     <script>
         // Smooth scroll para links da navegação
@@ -728,6 +751,31 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(updateBTCPrice, 300000);
 });
 </script>
+
+
+        
+
+        
+
+
+        <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+        <script>
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                });
+                backToTop.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        </script>
 
 </body>
 </html>
