@@ -169,23 +169,73 @@
     .novo { background: #10b981; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-left: 5px; }
     .data-nova { color: #10b981; font-weight: 600; }
 
-        .back-button { position: fixed; top: 20px; left: 20px; display: inline-flex; align-items: center; gap: 6px; background: rgba(25,54,77,0.9); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: background 0.2s, transform 0.1s; z-index: 1000; }
-        .back-button:hover { background: #E4D17F; }
+            .back-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(251, 191, 36, 0.9);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        transition: background 0.2s, transform 0.1s;
+        z-index: 1000;
+    }
+            .back-button:hover {
+        background: var(--accent);
+        transform: translateY(-1px);
+    }
         @media (max-width: 768px) {
-            .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; }
+                .back-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(251, 191, 36, 0.9);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        transition: background 0.2s, transform 0.1s;
+        z-index: 1000;
+    }
         }
 
     
 /* Glow dourado suave */
-.card, .metric, .legend, section.card, .meta-info, .container > header, .back-button {
-    border: 1px solid rgba(228, 209, 127, 0.15);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-.card:hover, .metric:hover, .legend:hover, section.card:hover, .meta-info:hover, .container > header:hover, .back-button:hover {
-    border-color: rgba(212, 181, 106, 0.4);
-    box-shadow: 0 6px 25px rgba(212, 181, 106, 0.15);
-}
+.card, .metric, .legend, section.card, .meta-info, .container > header,     .back-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(251, 191, 36, 0.9);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        transition: background 0.2s, transform 0.1s;
+        z-index: 1000;
+    }
+.card:hover, .metric:hover, .legend:hover, section.card:hover, .meta-info:hover, .container > header:hover,     .back-button:hover {
+        background: var(--accent);
+        transform: translateY(-1px);
+    }
 
 </style>
 </head>
