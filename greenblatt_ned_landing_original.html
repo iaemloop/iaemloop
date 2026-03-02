@@ -27,8 +27,11 @@
         line-height: 1.6;
         padding: 60px 20px 2rem;
     }
-        .container {
-        max-width: 1200px; margin: 0 auto; }
+            .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
                     
                     
     
@@ -133,17 +136,23 @@
         
         
         
-        .header-card {
-            background: rgba(19, 29, 39, 0.75);
-            border-radius: 12px;
-            padding: 30px;
-            border-left: 4px solid var(--primary);
-            border: 1px solid rgba(228, 209, 127, 0.2);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            margin-bottom: 30px;
-            text-align: center;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
+            .header-card {
+        background: rgba(19, 29, 39, 0.75);
+        border-radius: 12px;
+        padding: 30px;
+        border-left: 4px solid var(--primary);
+        border: 1px solid rgba(228, 209, 127, 0.2);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        margin: 0 auto 30px auto;
+        text-align: center;
+        transition: border-color 0.3s, box-shadow 0.3s;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 1200px;
+    }
         .header-card:hover {
             border-color: rgba(212, 181, 106, 0.4);
             box-shadow: 0 6px 25px rgba(212, 181, 106, 0.15);
