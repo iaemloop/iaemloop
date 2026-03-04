@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Carteira de Dividendos | IA em Loop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Acompanhamento em tempo real da carteira BESST comprada. Dashboard com gráficos, setores e performance.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)),
+                        url('../assets/fundo_site.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #e2e8f0;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 {
+            background: linear-gradient(135deg, #19364D, #AA8451);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        .tagline {
+            color: #94a3b8;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        .header-card {
+            background: rgba(19, 29, 39, 0.75);
+            border-radius: 12px;
+            padding: 30px;
+            border-left: 4px solid #19364D;
+            border: 1px solid rgba(228, 209, 127, 0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+            text-align: center;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .header-card:hover {
+            border-color: rgba(212, 181, 106, 0.4);
+            box-shadow: 0 6px 25px rgba(212, 181, 106, 0.15);
+        }
+        .card {
+            background: rgba(19, 29, 39, 0.75);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            border: 1px solid rgba(228, 209, 127, 0.2);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            border-color: rgba(212, 181, 106, 0.4);
+            box-shadow: 0 6px 25px rgba(212, 181, 106, 0.15);
+        }
+        .dashboard-container {
+            width: 100%;
+            min-height: 1200px;
+            border: none;
+            background: transparent;
+        }
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+        }
+        .footer a { color: #E4D17F; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+        .back-button {
+            position: fixed; top: 20px; left: 20px;
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(251,191,36,0.9); color: white;
+            padding: 8px 16px; border-radius: 8px;
+            text-decoration: none; font-weight: 600; font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: background 0.2s, transform 0.1s; z-index: 1000;
+        }
+        .back-button:hover { background: #E4D17F; transform: translateY(-1px); }
+        @media (max-width:768px){.back-button{top:10px;left:10px;padding:6px 12px;font-size:0.8rem}}
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: rgba(251, 191, 36, 0.9);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background: #E4D17F;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body>
+    <a href="metodologia_barsi.html" class="back-button" title="Voltar">← Voltar</a>
+    <div class="container">
+        <div class="header-card">
+            <h1>Carteira de Dividendos</h1>
+            <p class="tagline">Acompanhe a performance da carteira 100% Skin in the Game</p>
+        </div>
+
+        <div class="card">
+            <iframe src="assets/dashboard/dashboard_carteira_besst_ultracompacto_2026-03-03.html"
+                    class="dashboard-container"
+                    id="dashboard-iframe"
+                    scrolling="no"
+                    onload="resizeIframe(this)"></iframe>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>⌨️ Gerado por script • Não é recomendação de investimento • Faça sua própria análise</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="https://github.com/diegotxr/iaemloop" target="_blank">GitHub</a> •
+            <a href="https://www.youtube.com/@IAemLoop" target="_blank">YouTube</a>
+        </p>
+    </div>
+
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+    <script>
+        function resizeIframe(iframe) {
+            try {
+                const doc = iframe.contentDocument || iframe.contentWindow.document;
+                if (doc && doc.body) {
+                    const height = Math.max(doc.body.scrollHeight, 1200);
+                    iframe.style.height = height + 'px';
+                }
+            } catch (e) {
+                console.log('Erro ao redimensionar iframe:', e);
+            }
+        }
+        const backToTop = document.getElementById('backToTop');
+        if (backToTop) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+            backToTop.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    </script>
+</body>
+</html>
