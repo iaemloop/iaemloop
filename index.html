@@ -82,6 +82,32 @@
         }
         .yt-button:hover { opacity: 0.9; }
 
+        /* Bitcoin Widget */
+        .btc-widget {
+            background: rgba(19, 29, 39, 0.6);
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(228, 209, 127, 0.2);
+            margin: 10px 0;
+        }
+        .btc-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 4px 0;
+        }
+        .btc-label {
+            color: #94a3b8;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .btc-value {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+        .btc-usd { color: #6EE4EF; }
+        .btc-brl { color: #E4D17F; }
+
         /* [1.2] Grid de Cards */
         .grid {
             display: grid;
@@ -307,11 +333,15 @@
                     <span>Cripto</span>
                     <span>Preço em tempo real</span>
                 </div>
-                <div id="btc-price-home" style="font-size: 0.8rem; margin: 0.5rem 0;">
-                    <span style="background: rgba(19,29,39,0.6); padding: 0.25rem 0.5rem; border-radius: 4px; border: 1px solid rgba(228,209,127,0.2);">
-                        <span style="color: #AA8451; font-weight: 600;">R$</span> <span id="btc-brl">--</span> | 
-                        <span style="color: #6EE4EF; font-weight: 600;">US$</span> <span id="btc-usd">--</span>
-                    </span>
+                <div class="btc-widget">
+                    <div class="btc-row">
+                        <span class="btc-label">USD:</span>
+                        <span class="btc-value btc-usd" id="btc-usd">--</span>
+                    </div>
+                    <div class="btc-row">
+                        <span class="btc-label">BRL:</span>
+                        <span class="btc-value btc-brl" id="btc-brl">--</span>
+                    </div>
                 </div>
                 <p>
                     Análise de indicadores como MVRV, Mayer Multiple e Fear & Greed Index para decisões de investimento.
