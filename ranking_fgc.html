@@ -105,15 +105,26 @@
             padding: 1rem 1.5rem;
             border-radius: 12px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            border: 1px solid rgba(228, 209, 127, 0.2);
+            text-align: center;
+            flex: 1;
+            min-width: 120px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .stat:hover {
+            border-color: rgba(212, 181, 106, 0.4);
+            box-shadow: 0 6px 25px rgba(212, 181, 106, 0.15);
         }
         .stat-value {
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary);
+            text-align: center;
         }
         .stat-label {
             font-size: 0.9rem;
             color: var(--muted);
+            text-align: center;
         }
         
         
