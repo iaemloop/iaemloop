@@ -7,11 +7,6 @@
     <meta name="description" content="Acompanhamento em tempo real da carteira BESST comprada. Dashboard com gráficos, setores e performance.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --card: rgba(19, 29, 39, 0.75);
-            --border: rgba(228, 209, 127, 0.2);
-            --glow: rgba(212, 181, 106, 0.15);
-        }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Inter', sans-serif;
@@ -20,114 +15,52 @@
             background-size: cover;
             color: #e2e8f0;
             min-height: 100vh;
-            padding: 20px;
+            padding: 0;
         }
-        .container { max-width: 1400px; margin: 0 auto; }
-        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0; }
         h1 {
             background: linear-gradient(135deg, #19364D, #AA8451);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 2px;
+            margin-bottom: 0;
             text-align: center;
-            font-size: 1.8rem;
+            font-size: 1.4rem;
         }
         .tagline {
             color: #94a3b8;
-            margin-bottom: 20px;
-            font-size: 1rem;
-            text-align: center;
-        }
-
-        /* Cards com glow dourado */
-        .header-card, .card {
-            background: var(--card);
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            border: 1px solid var(--border);
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-        .header-card:hover, .card:hover {
-            border-color: rgba(212, 181, 106, 0.4);
-            box-shadow: 0 6px 25px var(--glow);
-        }
-
-        .header-card {
-            border-left: 4px solid #19364D;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        /* Grid de métricas */
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        @media (max-width: 900px) {
-            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 600px) {
-            .metrics-grid { grid-template-columns: 1fr; }
-        }
-        .metric-card {
-            text-align: center;
-            padding: 15px;
-        }
-        .metric-label {
-            color: #94a3b8;
-            font-size: 0.85rem;
             margin-bottom: 8px;
-        }
-        .metric-value {
-            color: #E4D17F;
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-        .metric-sub {
-            color: #64748b;
             font-size: 0.8rem;
+            text-align: center;
         }
-
-        /* Tabela */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
+        .header-card {
+            background: rgba(19, 29, 39, 0.75);
+            border-radius: 8px;
+            padding: 8px;
+            border-left: 4px solid #19364D;
+            border: 1px solid rgba(228, 209, 127, 0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            margin-bottom: 8px;
+            text-align: center;
         }
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+        .card {
+            background: rgba(19, 29, 39, 0.75);
+            border-radius: 8px;
+            padding: 6px;
+            margin-bottom: 2px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            border: 1px solid rgba(228, 209, 127, 0.2);
         }
-        th {
-            background: rgba(25, 54, 77, 0.6);
-            color: #E4D17F;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-        }
-        tr:hover { background: rgba(255,255,255,0.05); }
-        .ticker { color: #E4D17F; font-weight: 600; }
-        .num { text-align: right; font-family: 'SF Mono', monospace; }
-
-        /* Dashboard iframe */
         .dashboard-container {
             width: 100%;
-            min-height: 800px;
             border: none;
             background: transparent;
         }
-
         .footer {
-            margin-top: 30px;
+            margin-top: 20px;
             text-align: center;
             color: #64748b;
             font-size: 0.85rem;
-            padding: 15px 0;
+            padding: 10px 0;
             border-top: 1px solid #334155;
         }
         .footer a { color: #E4D17F; text-decoration: none; }
@@ -185,58 +118,7 @@
             <p class="tagline">Acompanhe a performance da carteira 100% Skin in the Game</p>
         </div>
 
-        <!-- Métricas -->
-        <div class="metrics-grid">
-            <div class="card metric-card">
-                <div class="metric-label">Total</div>
-                <div class="metric-value">R$ 577</div>
-                <div class="metric-sub">7 compras</div>
-            </div>
-            <div class="card metric-card">
-                <div class="metric-label">Média/ação</div>
-                <div class="metric-value">R$ 82</div>
-                <div class="metric-sub">7/12 ativos</div>
-            </div>
-            <div class="card metric-card">
-                <div class="metric-label">Setores</div>
-                <div class="metric-value">4</div>
-                <div class="metric-sub">diversificados</div>
-            </div>
-            <div class="card metric-card">
-                <div class="metric-label">Principal</div>
-                <div class="metric-value" style="font-size:1.1rem"><span style="display:inline-block;width:12px;height:12px;background:#E4D17F;border-radius:2px;margin-right:6px;"></span>Saneamento</div>
-                <div class="metric-sub">34%</div>
-            </div>
-        </div>
-
-        <!-- Tabela de ações -->
         <div class="card">
-            <h2 class="metric-label" style="color:#E4D17F; font-size:1.1rem; margin-bottom:15px;">Posições atuais</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Ticker</th>
-                        <th>Setor</th>
-                        <th class="num">Qtd</th>
-                        <th class="num">Preço Médio</th>
-                        <th class="num">Valor Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td><span class="ticker">TAEE11</span></td><td>Energia</td><td class="num">3</td><td class="num">R$ 43</td><td class="num" style="color:#E4D17F">R$ 130</td></tr>
-                    <tr><td><span class="ticker">CSMG3</span></td><td>Saneamento</td><td class="num">2</td><td class="num">R$ 54</td><td class="num" style="color:#E4D17F">R$ 108</td></tr>
-                    <tr><td><span class="ticker">PSSA3</span></td><td>Seguros</td><td class="num">2</td><td class="num">R$ 52</td><td class="num" style="color:#E4D17F">R$ 103</td></tr>
-                    <tr><td><span class="ticker">SAPR11</span></td><td>Saneamento</td><td class="num">2</td><td class="num">R$ 44</td><td class="num" style="color:#E4D17F">R$ 89</td></tr>
-                    <tr><td><span class="ticker">BRSR6</span></td><td>Bancos</td><td class="num">3</td><td class="num">R$ 18</td><td class="num" style="color:#E4D17F">R$ 55</td></tr>
-                    <tr><td><span class="ticker">BMGB4</span></td><td>Bancos</td><td class="num">10</td><td class="num">R$ 5</td><td class="num" style="color:#E4D17F">R$ 50</td></tr>
-                    <tr><td><span class="ticker">CPLE3</span></td><td>Energia</td><td class="num">3</td><td class="num">R$ 14</td><td class="num" style="color:#E4D17F">R$ 43</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Dashboard -->
-        <div class="card">
-            <h2 class="metric-label" style="color:#E4D17F; font-size:1.1rem; margin-bottom:15px;">Dashboard da Carteira</h2>
             <iframe src="assets/dashboard/dashboard_carteira_besst_ultracompacto_2026-03-03.html"
                     class="dashboard-container"
                     id="dashboard-iframe"
