@@ -630,7 +630,7 @@ main { overflow-x: hidden; }
         </section>
     </main>
 
-    <footer style="border-top: 1px solid rgba(228,209,127,0.2);">
+    <footer style="border-top: 1px solid rgba(228,209,127,0.2); text-align: center;">
         <p>Guia Bitcoin • Última atualização: 01/03/2026</p>
         <p>Conteúdo educativo – não é advice financeiro</p>
     </footer>
@@ -677,13 +677,14 @@ async function updateBTCPrice() {
     const volumeElUSD = document.getElementById('btc-volume-usd');
     const updatedEl = document.getElementById('btc-last-updated');
     
-    if (!priceElBRL) {
+    if (!priceElBRL || !priceElUSD) {
         console.log('Elementos não encontrados');
         return;
     }
     
     try {
         console.log('Buscando dados...');
+        // Buscar ambas as moedas separadamente para obter as variações corretas de cada uma
         const [usdData, brlData] = await Promise.all([
             fetch('https://api.coingecko.com/api/v3/coins/markets?ids=bitcoin&vs_currency=usd&price_change_percentage=24h').then(r => r.json()),
             fetch('https://api.coingecko.com/api/v3/coins/markets?ids=bitcoin&vs_currency=brl&price_change_percentage=24h').then(r => r.json())
@@ -701,32 +702,18 @@ async function updateBTCPrice() {
             const changeBRL = btcBRL.price_change_percentage_24h || 0;
             const volumeBRL = btcBRL.total_volume || 0;
             
-            const formattedUSD = new Intl.NumberFormat('en-US', {
-                style: 'currency',
-                currency: 'USD',
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 0
-            }).format(priceUSD);
-            const formattedVolumeUSD = formatVolume(volumeUSD, 'US$');
+            // Formatar USD
+            priceElUSD.innerHTML = '<span style="color: #6EE4EF; font-size: 1.5rem; font-weight: 700;">US$ ' + priceUSD.toLocaleString('en-US', {maximumFractionDigits: 0}) + '</span>';
+            changeElUSD.innerHTML = '24h: <span style="color: ' + (changeUSD >= 0 ? '#4ade80' : '#f87171') + ';">' + (changeUSD >= 0 ? '+' : '') + changeUSD.toFixed(2) + '%</span>';
+            volumeElUSD.querySelector('span').textContent = 'US$ ' + formatVolume(volumeUSD);
             
-            priceElUSD.innerHTML = '<span style="color: #6EE4EF; font-size: 1.5rem; font-weight: 700;">' + formattedUSD + '</span>';
-            if (changeElUSD) changeElUSD.innerHTML = '24h change: <span style="color: ' + (changeUSD >= 0 ? '#4ade80' : '#f87171') + ';">' + (changeUSD >= 0 ? '+' : '') + changeUSD.toFixed(2) + '%</span>';
-            if (volumeElUSD) volumeElUSD.querySelector('span').textContent = formattedVolumeUSD;
-            
-            const formattedBRL = new Intl.NumberFormat('pt-BR', {
-                style: 'currency',
-                currency: 'BRL',
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 0
-            }).format(priceBRL);
-            const formattedVolumeBRL = formatVolume(volumeBRL, 'R$');
-            
-            priceElBRL.innerHTML = '<span style="color: #AA8451; font-size: 1.5rem; font-weight: 700;">' + formattedBRL + '</span>';
-            if (changeElBRL) changeElBRL.innerHTML = 'Variação 24h: <span style="color: ' + (changeBRL >= 0 ? '#4ade80' : '#f87171') + ';">' + (changeBRL >= 0 ? '+' : '') + changeBRL.toFixed(2) + '%</span>';
-            if (volumeElBRL) volumeElBRL.querySelector('span').textContent = formattedVolumeBRL;
+            // Formatar BRL
+            priceElBRL.innerHTML = '<span style="color: #AA8451; font-size: 1.5rem; font-weight: 700;">R$ ' + priceBRL.toLocaleString('pt-BR', {maximumFractionDigits: 0, minimumFractionDigits: 0}) + '</span>';
+            changeElBRL.innerHTML = 'Variação 24h: <span style="color: ' + (changeBRL >= 0 ? '#4ade80' : '#f87171') + ';">' + (changeBRL >= 0 ? '+' : '') + changeBRL.toFixed(2) + '%</span>';
+            volumeElBRL.querySelector('span').textContent = 'R$ ' + formatVolume(volumeBRL);
             
             if (updatedEl) updatedEl.textContent = 'Atualizado: ' + new Date().toLocaleString('pt-BR');
-            console.log('Preços atualizados');
+            console.log('Preços atualizados (USD e BRL com variações independentes)');
         }
     } catch (error) {
         console.error('Erro ao buscar preço Bitcoin:', error);
@@ -738,15 +725,10 @@ async function updateBTCPrice() {
 function formatVolume(volume, currency) {
     if (!volume || volume === 0) return currency + ' N/A';
     
-    if (volume >= 1e12) {
-        return currency + ' $' + (volume / 1e12).toFixed(2) + ' trilhões';
-    } else if (volume >= 1e9) {
-        return currency + ' $' + (volume / 1e9).toFixed(2) + ' bilhões';
-    } else if (volume >= 1e6) {
-        return currency + ' $' + (volume / 1e6).toFixed(2) + ' milhões';
-    } else {
-        return currency + ' $' + volume.toLocaleString('pt-BR');
-    }
+    if (volume >= 1e12) return (volume / 1e12).toFixed(2) + 'T';
+    if (volume >= 1e9) return (volume / 1e9).toFixed(2) + 'B';
+    if (volume >= 1e6) return (volume / 1e6).toFixed(2) + 'M';
+    return volume.toLocaleString('en-US');
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -767,11 +749,14 @@ document.addEventListener('DOMContentLoaded', function() {
         
 
         <div class="container">
-            <footer class="footer" style="margin-top:40px;text-align:center;color:#64748b;font-size:0.9rem;padding-top:20px;border-top:1px solid #334155;">
+            <footer class="footer">
                 <p>⌨️ Gerado por script • Não é recomendação de investimento • Faça sua própria análise</p>
-                <p style="margin-top:0.5rem;">
-                    <a href="https://github.com/diegotxr/iaemloop" target="_blank" style="color:#E4D17F;text-decoration:none;">GitHub</a> •
-                    <a href="https://www.youtube.com/@IAemLoop" target="_blank" style="color:#E4D17F;text-decoration:none;">YouTube</a>
+                <p style="margin-top: 0.5rem; color: #94a3b8; font-size: 0.85rem;">
+                    Atualizado: 03/03/2026
+                </p>
+                <p style="margin-top: 0.5rem;">
+                    <a href="https://github.com/diegotxr/iaemloop" target="_blank">GitHub</a> •
+                    <a href="https://www.youtube.com/@IAemLoop" target="_blank">YouTube</a>
                 </p>
             </footer>
         </div>
