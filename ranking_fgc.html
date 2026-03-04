@@ -93,41 +93,6 @@
             background: var(--card);
             color: var(--text);
         }
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
-        .stat {
-            background: var(--card);
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-            border: 1px solid rgba(228, 209, 127, 0.2);
-            text-align: center;
-            flex: 1;
-            min-width: 120px;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-        .stat:hover {
-            border-color: rgba(212, 181, 106, 0.4);
-            box-shadow: 0 6px 25px rgba(212, 181, 106, 0.15);
-        }
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-align: center;
-        }
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--muted);
-            text-align: center;
-        }
-        
-        
         
         
         table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.3); }
@@ -332,22 +297,7 @@
                         <option value="longo">Longo (+5 anos)</option>
                     </select>
                 </div>
-            </div>
-            <div class="stats">
-                <div class="stat">
-                    <div class="stat-value" id="total-produtos">78</div>
-                    <div class="stat-label">Produtos FGC</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value" id="produtos-novos">1</div>
-                    <div class="stat-label">Novos (última Atualização)</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value" id="rent-media">11.51%</div>
-                    <div class="stat-label">Rent. Média Líq.</div>
-                </div>
-            </div>
-        </div> <!-- Fecha header-card -->
+            </div> <!-- Fecha header-card -->
 
             <table id="ranking-table">
                 <thead>
@@ -361,7 +311,6 @@
                         <th>Rent. Líquida</th>
                         <th>Mínimo</th>
                         <th>Prazo</th>
-                        <th>Primeira aparição</th>
 </tr>
                 </thead>
                                 <tbody id="ranking-body">
@@ -371,7 +320,7 @@
         <footer>
             <p>⌨️ Gerado por script • Não é recomendação de investimento • Faça sua própria análise</p>
             <p style="margin-top: 0.5rem; color: #94a3b8; font-size: 0.85rem;">
-                Atualizado: 03/03/2026
+                Atualizado: 04/03/2026
             </p>
             <p style="margin-top: 0.5rem;">
                 <a href="https://github.com/diegotxr/iaemloop" target="_blank">GitHub</a> •
