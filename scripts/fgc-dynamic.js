@@ -30,10 +30,6 @@ async function loadFGCData() {
         const tbody = document.getElementById('ranking-body');
         tbody.innerHTML = '';
         
-        let totalNovos = 0;
-        let rentSum = 0;
-        let rentCount = 0;
-        
         produtos.forEach(prod => {
             // Badges
             const ratingBadge = prod.rating === 'N/A' 
@@ -41,31 +37,6 @@ async function loadFGCData() {
                 : `<span style="background:#fef9c3;color:#374151;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">${prod.rating}</span>`;
             
             const indexadorBadge = `<span style="background:#dbeafe;color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600;">${prod.indexador.replace(/\s/g, '')}</span>`;
-            
-            // Data de primeira aparição
-            let dataFormatada = '-';
-            if (prod.data_primeira) {
-                try {
-                    const dataObj = new Date(prod.data_primeira);
-                    dataFormatada = dataObj.toLocaleDateString('pt-BR');
-                } catch (e) {
-                    dataFormatada = prod.data_primeira;
-                }
-            }
-            
-            // Badge "Novo"
-            const novoBadge = prod.is_new 
-                ? `<span style="background:#dc2626;color:white;padding:2px 8px;border-radius:99px;font-size:0.75rem;font-weight:600; margin-left:5px;">NOVO</span>`
-                : '';
-            
-            // Rentabilidade líquida para média
-            const rentNum = parsePercentage(prod.rent_liquida);
-            if (rentNum > 0) {
-                rentSum += rentNum;
-                rentCount++;
-            }
-            
-            if (prod.is_new) totalNovos++;
             
             // Badge "FGC" se tem_fgc (verde neon vibrante)
             const fgcBadge = prod.tem_fgc 
@@ -78,7 +49,7 @@ async function loadFGCData() {
             tr.innerHTML = `
                 <td style="text-align:center;font-weight:700;color:var(--primary);">#${prod.rank}</td>
                 <td>
-                    <strong>${prod.produto}${novoBadge}${fgcBadge}</strong><br>
+                    <strong>${prod.produto}${fgcBadge}</strong><br>
                     <small style="color:var(--muted)">${prod.emissor}</small>
                 </td>
                 <td style="text-align:center">${ratingBadge}</td>
@@ -88,16 +59,9 @@ async function loadFGCData() {
                 <td style="text-align:center;color:#22c55e">${prod.rent_liquida}</td>
                 <td style="text-align:center">${prod.minimo}</td>
                 <td style="text-align:center">${prod.prazo}<br><small>${prod.prazo_tipo}</small></td>
-                <td style="text-align:center; color: var(--muted); font-size: 0.9rem;">${dataFormatada}</td>
             `;
             tbody.appendChild(tr);
         });
-        
-        // Atualizar estatísticas
-        document.getElementById('total-produtos').textContent = produtos.length;
-        document.getElementById('produtos-novos').textContent = totalNovos;
-        const rentMedia = rentCount ? (rentSum / rentCount).toFixed(2) + '%' : '-';
-        document.getElementById('rent-media').textContent = rentMedia;
         
         setupFilters();
         
@@ -117,7 +81,7 @@ async function loadFGCData() {
         
     } catch (error) {
         console.error('Erro ao carregar dados FGC:', error);
-        document.getElementById('ranking-body').innerHTML = '<tr><td colspan="10" style="text-align:center; padding: 2rem;">Erro ao carregar dados. Tente novamente mais tarde.</td></tr>';
+        document.getElementById('ranking-body').innerHTML = '<tr><td colspan="9" style="text-align:center; padding: 2rem;">Erro ao carregar dados. Tente novamente mais tarde.</td></tr>';
     }
 }
 
@@ -144,6 +108,11 @@ function setupFilters() {
             const matchPrazo = prazo === 'all' || cardPrazo === prazo;
             row.style.display = matchIndexador && matchPrazo ? '' : 'none';
         });
+        
+        const visibleCount = document.querySelectorAll('#ranking-body tr[style="display: none;"]') ? 
+            Array.from(document.querySelectorAll('#ranking-body tr')).filter(r => r.style.display !== 'none').length : 
+            document.querySelectorAll('#ranking-body tr').length;
+        console.log(`Mostrando ${visibleCount} de ${rows.length} produtos`);
     }
     
     indexadorFilter.addEventListener('change', applyFilters);
