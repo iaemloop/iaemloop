@@ -3,7 +3,7 @@
 <title>Magic Formula</title>
 <style>
 :root{--bg:#0c1016;--card:#141820;--gold:#d4af37;--green:#22c55e;--text:#fff;--text2:#8b92a8;--border:#1e2330}
-.bg-img{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;opacity:0.08;background:url('../assets/bg-carteiras.jpg') center/cover no-repeat;pointer-events:none}
+.bg-img{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;opacity:0.08;background:url("assets/bg-carteiras.jpg") center/cover no-repeat;pointer-events:none}
 body{font-family:system-ui;background:var(--bg);color:var(--text);padding:24px;margin:0}
 .container{max-width:1400px;margin:0 auto}
 .back{position:fixed;top:20px;left:20px;background:var(--card);color:var(--gold);padding:10px 16px;border-radius:8px;text-decoration:none;z-index:1000}

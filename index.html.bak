@@ -10,7 +10,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)),
-                        url('../assets/bg-carteiras.jpg') no-repeat center center fixed;
+                        url('../assets/fundo_site.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #e2e8f0;
             min-height: 100vh;
@@ -270,7 +270,7 @@
     <div class="container">
         <!-- [1.1] Header -->
         <header>
-            <div class="logo" style="background-image: url('../assets/bg-carteiras.jpg');"></div>
+            <div class="logo" style="background-image: url(../assets/l_logo.jpg);"></div>
             <h1>IA em Loop</h1>
             <p class="tagline">Investimentos com Inteligência Artificial • Skin in the Game</p>
             <a href="https://www.youtube.com/@IAemLoop" class="yt-button" target="_blank">
