@@ -2,87 +2,53 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Historico de Rankings - Magic Formula | iaemloop</title>
+<title>Historico Rankings - Magic Formula</title>
 <style>
-:root{--bg:#0c1016;--card:#141820;--gold:#d4af37;--green:#22c55e;--red:#ef4444;--text:#fff;--text2:#8b92a8}
-body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);margin:0;padding:0}
-.container{max-width:1200px;margin:0 auto;padding:40px 20px}
-.back{position:fixed;top:20px;left:20px;background:var(--card);color:var(--gold);padding:10px 16px;border-radius:8px;text-decoration:none;z-index:100}
-h1{color:var(--gold);text-align:center;margin:60px 0 40px}
-h2{color:var(--green);border-bottom:2px solid var(--gold);padding-bottom:10px;margin-top:40px}
-.ranking-card{background:var(--card);border-radius:16px;padding:24px;margin:20px 0;border-left:4px solid var(--gold)}
-.ranking-date{font-size:14px;color:var(--text2);margin-bottom:12px}
-.ranking-title{font-size:20px;font-weight:600;color:var(--gold);margin-bottom:16px}
-.posicao{display:flex;align-items:center;padding:8px 0;border-bottom:1px solid #1e2330}
-.posicao-num{width:30px;font-weight:700;color:var(--gold)}
-.posicao-ticker{flex:1;font-weight:600}
-.posicao-setor{color:var(--text2);font-size:14px}
-.posicao-var{width:80px;text-align:right}
-.pos-positiva{color:var(--green)}
-.pos-negativa{color:var(--red)}
-.resumo{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:40px 0}
-.resumo-item{background:var(--card);padding:20px;border-radius:12px;text-align:center}
-.resumo-val{font-size:28px;font-weight:700;color:var(--gold)}
-.resumo-lab{font-size:12px;color:var(--text2);margin-top:4px}
-footer{text-align:center;padding:40px;color:var(--text2);border-top:1px solid #1e2330;margin-top:60px}
-@media(max-width:768px){.resumo{grid-template-columns:repeat(2,1fr)}}
+:root{--bg:#06080D;--card:rgba(19,29,39,0.75);--text:#e2e8f0;--primary:#19364D;--accent:#E4D17F;--muted:#94a3b8}
+body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);padding:20px;margin:0}
+.container{max-width:1200px;margin:0 auto}
+h1{background:linear-gradient(135deg,#19364D,#AA8451);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-align:center;margin-bottom:5px}
+.tagline{color:var(--muted);text-align:center;margin-bottom:30px}
+.header-card{background:var(--card);border-radius:12px;padding:30px;text-align:center;margin-bottom:30px;border:1px solid rgba(228,209,127,0.2)}
+.back{position:fixed;top:20px;left:20px;background:var(--card);color:var(--accent);padding:10px 16px;border-radius:8px;text-decoration:none;z-index:100}
+.tabs{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;justify-content:center}
+.tab{background:rgba(19,54,77,0.75);border:1px solid rgba(228,209,127,0.3);border-radius:8px;padding:10px 20px;cursor:pointer;color:#e2e8f0;font-weight:600}
+.tab.active{background:rgba(30,100,160,0.4);border-color:rgba(30,100,160,0.6)}
+table{width:100%;border-collapse:collapse;margin-top:1rem;font-size:0.9rem}
+th,td{padding:0.75rem;border-bottom:1px solid #334155;text-align:center}
+th{background:rgba(25,54,77,0.3);color:#E4D17F;font-weight:600}
+tr:hover{background:#334155}
+.footer{text-align:center;margin-top:3rem;color:var(--muted);font-size:.9rem}
 </style>
 </head>
 <body>
 <a href="javascript:history.back()" class="back">← Voltar</a>
-
 <div class="container">
-<h1>🎯 Historico de Rankings - Magic Formula</h1>
-
-<div class="resumo">
-<div class="resumo-item"><div class="resumo-val">R$ 561,82</div><div class="resumo-lab">Valor Atual</div></div>
-<div class="resumo-item"><div class="resumo-val">10</div><div class="resumo-lab">Posicoes</div></div>
-<div class="resumo-item"><div class="resumo-val">R$ 56,18</div><div class="resumo-lab">Ticket Medio</div></div>
-<div class="resumo-item"><div class="resumo-val" style="color:var(--green)">+0,0%</div><div class="resumo-lab">Desde Inicio</div></div>
+<div class="header-card">
+<h1>📊 Historico de Rankings - Magic Formula</h1>
+<p class="tagline">Acompanhe a evolucao dos rankings mensais</p>
 </div>
-
-<h2>📅 Ranking Inicial (Abril 2026)</h2>
-<div class="ranking-card">
-<div class="ranking-date">Data: 04/03/2026 | Metodo: Joel Greenblatt</div>
-<div class="ranking-title">Composicao da Carteira</div>
-
-<div class="posicao"><span class="posicao-num">1</span><span class="posicao-ticker">PETR4</span><span class="posicao-setor">Petroleo</span><span class="posicao-var pos-positiva">14,9%</span></div>
-<div class="posicao"><span class="posicao-num">2</span><span class="posicao-ticker">TGMA3</span><span class="posicao-setor">Logistica</span><span class="posicao-var pos-positiva">14,0%</span></div>
-<div class="posicao"><span class="posicao-num">3</span><span class="posicao-ticker">BRBI11</span><span class="posicao-setor">Bancos</span><span class="posicao-var pos-positiva">10,2%</span></div>
-<div class="posicao"><span class="posicao-num">4</span><span class="posicao-ticker">PASS3</span><span class="posicao-setor">Logistica</span><span class="posicao-var pos-positiva">10,2%</span></div>
-<div class="posicao"><span class="posicao-num">5</span><span class="posicao-ticker">CMIN3</span><span class="posicao-setor">Mineracao</span><span class="posicao-var pos-positiva">10,3%</span></div>
-<div class="posicao"><span class="posicao-num">6</span><span class="posicao-ticker">BRAV3</span><span class="posicao-setor">Energia</span><span class="posicao-var pos-positiva">10,1%</span></div>
-<div class="posicao"><span class="posicao-num">7</span><span class="posicao-ticker">RECV3</span><span class="posicao-setor">Varejo</span><span class="posicao-var pos-positiva">9,8%</span></div>
-<div class="posicao"><span class="posicao-num">8</span><span class="posicao-ticker">ITUB4</span><span class="posicao-setor">Bancos</span><span class="posicao-var pos-positiva">9,4%</span></div>
-<div class="posicao"><span class="posicao-num">9</span><span class="posicao-ticker">VALE3</span><span class="posicao-setor">Mineracao</span><span class="posicao-var pos-positiva">8,9%</span></div>
-<div class="posicao"><span class="posicao-num">10</span><span class="posicao-ticker">BBAS3</span><span class="posicao-setor">Bancos</span><span class="posicao-var pos-positiva">8,2%</span></div>
+<div class="tabs">
+<div class="tab active">Marco 2026</div>
 </div>
-
-<h2>📊 Estatisticas da Carteira</h2>
-<div class="ranking-card">
-<div class="ranking-title">Dados da Nota de Corretagem (04/03/2026)</div>
-<p><strong>Valor Total:</strong> R$ 561,82</p>
-<p><strong>Ticket Medio:</strong> R$ 56,18</p>
-<p><strong>Numero de Posicoes:</strong> 10 empresas</p>
-<p><strong>Proventos 2026:</strong> R$ 0,00 (aguardando primeira distribuicao)</p>
-<p><strong>Rentabilidade:</strong> A acompan desde a aquisicao</p>
+<div class="card" style="background:var(--card);border-radius:16px;padding:30px;">
+<h2 style="text-align:center;color:var(--accent);margin-top:0;">Ranking Greenblatt - Marco 2026</h2>
+<div style="overflow-x:auto;">
+<table>
+<thead><tr><th>Pos</th><th>Ticker</th><th>ROIC</th><th>EY</th><th>EV/EBIT</th><th>DY%</th><th>Score</th></tr></thead>
+<tbody>
+<tr><td style="color:#E4D17F;font-weight:700">1</td><td style="color:#AA8451;font-weight:600">PSSA3</td><td style="color:#10b981">77.44%</td><td>156.25%</td><td>0.64</td><td>3.8</td><td style="color:#E4D17F;font-weight:600">2</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">2</td><td style="color:#AA8451;font-weight:600">WIZC3</td><td style="color:#10b981">35.46%</td><td>43.86%</td><td>2.28</td><td>6.09</td><td style="color:#E4D17F;font-weight:600">8</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">3</td><td style="color:#AA8451;font-weight:600">QUAL3</td><td style="color:#10b981">21.55%</td><td>39.68%</td><td>2.52</td><td>0.26</td><td style="color:#E4D17F;font-weight:600">18</td></tr>
+</tbody>
+</table>
 </div>
-
-<div class="ranking-card">
-<div class="ranking-title">Alocacao por Setor</div>
-<div class="posicao"><span class="posicao-ticker">Bancos</span><span class="posicao-var pos-positiva">27,8%</span></div>
-<div class="posicao"><span class="posicao-ticker">Logistica</span><span class="posicao-var pos-positiva">24,2%</span></div>
-<div class="posicao"><span class="posicao-ticker">Mineracao</span><span class="posicao-var pos-positiva">19,2%</span></div>
-<div class="posicao"><span class="posicao-ticker">Petroleo</span><span class="posicao-var pos-positiva">14,9%</span></div>
-<div class="posicao"><span class="posicao-ticker">Energia</span><span class="posicao-var pos-positiva">10,1%</span></div>
-<div class="posicao"><span class="posicao-ticker">Varejo</span><span class="posicao-var pos-positiva">3,8%</span></div>
+<p style="text-align:center;color:var(--muted);font-size:0.8rem;margin-top:1rem;">Dados: Fundamentus + yfinance (01/03/2026)</p>
 </div>
-
-<footer>
-<p>🦞 IAEMLOOP - Carteira Magic Formula | Joel Greenblatt</p>
-<p>Historico atualizado em: Abril 2026</p>
-</footer>
+<div class="footer">
+<p>🦞 IAEMLOOP - Historico de Rankings Magic Formula</p>
+<p>Atualizado: Marco 2026</p>
+</div>
 </div>
 </body>
 </html>
