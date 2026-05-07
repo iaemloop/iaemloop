@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://iaemloop.com.br/</loc>
-    <lastmod>2026-02-25</lastmod>
+    <lastmod>2026-05-07</lastmod>
     <priority>1.0</priority>
     <changefreq>daily</changefreq>
     <image:image>
@@ -58,6 +58,18 @@
     <lastmod>2026-02-25</lastmod>
     <priority>0.7</priority>
     <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/</loc>
+    <lastmod>2026-05-07</lastmod>
+    <priority>0.8</priority>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/selic-caindo-juro-real-focus-2026.html</loc>
+    <lastmod>2026-05-07</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://iaemloop.com.br/youtube_banner_2560x1440.html</loc>
