@@ -83,4 +83,10 @@
     <priority>0.5</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-05-08-analise-petr4-crise-ia.html</loc>
+    <lastmod>2026-05-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
