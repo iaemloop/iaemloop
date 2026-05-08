@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Leitura IA em Loop de 08/05/2026: IA, petróleo, geopolítica e análise de PETR4 com prós, riscos e leitura de compra, venda ou espera.">
+    <title>08/05: IA, petróleo e PETR4 no radar | IA em Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)),
+                        url('../../assets/bg-carteiras.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #e2e8f0;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container { max-width: 920px; margin: 0 auto; }
+        .back-button {
+            position: fixed; top: 20px; left: 20px;
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(251,191,36,0.9); color: white;
+            padding: 8px 16px; border-radius: 8px;
+            text-decoration: none; font-weight: 600; font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: background 0.2s, transform 0.1s; z-index: 1000;
+        }
+        .back-button:hover { background: #E4D17F; transform: translateY(-1px); }
+        article {
+            background: rgba(19, 29, 39, 0.75);
+            border-radius: 12px;
+            padding: 34px;
+            border-left: 4px solid #19364D;
+            border: 1px solid rgba(228, 209, 127, 0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.05rem);
+            line-height: 1.08;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6EE4EF, #E4D17F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 14px;
+        }
+        .dek {
+            color: #cbd5e1;
+            font-size: 1.12rem;
+            line-height: 1.75;
+            margin-bottom: 22px;
+        }
+        .meta {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            color: #94a3b8;
+            font-size: 0.86rem;
+            margin-bottom: 30px;
+        }
+        .meta span {
+            background: rgba(228, 209, 127, 0.15);
+            color: #E4D17F;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-weight: 600;
+            border: 1px solid rgba(228, 209, 127, 0.2);
+        }
+        h2 {
+            color: #fff;
+            font-size: 1.45rem;
+            margin: 34px 0 12px;
+            border-bottom: 2px solid #19364D;
+            padding-bottom: 10px;
+        }
+        p, li {
+            color: #cbd5e1;
+            line-height: 1.78;
+            font-size: 1.02rem;
+        }
+        p { margin-bottom: 16px; }
+        ul { padding-left: 22px; margin-bottom: 18px; }
+        li { margin-bottom: 8px; }
+        strong { color: #fff; }
+        a { color: #E4D17F; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .callout {
+            background: rgba(6, 8, 13, 0.5);
+            border-left: 4px solid #E4D17F;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 24px 0;
+        }
+        .scorecard {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin: 22px 0;
+        }
+        .scorecard div {
+            background: rgba(6, 8, 13, 0.45);
+            border: 1px solid rgba(228, 209, 127, 0.18);
+            border-radius: 8px;
+            padding: 14px;
+        }
+        .scorecard span {
+            display: block;
+            color: #94a3b8;
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .scorecard strong {
+            color: #E4D17F;
+            font-size: 1.1rem;
+        }
+        .source-note {
+            background: rgba(6, 8, 13, 0.45);
+            border: 1px solid rgba(228, 209, 127, 0.18);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 28px;
+            color: #94a3b8;
+            font-size: 0.94rem;
+        }
+        .footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        @media (max-width: 768px) {
+            body { padding: 72px 16px 32px; }
+            article { padding: 24px; }
+            .scorecard { grid-template-columns: 1fr; }
+            .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "08/05: IA, petróleo e PETR4 no radar",
+      "description": "Leitura IA em Loop de 08/05/2026: IA, petróleo, geopolítica e análise de PETR4 com prós, riscos e leitura de compra, venda ou espera.",
+      "author": { "@type": "Organization", "name": "IA em Loop" },
+      "publisher": { "@type": "Organization", "name": "IA em Loop", "url": "https://iaemloop.com.br" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://iaemloop.com.br/blog/posts/2026-05-08-analise-petr4-crise-ia.html" },
+      "datePublished": "2026-05-08",
+      "dateModified": "2026-05-08",
+      "keywords": ["PETR4", "Petrobras", "IA", "petróleo", "geopolítica", "investimentos", "ações", "crise"]
+    }
+    </script>
+</head>
+<body>
+    <a href="../index.html" class="back-button" title="Voltar ao Blog">← Blog</a>
+    <main class="container">
+        <article>
+            <h1>08/05: IA, petróleo e PETR4 no radar</h1>
+            <p class="dek">O mercado segue tentando precificar duas forças ao mesmo tempo: a IA deixando de ser promessa e virando infraestrutura crítica, e o petróleo voltando ao centro do risco geopolítico. Para a ação do dia, PETR4 entra no radar por unir caixa, dividendos e exposição direta a energia.</p>
+            <div class="meta">
+                <span>08/05/2026</span>
+                <span>Leitura diária</span>
+                <span>PETR4</span>
+                <span>Energia</span>
+                <span>8 min</span>
+            </div>
+
+            <h2>O sinal do dia</h2>
+            <p>A leitura mais importante em IA não é só "quem tem o melhor modelo". O movimento recente mostra que governos e empresas estão tratando modelos avançados como ativos estratégicos: Microsoft, Google e xAI aceitaram dar ao governo dos EUA acesso antecipado a modelos para testes de segurança, enquanto OpenAI e Anthropic buscam empresas de serviços para acelerar implantação corporativa. Isso reforça uma tese central para investimentos: IA está migrando de laboratório para infraestrutura, consultoria, segurança e execução.</p>
+            <p>Ao mesmo tempo, petróleo voltou a carregar prêmio geopolítico. Tensões envolvendo EUA, Irã e o Estreito de Hormuz mantêm energia no centro do tabuleiro. Quando a oferta global parece frágil, empresas de petróleo podem se beneficiar de preços mais altos, mas o investidor precisa lembrar que o mesmo cenário aumenta volatilidade, risco político e pressão sobre inflação.</p>
+            <p>No Brasil, essa combinação conversa diretamente com juros, dólar, fiscal e bolsa. Se energia sobe, Petrobras ganha relevância na carteira; se o choque de petróleo alimenta inflação, a régua de juros fica mais dura e ativos de risco precisam entregar mais margem de segurança.</p>
+            <p>Na camada de repertório monitorado, ainda existe uma lacuna operacional: a rotina automática não trouxe links verificáveis de criadores acompanhados hoje. A solução editorial correta é registrar a ausência e não inventar opinião. Para a tomada de decisão, o que pesa nesta edição são dados públicos de mercado, ranking do site e fontes externas verificáveis.</p>
+
+            <h2>O futuro dos investimentos em crise</h2>
+            <p>Em cenário de guerra, ruptura tecnológica e juros persistentes, o investidor tende a ser premiado por resiliência. Energia, infraestrutura, cibersegurança, defesa, commodities, caixa e empresas com poder de preço continuam mais defensáveis do que histórias de crescimento sem lucro.</p>
+            <p>Isso não significa comprar qualquer empresa desses setores a qualquer preço. Significa exigir três coisas: geração de caixa real, valuation que ofereça proteção e risco político dentro do que a carteira consegue suportar.</p>
+
+            <h2>Ação do dia: PETR4</h2>
+            <p>A escolhida foi <strong>PETR4</strong>, Petrobras PN. Ela aparece nos rankings do IA em Loop: no BESST & Buffett local, PETR4 consta com dividend yield de 8,16%, P/VP de 1,21 e ROIC de 17,85%; na Magic Formula, também aparece entre os nomes relevantes do ranking.</p>
+            <div class="scorecard">
+                <div>
+                    <span>DY no ranking</span>
+                    <strong>8,16%</strong>
+                </div>
+                <div>
+                    <span>P/VP no ranking</span>
+                    <strong>1,21</strong>
+                </div>
+                <div>
+                    <span>ROIC no ranking</span>
+                    <strong>17,85%</strong>
+                </div>
+            </div>
+            <p>Fontes de mercado consultadas em 08/05 exibiam PETR4 perto de R$ 48,72 e P/L ao redor de 5,7x. Também houve confirmação recente de proventos relevantes referentes a 2025, com assembleia aprovando remuneração total na casa de R$ 41,2 bilhões. A tese, portanto, não é só commodity: é caixa, dividendos e preço ainda aparentemente razoável para uma empresa de grande porte.</p>
+
+            <h2>Prós de PETR4</h2>
+            <ul>
+                <li><strong>Geração de caixa:</strong> Petrobras é uma das maiores geradoras de caixa da bolsa brasileira quando petróleo, produção e câmbio ajudam.</li>
+                <li><strong>Dividendos:</strong> o histórico recente e os proventos aprovados seguem tornando PETR4 relevante para estratégias de renda.</li>
+                <li><strong>Valuation:</strong> múltiplos como P/L baixo e P/VP moderado sugerem que o mercado ainda cobra desconto pelo risco da tese.</li>
+                <li><strong>Proteção parcial em crise energética:</strong> choques no petróleo podem elevar receitas, embora tragam volatilidade junto.</li>
+            </ul>
+
+            <h2>Riscos de PETR4</h2>
+            <ul>
+                <li><strong>Interferência política:</strong> Petrobras é estatal, e decisões de preço, investimento e dividendos podem sofrer pressão do governo.</li>
+                <li><strong>Volatilidade do petróleo:</strong> a mesma commodity que ajuda pode derrubar margens se o ciclo virar.</li>
+                <li><strong>Capex e transição energética:</strong> projetos intensivos em capital podem consumir caixa e reduzir espaço para dividendos.</li>
+                <li><strong>Inflação e juros:</strong> petróleo alto pode pressionar inflação, o que dificulta cortes de juros e pesa na bolsa como um todo.</li>
+            </ul>
+
+            <h2>Compra, venda ou espera?</h2>
+            <div class="callout">
+                <p><strong>Leitura IA em Loop: espera com viés de compra em recuos.</strong></p>
+            </div>
+            <p>Pelos critérios do IA em Loop, PETR4 não parece caso óbvio de venda. A empresa combina ROIC relevante, dividendos, escala e exposição a um setor que pode se valorizar em crise energética.</p>
+            <p>O problema é o preço de entrada e o risco político. Perto das máximas recentes e com petróleo carregando prêmio geopolítico, comprar de forma agressiva pode significar entrar depois de boa parte da tese já ter sido precificada. Por isso, a leitura mais responsável é <strong>espera</strong>, com viés de compra em quedas ou quando houver margem de segurança mais clara.</p>
+            <p>Venda faria sentido se a carteira já estiver concentrada em Petrobras, se houver deterioração de governança, se dividendos forem cortados de forma estrutural ou se o investidor não aceitar o risco estatal. Compra gradual faria mais sentido em recuos, com tese clara de dividendos e energia.</p>
+
+            <h2>Checklist antes de agir</h2>
+            <ul>
+                <li>Comparar PETR4 com PETR3, VALE3 e empresas elétricas antes de aumentar exposição a commodities.</li>
+                <li>Verificar se a carteira já depende demais de Brasil, estatal ou petróleo.</li>
+                <li>Acompanhar política de dividendos, plano de investimentos e paridade de preços.</li>
+                <li>Evitar compra única se o preço estiver esticado; preferir entradas graduais quando a tese continuar válida.</li>
+            </ul>
+
+            <p class="source-note">Fontes editoriais: rotina interna IA em Loop de 08/05/2026; ranking BESST & Buffett e Magic Formula do site; Ações.Capital para cotação/indicadores exibidos; Reuters via Investing/StreetInsider sobre IA e petróleo; Seu Dinheiro/Investing sobre proventos da Petrobras. Conteúdo educacional; não é recomendação de investimento.</p>
+        </article>
+
+        <footer class="footer">
+            <p>⌨️ Gerado por script • Não é recomendação de investimento • Faça sua própria análise</p>
+        </footer>
+    </main>
+</body>
+</html>

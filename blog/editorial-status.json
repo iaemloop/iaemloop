@@ -16,14 +16,14 @@
     "Registrar lacunas quando dados nao estiverem disponiveis.",
     "Validar HTML, links locais e git diff antes de publicar."
   ],
-  "lastPost": "blog/posts/2026-05-07-briefing-bbas3-crise-ia.html",
-  "sourceDraft": "/Users/diegoteixeira/.openclaw/workspace/briefings/2026-05-07-briefing-matinal.md",
-  "tickerOfTheDay": "BBAS3",
-  "reading": "espera com vies de compra gradual",
-  "nextSuggestedPost": "Proxima publicacao diaria deve selecionar outra acao dos rankings e combinar briefing, influenciadores monitorados, IA, geopolitica, futuro dos investimentos e leitura compra/venda/espera.",
+  "lastPost": "blog/posts/2026-05-08-analise-petr4-crise-ia.html",
+  "sourceDraft": "/Users/diegoteixeira/.openclaw/workspace/briefings/2026-05-08-briefing-matinal.md",
+  "tickerOfTheDay": "PETR4",
+  "reading": "espera com vies de compra em recuos",
+  "nextSuggestedPost": "Alternar para outro ticker do ranking, mantendo leitura diaria com IA, mercado, repertorio monitorado, macro/geopolitica em narrativa e leitura compra/venda/espera.",
   "knownGaps": [
-    "Briefing de 07/05/2026 recuperado do cron estava truncado no item 7.",
-    "Nao havia fontes verificaveis de influenciadores no briefing recuperado.",
-    "Classificacao de BBAS3 usa dados publicos e ranking do site, mas nao substitui recomendacao profissional."
+    "A rotina interna de 08/05/2026 teve lacunas em influenciadores monitorados.",
+    "Fontes externas foram usadas para completar IA, petroleo, Petrobras e indicadores de PETR4.",
+    "Classificacao de PETR4 e educacional e nao substitui recomendacao profissional."
   ]
 }
