@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-05-09",
-  "owner": "OpenClaw",
+  "updatedAt": "2026-05-12",
+  "owner": "OpenClaw/Hermes",
   "routine": {
     "dailyBriefing": "08:00 America/Recife",
     "blogPublication": "09:10 America/Recife"
@@ -16,23 +16,24 @@
     "Registrar lacunas quando dados nao estiverem disponiveis.",
     "Validar HTML, links locais e git diff antes de publicar."
   ],
-  "lastPost": "blog/posts/2026-05-09-analise-bbas3-ia-geopolitica.html",
-  "sourceDraft": "/Users/diegoteixeira/.openclaw/workspace/briefings/2026-05-09-briefing-matinal.md",
-  "tickerOfTheDay": "BBAS3",
+  "lastPost": "blog/posts/2026-05-12-analise-cmin3-ia-cambio-geopolitica.html",
+  "sourceDraft": "/Users/diegoteixeira/.openclaw/workspace/briefings/2026-05-12-briefing-matinal-gerado-1132.md",
+  "tickerOfTheDay": "CMIN3",
   "reading": "espera com vies de compra em recuos",
-  "nextSuggestedPost": "Alternar para outro ticker do ranking, mantendo leitura diaria com IA, mercado, repertorio monitorado, macro/geopolitica em narrativa e leitura compra/venda/espera.",
+  "nextSuggestedPost": "Alternar para outro ticker da carteira/ranking, evitando repetir CMIN3, PETR4 e BBAS3 nos próximos dias.",
   "knownGaps": [
-    "Sem cotações de fechamento verificados nesta execução.",
-    "Lacuna parcial em influenciadores com links/falas diretamente verificáveis.",
-    "Sem consolidacao completa de geopolítica internacional em fonte unica.",
-    "BBAS3 segue com risco de provisões e leitura mais prudente do que agressiva."
+    "Sem cotacao intraday consolidada no post; leitura priorizou ranking, carteira real e manchetes verificadas via RSS.",
+    "Influenciadores foram tratados como repertorio de mercado/monitoramento, sem atribuir falas especificas nao verificadas.",
+    "Minério, China e câmbio exigem acompanhamento apos resultado do 1T26."
   ],
   "sourcesUsed": [
-    "/Users/diegoteixeira/.openclaw/workspace/briefings/2026-05-09-briefing-matinal.md",
-    "Google News RSS: Anthropic lança agentes de IA que executam tarefas para operadores do mercado financeiro",
-    "Google News RSS: Banco do Brasil (BBAS3) prevê resultados 'mais apertados' no 1º semestre de 2026",
-    "Google News RSS: Banco do Brasil vê 2026 com recuperação em 'W' e pressões no agro",
-    "Google News RSS: Banco do Brasil (BBAS3): BTG vê pressão nos resultados e reduz preço-alvo",
-    "Google News RSS: Apple terá que pagar US$ 250 milhões a usuários de iPhone em processo coletivo por engano de IA"
+    "/Users/diegoteixeira/.openclaw/workspace/briefings/2026-05-12-briefing-matinal-gerado-1132.md",
+    "greenblatt_top30_filtered.csv",
+    "carteira_magic_formula_real.html",
+    "Google News RSS: Brasil enfrenta desafios para regulação da inteligência artificial",
+    "Google News RSS: Dólar abaixo de R$ 5 é novo normal?",
+    "Google News RSS: Ibovespa/dados de inflação/tensão no Oriente Médio",
+    "Google News RSS: CMIN3 semana decisiva e resultado do 1T26",
+    "Google News RSS: Vale/minério/China"
   ]
 }
