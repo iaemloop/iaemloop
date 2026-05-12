@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">Painel Focus 2026: Selic, IPCA, juro real, PIB e câmbio</title>
+<desc id="desc">Indicadores medianos do Boletim Focus para 2026, dados de 08/05/2026.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#07111f"/><stop offset="1" stop-color="#14253a"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6EE4EF"/><stop offset="1" stop-color="#E4D17F"/></linearGradient>
+  <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity="0.35"/></filter>
+</defs>
+<rect width="1200" height="675" rx="28" fill="url(#bg)"/>
+<text x="60" y="78" font-family="Inter,Arial,sans-serif" font-size="38" font-weight="800" fill="#E4D17F">Focus 2026: juro real continua no comando</text>
+<text x="60" y="118" font-family="Inter,Arial,sans-serif" font-size="19" fill="#cbd5e1">Medianas para 2026 — Boletim Focus/BCB, dados de 08/05/2026</text>
+<g filter="url(#shadow)">
+  <rect x="60" y="165" width="320" height="160" rx="18" fill="#0b1624" stroke="#28435e"/>
+  <text x="88" y="210" font-family="Inter,Arial" font-size="18" fill="#94a3b8">Selic esperada</text>
+  <text x="88" y="270" font-family="Inter,Arial" font-size="54" font-weight="800" fill="#E4D17F">13.00%</text>
+  <text x="88" y="300" font-family="Inter,Arial" font-size="16" fill="#cbd5e1">renda fixa ainda competitiva</text>
+  <rect x="440" y="165" width="320" height="160" rx="18" fill="#0b1624" stroke="#28435e"/>
+  <text x="468" y="210" font-family="Inter,Arial" font-size="18" fill="#94a3b8">IPCA esperado</text>
+  <text x="468" y="270" font-family="Inter,Arial" font-size="54" font-weight="800" fill="#6EE4EF">4.91%</text>
+  <text x="468" y="300" font-family="Inter,Arial" font-size="16" fill="#cbd5e1">inflação ainda exige prêmio</text>
+  <rect x="820" y="165" width="320" height="160" rx="18" fill="#0b1624" stroke="#28435e"/>
+  <text x="848" y="210" font-family="Inter,Arial" font-size="18" fill="#94a3b8">Juro real implícito</text>
+  <text x="848" y="270" font-family="Inter,Arial" font-size="54" font-weight="800" fill="#ffffff">7.71%</text>
+  <text x="848" y="300" font-family="Inter,Arial" font-size="16" fill="#cbd5e1">aprox. Selic/IPCA compostos</text>
+</g>
+<g transform="translate(70 390)">
+  <text x="0" y="0" font-family="Inter,Arial" font-size="24" font-weight="700" fill="#ffffff">Leitura prática para ações</text>
+  <text x="0" y="40" font-family="Inter,Arial" font-size="18" fill="#cbd5e1">• Empresas precisam superar um custo de oportunidade alto.</text>
+  <text x="0" y="78" font-family="Inter,Arial" font-size="18" fill="#cbd5e1">• Dividendos só contam se vierem com lucro, caixa e governança.</text>
+  <text x="0" y="116" font-family="Inter,Arial" font-size="18" fill="#cbd5e1">• Ranking quantitativo ajuda a separar preço barato de armadilha de valor.</text>
+</g>
+<g transform="translate(735 398)">
+  <rect x="0" y="0" width="410" height="132" rx="16" fill="#0b1624" stroke="#28435e"/>
+  <text x="28" y="42" font-family="Inter,Arial" font-size="18" fill="#94a3b8">PIB 2026</text>
+  <text x="28" y="92" font-family="Inter,Arial" font-size="42" font-weight="800" fill="#E4D17F">1.85%</text>
+  <text x="238" y="42" font-family="Inter,Arial" font-size="18" fill="#94a3b8">Câmbio</text>
+  <text x="238" y="92" font-family="Inter,Arial" font-size="42" font-weight="800" fill="#6EE4EF">R$ 5.20</text>
+</g>
+<rect x="60" y="595" width="1080" height="2" fill="url(#gold)" opacity="0.75"/>
+<text x="60" y="632" font-family="Inter,Arial" font-size="15" fill="#94a3b8">IA em Loop • Fonte: Banco Central do Brasil / Expectativas de Mercado Anuais</text>
+</svg>

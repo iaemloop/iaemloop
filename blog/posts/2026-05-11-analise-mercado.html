@@ -3,31 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IA em Loop - 2026-05-11</title>
-    <meta name="description" content="Análise do mercado para 2026-05-11">
-    <link rel="stylesheet" href="../style.css">
+    <meta name="description" content="Análise IA em Loop de 11/05/2026 sobre Magic Formula, ROIC, earnings yield, setores e custo de oportunidade do CDI.">
+    <title>11/05: Magic Formula em modo defesa — qualidade, preço e CDI | IA em Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)), url('../../assets/bg-carteiras.jpg') no-repeat center center fixed; background-size: cover; color: #e2e8f0; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 980px; margin: 0 auto; }
+        .back-button { position: fixed; top: 20px; left: 20px; display: inline-flex; align-items: center; gap: 6px; background: rgba(251,191,36,0.9); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: background 0.2s, transform 0.1s; z-index: 1000; }
+        .back-button:hover { background: #E4D17F; transform: translateY(-1px); }
+        article { background: rgba(19, 29, 39, 0.78); border-radius: 14px; padding: 34px; border-left: 4px solid #19364D; border: 1px solid rgba(228, 209, 127, 0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h1 { font-size: clamp(2rem, 5vw, 3.05rem); line-height: 1.08; font-weight: 800; background: linear-gradient(135deg, #6EE4EF, #E4D17F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; }
+        .dek { color: #cbd5e1; font-size: 1.12rem; line-height: 1.75; margin-bottom: 22px; }
+        .meta { display: flex; gap: 8px; flex-wrap: wrap; color: #94a3b8; font-size: 0.86rem; margin-bottom: 30px; }
+        .meta span { background: rgba(228, 209, 127, 0.15); color: #E4D17F; padding: 4px 10px; border-radius: 999px; font-weight: 600; border: 1px solid rgba(228, 209, 127, 0.2); }
+        h2 { color: #fff; font-size: 1.45rem; margin: 34px 0 12px; border-bottom: 2px solid #19364D; padding-bottom: 10px; }
+        h3 { color: #E4D17F; font-size: 1.08rem; margin: 22px 0 8px; }
+        p, li { color: #cbd5e1; line-height: 1.78; font-size: 1.02rem; }
+        p { margin-bottom: 16px; }
+        ul { padding-left: 22px; margin-bottom: 18px; }
+        li { margin-bottom: 8px; }
+        strong { color: #fff; }
+        a { color: #E4D17F; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .hero-chart { width: 100%; border-radius: 14px; border: 1px solid rgba(228, 209, 127, 0.18); margin: 20px 0 8px; background: rgba(6,8,13,.35); box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+        .caption { color: #94a3b8; font-size: .9rem; margin-bottom: 24px; }
+        .callout { background: rgba(6, 8, 13, 0.5); border-left: 4px solid #E4D17F; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .scorecard { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+        .scorecard div { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 14px; }
+        .scorecard span { display: block; color: #94a3b8; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; }
+        .scorecard strong { color: #E4D17F; font-size: 1.1rem; }
+        .matrix { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 18px 0; }
+        .matrix div { background: rgba(6, 8, 13, 0.42); border: 1px solid rgba(110,228,239,.15); border-radius: 10px; padding: 14px; }
+        .mini-table { width:100%; border-collapse: collapse; margin: 18px 0; overflow:hidden; border-radius:10px; }
+        .mini-table th, .mini-table td { padding: 11px 10px; border-bottom: 1px solid rgba(255,255,255,.08); text-align:left; color:#cbd5e1; }
+        .mini-table th { color:#E4D17F; background:rgba(6,8,13,.55); font-size:.92rem; }
+        .source-note { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 16px; margin-top: 28px; color: #94a3b8; font-size: 0.94rem; }
+        .footer { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        @media (max-width: 768px) { body { padding: 72px 16px 32px; } article { padding: 24px; } .scorecard, .matrix { grid-template-columns: 1fr; } .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; } .mini-table { font-size:.9rem; } }
+</style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "11/05: Magic Formula em modo defesa — qualidade, preço e CDI",
+      "description": "Análise IA em Loop de 11/05/2026 sobre Magic Formula, ROIC, earnings yield, setores e custo de oportunidade do CDI.",
+      "author": { "@type": "Organization", "name": "IA em Loop" },
+      "publisher": { "@type": "Organization", "name": "IA em Loop", "url": "https://iaemloop.com.br" },
+      "datePublished": "2026-05-11",
+      "dateModified": "2026-05-12",
+      "image": "https://iaemloop.com.br/assets/blog/magic-formula-qualidade-preco.svg",
+      "keywords": ["Magic Formula", "Ranking", "ROIC", "Carteira"]
+    }
+    </script>
 </head>
 <body>
-    <article class="post">
-        <header class="post-header">
-            <h1 class="post-title">Análise do mercado — 2026-05-11</h1>
-            <p class="post-date">2026-05-11</p>
-        </header>
-        <div class="post-content">
-            <p>Em 2026-05-11, o mercado apresentou volatilidade moderada com foco nas expectativas de política monetária.</p>
-            <p>Os indicadores mais recentes mostram:</p>
+    <a href="../index.html" class="back-button" title="Voltar ao Blog">← Blog</a>
+    <main class="container">
+        <article>
+            
+            <h1>11/05: Magic Formula em modo defesa — qualidade, preço e o custo de oportunidade do CDI</h1>
+            <p class="dek">Depois de olhar o macro, a pergunta vira carteira: quais empresas conseguem competir com um juro real elevado sem depender apenas de promessa? A Magic Formula ajuda a transformar essa pergunta em ranking: retorno sobre capital de um lado, lucro/preço do outro.</p>
+            <div class="meta"><span>11/05/2026</span><span>Leitura diária</span><span>Magic Formula</span><span>Ranking</span><span>Carteira</span><span>8 min</span></div>
+            <img class="hero-chart" src="../../assets/blog/magic-formula-qualidade-preco.svg" alt="Gráfico Magic Formula qualidade versus preço com ROIC e earnings yield">
+            <p class="caption">Dados: arquivo local <code>greenblatt_top30_filtered.csv</code>. Quanto mais acima e à direita, melhor a combinação quantitativa; outliers precisam de checagem fundamentalista.</p>
+
+            <h2>O sinal do dia</h2>
+            <p>A leitura de 11/05 parte de uma constatação: com Selic esperada em torno de <strong>13.00%</strong> para 2026 e IPCA perto de <strong>4.91%</strong>, o investidor não precisa aceitar qualquer risco. O CDI ainda coloca uma barra alta. A bolsa só entra quando a assimetria fica clara.</p>
+            <p>É aqui que a Magic Formula tem utilidade. Ela não promete prever preço no curto prazo. Ela organiza a busca por empresas que combinam <strong>qualidade operacional</strong> e <strong>preço descontado</strong>. Em vez de perguntar “qual ação vai subir amanhã?”, o método pergunta: “qual negócio entrega retorno sobre capital e está barato em relação ao lucro?”.</p>
+            <div class="callout"><p><strong>Leitura IA em Loop:</strong> no ambiente atual, o ranking é um funil. Primeiro elimina narrativa fraca; depois exige análise de risco, setor, governança e sustentabilidade do lucro.</p></div>
+
+            <h2>Top nomes do filtro quantitativo</h2>
+            <p>O ranking local mostra uma mistura interessante: seguradoras, saúde, construção, petróleo, mineração, educação e autopeças. Isso é bom porque evita uma carteira monotemática, mas também exige atenção: cada setor carrega um risco diferente.</p>
+            <table class="mini-table">
+              <thead><tr><th>Rank</th><th>Ticker</th><th>Setor</th><th>ROIC</th><th>Earnings yield</th></tr></thead>
+              <tbody><tr><td>1</td><td><strong>PSSA3</strong></td><td>Seguros</td><td>77.44%</td><td>158.73%</td></tr>
+<tr><td>2</td><td><strong>WIZC3</strong></td><td>Seguros/Corretagem</td><td>35.46%</td><td>42.19%</td></tr>
+<tr><td>3</td><td><strong>PLPL3</strong></td><td>Construção civil</td><td>29.26%</td><td>23.98%</td></tr>
+<tr><td>4</td><td><strong>QUAL3</strong></td><td>Saúde</td><td>19.33%</td><td>37.17%</td></tr>
+<tr><td>6</td><td><strong>PETR4</strong></td><td>Petróleo/Gás</td><td>17.85%</td><td>25.25%</td></tr>
+<tr><td>6</td><td><strong>CMIN3</strong></td><td>Mineração</td><td>26.67%</td><td>19.61%</td></tr>
+<tr><td>9</td><td><strong>PETR3</strong></td><td>Petróleo/Gás</td><td>17.85%</td><td>24.39%</td></tr>
+<tr><td>11</td><td><strong>LEVE3</strong></td><td>Autopeças</td><td>34.85%</td><td>15.77%</td></tr></tbody>
+            </table>
+            <p><strong>PSSA3</strong> aparece como outlier quantitativo, com ROIC e earnings yield muito fortes no arquivo. Esse tipo de dado é um convite à análise, não uma ordem de compra. Outliers podem ser oportunidade real, efeito contábil, evento não recorrente ou distorção de base.</p>
+
+            <h2>Como ler os setores</h2>
+            <div class="matrix">
+                <div><h3>Seguros/corretagem</h3><p>PSSA3 e WIZC3 indicam empresas leves em capital e potencialmente resilientes, mas dependem de qualidade da receita e competição.</p></div>
+                <div><h3>Petróleo e mineração</h3><p>PETR4, PETR3, CMIN3 e VALE3 conversam com câmbio e commodities. Podem proteger a carteira, mas aumentam volatilidade.</p></div>
+                <div><h3>Saúde e educação</h3><p>QUAL3, ODPV3, VTRU3 e CSED3 podem parecer baratos, mas exigem cuidado com dívida, regulação e capacidade de repasse.</p></div>
+                <div><h3>Indústria/autopeças</h3><p>LEVE3 e POMO3/POMO4 aparecem por retorno operacional, mas dependem de ciclo, margem e demanda real.</p></div>
+            </div>
+
+            <h2>O que entraria no checklist antes de comprar</h2>
             <ul>
-                <li>IPCA esperado permanecendo em torno de 4,8-5,0% para 2026</li>
-                <li>Selic projetada entre 12,5-13,5% ao ano</li>
-                <li>Ibovespa oscilando entre 115.000 e 120.000 pontos</li>
+                <li><strong>Lucro é recorrente?</strong> Se o earnings yield vem de evento extraordinário, o ranking pode estar otimista demais.</li>
+                <li><strong>Dívida cabe no caixa?</strong> Juro real alto transforma alavancagem em risco central.</li>
+                <li><strong>Dividendos são sustentáveis?</strong> Yield alto sem lucro recorrente vira armadilha.</li>
+                <li><strong>Governança é aceitável?</strong> Estatal, controlador dominante ou histórico ruim exigem desconto maior.</li>
+                <li><strong>Setor está em ciclo favorável?</strong> Commodity, crédito, consumo e educação respondem de formas diferentes ao macro.</li>
             </ul>
-            <p>A principal lição para investidores continua sendo a importância de se focar no retorno real líquido de impostos e inflação, ao invés apenas da taxa nominal.</p>
-            <p>Enquanto aguardamos novos dados do Banco Central, recomenda-se manter estratégias diversificadas com ênfase em ativos protegidos contra inflação.</p>
-        </div>
-        <footer class="post-footer">
-            <p><em>Fonte primária:</em> Banco Central do Brasil — Focus / SGS.</p>
-            <p><em>Nota editorial:</em> projeções do Focus são expectativa de mercado, não promessa.</p>
-        </footer>
-    </article>
+
+            <h2>Decisão prática para a carteira</h2>
+            <p>O ranking sugere que ainda existem ações brasileiras com preço interessante. Mas o custo de oportunidade do CDI impede euforia. A decisão prática é montar uma lista de observação com os nomes que combinam ROIC alto, lucro/preço atrativo e risco compreensível, e só avançar quando a margem de segurança compensar o cenário.</p>
+            <p><strong>Compra:</strong> quando a ação passa no ranking, no balanço e no preço. <strong>Espera:</strong> quando o ranking é bom, mas o risco setorial ou o preço ainda não compensa. <strong>Venda/evitar:</strong> quando o aparente desconto depende de lucro não recorrente, dívida pesada ou deterioração estrutural.</p>
+            <div class="scorecard">
+                <div><span>Filtro 1</span><strong>ROIC</strong></div>
+                <div><span>Filtro 2</span><strong>Earnings yield</strong></div>
+                <div><span>Filtro 3</span><strong>Risco real</strong></div>
+            </div>
+            <div class="source-note"><strong>Fontes e método:</strong> ranking local IA em Loop/Magic Formula em <code>greenblatt_top30_filtered.csv</code> e cenário macro do Boletim Focus/BCB de 08/05/2026. Estudo educacional; não é recomendação personalizada de investimento.</div>
+
+        </article>
+        <div class="footer">⌨️ IA em Loop • Estudo, transparência e skin in the game • Não é recomendação de investimento</div>
+    </main>
 </body>
 </html>
