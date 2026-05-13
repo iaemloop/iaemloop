@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Análise IA em Loop de 13/05/2026: petróleo, Irã, regulação de IA e estudo de PSSA3 pela Magic Formula em cenário de juros e incerteza global.">
+    <title>13/05: petróleo, IA e PSSA3 em uma carteira de defesa | IA em Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)), url('../../assets/bg-carteiras.jpg') no-repeat center center fixed; background-size: cover; color: #e2e8f0; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 980px; margin: 0 auto; }
+        .back-button { position: fixed; top: 20px; left: 20px; display: inline-flex; align-items: center; gap: 6px; background: rgba(251,191,36,0.9); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: background 0.2s, transform 0.1s; z-index: 1000; }
+        .back-button:hover { background: #E4D17F; transform: translateY(-1px); }
+        article { background: rgba(19, 29, 39, 0.78); border-radius: 14px; padding: 34px; border-left: 4px solid #19364D; border: 1px solid rgba(228, 209, 127, 0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h1 { font-size: clamp(2rem, 5vw, 3.05rem); line-height: 1.08; font-weight: 800; background: linear-gradient(135deg, #6EE4EF, #E4D17F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; }
+        .dek { color: #cbd5e1; font-size: 1.12rem; line-height: 1.75; margin-bottom: 22px; }
+        .meta { display: flex; gap: 8px; flex-wrap: wrap; color: #94a3b8; font-size: 0.86rem; margin-bottom: 30px; }
+        .meta span { background: rgba(228, 209, 127, 0.15); color: #E4D17F; padding: 4px 10px; border-radius: 999px; font-weight: 600; border: 1px solid rgba(228, 209, 127, 0.2); }
+        h2 { color: #fff; font-size: 1.45rem; margin: 34px 0 12px; border-bottom: 2px solid #19364D; padding-bottom: 10px; }
+        h3 { color: #E4D17F; font-size: 1.08rem; margin: 22px 0 8px; }
+        p, li { color: #cbd5e1; line-height: 1.78; font-size: 1.02rem; }
+        p { margin-bottom: 16px; }
+        ul { padding-left: 22px; margin-bottom: 18px; }
+        li { margin-bottom: 8px; }
+        strong { color: #fff; }
+        code { color: #E4D17F; background: rgba(6,8,13,.45); padding: 2px 5px; border-radius: 4px; }
+        a { color: #E4D17F; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .hero-chart { width: 100%; border-radius: 14px; border: 1px solid rgba(228, 209, 127, 0.18); margin: 20px 0 8px; background: rgba(6,8,13,.35); box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+        .caption { color: #94a3b8; font-size: .9rem; margin-bottom: 24px; }
+        .callout { background: rgba(6, 8, 13, 0.5); border-left: 4px solid #E4D17F; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .scorecard { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+        .scorecard div { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 14px; }
+        .scorecard span { display: block; color: #94a3b8; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; }
+        .scorecard strong { color: #E4D17F; font-size: 1.1rem; }
+        .matrix { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 18px 0; }
+        .matrix div { background: rgba(6, 8, 13, 0.42); border: 1px solid rgba(110,228,239,.15); border-radius: 10px; padding: 14px; }
+        .mini-table { width:100%; border-collapse: collapse; margin: 18px 0; overflow:hidden; border-radius:10px; }
+        .mini-table th, .mini-table td { padding: 11px 10px; border-bottom: 1px solid rgba(255,255,255,.08); text-align:left; color:#cbd5e1; }
+        .mini-table th { color:#E4D17F; background:rgba(6,8,13,.55); font-size:.92rem; }
+        .source-note { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 16px; margin-top: 28px; color: #94a3b8; font-size: 0.94rem; }
+        .footer { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        @media (max-width: 768px) { body { padding: 72px 16px 32px; } article { padding: 24px; } .scorecard, .matrix { grid-template-columns: 1fr; } .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; } .mini-table { font-size:.9rem; } }
+</style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "13/05: petróleo, IA e PSSA3 em uma carteira de defesa",
+      "description": "Análise IA em Loop de 13/05/2026: petróleo, Irã, regulação de IA e estudo de PSSA3 pela Magic Formula em cenário de juros e incerteza global.",
+      "author": { "@type": "Organization", "name": "IA em Loop" },
+      "publisher": { "@type": "Organization", "name": "IA em Loop", "url": "https://iaemloop.com.br" },
+      "datePublished": "2026-05-13",
+      "dateModified": "2026-05-13",
+      "image": "https://iaemloop.com.br/assets/blog/pssa3-seguros-ia-geopolitica.svg",
+      "keywords": ["PSSA3", "Porto Seguro", "Magic Formula", "IA", "petróleo", "geopolítica", "seguros"]
+    }
+    </script>
+</head>
+<body>
+    <a href="../index.html" class="back-button" title="Voltar ao Blog">← Blog</a>
+    <main class="container">
+        <article>
+            <h1>13/05: petróleo, IA e PSSA3 em uma carteira de defesa</h1>
+            <p class="dek">A leitura de hoje junta petróleo sensível ao Irã, juros ainda exigentes, regulação de IA no Brasil e uma ação menos barulhenta do que Petrobras ou mineração: PSSA3. Em um mundo em que tecnologia, energia e geopolítica viraram o mesmo tabuleiro, seguros entram como estudo de qualidade, recorrência e margem de segurança.</p>
+            <div class="meta"><span>13/05/2026</span><span>Leitura diária</span><span>PSSA3</span><span>Seguros</span><span>Magic Formula</span><span>8 min</span></div>
+            <img class="hero-chart" src="../../assets/blog/pssa3-seguros-ia-geopolitica.svg" alt="Diagrama IA em Loop sobre PSSA3, seguros, IA, petróleo e defesa de carteira">
+            <p class="caption">Leitura visual: PSSA3 aparece como candidata de qualidade no ranking, mas a decisão depende de preço, juros, sinistralidade e disciplina de capital.</p>
+
+            <h2>O sinal do dia</h2>
+            <p>O mercado acordou com duas mensagens simultâneas. A primeira é conhecida: petróleo, Irã, rotas energéticas e reunião Trump-Xi seguem mexendo com inflação esperada, juros e apetite por risco. A segunda é estrutural: IA saiu da fase de encantamento e entrou na fase de governança, custo, regulação e produtividade real. No Brasil, o uso de IA na saúde, a discussão regulatória por níveis de risco e a criação de cursos específicos mostram que o tema já deixou de ser só narrativa de big tech.</p>
+            <p>Para o investidor pessoa física, isso pede menos caça a manchete e mais arquitetura de carteira. Energia, defesa, cibersegurança, infraestrutura crítica, commodities e empresas de caixa forte tendem a ganhar relevância em cenário de crise mundial, guerras e incerteza. Mas há um ponto importante: resiliência não significa comprar qualquer ativo “defensivo” a qualquer preço.</p>
+            <div class="callout"><p><strong>Leitura IA em Loop:</strong> quando petróleo, IA e geopolítica disputam o preço dos ativos, o ranking quantitativo vira filtro de sanidade. Ele não prevê o futuro; ele ajuda a separar qualidade, preço e risco antes da emoção assumir o volante.</p></div>
+
+            <h2>Por que PSSA3 hoje?</h2>
+            <p>PSSA3 foi escolhida para alternar o estudo diário e sair do eixo mais óbvio de petróleo e mineração. No arquivo local <code>greenblatt_top30_filtered.csv</code>, PSSA3 aparece em <strong>1º lugar</strong> na Magic Formula, com <strong>ROIC de 77,44%</strong> e <strong>earnings yield de 158,73%</strong> no dado do ranking. Esses números são fortes o bastante para colocar a empresa no radar, mas também exigem checagem: earnings yield muito alto pode refletir lucro extraordinário, base contábil específica ou distorção de captura de dados.</p>
+            <p>Na apuração pública do dia, o Google News RSS trouxe resultado recente da Porto Seguro: lucro líquido de <strong>R$ 958 milhões no 1T26</strong>, alta anual de <strong>15%</strong>, segundo manchete do InfoMoney. Para contexto de preço, consulta ao Yahoo Finance para <code>PSSA3.SA</code> retornou <strong>R$ 50,06</strong> como preço regular de mercado e fechamento anterior de <strong>R$ 49,18</strong>. Esses dados ajudam a situar o estudo, mas não substituem leitura do release completo, balanço e histórico de dividendos.</p>
+            <table class="mini-table">
+              <thead><tr><th>Item</th><th>Leitura verificada</th><th>Implicação</th></tr></thead>
+              <tbody>
+                <tr><td>Ranking</td><td>1º na Magic Formula</td><td>Passa muito bem no filtro inicial de qualidade/preço</td></tr>
+                <tr><td>ROIC</td><td>77,44% no ranking local</td><td>Indício de retorno sobre capital excepcional, sujeito a validação contábil</td></tr>
+                <tr><td>Earnings yield</td><td>158,73% no ranking local</td><td>Sinal de aparente desconto, mas com risco de dado extraordinário/distorcido</td></tr>
+                <tr><td>Preço/contexto</td><td>R$ 50,06 no Yahoo Finance consultado hoje</td><td>Referência pontual, não preço-alvo</td></tr>
+                <tr><td>Resultado recente</td><td>Lucro de R$ 958 mi no 1T26 em manchete do InfoMoney</td><td>Operação segue lucrativa, mas precisa leitura completa por linha de negócio</td></tr>
+              </tbody>
+            </table>
+
+            <h2>Tese, pontos positivos e riscos</h2>
+            <div class="matrix">
+                <div><h3>Tese</h3><p>Porto Seguro combina marca forte, seguros, serviços financeiros e receitas recorrentes. Em crise, proteção patrimonial continua relevante; em normalização, crédito, serviços e eficiência operacional podem ampliar retorno.</p></div>
+                <div><h3>Pontos positivos</h3><p>Primeira colocação no ranking, ROIC elevado, lucro recente em alta, negócio menos dependente de commodity e possível uso de IA para precificação de risco, atendimento, fraude e sinistros.</p></div>
+                <div><h3>Riscos</h3><p>Sinistralidade, competição, inadimplência em serviços financeiros, queda de margem, juros afetando valuation e risco de o ranking estar capturando lucro não recorrente.</p></div>
+                <div><h3>Contexto macro</h3><p>Petróleo e geopolítica pressionam inflação; juros altos favorecem caixa e renda financeira, mas comprimem múltiplos. Seguradoras podem ser resilientes, não imunes.</p></div>
+            </div>
+
+            <h2>Compra, venda ou espera?</h2>
+            <p>Pelos critérios do IA em Loop, PSSA3 hoje parece mais próxima de <strong>espera</strong>. A qualidade quantitativa é excelente e o lucro recente reforça a tese, mas o número de earnings yield está alto demais para ser tratado como verdade final sem auditoria manual. Em processo sério, isso não é gatilho automático de compra; é convite para estudar melhor antes de aumentar risco.</p>
+            <ul>
+                <li><strong>Gatilho de compra:</strong> confirmar que lucro e ROIC são recorrentes, dividendos sustentáveis, valuation ainda descontado após ajuste de itens não recorrentes e sinistralidade controlada.</li>
+                <li><strong>Gatilho de espera:</strong> preço perto de máxima recente, falta de leitura completa do balanço, dúvida sobre qualidade do lucro ou mercado ainda punindo ações por juros e aversão a risco.</li>
+                <li><strong>Gatilho de venda/redução:</strong> piora persistente de sinistralidade, queda de ROIC, crédito deteriorando, payout insustentável ou tese dependendo só da posição no ranking.</li>
+            </ul>
+            <div class="scorecard">
+                <div><span>Classificação de hoje</span><strong>Espera</strong></div>
+                <div><span>Viés</span><strong>Compra só com validação</strong></div>
+                <div><span>Risco-chave</span><strong>Qualidade do lucro</strong></div>
+            </div>
+
+            <h2>O que isso muda na carteira</h2>
+            <p>Em cenário de crise mundial, guerras e disputa tecnológica, ativos ligados a energia, defesa, cibersegurança, infraestrutura, commodities críticas, seguradoras, saneamento, telecom e empresas com caixa forte podem se mostrar mais resilientes. A diferença é que cada setor protege de um tipo de risco. Petróleo protege parcialmente contra choque energético, mas carrega risco político. Mineração depende de China. Seguros dependem de precificação, sinistros e disciplina atuarial.</p>
+            <p>A pessoa física não precisa acertar o próximo manchete do Irã nem a próxima rodada de IA generativa. Precisa evitar concentração burra. Um processo razoável combina renda fixa protegendo liquidez, ações de qualidade compradas com margem de segurança, exposição seletiva a tecnologia/infraestrutura e empresas capazes de sobreviver a juros altos sem destruir capital.</p>
+            <p>No repertório monitorado de mercado, a mensagem recorrente continua sendo disciplina: não comprar narrativa sem preço, não vender qualidade por susto e não transformar ranking em recomendação automática. Hoje não houve fala específica de influenciador com link verificável suficiente para atribuição direta; por isso, o conteúdo foi usado apenas como leitura ampla de consenso e cautela.</p>
+
+            <h2>Checklist antes de agir</h2>
+            <ul>
+                <li>Ler o release completo do 1T26 da Porto Seguro e separar lucro recorrente de efeito pontual.</li>
+                <li>Comparar PSSA3 com outras seguradoras e bancos para entender se o valuation está realmente descontado.</li>
+                <li>Checar dividend yield, payout, ROE/ROIC ajustado e evolução de sinistralidade.</li>
+                <li>Não usar o preço de R$ 50,06 como preço-alvo; ele é apenas fotografia da consulta.</li>
+                <li>Exigir margem de segurança maior se juros, inflação e petróleo voltarem a pressionar múltiplos.</li>
+            </ul>
+
+            <div class="source-note"><strong>Fontes e método:</strong> leitura editorial de 13/05/2026 salva em <code>/Users/diegoteixeira/.openclaw/workspace/briefings</code>; <code>greenblatt_top30_filtered.csv</code>; <code>historico_rankings_magic_formula.html</code>; Google News RSS para IA no Brasil, petróleo/Irã/inflação e PSSA3; Yahoo Finance chart API para preço de PSSA3.SA; manchetes de InfoMoney, Agência Brasil, Exame, G1, Money Times, Valor/Folha/Estadão citadas no material interno. Lacunas: sem leitura completa de todas as matérias fechadas, sem cotação oficial B3 intradiária e sem atribuição verificável de influenciadores específicos. Estudo educacional; não é recomendação personalizada de investimento.</div>
+        </article>
+        <div class="footer">⌨️ IA em Loop • Estudo, transparência e skin in the game • Não é recomendação de investimento</div>
+    </main>
+</body>
+</html>

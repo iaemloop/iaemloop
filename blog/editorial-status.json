@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-05-12",
-  "owner": "OpenClaw/Hermes",
+  "updatedAt": "2026-05-13",
+  "owner": "OpenClaw/Loop",
   "routine": {
     "dailyBriefing": "08:00 America/Recife",
     "blogPublication": "09:10 America/Recife"
@@ -16,24 +16,31 @@
     "Registrar lacunas quando dados nao estiverem disponiveis.",
     "Validar HTML, links locais e git diff antes de publicar."
   ],
-  "lastPost": "blog/posts/2026-05-12-analise-cmin3-ia-cambio-geopolitica.html",
-  "sourceDraft": "/Users/diegoteixeira/.openclaw/workspace/briefings/2026-05-12-briefing-matinal-gerado-1132.md",
-  "tickerOfTheDay": "CMIN3",
-  "reading": "espera com vies de compra em recuos",
-  "nextSuggestedPost": "Alternar para outro ticker da carteira/ranking, evitando repetir CMIN3, PETR4 e BBAS3 nos próximos dias.",
+  "lastPost": "blog/posts/2026-05-13-petroleo-ia-pssa3-carteira-defensiva.html",
+  "sourceDraft": "/Users/diegoteixeira/.openclaw/workspace/briefings/2026-05-13-briefing-matinal.md",
+  "tickerOfTheDay": "PSSA3",
+  "reading": "espera",
+  "nextSuggestedPost": "Alternar para outro ticker do ranking sem repetir BBAS3, PETR4, CMIN3 ou PSSA3; candidatos naturais: WIZC3, PLPL3, QUAL3, PETR3 ou LEVE3, conforme pauta do dia.",
   "knownGaps": [
-    "Sem cotacao intraday consolidada no post; leitura priorizou ranking, carteira real e manchetes verificadas via RSS.",
-    "Influenciadores foram tratados como repertorio de mercado/monitoramento, sem atribuir falas especificas nao verificadas.",
-    "Minério, China e câmbio exigem acompanhamento apos resultado do 1T26."
+    "Sem cotacao oficial intradiaria da B3; o post usou Yahoo Finance como referencia pontual de preco/contexto.",
+    "Sem leitura completa de todas as materias fechadas; quando aplicavel, foram usadas manchetes/metadados de Google News RSS e o briefing interno.",
+    "Influenciadores/conteudos monitorados foram tratados como repertorio amplo; nao houve fala/link verificavel suficiente para atribuicao direta.",
+    "Earnings yield de PSSA3 no ranking local esta muito elevado e foi tratado como sinal a auditar, nao como verdade final."
   ],
   "sourcesUsed": [
-    "/Users/diegoteixeira/.openclaw/workspace/briefings/2026-05-12-briefing-matinal-gerado-1132.md",
+    "/Users/diegoteixeira/.openclaw/workspace/briefings/2026-05-13-briefing-matinal.md",
     "greenblatt_top30_filtered.csv",
-    "carteira_magic_formula_real.html",
-    "Google News RSS: Brasil enfrenta desafios para regulação da inteligência artificial",
-    "Google News RSS: Dólar abaixo de R$ 5 é novo normal?",
-    "Google News RSS: Ibovespa/dados de inflação/tensão no Oriente Médio",
-    "Google News RSS: CMIN3 semana decisiva e resultado do 1T26",
-    "Google News RSS: Vale/minério/China"
+    "historico_rankings_magic_formula.html",
+    "Yahoo Finance chart API: PSSA3.SA",
+    "Google News RSS: PSSA3/Porto Seguro resultados 1T26 e dividendos",
+    "Google News RSS: inteligencia artificial Brasil regulacao saude 2026",
+    "Google News RSS: petroleo Ira inflacao mercado 13 maio 2026 investimentos",
+    "Briefing interno: Agencia Brasil, Exame, G1, Money Times, InfoMoney, Folha/Valor/Estadao E-Investidor"
+  ],
+  "validationPlan": [
+    "jq blog/editorial-status.json",
+    "xmllint sitemap.xml quando disponivel",
+    "inspecao de links locais do novo post",
+    "git diff e git status antes de commit/push"
   ]
 }
