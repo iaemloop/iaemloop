@@ -47,14 +47,16 @@ Este repositório contém o **código aberto e land pages** das carteiras de inv
 ```bash
 pip install -r requirements.txt
 python pipeline.py
+python scripts/update_besst_page.py
 ```
 Saída em `outputs/`.
 
 ### Pipeline Greenblatt
 ```bash
-python generate_greenblatt_landing.py
+python scripts/update_magic_formula_page.py
 ```
-Gera `greenblatt_landing.html` e `greenblatt_top30.csv`.
+Atualiza `greenblatt_ned_landing_original.html`, aplica exclusões de varejo/aviação,
+adiciona setor e deixa tickers clicáveis.
 
 ---
 
