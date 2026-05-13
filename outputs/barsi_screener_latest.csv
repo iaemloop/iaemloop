@@ -1,10 +1,12 @@
 ﻿ticker,nome,setor,segmento,classificacao_setor,preco,market_cap,dividend_yield,dividend_rate,p_vpa,p_l,anos_listed,anos_com_dividendos,score
-PETR4,PETROBRAS   PN      N2,Energy,Oil & Gas Integrated,PERENE,39.28,527827173376,11.81,4.64,1.2,7.06,20.0,18,71.9
-ENGI3,ENERGISA    ON      N2,Utilities,Utilities - Regulated Electric,PERENE,12.9,32438272000,5.04,0.65,0.27,9.85,20.0,18,67.7
-KLBN4,KLABIN S/A  PN      N2,Basic Materials,Paper & Paper Products,PERENE,4.13,25336952832,7.99,0.33,0.64,17.96,20.0,16,66.0
-KLBN3,KLABIN S/A  ON      N2,Basic Materials,Paper & Paper Products,PERENE,4.16,25520996352,7.93,0.33,0.65,18.09,20.0,18,65.9
-CSNA3,SID NACIONALON  ATZ,Basic Materials,Steel,PERENE,8.64,11457452032,14.7,1.27,0.81,,20.0,14,65.0
-PETR3,PETROBRAS   ON      N2,Energy,Oil & Gas Integrated,PERENE,42.49,547642277888,10.92,4.64,1.29,7.64,20.0,14,60.8
-ENGI11,ENERGISA    UNT     N2,Utilities,Utilities - Regulated Electric,PERENE,54.78,25041606656,5.97,3.27,1.13,39.7,20.0,16,48.0
-SANB11,SANTANDER BRUNT,Financial Services,Banks - Regional,PERENE,34.85,164506681344,5.08,1.77,1.36,17.03,20.0,17,47.6
-EQTL3,EQUATORIAL  ON      NM,Utilities,Utilities - Regulated Electric,PERENE,42.73,53764628480,5.55,2.37,1.88,16.5,20.0,18,40.9
+SANB11,SANTANDER BRUNT,Financial Services,Banks - Regional,PERENE,27.65,148576714752,6.4,1.77,0.83,13.51,20.0,17,70.5
+CSNA3,SID NACIONALON,Basic Materials,Steel,PERENE,6.55,8685915136,19.39,1.27,0.67,,20.0,14,69.1
+ENGI3,ENERGISA    ON      N2,Utilities,Utilities - Regulated Electric,PERENE,12.47,31356055552,5.21,0.65,0.23,14.33,20.0,18,65.5
+KLBN4,KLABIN S/A  PN      N2,Basic Materials,Paper & Paper Products,PERENE,3.37,20702752768,9.79,0.33,0.52,42.12,20.0,16,61.4
+KLBN3,KLABIN S/A  ON      N2,Basic Materials,Paper & Paper Products,PERENE,3.4,20887052288,9.71,0.33,0.53,42.5,20.0,18,61.3
+PETR4,PETROBRAS   PN      N2,Energy,Oil & Gas Integrated,PERENE,45.68,624148021248,8.56,3.91,1.42,6.12,20.0,19,59.5
+ENGI11,ENERGISA    UNT     N2,Utilities,Utilities - Regulated Electric,PERENE,50.49,15464229888,6.48,3.27,0.91,36.59,20.0,16,57.4
+PETR3,PETROBRAS   ON      N2,Energy,Oil & Gas Integrated,PERENE,50.22,647272202240,7.79,3.91,1.56,6.72,20.0,15,53.5
+VALE3,VALE        ON  ATZ NM,Basic Materials,Other Industrial Metals & Mining,PERENE,83.25,354907324416,8.29,6.9,1.93,25.62,20.0,18,43.2
+VIVT3,TELEF BRASILON  EJ,Communication Services,Telecom Services,PERENE,36.33,116096385024,6.58,2.39,1.69,20.18,20.0,18,41.8
+EQTL3,EQUATORIAL  ON      NM,Utilities,Utilities - Regulated Electric,PERENE,40.9,51466092544,5.79,2.37,2.0,42.6,20.0,18,34.4
