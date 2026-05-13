@@ -23,10 +23,17 @@ TIMESTAMP_FILE = os.path.join(DATA_DIR, 'last_updated.txt')
 hoje = datetime.now()
 hoje_str = hoje.strftime('%Y-%m-%d')
 
-# Carregar histórico (mapeia nome_produto -> data_primeira)
+# Carregar histórico (mapeia nome_produto -> data_primeira).
+# Versões antigas salvavam {primeira_data, ultima_data, count}; normalize para string.
 if os.path.exists(HISTORY_FILE):
     with open(HISTORY_FILE, 'r', encoding='utf-8') as f:
-        historico = json.load(f)
+        historico_raw = json.load(f)
+    historico = {}
+    for nome, valor in historico_raw.items():
+        if isinstance(valor, str):
+            historico[nome] = valor
+        elif isinstance(valor, dict):
+            historico[nome] = valor.get('primeira_data') or valor.get('data_primeira') or hoje_str
 else:
     historico = {}
 
@@ -68,6 +75,10 @@ def encontrar_rating(emissor):
     return None
 
 for produto in produtos_crus:
+    # A página ranking_fgc.html deve exibir apenas produtos cobertos pelo FGC.
+    if not produto.get('tem_fgc'):
+        continue
+
     nome = produto['produto']
     
     if nome in historico:
