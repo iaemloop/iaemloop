@@ -80,6 +80,35 @@ def extrair_indexador(produto_nome):
     else:
         return 'CDI'  # default
 
+def formatar_percentual(valor):
+    return f"{valor:.2f}".replace('.', ',')
+
+def formatar_moeda(valor):
+    # Formato pt-BR: R$ 1.000,00
+    s = f"{valor:,.2f}"
+    s = s.replace(',', 'X').replace('.', ',').replace('X', '.')
+    return f"R$ {s}"
+
+def extrair_rentabilidade_bruta(produto_nome, rent_liquida):
+    """Extrai a rentabilidade anunciada no nome do produto quando disponível."""
+    match = re.search(r'(CDI)\s*\+\s*([\d,.]+)%', produto_nome, flags=re.I)
+    if match:
+        return f"CDI + {match.group(2).replace('.', ',')}%"
+
+    match = re.search(r'([\d,.]+)%\s*(CDI)', produto_nome, flags=re.I)
+    if match:
+        return f"{match.group(1).replace('.', ',')}% CDI"
+
+    match = re.search(r'(IPCA)\s*\+\s*([\d,.]+)%', produto_nome, flags=re.I)
+    if match:
+        return f"IPCA + {match.group(2).replace('.', ',')}%"
+
+    match = re.search(r'(?:Prefixado\s*)?([\d,.]+)%', produto_nome, flags=re.I)
+    if match:
+        return f"{match.group(1).replace('.', ',')}% a.a."
+
+    return f"{formatar_percentual(rent_liquida)}% a.a."
+
 def calcular_prazo_tipo(prazo_str):
     """Calcula o tipo de prazo a partir da data (DD/MM/YYYY)"""
     try:
@@ -175,9 +204,9 @@ def extrair_produtos_de_html(html):
             "rating": "N/A",  # Não disponível no card do Yubb
             "indexador": indexador,
             "tipo": tipo.upper(),
-            "rent_bruta": f"{rent_bruta:.2f}% a.a.",
-            "rent_liquida": f"{rent_liquida:.2f}% a.a.",
-            "minimo": f"R$ {minimo:,.2f}".replace(',', '.'),
+            "rent_bruta": extrair_rentabilidade_bruta(produto_nome, rent_liquida),
+            "rent_liquida": f"{formatar_percentual(rent_liquida)}% a.a.",
+            "minimo": formatar_moeda(minimo),
             "prazo": prazo,
             "prazo_tipo": prazo_tipo,
             "tem_fgc": tem_fgc,

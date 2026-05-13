@@ -69,7 +69,8 @@ async function loadFGCData() {
         try {
             const tsResponse = await fetch('data/last_updated.txt');
             const timestamp = await tsResponse.text();
-            const dataObj = new Date(timestamp.trim());
+            const [ano, mes, dia] = timestamp.trim().split('-').map(Number);
+            const dataObj = new Date(ano, mes - 1, dia);
             const dataFormatada = dataObj.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' });
             const lastUpdatedEl = document.getElementById('last-updated');
             if (lastUpdatedEl) {
