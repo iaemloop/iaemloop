@@ -13,7 +13,6 @@
         <div class="meta-info" style="background: rgba(19, 29, 39, 0.75); border-radius: 12px; padding: 20px; margin: 20px 0; border-left: 4px solid #E4D17F; border: 1px solid rgba(228, 209, 127, 0.2);">
             <p style="margin: 8px 0;">📅 <strong>Atualização:</strong> 04/03/2026</p>
             <p style="margin: 8px 0;">💰 <strong>Carteira Real:</strong> <a href="carteira_magic_formula_real.html" style="color:#E4D17F;text-decoration:underline;">Acompanhe a carteira</a></p>
-            <p style="margin: 8px 0;">📈 <strong>Histórico:</strong> <a href="historico_rankings_magic_formula.html" style="color:#E4D17F;text-decoration:underline;">Ver rankings anteriores</a></p>
             <p style="margin: 8px 0;">🔁 <strong>Frequência:</strong> Mensal</p>
         </div>
  </section> <!-- Ranking Greenblatt --> <section class="card"> <h2>Ranking Greenblatt - Magic Formula</h2> <div class="table-wrapper" style="overflow-x: auto;"> <table style="width: 100%; border-collapse: collapse; background: rgba(19, 29, 39, 0.75); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.3); margin-top: 1rem; table-layout: fixed; min-width: 1100px;">

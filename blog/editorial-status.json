@@ -7,40 +7,39 @@
   },
   "requiredDailyOutputs": [
     "briefing-publico",
-    "estudo-de-acao-do-ranking",
-    "monitoramento-de-influenciadores"
+    "estudo-educacional-de-ativo",
+    "monitoramento-de-fontes-publicas"
   ],
   "rules": [
     "Nao publicar recomendacao personalizada de investimento.",
     "Nao inventar fonte, preco, noticia ou fala de influenciador.",
+    "Nao mencionar caminhos, arquivos locais ou artefatos internos no site/blog.",
     "Registrar lacunas quando dados nao estiverem disponiveis.",
     "Validar HTML, links locais e git diff antes de publicar."
   ],
   "lastPost": "blog/posts/2026-05-13-petroleo-ia-pssa3-carteira-defensiva.html",
-  "sourceDraft": "/Users/diegoteixeira/.openclaw/workspace/briefings/2026-05-13-briefing-matinal.md",
   "tickerOfTheDay": "PSSA3",
   "reading": "espera",
-  "nextSuggestedPost": "Alternar para outro ticker do ranking sem repetir BBAS3, PETR4, CMIN3 ou PSSA3; candidatos naturais: WIZC3, PLPL3, QUAL3, PETR3 ou LEVE3, conforme pauta do dia.",
+  "nextSuggestedPost": "Alternar para outro ticker sem publicar origem em arquivos internos; usar apenas fontes publicas/primarias e linguagem educacional.",
   "knownGaps": [
     "Sem cotacao oficial intradiaria da B3; o post usou Yahoo Finance como referencia pontual de preco/contexto.",
-    "Sem leitura completa de todas as materias fechadas; quando aplicavel, foram usadas manchetes/metadados de Google News RSS e o briefing interno.",
+    "Sem leitura completa de todas as materias fechadas; quando aplicavel, foram usadas manchetes/metadados de Google News RSS.",
     "Influenciadores/conteudos monitorados foram tratados como repertorio amplo; nao houve fala/link verificavel suficiente para atribuicao direta.",
-    "Earnings yield de PSSA3 no ranking local esta muito elevado e foi tratado como sinal a auditar, nao como verdade final."
+    "Sinais quantitativos muito extremos devem ser tratados como ponto de auditoria, nao como verdade final."
   ],
   "sourcesUsed": [
-    "/Users/diegoteixeira/.openclaw/workspace/briefings/2026-05-13-briefing-matinal.md",
-    "greenblatt_top30_filtered.csv",
-    "historico_rankings_magic_formula.html",
+    "Filtro quantitativo IA em Loop/Magic Formula",
     "Yahoo Finance chart API: PSSA3.SA",
     "Google News RSS: PSSA3/Porto Seguro resultados 1T26 e dividendos",
     "Google News RSS: inteligencia artificial Brasil regulacao saude 2026",
     "Google News RSS: petroleo Ira inflacao mercado 13 maio 2026 investimentos",
-    "Briefing interno: Agencia Brasil, Exame, G1, Money Times, InfoMoney, Folha/Valor/Estadao E-Investidor"
+    "Manchetes publicas: Agencia Brasil, Exame, G1, Money Times, InfoMoney, Folha/Valor/Estadao E-Investidor"
   ],
   "validationPlan": [
     "jq blog/editorial-status.json",
     "xmllint sitemap.xml quando disponivel",
     "inspecao de links locais do novo post",
+    "grep para garantir ausencia de caminhos/arquivos locais publicados",
     "git diff e git status antes de commit/push"
   ]
 }
