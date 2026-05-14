@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-13",
+  "updatedAt": "2026-05-14",
   "owner": "OpenClaw/Loop",
   "routine": {
     "dailyBriefing": "08:00 America/Recife",
@@ -17,23 +17,22 @@
     "Registrar lacunas quando dados nao estiverem disponiveis.",
     "Validar HTML, links locais e git diff antes de publicar."
   ],
-  "lastPost": "blog/posts/2026-05-13-petroleo-ia-pssa3-carteira-defensiva.html",
-  "tickerOfTheDay": "PSSA3",
-  "reading": "espera",
-  "nextSuggestedPost": "Alternar para outro ticker sem publicar origem em arquivos internos; usar apenas fontes publicas/primarias e linguagem educacional.",
+  "lastPost": "blog/posts/2026-05-14-analise-wizc3-seguros-ia.html",
+  "tickerOfTheDay": "WIZC3",
+  "reading": "compra com validacao",
+  "nextSuggestedPost": "Alternar para outro ticker sem repetir BBAS3, PETR4, CMIN3, PSSA3 ou WIZC3; candidatos naturais: PLPL3, QUAL3, PETR3 ou LEVE3, conforme pauta do dia.",
   "knownGaps": [
-    "Sem cotacao oficial intradiaria da B3; o post usou Yahoo Finance como referencia pontual de preco/contexto.",
-    "Sem leitura completa de todas as materias fechadas; quando aplicavel, foram usadas manchetes/metadados de Google News RSS.",
-    "Influenciadores/conteudos monitorados foram tratados como repertorio amplo; nao houve fala/link verificavel suficiente para atribuicao direta.",
-    "Sinais quantitativos muito extremos devem ser tratados como ponto de auditoria, nao como verdade final."
+    "Yahoo Finance retornou HTTP 429 na consulta intradiaria; o post usou Fundamentus como referencia pontual de cotacao/indicadores.",
+    "Noticiario usado por manchetes/RSS e fontes abertas; validar releases completos no RI antes de decisao de investimento.",
+    "Dependencia de parcerias/canais de WIZC3 exige leitura dos documentos societarios e releases, nao apenas ranking quantitativo."
   ],
   "sourcesUsed": [
-    "Filtro quantitativo IA em Loop/Magic Formula",
-    "Yahoo Finance chart API: PSSA3.SA",
-    "Google News RSS: PSSA3/Porto Seguro resultados 1T26 e dividendos",
-    "Google News RSS: inteligencia artificial Brasil regulacao saude 2026",
-    "Google News RSS: petroleo Ira inflacao mercado 13 maio 2026 investimentos",
-    "Manchetes publicas: Agencia Brasil, Exame, G1, Money Times, InfoMoney, Folha/Valor/Estadao E-Investidor"
+    "Ranking Magic Formula/NED de maio do IA em Loop",
+    "Fundamentus: WIZC3, PLPL3, LEVE3, QUAL3",
+    "Google News RSS: WIZC3 Wiz Solucoes resultados 2026",
+    "Google News RSS: PLPL3, LEVE3, QUAL3 resultados 2026",
+    "Sonho Seguro: Wiz Co lucro liquido ajustado 1T26",
+    "InfoMoney/XP/Investing/ADVFN/Economic News Brasil via RSS/manchetes"
   ],
   "validationPlan": [
     "jq blog/editorial-status.json",
