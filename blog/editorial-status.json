@@ -1,9 +1,10 @@
 {
-  "updatedAt": "2026-05-14",
-  "owner": "OpenClaw/Loop",
+  "updatedAt": "2026-05-15",
+  "owner": "OpenClaw/Loop + Hermes contingency",
   "routine": {
     "dailyBriefing": "08:00 America/Recife",
-    "blogPublication": "09:10 America/Recife"
+    "blogPublication": "09:10 America/Recife",
+    "hermesContingency": "10:00 America/Recife"
   },
   "requiredDailyOutputs": [
     "briefing-publico",
@@ -14,25 +15,25 @@
     "Nao publicar recomendacao personalizada de investimento.",
     "Nao inventar fonte, preco, noticia ou fala de influenciador.",
     "Nao mencionar caminhos, arquivos locais ou artefatos internos no site/blog.",
-    "Registrar lacunas quando dados nao estiverem disponiveis.",
+    "Se OpenClaw nao publicar ate 10:00, Hermes assume a contingencia.",
     "Validar HTML, links locais e git diff antes de publicar."
   ],
-  "lastPost": "blog/posts/2026-05-14-analise-wizc3-seguros-ia.html",
-  "tickerOfTheDay": "WIZC3",
-  "reading": "compra com validacao",
-  "nextSuggestedPost": "Alternar para outro ticker sem repetir BBAS3, PETR4, CMIN3, PSSA3 ou WIZC3; candidatos naturais: PLPL3, QUAL3, PETR3 ou LEVE3, conforme pauta do dia.",
+  "lastPost": "blog/posts/2026-05-15-analise-plpl3-imobiliario-ia.html",
+  "tickerOfTheDay": "PLPL3",
+  "reading": "espera ativa com vies de compra em recuos",
+  "nextSuggestedPost": "Alternar para outro ticker sem repetir BBAS3, PETR4, CMIN3, PSSA3, WIZC3 ou PLPL3; candidatos naturais: QUAL3, LEVE3, CSUD3, PETR3 ou tema BESST/Barsi conforme pauta do dia.",
   "knownGaps": [
-    "Yahoo Finance retornou HTTP 429 na consulta intradiaria; o post usou Fundamentus como referencia pontual de cotacao/indicadores.",
+    "Yahoo Finance pode limitar consultas intradiarias; o post usou Fundamentus como referencia pontual de cotacao/indicadores.",
     "Noticiario usado por manchetes/RSS e fontes abertas; validar releases completos no RI antes de decisao de investimento.",
-    "Dependencia de parcerias/canais de WIZC3 exige leitura dos documentos societarios e releases, nao apenas ranking quantitativo."
+    "PLPL3 exige leitura de VSO, margens, caixa, distratos e exposicao ao ciclo de juros, nao apenas ranking quantitativo."
   ],
   "sourcesUsed": [
     "Ranking Magic Formula/NED de maio do IA em Loop",
-    "Fundamentus: WIZC3, PLPL3, LEVE3, QUAL3",
-    "Google News RSS: WIZC3 Wiz Solucoes resultados 2026",
-    "Google News RSS: PLPL3, LEVE3, QUAL3 resultados 2026",
-    "Sonho Seguro: Wiz Co lucro liquido ajustado 1T26",
-    "InfoMoney/XP/Investing/ADVFN/Economic News Brasil via RSS/manchetes"
+    "Fundamentus: PLPL3, QUAL3, LEVE3, CSUD3",
+    "Google News RSS: PLPL3 Plano&Plano resultado 2026",
+    "Google News RSS: Plano&Plano PLPL3 1T26",
+    "Google News RSS: construcao civil juros credito imobiliario maio 2026",
+    "InfoMoney/XP/Money Times/Nord/EuQueroInvestir/Finance News via RSS/manchetes"
   ],
   "validationPlan": [
     "jq blog/editorial-status.json",
