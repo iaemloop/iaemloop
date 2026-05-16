@@ -4,7 +4,7 @@ Publica os rankings mensais do IA em Loop.
 
 Fluxo:
 1. Roda o pipeline BESST/Barsi e atualiza metodologia_barsi.html.
-2. Atualiza a página Magic Formula/NED a partir do greenblatt_top30.csv.
+2. Atualiza a página Magic Formula a partir do greenblatt_top30.csv.
 3. Adiciona ou substitui o mês corrente nos históricos:
    - historico_rankings.html
    - historico_rankings_magic_formula.html

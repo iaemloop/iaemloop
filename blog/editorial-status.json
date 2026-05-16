@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-15",
+  "updatedAt": "2026-05-16",
   "owner": "OpenClaw/Loop + Hermes contingency",
   "routine": {
     "dailyBriefing": "08:00 America/Recife",
@@ -18,22 +18,21 @@
     "Se OpenClaw nao publicar ate 10:00, Hermes assume a contingencia.",
     "Validar HTML, links locais e git diff antes de publicar."
   ],
-  "lastPost": "blog/posts/2026-05-15-analise-plpl3-imobiliario-ia.html",
-  "tickerOfTheDay": "PLPL3",
-  "reading": "espera ativa com vies de compra em recuos",
-  "nextSuggestedPost": "Alternar para outro ticker sem repetir BBAS3, PETR4, CMIN3, PSSA3, WIZC3 ou PLPL3; candidatos naturais: QUAL3, LEVE3, CSUD3, PETR3 ou tema BESST/Barsi conforme pauta do dia.",
+  "lastPost": "blog/posts/2026-05-16-analise-qual3-saude-ia-margens.html",
+  "tickerOfTheDay": "QUAL3",
+  "reading": "espera ativa com estudo de compra apenas para perfil que aceita turnaround",
+  "nextSuggestedPost": "Alternar para outro ticker sem repetir BBAS3, PETR4, CMIN3, PSSA3, WIZC3, PLPL3 ou QUAL3; candidatos naturais: LEVE3, CSUD3, PETR3, POMO3 ou tema BESST/Barsi conforme pauta do dia.",
   "knownGaps": [
-    "Yahoo Finance pode limitar consultas intradiarias; o post usou Fundamentus como referencia pontual de cotacao/indicadores.",
-    "Noticiario usado por manchetes/RSS e fontes abertas; validar releases completos no RI antes de decisao de investimento.",
-    "PLPL3 exige leitura de VSO, margens, caixa, distratos e exposicao ao ciclo de juros, nao apenas ranking quantitativo."
+    "QUAL3 exige validar no RI se lucro do 1T26 foi recorrente, qualidade do caixa, base de beneficiários e despesas.",
+    "Noticiário usado por manchetes/RSS e fontes abertas; validar releases completos antes de decisão de investimento.",
+    "A leitura é de turnaround seletivo; ranking quantitativo não substitui confirmação operacional."
   ],
   "sourcesUsed": [
-    "Ranking Magic Formula/NED de maio do IA em Loop",
-    "Fundamentus: PLPL3, QUAL3, LEVE3, CSUD3",
-    "Google News RSS: PLPL3 Plano&Plano resultado 2026",
-    "Google News RSS: Plano&Plano PLPL3 1T26",
-    "Google News RSS: construcao civil juros credito imobiliario maio 2026",
-    "InfoMoney/XP/Money Times/Nord/EuQueroInvestir/Finance News via RSS/manchetes"
+    "Ranking Magic Formula de maio do IA em Loop",
+    "Fundamentus: QUAL3, LEVE3, CSUD3, PETR4",
+    "Google News RSS: QUAL3 Qualicorp resultado 2026 saúde suplementar",
+    "ADVFN via Google News: Qualicorp lucra 86,6% mais no 1T26, margem e corte de despesas",
+    "Visno Invest via Google News: QUAL3 anuncia novos diretores para controlada e companhia"
   ],
   "validationPlan": [
     "jq blog/editorial-status.json",
