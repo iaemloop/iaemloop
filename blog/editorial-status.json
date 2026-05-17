@@ -1,22 +1,17 @@
 {
   "updatedAt": "2026-05-17",
-  "owner": "OpenClaw/Loop + Hermes contingency",
-  "routine": {
-    "dailyBriefing": "08:00 America/Recife",
-    "blogPublication": "09:10 America/Recife",
-    "hermesContingency": "10:00 America/Recife"
-  },
+  "owner": "IA em Loop",
   "requiredDailyOutputs": [
-    "briefing-publico",
     "estudo-educacional-de-ativo",
-    "monitoramento-de-fontes-publicas"
+    "monitoramento-de-fontes-publicas",
+    "registro-editorial-publico"
   ],
   "rules": [
     "Nao publicar recomendacao personalizada de investimento.",
     "Nao inventar fonte, preco, noticia ou fala de influenciador.",
-    "Nao mencionar caminhos, arquivos locais ou artefatos internos no site/blog.",
-    "Se OpenClaw nao publicar ate 10:00, Hermes assume a contingencia.",
-    "Validar HTML, links locais e git diff antes de publicar."
+    "Nao mencionar caminhos, arquivos locais, processos internos ou bastidores no site/blog.",
+    "Nao publicar rascunho vazio; todo post deve ter tese, evidencias, riscos e leitura pratica.",
+    "Evitar repeticao automatica de ticker ja analisado recentemente."
   ],
   "lastPost": "blog/posts/2026-05-17-analise-leve3-autopecas-ia.html",
   "tickerOfTheDay": "LEVE3",
@@ -30,16 +25,14 @@
   "sourcesUsed": [
     "Ranking Magic Formula de maio do IA em Loop",
     "Fundamentus: LEVE3, CSUD3, POMO3, PETR3, SANB11",
-    "Briefing matinal de 17/05/2026",
     "Google News RSS: LEVE3 Mahle Metal Leve resultado 1T26, dividendos e autopecas",
     "Manchetes de Investidor10, Visno Invest, InfoMoney, Finance News, Agencia Brasil e Safra sobre LEVE3 e setor automotivo"
   ],
   "validationPlan": [
-    "jq blog/editorial-status.json",
-    "xmllint sitemap.xml quando disponivel",
-    "inspecao de links locais do novo post",
-    "grep para garantir ausencia de caminhos/arquivos locais publicados",
-    "grep para garantir ausencia de nomenclatura publica proibida em arquivos alterados",
-    "git diff e git status antes de commit/push"
+    "Validacao de JSON",
+    "Validacao de XML quando disponivel",
+    "Inspecao de links locais do novo post",
+    "Busca por caminhos, arquivos locais, processos internos e nomenclatura publica proibida",
+    "Revisao de diff e status antes de publicacao"
   ]
 }
