@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-16",
+  "updatedAt": "2026-05-17",
   "owner": "OpenClaw/Loop + Hermes contingency",
   "routine": {
     "dailyBriefing": "08:00 America/Recife",
@@ -18,27 +18,28 @@
     "Se OpenClaw nao publicar ate 10:00, Hermes assume a contingencia.",
     "Validar HTML, links locais e git diff antes de publicar."
   ],
-  "lastPost": "blog/posts/2026-05-16-analise-qual3-saude-ia-margens.html",
-  "tickerOfTheDay": "QUAL3",
-  "reading": "espera ativa com estudo de compra apenas para perfil que aceita turnaround",
-  "nextSuggestedPost": "Alternar para outro ticker sem repetir BBAS3, PETR4, CMIN3, PSSA3, WIZC3, PLPL3 ou QUAL3; candidatos naturais: LEVE3, CSUD3, PETR3, POMO3 ou tema BESST/Barsi conforme pauta do dia.",
+  "lastPost": "blog/posts/2026-05-17-analise-leve3-autopecas-ia.html",
+  "tickerOfTheDay": "LEVE3",
+  "reading": "compra estudada com espera disciplinada; qualidade industrial ciclica exige margem de seguranca",
+  "nextSuggestedPost": "Alternar para outro ticker sem repetir BBAS3, PETR4, CMIN3, PSSA3, WIZC3, PLPL3, QUAL3 ou LEVE3; candidatos naturais: CSUD3, POMO3/POMO4, PETR3, VTRU3/CSED3 ou tema BESST/Barsi conforme pauta do dia.",
   "knownGaps": [
-    "QUAL3 exige validar no RI se lucro do 1T26 foi recorrente, qualidade do caixa, base de beneficiários e despesas.",
-    "Noticiário usado por manchetes/RSS e fontes abertas; validar releases completos antes de decisão de investimento.",
-    "A leitura é de turnaround seletivo; ranking quantitativo não substitui confirmação operacional."
+    "LEVE3 exige validar no RI se lucro do 1T26, margem, caixa e dividendos vieram de operacao recorrente.",
+    "Setor de autopecas deve ser acompanhado por producao de veiculos, credito automotivo, importados, cambio e insumos.",
+    "Noticiario usado por manchetes/RSS e fontes abertas; validar releases completos antes de decisao de investimento."
   ],
   "sourcesUsed": [
     "Ranking Magic Formula de maio do IA em Loop",
-    "Fundamentus: QUAL3, LEVE3, CSUD3, PETR4",
-    "Google News RSS: QUAL3 Qualicorp resultado 2026 saúde suplementar",
-    "ADVFN via Google News: Qualicorp lucra 86,6% mais no 1T26, margem e corte de despesas",
-    "Visno Invest via Google News: QUAL3 anuncia novos diretores para controlada e companhia"
+    "Fundamentus: LEVE3, CSUD3, POMO3, PETR3, SANB11",
+    "Briefing matinal de 17/05/2026",
+    "Google News RSS: LEVE3 Mahle Metal Leve resultado 1T26, dividendos e autopecas",
+    "Manchetes de Investidor10, Visno Invest, InfoMoney, Finance News, Agencia Brasil e Safra sobre LEVE3 e setor automotivo"
   ],
   "validationPlan": [
     "jq blog/editorial-status.json",
     "xmllint sitemap.xml quando disponivel",
     "inspecao de links locais do novo post",
     "grep para garantir ausencia de caminhos/arquivos locais publicados",
+    "grep para garantir ausencia de nomenclatura publica proibida em arquivos alterados",
     "git diff e git status antes de commit/push"
   ]
 }
