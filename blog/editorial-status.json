@@ -3,36 +3,36 @@
   "owner": "IA em Loop",
   "requiredDailyOutputs": [
     "estudo-educacional-de-ativo",
-    "monitoramento-de-fontes-publicas",
+    "leitura-macro-de-carteira",
     "registro-editorial-publico"
   ],
   "rules": [
     "Nao publicar recomendacao personalizada de investimento.",
     "Nao inventar fonte, preco, noticia ou fala de influenciador.",
-    "Nao mencionar caminhos, arquivos locais, processos internos ou bastidores no site/blog.",
+    "Manter texto publico sem detalhes operacionais.",
     "Nao publicar rascunho vazio; todo post deve ter tese, evidencias, riscos e leitura pratica.",
     "Evitar repeticao automatica de ticker ja analisado recentemente."
   ],
-  "lastPost": "blog/posts/2026-05-17-analise-leve3-autopecas-ia.html",
-  "tickerOfTheDay": "LEVE3",
-  "reading": "compra estudada com espera disciplinada; qualidade industrial ciclica exige margem de seguranca",
-  "nextSuggestedPost": "Alternar para outro ticker sem repetir BBAS3, PETR4, CMIN3, PSSA3, WIZC3, PLPL3, QUAL3 ou LEVE3; candidatos naturais: CSUD3, POMO3/POMO4, PETR3, VTRU3/CSED3 ou tema BESST/Barsi conforme pauta do dia.",
+  "lastPost": "blog/posts/2026-05-17-risco-politico-ia-eua-carteira.html",
+  "tickerOfTheDay": "macro",
+  "reading": "espera seletiva com caixa preparado; risco politico brasileiro e concentracao da tese de IA nos EUA exigem margem de seguranca",
+  "nextSuggestedPost": "Alternar entre analises de ativo dos rankings e leituras macro de politica, geopolitica, IA, juros, dolar e carteira, sem repetir tickers recentes.",
   "knownGaps": [
-    "LEVE3 exige validar no RI se lucro do 1T26, margem, caixa e dividendos vieram de operacao recorrente.",
-    "Setor de autopecas deve ser acompanhado por producao de veiculos, credito automotivo, importados, cambio e insumos.",
-    "Noticiario usado por manchetes/RSS e fontes abertas; validar releases completos antes de decisao de investimento."
+    "Validar dados completos de balancos e releases antes de decisao de investimento.",
+    "Acompanhar dolar, juros futuros, petroleo, S&P 500, capex das big techs e sinais de concentracao das expectativas de lucro.",
+    "Separar tendencia real de IA de valuation excessivo em ativos que apenas pegam carona na narrativa."
   ],
   "sourcesUsed": [
-    "Ranking Magic Formula de maio do IA em Loop",
-    "Fundamentus: LEVE3, CSUD3, POMO3, PETR3, SANB11",
-    "Google News RSS: LEVE3 Mahle Metal Leve resultado 1T26, dividendos e autopecas",
-    "Manchetes de Investidor10, Visno Invest, InfoMoney, Finance News, Agencia Brasil e Safra sobre LEVE3 e setor automotivo"
+    "Video publico do Economista Sincero sobre Lula, Flavio Bolsonaro, Banco Master/Vorcaro, dolar, juros e risco politico",
+    "Video publico de Fernando Ulrich: Os numeros que podem derrubar as bolsas mundiais",
+    "Rankings IA em Loop de maio",
+    "Leitura editorial IA em Loop"
   ],
   "validationPlan": [
     "Validacao de JSON",
     "Validacao de XML quando disponivel",
     "Inspecao de links locais do novo post",
-    "Busca por caminhos, arquivos locais, processos internos e nomenclatura publica proibida",
+    "Busca por detalhes operacionais e nomenclatura publica proibida",
     "Revisao de diff e status antes de publicacao"
   ]
 }
