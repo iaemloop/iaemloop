@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BESST & Buffett e Magic Formula são métodos independentes. Entenda por que perenidade é fundamento no B&B e apenas bônus na Magic Formula, com ranking EUA de 10 empresas em cada método.">
+    <title>BESST & Buffett e Magic Formula: dois métodos, duas perguntas | IA em Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)), url('../../assets/bg-carteiras.jpg') no-repeat center center fixed; background-size: cover; color: #e2e8f0; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 1040px; margin: 0 auto; }
+        .back-button { position: fixed; top: 20px; left: 20px; display: inline-flex; align-items: center; gap: 6px; background: rgba(251,191,36,0.9); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: background 0.2s, transform 0.1s; z-index: 1000; }
+        .back-button:hover { background: #E4D17F; transform: translateY(-1px); }
+        article { background: rgba(19, 29, 39, 0.78); border-radius: 14px; padding: 34px; border-left: 4px solid #19364D; border: 1px solid rgba(228, 209, 127, 0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h1 { font-size: clamp(2rem, 5vw, 3.05rem); line-height: 1.08; font-weight: 800; background: linear-gradient(135deg, #6EE4EF, #E4D17F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; }
+        .dek { color: #cbd5e1; font-size: 1.13rem; line-height: 1.75; margin-bottom: 22px; }
+        .meta { display: flex; gap: 8px; flex-wrap: wrap; color: #94a3b8; font-size: 0.86rem; margin-bottom: 30px; }
+        .meta span { background: rgba(228, 209, 127, 0.15); color: #E4D17F; padding: 4px 10px; border-radius: 999px; font-weight: 600; border: 1px solid rgba(228, 209, 127, 0.2); }
+        h2 { color: #fff; font-size: 1.45rem; margin: 34px 0 12px; border-bottom: 2px solid #19364D; padding-bottom: 10px; }
+        h3 { color: #E4D17F; font-size: 1.08rem; margin: 22px 0 8px; }
+        p, li { color: #cbd5e1; line-height: 1.78; font-size: 1.02rem; }
+        p { margin-bottom: 16px; }
+        ul { padding-left: 22px; margin-bottom: 18px; }
+        li { margin-bottom: 8px; }
+        strong { color: #fff; }
+        a { color: #E4D17F; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .hero-chart { width: 100%; border-radius: 14px; border: 1px solid rgba(228, 209, 127, 0.18); margin: 20px 0 8px; background: rgba(6,8,13,.35); box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+        .caption { color: #94a3b8; font-size: .9rem; margin-bottom: 24px; }
+        .callout { background: rgba(6, 8, 13, 0.5); border-left: 4px solid #E4D17F; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .matrix { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 18px 0; }
+        .matrix div { background: rgba(6, 8, 13, 0.42); border: 1px solid rgba(110,228,239,.15); border-radius: 10px; padding: 14px; }
+        .rank-wrap { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; margin: 20px 0; }
+        .rank-card { background: rgba(6, 8, 13, 0.42); border: 1px solid rgba(228,209,127,.18); border-radius: 12px; padding: 16px; overflow-x:auto; }
+        .rank-card h3 { margin-top: 0; }
+        .mini-table { width:100%; border-collapse: collapse; margin: 12px 0; overflow:hidden; border-radius:10px; min-width: 520px; }
+        .mini-table th, .mini-table td { padding: 10px 9px; border-bottom: 1px solid rgba(255,255,255,.08); text-align:left; color:#cbd5e1; vertical-align: top; }
+        .mini-table th { color:#E4D17F; background:rgba(6,8,13,.55); font-size:.88rem; }
+        .scorecard { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+        .scorecard div { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 14px; }
+        .scorecard span { display: block; color: #94a3b8; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; }
+        .scorecard strong { color: #E4D17F; font-size: 1.05rem; }
+        .source-note { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 16px; margin-top: 28px; color: #94a3b8; font-size: 0.94rem; }
+        .footer { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        @media (max-width: 900px) { .rank-wrap, .matrix, .scorecard { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { body { padding: 72px 16px 32px; } article { padding: 24px; } .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; } .mini-table { font-size:.9rem; } }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "BESST & Buffett e Magic Formula: dois métodos, duas perguntas",
+      "description": "BESST & Buffett e Magic Formula são métodos independentes. Perenidade é fundamento no B&B e bônus na Magic Formula, com ranking EUA de 10 empresas em cada método.",
+      "author": { "@type": "Organization", "name": "IA em Loop" },
+      "publisher": { "@type": "Organization", "name": "IA em Loop", "url": "https://iaemloop.com.br" },
+      "datePublished": "2026-05-18",
+      "dateModified": "2026-05-18",
+      "image": "https://iaemloop.com.br/assets/blog/besst-magic-formula-eua.svg",
+      "keywords": ["BESST Buffett", "Magic Formula", "ações americanas", "ranking EUA", "perenidade", "Joel Greenblatt"]
+    }
+    </script>
+</head>
+<body>
+    <a href="../index.html" class="back-button" title="Voltar ao Blog">← Blog</a>
+    <main class="container">
+        <article>
+            <h1>BESST &amp; Buffett e Magic Formula: dois métodos, duas perguntas</h1>
+            <p class="dek">Ao levar os rankings do IA em Loop para ações americanas, a primeira regra é não transformar métodos diferentes em uma salada. BESST &amp; Buffett e Magic Formula podem coincidir em alguns nomes, mas cada um responde a uma pergunta própria.</p>
+            <div class="meta"><span>18/05/2026</span><span>Metodologia</span><span>Ações EUA</span><span>BESST &amp; Buffett</span><span>Magic Formula</span><span>10 min</span></div>
+            <img class="hero-chart" src="../../assets/blog/besst-magic-formula-eua.svg" alt="Comparação entre BESST Buffett e Magic Formula para ações americanas">
+            <p class="caption">Leitura visual: B&amp;B começa pela perenidade do negócio; Magic Formula começa por retorno sobre capital e preço. A interseção é útil, mas não substitui nenhum dos dois métodos.</p>
+
+            <div class="callout"><p><strong>Regra simples:</strong> no BESST &amp; Buffett, perenidade é fundamento. Na Magic Formula, perenidade é bônus. Essa frase evita boa parte dos erros ao construir uma carteira EUA.</p></div>
+
+            <h2>Duas perguntas diferentes</h2>
+            <p>O BESST &amp; Buffett começa com uma pergunta qualitativa: <strong>este negócio tende a continuar relevante por décadas?</strong> Antes de preço, dividendos ou múltiplos, vem a perenidade do setor e do modelo de negócio.</p>
+            <p>A Magic Formula começa em outro lugar: <strong>esta empresa combina retorno sobre capital alto com preço baixo o suficiente para entrar em uma carteira diversificada?</strong> É um método quantitativo, criado para funcionar no conjunto, não para transformar cada ação em uma tese de longo prazo individual.</p>
+            <p>As duas abordagens podem cruzar em empresas como Adobe, Zoetis, Bristol-Myers ou Gen Digital. Mas a coincidência não autoriza misturar os critérios. Quando uma ação entra na carteira, precisa ficar claro se ela entrou por perenidade e qualidade, ou por estatística de qualidade/preço.</p>
+
+            <h2>No B&amp;B, perenidade vem antes do preço</h2>
+            <p>No BESST &amp; Buffett, uma empresa barata em um negócio frágil continua sendo uma empresa frágil. Preço baixo não compensa falta de perenidade. O método procura negócios que tenham chance de atravessar décadas: saúde, pagamentos, software recorrente, dados financeiros, consumo defensivo, plataformas dominantes, seguros bem precificados e serviços essenciais.</p>
+            <p>Isso não quer dizer excluir energia, mineração ou imóveis como se fossem irrelevantes. Pelo contrário: energia, metais e ativos reais são essenciais. O ponto é que muitos desses lucros são cíclicos e exigem outra régua.</p>
+            <div class="matrix">
+                <div><h3>Perenes compounders</h3><p>Negócios com demanda durável, margem resiliente, reinvestimento rentável e menor dependência de preço externo. É o núcleo natural do B&amp;B.</p></div>
+                <div><h3>Perenes cíclicos</h3><p>Energia, mineração, fertilizantes e indústria pesada podem ser perenes, mas precisam de lucro normalizado no ciclo. Múltiplo baixo no lucro de pico engana.</p></div>
+                <div><h3>Real assets e REITs</h3><p>Imóveis podem ser perenes, mas não devem ser analisados por lucro contábil simples. FFO, AFFO, ocupação, dívida e juros importam mais.</p></div>
+                <div><h3>Casos fora do B&amp;B</h3><p>Negócios dependentes de moda, subsídio, ciclo curto ou vantagem fraca podem até ficar baratos, mas não viram tese B&amp;B só por pontuação.</p></div>
+            </div>
+
+            <h2>Na Magic Formula, perenidade é apenas um plus</h2>
+            <p>A Magic Formula não pergunta primeiro se a empresa é uma compounder para décadas. Ela procura empresas boas e baratas dentro de um universo amplo. A página oficial do método descreve uma carteira com ações listadas nos EUA, diversificação de pelo menos 20 nomes, preferência por empresas maiores para reduzir volatilidade, pesos iguais e manutenção aproximada de um ano.</p>
+            <p>Por isso, uma mineradora, uma empresa de energia ou uma varejista cíclica pode aparecer bem na Magic Formula. Isso não significa que ela virou B&amp;B. Significa apenas que, naquele recorte, a relação entre retorno sobre capital e preço ficou atraente para uma cesta quantitativa.</p>
+
+            <h2>Ranking EUA: 10 empresas por método</h2>
+            <p>Para este primeiro recorte público, o ranking abaixo usa o universo exploratório de ações americanas já triado pelo IA em Loop. A lista é uma fotografia metodológica, não uma ordem de compra automática. No B&amp;B, os nomes foram lidos pela perenidade do negócio. Na Magic Formula, a ordem segue o sinal quantitativo de qualidade/preço.</p>
+            <div class="rank-wrap">
+              <div class="rank-card">
+                <h3>Top 10 BESST &amp; Buffett EUA</h3>
+                <table class="mini-table">
+                  <thead><tr><th>#</th><th>Ticker</th><th>Empresa</th><th>Setor</th><th>Leitura</th></tr></thead>
+                  <tbody>
+                    <tr><td>1</td><td><strong>TROW</strong></td><td>T. Rowe Price</td><td>Gestão de ativos</td><td>Perenidade financeira, mas sensível a ciclo de mercado</td></tr>
+<tr><td>2</td><td><strong>ADBE</strong></td><td>Adobe</td><td>Software</td><td>Software recorrente, marca forte e margem alta</td></tr>
+<tr><td>3</td><td><strong>ALL</strong></td><td>Allstate</td><td>Seguros</td><td>Seguro é perene; underwriting e ciclo de sinistro exigem disciplina</td></tr>
+<tr><td>4</td><td><strong>PTC</strong></td><td>PTC</td><td>Software industrial</td><td>Software B2B ligado a engenharia e indústria</td></tr>
+<tr><td>5</td><td><strong>ACGL</strong></td><td>Arch Capital</td><td>Seguros/resseguros</td><td>Negócio perene, mas exposto a ciclo de preços e catástrofes</td></tr>
+<tr><td>6</td><td><strong>GILD</strong></td><td>Gilead</td><td>Saúde</td><td>Healthcare defensivo, caixa e pipeline importam</td></tr>
+<tr><td>7</td><td><strong>INCY</strong></td><td>Incyte</td><td>Biotecnologia</td><td>Saúde perene, mas risco de concentração/pipeline</td></tr>
+<tr><td>8</td><td><strong>RMD</strong></td><td>ResMed</td><td>Medtech</td><td>Demanda estrutural em sono e saúde respiratória</td></tr>
+<tr><td>9</td><td><strong>GEN</strong></td><td>Gen Digital</td><td>Cibersegurança</td><td>Proteção digital recorrente; observar crescimento orgânico</td></tr>
+<tr><td>10</td><td><strong>PGR</strong></td><td>Progressive</td><td>Seguros</td><td>Auto insurance perene, com execução de precificação</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="rank-card">
+                <h3>Top 10 Magic Formula EUA</h3>
+                <table class="mini-table">
+                  <thead><tr><th>#</th><th>Ticker</th><th>Empresa</th><th>Setor</th><th>Leitura</th></tr></thead>
+                  <tbody>
+                    <tr><td>1</td><td><strong>LULU</strong></td><td>Lululemon</td><td>Consumo cíclico</td><td>Alto retorno, mas perenidade é bônus, não filtro</td></tr>
+<tr><td>2</td><td><strong>NEM</strong></td><td>Newmont</td><td>Mineração</td><td>Commodity pode entrar pela estatística, com risco de ciclo</td></tr>
+<tr><td>3</td><td><strong>DECK</strong></td><td>Deckers</td><td>Consumo cíclico</td><td>Marca forte; risco de moda e ciclo de consumo</td></tr>
+<tr><td>4</td><td><strong>ZTS</strong></td><td>Zoetis</td><td>Saúde animal</td><td>Aqui há sobreposição boa: qualidade + perenidade</td></tr>
+<tr><td>5</td><td><strong>APA</strong></td><td>APA Corp.</td><td>Energia</td><td>Barata/retorno pelo ciclo; não confundir com compounder</td></tr>
+<tr><td>6</td><td><strong>CF</strong></td><td>CF Industries</td><td>Fertilizantes</td><td>Setor essencial e cíclico; lucro normalizado importa</td></tr>
+<tr><td>7</td><td><strong>ADBE</strong></td><td>Adobe</td><td>Software</td><td>Sobreposição positiva entre qualidade e preço</td></tr>
+<tr><td>8</td><td><strong>BMY</strong></td><td>Bristol-Myers Squibb</td><td>Saúde</td><td>Defensiva, mas depende de pipeline e patentes</td></tr>
+<tr><td>9</td><td><strong>GEN</strong></td><td>Gen Digital</td><td>Cibersegurança</td><td>Preço/retorno interessante; checar crescimento</td></tr>
+<tr><td>10</td><td><strong>EXE</strong></td><td>Expand Energy</td><td>Energia</td><td>Caso estatístico de energia, não tese B&amp;B automática</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <h2>O que a interseção realmente significa</h2>
+            <p>Quando uma empresa aparece bem nos dois métodos, o sinal merece atenção. Mas a interseção é apenas uma informação adicional. Ela não substitui a análise do B&amp;B nem a disciplina quantitativa da Magic Formula.</p>
+            <ul>
+                <li><strong>ADBE</strong> combina software recorrente, margem alta e bom sinal de qualidade/preço.</li>
+                <li><strong>ZTS</strong> une saúde animal, demanda estrutural e forte retorno sobre capital.</li>
+                <li><strong>BMY</strong> traz defesa setorial, mas exige leitura de pipeline e vencimento de patentes.</li>
+                <li><strong>GEN</strong> parece interessante pelo preço, mas precisa provar crescimento e qualidade de receita.</li>
+            </ul>
+            <p>Esses casos são bons candidatos para dossiês individuais. Já nomes como Newmont, APA, CF e Expand Energy podem funcionar na Magic Formula, mas entram com outra natureza: são cíclicos/commodities. Se forem analisados no B&amp;B, precisam de régua de ciclo, não de régua de software.</p>
+
+            <h2>Como isso vira carteira</h2>
+            <p>A consequência prática é separar as carteiras desde o nascimento. A carteira B&amp;B pode ser mais concentrada, porque a tese depende de perenidade e qualidade. A carteira Magic Formula deve ser mais diversificada, porque o método depende do conjunto estatístico.</p>
+            <div class="scorecard">
+                <div><span>BESST &amp; Buffett</span><strong>10 a 15 nomes estudados com profundidade</strong></div>
+                <div><span>Magic Formula</span><strong>20 a 30 nomes em pesos iguais</strong></div>
+                <div><span>Interseção</span><strong>Sinal de prioridade para dossiê</strong></div>
+            </div>
+            <p>O erro seria pegar as 10 ações mais bonitas de uma lista híbrida e chamar isso de método. O correto é saber qual pergunta colocou cada ação na lista. A clareza do método vale mais do que parecer sofisticado.</p>
+
+            <h2>Conclusão</h2>
+            <p>A expansão para ações americanas não começa com “qual é a melhor ação?”. Começa com: <strong>qual método está selecionando essa ação?</strong></p>
+            <p>Se for BESST &amp; Buffett, perenidade é o primeiro filtro. Se for Magic Formula, retorno sobre capital e preço comandam a seleção, com perenidade como bônus. Quando os dois concordam, ótimo. Quando discordam, a carteira precisa respeitar a origem da tese.</p>
+            <p>Essa separação torna o ranking mais honesto, mais auditável e mais útil para acompanhar carteiras reais ao longo do tempo.</p>
+
+            <div class="source-note"><strong>Fontes e método:</strong> leitura da página oficial Magic Formula Investing; ranking exploratório IA em Loop para ações americanas com dados públicos de mercado; adaptação metodológica BESST &amp; Buffett para perenidade, qualidade, segurança e preço. Estudo educacional; não é recomendação personalizada de investimento.</div>
+        </article>
+        <div class="footer">⌨️ IA em Loop • Estudo, transparência e skin in the game • Não é recomendação de investimento</div>
+    </main>
+</body>
+</html>
