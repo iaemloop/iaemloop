@@ -13,22 +13,19 @@
     "Nao publicar rascunho vazio; todo post deve ter tese, evidencias, riscos e leitura pratica.",
     "Evitar repeticao automatica de ticker ja analisado recentemente."
   ],
-  "lastPost": "blog/posts/2026-05-18-analise-csud3-ia-servicos-digitais.html",
-  "tickerOfTheDay": "CSUD3",
-  "reading": "manutencao com compra apenas em reforco pequeno e condicionado; CSUD3 parece barata, mas precisa provar escala, margem, caixa recorrente e liquidez antes de aumento relevante de peso",
-  "nextSuggestedPost": "Alternar entre analises de ativo dos rankings e leituras macro de politica, geopolitica, IA, juros, dolar e carteira, sem repetir tickers recentes.",
+  "lastPost": "blog/posts/2026-05-18-besst-buffett-magic-formula-eua.html",
+  "tickerOfTheDay": "metodologia-EUA",
+  "reading": "BESST & Buffett e Magic Formula sao metodos independentes; perenidade e fundamento no B&B e bonus na Magic Formula; rankings EUA devem mostrar listas separadas e nao uma carteira hibrida sem regra.",
+  "nextSuggestedPost": "Publicar dossies individuais das intersecoes entre B&B e Magic Formula EUA, separando compounders perenes, ciclicos perenes e casos apenas quantitativos.",
   "knownGaps": [
-    "Validar dados completos de balancos, releases e caixa antes de decisao de investimento.",
-    "Acompanhar CDI, Selic, dolar, margem EBIT, caixa operacional, liquidez da acao e renovacao de contratos.",
-    "Separar uso real de IA em eficiencia operacional de narrativa generica sem impacto em margem."
+    "Validar fonte de dados final antes de transformar o ranking EUA em pagina permanente.",
+    "Definir metodologia propria para energia, mineracao e REITs dentro do B&B.",
+    "Manter Magic Formula como ranking quantitativo separado, preferencialmente com 20 a 30 acoes na carteira."
   ],
   "sourcesUsed": [
-    "Ranking Magic Formula de maio do IA em Loop",
-    "Pagina publica da carteira Magic Formula",
-    "Fundamentus para indicadores de CSUD3",
-    "Banco Central para CDI e IPCA",
-    "AwesomeAPI para cambio",
-    "Leitura editorial IA em Loop"
+    "Pagina oficial Magic Formula Investing",
+    "Ranking exploratorio IA em Loop para acoes americanas",
+    "Leitura metodologica IA em Loop sobre perenidade, qualidade e preco"
   ],
   "validationPlan": [
     "Validacao de JSON",
