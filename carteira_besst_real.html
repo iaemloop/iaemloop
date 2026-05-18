@@ -1,117 +1,52 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8">
-<title>BESST</title>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carteira BESST</title>
 <style>
 :root{--bg:#0c1016;--card:#141820;--gold:#d4af37;--green:#22c55e;--text:#fff;--text2:#8b92a8;--border:#1e2330}
-.bg-img{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;opacity:0.08;background:url('../assets/bg-carteiras.jpg') center/cover no-repeat;pointer-events:none}
-body{font-family:system-ui;background:var(--bg);color:var(--text);padding:24px;margin:0}
-.container{max-width:1400px;margin:0 auto}
-.back{position:fixed;top:20px;left:20px;background:var(--card);color:var(--gold);padding:10px 16px;border-radius:8px;text-decoration:none;z-index:1000}
-h1{color:var(--gold);font-size:32px;margin:0}
-p.sub{color:var(--text2);margin-top:6px}
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px}
-.kpi{background:var(--card);padding:20px;border-radius:12px;transition:all .3s}
-.kpi:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(212,175,55,.2)}
-.kpi-val{font-size:28px;font-weight:600;color:var(--gold)}
-.charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px}
-.chart-box{background:var(--card);border-radius:16px;padding:32px}
-.chart-title{color:var(--gold);font-size:18px;margin-bottom:24px}
-.chart-flex{display:flex;align-items:center;gap:32px}
-.donut{position:relative;width:180px;height:180px;border-radius:50%;flex-shrink:0}
-.donut::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;background:var(--card);border-radius:50%}
-.donut-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:1}
-.donut-val{font-size:24px;font-weight:700;color:var(--gold)}
-.legend{flex:1}
-.legend-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
-.legend-info{display:flex;align-items:center;gap:10px}
-.legend-dot{width:12px;height:12px;border-radius:50%}
-.legend-tick{font-size:15px;font-weight:600}
-.legend-sec{font-size:12px;color:var(--text2)}
-.legend-pct{font-size:16px;font-weight:700;color:var(--gold)}
-.sec-row{display:flex;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
-.sec-info{display:flex;align-items:center;gap:10px}
-.sec-bar{flex:1;height:6px;background:var(--bg);border-radius:3px;margin:0 12px}
-.sec-pct{font-size:15px;font-weight:700;color:var(--gold);min-width:50px;text-align:right}
-.custodia-wrap{background:var(--card);border-radius:16px;padding:32px;margin-bottom:32px;border-left:4px solid var(--green)}
-.custodia-title{color:var(--green);font-size:20px;margin-bottom:24px}
-.custodia-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
-.custodia-item{background:var(--card);padding:20px;border-radius:12px;border-left:4px solid var(--gold)}
-.custodia-tick{font-size:20px;font-weight:700;margin-bottom:8px}
-.custodia-info{font-size:14px;color:var(--text2)}
-.custodia-valor{font-size:18px;font-weight:700;color:var(--gold);margin-top:12px}
-.proventos-wrap{background:var(--card);border-radius:16px;padding:32px;margin:32px 0;border-left:4px solid #9b59b6}
-.proventos-title{color:#9b59b6;font-size:20px;margin-bottom:16px}
-.proventos-total{font-size:32px;font-weight:700;color:var(--gold)}
-footer{text-align:center;padding:40px;color:var(--text2);border-top:1px solid var(--border);margin-top:40px}
-@media(max-width:1000px){.charts-grid{grid-template-columns:1fr}}
-@media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.chart-flex{flex-direction:column}}
-</style>
-</head>
-<body><div class="bg-img"></div>
-<a href="javascript:history.back()" class="back">← Voltar</a>
-<div class="container">
-<header style="text-align: center;"><div style="display: inline-block;"><h1>💎 Carteira BESST</h1><p class="sub">Método Barsi + Buffett</p></div></header>
-
-<div class="kpis">
-<div class="kpi"><div class="kpi-val">R$ 577,24</div><div class="kpi-lab">Valor Total</div></div>
-<div class="kpi"><div class="kpi-val" style="color:var(--green)">R$ 0,55</div><div class="kpi-lab">Proventos 2026</div></div>
-<div class="kpi"><div class="kpi-val">R$ 82,46</div><div class="kpi-lab">Ticket Médio</div></div>
-<div class="kpi"><div class="kpi-val">7</div><div class="kpi-lab">Posições</div></div>
-</div>
-
-<div class="charts-grid">
-
-<div class="chart-box">
-<div class="chart-title">📊 Distribuição por Ativo</div>
-<div class="chart-flex">
-<div class="donut" style="background:conic-gradient(var(--gold) 0deg 81deg,#e74c3c 81deg 148deg,#1abc9c 148deg 212deg,#3498db 212deg 268deg,#2ecc71 268deg 316deg,#f39c12 316deg 346deg,#95a5a6 346deg 360deg)"><div class="donut-center"><div class="donut-val">R$577</div></div></div>
-<div class="legend">
-<div class="legend-row"><div class="legend-info"><div class="legend-dot" style="background:var(--gold)"></div><span class="legend-tick">TAEE11</span><span class="legend-sec">Energia</span></div><span class="legend-pct">22,5%</span></div>
-<div class="legend-row"><div class="legend-info"><div class="legend-dot" style="background:#e74c3c"></div><span class="legend-tick">CSMG3</span><span class="legend-sec">Saneamento</span></div><span class="legend-pct">18,7%</span></div>
-<div class="legend-row"><div class="legend-info"><div class="legend-dot" style="background:#1abc9c"></div><span class="legend-tick">PSSA3</span><span class="legend-sec">Seguros</span></div><span class="legend-pct">17,9%</span></div>
-<div class="legend-row"><div class="legend-info"><div class="legend-dot" style="background:#3498db"></div><span class="legend-tick">SAPR11</span><span class="legend-sec">Saneamento</span></div><span class="legend-pct">15,4%</span></div>
-<div class="legend-row"><div class="legend-info"><div class="legend-dot" style="background:#2ecc71"></div><span class="legend-tick">BRSR6</span><span class="legend-sec">Bancos</span></div><span class="legend-pct">9,6%</span></div>
-<div class="legend-row"><div class="legend-info"><div class="legend-dot" style="background:#f39c12"></div><span class="legend-tick">BMGB4</span><span class="legend-sec">Bancos</span></div><span class="legend-pct">8,6%</span></div>
-<div class="legend-row"><div class="legend-info"><div class="legend-dot" style="background:#95a5a6"></div><span class="legend-tick">CPLE3</span><span class="legend-sec">Energia</span></div><span class="legend-pct">7,5%</span></div>
-</div>
-</div>
-</div>
-
-<div class="chart-box">
-<div class="chart-title">🏭 Alocação por Setor</div>
-<div class="chart-flex" style="flex-direction:column">
-<div class="donut" style="background:conic-gradient(#e74c3c 0deg 123deg,var(--gold) 123deg 231deg,#1abc9c 231deg 297deg,#3498db 297deg 360deg)"><div class="donut-center"><div class="donut-val">4</div></div></div>
-<div style="width:100%">
-<div class="sec-row"><div class="sec-info"><div class="legend-dot" style="background:#e74c3c"></div><span class="legend-tick">Saneamento</span></div><div class="sec-bar"><div style="width:100%;height:100%;background:#e74c3c;border-radius:3px"></div></div><span class="sec-pct">34,1%</span></div>
-<div class="sec-row"><div class="sec-info"><div class="legend-dot" style="background:var(--gold)"></div><span class="legend-tick">Energia</span></div><div class="sec-bar"><div style="width:88%;height:100%;background:var(--gold);border-radius:3px"></div></div><span class="sec-pct">30,0%</span></div>
-<div class="sec-row"><div class="sec-info"><div class="legend-dot" style="background:#3498db"></div><span class="legend-tick">Bancos</span></div><div class="sec-bar"><div style="width:53%;height:100%;background:#3498db;border-radius:3px"></div></div><span class="sec-pct">18,2%</span></div>
-<div class="sec-row"><div class="sec-info"><div class="legend-dot" style="background:#1abc9c"></div><span class="legend-tick">Seguros</span></div><div class="sec-bar"><div style="width:52%;height:100%;background:#1abc9c;border-radius:3px"></div></div><span class="sec-pct">17,9%</span></div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="custodia-wrap">
-<div class="custodia-title">📊 Ações em Custódia</div>
-<div class="custodia-grid">
-<div class="custodia-item" style="border-left-color:var(--gold)"><div class="custodia-tick" style="color:var(--gold)">TAEE11</div><div class="custodia-info">Taesa • Energia</div><div class="custodia-info">3 unidades × R$ 43,23</div><div class="custodia-valor">R$ 129,69</div></div>
-<div class="custodia-item" style="border-left-color:#e74c3c"><div class="custodia-tick" style="color:#e74c3c">CSMG3</div><div class="custodia-info">Copasa • Saneamento</div><div class="custodia-info">2 unidades × R$ 53,83</div><div class="custodia-valor">R$ 107,66</div></div>
-<div class="custodia-item" style="border-left-color:#1abc9c"><div class="custodia-tick" style="color:#1abc9c">PSSA3</div><div class="custodia-info">Porto Seguro • Seguros</div><div class="custodia-info">2 unidades × R$ 51,65</div><div class="custodia-valor">R$ 103,30</div></div>
-<div class="custodia-item" style="border-left-color:#3498db"><div class="custodia-tick" style="color:#3498db">SAPR11</div><div class="custodia-info">Sanepar • Saneamento</div><div class="custodia-info">2 unidades × R$ 44,33</div><div class="custodia-valor">R$ 88,66</div></div>
-<div class="custodia-item" style="border-left-color:#2ecc71"><div class="custodia-tick" style="color:#2ecc71">BRSR6</div><div class="custodia-info">Banrisul • Bancos</div><div class="custodia-info">3 unidades × R$ 18,41</div><div class="custodia-valor">R$ 55,23</div></div>
-<div class="custodia-item" style="border-left-color:#f39c12"><div class="custodia-tick" style="color:#f39c12">BMGB4</div><div class="custodia-info">BMG • Bancos</div><div class="custodia-info">10 unidades × R$ 4,95</div><div class="custodia-valor">R$ 49,50</div></div>
-<div class="custodia-item" style="border-left-color:#95a5a6"><div class="custodia-tick" style="color:#95a5a6">CPLE3</div><div class="custodia-info">Copel • Energia</div><div class="custodia-info">3 unidades × R$ 14,40</div><div class="custodia-valor">R$ 43,20</div></div>
-</div>
-</div>
-
-<div class="proventos-wrap">
-<div class="proventos-title">💰 Proventos Recebidos</div>
-<div class="proventos-total">R$ 0,55</div>
-<div class="proventos-mes">Março de 2026</div>
-<div class="proventos-row"><span>BRSR6 - Juros Sobre Capital Próprio</span><span class="proventos-valor">R$ 0,55</span></div>
-</div>
-
-<footer>🦞 Carteira BESST | iaemloop.com.br</footer>
-</div>
-</body>
-</html>
+.bg-img{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;opacity:0.08;background:url('assets/bg-carteiras.jpg') center/cover no-repeat;pointer-events:none}
+body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);padding:24px;margin:0}
+.container{max-width:1400px;margin:0 auto}.back{position:fixed;top:20px;left:20px;background:var(--card);color:var(--gold);padding:10px 16px;border-radius:8px;text-decoration:none;z-index:1000}
+h1{color:var(--gold);font-size:32px;margin:0}p.sub{color:var(--text2);margin-top:6px}.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px}.kpi{background:var(--card);padding:20px;border-radius:12px;transition:all .3s}.kpi:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(212,175,55,.2)}.kpi-val{font-size:28px;font-weight:600;color:var(--gold)}.kpi-lab{color:var(--text2);font-size:14px;margin-top:6px}
+.charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px}.chart-box{background:var(--card);border-radius:16px;padding:32px}.chart-title{color:var(--gold);font-size:18px;margin-bottom:24px}.chart-flex{display:flex;align-items:center;gap:32px}.donut{position:relative;width:180px;height:180px;border-radius:50%;flex-shrink:0}.donut::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;background:var(--card);border-radius:50%}.donut-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:1}.donut-val{font-size:24px;font-weight:700;color:var(--gold)}.legend{flex:1}.legend-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);gap:12px}.legend-info{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.legend-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}.legend-tick{font-size:15px;font-weight:600}.legend-sec{font-size:12px;color:var(--text2)}.legend-pct{font-size:16px;font-weight:700;color:var(--gold)}.sec-row{display:flex;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}.sec-info{display:flex;align-items:center;gap:10px;min-width:150px}.sec-bar{flex:1;height:6px;background:var(--bg);border-radius:3px;margin:0 12px}.sec-pct{font-size:15px;font-weight:700;color:var(--gold);min-width:50px;text-align:right}
+.custodia-wrap{background:var(--card);border-radius:16px;padding:32px;margin-bottom:32px;border-left:4px solid var(--green)}.custodia-title{color:var(--green);font-size:20px;margin-bottom:24px}.custodia-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}.custodia-item{background:#10151d;padding:20px;border-radius:12px;border-left:4px solid var(--gold)}.custodia-tick{font-size:20px;font-weight:700;margin-bottom:8px}.custodia-info{font-size:14px;color:var(--text2)}.custodia-valor{font-size:18px;font-weight:700;color:var(--gold);margin-top:12px}
+.proventos-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:32px 0}.proventos-wrap{background:var(--card);border-radius:16px;padding:32px;border-left:4px solid #9b59b6}.proventos-wrap.future{border-left-color:#3498db}.proventos-title{color:#9b59b6;font-size:20px;margin-bottom:12px}.future .proventos-title{color:#3498db}.proventos-total{font-size:32px;font-weight:700;color:var(--gold);margin-bottom:16px}.proventos-row{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--border);color:var(--text2)}.proventos-valor{color:var(--gold);font-weight:700;white-space:nowrap}.note{color:var(--text2);font-size:13px;margin-top:12px;line-height:1.5}footer{text-align:center;padding:40px;color:var(--text2);border-top:1px solid var(--border);margin-top:40px}
+@media(max-width:1000px){.charts-grid,.proventos-grid{grid-template-columns:1fr}}@media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.chart-flex{flex-direction:column}body{padding:16px}.back{position:static;display:inline-block;margin-bottom:16px}}
+</style></head><body><div class="bg-img"></div><a href="javascript:history.back()" class="back">← Voltar</a><div class="container">
+<header style="text-align:center"><div style="display:inline-block"><h1>💎 Carteira BESST</h1><p class="sub">Método Barsi + Buffett</p></div></header>
+<div class="kpis"><div class="kpi"><div class="kpi-val">R$ 775,16</div><div class="kpi-lab">Valor comprado</div></div><div class="kpi"><div class="kpi-val" style="color:var(--green)">R$ 0,76</div><div class="kpi-lab">Proventos recebidos</div></div><div class="kpi"><div class="kpi-val">R$ 77,52</div><div class="kpi-lab">Ticket médio por posição</div></div><div class="kpi"><div class="kpi-val">10</div><div class="kpi-lab">Posições</div></div></div>
+<div class="charts-grid"><div class="chart-box"><div class="chart-title">📊 Distribuição por Ativo</div><div class="chart-flex"><div class="donut" style="background:conic-gradient(var(--gold) 0deg 60deg,#e74c3c 60deg 110deg,#1abc9c 110deg 158deg,#3498db 158deg 199deg,#9b59b6 199deg 238deg,#f39c12 238deg 266deg,#2ecc71 266deg 292deg,#95a5a6 292deg 317deg,#e91e63 317deg 340deg,#00bcd4 340deg 360deg)"><div class="donut-center"><div class="donut-val">R$775,16</div></div></div><div class="legend"><div class="legend-row"><div class="legend-info"><div class="legend-dot" style="background:var(--gold)"></div><span class="legend-tick"><a href="https://www.fundamentus.com.br/detalhes.php?papel=TAEE11" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">TAEE11</a></span><span class="legend-sec">Energia</span></div><span class="legend-pct">16,7%</span></div>
+<div class="legend-row"><div class="legend-info"><div class="legend-dot" style="background:#e74c3c"></div><span class="legend-tick"><a href="https://www.fundamentus.com.br/detalhes.php?papel=CSMG3" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">CSMG3</a></span><span class="legend-sec">Saneamento</span></div><span class="legend-pct">13,9%</span></div>
+<div class="legend-row"><div class="legend-info"><div class="legend-dot" style="background:#1abc9c"></div><span class="legend-tick"><a href="https://www.fundamentus.com.br/detalhes.php?papel=PSSA3" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">PSSA3</a></span><span class="legend-sec">Seguros</span></div><span class="legend-pct">13,3%</span></div>
+<div class="legend-row"><div class="legend-info"><div class="legend-dot" style="background:#3498db"></div><span class="legend-tick"><a href="https://www.fundamentus.com.br/detalhes.php?papel=SAPR11" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">SAPR11</a></span><span class="legend-sec">Saneamento</span></div><span class="legend-pct">11,4%</span></div>
+<div class="legend-row"><div class="legend-info"><div class="legend-dot" style="background:#9b59b6"></div><span class="legend-tick"><a href="https://www.fundamentus.com.br/detalhes.php?papel=SANB11" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">SANB11</a></span><span class="legend-sec">Bancos</span></div><span class="legend-pct">10,6%</span></div>
+<div class="legend-row"><div class="legend-info"><div class="legend-dot" style="background:#f39c12"></div><span class="legend-tick"><a href="https://www.fundamentus.com.br/detalhes.php?papel=ENGI3" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">ENGI3</a></span><span class="legend-sec">Energia</span></div><span class="legend-pct">8,0%</span></div>
+<div class="legend-row"><div class="legend-info"><div class="legend-dot" style="background:#2ecc71"></div><span class="legend-tick"><a href="https://www.fundamentus.com.br/detalhes.php?papel=BRSR6" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">BRSR6</a></span><span class="legend-sec">Bancos</span></div><span class="legend-pct">7,1%</span></div>
+<div class="legend-row"><div class="legend-info"><div class="legend-dot" style="background:#95a5a6"></div><span class="legend-tick"><a href="https://www.fundamentus.com.br/detalhes.php?papel=KLBN4" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">KLBN4</a></span><span class="legend-sec">Papel e Celulose</span></div><span class="legend-pct">6,9%</span></div>
+<div class="legend-row"><div class="legend-info"><div class="legend-dot" style="background:#e91e63"></div><span class="legend-tick"><a href="https://www.fundamentus.com.br/detalhes.php?papel=BMGB4" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">BMGB4</a></span><span class="legend-sec">Bancos</span></div><span class="legend-pct">6,4%</span></div>
+<div class="legend-row"><div class="legend-info"><div class="legend-dot" style="background:#00bcd4"></div><span class="legend-tick"><a href="https://www.fundamentus.com.br/detalhes.php?papel=CPLE3" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">CPLE3</a></span><span class="legend-sec">Energia</span></div><span class="legend-pct">5,6%</span></div></div></div></div>
+<div class="chart-box"><div class="chart-title">🏭 Alocação por Setor</div><div class="chart-flex" style="flex-direction:column"><div class="donut" style="background:conic-gradient(#3498db 0deg 109deg,#9b59b6 109deg 200deg,#f39c12 200deg 287deg,#2ecc71 287deg 335deg,#95a5a6 335deg 360deg)"><div class="donut-center"><div class="donut-val">5</div></div></div><div style="width:100%"><div class="sec-row"><div class="sec-info"><div class="legend-dot" style="background:#3498db"></div><span class="legend-tick">Energia</span></div><div class="sec-bar"><div style="width:100%;height:100%;background:#3498db;border-radius:3px"></div></div><span class="sec-pct">30,3%</span></div>
+<div class="sec-row"><div class="sec-info"><div class="legend-dot" style="background:#9b59b6"></div><span class="legend-tick">Saneamento</span></div><div class="sec-bar"><div style="width:83%;height:100%;background:#9b59b6;border-radius:3px"></div></div><span class="sec-pct">25,3%</span></div>
+<div class="sec-row"><div class="sec-info"><div class="legend-dot" style="background:#f39c12"></div><span class="legend-tick">Bancos</span></div><div class="sec-bar"><div style="width:79%;height:100%;background:#f39c12;border-radius:3px"></div></div><span class="sec-pct">24,1%</span></div>
+<div class="sec-row"><div class="sec-info"><div class="legend-dot" style="background:#2ecc71"></div><span class="legend-tick">Seguros</span></div><div class="sec-bar"><div style="width:44%;height:100%;background:#2ecc71;border-radius:3px"></div></div><span class="sec-pct">13,3%</span></div>
+<div class="sec-row"><div class="sec-info"><div class="legend-dot" style="background:#95a5a6"></div><span class="legend-tick">Papel e Celulose</span></div><div class="sec-bar"><div style="width:22%;height:100%;background:#95a5a6;border-radius:3px"></div></div><span class="sec-pct">6,9%</span></div></div></div></div></div>
+<div class="custodia-wrap"><div class="custodia-title">📊 Ações em Custódia</div><div class="custodia-grid"><div class="custodia-item" style="border-left-color:var(--gold)"><div class="custodia-tick" style="color:var(--gold)"><a href="https://www.fundamentus.com.br/detalhes.php?papel=TAEE11" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">TAEE11</a></div><div class="custodia-info">Taesa • Energia</div><div class="custodia-info">3 unidades × R$ 43,23</div><div class="custodia-valor">R$ 129,69</div></div>
+<div class="custodia-item" style="border-left-color:#e74c3c"><div class="custodia-tick" style="color:#e74c3c"><a href="https://www.fundamentus.com.br/detalhes.php?papel=CSMG3" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">CSMG3</a></div><div class="custodia-info">Copasa • Saneamento</div><div class="custodia-info">2 unidades × R$ 53,83</div><div class="custodia-valor">R$ 107,66</div></div>
+<div class="custodia-item" style="border-left-color:#1abc9c"><div class="custodia-tick" style="color:#1abc9c"><a href="https://www.fundamentus.com.br/detalhes.php?papel=PSSA3" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">PSSA3</a></div><div class="custodia-info">Porto Seguro • Seguros</div><div class="custodia-info">2 unidades × R$ 51,65</div><div class="custodia-valor">R$ 103,30</div></div>
+<div class="custodia-item" style="border-left-color:#3498db"><div class="custodia-tick" style="color:#3498db"><a href="https://www.fundamentus.com.br/detalhes.php?papel=SAPR11" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">SAPR11</a></div><div class="custodia-info">Sanepar • Saneamento</div><div class="custodia-info">2 unidades × R$ 44,33</div><div class="custodia-valor">R$ 88,66</div></div>
+<div class="custodia-item" style="border-left-color:#9b59b6"><div class="custodia-tick" style="color:#9b59b6"><a href="https://www.fundamentus.com.br/detalhes.php?papel=SANB11" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">SANB11</a></div><div class="custodia-info">Santander Brasil • Bancos</div><div class="custodia-info">3 unidades × R$ 27,47</div><div class="custodia-valor">R$ 82,41</div></div>
+<div class="custodia-item" style="border-left-color:#f39c12"><div class="custodia-tick" style="color:#f39c12"><a href="https://www.fundamentus.com.br/detalhes.php?papel=ENGI3" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">ENGI3</a></div><div class="custodia-info">Energisa • Energia</div><div class="custodia-info">5 unidades × R$ 12,35</div><div class="custodia-valor">R$ 61,75</div></div>
+<div class="custodia-item" style="border-left-color:#2ecc71"><div class="custodia-tick" style="color:#2ecc71"><a href="https://www.fundamentus.com.br/detalhes.php?papel=BRSR6" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">BRSR6</a></div><div class="custodia-info">Banrisul • Bancos</div><div class="custodia-info">3 unidades × R$ 18,41</div><div class="custodia-valor">R$ 55,23</div></div>
+<div class="custodia-item" style="border-left-color:#95a5a6"><div class="custodia-tick" style="color:#95a5a6"><a href="https://www.fundamentus.com.br/detalhes.php?papel=KLBN4" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">KLBN4</a></div><div class="custodia-info">Klabin • Papel e Celulose</div><div class="custodia-info">16 unidades × R$ 3,36</div><div class="custodia-valor">R$ 53,76</div></div>
+<div class="custodia-item" style="border-left-color:#e91e63"><div class="custodia-tick" style="color:#e91e63"><a href="https://www.fundamentus.com.br/detalhes.php?papel=BMGB4" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">BMGB4</a></div><div class="custodia-info">Banco BMG • Bancos</div><div class="custodia-info">10 unidades × R$ 4,95</div><div class="custodia-valor">R$ 49,50</div></div>
+<div class="custodia-item" style="border-left-color:#00bcd4"><div class="custodia-tick" style="color:#00bcd4"><a href="https://www.fundamentus.com.br/detalhes.php?papel=CPLE3" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">CPLE3</a></div><div class="custodia-info">Copel • Energia</div><div class="custodia-info">3 unidades × R$ 14,40</div><div class="custodia-valor">R$ 43,20</div></div></div></div>
+<div class="proventos-grid"><div class="proventos-wrap"><div class="proventos-title">💰 Proventos recebidos</div><div class="proventos-total">R$ 0,76</div><div class="proventos-row"><span>Mar/2026 • BRSR6 - Juros sobre capital próprio</span><span class="proventos-valor">R$ 0,55</span></div>
+<div class="proventos-row"><span>18/05/2026 • BRSR6 - Dividendo</span><span class="proventos-valor">R$ 0,21</span></div><div class="note">Valores lançados a partir das notas de negociação/liquidação enviadas e registros já existentes na página.</div></div>
+<div class="proventos-wrap future"><div class="proventos-title">📅 Proventos futuros / a receber</div><div class="proventos-total">R$ 8,19</div><div class="proventos-row"><span>21/05/2026 • BMGB4 - Juros sobre capital próprio</span><span class="proventos-valor">R$ 0,83</span></div>
+<div class="proventos-row"><span>27/05/2026 • TAEE11 - Dividendo</span><span class="proventos-valor">R$ 0,46</span></div>
+<div class="proventos-row"><span>27/05/2026 • TAEE11 - Dividendo</span><span class="proventos-valor">R$ 2,26</span></div>
+<div class="proventos-row"><span>30/06/2026 • CSMG3 - Dividendo provisionado</span><span class="proventos-valor">R$ 0,00</span></div>
+<div class="proventos-row"><span>26/08/2026 • TAEE11 - Juros sobre capital próprio</span><span class="proventos-valor">R$ 1,38</span></div>
+<div class="proventos-row"><span>30/09/2026 • CPLE3 - Juros sobre capital próprio</span><span class="proventos-valor">R$ 0,59</span></div>
+<div class="proventos-row"><span>30/11/2026 • PSSA3 - Dividendo</span><span class="proventos-valor">R$ 1,77</span></div>
+<div class="proventos-row"><span>31/12/2027 • PSSA3 - Juros sobre capital próprio</span><span class="proventos-valor">R$ 0,90</span></div><div class="note">Eventos com data de pagamento futura ou provisionada pela B3; podem mudar conforme o emissor.</div></div></div>
+<footer>🦞 Carteira BESST | iaemloop.com.br | Atualizado em 18/05/2026</footer></div></body></html>
