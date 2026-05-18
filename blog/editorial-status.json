@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-17",
+  "updatedAt": "2026-05-18",
   "owner": "IA em Loop",
   "requiredDailyOutputs": [
     "estudo-educacional-de-ativo",
@@ -8,24 +8,26 @@
   ],
   "rules": [
     "Nao publicar recomendacao personalizada de investimento.",
-    "Nao inventar fonte, preco, noticia ou fala de influenciador.",
+    "Nao inventar fonte, preco, noticia ou fala de terceiros.",
     "Manter texto publico sem detalhes operacionais.",
     "Nao publicar rascunho vazio; todo post deve ter tese, evidencias, riscos e leitura pratica.",
     "Evitar repeticao automatica de ticker ja analisado recentemente."
   ],
-  "lastPost": "blog/posts/2026-05-17-risco-politico-ia-eua-carteira.html",
-  "tickerOfTheDay": "macro",
-  "reading": "espera seletiva com caixa preparado; risco politico brasileiro e concentracao da tese de IA nos EUA exigem margem de seguranca",
+  "lastPost": "blog/posts/2026-05-18-analise-csud3-ia-servicos-digitais.html",
+  "tickerOfTheDay": "CSUD3",
+  "reading": "manutencao com compra apenas em reforco pequeno e condicionado; CSUD3 parece barata, mas precisa provar escala, margem, caixa recorrente e liquidez antes de aumento relevante de peso",
   "nextSuggestedPost": "Alternar entre analises de ativo dos rankings e leituras macro de politica, geopolitica, IA, juros, dolar e carteira, sem repetir tickers recentes.",
   "knownGaps": [
-    "Validar dados completos de balancos e releases antes de decisao de investimento.",
-    "Acompanhar dolar, juros futuros, petroleo, S&P 500, capex das big techs e sinais de concentracao das expectativas de lucro.",
-    "Separar tendencia real de IA de valuation excessivo em ativos que apenas pegam carona na narrativa."
+    "Validar dados completos de balancos, releases e caixa antes de decisao de investimento.",
+    "Acompanhar CDI, Selic, dolar, margem EBIT, caixa operacional, liquidez da acao e renovacao de contratos.",
+    "Separar uso real de IA em eficiencia operacional de narrativa generica sem impacto em margem."
   ],
   "sourcesUsed": [
-    "Video publico do Economista Sincero sobre Lula, Flavio Bolsonaro, Banco Master/Vorcaro, dolar, juros e risco politico",
-    "Video publico de Fernando Ulrich: Os numeros que podem derrubar as bolsas mundiais",
-    "Rankings IA em Loop de maio",
+    "Ranking Magic Formula de maio do IA em Loop",
+    "Pagina publica da carteira Magic Formula",
+    "Fundamentus para indicadores de CSUD3",
+    "Banco Central para CDI e IPCA",
+    "AwesomeAPI para cambio",
     "Leitura editorial IA em Loop"
   ],
   "validationPlan": [
