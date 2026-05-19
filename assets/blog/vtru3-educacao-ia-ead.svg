@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">VTRU3, educação digital e IA no radar da Magic Formula</title>
+  <desc id="desc">Matriz visual com ranking, carteira real, educação digital, inteligência artificial e riscos para VTRU3.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#05070d"/>
+      <stop offset="0.55" stop-color="#111d2a"/>
+      <stop offset="1" stop-color="#1d1408"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6EE4EF"/>
+      <stop offset="1" stop-color="#E4D17F"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1060" cy="80" r="220" fill="#E4D17F" opacity="0.08"/>
+  <circle cx="130" cy="560" r="220" fill="#6EE4EF" opacity="0.08"/>
+  <g opacity="0.18" stroke="#E4D17F" stroke-width="1">
+    <path d="M130 120h940M130 205h940M130 290h940M130 375h940M130 460h940"/>
+    <path d="M220 80v430M395 80v430M570 80v430M745 80v430M920 80v430"/>
+  </g>
+  <text x="80" y="92" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">IA em Loop • leitura diária • 19/05/2026</text>
+  <text x="80" y="160" fill="url(#gold)" font-family="Inter, Arial, sans-serif" font-size="58" font-weight="900">VTRU3</text>
+  <text x="80" y="218" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="800">educação digital precisa provar margem</text>
+  <text x="80" y="262" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="25">Ranking favorece preço e retorno; carteira real exige disciplina.</text>
+  <g transform="translate(80 320)">
+    <rect x="0" y="0" width="320" height="170" rx="18" fill="#0b1220" opacity="0.88" stroke="#E4D17F" stroke-opacity="0.35"/>
+    <text x="24" y="42" fill="#E4D17F" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">Magic Formula</text>
+    <text x="24" y="84" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="900">14º</text>
+    <text x="88" y="84" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="21">em maio</text>
+    <text x="24" y="124" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="19">ROIC 15,0% • EY 21,0%</text>
+  </g>
+  <g transform="translate(440 320)">
+    <rect x="0" y="0" width="320" height="170" rx="18" fill="#0b1220" opacity="0.88" stroke="#6EE4EF" stroke-opacity="0.32"/>
+    <text x="24" y="42" fill="#6EE4EF" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">Carteira real</text>
+    <text x="24" y="84" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="900">3 ações</text>
+    <text x="24" y="124" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="19">custo médio R$ 14,18</text>
+  </g>
+  <g transform="translate(800 320)">
+    <rect x="0" y="0" width="320" height="170" rx="18" fill="#0b1220" opacity="0.88" stroke="#E4D17F" stroke-opacity="0.35"/>
+    <text x="24" y="42" fill="#E4D17F" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">Teste central</text>
+    <text x="24" y="84" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="900">escala + caixa</text>
+    <text x="24" y="124" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="19">sem diluir ou perder margem</text>
+  </g>
+  <g transform="translate(82 535)">
+    <rect x="0" y="0" width="1036" height="48" rx="24" fill="#111827" stroke="#334155"/>
+    <text x="28" y="31" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="20">IA útil em educação: retenção, personalização, atendimento, conteúdo e eficiência — só vale se virar resultado.</text>
+  </g>
+  <path d="M870 128c60 0 109 49 109 109s-49 109-109 109-109-49-109-109 49-109 109-109Z" fill="none" stroke="#6EE4EF" stroke-width="10" opacity="0.65" filter="url(#glow)"/>
+  <path d="M870 167v140M800 237h140" stroke="#E4D17F" stroke-width="12" stroke-linecap="round" opacity="0.8"/>
+  <text x="840" y="246" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="900">IA</text>
+</svg>
