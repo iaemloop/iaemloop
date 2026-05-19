@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-18",
+  "updatedAt": "2026-05-19",
   "owner": "IA em Loop",
   "requiredDailyOutputs": [
     "estudo-educacional-de-ativo",
@@ -13,19 +13,20 @@
     "Nao publicar rascunho vazio; todo post deve ter tese, evidencias, riscos e leitura pratica.",
     "Evitar repeticao automatica de ticker ja analisado recentemente."
   ],
-  "lastPost": "blog/posts/2026-05-18-besst-buffett-magic-formula-eua.html",
-  "tickerOfTheDay": "metodologia-EUA",
-  "reading": "BESST & Buffett e Magic Formula sao metodos independentes; perenidade e fundamento no B&B e bonus na Magic Formula; rankings EUA devem mostrar listas separadas e nao uma carteira hibrida sem regra.",
-  "nextSuggestedPost": "Publicar dossies individuais das intersecoes entre B&B e Magic Formula EUA, separando compounders perenes, ciclicos perenes e casos apenas quantitativos.",
+  "lastPost": "blog/posts/2026-05-19-analise-vtru3-educacao-ia-ead.html",
+  "tickerOfTheDay": "VTRU3",
+  "reading": "VTRU3 entra pelo ranking Magic Formula e pela carteira real como tese barata de educacao digital, mas o reforco depende de margem, caixa, integracao da Cesumar e efeito real de IA em eficiencia e retencao.",
+  "nextSuggestedPost": "Comparar educacionais do ranking, especialmente VTRU3, CSED3, ANIM3 e SEER3, para evitar concentracao tematica sem prova de caixa.",
   "knownGaps": [
-    "Validar fonte de dados final antes de transformar o ranking EUA em pagina permanente.",
-    "Definir metodologia propria para energia, mineracao e REITs dentro do B&B.",
-    "Manter Magic Formula como ranking quantitativo separado, preferencialmente com 20 a 30 acoes na carteira."
+    "Conferir detalhes completos do follow-on e uso de recursos quando o documento final estiver disponivel.",
+    "Acompanhar proximos dados de captacao, evasao, ticket medio e margem das educacionais.",
+    "Validar impacto financeiro da integracao da Cesumar ao longo de 2026."
   ],
   "sourcesUsed": [
-    "Pagina oficial Magic Formula Investing",
-    "Ranking exploratorio IA em Loop para acoes americanas",
-    "Leitura metodologica IA em Loop sobre perenidade, qualidade e preco"
+    "Ranking Magic Formula de maio do IA em Loop",
+    "Pagina publica da carteira Magic Formula",
+    "Fundamentus para VTRU3, CSED3, ANIM3 e SEER3",
+    "Google News RSS com noticias publicas sobre educacionais, 1T26, follow-on, dividendos e setor"
   ],
   "validationPlan": [
     "Validacao de JSON",

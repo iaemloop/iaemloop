@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://iaemloop.com.br/</loc>
-    <lastmod>2026-05-18</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <priority>1.0</priority>
     <changefreq>daily</changefreq>
     <image:image>
@@ -61,7 +61,7 @@
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/</loc>
-    <lastmod>2026-05-18</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <priority>0.8</priority>
     <changefreq>daily</changefreq>
   </url>
@@ -156,6 +156,12 @@
   <url>
     <loc>https://iaemloop.com.br/blog/posts/2026-05-18-besst-buffett-magic-formula-eua.html</loc>
     <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-05-19-analise-vtru3-educacao-ia-ead.html</loc>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
