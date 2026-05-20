@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-19",
+  "updatedAt": "2026-05-20",
   "owner": "IA em Loop",
   "requiredDailyOutputs": [
     "estudo-educacional-de-ativo",
@@ -13,20 +13,20 @@
     "Nao publicar rascunho vazio; todo post deve ter tese, evidencias, riscos e leitura pratica.",
     "Evitar repeticao automatica de ticker ja analisado recentemente."
   ],
-  "lastPost": "blog/posts/2026-05-19-analise-vtru3-educacao-ia-ead.html",
-  "tickerOfTheDay": "VTRU3",
-  "reading": "VTRU3 entra pelo ranking Magic Formula e pela carteira real como tese barata de educacao digital, mas o reforco depende de margem, caixa, integracao da Cesumar e efeito real de IA em eficiencia e retencao.",
-  "nextSuggestedPost": "Comparar educacionais do ranking, especialmente VTRU3, CSED3, ANIM3 e SEER3, para evitar concentracao tematica sem prova de caixa.",
+  "lastPost": "blog/posts/2026-05-20-analise-tgma3-logistica-ia-ciclo-auto.html",
+  "tickerOfTheDay": "TGMA3",
+  "reading": "TGMA3 entra pelo ranking Magic Formula e pela carteira real como tese de qualidade operacional em logistica automotiva, mas o reforco depende de volume de veiculos, margem, caixa e disciplina para nao aumentar exposicao ao mesmo ciclo industrial.",
+  "nextSuggestedPost": "Comparar TGMA3 com POMO3, POMO4 e LEVE3 para separar qualidade operacional de exposicao duplicada ao ciclo automotivo.",
   "knownGaps": [
-    "Conferir detalhes completos do follow-on e uso de recursos quando o documento final estiver disponivel.",
-    "Acompanhar proximos dados de captacao, evasao, ticket medio e margem das educacionais.",
-    "Validar impacto financeiro da integracao da Cesumar ao longo de 2026."
+    "Acompanhar proximos dados de producao, emplacamentos e financiamento de veiculos.",
+    "Conferir margem, caixa e comentarios sobre contratos no proximo release da companhia.",
+    "Comparar a exposicao tematica da carteira a logistica, autopecas e carrocerias antes de novos reforcos."
   ],
   "sourcesUsed": [
     "Ranking Magic Formula de maio do IA em Loop",
     "Pagina publica da carteira Magic Formula",
-    "Fundamentus para VTRU3, CSED3, ANIM3 e SEER3",
-    "Google News RSS com noticias publicas sobre educacionais, 1T26, follow-on, dividendos e setor"
+    "Fundamentus para TGMA3, POMO3, POMO4, CSED3 e ANIM3",
+    "Google News RSS com noticias publicas sobre Tegma, resultados, dividendos, financiamento de veiculos, producao automotiva e caminhoes"
   ],
   "validationPlan": [
     "Validacao de JSON",
