@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-20",
+  "updatedAt": "2026-05-21",
   "owner": "IA em Loop",
   "requiredDailyOutputs": [
     "estudo-educacional-de-ativo",
@@ -13,20 +13,21 @@
     "Nao publicar rascunho vazio; todo post deve ter tese, evidencias, riscos e leitura pratica.",
     "Evitar repeticao automatica de ticker ja analisado recentemente."
   ],
-  "lastPost": "blog/posts/2026-05-20-analise-tgma3-logistica-ia-ciclo-auto.html",
-  "tickerOfTheDay": "TGMA3",
-  "reading": "TGMA3 entra pelo ranking Magic Formula e pela carteira real como tese de qualidade operacional em logistica automotiva, mas o reforco depende de volume de veiculos, margem, caixa e disciplina para nao aumentar exposicao ao mesmo ciclo industrial.",
-  "nextSuggestedPost": "Comparar TGMA3 com POMO3, POMO4 e LEVE3 para separar qualidade operacional de exposicao duplicada ao ciclo automotivo.",
+  "lastPost": "blog/posts/2026-05-21-analise-pssa3-seguros-ia-carteira.html",
+  "tickerOfTheDay": "PSSA3",
+  "reading": "PSSA3 entra como tese de qualidade em seguros, com posicao forte no ranking Magic Formula, presenca nas carteiras reais BESST & Buffett e Magic Formula, lucro recente robusto e necessidade de disciplina antes de novos reforcos.",
+  "nextSuggestedPost": "Comparar PSSA3 com BBSE3, CXSE3, WIZC3 e bancos para separar qualidade defensiva de concentracao excessiva no bloco financeiro.",
   "knownGaps": [
-    "Acompanhar proximos dados de producao, emplacamentos e financiamento de veiculos.",
-    "Conferir margem, caixa e comentarios sobre contratos no proximo release da companhia.",
-    "Comparar a exposicao tematica da carteira a logistica, autopecas e carrocerias antes de novos reforcos."
+    "Acompanhar sinistralidade, indice combinado, premio emitido e ROE no proximo release.",
+    "Conferir se saude, servicos e banking aumentam retorno ou apenas complexidade operacional.",
+    "Comparar a exposicao total das carteiras a seguros e servicos financeiros antes de reforcos."
   ],
   "sourcesUsed": [
     "Ranking Magic Formula de maio do IA em Loop",
-    "Pagina publica da carteira Magic Formula",
-    "Fundamentus para TGMA3, POMO3, POMO4, CSED3 e ANIM3",
-    "Google News RSS com noticias publicas sobre Tegma, resultados, dividendos, financiamento de veiculos, producao automotiva e caminhoes"
+    "Historico BESST & Buffett do IA em Loop",
+    "Paginas publicas das carteiras BESST & Buffett e Magic Formula",
+    "Fundamentus para PSSA3, BMGB4, POMO3, CSED3 e WIZC3",
+    "Google News RSS com noticias publicas sobre Porto Seguro, PSSA3, lucro do 1T26, dividendos, ROE, seguros, banking e tecnologia no setor segurador"
   ],
   "validationPlan": [
     "Validacao de JSON",
