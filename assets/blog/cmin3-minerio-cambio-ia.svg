@@ -12,7 +12,7 @@
 <text x="70" y="78" fill="#E4D17F" font-family="Inter, Arial" font-size="24" font-weight="700">IA em Loop • leitura diária • 12/05/2026</text>
 <text x="70" y="135" fill="url(#gold)" font-family="Inter, Arial" font-size="54" font-weight="800">CMIN3 no cruzamento</text>
 <text x="70" y="190" fill="#e2e8f0" font-family="Inter, Arial" font-size="54" font-weight="800">entre minério, dólar e geopolítica</text>
-<text x="72" y="236" fill="#94a3b8" font-family="Inter, Arial" font-size="22">Ranking quantitativo + carteira real + cenário macro sem recomendação personalizada</text>
+<text x="72" y="236" fill="#94a3b8" font-family="Inter, Arial" font-size="22">Ranking + carteira real + macro, sem recomendação personalizada</text>
 <g filter="url(#shadow)">
   <rect x="70" y="295" width="230" height="112" rx="18" fill="#0b1724" stroke="#E4D17F" stroke-opacity=".28"/>
   <text x="94" y="333" fill="#94a3b8" font-family="Inter, Arial" font-size="18" font-weight="700">Magic Formula</text>
