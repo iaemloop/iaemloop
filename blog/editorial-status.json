@@ -11,7 +11,9 @@
     "Nao inventar fonte, preco, noticia ou fala de terceiros.",
     "Manter texto publico sem detalhes operacionais.",
     "Nao publicar rascunho vazio; todo post deve ter tese, evidencias, riscos e leitura pratica.",
-    "Evitar repeticao automatica de ticker ja analisado recentemente."
+    "Evitar repeticao automatica de ticker ja analisado recentemente.",
+    "Videos de influenciadores sao gatilhos editoriais, nao pauta pronta: antes de publicar, apurar fatos atuais, noticias, precos/contexto de mercado e contrapontos.",
+    "Posts no X devem partir de tweets/trends reais em circulacao; engajar, comentar e criar formatos nativos, sem transformar headline do blog em card generico."
   ],
   "lastPost": "blog/posts/2026-05-21-analise-pssa3-seguros-ia-carteira.html",
   "tickerOfTheDay": "PSSA3",

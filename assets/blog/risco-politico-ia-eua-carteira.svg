@@ -51,9 +51,9 @@
   <g filter="url(#shadow)">
     <rect x="824" y="220" width="315" height="205" rx="22" fill="rgba(6,8,13,0.68)" stroke="#ffffff" stroke-opacity="0.25"/>
     <text x="852" y="262" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#ffffff">Carteira</text>
-    <text x="852" y="303" font-family="Inter, Arial, sans-serif" font-size="18" fill="#e2e8f0">• ranking é filtro, não gatilho</text>
-    <text x="852" y="334" font-family="Inter, Arial, sans-serif" font-size="18" fill="#e2e8f0">• evitar concentração em narrativa</text>
-    <text x="852" y="365" font-family="Inter, Arial, sans-serif" font-size="18" fill="#e2e8f0">• preferir caixa, ROIC e preço</text>
+    <text x="852" y="303" font-family="Inter, Arial, sans-serif" font-size="18" fill="#e2e8f0">• ranking filtra, não decide</text>
+    <text x="852" y="334" font-family="Inter, Arial, sans-serif" font-size="18" fill="#e2e8f0">• evitar narrativa concentrada</text>
+    <text x="852" y="365" font-family="Inter, Arial, sans-serif" font-size="18" fill="#e2e8f0">• caixa, ROIC e preço</text>
     <text x="852" y="396" font-family="Inter, Arial, sans-serif" font-size="18" fill="#e2e8f0">• comprar só com margem</text>
   </g>
 

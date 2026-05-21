@@ -51,6 +51,6 @@
   <g transform="translate(118 500)">
     <rect class="card" rx="16" width="965" height="112"/>
     <text x="30" y="42" class="small">Leitura IA em Loop</text>
-    <text x="30" y="78" class="label" font-size="24">Manter e monitorar: boa qualidade operacional, mas reforço depende de volume, caixa e ciclo automotivo.</text>
+    <text x="30" y="78" class="label" font-size="24">Manter: reforço depende de volume, caixa e ciclo automotivo.</text>
   </g>
 </svg>

@@ -22,7 +22,7 @@
   <text x="70" y="82" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">IA em Loop • Leitura diária • 17/05/2026</text>
   <text x="70" y="152" fill="url(#gold)" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="800">LEVE3: autopeças, dividendos</text>
   <text x="70" y="212" fill="url(#gold)" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="800">e IA na fábrica eficiente</text>
-  <text x="72" y="262" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="24">Ranking Magic Formula: qualidade alta, preço ainda razoável e risco cíclico controlável.</text>
+  <text x="72" y="262" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="24">Magic Formula: qualidade alta, preço razoável e risco cíclico.</text>
 
   <g transform="translate(70 325)">
     <rect x="0" y="0" width="220" height="150" rx="18" fill="#06080D" opacity="0.62" stroke="#E4D17F" stroke-opacity="0.32"/>
@@ -48,5 +48,5 @@
     <path d="M36 92 C86 48, 138 130, 188 86 S258 68, 276 98" fill="none" stroke="url(#gold)" stroke-width="7" stroke-linecap="round" filter="url(#glow)"/>
     <text x="24" y="124" fill="#cbd5e1" font-family="Inter, Arial" font-size="20">qualidade • estoque • manutenção</text>
   </g>
-  <text x="70" y="558" fill="#94a3b8" font-family="Inter, Arial" font-size="22">Conclusão editorial: compra estudada/espera disciplinada — exigir margem, demanda e caixa antes de aumentar posição.</text>
+  <text x="70" y="558" fill="#94a3b8" font-family="Inter, Arial" font-size="22">Conclusão: compra estudada/espera — exigir margem, demanda e caixa.</text>
 </svg>
