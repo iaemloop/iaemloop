@@ -15,19 +15,20 @@
     "Sinais sociais e de mercado sao gatilhos editoriais, nao pauta pronta: antes de publicar, apurar fatos atuais, noticias, precos/contexto de mercado e contrapontos.",
     "Posts no X devem partir de tweets/trends reais em circulacao; engajar, comentar e criar formatos nativos, sem transformar headline do blog em card generico."
   ],
-  "lastPost": "blog/posts/2026-05-22-analise-vlid3-identidade-digital-ia.html",
-  "tickerOfTheDay": "VLID3",
-  "reading": "VLID3 entra como tese de tecnologia/identificacao em transicao: esta no Top 30 da Magic Formula, negocia com multiplos baixos, dividend yield alto na fotografia consultada e precisa provar que identidade digital, documentos, pagamentos e IA aparecem em margem recorrente.",
-  "nextSuggestedPost": "Comparar VLID3 com CSUD3, POSI3 e outras teses de tecnologia operacional para separar desconto justificado de assimetria real.",
+  "lastPost": "blog/posts/2026-05-22-tesouro-reserva-guerra-liquidez-bancos.html",
+  "tickerOfTheDay": "Tema: Tesouro Reserva / bancos",
+  "reading": "Tesouro Reserva entra como pauta de renda fixa e bancos: produto com Selic, minimo baixo e operacao ampliada disputa a reserva que hoje fica em caixinhas, CDBs, poupanca e contas remuneradas; para bancos, a leitura conecta funding, inadimplencia, provisoes e competicao por liquidez.",
+  "nextSuggestedPost": "Transformar a pauta em checklist capturavel: onde deixar a reserva de emergencia, comparando Tesouro Reserva, CDB liquidez diaria, caixinhas, poupanca e fundos DI por liquidez, risco, imposto e experiencia real.",
   "knownGaps": [
-    "Acompanhar receita digital, pagamentos, documentos, margem EBIT, caixa operacional e divida no proximo release.",
-    "Verificar se investimentos em IA e identidade digital melhoram retorno sobre capital ou apenas elevam custo de transicao.",
-    "Comparar o peso de small caps de execucao antes de qualquer reforco em carteira."
+    "Validar experiencia real de aplicacao/resgate do Tesouro Reserva em dias e horarios diferentes.",
+    "Atualizar comparativo liquido com CDBs, caixinhas, poupanca e fundos DI quando houver dados operacionais mais maduros.",
+    "Separar analise de bancos caso a caso, sem tratar o setor como bloco unico."
   ],
   "sourcesUsed": [
-    "Ranking Magic Formula de maio do IA em Loop",
-    "Consulta ao Fundamentus para VLID3 e pares de estudo",
-    "Google News RSS com noticias publicas sobre Valid, VLID3, resultado 1T26, avancos digitais, pagamentos, dividendos, financiamento para plataforma de IA e identidade digital"
+    "Tesouro Nacional e Agencia Gov sobre lancamento do Tesouro Reserva",
+    "Valor Investe e InfoMoney sobre captacao e vendas na estreia",
+    "Exame e G1 sobre comparacao com caixinhas, CDB, Selic e poupanca",
+    "Estadao E-Investidor, Agencia Brasil e G1 sobre bancos, precos, agro e inadimplencia"
   ],
   "validationPlan": [
     "Validacao de JSON",
