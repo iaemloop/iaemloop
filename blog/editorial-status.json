@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-21",
+  "updatedAt": "2026-05-22",
   "owner": "IA em Loop",
   "requiredDailyOutputs": [
     "estudo-educacional-de-ativo",
@@ -12,24 +12,22 @@
     "Manter texto publico sem detalhes operacionais.",
     "Nao publicar rascunho vazio; todo post deve ter tese, evidencias, riscos e leitura pratica.",
     "Evitar repeticao automatica de ticker ja analisado recentemente.",
-    "Videos de influenciadores sao gatilhos editoriais, nao pauta pronta: antes de publicar, apurar fatos atuais, noticias, precos/contexto de mercado e contrapontos.",
+    "Sinais sociais e de mercado sao gatilhos editoriais, nao pauta pronta: antes de publicar, apurar fatos atuais, noticias, precos/contexto de mercado e contrapontos.",
     "Posts no X devem partir de tweets/trends reais em circulacao; engajar, comentar e criar formatos nativos, sem transformar headline do blog em card generico."
   ],
-  "lastPost": "blog/posts/2026-05-21-analise-pssa3-seguros-ia-carteira.html",
-  "tickerOfTheDay": "PSSA3",
-  "reading": "PSSA3 entra como tese de qualidade em seguros, com posicao forte no ranking Magic Formula, presenca nas carteiras reais BESST & Buffett e Magic Formula, lucro recente robusto e necessidade de disciplina antes de novos reforcos.",
-  "nextSuggestedPost": "Comparar PSSA3 com BBSE3, CXSE3, WIZC3 e bancos para separar qualidade defensiva de concentracao excessiva no bloco financeiro.",
+  "lastPost": "blog/posts/2026-05-22-analise-vlid3-identidade-digital-ia.html",
+  "tickerOfTheDay": "VLID3",
+  "reading": "VLID3 entra como tese de tecnologia/identificacao em transicao: esta no Top 30 da Magic Formula, negocia com multiplos baixos, dividend yield alto na fotografia consultada e precisa provar que identidade digital, documentos, pagamentos e IA aparecem em margem recorrente.",
+  "nextSuggestedPost": "Comparar VLID3 com CSUD3, POSI3 e outras teses de tecnologia operacional para separar desconto justificado de assimetria real.",
   "knownGaps": [
-    "Acompanhar sinistralidade, indice combinado, premio emitido e ROE no proximo release.",
-    "Conferir se saude, servicos e banking aumentam retorno ou apenas complexidade operacional.",
-    "Comparar a exposicao total das carteiras a seguros e servicos financeiros antes de reforcos."
+    "Acompanhar receita digital, pagamentos, documentos, margem EBIT, caixa operacional e divida no proximo release.",
+    "Verificar se investimentos em IA e identidade digital melhoram retorno sobre capital ou apenas elevam custo de transicao.",
+    "Comparar o peso de small caps de execucao antes de qualquer reforco em carteira."
   ],
   "sourcesUsed": [
     "Ranking Magic Formula de maio do IA em Loop",
-    "Historico BESST & Buffett do IA em Loop",
-    "Paginas publicas das carteiras BESST & Buffett e Magic Formula",
-    "Fundamentus para PSSA3, BMGB4, POMO3, CSED3 e WIZC3",
-    "Google News RSS com noticias publicas sobre Porto Seguro, PSSA3, lucro do 1T26, dividendos, ROE, seguros, banking e tecnologia no setor segurador"
+    "Consulta ao Fundamentus para VLID3 e pares de estudo",
+    "Google News RSS com noticias publicas sobre Valid, VLID3, resultado 1T26, avancos digitais, pagamentos, dividendos, financiamento para plataforma de IA e identidade digital"
   ],
   "validationPlan": [
     "Validacao de JSON",
