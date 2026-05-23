@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-22",
+  "updatedAt": "2026-05-23",
   "owner": "IA em Loop",
   "requiredDailyOutputs": [
     "estudo-educacional-de-ativo",
@@ -13,22 +13,21 @@
     "Nao publicar rascunho vazio; todo post deve ter tese, evidencias, riscos e leitura pratica.",
     "Evitar repeticao automatica de ticker ja analisado recentemente.",
     "Sinais sociais e de mercado sao gatilhos editoriais, nao pauta pronta: antes de publicar, apurar fatos atuais, noticias, precos/contexto de mercado e contrapontos.",
-    "Posts no X devem partir de tweets/trends reais em circulacao; engajar, comentar e criar formatos nativos, sem transformar headline do blog em card generico."
+    "Posts no X devem partir de tendencias reais em circulacao; engajar, comentar e criar formatos nativos, sem transformar headline do blog em card generico."
   ],
-  "lastPost": "blog/posts/2026-05-22-tesouro-reserva-guerra-liquidez-bancos.html",
-  "tickerOfTheDay": "Tema: Tesouro Reserva / bancos",
-  "reading": "Tesouro Reserva entra como pauta de renda fixa e bancos: produto com Selic, minimo baixo e operacao ampliada disputa a reserva que hoje fica em caixinhas, CDBs, poupanca e contas remuneradas; para bancos, a leitura conecta funding, inadimplencia, provisoes e competicao por liquidez.",
-  "nextSuggestedPost": "Transformar a pauta em checklist capturavel: onde deixar a reserva de emergencia, comparando Tesouro Reserva, CDB liquidez diaria, caixinhas, poupanca e fundos DI por liquidez, risco, imposto e experiencia real.",
+  "lastPost": "blog/posts/2026-05-23-analise-mils3-locacao-equipamentos-ia.html",
+  "tickerOfTheDay": "MILS3",
+  "reading": "MILS3 entra como leitura de locacao de equipamentos e economia real: Magic Formula aponta retorno e preco razoavel; Fundamentus mostra ROIC alto, margem elevada, dividend yield relevante e multiples baixos; a tese depende de utilizacao da frota, disciplina de capex, ciclo de infraestrutura/industria e tecnologia aplicada a manutencao, preco e cobranca.",
+  "nextSuggestedPost": "Aprofundar o tema de negocios intensivos em ativos: quando aluguel de maquinas, veiculos, saneamento, energia e infraestrutura viram compounders e quando viram armadilhas de ciclo e alavancagem.",
   "knownGaps": [
-    "Validar experiencia real de aplicacao/resgate do Tesouro Reserva em dias e horarios diferentes.",
-    "Atualizar comparativo liquido com CDBs, caixinhas, poupanca e fundos DI quando houver dados operacionais mais maduros.",
-    "Separar analise de bancos caso a caso, sem tratar o setor como bloco unico."
+    "Separar lucro recorrente de eventuais efeitos pontuais nos proximos releases de MILS3.",
+    "Acompanhar taxa de utilizacao, capex, idade da frota, valor residual e divida liquida.",
+    "Comparar MILS3 com alternativas de infraestrutura, locacao, logistica e industria antes de qualquer leitura de carteira."
   ],
   "sourcesUsed": [
-    "Tesouro Nacional e Agencia Gov sobre lancamento do Tesouro Reserva",
-    "Valor Investe e InfoMoney sobre captacao e vendas na estreia",
-    "Exame e G1 sobre comparacao com caixinhas, CDB, Selic e poupanca",
-    "Estadao E-Investidor, Agencia Brasil e G1 sobre bancos, precos, agro e inadimplencia"
+    "Ranking Magic Formula de maio do IA em Loop",
+    "Fundamentus para indicadores de MILS3 consultados em 23/05/2026",
+    "Google News RSS com noticias publicas sobre Mills, MILS3, resultados 1T26, receita, Ebitda, lucro, dividendos e estrategia"
   ],
   "validationPlan": [
     "Validacao de JSON",
