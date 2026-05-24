@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Análise IA em Loop de 24/05/2026: RANI3 no ranking Magic Formula, embalagens, papel, celulose, queda de lucro no 1T26, dividendos, ROIC, riscos cíclicos e IA operacional.">
+    <title>24/05: RANI3, embalagens e IA no teste do ciclo | IA em Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { min-height: 100%; background: #06080D; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)), url('../../assets/bg-carteiras.jpg') no-repeat center center fixed; background-size: cover; background-color: #06080D; color: #e2e8f0; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 980px; margin: 0 auto; }
+        .back-button { position: fixed; top: 20px; left: 20px; display: inline-flex; align-items: center; gap: 6px; background: rgba(251,191,36,0.9); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: background 0.2s, transform 0.1s; z-index: 1000; }
+        .back-button:hover { background: #E4D17F; transform: translateY(-1px); }
+        article { background: rgba(19, 29, 39, 0.78); border-radius: 14px; padding: 34px; border-left: 4px solid #19364D; border: 1px solid rgba(228, 209, 127, 0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h1 { overflow-wrap: anywhere; hyphens: auto; font-size: clamp(2rem, 5vw, 3.05rem); line-height: 1.08; font-weight: 800; background: linear-gradient(135deg, #6EE4EF, #E4D17F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; }
+        .dek { color: #cbd5e1; font-size: 1.12rem; line-height: 1.75; margin-bottom: 22px; }
+        .meta { display: flex; gap: 8px; flex-wrap: wrap; color: #94a3b8; font-size: 0.86rem; margin-bottom: 30px; }
+        .meta span { background: rgba(228, 209, 127, 0.15); color: #E4D17F; padding: 4px 10px; border-radius: 999px; font-weight: 600; border: 1px solid rgba(228, 209, 127, 0.2); }
+        h2 { color: #fff; font-size: 1.45rem; margin: 34px 0 12px; border-bottom: 2px solid #19364D; padding-bottom: 10px; }
+        h3 { color: #E4D17F; font-size: 1.08rem; margin: 22px 0 8px; }
+        p, li { overflow-wrap: anywhere; color: #cbd5e1; line-height: 1.78; font-size: 1.02rem; }
+        p { margin-bottom: 16px; }
+        ul { padding-left: 22px; margin-bottom: 18px; }
+        li { margin-bottom: 8px; }
+        strong { color: #fff; }
+        a { color: #E4D17F; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .hero-chart { display: block; max-width: 100%; height: auto; width: 100%; border-radius: 14px; border: 1px solid rgba(228, 209, 127, 0.18); margin: 20px 0 8px; background: rgba(6,8,13,.35); box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+        .caption { color: #94a3b8; font-size: .9rem; margin-bottom: 24px; }
+        .callout { background: rgba(6, 8, 13, 0.5); border-left: 4px solid #E4D17F; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .scorecard { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+        .scorecard div { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 14px; }
+        .scorecard span { display: block; color: #94a3b8; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; }
+        .scorecard strong { color: #E4D17F; font-size: 1.1rem; }
+        .matrix { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 18px 0; }
+        .matrix div { background: rgba(6, 8, 13, 0.42); border: 1px solid rgba(110,228,239,.15); border-radius: 10px; padding: 14px; }
+        .mini-table { width:100%; border-collapse: collapse; margin: 18px 0; overflow:hidden; border-radius:10px; }
+        .mini-table th, .mini-table td { padding: 11px 10px; border-bottom: 1px solid rgba(255,255,255,.08); text-align:left; color:#cbd5e1; }
+        .mini-table th { color:#E4D17F; background:rgba(6,8,13,.55); font-size:.92rem; }
+        .source-note { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 16px; margin-top: 28px; color: #94a3b8; font-size: 0.94rem; }
+        .footer { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        @media (max-width: 768px) { body { padding: 72px 16px 32px; } article { padding: 24px; } .scorecard, .matrix { grid-template-columns: 1fr; } .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; } }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "24/05: RANI3, embalagens e IA no teste do ciclo",
+      "description": "Análise IA em Loop de RANI3 no ranking Magic Formula, com papel e embalagens, resultado 1T26, dividendos, ROIC, riscos de ciclo e IA operacional.",
+      "image": "https://iaemloop.com.br/assets/blog/rani3-embalagens-ciclo-ia.svg",
+      "datePublished": "2026-05-24",
+      "dateModified": "2026-05-24",
+      "author": {"@type": "Organization", "name": "IA em Loop"},
+      "publisher": {"@type": "Organization", "name": "IA em Loop"},
+      "keywords": ["RANI3", "Irani", "Magic Formula", "embalagens", "papel e celulose", "IA", "ROIC", "dividendos"]
+    }
+    </script>
+</head>
+<body>
+    <a href="../index.html" class="back-button" title="Voltar ao blog">← Blog</a>
+    <main class="container">
+        <article>
+            <h1>24/05: RANI3, embalagens e IA no teste do ciclo</h1>
+            <p class="dek">Depois de tecnologia, seguros, educação, logística, identidade digital e locação de equipamentos, a leitura diária entra em um setor menos narrativo e mais físico: embalagens de papel. RANI3 aparece no Top 30 da Magic Formula, mas chegou ao radar junto com uma notícia incômoda: lucro menor no 1T26. A pergunta é se isso é apenas ruído de ciclo ou sinal de deterioração estrutural.</p>
+            <div class="meta"><span>24/05/2026</span><span>Leitura diária</span><span>RANI3</span><span>Papel e celulose</span><span>Magic Formula</span><span>IA operacional</span><span>8 min</span></div>
+            <img class="hero-chart" src="../../assets/blog/rani3-embalagens-ciclo-ia.svg" alt="Diagrama IA em Loop sobre RANI3, Irani, embalagens, ranking Magic Formula, ciclo, dividendos e IA operacional">
+            <p class="caption">A tese combina preço, retorno sobre capital e demanda recorrente por embalagens, mas exige separar queda temporária de volume de perda real de competitividade.</p>
+
+            <h2>Resposta curta: ainda é estudo, não euforia</h2>
+            <p><strong>RANI3</strong> parece uma tese de <strong>qualidade cíclica em observação</strong>. A companhia opera em um setor essencial — embalagens acompanham alimentos, varejo, indústria e e-commerce —, mas o lucro trimestral mostrou que preço baixo no ranking não elimina risco de volume, custo de fibra, energia, câmbio, capex e alavancagem. A leitura IA em Loop é positiva para acompanhar, porém mais disciplinada do que agressiva: o investidor precisa exigir sinais de normalização operacional antes de tratar o múltiplo como barganha óbvia.</p>
+            <div class="callout"><p><strong>O que significa “qualidade cíclica”?</strong> É uma empresa com produto necessário e operação eficiente, mas cujo lucro oscila com demanda, preço de insumos, nível de estoques e ciclo industrial. Não é um negócio ruim por ser cíclico; é um negócio que precisa ser comprado com margem de segurança e acompanhado por indicadores operacionais.</p></div>
+
+            <h2>Por que RANI3 hoje?</h2>
+            <p>No ranking Magic Formula de maio do IA em Loop, Irani aparece em <strong>27º lugar</strong>, setor <strong>Papel e celulose</strong>, com <strong>ROIC de 15,32%</strong>, <strong>earnings yield de 14,43%</strong> e <strong>score 72</strong>. Não é uma campeã isolada do ranking, mas entra como alternativa para diversificar a sequência editorial para materiais, indústria e embalagens — uma cadeia que fica no meio entre consumo, logística e economia real.</p>
+            <p>A consulta ao Fundamentus feita hoje mostrava <strong>cotação de R$ 8,08</strong>, <strong>P/L de 9,18</strong>, <strong>P/VP de 1,27</strong>, <strong>dividend yield de 6,0%</strong>, <strong>P/EBIT de 4,56</strong>, <strong>margem EBIT de 24,4%</strong>, <strong>margem líquida de 12,1%</strong>, <strong>ROIC de 13,8%</strong>, <strong>ROE de 13,8%</strong>, volume médio de <strong>R$ 7,5 milhões em dois meses</strong> e balanço processado de <strong>31/03/2026</strong>.</p>
+            <div class="scorecard">
+                <div><span>Ranking IA em Loop</span><strong>#27 Magic Formula</strong></div>
+                <div><span>Retorno sobre capital</span><strong>ROIC 13,8% a 15,3%</strong></div>
+                <div><span>Valuation observado</span><strong>P/L 9,18 • P/EBIT 4,56</strong></div>
+                <div><span>Remuneração</span><strong>DY 6,0%</strong></div>
+                <div><span>Liquidez média</span><strong>R$ 7,5 mi/dia</strong></div>
+                <div><span>Ponto de atenção</span><strong>lucro 1T26 menor</strong></div>
+            </div>
+
+            <h2>O 1T26 muda a tese?</h2>
+            <p>Notícias públicas recentes apontaram resultado mais fraco no 1T26, com lucro líquido de <strong>R$ 19,4 milhões</strong> e queda anual expressiva, em um contexto de volumes temporariamente menores de papel e pressão sobre a leitura de curto prazo. Ao mesmo tempo, a companhia manteve discussão de dividendos e segue em um setor no qual escala, eficiência fabril e disciplina comercial importam muito.</p>
+            <p>A resposta da IA em Loop é: <strong>o 1T26 não mata a tese, mas impede romantizar o ranking</strong>. Um trimestre ruim pode ser ruído quando vem de sazonalidade, parada, mix ou volume temporário. Vira alerta estrutural quando a empresa perde preço, margem, clientes, geração de caixa e controle de dívida ao mesmo tempo.</p>
+
+            <table class="mini-table">
+                <thead><tr><th>Sinal</th><th>Leitura prática</th><th>O que monitorar</th></tr></thead>
+                <tbody>
+                    <tr><td>Lucro menor</td><td>Pressiona a confiança de curto prazo</td><td>Se a queda foi volume pontual ou margem recorrente</td></tr>
+                    <tr><td>Dividendos</td><td>Mostram caixa e disciplina, mas não bastam</td><td>Payout versus necessidade de capex e dívida</td></tr>
+                    <tr><td>ROIC ainda razoável</td><td>Indica negócio que pode remunerar capital</td><td>Manutenção do retorno após ciclo fraco</td></tr>
+                    <tr><td>Setor essencial</td><td>Embalagem tem demanda recorrente</td><td>Preço de papel, custos e utilização industrial</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Onde a IA pode ser vantagem real</h2>
+            <p>Em papel e embalagens, IA não é uma história de aplicativo bonito. O ganho possível está no chão de fábrica e na cadeia comercial: previsão de demanda, otimização de mix, redução de refugo, manutenção preditiva, planejamento de energia, roteirização logística, precificação por cliente e leitura de inadimplência. Se a empresa usa dados para vender melhor, produzir com menos desperdício e comprar insumos de forma mais inteligente, a IA aparece em margem, capital de giro e retorno sobre capital.</p>
+            <div class="matrix">
+                <div><h3>O lado bom</h3><p>Produto necessário, base industrial, histórico de dividendos, múltiplos moderados e retorno sobre capital que ainda conversa com a filosofia da Magic Formula.</p></div>
+                <div><h3>O lado perigoso</h3><p>Lucro trimestral fraco, volatilidade de volumes, custo de insumos, eventual excesso de capex e risco de confundir dividendo passado com geração de caixa futura.</p></div>
+            </div>
+
+            <h2>Compra, venda ou espera?</h2>
+            <p><strong>Para carteira nova:</strong> RANI3 parece mais um caso de <strong>espera ativa ou compra parcelada</strong> do que uma entrada apressada. O ranking coloca a ação no radar, mas o resultado recente pede confirmação. O investidor que já acompanha o setor pode estudar posição pequena; quem não conhece papel e embalagens deveria primeiro entender margem, dívida, capex e ciclo de volumes.</p>
+            <p><strong>Para quem já tem:</strong> o ponto não é vender automaticamente por causa de um trimestre ruim. O ponto é cobrar evidência: recuperação de volumes, preservação de margem, dividendos compatíveis com caixa, dívida controlada e clareza sobre investimentos. Se esses sinais aparecem, a tese ganha força. Se não aparecem, o múltiplo baixo pode ser apenas reflexo correto de um lucro sob pressão.</p>
+            <p><strong>Gatilhos para melhorar a leitura:</strong> próximos resultados com Ebitda resiliente, capital de giro normalizando, volumes de papel e embalagem recuperando, dívida líquida confortável e dividendos financiados por caixa operacional. <strong>Gatilhos para piorar:</strong> nova queda de margem, aumento de alavancagem, capex sem retorno claro ou perda de preço para defender volume.</p>
+
+            <h2>Leitura IA em Loop</h2>
+            <p>RANI3 é o tipo de ação que justifica o método, mas também testa a disciplina do método. A Magic Formula procura empresas boas e baratas; o trabalho humano é perguntar se o lucro usado no ranking é sustentável. No caso de Irani, a resposta ainda é condicional: há negócio essencial, preço razoável e dividendos, mas o 1T26 obriga paciência. O melhor uso do ranking hoje é colocar RANI3 na lista de acompanhamento, não fingir que todo Top 30 é compra automática.</p>
+
+            <div class="source-note">
+                <strong>Fontes e critérios:</strong> ranking Magic Formula de maio do IA em Loop; Fundamentus consultado em 24/05/2026 para indicadores de RANI3; Google News RSS com notícias públicas sobre Irani, RANI3, resultados 1T26, lucro, volumes, papel, embalagens e dividendos. Conteúdo educacional, sem recomendação personalizada de investimento.
+            </div>
+        </article>
+        <div class="footer">© 2026 IA em Loop • Rankings, carteira real e análise com pele em jogo.</div>
+    </main>
+</body>
+</html>
