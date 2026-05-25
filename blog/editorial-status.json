@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-24",
+  "updatedAt": "2026-05-25",
   "owner": "IA em Loop",
   "requiredDailyOutputs": [
     "estudo-educacional-de-ativo",
@@ -15,19 +15,20 @@
     "Sinais sociais e de mercado sao gatilhos editoriais, nao pauta pronta: antes de publicar, apurar fatos atuais, noticias, precos/contexto de mercado e contrapontos.",
     "Posts no X devem partir de tendencias reais em circulacao; engajar, comentar e criar formatos nativos, sem transformar headline do blog em card generico."
   ],
-  "lastPost": "blog/posts/2026-05-24-analise-rani3-embalagens-ciclo-ia.html",
-  "tickerOfTheDay": "RANI3",
-  "reading": "RANI3 entra como leitura de papel e embalagens: Magic Formula coloca a acao no Top 30; Fundamentus mostra P/L moderado, P/EBIT baixo, dividend yield relevante e ROIC razoavel; noticias publicas do 1T26 apontam lucro menor e volumes temporariamente pressionados, entao a tese exige confirmacao de margem, volumes, caixa, capex e divida.",
-  "nextSuggestedPost": "Aprofundar negocios de materiais e embalagens: quando empresas industriais essenciais viram boas pagadoras de dividendos e quando o ciclo de volume, insumos e capex transforma multiples baixos em armadilha.",
+  "lastPost": "blog/posts/2026-05-25-analise-csed3-educacao-ticket-margem-ia.html",
+  "tickerOfTheDay": "CSED3",
+  "reading": "CSED3 entra como leitura de educacao privada: a Magic Formula coloca a acao no Top 20; a carteira real do metodo tem posicao pequena; Fundamentus mostra P/L baixo, P/EBIT baixo, P/VP abaixo de 1 e ROIC razoavel; noticias publicas destacam trimestre fraco, entao a tese exige confirmacao de retencao, ticket, inadimplencia, margem, caixa e alavancagem.",
+  "nextSuggestedPost": "Aprofundar educacao privada no Brasil: quando preco baixo e ROIC razoavel indicam assimetria e quando evasao, desconto, inadimplencia e margem transformam o ranking em alerta de risco.",
   "knownGaps": [
-    "Separar queda temporaria de volume de deterioracao estrutural nos proximos resultados de RANI3.",
-    "Acompanhar margem Ebitda, capital de giro, capex, alavancagem e disciplina de dividendos.",
-    "Comparar RANI3 com outras alternativas de materiais, energia, saneamento e industria antes de qualquer leitura de carteira."
+    "Separar desconto temporario de mercado de deterioracao estrutural em captacao, ticket, evasao e inadimplencia.",
+    "Acompanhar margem Ebitda, caixa operacional, divida, necessidade de bolsas e qualidade da base de alunos.",
+    "Comparar CSED3 com outras alternativas de educacao e servicos antes de qualquer leitura de carteira."
   ],
   "sourcesUsed": [
     "Ranking Magic Formula de maio do IA em Loop",
-    "Fundamentus para indicadores de RANI3 consultados em 24/05/2026",
-    "Google News RSS com noticias publicas sobre Irani, RANI3, resultados 1T26, lucro, volumes, papel, embalagens e dividendos"
+    "Pagina publica da carteira real de Magic Formula consultada em 25/05/2026",
+    "Fundamentus para indicadores de CSED3 consultados em 25/05/2026",
+    "Google News RSS com noticias publicas sobre CSED3, Cruzeiro do Sul Educacional, resultados trimestrais, educacao, dividendos e reacao de mercado"
   ],
   "validationPlan": [
     "Validacao de JSON",
