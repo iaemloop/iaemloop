@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-25",
+  "updatedAt": "2026-05-26",
   "owner": "IA em Loop",
   "requiredDailyOutputs": [
     "estudo-educacional-de-ativo",
@@ -15,20 +15,20 @@
     "Sinais sociais e de mercado sao gatilhos editoriais, nao pauta pronta: antes de publicar, apurar fatos atuais, noticias, precos/contexto de mercado e contrapontos.",
     "Posts no X devem partir de tendencias reais em circulacao; engajar, comentar e criar formatos nativos, sem transformar headline do blog em card generico."
   ],
-  "lastPost": "blog/posts/2026-05-25-analise-csed3-educacao-ticket-margem-ia.html",
-  "tickerOfTheDay": "CSED3",
-  "reading": "CSED3 entra como leitura de educacao privada: a Magic Formula coloca a acao no Top 20; a carteira real do metodo tem posicao pequena; Fundamentus mostra P/L baixo, P/EBIT baixo, P/VP abaixo de 1 e ROIC razoavel; noticias publicas destacam trimestre fraco, entao a tese exige confirmacao de retencao, ticket, inadimplencia, margem, caixa e alavancagem.",
-  "nextSuggestedPost": "Aprofundar educacao privada no Brasil: quando preco baixo e ROIC razoavel indicam assimetria e quando evasao, desconto, inadimplencia e margem transformam o ranking em alerta de risco.",
+  "lastPost": "blog/posts/2026-05-26-analise-movi3-locacao-alavancagem-ia.html",
+  "tickerOfTheDay": "MOVI3",
+  "reading": "MOVI3 entra como leitura de recuperacao alavancada: a Magic Formula coloca a acao dentro do Top 20; o historico publico mostra ROIC na faixa de 15% e earnings yield acima de 16%; Fundamentus mostra P/EBIT baixo, ROIC razoavel e dividend yield positivo; noticias publicas destacam lucro 1T26 em alta. A tese exige confirmacao de alavancagem menor, custo da divida administravel, giro de seminovos, utilizacao de frota, diaria media e conversao de lucro em caixa.",
+  "nextSuggestedPost": "Aprofundar empresas intensivas em capital dentro da Magic Formula: quando P/EBIT baixo e ROIC razoavel indicam oportunidade e quando divida, juros e ciclo de ativos transformam o desconto em alerta.",
   "knownGaps": [
-    "Separar desconto temporario de mercado de deterioracao estrutural em captacao, ticket, evasao e inadimplencia.",
-    "Acompanhar margem Ebitda, caixa operacional, divida, necessidade de bolsas e qualidade da base de alunos.",
-    "Comparar CSED3 com outras alternativas de educacao e servicos antes de qualquer leitura de carteira."
+    "Separar recuperacao operacional de dependencia de ciclo favoravel de seminovos e credito.",
+    "Acompanhar alavancagem, custo medio da divida, vencimentos, caixa operacional, diaria media, ocupacao e depreciacao da frota.",
+    "Comparar MOVI3 com outras alternativas de locacao, logistica e ativos intensivos em capital antes de qualquer leitura de carteira."
   ],
   "sourcesUsed": [
     "Ranking Magic Formula de maio do IA em Loop",
-    "Pagina publica da carteira real de Magic Formula consultada em 25/05/2026",
-    "Fundamentus para indicadores de CSED3 consultados em 25/05/2026",
-    "Google News RSS com noticias publicas sobre CSED3, Cruzeiro do Sul Educacional, resultados trimestrais, educacao, dividendos e reacao de mercado"
+    "Historico publico de rankings consultado em 26/05/2026",
+    "Fundamentus para indicadores de MOVI3 consultados em 26/05/2026",
+    "Google News RSS com noticias publicas sobre MOVI3, Movida, resultado 1T26, lucro, divida, seminovos e locacao de veiculos"
   ],
   "validationPlan": [
     "Validacao de JSON",
