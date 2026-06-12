@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-26",
+  "updatedAt": "2026-06-12",
   "owner": "IA em Loop",
   "requiredDailyOutputs": [
     "estudo-educacional-de-ativo",
@@ -15,20 +15,20 @@
     "Sinais sociais e de mercado sao gatilhos editoriais, nao pauta pronta: antes de publicar, apurar fatos atuais, noticias, precos/contexto de mercado e contrapontos.",
     "Posts no X devem partir de tendencias reais em circulacao; engajar, comentar e criar formatos nativos, sem transformar headline do blog em card generico."
   ],
-  "lastPost": "blog/posts/2026-05-26-analise-movi3-locacao-alavancagem-ia.html",
-  "tickerOfTheDay": "MOVI3",
-  "reading": "MOVI3 entra como leitura de recuperacao alavancada: a Magic Formula coloca a acao dentro do Top 20; o historico publico mostra ROIC na faixa de 15% e earnings yield acima de 16%; Fundamentus mostra P/EBIT baixo, ROIC razoavel e dividend yield positivo; noticias publicas destacam lucro 1T26 em alta. A tese exige confirmacao de alavancagem menor, custo da divida administravel, giro de seminovos, utilizacao de frota, diaria media e conversao de lucro em caixa.",
-  "nextSuggestedPost": "Aprofundar empresas intensivas em capital dentro da Magic Formula: quando P/EBIT baixo e ROIC razoavel indicam oportunidade e quando divida, juros e ciclo de ativos transformam o desconto em alerta.",
+  "lastPost": "blog/posts/2026-06-12-analise-vivt3-telecomunicacoes-ia.html",
+  "tickerOfTheDay": "VIVT3",
+  "reading": "VIVT3 entra como leitura de telecomunicações com proventos atractivos: o BESST coloca a acao dentro do Top 10; o historico publico mostra dividend yield acima de 6% e payout ratio sustentavel; Fundamentus mostra P/VP moderado, ROIC positivo e margens operacionais saudaveis; noticias publicas destacam lucro 1T26 em alta, aprovacao de JCP significativo e investimento em 5G. A tese exige confirmacao de sustentabilidade do fluxo de caixa livre apos investimentos em rede, manutenção de margem diante da concorrencia e disciplina de alavancagem.",
+  "nextSuggestedPost": "Aprofundar empresas de infraestrutura de telecomunicações dentro do BESST: quando dividend yield elevado e payout ratio sustentavel indicam oportunidade e quando investimento em rede, competencia regulatoria e churn transformam o desconto em alerta.",
   "knownGaps": [
-    "Separar recuperacao operacional de dependencia de ciclo favoravel de seminovos e credito.",
-    "Acompanhar alavancagem, custo medio da divida, vencimentos, caixa operacional, diaria media, ocupacao e depreciacao da frota.",
-    "Comparar MOVI3 com outras alternativas de locacao, logistica e ativos intensivos em capital antes de qualquer leitura de carteira."
+    "Separar retorno sobre investimento em rede de dependencia de ambiente regulatorio favoravel.",
+    "Acompanhar retorno sobre CAPEX 5G, custo medio da dívida, vencimentos, caixa operacional, churn e medio receita por usuario.",
+    "Comparar VIVT3 com outras alternativas de telecomunicações, como TIM e Claro, antes de qualquer leitura de carteira."
   ],
   "sourcesUsed": [
-    "Ranking Magic Formula de maio do IA em Loop",
-    "Historico publico de rankings consultado em 26/05/2026",
-    "Fundamentus para indicadores de MOVI3 consultados em 26/05/2026",
-    "Google News RSS com noticias publicas sobre MOVI3, Movida, resultado 1T26, lucro, divida, seminovos e locacao de veiculos"
+    "Ranking BESST de maio do IA em Loop",
+    "Historico publico de rankings consultado em 12/06/2026",
+    "Fundamentus para indicadores de VIVT3 consultados em 12/06/2026",
+    "Google News RSS com noticias publicas sobre Telefônica Brasil, Vivo, VIVT3, resultado 1T26, JCP, 5G, proventos e telecomunicações"
   ],
   "validationPlan": [
     "Validacao de JSON",
