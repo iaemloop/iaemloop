@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://iaemloop.com.br/</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>1.0</priority>
     <changefreq>daily</changefreq>
     <image:image>
@@ -61,27 +61,21 @@
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <priority>0.8</priority>
     <changefreq>daily</changefreq>
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/posts/2026-05-07-briefing-bbas3-crise-ia.html</loc>
     <lastmod>2026-05-08</lastmod>
-    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/posts/selic-caindo-juro-real-focus-2026.html</loc>
     <lastmod>2026-05-08</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/youtube_banner_2560x1440.html</loc>
-    <lastmod>2026-02-25</lastmod>
-    <priority>0.5</priority>
-    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/posts/2026-05-08-analise-petr4-crise-ia.html</loc>
@@ -92,6 +86,8 @@
   <url>
     <loc>https://iaemloop.com.br/blog/posts/2026-05-09-analise-bbas3-ia-geopolitica.html</loc>
     <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/posts/2026-05-10-analise-mercado.html</loc>
@@ -191,15 +187,9 @@
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/posts/2026-05-23-analise-mils3-locacao-equipamentos-ia.html</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod=2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/carteira/</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/posts/2026-05-24-analise-rani3-embalagens-ciclo-ia.html</loc>
@@ -218,5 +208,23 @@
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-06-12-analise-vivt3-telecomunicacoes-ia.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/youtube_banner_2560x1440.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <priority>0.5</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/carteira/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

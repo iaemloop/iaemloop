@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Análise IA em Loop de 12/06/2026: VIVT3 no ranking BESST, telecomunicações, lucro 1T26, proventos, 5G e IA operacional.">
+    <title>12/06: VIVT3, telecomunicações e IA no teste dos proventos e da 5G | IA em Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { min-height: 100%; background: #06080D; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)), url('../../assets/bg-carteiras.jpg') no-repeat center center fixed; background-size: cover; background-color: #06080D; color: #e2e8f0; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 980px; margin: 0 auto; }
+        .back-button { position: fixed; top: 20px; left: 20px; display: inline-flex; align-items: center; gap: 6px; background: rgba(251,191,36,0.9); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: background 0.2s, transform 0.1s; z-index: 1000; }
+        .back-button:hover { background: #E4D17F; transform: translateY(-1px); }
+        article { background: rgba(19, 29, 39, 0.78); border-radius: 14px; padding: 34px; border-left: 4px solid #19364D; border: 1px solid rgba(228, 209, 127, 0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h1 { overflow-wrap: anywhere; hyphens: auto; font-size: clamp(2rem, 5vw, 3.05rem); line-height: 1.08; font-weight: 800; background: linear-gradient(135deg, #6EE4EF, #E4D17F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; }
+        .dek { color: #cbd5e1; font-size: 1.12rem; line-height: 1.75; margin-bottom: 22px; }
+        .meta { display: flex; gap: 8px; flex-wrap: wrap; color: #94a3b8; font-size: 0.86rem; margin-bottom: 30px; }
+        .meta span { background: rgba(228, 209, 127, 0.15); color: #E4D17F; padding: 4px 10px; border-radius: 999px; font-weight: 600; border: 1px solid rgba(228, 209, 127, 0.2); }
+        h2 { color: #fff; font-size: 1.45rem; margin: 34px 0 12px; border-bottom: 2px solid #19364D; padding-bottom: 10px; }
+        h3 { color: #E4D17F; font-size: 1.08rem; margin: 22px 0 8px; }
+        p, li { overflow-wrap: anywhere; color: #cbd5e1; line-height: 1.78; font-size: 1.02rem; }
+        p { margin-bottom: 16px; }
+        ul { padding-left: 22px; margin-bottom: 18px; }
+        li { margin-bottom: 8px; }
+        strong { color: #fff; }
+        a { color: #E4D17F; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .hero-chart { display: block; max-width: 100%; height: auto; width: 100%; border-radius: 14px; border: 1px solid rgba(228, 209, 127, 0.18); margin: 20px 0 8px; background: rgba(6,8,13,.35); box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+        .caption { color: #94a3b8; font-size: .9rem; margin-bottom: 24px; }
+        .callout { background: rgba(6, 8, 13, 0.5); border-left: 4px solid #E4D17F; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .scorecard { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+        .scorecard div { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 14px; }
+        .scorecard span { display: block; color: #94a3b8; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; }
+        .scorecard strong { color: #E4D17F; font-size: 1.1rem; }
+        .matrix { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 18px 0; }
+        .matrix div { background: rgba(6, 8, 13, 0.42); border: 1px solid rgba(110,228,239,.15); border-radius: 10px; padding: 14px; }
+        .mini-table { width:100%; border-collapse: collapse; margin: 18px 0; overflow:hidden; border-radius:10px; }
+        .mini-table th, .mini-table td { padding: 11px 10px; border-bottom: 1px solid rgba(255,255,255,.08); text-align:left; color:#cbd5e1; }
+        .mini-table th { color:#E4D17F; background:rgba(6,8,13,.55); font-size:.92rem; }
+        .source-note { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 16px; margin-top: 28px; color: #94a3b8; font-size: 0.94rem; }
+        .footer { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        @media (max-width: 768px) { body { padding: 72px 16px 32px; } article { padding: 24px; } .scorecard, .matrix { grid-template-columns: 1fr; } .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; } }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "12/06: VIVT3, telecomunicações e IA no teste dos proventos e da 5G",
+      "description": "Análise IA em Loop de VIVT3 no ranking BESST, com telecomunicações, lucro 1T26, proventos, 5G e IA operacional.",
+      "image": "https://iaemloop.com.br/assets/blog/vivt3-telecomunicacoes-ia.svg",
+      "datePublished": "2026-06-12",
+      "dateModified": "2026-06-12",
+      "author": {"@type": "Organization", "name": "IA em Loop"},
+      "publisher": {"@type": "Organization", "name": "IA em Loop"},
+      "keywords": ["VIVT3", "Telefônica Brasil", "Vivo", "BESST", "telecomunicações", "5G", "proventos", "IA"]
+    }
+    </script>
+</head>
+<body>
+    <a href="../index.html" class="back-button" title="Voltar ao blog">← Blog</a>
+    <main class="container">
+        <article>
+            <h1>12/06: VIVT3, telecomunicações e IA no teste dos proventos e da 5G</h1>
+            <p class="dek">Depois de locação, educação, embalagens e máquinas, a leitura avança para telecomunicações: a BESST coloca a Vivo dentro do Top 10, mas a tese só faz sentido se proventos sustentáveis, investimento em 5G e margem operacional caminharem juntos.</p>
+            <div class="meta"><span>12/06/2026</span><span>Leitura diária</span><span>VIVT3</span><span>Telecomunicações</span><span>BESST</span><span>Proventos</span><span>5G</span><span>IA operacional</span><span>8 min</span></div>
+            <img class="hero-chart" src="../../assets/blog/vivt3-telecomunicacoes-ia.svg" alt="Diagrama IA em Loop sobre VIVT3, telecomunicações, ranking BESST, 5G, proventos e IA operacional">
+            <p class="caption">Telecomunicações parecem simples: vender planos, manter rede, cobrar mensalidade. Na prática, a criação de valor depende de investimento em infraestrutura, arbitragem de preço, retenção de clientes e disciplina no balanço.</p>
+
+            <h2>Resposta curta: proventos sim, mas é tese de investimento e regulatória</h2>
+            <p><strong>VIVT3</strong> é um caso de <strong>telecomunicações com proventos atractivos</strong>. Atrativos porque as notícias públicas de junho destacam aprovação de R$ 325 milhões em JCP (juros sobre capital próprio), valor bruto de R$ 0,10 por ação, e sustentação do momento positivo de lucro. Sustentado porque telecomunicações exige investimento pesado em rede, especialmente 5G, manutenção de margem diante da concorrência e navegação em ambiente regulatório ainda desafiador.</p>
+            <div class="callout"><p><strong>O que é telecomunicações com proventos atractivos?</strong> É uma tese em que a empresa gera caixa para distribuir aos acionistas, mas boa parte do resultado ainda depende do balanço de investimentos. Se o CAPEX 5G encarece, se a guerra de preços piorar ou se o ambiente regulatório tornar-se mais restritivo, os proventos podem ser reduzidos mais rápido do que em negócios de menor intensidade de capital.</p></div>
+
+            <h2>Por que VIVT3 hoje?</h2>
+            <p>No histórico de maio do BESST &amp; Buffett do IA em Loop, VIVT3 está dentro do <strong>Top 10</strong>, no setor de <strong>telecomunicações</strong>, com <strong>dividend yield de 6,58%</strong>, <strong>P/VP de 1,69</strong>, <strong>pontuação BESST de 41,8</strong> e classificação de setor como PERENE. O arquivo operacional também registra VIVT3 na posição 10, ainda dentro do corte usado pelo IA em Loop.</p>
+            <p>A consulta ao Fundamentus feita em 12/06/2026 mostrava <strong>cotação de R$ 33,86</strong>, <strong>P/L de 17,15</strong>, <strong>P/VP de 1,57</strong>, <strong>ROIC de 8,8%</strong>, <strong>ROE de 9,2%</strong>, <strong>margem EBIT de 16,1%</strong> e <strong>margem líquida de 10,5%</strong>. O conjunto combina proventos atractivos com valuation moderado e margens saudáveis — exatamente o tipo de caso em que o BESST ajuda a encontrar, mas não substitui, a checagem qualitativa de investimento e sustentabilidade.</p>
+            <div class="scorecard">
+                <div><span>Ranking IA em Loop</span><strong>Top 10 BESST</strong></div>
+                <div><span>Retorno sobre capital</span><strong>ROIC 8,8% • ROE 9,2%</strong></div>
+                <div><span>Proventos ao acionista</span><strong>Div. Yield 7,2% (Fundamentus)</strong></div>
+                <div><span>Sinal recente</span><strong>JCP aprovado: R$ 325 mi</strong></div>
+                <div><span>Margem operacional</span><strong>EBIT 16,1% • Líquida 10,5%</strong></div>
+                <div><span>Valuation observado</span><strong>P/VP 1,57 • P/L 17,15</strong></div>
+                <div><span>Setor e classificação</span><strong>Telecomunicações • PERENE</strong></div>
+            </div>
+
+            <h2>O lucro do 1T26 e os proventos resolvem a tese?</h2>
+            <p>Resolve uma parte, não a tese inteira. Lucro maior mostra que a operação está gerando caixa melhor, mas o negócio de telecomunicações exige olhar para quatro engrenagens ao mesmo tempo: investimento em rede (especialmente 5G), arbitragem de preço diante da concorrência (TIM, Claro), retenção de clientes em mercado maduro e disciplina de alavancagem. Se uma dessas engrenagens trava, o fluxo de caixa livre pode não sustentar proventos elevados.</p>
+            <p>A leitura da IA em Loop é: <strong>VIVT3 ficou estudável pelos proventos recentes e margens saudáveis, mas continua sendo uma tese de investimento de capital e ambiente regulatório</strong>. O BESST aponta dividendos e perenidade; o investidor precisa perguntar se esse fluxo de caixa é repetível quando a rede precisa de atualização contínua e a concorrência pressiona preços.</p>
+            
+            <table class="mini-table">
+                <thead><tr><th>Sinal</th><th>Leitura prática</th><th>O que monitorar</th></tr></thead>
+                <tbody>
+                    <tr><td>Top 10 BESST</td><td>Dividendos e perenidade colocam VIVT3 no radar quantitativo</td><td>Sustentabilidade do fluxo de caixa livre após CAPEX</td></tr>
+                    <tr><td>JCP aprovado: R$ 325 mi</td><td>Indica geração de caixa e política de retorno aos acionistas</td><td>Capacidade de repetir proventos sem prejudicar investimento</td></tr>
+                    <tr><td>Margens saudáveis</td><td>EBIT e líquida dentro de faixas históricas</td><td>Pressão de preços, custo de manutenção de rede e churn</td></tr>
+                    <tr><td>P/VP moderado</td><td>Mercado valoriza estabilidade mais que crescimento explosivo</td><td>Retorno sobre investimento em 5G e capacidade de inovar</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Onde a IA pode ser vantagem real</h2>
+            <p>Em telecomunicações, IA não é enfeite de marketing. Ela pode melhorar precificação dinâmica de planos, prever falhas na rede, reduzir churn através de ofertas personalizadas, otimizar roteamento de tráfego, detectar fraude, melhorar atendimento ao cliente e antecipar demandas por capacidade por região e segmento. A diferença entre uma operadora média e uma boa pode estar em pequenos pontos de retenção, eficiência de espectro e custo por bit transportado.</p>
+            <div class="matrix">
+                <div><h3>O lado bom</h3><p>Ativo no Top 10 do BESST, proventos recentes atractivos, margens saudáveis, setor de telecomunicações com barreira de entrada elevada e espaço para IA aumentar eficiência de rede.</p></div>
+                <div><h3>O lado perigoso</h3><p>Negócio intensivo em CAPEX, sensível a guerra de preços, dependente de atualização tecnológica constante (5G, 6G) e sujeito a ambiente regulatório que pode limitar tarifas e exigir investimentos obrigatórios.</p></div>
+            </div>
+
+            <h2>Compra, venda ou espera?</h2>
+            <p><strong>Para carteira nova:</strong> VIVT3 parece mais adequada para <strong>estudo disciplinado ou compra parcelada pequena</strong> do que para posição grande imediata. Os proventos atractivos chamam atenção, mas o investidor precisa aceitar volatilidade de investimento, concorrência e regulatória.</p>
+            <p><strong>Para quem já tem:</strong> o ponto não é vender só porque o negócio é intensivo em capital, nem comprar mais só porque os proventos cresceram. A tese melhora se a empresa melhorar retorno sobre investimento em rede, manter margem diante da concorrência, girar o caixa livre para investimento e distribuir proventos sustentáveis. Piora se o retorno sobre CAPEX piorar demais, se a guerra de preços reduzir margem ou se o ambiente regulatório tornar-se mais restritivo.</p>
+            <p><strong>Gatilhos para melhorar a leitura:</strong> retorno sobre investimento em 5G crescente, margem estável ou melhorando, churn reduzido, capacidade de inovar em serviços além da conectividade e disciplina de alavancagem. <strong>Gatilhos para piorar:</strong> retorno sobre CAPEX 5G caindo, aumento de endividamento para financiar rede, novas tarifas regulatórias mais baixas ou concorrência agressiva em preços.</p>
+
+            <h2>Leitura IA em Loop</h2>
+            <p>VIVT3 mostra por que o BESST deve ser usado como porta de entrada, não como piloto automático. O BESST encontra uma empresa com perenidade classificada, dividendos atractivos e setor com barreiras de entrada; a análise precisa decidir se esse fluxo de caixa é sustentável num setor que consome capital todos os dias para manter e atualizar a rede. A resposta de hoje é condicional: os proventos são atractivos o suficiente para estudar, mas o investimento contínuo e a regulatória ainda mandam na tese.</p>
+            
+            <div class="source-note">
+                <strong>Fontes e critérios:</strong> ranking BESST de maio do IA em Loop; histórico público de rankings consultado em 12/06/2026; Fundamentus consultado em 12/06/2026 para indicadores de VIVT3; Google News RSS com notícias públicas sobre Telefônica Brasil, Vivo, VIVT3, resultado 1T26, JCP, 5G, proventos e telecomunicações. Conteúdo educacional, sem recomendação personalizada de investimento.
+            </div>
+        </article>
+        <div class="footer">© 2026 IA em Loop • Rankings, carteira real e análise com pele em jogo.</div>
+    </main>
+</body>
+</html>
