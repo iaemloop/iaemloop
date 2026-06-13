@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-12",
+  "updatedAt": "2026-06-13",
   "owner": "IA em Loop",
   "requiredDailyOutputs": [
     "estudo-educacional-de-ativo",
@@ -10,25 +10,23 @@
     "Nao publicar recomendacao personalizada de investimento.",
     "Nao inventar fonte, preco, noticia ou fala de terceiros.",
     "Manter texto publico sem detalhes operacionais.",
-    "Nao publicar rascunho vazio; todo post deve ter tese, evidencias, riscos e leitura pratica.",
+    "Nao publicar rascunho vazio; todo post deve tese, evidencias, riscos e leitura pratica.",
     "Evitar repeticao automatica de ticker ja analisado recentemente.",
     "Sinais sociais e de mercado sao gatilhos editoriais, nao pauta pronta: antes de publicar, apurar fatos atuais, noticias, precos/contexto de mercado e contrapontos.",
     "Posts no X devem partir de tendencias reais em circulacao; engajar, comentar e criar formatos nativos, sem transformar headline do blog em card generico."
   ],
-  "lastPost": "blog/posts/2026-06-12-analise-vivt3-telecomunicacoes-ia.html",
-  "tickerOfTheDay": "VIVT3",
-  "reading": "VIVT3 entra como leitura de telecomunicações com proventos atractivos: o BESST coloca a acao dentro do Top 10; o historico publico mostra dividend yield acima de 6% e payout ratio sustentavel; Fundamentus mostra P/VP moderado, ROIC positivo e margens operacionais saudaveis; noticias publicas destacam lucro 1T26 em alta, aprovacao de JCP significativo e investimento em 5G. A tese exige confirmacao de sustentabilidade do fluxo de caixa livre apos investimentos em rede, manutenção de margem diante da concorrencia e disciplina de alavancagem.",
-  "nextSuggestedPost": "Aprofundar empresas de infraestrutura de telecomunicações dentro do BESST: quando dividend yield elevado e payout ratio sustentavel indicam oportunidade e quando investimento em rede, competencia regulatoria e churn transformam o desconto em alerta.",
+  "lastPost": "blog/posts/2026-06-13-analise-sanb11-banco-santander-ia.html",
+  "tickerOfTheDay": "SANB11",
+  "reading": "SANB11 lidera o ranking BESST de maio/2026 com dividend yield de 6,4% e P/VP de 0,83, indicando valuation atraente e geração de caixa para distribuição. Está presente na carteira BESST com 3 unidades a R$ 27,47 cada (total R$ 82,41). O setor bancário é perene, mas exige vigilância quanto à qualidade de crédito, ao custo de financiamento e à capacidade de emprestar em ambiente de juros elevados. A tese de investimento depende da manutenção da rentabilidade e da disciplina de crédito.",
+  "nextSuggestedPost": "Aprofundar empresas de telecomunicações dentro do BESST: quando dividend yield elevado e payout ratio sustentavel indicam oportunidade e quando investimento em rede, competencia regulatoria e churn transformam o desconto em alerta.",
   "knownGaps": [
     "Separar retorno sobre investimento em rede de dependencia de ambiente regulatorio favoravel.",
     "Acompanhar retorno sobre CAPEX 5G, custo medio da dívida, vencimentos, caixa operacional, churn e medio receita por usuario.",
     "Comparar VIVT3 com outras alternativas de telecomunicações, como TIM e Claro, antes de qualquer leitura de carteira."
   ],
   "sourcesUsed": [
-    "Ranking BESST de maio do IA em Loop",
-    "Historico publico de rankings consultado em 12/06/2026",
-    "Fundamentus para indicadores de VIVT3 consultados em 12/06/2026",
-    "Google News RSS com noticias publicas sobre Telefônica Brasil, Vivo, VIVT3, resultado 1T26, JCP, 5G, proventos e telecomunicações"
+    "Ranking BESST de maio/2026",
+    "Carteira BESST iaemloop.com.br"
   ],
   "validationPlan": [
     "Validacao de JSON",
