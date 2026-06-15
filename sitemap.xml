@@ -61,7 +61,7 @@
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/</loc>
-    <lastmod>2026-06-13</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <priority>0.8</priority>
     <changefreq>daily</changefreq>
   </url>
@@ -233,4 +233,10 @@
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
     </url>
-</urlset>
+    <url>
+      <loc>https://iaemloop.com.br/blog/posts/2026-06-15-analise-petr4-dupla-presenca-rankings-ia.html</loc>
+      <lastmod>2026-06-15</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+    </url>
+  </urlset>

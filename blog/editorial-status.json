@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-13",
+  "updatedAt": "2026-06-15",
   "owner": "IA em Loop",
   "requiredDailyOutputs": [
     "estudo-educacional-de-ativo",
@@ -15,9 +15,9 @@
     "Sinais sociais e de mercado sao gatilhos editoriais, nao pauta pronta: antes de publicar, apurar fatos atuais, noticias, precos/contexto de mercado e contrapontos.",
     "Posts no X devem partir de tendencias reais em circulacao; engajar, comentar e criar formatos nativos, sem transformar headline do blog em card generico."
   ],
-  "lastPost": "blog/posts/2026-06-13-analise-sanb11-banco-santander-ia.html",
-  "tickerOfTheDay": "SANB11",
-  "reading": "SANB11 lidera o ranking BESST de maio/2026 com dividend yield de 6,4% e P/VP de 0,83, indicando valuation atraente e geração de caixa para distribuição. Está presente na carteira BESST com 3 unidades a R$ 27,47 cada (total R$ 82,41). O setor bancário é perene, mas exige vigilância quanto à qualidade de crédito, ao custo de financiamento e à capacidade de emprestar em ambiente de juros elevados. A tese de investimento depende da manutenção da rentabilidade e da disciplina de crédito.",
+  "lastPost": "blog/posts/2026-06-15-analise-petr4-dupla-presenca-rankings-ia.html",
+  "tickerOfTheDay": "PETR4",
+  "reading": "PETR4 figura simultaneamente nos tops 20 dos rankings BESST e Magic Formula de maio/2026, com dividend yield de 8,56%, P/VP de 1,42, ROIC de 17,85% e earnings yield de 25,25%. Está presente na carteira real Magic Formula com 2 unidades a R$ 41,78. Apesar da volatilidade do petróleo, a combinação de valuation atraente e geração de caixa sustenta a tese de longo prazo.",
   "nextSuggestedPost": "Aprofundar empresas de telecomunicações dentro do BESST: quando dividend yield elevado e payout ratio sustentavel indicam oportunidade e quando investimento em rede, competencia regulatoria e churn transformam o desconto em alerta.",
   "knownGaps": [
     "Separar retorno sobre investimento em rede de dependencia de ambiente regulatorio favoravel.",
@@ -26,7 +26,9 @@
   ],
   "sourcesUsed": [
     "Ranking BESST de maio/2026",
-    "Carteira BESST iaemloop.com.br"
+    "Ranking Magic Formula de maio/2026",
+    "Carteira real Magic Formula iaemloop.com.br",
+    "Notícias recentes via Google News RSS (PETR4)"
   ],
   "validationPlan": [
     "Validacao de JSON",
