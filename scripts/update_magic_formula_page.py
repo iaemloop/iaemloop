@@ -219,8 +219,14 @@ def replace_table(page_html: str, rows: list[dict[str, str]]) -> str:
         count=1,
     )
     page_html = re.sub(
-        r"Dados: Fundamentus \+ yfinance \(.*?\)\. Setores: classificação B3 oficial\. \d+ empresas \(duplicata removida\)\.",
-        f"Dados: Fundamentus + yfinance (08/05/2026). Setores: classificação IA em Loop. {len(rows)} empresas após filtros de varejo e aviação.",
+        r"Atualizado: \d{2}/\d{2}/\d{4}",
+        f"Atualizado: {updated}",
+        page_html,
+        count=1,
+    )
+    page_html = re.sub(
+        r"Dados: Fundamentus \+ yfinance \(.*?\)\. Setores: classificação B3 oficial\. \d+ empresas \(duplicata removida\)\.|Dados: Fundamentus \+ yfinance \(.*?\)\. Setores: classificação IA em Loop\. \d+ empresas após filtros de varejo e aviação\.",
+        f"Dados: Fundamentus + yfinance ({updated}). Setores: classificação IA em Loop. {len(rows)} empresas após filtros de varejo e aviação.",
         page_html,
         count=1,
     )
