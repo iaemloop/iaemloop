@@ -97,6 +97,12 @@ def main() -> None:
         count=1,
     )
     page_html = re.sub(
+        r"Atualizado: \d{2}/\d{2}/\d{4}",
+        f"Atualizado: {updated}",
+        page_html,
+        count=1,
+    )
+    page_html = re.sub(
         r"<tbody>.*?</tbody>",
         f"<tbody>\n{build_tbody(rows)}\n                </tbody>",
         page_html,
