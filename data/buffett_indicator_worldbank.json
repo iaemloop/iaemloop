@@ -330,5 +330,111 @@
       ],
       "percentile": 12.0
     }
+  },
+  "monthly_estimates": {
+    "updated_at": "2026-06-16",
+    "scope": "Estimativa mensal do ano corrente, de janeiro ao mês atual, para leitura tática entre atualizações oficiais anuais.",
+    "series": {
+      "usa": {
+        "proxy": "S&P 500 (^GSPC)",
+        "base_month": "2024-12",
+        "base_proxy_close": 5881.63,
+        "methodology": "Estimativa IA em Loop: indicador anual oficial mais recente ajustado pela variação do índice amplo desde 2024-12; PIB mantido como referência oficial mais recente até nova atualização.",
+        "values": [
+          {
+            "date": "2026-01",
+            "proxy_close": 6939.03,
+            "estimated_value": 255.17,
+            "base_official_year": 2024
+          },
+          {
+            "date": "2026-02",
+            "proxy_close": 6878.88,
+            "estimated_value": 252.96,
+            "base_official_year": 2024
+          },
+          {
+            "date": "2026-03",
+            "proxy_close": 6528.52,
+            "estimated_value": 240.08,
+            "base_official_year": 2024
+          },
+          {
+            "date": "2026-04",
+            "proxy_close": 7209.01,
+            "estimated_value": 265.1,
+            "base_official_year": 2024
+          },
+          {
+            "date": "2026-05",
+            "proxy_close": 7580.06,
+            "estimated_value": 278.75,
+            "base_official_year": 2024
+          },
+          {
+            "date": "2026-06",
+            "proxy_close": 7511.35,
+            "estimated_value": 276.22,
+            "base_official_year": 2024
+          }
+        ],
+        "latest": {
+          "date": "2026-06",
+          "proxy_close": 7511.35,
+          "estimated_value": 276.22,
+          "base_official_year": 2024
+        }
+      },
+      "bra": {
+        "proxy": "Ibovespa (^BVSP)",
+        "base_month": "2024-12",
+        "base_proxy_close": 120283.0,
+        "methodology": "Estimativa IA em Loop: indicador anual oficial mais recente ajustado pela variação do índice amplo desde 2024-12; PIB mantido como referência oficial mais recente até nova atualização.",
+        "values": [
+          {
+            "date": "2026-01",
+            "proxy_close": 181364.0,
+            "estimated_value": 45.45,
+            "base_official_year": 2024
+          },
+          {
+            "date": "2026-02",
+            "proxy_close": 188787.0,
+            "estimated_value": 47.31,
+            "base_official_year": 2024
+          },
+          {
+            "date": "2026-03",
+            "proxy_close": 187462.0,
+            "estimated_value": 46.97,
+            "base_official_year": 2024
+          },
+          {
+            "date": "2026-04",
+            "proxy_close": 187318.0,
+            "estimated_value": 46.94,
+            "base_official_year": 2024
+          },
+          {
+            "date": "2026-05",
+            "proxy_close": 173788.0,
+            "estimated_value": 43.55,
+            "base_official_year": 2024
+          },
+          {
+            "date": "2026-06",
+            "proxy_close": 169648.47,
+            "estimated_value": 42.51,
+            "base_official_year": 2024
+          }
+        ],
+        "latest": {
+          "date": "2026-06",
+          "proxy_close": 169648.47,
+          "estimated_value": 42.51,
+          "base_official_year": 2024
+        }
+      }
+    }
   }
 }
