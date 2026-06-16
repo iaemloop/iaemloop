@@ -56,6 +56,18 @@
     .band{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}.band div{border-radius:12px;padding:12px;background:rgba(15,23,42,.7);border:1px solid rgba(148,163,184,.16)}.band strong{display:block;margin-bottom:5px;color:#fff}.band span{color:var(--muted);font-size:.85rem;line-height:1.45}
     .note{background:rgba(228,209,127,.08);border:1px solid rgba(228,209,127,.22);border-radius:14px;padding:16px;color:#f8fafc;margin-top:16px;line-height:1.65}
     .sources{font-size:.9rem;color:var(--muted)}.sources a{color:var(--accent)}
+    details.monthly{margin-top:16px;background:rgba(6,8,13,.38);border:1px solid rgba(228,209,127,.18);border-radius:16px;overflow:hidden}
+    details.monthly summary{cursor:pointer;list-style:none;padding:16px 18px;font-weight:800;color:var(--accent);display:flex;align-items:center;justify-content:space-between;gap:12px}
+    details.monthly summary::-webkit-details-marker{display:none}
+    details.monthly summary::after{content:'+';font-size:1.4rem;color:var(--blue)}
+    details.monthly[open] summary::after{content:'–'}
+    .monthly-body{padding:0 18px 18px;color:#cbd5e1;line-height:1.65}
+    .mini-chart{margin:12px 0 16px;background:rgba(15,23,42,.65);border:1px solid rgba(148,163,184,.16);border-radius:14px;padding:8px;overflow:hidden}
+    .table-wrap{overflow-x:auto;border-radius:12px;border:1px solid rgba(148,163,184,.16)}
+    table{width:100%;border-collapse:collapse;font-size:.9rem;background:rgba(15,23,42,.52)}
+    th,td{padding:10px 12px;border-bottom:1px solid rgba(148,163,184,.16);text-align:left;white-space:nowrap}
+    th{color:var(--accent);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;background:rgba(25,54,77,.35)}
+    td:last-child,th:last-child{text-align:right}
     .footer{text-align:center;color:#64748b;font-size:.9rem;margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06)}
     @media(max-width:860px){.grid,.metric-row,.band{grid-template-columns:1fr}.hero{padding:24px}.card{padding:18px}}
   </style>
@@ -103,6 +115,25 @@
         <h2>Histórico comparado: valor de mercado / PIB</h2>
         <p>Escala em % do PIB. O gráfico usa a série anual do Banco Mundial para manter EUA e Brasil comparáveis.</p>
         <div class="chart-wrap"><svg id="chart" viewBox="0 0 1120 520" role="img" aria-label="Gráfico histórico do Indicador Buffett para EUA e Brasil"></svg></div>
+        <details class="monthly" id="monthly-details">
+          <summary>Visualizar estimativa mensal — janeiro ao mês atual</summary>
+          <div class="monthly-body">
+            <p><strong>Camada mensal IA em Loop:</strong> estimativa tática atualizada junto com os rankings mensais. Ela parte do último dado anual oficial e ajusta pelo movimento de índice amplo até o mês atual.</p>
+            <p class="sources">EUA: proxy S&P 500. Brasil: proxy Ibovespa. O PIB fica ancorado no dado oficial mais recente até nova divulgação. Portanto, esta camada é estimativa, não série oficial fechada.</p>
+            <div class="grid">
+              <div>
+                <h2>Estados Unidos — mensal estimado</h2>
+                <div class="mini-chart"><svg id="monthly-us-chart" viewBox="0 0 520 220" role="img" aria-label="Estimativa mensal do Indicador Buffett dos EUA"></svg></div>
+                <div class="table-wrap"><table id="monthly-us-table"></table></div>
+              </div>
+              <div>
+                <h2>Brasil / B3 — mensal estimado</h2>
+                <div class="mini-chart"><svg id="monthly-br-chart" viewBox="0 0 520 220" role="img" aria-label="Estimativa mensal do Indicador Buffett do Brasil"></svg></div>
+                <div class="table-wrap"><table id="monthly-br-table"></table></div>
+              </div>
+            </div>
+          </div>
+        </details>
       </article>
     </section>
 
@@ -135,6 +166,7 @@
         </p>
         <p class="sources">
           Fonte de dados: Banco Mundial, série <a href="https://data.worldbank.org/indicator/CM.MKT.LCAP.GD.ZS" target="_blank" rel="noopener">CM.MKT.LCAP.GD.ZS — Market capitalization of listed domestic companies (% of GDP)</a>.<br>
+          O ano de referência aparece como 2024 porque é o último dado anual oficial disponível na série do Banco Mundial/WFE no momento; a camada mês a mês é uma estimativa IA em Loop ancorada nesse dado oficial.<br>
           Atualização local dos dados: <span id="updated-at">--</span>.
         </p>
       </article>
@@ -202,6 +234,55 @@
       svg.innerHTML = out;
     }
 
+    function renderMonthlyTable(tableId, rows, proxyName) {
+      const table = document.getElementById(tableId);
+      if (!table || !rows || !rows.length) return;
+      table.innerHTML = `
+        <thead><tr><th>Mês</th><th>Proxy</th><th>Indicador estimado</th></tr></thead>
+        <tbody>${rows.map(r => `
+          <tr>
+            <td>${r.date}</td>
+            <td>${proxyName}: ${Number(r.proxy_close).toLocaleString('pt-BR', { maximumFractionDigits: 2 })}</td>
+            <td>${fmtPct(r.estimated_value)}</td>
+          </tr>`).join('')}
+        </tbody>`;
+    }
+
+    function drawMonthlyChart(svgId, rows, colorClass, title) {
+      const svg = document.getElementById(svgId);
+      if (!svg || !rows || !rows.length) return;
+      const W = 520, H = 220, L = 46, R = 18, T = 34, B = 38;
+      const vals = rows.map(r => r.estimated_value);
+      const minVal = Math.floor(Math.min(...vals) / 10) * 10;
+      const maxVal = Math.ceil(Math.max(...vals) / 10) * 10;
+      const span = Math.max(1, maxVal - minVal);
+      const x = i => L + i / Math.max(1, rows.length - 1) * (W - L - R);
+      const y = v => T + (maxVal - v) / span * (H - T - B);
+      const path = rows.map((r,i)=>`${i ? 'L' : 'M'} ${x(i).toFixed(1)} ${y(r.estimated_value).toFixed(1)}`).join(' ');
+      const cls = colorClass === 'us' ? 'line-us' : 'line-br';
+      const dot = colorClass === 'us' ? 'dot-us' : 'dot-br';
+      let out = `<text x="${L}" y="22" class="chart-title">${title}</text>`;
+      for (let i=0; i<rows.length; i++) {
+        out += `<text x="${x(i)}" y="${H-14}" text-anchor="middle" class="tick">${rows[i].date.slice(5)}</text>`;
+      }
+      for (const v of [minVal, Math.round((minVal+maxVal)/2), maxVal]) {
+        out += `<line x1="${L}" y1="${y(v)}" x2="${W-R}" y2="${y(v)}" class="gridline"/>`;
+        out += `<text x="${L-8}" y="${y(v)+4}" text-anchor="end" class="tick">${v}%</text>`;
+      }
+      out += `<path d="${path}" class="${cls}"/>`;
+      rows.forEach((r,i)=>{ out += `<circle cx="${x(i)}" cy="${y(r.estimated_value)}" r="4" class="${dot}"><title>${r.date}: ${fmtPct(r.estimated_value)}</title></circle>`; });
+      svg.innerHTML = out;
+    }
+
+    function renderMonthlyEstimates(data) {
+      const monthly = data.monthly_estimates && data.monthly_estimates.series;
+      if (!monthly) return;
+      renderMonthlyTable('monthly-us-table', monthly.usa.values, monthly.usa.proxy);
+      renderMonthlyTable('monthly-br-table', monthly.bra.values, monthly.bra.proxy);
+      drawMonthlyChart('monthly-us-chart', monthly.usa.values, 'us', 'EUA — estimativa mensal');
+      drawMonthlyChart('monthly-br-chart', monthly.bra.values, 'br', 'Brasil — estimativa mensal');
+    }
+
     async function init() {
       try {
         const response = await fetch('data/buffett_indicator_worldbank.json');
@@ -210,6 +291,7 @@
         setCard('br', 'bra', data.series.bra);
         document.getElementById('updated-at').textContent = data.updated_at;
         drawChart(data);
+        renderMonthlyEstimates(data);
       } catch (err) {
         document.getElementById('chart').innerHTML = '<text x="70" y="80" fill="#e2e8f0">Não foi possível carregar os dados locais do indicador.</text>';
       }
