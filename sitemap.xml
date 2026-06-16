@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://iaemloop.com.br/</loc>
-    <lastmod>2026-06-13</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <priority>1.0</priority>
     <changefreq>daily</changefreq>
     <image:image>
@@ -45,6 +45,12 @@
     <loc>https://iaemloop.com.br/bitcoin_landing.html</loc>
     <lastmod>2026-02-25</lastmod>
     <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/indicador-buffett.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -187,7 +193,7 @@
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/posts/2026-05-23-analise-mils3-locacao-equipamentos-ia.html</loc>
-    <lastmod=2026-05-23</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
