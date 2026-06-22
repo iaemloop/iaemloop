@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-15",
+  "updatedAt": "2026-06-22",
   "owner": "IA em Loop",
   "requiredDailyOutputs": [
     "estudo-educacional-de-ativo",
@@ -15,20 +15,21 @@
     "Sinais sociais e de mercado sao gatilhos editoriais, nao pauta pronta: antes de publicar, apurar fatos atuais, noticias, precos/contexto de mercado e contrapontos.",
     "Posts no X devem partir de tendencias reais em circulacao; engajar, comentar e criar formatos nativos, sem transformar headline do blog em card generico."
   ],
-  "lastPost": "blog/posts/2026-06-15-analise-petr4-dupla-presenca-rankings-ia.html",
-  "tickerOfTheDay": "PETR4",
-  "reading": "PETR4 figura simultaneamente nos tops 20 dos rankings BESST e Magic Formula de maio/2026, com dividend yield de 8,56%, P/VP de 1,42, ROIC de 17,85% e earnings yield de 25,25%. Está presente na carteira real Magic Formula com 2 unidades a R$ 41,78. Apesar da volatilidade do petróleo, a combinação de valuation atraente e geração de caixa sustenta a tese de longo prazo.",
-  "nextSuggestedPost": "Aprofundar empresas de telecomunicações dentro do BESST: quando dividend yield elevado e payout ratio sustentavel indicam oportunidade e quando investimento em rede, competencia regulatoria e churn transformam o desconto em alerta.",
+  "lastPost": "blog/posts/2026-06-22-analise-cmin3-mineracao-dividendos-ia.html",
+  "tickerOfTheDay": "CMIN3",
+  "reading": "CMIN3 (CSN Mineração) aparece no Top 20 do ranking Magic Formula de junho/2026 com dividend yield de 25,2%, ROIC de 21,7% e ROE de 31,5%, além de dívida líquida/patrimônio de apenas 0,04. A empresa distribuiu quase R$ 800 milhões em dividendos e mantém programa de recompra de ações, mas seu resultado depende de dois motores externos: o preço internacional do minério de ferro e a taxa de câmbio dólar-real. O 1T26 mostrou volumes resilientes, mas lucro afetado pelo câmbio desfavorável, indicando que os elevados dividendos estão vinculados ao ciclo do minério e à sustentação do câmbio.",
+  "nextSuggestedPost": "Avaliar se a combinação de alto dividend yield e valuation barato no setor de mineração compensa a volatilidade cíclica, especialmente considerando a desaceleração estrutural da demanda chinesa e o risco de excesso de oferta global de minério de ferro.",
   "knownGaps": [
-    "Separar retorno sobre investimento em rede de dependencia de ambiente regulatorio favoravel.",
-    "Acompanhar retorno sobre CAPEX 5G, custo medio da dívida, vencimentos, caixa operacional, churn e medio receita por usuario.",
-    "Comparar VIVT3 com outras alternativas de telecomunicações, como TIM e Claro, antes de qualquer leitura de carteira."
+    "Separar retorno sobre investimento em minério de dependência de preço das commodities internacionais.",
+    "Acompanhar retorno sobre CAPEX de expansão, custos de produção, volumes vendidos e mix de produtos (minério fino vs pellets).",
+    "Comparar CMIN3 com outras alternativas de mineração de ferro, como VALE3, antes de qualquer leitura de carteira."
   ],
   "sourcesUsed": [
-    "Ranking BESST de maio/2026",
-    "Ranking Magic Formula de maio/2026",
-    "Carteira real Magic Formula iaemloop.com.br",
-    "Notícias recentes via Google News RSS (PETR4)"
+    "Ranking Magic Formula de junho/2026",
+    "Carteira real Magic Formula",
+    "Preço atual via Fundamentus (CMIN3)",
+    "Notícias recentes via Google News RSS (CSN Mineração)",
+    "Resultado 1T26 divulgado em maio/2026"
   ],
   "validationPlan": [
     "Validacao de JSON",
