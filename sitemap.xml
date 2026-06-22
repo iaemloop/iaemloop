@@ -67,9 +67,15 @@
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/</loc>
-    <lastmod>2026-06-15</lastmod>
+    <lastmod>2026-06-22</lastmod>
     <priority>0.8</priority>
     <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-06-22-analise-cmin3-mineracao-dividendos-ia.html</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/posts/2026-05-07-briefing-bbas3-crise-ia.html</loc>
@@ -242,6 +248,12 @@
     <url>
       <loc>https://iaemloop.com.br/blog/posts/2026-06-15-analise-petr4-dupla-presenca-rankings-ia.html</loc>
       <lastmod>2026-06-15</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+    </url>
+    <url>
+      <loc>https://iaemloop.com.br/blog/posts/2026-06-18-analise-pssa3-seguros-ia.html</loc>
+      <lastmod>2026-06-18</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
     </url>
