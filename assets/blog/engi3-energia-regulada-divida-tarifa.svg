@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Inter, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a1017"/>
+      <stop offset="100%" stop-color="#0d1a2d"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#19364D"/>
+      <stop offset="100%" stop-color="#AA8451"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6EE4EF"/>
+      <stop offset="100%" stop-color="#E4D17F"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="500" fill="url(#bg)" rx="14"/>
+
+  <!-- Title -->
+  <text x="50" y="52" fill="#E4D17F" font-size="28" font-weight="800">ENGI3: Energia regulada, dívida longa</text>
+  <text x="50" y="82" fill="#94a3b8" font-size="16">e o teste da tarifa vs. inadimplência</text>
+
+  <!-- Divider -->
+  <rect x="50" y="95" width="800" height="2" fill="url(#gold)" rx="1"/>
+
+  <!-- Key Metrics Row -->
+  <rect x="50" y="115" width="170" height="80" rx="10" fill="rgba(6,8,13,.6)" stroke="rgba(228,209,127,.18)" stroke-width="1"/>
+  <text x="135" y="142" fill="#94a3b8" font-size="11" text-anchor="middle" font-weight="600">BESST #3</text>
+  <text x="135" y="175" fill="#E4D17F" font-size="22" text-anchor="middle" font-weight="700">Jun/26</text>
+
+  <rect x="240" y="115" width="170" height="80" rx="10" fill="rgba(6,8,13,.6)" stroke="rgba(228,209,127,.18)" stroke-width="1"/>
+  <text x="325" y="142" fill="#94a3b8" font-size="11" text-anchor="middle" font-weight="600">DY / P·VP</text>
+  <text x="325" y="175" fill="#E4D17F" font-size="22" text-anchor="middle" font-weight="700">5,5% / 0,23</text>
+
+  <rect x="430" y="115" width="170" height="80" rx="10" fill="rgba(6,8,13,.6)" stroke="rgba(110,228,239,.15)" stroke-width="1"/>
+  <text x="515" y="142" fill="#94a3b8" font-size="11" text-anchor="middle" font-weight="600">ROIC / ROE</text>
+  <text x="515" y="175" fill="#6EE4EF" font-size="22" text-anchor="middle" font-weight="700">9,6% / 9,7%</text>
+
+  <rect x="620" y="115" width="170" height="80" rx="10" fill="rgba(6,8,13,.6)" stroke="rgba(228,209,127,.18)" stroke-width="1"/>
+  <text x="705" y="142" fill="#94a3b8" font-size="11" text-anchor="middle" font-weight="600">Score BESST</text>
+  <text x="705" y="175" fill="#E4D17F" font-size="22" text-anchor="middle" font-weight="700">64,80</text>
+
+  <!-- Central Diagram: Tarifa vs Inadimplência -->
+  <text x="450" y="245" fill="#fff" font-size="18" font-weight="700" text-anchor="middle">Receita regulada × Inadimplência real</text>
+
+  <!-- Left: Tarifa pillar -->
+  <rect x="100" y="275" width="200" height="160" rx="12" fill="rgba(25,54,77,.55)" stroke="rgba(110,228,239,.25)" stroke-width="1.5"/>
+  <text x="200" y="305" fill="#6EE4EF" font-size="14" font-weight="700" text-anchor="middle">Receita regulada</text>
+  <text x="200" y="335" fill="#cbd5e1" font-size="12" text-anchor="middle">Revisão tarifária ANEEL</text>
+  <text x="200" y="360" fill="#cbd5e1" font-size="12" text-anchor="middle">Reajuste +6,9% a +11,3%</text>
+  <text x="200" y="385" fill="#cbd5e1" font-size="12" text-anchor="middle">Concessão runs até 2031+</text>
+  <text x="200" y="415" fill="#6EE4EF" font-size="13" font-weight="600" text-anchor="middle">↓ P/VP 0,23 = mercado cobra</text>
+  <text x="200" y="432" fill="#6EE4EF" font-size="13" font-weight="600" text-anchor="middle">risco regulatório + dívida</text>
+
+  <!-- Right: Inadimplência pillar -->
+  <rect x="600" y="275" width="200" height="160" rx="12" fill="rgba(6,8,13,.6)" stroke="rgba(228,209,127,.25)" stroke-width="1.5"/>
+  <text x="700" y="305" fill="#E4D17F" font-size="14" font-weight="700" text-anchor="middle">Riscos em foco</text>
+  <text x="700" y="335" fill="#cbd5e1" font-size="12" text-anchor="middle">Inadimplência em alta</text>
+  <text x="700" y="360" fill="#cbd5e1" font-size="12" text-anchor="middle">Dívida bruta R$ 45,6 bi</text>
+  <text x="700" y="385" fill="#cbd5e1" font-size="12" text-anchor="middle">ExposiçãoPJ em commodity</text>
+  <text x="700" y="415" fill="#E4D17F" font-size="13" font-weight="600" text-anchor="middle">Margem EBIT 19,2%</text>
+  <text x="700" y="432" fill="#E4D17F" font-size="13" font-weight="600" text-anchor="middle">absorve choques?</text>
+
+  <!-- Center Arrow/Tension -->
+  <rect x="330" y="320" width="240" height="70" rx="10" fill="rgba(228,209,127,.1)" stroke="rgba(228,209,127,.3)" stroke-width="1"/>
+  <text x="450" y="350" fill="#fff" font-size="14" font-weight="700" text-anchor="middle">A pergunta central</text>
+  <text x="450" y="375" fill="#E4D17F" font-size="13" font-weight="600" text-anchor="middle">Tarifa cobre inadimplência?</text>
+
+  <!-- Footer -->
+  <text x="50" y="478" fill="#64748b" font-size="12">IA em Loop — ranking BESST & Buffett com skin in the game</text>
+  <text x="850" y="478" fill="#64748b" font-size="12" text-anchor="end">24/06/2026</text>
+</svg>

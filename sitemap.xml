@@ -67,9 +67,15 @@
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <priority>0.8</priority>
     <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-06-24-analise-engi3-energia-regulada-tarifa-ia.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/posts/2026-06-22-analise-cmin3-mineracao-dividendos-ia.html</loc>
@@ -78,146 +84,20 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-07-briefing-bbas3-crise-ia.html</loc>
-    <lastmod>2026-05-08</lastmod>
+    <loc>https://iaemloop.com.br/blog/posts/2026-06-18-analise-pssa3-seguros-ia.html</loc>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iaemloop.com.br/blog/posts/selic-caindo-juro-real-focus-2026.html</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-08-analise-petr4-crise-ia.html</loc>
-    <lastmod>2026-05-08</lastmod>
+    <loc>https://iaemloop.com.br/blog/posts/2026-06-15-analise-petr4-dupla-presenca-rankings-ia.html</loc>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-09-analise-bbas3-ia-geopolitica.html</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-10-analise-mercado.html</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-11-analise-mercado.html</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-12-analise-cmin3-ia-cambio-geopolitica.html</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-13-petroleo-ia-pssa3-carteira-defensiva.html</loc>
-    <lastmod>2026-05-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-14-analise-wizc3-seguros-ia.html</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-15-analise-plpl3-imobiliario-ia.html</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-16-analise-qual3-saude-ia-margens.html</loc>
-    <lastmod>2026-05-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-17-analise-leve3-autopecas-ia.html</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-17-risco-politico-ia-eua-carteira.html</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-18-analise-csud3-ia-servicos-digitais.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-18-besst-buffett-magic-formula-eua.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-19-analise-vtru3-educacao-ia-ead.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-20-analise-tgma3-logistica-ia-ciclo-auto.html</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-21-analise-pssa3-seguros-ia-carteira.html</loc>
-    <lastmod>2026-05-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-22-analise-vlid3-identidade-digital-ia.html</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-22-tesouro-reserva-guerra-liquidez-bancos.html</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-23-analise-mils3-locacao-equipamentos-ia.html</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-24-analise-rani3-embalagens-ciclo-ia.html</loc>
-    <lastmod>2026-05-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-25-analise-csed3-educacao-ticket-margem-ia.html</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://iaemloop.com.br/blog/posts/2026-05-26-analise-movi3-locacao-alavancagem-ia.html</loc>
-    <lastmod>2026-05-26</lastmod>
+    <loc>https://iaemloop.com.br/blog/posts/2026-06-13-analise-sanb11-banco-santander-ia.html</loc>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -228,33 +108,74 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iaemloop.com.br/youtube_banner_2560x1440.html</loc>
-    <lastmod>2026-02-25</lastmod>
-    <priority>0.5</priority>
+    <loc>https://iaemloop.com.br/blog/posts/2026-05-26-analise-movi3-locacao-alavancagem-ia.html</loc>
+    <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iaemloop.com.br/carteira/</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <loc>https://iaemloop.com.br/blog/posts/2026-05-25-analise-csed3-educacao-ticket-margem-ia.html</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-    <url>
-      <loc>https://iaemloop.com.br/blog/posts/2026-06-13-analise-sanb11-banco-santander-ia.html</loc>
-      <lastmod>2026-06-13</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-    </url>
-    <url>
-      <loc>https://iaemloop.com.br/blog/posts/2026-06-15-analise-petr4-dupla-presenca-rankings-ia.html</loc>
-      <lastmod>2026-06-15</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-    </url>
-    <url>
-      <loc>https://iaemloop.com.br/blog/posts/2026-06-18-analise-pssa3-seguros-ia.html</loc>
-      <lastmod>2026-06-18</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-    </url>
-  </urlset>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-05-24-analise-rani3-embalagens-ciclo-ia.html</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-05-23-analise-mils3-locacao-equipamentos-ia.html</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-05-22-tesouro-reserva-guerra-liquidez-bancos.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-05-22-analise-vlid3-identidade-digital-ia.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-05-21-analise-pssa3-seguros-ia-carteira.html</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-05-20-analise-tsla4-ia-autonomo.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-05-19-analise-ittb4-ia-educacao.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-05-18-analise-esc4x-ia-energia.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-05-17-analise-bbas3-ia-macro.html</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-05-16-analise-vaip3-ia-industria.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url
