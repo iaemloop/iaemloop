@@ -67,9 +67,15 @@
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-26</lastmod>
     <priority>0.8</priority>
     <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-06-26-analise-wizc3-seguros-capital-leve-ia.html</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/posts/2026-06-24-analise-engi3-energia-regulada-tarifa-ia.html</loc>
@@ -178,4 +184,5 @@
     <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url
+  </url>
+</urlset>
