@@ -1,13 +1,13 @@
 {
   "knownGaps": [
-    "Acompanhar se WIZC3 mantém ROIC acima de 25% sem depender de efeitos não recorrentes.",
-    "Monitorar renovação de parcerias, concentração de canais e evolução de comissões por parceiro.",
-    "Comparar WIZC3 com PSSA3 e outras empresas de seguros para separar capital leve de dependência comercial."
+    "Monitorar se a queda de lucro do 1T26 da CSED3 é pontual ou estrutural.",
+    "Acompanhar se o rebaixamento de analistas reflete risco setorial ou empresa-específico.",
+    "Verificar se a CSED3 consegue estabilizar margens e manter ROE acima de 15%."
   ],
-  "lastPost": "blog/posts/2026-06-26-analise-wizc3-seguros-capital-leve-ia.html",
-  "nextSuggestedPost": "Comparar empresas de seguros e corretagem nos rankings IA em Loop: quando alto retorno sobre capital reflete vantagem durável e quando reflete dependência de canal.",
+  "lastPost": "blog/posts/2026-06-29-analise-csed3-educacao-valuation-dividendos-ia.html",
+  "nextSuggestedPost": "Analisar a recuperação do lucro da CSED3 no 2T26 e o impacto no valuation Magic Formula.",
   "owner": "IA em Loop",
-  "reading": "WIZC3 aparece na 2ª posição do ranking Magic Formula de junho/2026 e está na carteira real Magic Formula. A leitura combina ROIC de 34,9%, ROE de 28,3%, P/L de 6,30, P/VP de 1,78, dividend yield de 8,2%, margem EBIT de 50,0%, margem líquida de 26,5% e dívida líquida ligeiramente negativa. O ponto favorável é capital leve com alta conversão de resultado; o risco central é dependência de canais e parcerias para originar seguros. A tese melhora se lucro ajustado, margem e contratos se mantiverem; piora se houver renegociação desfavorável de canais ou crescimento comprado caro.",
+  "reading": "CSED3 aparece entre as primeiras do ranking Magic Formula de junho/2026 e é a segunda maior posição na carteira real Magic Formula. A leitura combina P/L de 5,04, P/VP de 0,83, Dividend Yield de 12,9%, ROIC de 14,3%, ROE de 16,5%, margem EBIT de 18,8%, margem líquida de 9,5% e dívida líquida sobre patrimônio de 0,28. O ponto favorável é valuation extremamente barato com dividendos relevantes; o risco central é a queda de lucro de 28,8% no 1T26 e o rebaixamento de analistas. A tese melhora se o lucro do 2T26 reverter a queda e as margens se estabilizarem; piora se houver nova deterioração de resultados ou corte adicional de recomendação.",
   "requiredDailyOutputs": [
     "estudo-educacional-de-ativo",
     "leitura-macro-de-carteira",
@@ -25,9 +25,9 @@
   "sourcesUsed": [
     "Ranking Magic Formula de junho/2026 do IA em Loop",
     "Carteira real Magic Formula publicada no IA em Loop",
-    "Fundamentus consultado em 26/06/2026 para indicadores de WIZC3",
-    "Noticias publicas recentes sobre resultados, lucro ajustado, dividendos e desalavancagem da Wiz Co"
+    "Fundamentus consultado em 29/06/2026 para indicadores de CSED3",
+    "Noticias publicas recentes sobre resultados do 1T26 e rebaixamento de recomendação (junho/2026)"
   ],
-  "tickerOfTheDay": "WIZC3",
-  "updatedAt": "2026-06-26"
+  "tickerOfTheDay": "CSED3",
+  "updatedAt": "2026-06-29"
 }
