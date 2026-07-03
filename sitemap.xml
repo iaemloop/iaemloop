@@ -3,13 +3,19 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://iaemloop.com.br/</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <priority>1.0</priority>
     <changefreq>daily</changefreq>
     <image:image>
       <image:loc>https://iaemloop.com.br/iaemloop_avatar_1080x1080.jpg</image:loc>
       <image:title>IA em Loop logo</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/painel-decisao.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://iaemloop.com.br/barsi.html</loc>
@@ -72,6 +78,12 @@
     <changefreq>daily</changefreq>
   </url>
   <url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-07-03-analise-klbn4-valor-dividendos-papel-ia.html</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
     <loc>https://iaemloop.com.br/blog/posts/2026-06-29-analise-csed3-educacao-valuation-dividendos-ia.html</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
