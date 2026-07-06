@@ -1,13 +1,13 @@
 {
   "knownGaps": [
-    "Monitorar se a queda de lucro do 1T26 da CSED3 \u00e9 pontual ou estrutural.",
-    "Acompanhar se o rebaixamento de analistas reflete risco setorial ou empresa-espec\u00edfico.",
-    "Verificar se a CSED3 consegue estabilizar margens e manter ROE acima de 15%."
+    "Confirmar se a melhora de lucro da QUAL3 no 1T26 se repete nos próximos trimestres.",
+    "Acompanhar se a margem EBIT elevada vem de eficiência recorrente ou de corte pontual de despesas.",
+    "Verificar estabilização da base de clientes e da receita antes de tratar o desconto como tese madura."
   ],
-  "lastPost": "blog/posts/2026-07-03-analise-klbn4-valor-dividendos-papel-ia.html",
-  "nextSuggestedPost": "Analisar a recupera\u00e7\u00e3o do lucro da CSED3 no 2T26 e o impacto no valuation Magic Formula.",
+  "lastPost": "blog/posts/2026-07-06-analise-qual3-saude-turnaround-valuation-ia.html",
+  "nextSuggestedPost": "Acompanhar PLPL3 ou WIZC3 como próximos nomes do Top 5 Magic Formula ainda com leitura pública recente a aprofundar.",
   "owner": "IA em Loop",
-  "reading": "CSED3 aparece entre as primeiras do ranking Magic Formula de junho/2026 e \u00e9 a segunda maior posi\u00e7\u00e3o na carteira real Magic Formula. A leitura combina P/L de 5,04, P/VP de 0,83, Dividend Yield de 12,9%, ROIC de 14,3%, ROE de 16,5%, margem EBIT de 18,8%, margem l\u00edquida de 9,5% e d\u00edvida l\u00edquida sobre patrim\u00f4nio de 0,28. O ponto favor\u00e1vel \u00e9 valuation extremamente barato com dividendos relevantes; o risco central \u00e9 a queda de lucro de 28,8% no 1T26 e o rebaixamento de analistas. A tese melhora se o lucro do 2T26 reverter a queda e as margens se estabilizarem; piora se houver nova deteriora\u00e7\u00e3o de resultados ou corte adicional de recomenda\u00e7\u00e3o.",
+  "reading": "QUAL3 aparece em 4º lugar no ranking Magic Formula de junho/2026 e tem posição relevante na carteira real Magic Formula. A leitura combina ROIC de 19,3%, earnings yield de 37,2%, EV/EBIT de 2,69, P/VP de 0,39 na consulta Fundamentus de 06/07/2026 e cotação de R$ 1,80, cerca de 8,4% acima do preço médio de R$ 1,66 da carteira. O ponto favorável é a melhora operacional reportada no 1T26, com lucro líquido ajustado de R$ 19,2 milhões e alta anual próxima de 87%; o risco central é tratar um trimestre melhor como recuperação definitiva após prejuízo no 4T25 e histórico recente de desconfiança. A tese melhora se lucro, margem e base de clientes confirmarem recorrência; piora se a melhora vier só de corte pontual de despesas ou se a receita voltar a deteriorar.",
   "requiredDailyOutputs": [
     "estudo-educacional-de-ativo",
     "leitura-macro-de-carteira",
@@ -25,9 +25,9 @@
   "sourcesUsed": [
     "Ranking Magic Formula de junho/2026 do IA em Loop",
     "Carteira real Magic Formula publicada no IA em Loop",
-    "Fundamentus consultado em 29/06/2026 para indicadores de CSED3",
-    "Noticias publicas recentes sobre resultados do 1T26 e rebaixamento de recomenda\u00e7\u00e3o (junho/2026)"
+    "Fundamentus consultado em 06/07/2026 para indicadores de QUAL3",
+    "Noticias publicas recentes sobre lucro ajustado do 1T26, melhora de margem, corte de despesas, prejuizo do 4T25 e troca de CEO"
   ],
-  "tickerOfTheDay": "KLBN4",
-  "updatedAt": "2026-07-03"
+  "tickerOfTheDay": "QUAL3",
+  "updatedAt": "2026-07-06"
 }

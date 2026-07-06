@@ -73,17 +73,23 @@
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-06</lastmod>
     <priority>0.8</priority>
     <changefreq>daily</changefreq>
   </url>
   <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-07-06-analise-qual3-saude-turnaround-valuation-ia.html</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://iaemloop.com.br/blog/posts/2026-07-03-analise-klbn4-valor-dividendos-papel-ia.html</loc>
     <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
     <loc>https://iaemloop.com.br/blog/posts/2026-06-29-analise-csed3-educacao-valuation-dividendos-ia.html</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
