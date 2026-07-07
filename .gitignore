@@ -10,6 +10,9 @@ logs/
 server.log
 *.pid
 
+# Workspace local de agentes (não publicar)
+.hermes/
+
 # Python
 __pycache__/
 *.pyc
