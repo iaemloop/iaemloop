@@ -11,12 +11,7 @@
       <image:title>IA em Loop logo</image:title>
     </image:image>
   </url>
-  <url>
-    <loc>https://iaemloop.com.br/painel-decisao.html</loc>
-    <lastmod>2026-06-29</lastmod>
-    <priority>0.7</priority>
-    <changefreq>weekly</changefreq>
-  </url>
+
   <url>
     <loc>https://iaemloop.com.br/barsi.html</loc>
     <lastmod>2026-02-25</lastmod>
