@@ -1,13 +1,13 @@
 {
   "knownGaps": [
-    "Confirmar se a melhora de lucro da QUAL3 no 1T26 se repete nos próximos trimestres.",
-    "Acompanhar se a margem EBIT elevada vem de eficiência recorrente ou de corte pontual de despesas.",
-    "Verificar estabilização da base de clientes e da receita antes de tratar o desconto como tese madura."
+    "Confirmar se a queda de lucro da PLPL3 foi efeito pontual de ciclo/mix/custos ou início de compressão estrutural de margem.",
+    "Acompanhar velocidade de vendas, estoque e geração de caixa nos próximos resultados.",
+    "Monitorar juros, crédito habitacional e repasse de custos antes de tratar o múltiplo baixo como tese madura."
   ],
-  "lastPost": "blog/posts/2026-07-06-analise-qual3-saude-turnaround-valuation-ia.html",
-  "nextSuggestedPost": "Acompanhar PLPL3 ou WIZC3 como próximos nomes do Top 5 Magic Formula ainda com leitura pública recente a aprofundar.",
+  "lastPost": "blog/posts/2026-07-08-analise-plpl3-construcao-ciclo-margem-ia.html",
+  "nextSuggestedPost": "Acompanhar WIZC3 ou PSSA3 como próximos nomes de seguros no Top 5 Magic Formula, evitando repetir PLPL3/QUAL3 no curto prazo.",
   "owner": "IA em Loop",
-  "reading": "QUAL3 aparece em 4º lugar no ranking Magic Formula de junho/2026 e tem posição relevante na carteira real Magic Formula. A leitura combina ROIC de 19,3%, earnings yield de 37,2%, EV/EBIT de 2,69, P/VP de 0,39 na consulta Fundamentus de 06/07/2026 e cotação de R$ 1,80, cerca de 8,4% acima do preço médio de R$ 1,66 da carteira. O ponto favorável é a melhora operacional reportada no 1T26, com lucro líquido ajustado de R$ 19,2 milhões e alta anual próxima de 87%; o risco central é tratar um trimestre melhor como recuperação definitiva após prejuízo no 4T25 e histórico recente de desconfiança. A tese melhora se lucro, margem e base de clientes confirmarem recorrência; piora se a melhora vier só de corte pontual de despesas ou se a receita voltar a deteriorar.",
+  "reading": "PLPL3 aparece em 3º lugar no ranking Magic Formula de junho/2026, com ROIC de 29,3%, earnings yield de 24,0% e EV/EBIT de 4,17. Na consulta Fundamentus de 08/07/2026, o papel aparecia a R$ 7,74, com P/L de 4,70, P/VP de 1,48, ROIC de 29,4%, ROE de 31,6%, margem EBIT de 24,4% e margem líquida de 11,3%. Na carteira real Magic Formula, são 9 unidades a R$ 11,81 de preço médio, cerca de -34,5% contra a cotação consultada. A tese melhora se margem, vendas e geração de caixa confirmarem execução; piora se a empresa crescer receita sem proteger lucro.",
   "requiredDailyOutputs": [
     "estudo-educacional-de-ativo",
     "leitura-macro-de-carteira",
@@ -25,9 +25,9 @@
   "sourcesUsed": [
     "Ranking Magic Formula de junho/2026 do IA em Loop",
     "Carteira real Magic Formula publicada no IA em Loop",
-    "Fundamentus consultado em 06/07/2026 para indicadores de QUAL3",
-    "Noticias publicas recentes sobre lucro ajustado do 1T26, melhora de margem, corte de despesas, prejuizo do 4T25 e troca de CEO"
+    "Fundamentus consultado em 08/07/2026 para indicadores de PLPL3",
+    "Google Noticias RSS sobre PLPL3, Plano & Plano, resultados, receita, lucro e setor imobiliario"
   ],
-  "tickerOfTheDay": "QUAL3",
-  "updatedAt": "2026-07-06"
+  "tickerOfTheDay": "PLPL3",
+  "updatedAt": "2026-07-08"
 }
