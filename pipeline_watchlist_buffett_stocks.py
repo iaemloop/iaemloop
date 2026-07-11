@@ -37,9 +37,9 @@ def main():
         if col not in df_wl.columns:
             df_wl[col] = np.nan
 
-    # Percentuais
-    df_wl['roe_pct'] = df_wl['roe'] * 100
-    df_wl['dividend_yield_pct'] = df_wl['dividend_yield'] * 100
+    # O pipeline base salva roe/dividend_yield ja em pontos percentuais.
+    df_wl['roe_pct'] = df_wl['roe']
+    df_wl['dividend_yield_pct'] = df_wl['dividend_yield']
 
     # Preparar CSV de saída
     ts = datetime.now().strftime('%Y-%m')

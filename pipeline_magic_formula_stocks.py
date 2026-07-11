@@ -45,7 +45,7 @@ def main():
     if ranked.empty:
         print("⚠️ Nenhum dado com EY e ROE válidos.")
         return
-    top20 = ranked.head(20).copy()
+    top20 = ranked.head(20).copy().reset_index(drop=True)
     print(f"🏆 Top 20 Magic Formula EUA (menor soma de ranks = melhor):")
     print(top20[['ticker', 'empresa', 'setor', 'ey', 'roe', 'rank_ey', 'rank_roe', 'rank_sum']].to_string(index=False))
     # Preparar saída conforme especificação do handoff
