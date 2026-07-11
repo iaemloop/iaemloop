@@ -30,7 +30,7 @@ def compute_magic_formula(df):
     df_filtered['rank_roe'] = df_filtered['roe'].rank(ascending=False, method='min')
     df_filtered['rank_sum'] = df_filtered['rank_ey'] + df_filtered['rank_roe']
     # Ordenar por soma de ranks (menor é melhor)
-    df_sorted = df_filtered.sort_values('rank_sum', ascending=True)
+    df_sorted = df_filtered.sort_values('rank_sum', ascending=True).drop_duplicates(subset='ticker', keep='first')
     return df_sorted
 
 def main():

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updated_at": "2026-07-11T16:48:46.649972",
+    "updated_at": "2026-07-11T16:53:48.589449",
     "total_assets": 20,
     "methodology": "Magic Formula (EY + ROE)"
   },
@@ -227,26 +227,6 @@
     },
     {
       "rank": 12,
-      "ticker": "EIX",
-      "empresa": "Edison International",
-      "setor": "Utilities",
-      "industria": "Utilities - Regulated Electric",
-      "pl": 8.173913,
-      "ev_ebitda": NaN,
-      "roic_proxy_pct": 18.86,
-      "earnings_yield_pct": 12.234042618266184,
-      "ebitda_yield_pct": NaN,
-      "fcf_yield_pct": NaN,
-      "rank_qualidade": 49.0,
-      "rank_preco": 3.0,
-      "rank_fcf": NaN,
-      "score_total": 0.01923076923039941,
-      "fonte_dados": "yfinance",
-      "data_base": "2026-07-11",
-      "observacoes": ""
-    },
-    {
-      "rank": 13,
       "ticker": "T",
       "empresa": "AT&T Inc.",
       "setor": "Communication Services",
@@ -266,7 +246,7 @@
       "observacoes": ""
     },
     {
-      "rank": 14,
+      "rank": 13,
       "ticker": "UPS",
       "empresa": "United Parcel Service, Inc.",
       "setor": "Industrials",
@@ -286,7 +266,7 @@
       "observacoes": ""
     },
     {
-      "rank": 15,
+      "rank": 14,
       "ticker": "AMGN",
       "empresa": "Amgen Inc.",
       "setor": "Healthcare",
@@ -306,7 +286,7 @@
       "observacoes": ""
     },
     {
-      "rank": 16,
+      "rank": 15,
       "ticker": "LMT",
       "empresa": "Lockheed Martin Corporation",
       "setor": "Industrials",
@@ -326,7 +306,7 @@
       "observacoes": ""
     },
     {
-      "rank": 17,
+      "rank": 16,
       "ticker": "QCOM",
       "empresa": "QUALCOMM Incorporated",
       "setor": "Technology",
@@ -346,7 +326,7 @@
       "observacoes": ""
     },
     {
-      "rank": 18,
+      "rank": 17,
       "ticker": "ORCL",
       "empresa": "Oracle Corporation",
       "setor": "Technology",
@@ -366,7 +346,7 @@
       "observacoes": ""
     },
     {
-      "rank": 19,
+      "rank": 18,
       "ticker": "NFLX",
       "empresa": "Netflix, Inc.",
       "setor": "Communication Services",
@@ -386,7 +366,7 @@
       "observacoes": ""
     },
     {
-      "rank": 20,
+      "rank": 19,
       "ticker": "VZ",
       "empresa": "Verizon Communications Inc.",
       "setor": "Communication Services",
@@ -401,6 +381,26 @@
       "rank_preco": 6.0,
       "rank_fcf": NaN,
       "score_total": 0.016129032257804373,
+      "fonte_dados": "yfinance",
+      "data_base": "2026-07-11",
+      "observacoes": ""
+    },
+    {
+      "rank": 20,
+      "ticker": "INTU",
+      "empresa": "Intuit Inc.",
+      "setor": "Technology",
+      "industria": "Software - Application",
+      "pl": 16.776083,
+      "ev_ebitda": NaN,
+      "roic_proxy_pct": 22.5,
+      "earnings_yield_pct": 5.960867027183879,
+      "ebitda_yield_pct": NaN,
+      "fcf_yield_pct": NaN,
+      "rank_qualidade": 46.0,
+      "rank_preco": 17.0,
+      "rank_fcf": NaN,
+      "score_total": 0.01587301587276392,
       "fonte_dados": "yfinance",
       "data_base": "2026-07-11",
       "observacoes": ""
