@@ -136,7 +136,7 @@ def build_magic() -> str:
     rows = "\n".join(
         f"<tr><td class='rank'>{idx}</td><td class='ticker'>{a['ticker']}</td><td>{a['empresa']}</td><td>{a.get('setor') or '-'}</td>"
         f"<td>{fmt(pick(a, 'pl', 'pe'))}</td><td>{fmt(a.get('ev_ebitda'))}</td><td>{fmt(a.get('roic_proxy_pct'), '%')}</td>"
-        f"<td>{fmt(a.get('earnings_yield_pct'), '%')}</td><td>{fmt(a.get('fcf_yield_pct'), '%')}</td><td>{fmt(a.get('score_total'))}</td></tr>"
+        f"<td>{fmt(a.get('earnings_yield_pct'), '%')}</td><td>{fmt(a.get('fcf_yield_pct'), '%')}</td><td>{fmt(a.get('score_total'), digits=3)}</td></tr>"
         for idx, a in enumerate(assets, 1)
     )
     updated = meta.get("updated_at", "")[:10] or datetime.now().strftime("%Y-%m-%d")

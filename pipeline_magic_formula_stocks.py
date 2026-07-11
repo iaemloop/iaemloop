@@ -59,7 +59,8 @@ def main():
     out['industria'] = top20.get('industria', '')
     out['pl'] = top20['pe']
     out['ev_ebitda'] = np.nan  # não temos no cálculo direto
-    out['roic_proxy_pct'] = top20['roe'] * 100  # converter para percentual
+    # O pipeline base salva roe ja em pontos percentuais.
+    out['roic_proxy_pct'] = top20['roe']
     out['earnings_yield_pct'] = top20['ey'] * 100
     out['ebitda_yield_pct'] = np.nan
     out['fcf_yield_pct'] = np.nan
