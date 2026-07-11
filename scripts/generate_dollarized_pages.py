@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import math
+import csv
 from datetime import datetime
 from pathlib import Path
 
@@ -12,7 +13,18 @@ OUTPUTS = ROOT / "outputs"
 
 def load_assets(name: str) -> tuple[dict, list[dict]]:
     data = json.loads((OUTPUTS / name).read_text(encoding="utf-8"), parse_constant=lambda _: None)
-    assets = [item for item in data["assets"] if item.get("ticker") and item.get("empresa")]
+    assets = []
+    seen = set()
+    for item in data["assets"]:
+        ticker = item.get("ticker")
+        if not ticker or not item.get("empresa"):
+            continue
+        ticker = str(ticker).upper()
+        if ticker in seen:
+            continue
+        seen.add(ticker)
+        item["ticker"] = ticker
+        assets.append(item)
     return data["meta"], assets
 
 
@@ -26,6 +38,14 @@ def fmt(value, suffix: str = "", digits: int = 1) -> str:
     if math.isnan(number):
         return "-"
     return f"{number:.{digits}f}{suffix}"
+
+
+def pick(asset: dict, *keys: str):
+    for key in keys:
+        value = asset.get(key)
+        if value is not None:
+            return value
+    return None
 
 
 def page(title: str, subtitle: str, body: str, updated: str) -> str:
@@ -96,7 +116,7 @@ def build_besst() -> str:
     meta, assets = load_assets("besst_buffett_eua_latest.json")
     rows = "\n".join(
         f"<tr><td class='rank'>{idx}</td><td class='ticker'>{a['ticker']}</td><td>{a['empresa']}</td><td>{a.get('setor') or '-'}</td>"
-        f"<td>{fmt(a.get('pl'))}</td><td>{fmt(a.get('ev_ebitda'))}</td><td>{fmt(a.get('roe_pct'), '%')}</td>"
+        f"<td>{fmt(pick(a, 'pl', 'pe'))}</td><td>{fmt(a.get('ev_ebitda'))}</td><td>{fmt(pick(a, 'roe_pct', 'roe'), '%')}</td>"
         f"<td>{fmt(a.get('dividend_yield_pct'), '%')}</td><td>{fmt(a.get('score_total'))}</td></tr>"
         for idx, a in enumerate(assets, 1)
     )
@@ -115,7 +135,7 @@ def build_magic() -> str:
     meta, assets = load_assets("magic_formula_eua_latest.json")
     rows = "\n".join(
         f"<tr><td class='rank'>{idx}</td><td class='ticker'>{a['ticker']}</td><td>{a['empresa']}</td><td>{a.get('setor') or '-'}</td>"
-        f"<td>{fmt(a.get('pl'))}</td><td>{fmt(a.get('ev_ebitda'))}</td><td>{fmt(a.get('roic_proxy_pct'), '%')}</td>"
+        f"<td>{fmt(pick(a, 'pl', 'pe'))}</td><td>{fmt(a.get('ev_ebitda'))}</td><td>{fmt(a.get('roic_proxy_pct'), '%')}</td>"
         f"<td>{fmt(a.get('earnings_yield_pct'), '%')}</td><td>{fmt(a.get('fcf_yield_pct'), '%')}</td><td>{fmt(a.get('score_total'))}</td></tr>"
         for idx, a in enumerate(assets, 1)
     )
@@ -149,14 +169,13 @@ def build_history() -> str:
 
 
 def build_watchlist() -> str:
-    meta, assets = load_assets("stocks_eua_fundamentos_latest.json")
-    priority = ["AAPL", "GOOGL", "META", "SPGI", "MCD", "PGR", "ASML", "AVGO"]
-    by_ticker = {a["ticker"]: a for a in assets if a.get("ticker")}
-    selected = [by_ticker[t] for t in priority if t in by_ticker]
-    updated = meta.get("updated_at", "")[:10] or datetime.now().strftime("%Y-%m-%d")
+    csv_path = OUTPUTS / "watchlist_buffett_permanente_eua_latest.csv"
+    with csv_path.open(newline="", encoding="utf-8-sig") as fh:
+        selected = list(csv.DictReader(fh))
+    updated = datetime.now().strftime("%Y-%m-%d")
     rows = "\n".join(
         f"<tr><td class='rank'>{idx}</td><td class='ticker'>{a['ticker']}</td><td>{a['empresa']}</td><td>{a.get('setor') or '-'}</td>"
-        f"<td>{fmt(a.get('pl'))}</td><td>{fmt(a.get('ev_ebitda'))}</td><td>{fmt(a.get('roe_pct'), '%')}</td><td>{fmt(a.get('dividend_yield_pct'), '%')}</td></tr>"
+        f"<td>{fmt(pick(a, 'pl', 'pe'))}</td><td>{fmt(a.get('ev_ebitda'))}</td><td>{fmt(pick(a, 'roe_pct', 'roe'), '%')}</td><td>{fmt(pick(a, 'dividend_yield_pct', 'dividend_yield'), '%')}</td></tr>"
         for idx, a in enumerate(selected, 1)
     )
     body = f"""<section class="panel note">

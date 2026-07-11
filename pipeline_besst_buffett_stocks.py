@@ -61,7 +61,7 @@ def main():
     df['score_besst'] = df.apply(compute_besst_score, axis=1)
     # Ordenar por score desc
     df_sorted = df.sort_values('score_besst', ascending=False)
-    top20 = df_sorted.head(20).copy()
+    top20 = df_sorted.head(20).copy().reset_index(drop=True)
     print(f"🏆 Top 20 BESST & Buffett EUA:")
     print(top20[['ticker', 'empresa', 'setor', 'roe', 'dividend_yield', 'score_besst']].to_string(index=False))
     # Preparar saída
