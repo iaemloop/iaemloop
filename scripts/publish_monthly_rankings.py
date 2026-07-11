@@ -29,7 +29,9 @@ import shutil
 
 ROOT = Path(__file__).resolve().parents[1]
 BESST_CSV = ROOT / "outputs" / "barsi_screener_latest.csv"
-MAGIC_CSV = ROOT / "greenblatt_top30_filtered.csv"
+MAGIC_FILTERED_CSV = ROOT / "greenblatt_top30_filtered.csv"
+MAGIC_SOURCE_CSV = ROOT / "greenblatt_top30.csv"
+MAGIC_CSV = MAGIC_FILTERED_CSV if MAGIC_FILTERED_CSV.exists() else MAGIC_SOURCE_CSV
 BESST_HISTORY = ROOT / "historico_rankings.html"
 MAGIC_HISTORY = ROOT / "historico_rankings_magic_formula.html"
 
