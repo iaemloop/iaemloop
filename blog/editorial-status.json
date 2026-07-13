@@ -1,13 +1,13 @@
 {
   "knownGaps": [
-    "Confirmar se a inadimplencia e o custo de risco do Banrisul estabilizam nos proximos resultados.",
-    "Acompanhar se o lucro recorrente sustenta dividendos sem pressionar capital.",
-    "Comparar ROE, P/VP e qualidade de credito antes de tratar o desconto como tese madura."
+    "Confirmar se eficiencia e lucro recorrente da Copel sustentam o premio de valuation.",
+    "Acompanhar dividendos sem sacrificar investimentos e retorno regulatorio.",
+    "Comparar ROIC, P/VP e juros reais antes de tratar CPLE3 como defensiva barata."
   ],
-  "lastPost": "blog/posts/2026-07-10-analise-brsr6-banco-barato-inadimplencia-ia.html",
-  "nextSuggestedPost": "Acompanhar BMGB4, CPLE3 ou BEEF3 como proximos nomes das carteiras reais ainda pouco explorados, evitando repetir PLPL3/QUAL3/BRSR6 no curto prazo.",
+  "lastPost": "blog/posts/2026-07-13-analise-cple3-energia-regulada-dividendos-ia.html",
+  "nextSuggestedPost": "Acompanhar BMGB4 ou BEEF3 como proximos nomes das carteiras reais ainda pouco explorados, evitando repetir CPLE3/BRSR6/PLPL3/QUAL3 no curto prazo.",
   "owner": "IA em Loop",
-  "reading": "BRSR6 foi escolhida por combinar historico BESST favoravel, presenca na carteira real BESST e dados publicos verificaveis. Na consulta Fundamentus de 10/07/2026, aparecia a R$ 14,19, com P/L de 3,66, P/VP de 0,51, dividend yield de 11,2% e ROE de 14,0%. Na carteira real, sao 3 unidades a R$ 18,41 de preco medio, cerca de -22,9% contra a cotacao consultada. A tese melhora se inadimplencia, provisoes e ROE confirmarem estabilidade; piora se o lucro depender de fatores nao recorrentes ou se o custo de risco subir.",
+  "reading": "CPLE3 foi escolhida por combinar Top 10 BESST, presenca na carteira real BESST e dados publicos verificaveis. Na consulta Fundamentus de 13/07/2026, aparecia a R$ 15,53, com P/L de 17,06, P/VP de 1,94, ROE de 11,4% e ROIC de 8,9%. Na carteira real, sao 3 unidades a R$ 14,40 de preco medio, cerca de +7,8% contra a cotacao consultada. A tese melhora se eficiencia, lucro recorrente e dividendos sustentaveis justificarem o premio; piora se regulacao, juros ou investimentos reduzirem retorno e caixa.",
   "requiredDailyOutputs": [
     "estudo-educacional-de-ativo",
     "leitura-macro-de-carteira",
@@ -25,9 +25,9 @@
   "sourcesUsed": [
     "Historico BESST do IA em Loop",
     "Carteira real BESST publicada no IA em Loop",
-    "Fundamentus consultado em 10/07/2026 para indicadores de BRSR6",
-    "Google Noticias RSS sobre BRSR6, Banrisul, resultados, inadimplencia e bancos"
+    "Fundamentus consultado em 13/07/2026 para indicadores de CPLE3",
+    "Google Noticias RSS sobre CPLE3, Copel, resultados, lucro, dividendos e energia"
   ],
-  "tickerOfTheDay": "BRSR6",
-  "updatedAt": "2026-07-10"
+  "tickerOfTheDay": "CPLE3",
+  "updatedAt": "2026-07-13"
 }
