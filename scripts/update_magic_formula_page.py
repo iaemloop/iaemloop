@@ -7,6 +7,11 @@ Regras obrigatórias:
 - não incluir aviação/companhias aéreas;
 - mostrar setor no ranking;
 - deixar tickers clicáveis;
+- não repetir classes da mesma empresa: se aparecer PETR3/PETR4/PETR11,
+  POMO3/POMO4 etc., entra apenas uma classe no ranking;
+- critério para escolher a classe: menor score/rank da Magic Formula; em empate,
+  maior earnings yield, depois ticker preferencial/mais negociado conforme o
+  ranking bruto já ordenar;
 - publicar somente o Top 20 final. O CSV bruto pode ter 30 nomes, mas o site,
   o CSV filtrado e o histórico público da IA em Loop devem parar em 20.
 
@@ -99,6 +104,48 @@ def fundamentus_link(ticker: str) -> str:
 def is_excluded(ticker: str, sector: str) -> bool:
     normalized = sector.lower()
     return ticker in EXCLUDED_TICKERS or any(word in normalized for word in EXCLUDED_SECTOR_WORDS)
+
+
+def company_key(ticker: str) -> str:
+    """Agrupa classes da mesma empresa: PETR3/PETR4/PETR11 -> PETR."""
+    match = re.match(r"^([A-Z]{4})\d{1,2}$", ticker.strip().upper())
+    return match.group(1) if match else ticker.strip().upper()
+
+
+def number(value: str | float | int | None, default: float = 0.0) -> float:
+    if value is None:
+        return default
+    try:
+        return float(str(value).replace("%", "").replace(",", ".").strip())
+    except ValueError:
+        return default
+
+
+def dedupe_company_classes(rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    """Mantém uma única classe por empresa, escolhendo a melhor na fórmula."""
+    best: dict[str, dict[str, str]] = {}
+    order: list[str] = []
+    for row in rows:
+        ticker = row.get("ticker", "").strip().upper()
+        key = company_key(ticker)
+        if key not in best:
+            best[key] = row
+            order.append(key)
+            continue
+        current = best[key]
+        candidate_key = (
+            number(row.get("score"), 10**9),
+            number(row.get("pos"), 10**9),
+            -number(row.get("ey"), 0),
+        )
+        current_key = (
+            number(current.get("score"), 10**9),
+            number(current.get("pos"), 10**9),
+            -number(current.get("ey"), 0),
+        )
+        if candidate_key < current_key:
+            best[key] = row
+    return [best[key] for key in order]
 
 
 def strip_tags(value: str) -> str:
@@ -282,10 +329,13 @@ def update_csv(rows: list[dict[str, str]]) -> None:
     with CSV_IN.open(newline="", encoding="utf-8") as source:
         reader = csv.DictReader(source)
         csv_rows = []
+        keep_tickers = {row["ticker"] for row in rows[:20]}
         for row in reader:
             ticker = row.get("ticker", "").strip().upper()
             sector = SECTOR_BY_TICKER.get(ticker, "Não classificado")
             if is_excluded(ticker, sector):
+                continue
+            if ticker not in keep_tickers:
                 continue
             row["setor"] = sector
             csv_rows.append(row)
@@ -304,12 +354,14 @@ def main() -> None:
     page_html = PAGE.read_text(encoding="utf-8")
     rows = rows_from_csv() or extract_rows(page_html)
     filtered = [row for row in rows if not is_excluded(row["ticker"], row["setor"])]
-    top20 = filtered[:20]
+    deduped = dedupe_company_classes(filtered)
+    top20 = deduped[:20]
     PAGE.write_text(replace_table(page_html, top20), encoding="utf-8")
     update_csv(top20)
     removed = len(rows) - len(filtered)
-    truncated = max(0, len(filtered) - len(top20))
-    print(f"Magic Formula atualizada: {len(top20)} linhas publicadas (Top 20), {removed} excluídas, {truncated} excedentes fora do site.")
+    deduped_removed = len(filtered) - len(deduped)
+    truncated = max(0, len(deduped) - len(top20))
+    print(f"Magic Formula atualizada: {len(top20)} linhas publicadas (Top 20), {removed} excluídas, {deduped_removed} classes duplicadas removidas, {truncated} excedentes fora do site.")
 
 
 if __name__ == "__main__":
