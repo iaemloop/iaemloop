@@ -208,7 +208,7 @@
                 margin-top: 15px;
             }
         }
-    
+
 /* Glow dourado suave */
 .card, .metric, .legend, .table-wrapper, section.card, .meta-info, .container > header, .back-button {
     border: 1px solid rgba(228, 209, 127, 0.15);
@@ -221,7 +221,7 @@
 }
 
 
-        
+
         #backToTop:hover {
             background: var(--accent);
             transform: translateY(-3px);
@@ -231,10 +231,10 @@
             display: flex;
         }
 
-        
-            
-        
-            
+
+
+
+
 
                 .back-to-top {
             position: fixed;
@@ -267,7 +267,12 @@
             box-shadow: 0 6px 16px rgba(0,0,0,0.4);
         }
 
-        </style>
+
+
+/* IA em Loop home refresh — 2026-07-13 */
+.grid{grid-template-columns:repeat(auto-fit,minmax(255px,1fr))!important;align-items:stretch}.card{position:relative;overflow:hidden;border-radius:18px!important;background:linear-gradient(180deg,rgba(19,29,39,.88),rgba(11,18,32,.82))!important;border:1px solid rgba(228,209,127,.16)!important;border-left:1px solid rgba(228,209,127,.22)!important;box-shadow:0 16px 45px rgba(0,0,0,.28)}.card::after{content:"";position:absolute;right:-45px;top:-45px;width:110px;height:110px;border-radius:50%;background:rgba(228,209,127,.08)}.card:nth-of-type(-n+2){background:linear-gradient(180deg,rgba(25,54,77,.92),rgba(11,18,32,.86))!important}.btn{border-radius:999px!important;background:linear-gradient(135deg,#19364D,#AA8451)!important}.card h2{font-size:clamp(1.05rem,1.6vw,1.35rem)!important}.card p{line-height:1.58}.footer{color:#94a3b8!important}
+
+</style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1004632420072229"
         crossorigin="anonymous"></script>
 </head>
@@ -308,10 +313,10 @@
                 <div class="meta">
                     <span>Joel Greenblatt</span>
                     <span>ROIC + Earnings Yield</span>
-                    <span>Top 20</span>
+                    <span>Top 20 oficial</span>
                 </div>
                 <p>
-                    Ranking das melhores oportunidades da B3 usando a Fórmula Mágica (ROIC + Earnings Yield). Seleciona empresas com alto retorno sobre capital e Valuation atrativo.
+                    Ranking Top 20 das oportunidades da B3 pela Magic Formula, com corte operacional claro para carteira e histórico mensal.
                 </p>
                 <span class="btn">Ver carteira completa</span>
             </a>
@@ -440,7 +445,7 @@
         <div class="footer">
             <p>⌨️ Gerado por script • Não é recomendação de investimento • Faça sua própria análise</p>
             <p style="margin-top: 0.5rem; color: #94a3b8; font-size: 0.85rem;">
-                Atualizado: 07/07/2026
+                Atualizado: 13/07/2026
             </p>
             <p style="margin-top: 0.5rem;">
                 <a href="https://github.com/diegotxr/iaemloop" target="_blank">GitHub</a> •
@@ -454,28 +459,28 @@
         const usdEl = document.getElementById('btc-usd');
         const brlEl = document.getElementById('btc-brl');
         const container = document.getElementById('btc-price-home');
-        
+
         if (!usdEl || !brlEl) return;
-        
+
         try {
             const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,brl');
             const data = await response.json();
-            
+
             if (data.bitcoin) {
-                const usd = new Intl.NumberFormat('en-US', { 
-                    style: 'currency', 
+                const usd = new Intl.NumberFormat('en-US', {
+                    style: 'currency',
                     currency: 'USD',
                     minimumFractionDigits: 0,
-                    maximumFractionDigits: 0 
+                    maximumFractionDigits: 0
                 }).format(data.bitcoin.usd);
-                
-                const brl = new Intl.NumberFormat('pt-BR', { 
-                    style: 'currency', 
+
+                const brl = new Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
                     currency: 'BRL',
                     minimumFractionDigits: 0,
-                    maximumFractionDigits: 0 
+                    maximumFractionDigits: 0
                 }).format(data.bitcoin.brl);
-                
+
                 usdEl.textContent = usd;
                 brlEl.textContent = brl;
                 container.style.display = 'inline-block';
@@ -486,21 +491,21 @@
             brlEl.textContent = '--';
         }
     }
-    
+
     document.addEventListener('DOMContentLoaded', function() {
         updateBTCHomePrice();
         setInterval(updateBTCHomePrice, 300000);
     });
     </script>
 
-        
-
-        
 
 
-                
 
-        
+
+
+
+
+
 
         <a href="#" class="back-to-top" id="backToTop">↑</a>
 
