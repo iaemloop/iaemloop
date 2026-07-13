@@ -2,14 +2,16 @@
 """
 Atualiza a página Magic Formula com as regras editoriais do IA em Loop.
 
-Regras:
+Regras obrigatórias:
 - não incluir varejo;
 - não incluir aviação/companhias aéreas;
 - mostrar setor no ranking;
-- deixar tickers clicáveis.
+- deixar tickers clicáveis;
+- publicar somente o Top 20 final. O CSV bruto pode ter 30 nomes, mas o site,
+  o CSV filtrado e o histórico público da IA em Loop devem parar em 20.
 
-O script usa a tabela HTML existente como fonte quando o pipeline completo não está
-disponível, aplica as regras e reescreve a seção do ranking.
+O script usa o CSV bruto quando disponível, aplica as regras e reescreve a seção
+do ranking. Se o CSV bruto não existir, usa a tabela HTML existente como fallback.
 """
 
 from __future__ import annotations
@@ -224,9 +226,10 @@ def replace_table(page_html: str, rows: list[dict[str, str]]) -> str:
         page_html,
         count=1,
     )
+    top20 = rows[:20]
     page_html = re.sub(
         r"Dados: Fundamentus \+ yfinance \(.*?\)\. Setores: classificação B3 oficial\. \d+ empresas \(duplicata removida\)\.|Dados: Fundamentus \+ yfinance \(.*?\)\. Setores: classificação IA em Loop\. \d+ empresas após filtros de varejo e aviação\.",
-        f"Dados: Fundamentus + yfinance ({updated}). Setores: classificação IA em Loop. {len(rows)} empresas após filtros de varejo e aviação.",
+        f"Dados: Fundamentus + yfinance ({updated}). Setores: classificação IA em Loop. Top 20 após filtros de varejo e aviação.",
         page_html,
         count=1,
     )
@@ -266,7 +269,7 @@ def replace_table(page_html: str, rows: list[dict[str, str]]) -> str:
     )
     return re.sub(
         r"<tbody>.*?</tbody>",
-        f"<tbody>\n{build_rows(rows)}\n                </tbody>",
+        f"<tbody>\n{build_rows(top20)}\n                </tbody>",
         page_html,
         count=1,
         flags=re.S,
@@ -286,6 +289,8 @@ def update_csv(rows: list[dict[str, str]]) -> None:
                 continue
             row["setor"] = sector
             csv_rows.append(row)
+            if len(csv_rows) >= 20:
+                break
     if not csv_rows:
         return
     fieldnames = list(csv_rows[0].keys())
@@ -299,10 +304,12 @@ def main() -> None:
     page_html = PAGE.read_text(encoding="utf-8")
     rows = rows_from_csv() or extract_rows(page_html)
     filtered = [row for row in rows if not is_excluded(row["ticker"], row["setor"])]
-    PAGE.write_text(replace_table(page_html, filtered), encoding="utf-8")
-    update_csv(filtered)
+    top20 = filtered[:20]
+    PAGE.write_text(replace_table(page_html, top20), encoding="utf-8")
+    update_csv(top20)
     removed = len(rows) - len(filtered)
-    print(f"Magic Formula atualizada: {len(filtered)} linhas mantidas, {removed} excluídas.")
+    truncated = max(0, len(filtered) - len(top20))
+    print(f"Magic Formula atualizada: {len(top20)} linhas publicadas (Top 20), {removed} excluídas, {truncated} excedentes fora do site.")
 
 
 if __name__ == "__main__":
