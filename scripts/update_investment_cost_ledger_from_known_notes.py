@@ -44,6 +44,44 @@ def exact_entry(date, settlement, broker, portfolio, note_number, gross, liquid,
         'cost_total_brl': round(sum(v for v in fees.values() if isinstance(v, (int, float))), 2),
     }
 
+def fx_entry(date, broker, portfolio, label, brl_sent, usd_received, commercial_rate, vet_rate, spread_percent, iof_percent, source):
+    iof_brl = round(brl_sent * iof_percent / 100, 2)
+    fx_spread_brl = round(usd_received * commercial_rate * spread_percent / 100, 2)
+    return {
+        'date': date,
+        'date_precision': 'day',
+        'settlement_date': date,
+        'broker': broker,
+        'portfolio': portfolio,
+        'note_number': label,
+        'source': source,
+        'source_status': 'fx_conversion_screenshot',
+        'currency': 'BRL/USD',
+        'gross_operations_brl': round(brl_sent, 2),
+        'settlement_total_brl': round(brl_sent, 2),
+        'usd_received': round(usd_received, 2),
+        'commercial_rate_brl_per_usd': round(commercial_rate, 4),
+        'vet_brl_per_usd': round(vet_rate, 4),
+        'spread_percent': round(spread_percent, 4),
+        'iof_percent': round(iof_percent, 4),
+        'costs': {
+            'clearing_fees_brl': 0.0,
+            'exchange_fees_brl': 0.0,
+            'registration_fees_brl': 0.0,
+            'asset_transfer_fee_brl': 0.0,
+            'brokerage_brl': 0.0,
+            'irrf_brl': 0.0,
+            'iss_brl': 0.0,
+            'iof_brl': iof_brl,
+            'fx_spread_brl': fx_spread_brl,
+            'other_costs_brl': 0.0,
+        },
+        'trades': [],
+        'cost_total_brl': round(iof_brl + fx_spread_brl, 2),
+        'note': 'Câmbio real do Inter para aporte dolarizado. Compra de stocks será conciliada quando Diego enviar a nota de corretagem.'
+    }
+
+
 def reconstructed_entry(date, broker, portfolio, label, gross, source, trades, note='Original PDF/text not available in current cache; reconstructed from prior carteira update references and current public custody arithmetic.'):
     return {
         'date': date,
@@ -152,6 +190,16 @@ entries.append(exact_entry(
     [trade('ENGI3',2,12.39)],
     status='provisional_execution_notice'
 ))
+entries.append(fx_entry(
+    '2026-07-14', 'Inter', 'Dolarizadas / Stocks EUA', 'Inter-cambio-2026-07-14',
+    brl_sent=1000.00,
+    usd_received=192.21,
+    commercial_rate=5.07,
+    vet_rate=5.20,
+    spread_percent=1.50,
+    iof_percent=1.10,
+    source='screenshot Inter: R$ 1.000,00 -> US$ 192,21; cotação comercial R$ 5,07; VET R$ 5,20; spread 1,50%; IOF 1,10%; taxa grátis'
+))
 
 # Summaries.
 summary = {}
@@ -178,7 +226,7 @@ ledger = {
     'notes': [
         'Entries marked reconstructed_from_prior_extraction came from previous note-extraction references and current public carteira arithmetic because the original PDFs are not present in the current Hermes cache.',
         'The 2026-07-14 ENGI3F entry is provisional and must be replaced by the official brokerage note when Diego sends it.',
-        'Dollarized/Inter brokerage, IOF, FX and spread should be appended after the official execution/FX documents are available.',
+        'The 2026-07-14 Inter FX conversion is registered from Diego screenshot; stock purchases/brokerage note must be appended after the official execution document is available.',
     ]
 }
 OUT.parent.mkdir(exist_ok=True)
