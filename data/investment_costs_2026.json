@@ -590,6 +590,39 @@
         }
       ],
       "cost_total_brl": 0.0
+    },
+    {
+      "date": "2026-07-14",
+      "date_precision": "day",
+      "settlement_date": "2026-07-14",
+      "broker": "Inter",
+      "portfolio": "Dolarizadas / Stocks EUA",
+      "note_number": "Inter-cambio-2026-07-14",
+      "source": "screenshot Inter: R$ 1.000,00 -> US$ 192,21; cotação comercial R$ 5,07; VET R$ 5,20; spread 1,50%; IOF 1,10%; taxa grátis",
+      "source_status": "fx_conversion_screenshot",
+      "currency": "BRL/USD",
+      "gross_operations_brl": 1000.0,
+      "settlement_total_brl": 1000.0,
+      "usd_received": 192.21,
+      "commercial_rate_brl_per_usd": 5.07,
+      "vet_brl_per_usd": 5.2,
+      "spread_percent": 1.5,
+      "iof_percent": 1.1,
+      "costs": {
+        "clearing_fees_brl": 0.0,
+        "exchange_fees_brl": 0.0,
+        "registration_fees_brl": 0.0,
+        "asset_transfer_fee_brl": 0.0,
+        "brokerage_brl": 0.0,
+        "irrf_brl": 0.0,
+        "iss_brl": 0.0,
+        "iof_brl": 11.0,
+        "fx_spread_brl": 14.62,
+        "other_costs_brl": 0.0
+      },
+      "trades": [],
+      "cost_total_brl": 25.62,
+      "note": "Câmbio real do Inter para aporte dolarizado. Compra de stocks será conciliada quando Diego enviar a nota de corretagem."
     }
   ],
   "summary_by_broker": {
@@ -610,11 +643,17 @@
       "known_cost_total_brl": 0.14,
       "entries": 3,
       "entries_with_unknown_costs": 2
+    },
+    "Inter": {
+      "gross_operations_brl": 1000.0,
+      "known_cost_total_brl": 25.62,
+      "entries": 1,
+      "entries_with_unknown_costs": 0
     }
   },
   "notes": [
     "Entries marked reconstructed_from_prior_extraction came from previous note-extraction references and current public carteira arithmetic because the original PDFs are not present in the current Hermes cache.",
     "The 2026-07-14 ENGI3F entry is provisional and must be replaced by the official brokerage note when Diego sends it.",
-    "Dollarized/Inter brokerage, IOF, FX and spread should be appended after the official execution/FX documents are available."
+    "The 2026-07-14 Inter FX conversion is registered from Diego screenshot; stock purchases/brokerage note must be appended after the official execution document is available."
   ]
 }
