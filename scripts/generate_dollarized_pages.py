@@ -40,12 +40,30 @@ def fmt(value, suffix: str = "", digits: int = 1) -> str:
     return f"{number:.{digits}f}{suffix}"
 
 
+def fmt_br(value, suffix: str = "", digits: int = 1) -> str:
+    text = fmt(value, suffix=suffix, digits=digits)
+    return text.replace('.', ',') if text != '-' else text
+
+
+def fmt_watchlist_dy(value) -> str:
+    formatted = fmt_br(value, '%')
+    if formatted == '-':
+        return '0,0% — não distribui dividendos recorrentes'
+    return formatted
+
+
 def pick(asset: dict, *keys: str):
     for key in keys:
         value = asset.get(key)
         if value is not None:
             return value
     return None
+
+
+def load_fundamentals_by_ticker() -> dict[str, dict]:
+    path = OUTPUTS / "stocks_eua_fundamentos_latest.json"
+    data = json.loads(path.read_text(encoding="utf-8"), parse_constant=lambda _: None)
+    return {str(item.get('ticker', '')).upper(): item for item in data.get('assets', []) if item.get('ticker')}
 
 
 def page(title: str, subtitle: str, body: str, updated: str) -> str:
@@ -172,12 +190,19 @@ def build_watchlist() -> str:
     csv_path = OUTPUTS / "watchlist_buffett_permanente_eua_latest.csv"
     with csv_path.open(newline="", encoding="utf-8-sig") as fh:
         selected = list(csv.DictReader(fh))
+    fundamentals = load_fundamentals_by_ticker()
     updated = datetime.now().strftime("%Y-%m-%d")
-    rows = "\n".join(
-        f"<tr><td class='rank'>{idx}</td><td class='ticker'>{a['ticker']}</td><td>{a['empresa']}</td><td>{a.get('setor') or '-'}</td>"
-        f"<td>{fmt(pick(a, 'pl', 'pe'))}</td><td>{fmt(a.get('ev_ebitda'))}</td><td>{fmt(pick(a, 'roe_pct', 'roe'), '%')}</td><td>{fmt(pick(a, 'dividend_yield_pct', 'dividend_yield'), '%')}</td></tr>"
-        for idx, a in enumerate(selected, 1)
-    )
+    row_parts = []
+    for idx, a in enumerate(selected, 1):
+        ticker = str(a.get('ticker', '')).upper()
+        f = fundamentals.get(ticker, {})
+        row_parts.append(
+            f"<tr><td class='rank'>{idx}</td><td class='ticker'>{ticker}</td><td>{a['empresa']}</td><td>{a.get('setor') or '-'}</td>"
+            f"<td>{fmt_br(pick(f, 'pl', 'pe'))}</td><td>{fmt_br(f.get('ev_ebitda'))}</td>"
+            f"<td>{fmt_br(pick(f, 'roe_pct', 'roe', 'return_on_equity'), '%')}</td>"
+            f"<td>{fmt_watchlist_dy(pick(f, 'dividend_yield_pct', 'dividend_yield'))}</td></tr>"
+        )
+    rows = "\n".join(row_parts)
     body = f"""<section class="panel note">
       Empresas de qualidade que merecem acompanhamento permanente, mesmo quando nao entram no top 20 mensal por valuation.
     </section>
