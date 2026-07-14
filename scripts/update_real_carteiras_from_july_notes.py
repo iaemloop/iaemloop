@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TODAY_BR = "14/07/2026"
 TODAY_ISO = "2026-07-14"
 COLORS = ["var(--gold)","#e74c3c","#1abc9c","#3498db","#9b59b6","#f39c12","#2ecc71","#95a5a6","#e91e63","#00bcd4","#8e44ad","#16a085","#c0392b","#27ae60","#d35400","#7f8c8d"]
+MONTH_ORDER = {'Jan':1,'Fev':2,'Mar':3,'Abr':4,'Mai':5,'Jun':6,'Jul':7,'Ago':8,'Set':9,'Out':10,'Nov':11,'Dez':12}
 
 CSS_END = '</style></head><body><div class="bg-img"></div><a href="javascript:history.back()" class="back">← Voltar</a><div class="container">'
 
@@ -21,6 +22,13 @@ def brl(v):
 
 def pct(v):
     return f"{v:.1f}%".replace('.', ',')
+
+def label_sort_key(label):
+    try:
+        mon, yy = label.split('/')
+        return (2000 + int(yy), MONTH_ORDER.get(mon, 99))
+    except Exception:
+        return (9999, 99)
 
 def chart_url(t):
     return f"https://www.tradingview.com/chart/?symbol=BMFBOVESPA%3A{t}"
@@ -97,6 +105,95 @@ def price_history(positions):
         cards.append(f'''<div class="price-card"><div class="price-head"><a class="price-ticker" href="{chart_url(p['ticker'])}" target="_blank" rel="noopener noreferrer">{p['ticker']}</a><div class="price-meta">{p['setor']}<br>var. desde início: {pct(var)}</div></div><svg class="price-svg" viewBox="0 0 260 88" role="img" aria-label="Evolução de preço"><line class="price-axis" x1="16" y1="72" x2="244" y2="72"/><path class="price-line" d="{d}"/>{dots}</svg><div class="price-labels">{labels}</div><div class="price-values">{values}</div><div class="price-note">Pontos atualizados a cada nova compra/inclusão enviada por nota de corretagem. Clique no ticker para abrir gráfico em tempo real.</div></div>''')
     return f'''<div class="price-history-wrap"><div class="price-history-title">📈 Evolução do preço por ação</div><div class="price-history-sub">Preço inicial de compra e evolução nos meses em que houve nova compra ou inclusão na carteira. Os nomes dos ativos abrem um gráfico em tempo real no TradingView.</div><div class="price-chart-grid">{''.join(cards)}</div></div>'''
 
+V31_CSS = r'''
+.portfolio-v31{background:var(--card);border-radius:16px;padding:32px;margin-bottom:32px;border-left:4px solid var(--gold)}
+.portfolio-v31-title{color:var(--gold);font-size:20px;margin-bottom:8px}
+.portfolio-v31-sub{color:var(--text2);font-size:14px;line-height:1.55;margin-bottom:20px}
+.portfolio-v31-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(320px,.55fr);gap:20px;align-items:start}
+.area-chart{width:100%;height:auto;background:#080b11;border:1px solid var(--border);border-radius:16px;box-shadow:inset 0 0 0 1px rgba(212,175,55,.04),0 18px 45px rgba(0,0,0,.22)}
+.area-note{color:var(--text2);font-size:13px;line-height:1.5;margin-top:10px}
+.v31-side{display:flex;flex-direction:column;gap:8px;max-height:420px;overflow:auto;padding-right:4px}
+.v31-row{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;background:#10151d;border:1px solid var(--border);border-radius:10px;padding:10px 11px}
+.v31-dot{width:11px;height:11px;border-radius:50%;display:inline-block}
+.v31-row b{font-size:15px}.v31-row small{display:block;color:var(--text2);line-height:1.4;margin-top:3px}.v31-weight{color:var(--gold);font-size:12px;font-weight:700}
+@media(max-width:1100px){.portfolio-v31-grid{grid-template-columns:1fr}.v31-side{max-height:none}}
+'''
+
+def ensure_v31_css(prefix):
+    if '.portfolio-v31{' in prefix:
+        return prefix
+    return prefix + V31_CSS
+
+def area_chart(positions, height=390, width=980):
+    labels=[]
+    for p in positions:
+        for lab,_ in p.get('precos', []):
+            if lab not in labels: labels.append(lab)
+    if not labels:
+        labels=['Atual']
+    else:
+        labels.sort(key=label_sort_key)
+    allvals=[v for p in positions for _,v in (p.get('precos', []) or [('Atual', p['valor']/p['qtd'])])]
+    mn,mx=min(allvals),max(allvals)
+    padl,padr,padt,padb=64,34,24,58
+    baseline=height-padb
+    chartw=width-padl-padr
+    charth=height-padt-padb
+    def x_for(lab):
+        return padl if len(labels)==1 else padl + labels.index(lab)*(chartw/(len(labels)-1))
+    def y_for(v):
+        return padt+(mx-v)/(mx-mn)*charth if mx!=mn else (baseline+padt)/2
+    sorted_positions=sorted(positions,key=lambda x:x['valor'],reverse=True)
+    defs=['<defs>']
+    for i,_p in enumerate(sorted_positions):
+        c=COLORS[i%len(COLORS)]
+        defs.append(f'<linearGradient id="areaGrad{i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="{c}" stop-opacity="0.34"/><stop offset="65%" stop-color="{c}" stop-opacity="0.12"/><stop offset="100%" stop-color="{c}" stop-opacity="0.02"/></linearGradient>')
+    defs.append('</defs>')
+    grid=[]
+    for j in range(6):
+        x=padl+j*(chartw/5)
+        grid.append(f'<line x1="{x:.1f}" y1="{padt}" x2="{x:.1f}" y2="{baseline}" stroke="#17202d" stroke-width="1"/>')
+    for j in range(5):
+        y=padt+j*(charth/4)
+        grid.append(f'<line x1="{padl}" y1="{y:.1f}" x2="{width-padr}" y2="{y:.1f}" stroke="#17202d" stroke-width="1"/>')
+    ylabels=[]
+    for j in range(4):
+        val=mn+(mx-mn)*j/3 if mx!=mn else mn
+        y=y_for(val)
+        ylabels.append(f'<text x="12" y="{y+4:.1f}" fill="#718096" font-size="12">{brl(val)}</text>')
+    xlabels=''.join(f'<text x="{x_for(l):.1f}" y="{height-24}" text-anchor="middle" fill="#718096" font-size="12">{l}</text>' for l in labels)
+    cross_x=x_for(labels[-1])
+    cross=f'<line x1="{cross_x:.1f}" y1="{padt}" x2="{cross_x:.1f}" y2="{baseline}" stroke="#d1d5db" stroke-opacity=".35" stroke-dasharray="3 4"/><line x1="{padl}" y1="{(padt+baseline)/2:.1f}" x2="{width-padr}" y2="{(padt+baseline)/2:.1f}" stroke="#d1d5db" stroke-opacity=".28"/>'
+    shapes=[]
+    for i,p in enumerate(sorted_positions):
+        c=COLORS[i%len(COLORS)]
+        pts=[(x_for(lab),y_for(v),lab,v) for lab,v in (p.get('precos', []) or [('Atual', p['valor']/p['qtd'])])]
+        if len(pts)==1:
+            x,y,lab,v=pts[0]
+            line_pts=[(max(padl,x-26),y,lab,v),(min(width-padr,x+26),y,lab,v)]
+        else:
+            line_pts=pts
+        line_d='M '+' L '.join(f'{x:.1f} {y:.1f}' for x,y,_,_ in line_pts)
+        area_d=line_d + f' L {line_pts[-1][0]:.1f} {baseline:.1f} L {line_pts[0][0]:.1f} {baseline:.1f} Z'
+        dots=[]
+        for x,y,lab,v in pts:
+            dots.append(f'<a href="{chart_url(p["ticker"])}" target="_blank" rel="noopener noreferrer"><g><circle cx="{x:.1f}" cy="{y:.1f}" r="6" fill="#f8fafc" fill-opacity=".92"/><circle cx="{x:.1f}" cy="{y:.1f}" r="3.2" fill="{c}"/><title>{p["ticker"]} compra {lab}: {brl(v)}</title></g></a>')
+        lastx,lasty,_,_=pts[-1]
+        shapes.append(f'<path d="{area_d}" fill="url(#areaGrad{i})" opacity=".74"/><path d="{line_d}" fill="none" stroke="{c}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".95"/>{"".join(dots)}<a href="{chart_url(p["ticker"])}" target="_blank" rel="noopener noreferrer"><text x="{min(width-padr-8,lastx+9):.1f}" y="{max(padt+12,lasty-9):.1f}" fill="{c}" font-size="11" font-weight="800">{p["ticker"]}</text></a>')
+    return f'<svg class="area-chart" viewBox="0 0 {width} {height}" role="img" aria-label="Evolução de preço com marcações de compra">{"".join(defs)}<rect x="0" y="0" width="{width}" height="{height}" fill="#080b11"/>{"".join(grid)}{cross}{"".join(ylabels)}{xlabels}<line x1="{padl}" y1="{baseline}" x2="{width-padr}" y2="{baseline}" stroke="#344255"/>{"".join(shapes)}</svg>'
+
+def custody_price_panel(positions):
+    total=sum(p['valor'] for p in positions)
+    rows=[]
+    for i,p in enumerate(sorted(positions,key=lambda x:x['valor'],reverse=True)):
+        c=COLORS[i%len(COLORS)]
+        first=(p.get('precos') or [('Atual', p['valor']/p['qtd'])])[0][1]
+        last=(p.get('precos') or [('Atual', p['valor']/p['qtd'])])[-1][1]
+        var=0 if first == 0 else (last/first-1)*100
+        avg=p['valor']/p['qtd']
+        rows.append(f'''<div class="v31-row"><span class="v31-dot" style="background:{c}"></span><div><b>{ticker_link(p['ticker'])}</b><small>{p['empresa']} • {p['setor']}<br>{p['qtd']} un. • PM {brl(avg)} • {brl(p['valor'])} • compras {len(p.get('precos', []))} • var. {pct(var)}</small></div><span class="v31-weight">{pct(100*p['valor']/total)}</span></div>''')
+    return f'''<div class="portfolio-v31"><div class="portfolio-v31-title">📈 Custódia + evolução por ação</div><div class="portfolio-v31-sub">Quadro único: quantidade, preço médio, valor comprado, peso e evolução dos preços de compra. O gráfico é de área e os pontos marcam compras/inclusões registradas por nota de corretagem.</div><div class="portfolio-v31-grid"><div>{area_chart(positions)}<div class="area-note">Clique nos tickers ou pontos para abrir o gráfico em tempo real no TradingView.</div></div><div class="v31-side">{''.join(rows)}</div></div></div>'''
+
 def extract_proventos(html):
     m = re.search(r'(<div class="proventos-grid">.*?</div></div>)\s*<footer>', html, flags=re.S)
     return m.group(1) if m else ''
@@ -108,7 +205,8 @@ def extract_proventos_total(html):
 
 def render_page(path, title, subtitle, positions, emoji):
     old = path.read_text(encoding='utf-8')
-    prefix = old.split(CSS_END)[0] + CSS_END
+    prefix_base = old.split(CSS_END)[0]
+    prefix = ensure_v31_css(prefix_base) + CSS_END
     prov = extract_proventos(old)
     prov_total = extract_proventos_total(old)
     total=sum(p['valor'] for p in positions)
@@ -116,8 +214,7 @@ def render_page(path, title, subtitle, positions, emoji):
     body.append(f'<header style="text-align:center"><div style="display:inline-block"><h1>{emoji} {title}</h1><p class="sub">{subtitle}</p></div></header>')
     body.append(kpis(total, prov_total, positions))
     body.append(f'<div class="charts-grid">{asset_chart(positions)}{sector_chart(positions)}</div>')
-    body.append(custody(positions))
-    body.append(price_history(positions))
+    body.append(custody_price_panel(positions))
     body.append(prov)
     body.append(f'<footer>🦞 {title} | iaemloop.com.br | Atualizado em {TODAY_BR}</footer></div></body></html>')
     path.write_text(prefix + '\n'.join(body), encoding='utf-8')
