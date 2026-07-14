@@ -41,6 +41,27 @@ MANUAL_SIMPLE = [
     },
 ]
 
+# Public ranking display overrides for thematic names, grounded in yfinance/Yahoo data checked on 2026-07-14.
+# Dividend Yield also states whether the company distributes recurring dividends/proventos.
+MANUAL_METRICS = {
+    'TSLA': {
+        'pl': '370,2', 'evEbitda': '131,1', 'roe': '4,9%',
+        'divYield': '0,0% — não distribui dividendos/proventos recorrentes'
+    },
+    'SPCX': {
+        'pl': 'n/d — sem P/L divulgado', 'evEbitda': '207,8', 'roe': 'n/d',
+        'divYield': '0,0% — não distribui dividendos/proventos recorrentes'
+    },
+    'NVDA': {
+        'pl': '33,1', 'evEbitda': '29,5', 'roe': '114,3%',
+        'divYield': '0,47% — distribui dividendos/proventos'
+    },
+    'TTWO': {
+        'pl': 'n/d — sem lucro recorrente/P/L', 'evEbitda': '58,7', 'roe': '-10,6%',
+        'divYield': '0,0% — sem dividendo recorrente; registro residual em 2008'
+    },
+}
+
 fund_assets = {r['ticker']: r for r in json.load(open(ROOT/'outputs/stocks_eua_fundamentos_latest.json', encoding='utf-8'))['assets']}
 
 def safe_num(v):
@@ -126,14 +147,25 @@ def pct_fmt(v):
 
 def row_html(rank, item):
     f = fund_assets.get(item['ticker'], {})
-    pe = safe_num(f.get('pe'))
-    ev = safe_num(f.get('ev_ebitda'))
+    metrics = MANUAL_METRICS.get(item['ticker'])
+    if metrics:
+        pe = metrics['pl']
+        ev = metrics['evEbitda']
+        roe = metrics['roe']
+        dy = metrics['divYield']
+    else:
+        pe_num = safe_num(f.get('pe'))
+        ev_num = safe_num(f.get('ev_ebitda'))
+        pe = '-' if pe_num == '' else str(pe_num).replace('.', ',')
+        ev = '-' if ev_num == '' else str(ev_num).replace('.', ',')
+        roe = pct_fmt(f.get('roe'))
+        dy = pct_fmt(f.get('dividend_yield'))
     return (
         f"<tr><td class='rank'>{rank}</td><td class='ticker'>{html_lib.escape(item['ticker'])}</td>"
         f"<td>{html_lib.escape(item['empresa'])}</td><td>{html_lib.escape(item['setor'])}</td>"
-        f"<td>{'-' if pe == '' else str(pe).replace('.', ',')}</td>"
-        f"<td>{'-' if ev == '' else str(ev).replace('.', ',')}</td>"
-        f"<td>{pct_fmt(f.get('roe'))}</td><td>{pct_fmt(f.get('dividend_yield'))}</td></tr>"
+        f"<td>{html_lib.escape(pe)}</td>"
+        f"<td>{html_lib.escape(ev)}</td>"
+        f"<td>{html_lib.escape(roe)}</td><td>{html_lib.escape(dy)}</td></tr>"
     )
 
 tbody_match = re.search(r'<tbody>(.*?)</tbody>', html, flags=re.S)
