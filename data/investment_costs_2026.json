@@ -1,0 +1,55 @@
+{
+  "schema": "iaemloop-investment-cost-ledger-v1",
+  "updated_at": "2026-07-14",
+  "entries": [
+    {
+      "date": "2026-07-13",
+      "settlement_date": "2026-07-15",
+      "broker": "Ágora",
+      "portfolio": "BESST & Buffett B3",
+      "note_number": "16141118",
+      "gross_operations_brl": 413.34,
+      "settlement_total_brl": 413.46,
+      "clearing_fees_brl": 0.09,
+      "exchange_fees_brl": 0.02,
+      "asset_transfer_fee_brl": 0.01,
+      "other_costs_brl": 0.0,
+      "currency": "BRL",
+      "source": "Negociação Agora Jul.pdf"
+    },
+    {
+      "date": "2026-07-14",
+      "settlement_date": "2026-07-16",
+      "broker": "Ágora",
+      "portfolio": "BESST & Buffett B3",
+      "note_number": "60256014",
+      "gross_operations_brl": 24.78,
+      "settlement_total_brl": 24.78,
+      "clearing_fees_brl": 0.0,
+      "exchange_fees_brl": 0.0,
+      "asset_transfer_fee_brl": 0.0,
+      "other_costs_brl": 0.0,
+      "currency": "BRL",
+      "source": "execução informada por Diego: ENGI3F 2 @12,39"
+    },
+    {
+      "date": "2026-07-13",
+      "settlement_date": "2026-07-15",
+      "broker": "Rico",
+      "portfolio": "Magic Formula B3",
+      "note_number": "140032061",
+      "gross_operations_brl": 497.12,
+      "settlement_total_brl": 497.26,
+      "clearing_fees_brl": 0.11,
+      "exchange_fees_brl": 0.02,
+      "asset_transfer_fee_brl": 0.01,
+      "other_costs_brl": 0.0,
+      "currency": "BRL",
+      "source": "Negociação Rico Jul.pdf"
+    }
+  ],
+  "notes": [
+    "Ledger criado para relatório anual de custos por corretora: custos, emolumentos, liquidação, corretagem, IOF, câmbio e demais gastos de investimento.",
+    "Compras dolarizadas/Inter devem ser adicionadas após execução/câmbio efetivo informado por Diego."
+  ]
+}
