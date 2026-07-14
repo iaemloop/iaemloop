@@ -1,55 +1,620 @@
 {
-  "schema": "iaemloop-investment-cost-ledger-v1",
+  "schema": "iaemloop-investment-cost-ledger-v2",
   "updated_at": "2026-07-14",
+  "scope": "IA em Loop real investment brokerage notes and execution notices for 2026",
+  "privacy": "Public-safe aggregate/trade data only; no CPF, address, account number or private PDF text.",
   "entries": [
     {
+      "date": "2026-03-00",
+      "date_precision": "month",
+      "settlement_date": null,
+      "broker": "Ágora",
+      "portfolio": "BESST & Buffett B3",
+      "note_number": "BESST-inicial-marco-2026",
+      "source": "carteira-notes-and-proceeds-workflow-2026-05-18.md + carteira_besst_real.html",
+      "source_status": "reconstructed_from_prior_extraction",
+      "currency": "BRL",
+      "gross_operations_brl": 577.24,
+      "settlement_total_brl": null,
+      "costs": {
+        "clearing_fees_brl": null,
+        "exchange_fees_brl": null,
+        "registration_fees_brl": null,
+        "asset_transfer_fee_brl": null,
+        "brokerage_brl": null,
+        "irrf_brl": null,
+        "iss_brl": null,
+        "iof_brl": null,
+        "fx_spread_brl": null,
+        "other_costs_brl": null
+      },
+      "trades": [
+        {
+          "ticker": "TAEE11",
+          "side": "Compra",
+          "quantity": 3,
+          "average_price_brl": 43.23,
+          "gross_value_brl": 129.69
+        },
+        {
+          "ticker": "CSMG3",
+          "side": "Compra",
+          "quantity": 2,
+          "average_price_brl": 53.83,
+          "gross_value_brl": 107.66
+        },
+        {
+          "ticker": "PSSA3",
+          "side": "Compra",
+          "quantity": 2,
+          "average_price_brl": 51.65,
+          "gross_value_brl": 103.3
+        },
+        {
+          "ticker": "SAPR11",
+          "side": "Compra",
+          "quantity": 2,
+          "average_price_brl": 44.33,
+          "gross_value_brl": 88.66
+        },
+        {
+          "ticker": "BRSR6",
+          "side": "Compra",
+          "quantity": 3,
+          "average_price_brl": 18.41,
+          "gross_value_brl": 55.23
+        },
+        {
+          "ticker": "BMGB4",
+          "side": "Compra",
+          "quantity": 10,
+          "average_price_brl": 4.95,
+          "gross_value_brl": 49.5
+        },
+        {
+          "ticker": "CPLE3",
+          "side": "Compra",
+          "quantity": 3,
+          "average_price_brl": 14.4,
+          "gross_value_brl": 43.2
+        }
+      ],
+      "cost_total_brl": null,
+      "note": "Original PDF/text not available in current cache; reconstructed from prior carteira update references and current public custody arithmetic."
+    },
+    {
+      "date": "2026-03-00",
+      "date_precision": "month",
+      "settlement_date": null,
+      "broker": "XP/Rico",
+      "portfolio": "Magic Formula B3",
+      "note_number": "Magic-inicial-marco-2026",
+      "source": "carteira-notes-and-proceeds-workflow-2026-05-18.md + carteira_magic_formula_real.html",
+      "source_status": "reconstructed_from_prior_extraction",
+      "currency": "BRL",
+      "gross_operations_brl": 549.61,
+      "settlement_total_brl": null,
+      "costs": {
+        "clearing_fees_brl": null,
+        "exchange_fees_brl": null,
+        "registration_fees_brl": null,
+        "asset_transfer_fee_brl": null,
+        "brokerage_brl": null,
+        "irrf_brl": null,
+        "iss_brl": null,
+        "iof_brl": null,
+        "fx_spread_brl": null,
+        "other_costs_brl": null
+      },
+      "trades": [
+        {
+          "ticker": "CSED3",
+          "side": "Compra",
+          "quantity": 9,
+          "average_price_brl": 6.33,
+          "gross_value_brl": 56.97
+        },
+        {
+          "ticker": "CMIN3",
+          "side": "Compra",
+          "quantity": 11,
+          "average_price_brl": 5.05,
+          "gross_value_brl": 55.55
+        },
+        {
+          "ticker": "CSUD3",
+          "side": "Compra",
+          "quantity": 3,
+          "average_price_brl": 19.14,
+          "gross_value_brl": 57.42
+        },
+        {
+          "ticker": "BEEF3",
+          "side": "Compra",
+          "quantity": 10,
+          "average_price_brl": 4.94,
+          "gross_value_brl": 49.4
+        },
+        {
+          "ticker": "PETR4",
+          "side": "Compra",
+          "quantity": 2,
+          "average_price_brl": 41.78,
+          "gross_value_brl": 83.56
+        },
+        {
+          "ticker": "PLPL3",
+          "side": "Compra",
+          "quantity": 3,
+          "average_price_brl": 11.8,
+          "gross_value_brl": 35.4
+        },
+        {
+          "ticker": "QUAL3",
+          "side": "Compra",
+          "quantity": 25,
+          "average_price_brl": 1.89,
+          "gross_value_brl": 47.25
+        },
+        {
+          "ticker": "TGMA3",
+          "side": "Compra",
+          "quantity": 2,
+          "average_price_brl": 39.4,
+          "gross_value_brl": 78.8
+        },
+        {
+          "ticker": "VTRU3",
+          "side": "Compra",
+          "quantity": 3,
+          "average_price_brl": 14.18,
+          "gross_value_brl": 42.54
+        },
+        {
+          "ticker": "WIZC3",
+          "side": "Compra",
+          "quantity": 5,
+          "average_price_brl": 4.51,
+          "gross_value_brl": 22.55
+        }
+      ],
+      "cost_total_brl": null,
+      "note": "Reconstructed from May-reference total and current custody history; ticker-level March split is approximate where original March note is no longer in cache."
+    },
+    {
+      "date": "2026-05-13",
+      "date_precision": "day",
+      "settlement_date": null,
+      "broker": "Ágora",
+      "portfolio": "BESST & Buffett B3",
+      "note_number": "Agora-maio-2026",
+      "source": "carteira-notes-and-proceeds-workflow-2026-05-18.md",
+      "source_status": "reconstructed_from_prior_extraction",
+      "currency": "BRL",
+      "gross_operations_brl": 197.92,
+      "settlement_total_brl": null,
+      "costs": {
+        "clearing_fees_brl": null,
+        "exchange_fees_brl": null,
+        "registration_fees_brl": null,
+        "asset_transfer_fee_brl": null,
+        "brokerage_brl": null,
+        "irrf_brl": null,
+        "iss_brl": null,
+        "iof_brl": null,
+        "fx_spread_brl": null,
+        "other_costs_brl": null
+      },
+      "trades": [
+        {
+          "ticker": "ENGI3",
+          "side": "Compra",
+          "quantity": 5,
+          "average_price_brl": 12.35,
+          "gross_value_brl": 61.75
+        },
+        {
+          "ticker": "KLBN4",
+          "side": "Compra",
+          "quantity": 16,
+          "average_price_brl": 3.36,
+          "gross_value_brl": 53.76
+        },
+        {
+          "ticker": "SANB11",
+          "side": "Compra",
+          "quantity": 3,
+          "average_price_brl": 27.47,
+          "gross_value_brl": 82.41
+        }
+      ],
+      "cost_total_brl": null,
+      "note": "Trades exactly from prior extraction reference; note-level fees unavailable because the original PDF is not in current cache."
+    },
+    {
+      "date": "2026-05-13",
+      "date_precision": "day",
+      "settlement_date": null,
+      "broker": "Rico",
+      "portfolio": "Magic Formula B3",
+      "note_number": "Rico-maio-2026",
+      "source": "carteira-notes-and-proceeds-workflow-2026-05-18.md + price history",
+      "source_status": "reconstructed_from_prior_extraction",
+      "currency": "BRL",
+      "gross_operations_brl": 207.56,
+      "settlement_total_brl": null,
+      "costs": {
+        "clearing_fees_brl": null,
+        "exchange_fees_brl": null,
+        "registration_fees_brl": null,
+        "asset_transfer_fee_brl": null,
+        "brokerage_brl": null,
+        "irrf_brl": null,
+        "iss_brl": null,
+        "iof_brl": null,
+        "fx_spread_brl": null,
+        "other_costs_brl": null
+      },
+      "trades": [
+        {
+          "ticker": "CMIN3",
+          "side": "Compra",
+          "quantity": 9,
+          "average_price_brl": 5.05,
+          "gross_value_brl": 45.45
+        },
+        {
+          "ticker": "PSSA3",
+          "side": "Compra",
+          "quantity": 1,
+          "average_price_brl": 48.5,
+          "gross_value_brl": 48.5
+        },
+        {
+          "ticker": "WIZC3",
+          "side": "Compra",
+          "quantity": 5,
+          "average_price_brl": 8.55,
+          "gross_value_brl": 42.75
+        },
+        {
+          "ticker": "PLPL3",
+          "side": "Compra",
+          "quantity": 6,
+          "average_price_brl": 11.81,
+          "gross_value_brl": 70.86
+        }
+      ],
+      "cost_total_brl": null,
+      "note": "Quantities from prior extraction reference; prices from carteira price-history/weighted arithmetic; note-level fees unavailable."
+    },
+    {
+      "date": "2026-06-17",
+      "date_precision": "day",
+      "settlement_date": null,
+      "broker": "Ágora",
+      "portfolio": "BESST & Buffett B3",
+      "note_number": "Agora-junho-2026",
+      "source": "carteira-june-2026-brokerage-notes-update.md",
+      "source_status": "reconstructed_from_prior_extraction",
+      "currency": "BRL",
+      "gross_operations_brl": 489.35,
+      "settlement_total_brl": null,
+      "costs": {
+        "clearing_fees_brl": null,
+        "exchange_fees_brl": null,
+        "registration_fees_brl": null,
+        "asset_transfer_fee_brl": null,
+        "brokerage_brl": null,
+        "irrf_brl": null,
+        "iss_brl": null,
+        "iof_brl": null,
+        "fx_spread_brl": null,
+        "other_costs_brl": null
+      },
+      "trades": [
+        {
+          "ticker": "ENGI3",
+          "side": "Compra",
+          "quantity": 3,
+          "average_price_brl": 11.83,
+          "gross_value_brl": 35.49
+        },
+        {
+          "ticker": "KLBN4",
+          "side": "Compra",
+          "quantity": 25,
+          "average_price_brl": 3.43,
+          "gross_value_brl": 85.75
+        },
+        {
+          "ticker": "PETR4",
+          "side": "Compra",
+          "quantity": 4,
+          "average_price_brl": 38.5,
+          "gross_value_brl": 154.0
+        },
+        {
+          "ticker": "VIVT3",
+          "side": "Compra",
+          "quantity": 4,
+          "average_price_brl": 33.32,
+          "gross_value_brl": 133.28
+        },
+        {
+          "ticker": "VALE3",
+          "side": "Compra",
+          "quantity": 1,
+          "average_price_brl": 80.83,
+          "gross_value_brl": 80.83
+        }
+      ],
+      "cost_total_brl": null,
+      "note": "Trades exactly from prior extraction reference; note-level fees unavailable because original June PDF is not in current cache."
+    },
+    {
+      "date": "2026-06-17",
+      "date_precision": "day",
+      "settlement_date": null,
+      "broker": "Rico",
+      "portfolio": "Magic Formula B3",
+      "note_number": "Rico-junho-2026",
+      "source": "carteira-june-2026-brokerage-notes-update.md",
+      "source_status": "reconstructed_from_prior_extraction",
+      "currency": "BRL",
+      "gross_operations_brl": 500.26,
+      "settlement_total_brl": null,
+      "costs": {
+        "clearing_fees_brl": null,
+        "exchange_fees_brl": null,
+        "registration_fees_brl": null,
+        "asset_transfer_fee_brl": null,
+        "brokerage_brl": null,
+        "irrf_brl": null,
+        "iss_brl": null,
+        "iof_brl": null,
+        "fx_spread_brl": null,
+        "other_costs_brl": null
+      },
+      "trades": [
+        {
+          "ticker": "CSED3",
+          "side": "Compra",
+          "quantity": 25,
+          "average_price_brl": 3.56,
+          "gross_value_brl": 89.0
+        },
+        {
+          "ticker": "CSUD3",
+          "side": "Compra",
+          "quantity": 4,
+          "average_price_brl": 15.79,
+          "gross_value_brl": 63.16
+        },
+        {
+          "ticker": "CSUD3",
+          "side": "Compra",
+          "quantity": 1,
+          "average_price_brl": 15.78,
+          "gross_value_brl": 15.78
+        },
+        {
+          "ticker": "PSSA3",
+          "side": "Compra",
+          "quantity": 2,
+          "average_price_brl": 51.61,
+          "gross_value_brl": 103.22
+        },
+        {
+          "ticker": "QUAL3",
+          "side": "Compra",
+          "quantity": 60,
+          "average_price_brl": 1.56,
+          "gross_value_brl": 93.6
+        },
+        {
+          "ticker": "TGMA3",
+          "side": "Compra",
+          "quantity": 1,
+          "average_price_brl": 31.49,
+          "gross_value_brl": 31.49
+        },
+        {
+          "ticker": "VTRU3",
+          "side": "Compra",
+          "quantity": 6,
+          "average_price_brl": 13.57,
+          "gross_value_brl": 81.42
+        },
+        {
+          "ticker": "WIZC3",
+          "side": "Compra",
+          "quantity": 3,
+          "average_price_brl": 7.53,
+          "gross_value_brl": 22.59
+        }
+      ],
+      "cost_total_brl": null,
+      "note": "Trades exactly from prior extraction reference; note-level fees unavailable because original June PDF is not in current cache."
+    },
+    {
       "date": "2026-07-13",
+      "date_precision": "day",
       "settlement_date": "2026-07-15",
       "broker": "Ágora",
       "portfolio": "BESST & Buffett B3",
       "note_number": "16141118",
+      "source": "Negociação Agora Jul.pdf",
+      "source_status": "exact_pdf_extracted",
+      "currency": "BRL",
       "gross_operations_brl": 413.34,
       "settlement_total_brl": 413.46,
-      "clearing_fees_brl": 0.09,
-      "exchange_fees_brl": 0.02,
-      "asset_transfer_fee_brl": 0.01,
-      "other_costs_brl": 0.0,
-      "currency": "BRL",
-      "source": "Negociação Agora Jul.pdf"
-    },
-    {
-      "date": "2026-07-14",
-      "settlement_date": "2026-07-16",
-      "broker": "Ágora",
-      "portfolio": "BESST & Buffett B3",
-      "note_number": "60256014",
-      "gross_operations_brl": 24.78,
-      "settlement_total_brl": 24.78,
-      "clearing_fees_brl": 0.0,
-      "exchange_fees_brl": 0.0,
-      "asset_transfer_fee_brl": 0.0,
-      "other_costs_brl": 0.0,
-      "currency": "BRL",
-      "source": "execução informada por Diego: ENGI3F 2 @12,39"
+      "costs": {
+        "clearing_fees_brl": 0.09,
+        "exchange_fees_brl": 0.02,
+        "registration_fees_brl": 0.0,
+        "asset_transfer_fee_brl": 0.01,
+        "brokerage_brl": 0.0,
+        "irrf_brl": 0.0,
+        "iss_brl": 0.0,
+        "iof_brl": 0.0,
+        "fx_spread_brl": 0.0,
+        "other_costs_brl": 0.0
+      },
+      "trades": [
+        {
+          "ticker": "ENGI3",
+          "side": "Compra",
+          "quantity": 8,
+          "average_price_brl": 12.16,
+          "gross_value_brl": 97.28
+        },
+        {
+          "ticker": "EQTL3",
+          "side": "Compra",
+          "quantity": 2,
+          "average_price_brl": 40.13,
+          "gross_value_brl": 80.26
+        },
+        {
+          "ticker": "SANB11",
+          "side": "Compra",
+          "quantity": 6,
+          "average_price_brl": 27.19,
+          "gross_value_brl": 163.14
+        },
+        {
+          "ticker": "VALE3",
+          "side": "Compra",
+          "quantity": 1,
+          "average_price_brl": 72.66,
+          "gross_value_brl": 72.66
+        }
+      ],
+      "cost_total_brl": 0.12
     },
     {
       "date": "2026-07-13",
+      "date_precision": "day",
       "settlement_date": "2026-07-15",
       "broker": "Rico",
       "portfolio": "Magic Formula B3",
       "note_number": "140032061",
+      "source": "Negociação Rico Jul.pdf",
+      "source_status": "exact_pdf_extracted",
+      "currency": "BRL",
       "gross_operations_brl": 497.12,
       "settlement_total_brl": 497.26,
-      "clearing_fees_brl": 0.11,
-      "exchange_fees_brl": 0.02,
-      "asset_transfer_fee_brl": 0.01,
-      "other_costs_brl": 0.0,
+      "costs": {
+        "clearing_fees_brl": 0.11,
+        "exchange_fees_brl": 0.02,
+        "registration_fees_brl": 0.0,
+        "asset_transfer_fee_brl": 0.01,
+        "brokerage_brl": 0.0,
+        "irrf_brl": 0.0,
+        "iss_brl": 0.0,
+        "iof_brl": 0.0,
+        "fx_spread_brl": 0.0,
+        "other_costs_brl": 0.0
+      },
+      "trades": [
+        {
+          "ticker": "CMIN3",
+          "side": "Compra",
+          "quantity": 12,
+          "average_price_brl": 5.55,
+          "gross_value_brl": 66.6
+        },
+        {
+          "ticker": "POMO3",
+          "side": "Compra",
+          "quantity": 21,
+          "average_price_brl": 5.28,
+          "gross_value_brl": 110.88
+        },
+        {
+          "ticker": "LEVE3",
+          "side": "Compra",
+          "quantity": 4,
+          "average_price_brl": 32.14,
+          "gross_value_brl": 128.56
+        },
+        {
+          "ticker": "PLPL3",
+          "side": "Compra",
+          "quantity": 12,
+          "average_price_brl": 8.15,
+          "gross_value_brl": 97.8
+        },
+        {
+          "ticker": "WIZC3",
+          "side": "Compra",
+          "quantity": 11,
+          "average_price_brl": 8.48,
+          "gross_value_brl": 93.28
+        }
+      ],
+      "cost_total_brl": 0.14
+    },
+    {
+      "date": "2026-07-14",
+      "date_precision": "day",
+      "settlement_date": "2026-07-16",
+      "broker": "Ágora",
+      "portfolio": "BESST & Buffett B3",
+      "note_number": "60256014-provisional",
+      "source": "execução informada por Diego: ENGI3F 2 @12,39; substituir pela nota oficial quando recebida",
+      "source_status": "provisional_execution_notice",
       "currency": "BRL",
-      "source": "Negociação Rico Jul.pdf"
+      "gross_operations_brl": 24.78,
+      "settlement_total_brl": 24.78,
+      "costs": {
+        "clearing_fees_brl": 0.0,
+        "exchange_fees_brl": 0.0,
+        "registration_fees_brl": 0.0,
+        "asset_transfer_fee_brl": 0.0,
+        "brokerage_brl": 0.0,
+        "irrf_brl": 0.0,
+        "iss_brl": 0.0,
+        "iof_brl": 0.0,
+        "fx_spread_brl": 0.0,
+        "other_costs_brl": 0.0
+      },
+      "trades": [
+        {
+          "ticker": "ENGI3",
+          "side": "Compra",
+          "quantity": 2,
+          "average_price_brl": 12.39,
+          "gross_value_brl": 24.78
+        }
+      ],
+      "cost_total_brl": 0.0
     }
   ],
+  "summary_by_broker": {
+    "Ágora": {
+      "gross_operations_brl": 1702.63,
+      "known_cost_total_brl": 0.12,
+      "entries": 5,
+      "entries_with_unknown_costs": 3
+    },
+    "XP/Rico": {
+      "gross_operations_brl": 549.61,
+      "known_cost_total_brl": 0.0,
+      "entries": 1,
+      "entries_with_unknown_costs": 1
+    },
+    "Rico": {
+      "gross_operations_brl": 1204.94,
+      "known_cost_total_brl": 0.14,
+      "entries": 3,
+      "entries_with_unknown_costs": 2
+    }
+  },
   "notes": [
-    "Ledger criado para relatório anual de custos por corretora: custos, emolumentos, liquidação, corretagem, IOF, câmbio e demais gastos de investimento.",
-    "Compras dolarizadas/Inter devem ser adicionadas após execução/câmbio efetivo informado por Diego."
+    "Entries marked reconstructed_from_prior_extraction came from previous note-extraction references and current public carteira arithmetic because the original PDFs are not present in the current Hermes cache.",
+    "The 2026-07-14 ENGI3F entry is provisional and must be replaced by the official brokerage note when Diego sends it.",
+    "Dollarized/Inter brokerage, IOF, FX and spread should be appended after the official execution/FX documents are available."
   ]
 }
