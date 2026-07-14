@@ -37,6 +37,12 @@
     td.ticker { color: #6EE4EF; font-weight: 800; letter-spacing: 0; }
     .table-wrap { overflow-x: auto; border-radius: 10px; }
     .note { color: #94a3b8; font-size: 0.9rem; line-height: 1.7; }
+
+    .manual-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+    .manual-card { background: rgba(6,8,13,0.55); border: 1px solid rgba(110,228,239,0.22); border-radius: 10px; padding: 16px; }
+    .manual-card strong { color: #6EE4EF; font-size: 1.05rem; }
+    .manual-card span { color: #E4D17F; font-weight: 800; }
+    .manual-card p { color: #94a3b8; line-height: 1.55; margin-top: 8px; font-size: 0.92rem; }
     footer { color: #64748b; text-align: center; margin-top: 30px; font-size: 0.9rem; }
   </style>
 </head>
@@ -55,6 +61,15 @@
     </header>
     <section class="panel note">
       Empresas de qualidade que merecem acompanhamento permanente, mesmo quando nao entram no top 20 mensal por valuation.
+    </section>
+    <section class="panel">
+      <h2 style="color:#E4D17F;margin-bottom:14px">Observações temáticas adicionadas em 2026-07-14</h2>
+      <div class="manual-grid">
+        <div class="manual-card"><strong>TSLA</strong> <span>Tesla / Elon Musk</span><p>Principal empresa pública atualmente sob liderança de Elon Musk. Acompanhar autonomia, robótica/Optimus, energia, margens e risco de valuation. SpaceX, X/xAI, Neuralink e Boring ficam no radar, mas não entram como compra direta por não serem negociáveis em bolsa.</p></div>
+        <div class="manual-card"><strong>NVDA</strong> <span>NVIDIA</span><p>Tese de IA/aceleradores/data centers. Diego quer manter atenção por possível valorização adicional; monitorar demanda por GPUs, margens, múltiplos e risco de concentração.</p></div>
+        <div class="manual-card"><strong>TTWO</strong> <span>Take-Two / GTA 6</span><p>Tese de evento/catalisador: possível valorização conforme se aproximarem GTA 6 e GTA 6 Online. Monitorar datas oficiais, risco de atraso, guidance, reservas/bookings e monetização online.</p></div>
+      </div>
+      <p class="note" style="margin-top:14px">Esses nomes são watchlist/monitoramento, não recomendação automática. Eles podem ficar fora do Top 20 quantitativo mensal e ainda assim merecer acompanhamento qualitativo.</p>
     </section>
     <section class="panel table-wrap"><table>
       <thead><tr><th>#</th><th>Ticker</th><th>Empresa</th><th>Setor</th><th>P/L</th><th>EV/EBITDA</th><th>ROE</th><th>Dividend Yield</th></tr></thead>
@@ -89,7 +104,7 @@
 <tr><td class='rank'>29</td><td class='ticker'>WM</td><td>Waste Management, Inc.</td><td>Industrials</td><td>-</td><td>-</td><td>29.9%</td><td>1.5%</td></tr>
 <tr><td class='rank'>30</td><td class='ticker'>APD</td><td>Air Products and Chemicals, Inc</td><td>Basic Materials</td><td>-</td><td>-</td><td>12.3%</td><td>2.4%</td></tr></tbody>
     </table></section>
-    <footer>Atualizado em 2026-07-11. Conteudo educativo, nao e recomendacao de investimento.</footer>
+    <footer>Atualizado em 2026-07-14. Conteudo educativo, nao e recomendacao de investimento.</footer>
   </div>
 </body>
 </html>
