@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 import csv
+import html as html_lib
 import json
 import math
 import re
@@ -110,31 +111,45 @@ with open(path, 'w', encoding='utf-8', newline='') as fp:
     w=csv.DictWriter(fp, fieldnames=fieldnames, lineterminator='\n')
     w.writeheader(); w.writerows(rows)
 
-# Update public HTML with a manual thematic panel.
+# Update public HTML: do NOT publish the internal thematic notes as cards.
+# Public page should only include these tickers as final watchlist rows.
 html_path = ROOT / 'watchlist_buffett_permanente_eua.html'
 html = html_path.read_text(encoding='utf-8')
-style_add = """
-    .manual-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
-    .manual-card { background: rgba(6,8,13,0.55); border: 1px solid rgba(110,228,239,0.22); border-radius: 10px; padding: 16px; }
-    .manual-card strong { color: #6EE4EF; font-size: 1.05rem; }
-    .manual-card span { color: #E4D17F; font-weight: 800; }
-    .manual-card p { color: #94a3b8; line-height: 1.55; margin-top: 8px; font-size: 0.92rem; }
-"""
-if '.manual-grid' not in html:
-    html = html.replace('    .note { color: #94a3b8; font-size: 0.9rem; line-height: 1.7; }\n', '    .note { color: #94a3b8; font-size: 0.9rem; line-height: 1.7; }\n' + style_add)
-manual_section = f'''    <section class="panel">
-      <h2 style="color:#E4D17F;margin-bottom:14px">Observações temáticas adicionadas em {TODAY}</h2>
-      <div class="manual-grid">
-        <div class="manual-card"><strong>TSLA</strong> <span>Tesla / Elon Musk</span><p>Empresa pública sob liderança de Elon Musk. Acompanhar autonomia, robótica/Optimus, energia, margens e risco de valuation. Para exposição espacial direta, acompanhar também SPCX; X/xAI, Neuralink e Boring ficam no radar qualitativo.</p></div>
-        <div class="manual-card"><strong>SPCX</strong> <span>Space Exploration Technologies</span><p>Exposição direta negociável em bolsa ligada à tese espacial/SpaceX. Monitorar valuation, contratos governamentais e comerciais, ritmo de lançamentos, capex, margens e risco de expectativa alta já precificada.</p></div>
-        <div class="manual-card"><strong>NVDA</strong> <span>NVIDIA</span><p>Tese de IA/aceleradores/data centers. Diego quer manter atenção por possível valorização adicional; monitorar demanda por GPUs, margens, múltiplos e risco de concentração.</p></div>
-        <div class="manual-card"><strong>TTWO</strong> <span>Take-Two / GTA 6</span><p>Tese de evento/catalisador: possível valorização conforme se aproximarem GTA 6 e GTA 6 Online. Monitorar datas oficiais, risco de atraso, guidance, reservas/bookings e monetização online.</p></div>
-      </div>
-      <p class="note" style="margin-top:14px">Esses nomes são watchlist/monitoramento, não recomendação automática. Eles podem ficar fora do Top 20 quantitativo mensal e ainda assim merecer acompanhamento qualitativo.</p>
-    </section>
-'''
+
+# Remove legacy card styles/section if they were previously published.
+html = re.sub(r'\n    \.manual-grid \{.*?\.manual-card p \{[^\n]*\}\n', '\n', html, flags=re.S)
 html = re.sub(r'    <section class="panel">\n      <h2 style="color:#E4D17F;margin-bottom:14px">Observações temáticas adicionadas em .*?</section>\n', '', html, flags=re.S)
-html = html.replace('    <section class="panel table-wrap"><table>\n', manual_section + '    <section class="panel table-wrap"><table>\n')
+
+def pct_fmt(v):
+    n = safe_num(v)
+    return '' if n == '' else f'{n:.1f}%'.replace('.', ',')
+
+def row_html(rank, item):
+    f = fund_assets.get(item['ticker'], {})
+    pe = safe_num(f.get('pe'))
+    ev = safe_num(f.get('ev_ebitda'))
+    return (
+        f"<tr><td class='rank'>{rank}</td><td class='ticker'>{html_lib.escape(item['ticker'])}</td>"
+        f"<td>{html_lib.escape(item['empresa'])}</td><td>{html_lib.escape(item['setor'])}</td>"
+        f"<td>{'-' if pe == '' else str(pe).replace('.', ',')}</td>"
+        f"<td>{'-' if ev == '' else str(ev).replace('.', ',')}</td>"
+        f"<td>{pct_fmt(f.get('roe'))}</td><td>{pct_fmt(f.get('dividend_yield'))}</td></tr>"
+    )
+
+tbody_match = re.search(r'<tbody>(.*?)</tbody>', html, flags=re.S)
+if tbody_match:
+    tbody = tbody_match.group(1)
+    manual_tickers = {item['ticker'] for item in MANUAL_SIMPLE}
+    # Drop old manual rows before appending them at the end in fixed order.
+    for ticker in manual_tickers:
+        tbody = re.sub(rf"\n?<tr><td class='rank'>\d+</td><td class='ticker'>{re.escape(ticker)}</td>.*?</tr>", '', tbody, flags=re.S)
+    ranks = [int(x) for x in re.findall(r"<td class='rank'>(\d+)</td>", tbody)]
+    next_rank = (max(ranks) if ranks else 0) + 1
+    manual_rows = []
+    for i, item in enumerate(MANUAL_SIMPLE):
+        manual_rows.append(row_html(next_rank + i, item))
+    tbody = tbody.rstrip() + '\n' + '\n'.join(manual_rows)
+    html = html[:tbody_match.start(1)] + tbody + html[tbody_match.end(1):]
 html = html.replace('Atualizado em 2026-07-11.', f'Atualizado em {TODAY}.')
 html_path.write_text(html, encoding='utf-8')
 print('updated watchlist manual additions')
