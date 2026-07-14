@@ -157,18 +157,12 @@ magic = [
 render_page(ROOT/'carteira_besst_real.html', 'Carteira BESST', 'Método Barsi + Buffett', besst, '💎')
 render_page(ROOT/'carteira_magic_formula_real.html', 'Carteira Magic Formula', 'Método Joel Greenblatt', magic, '🎯')
 
-costs = {
-  "schema":"iaemloop-investment-cost-ledger-v1",
-  "updated_at":TODAY_ISO,
-  "entries":[
-    {"date":"2026-07-13","settlement_date":"2026-07-15","broker":"Ágora","portfolio":"BESST & Buffett B3","note_number":"16141118","gross_operations_brl":413.34,"settlement_total_brl":413.46,"clearing_fees_brl":0.09,"exchange_fees_brl":0.02,"asset_transfer_fee_brl":0.01,"other_costs_brl":0.0,"currency":"BRL","source":"Negociação Agora Jul.pdf"},
-    {"date":"2026-07-14","settlement_date":"2026-07-16","broker":"Ágora","portfolio":"BESST & Buffett B3","note_number":"60256014","gross_operations_brl":24.78,"settlement_total_brl":24.78,"clearing_fees_brl":0.0,"exchange_fees_brl":0.0,"asset_transfer_fee_brl":0.0,"other_costs_brl":0.0,"currency":"BRL","source":"execução informada por Diego: ENGI3F 2 @12,39"},
-    {"date":"2026-07-13","settlement_date":"2026-07-15","broker":"Rico","portfolio":"Magic Formula B3","note_number":"140032061","gross_operations_brl":497.12,"settlement_total_brl":497.26,"clearing_fees_brl":0.11,"exchange_fees_brl":0.02,"asset_transfer_fee_brl":0.01,"other_costs_brl":0.0,"currency":"BRL","source":"Negociação Rico Jul.pdf"}
-  ],
-  "notes":["Ledger criado para relatório anual de custos por corretora: custos, emolumentos, liquidação, corretagem, IOF, câmbio e demais gastos de investimento.","Compras dolarizadas/Inter devem ser adicionadas após execução/câmbio efetivo informado por Diego."]
-}
-(ROOT/'data').mkdir(exist_ok=True)
-(ROOT/'data/investment_costs_2026.json').write_text(json.dumps(costs,ensure_ascii=False,indent=2)+"\n",encoding='utf-8')
-print('updated pages and data/investment_costs_2026.json')
+ledger_script = ROOT / 'scripts' / 'update_investment_cost_ledger_from_known_notes.py'
+if ledger_script.exists():
+    import subprocess
+    subprocess.run(['python3', str(ledger_script)], check=True)
+    print('updated pages and refreshed data/investment_costs_2026.json via ledger v2')
+else:
+    print('updated pages; cost ledger script not found, leaving existing data/investment_costs_2026.json unchanged')
 print('besst_total',sum(p['valor'] for p in besst),'positions',len(besst))
 print('magic_total',sum(p['valor'] for p in magic),'positions',len(magic))
