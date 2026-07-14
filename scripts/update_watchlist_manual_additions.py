@@ -15,7 +15,14 @@ MANUAL_SIMPLE = [
         'empresa': 'Tesla, Inc.',
         'setor': 'Consumer Cyclical',
         'industria': 'Auto Manufacturers',
-        'observacoes': 'Observação temática: principal empresa pública sob liderança de Elon Musk; acompanhar execução em veículos elétricos, autonomia, robótica/Optimus e energia. SpaceX, X/xAI, Neuralink e Boring não são negociáveis diretamente em bolsa nesta watchlist.'
+        'observacoes': 'Observação temática: empresa pública sob liderança de Elon Musk; acompanhar execução em veículos elétricos, autonomia, robótica/Optimus e energia. Para exposição espacial direta, acompanhar também SPCX. X/xAI, Neuralink e Boring permanecem no radar qualitativo por não serem negociáveis diretamente em bolsa.'
+    },
+    {
+        'ticker': 'SPCX',
+        'empresa': 'Space Exploration Technologies Corp.',
+        'setor': 'Industrials',
+        'industria': 'Aerospace & Defense',
+        'observacoes': 'Observação temática: exposição direta negociável em bolsa ligada à tese espacial/SpaceX. Monitorar valuation, ritmo de crescimento, contratos governamentais/comerciais, lançamentos, margem, capex e risco de alta expectativa já precificada.'
     },
     {
         'ticker': 'NVDA',
@@ -118,7 +125,8 @@ if '.manual-grid' not in html:
 manual_section = f'''    <section class="panel">
       <h2 style="color:#E4D17F;margin-bottom:14px">Observações temáticas adicionadas em {TODAY}</h2>
       <div class="manual-grid">
-        <div class="manual-card"><strong>TSLA</strong> <span>Tesla / Elon Musk</span><p>Principal empresa pública atualmente sob liderança de Elon Musk. Acompanhar autonomia, robótica/Optimus, energia, margens e risco de valuation. SpaceX, X/xAI, Neuralink e Boring ficam no radar, mas não entram como compra direta por não serem negociáveis em bolsa.</p></div>
+        <div class="manual-card"><strong>TSLA</strong> <span>Tesla / Elon Musk</span><p>Empresa pública sob liderança de Elon Musk. Acompanhar autonomia, robótica/Optimus, energia, margens e risco de valuation. Para exposição espacial direta, acompanhar também SPCX; X/xAI, Neuralink e Boring ficam no radar qualitativo.</p></div>
+        <div class="manual-card"><strong>SPCX</strong> <span>Space Exploration Technologies</span><p>Exposição direta negociável em bolsa ligada à tese espacial/SpaceX. Monitorar valuation, contratos governamentais e comerciais, ritmo de lançamentos, capex, margens e risco de expectativa alta já precificada.</p></div>
         <div class="manual-card"><strong>NVDA</strong> <span>NVIDIA</span><p>Tese de IA/aceleradores/data centers. Diego quer manter atenção por possível valorização adicional; monitorar demanda por GPUs, margens, múltiplos e risco de concentração.</p></div>
         <div class="manual-card"><strong>TTWO</strong> <span>Take-Two / GTA 6</span><p>Tese de evento/catalisador: possível valorização conforme se aproximarem GTA 6 e GTA 6 Online. Monitorar datas oficiais, risco de atraso, guidance, reservas/bookings e monetização online.</p></div>
       </div>
