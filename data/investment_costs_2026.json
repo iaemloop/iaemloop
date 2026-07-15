@@ -1,6 +1,6 @@
 {
   "schema": "iaemloop-investment-cost-ledger-v2",
-  "updated_at": "2026-07-14",
+  "updated_at": "2026-07-15",
   "scope": "IA em Loop real investment brokerage notes and execution notices for 2026",
   "privacy": "Public-safe aggregate/trade data only; no CPF, address, account number or private PDF text.",
   "entries": [
@@ -562,9 +562,9 @@
       "settlement_date": "2026-07-16",
       "broker": "Ágora",
       "portfolio": "BESST & Buffett B3",
-      "note_number": "60256014-provisional",
-      "source": "execução informada por Diego: ENGI3F 2 @12,39; substituir pela nota oficial quando recebida",
-      "source_status": "provisional_execution_notice",
+      "note_number": "16146244",
+      "source": "Negociação Ágora Julho restante - nota oficial 2026-07-14",
+      "source_status": "exact_pdf_extracted",
       "currency": "BRL",
       "gross_operations_brl": 24.78,
       "settlement_total_brl": 24.78,
@@ -598,15 +598,13 @@
       "broker": "Inter",
       "portfolio": "Dolarizadas / Stocks EUA",
       "note_number": "Inter-cambio-2026-07-14",
-      "source": "screenshot Inter: R$ 1.000,00 -> US$ 192,21; cotação comercial R$ 5,07; VET R$ 5,20; spread 1,50%; IOF 1,10%; taxa grátis",
-      "source_status": "fx_conversion_screenshot",
+      "source": "Comprovante de câmbio Inter 2026-07-14",
+      "source_status": "exact_pdf_extracted",
       "currency": "BRL/USD",
-      "gross_operations_brl": 1000.0,
+      "gross_operations_brl": 989.12,
       "settlement_total_brl": 1000.0,
       "usd_received": 192.21,
-      "commercial_rate_brl_per_usd": 5.07,
-      "vet_brl_per_usd": 5.2,
-      "spread_percent": 1.5,
+      "vet_brl_per_usd": 5.20264294,
       "iof_percent": 1.1,
       "costs": {
         "clearing_fees_brl": 0.0,
@@ -616,18 +614,98 @@
         "brokerage_brl": 0.0,
         "irrf_brl": 0.0,
         "iss_brl": 0.0,
-        "iof_brl": 11.0,
-        "fx_spread_brl": 14.62,
+        "iof_brl": 10.88,
+        "fx_spread_brl": null,
         "other_costs_brl": 0.0
       },
       "trades": [],
-      "cost_total_brl": 25.62,
-      "note": "Câmbio real do Inter para aporte dolarizado. Compra de stocks será conciliada quando Diego enviar a nota de corretagem."
+      "cost_total_brl": 10.88,
+      "note": "Câmbio oficial Inter para aporte dolarizado; compras de stocks conciliadas no extrato Inter Global de 15/07/2026.",
+      "fx_rate_brl_per_usd": 5.145948,
+      "tariff_brl": 0.0
+    },
+    {
+      "date": "2026-07-14",
+      "date_precision": "day",
+      "settlement_date": "2026-07-14",
+      "broker": "Inter",
+      "portfolio": "BESST & Buffett Dolarizado",
+      "note_number": "Inter-Global-2026-07-15-extrato-movimentacoes",
+      "source": "Extrato Inter Plataforma Global solicitado em 15/07/2026",
+      "source_status": "exact_pdf_extracted",
+      "currency": "USD",
+      "gross_operations_usd": 97.46,
+      "settlement_total_usd": 97.46,
+      "estimated_brl_by_vet": 507.05,
+      "trades": [
+        {
+          "ticker": "ZTS",
+          "side": "Compra",
+          "quantity": null,
+          "quantity_status": "not_available_in_movement_extract",
+          "gross_value_usd": 48.73
+        },
+        {
+          "ticker": "AAPL",
+          "side": "Compra",
+          "quantity": null,
+          "quantity_status": "not_available_in_movement_extract",
+          "gross_value_usd": 29.24
+        },
+        {
+          "ticker": "MA",
+          "side": "Compra",
+          "quantity": null,
+          "quantity_status": "not_available_in_movement_extract",
+          "gross_value_usd": 19.49
+        }
+      ],
+      "cost_total_usd": 0.0,
+      "note": "Extrato de movimentações informa valores por compra, mas não quantidades fracionárias; quantidade deve ser conciliada com extrato de posição detalhado."
+    },
+    {
+      "date": "2026-07-14",
+      "date_precision": "day",
+      "settlement_date": "2026-07-14",
+      "broker": "Inter",
+      "portfolio": "Magic Formula Dolarizada",
+      "note_number": "Inter-Global-2026-07-15-extrato-movimentacoes",
+      "source": "Extrato Inter Plataforma Global solicitado em 15/07/2026",
+      "source_status": "exact_pdf_extracted",
+      "currency": "USD",
+      "gross_operations_usd": 94.75,
+      "settlement_total_usd": 94.75,
+      "estimated_brl_by_vet": 492.95,
+      "trades": [
+        {
+          "ticker": "ADBE",
+          "side": "Compra",
+          "quantity": null,
+          "quantity_status": "not_available_in_movement_extract",
+          "gross_value_usd": 38.99
+        },
+        {
+          "ticker": "PGR",
+          "side": "Compra",
+          "quantity": null,
+          "quantity_status": "not_available_in_movement_extract",
+          "gross_value_usd": 29.24
+        },
+        {
+          "ticker": "BMY",
+          "side": "Compra",
+          "quantity": null,
+          "quantity_status": "not_available_in_movement_extract",
+          "gross_value_usd": 26.52
+        }
+      ],
+      "cost_total_usd": 0.0,
+      "note": "Extrato de movimentações informa valores por compra, mas não quantidades fracionárias; quantidade deve ser conciliada com extrato de posição detalhado."
     }
   ],
   "summary_by_broker": {
     "Ágora": {
-      "gross_operations_brl": 1702.63,
+      "gross_operations_brl": 1702.75,
       "known_cost_total_brl": 0.12,
       "entries": 5,
       "entries_with_unknown_costs": 3
@@ -639,21 +717,22 @@
       "entries_with_unknown_costs": 1
     },
     "Rico": {
-      "gross_operations_brl": 1204.94,
+      "gross_operations_brl": 1205.08,
       "known_cost_total_brl": 0.14,
       "entries": 3,
       "entries_with_unknown_costs": 2
     },
     "Inter": {
-      "gross_operations_brl": 1000.0,
-      "known_cost_total_brl": 25.62,
-      "entries": 1,
+      "gross_operations_brl": 2000.0,
+      "known_cost_total_brl": 10.88,
+      "entries": 3,
       "entries_with_unknown_costs": 0
     }
   },
   "notes": [
     "Entries marked reconstructed_from_prior_extraction came from previous note-extraction references and current public carteira arithmetic because the original PDFs are not present in the current Hermes cache.",
-    "The 2026-07-14 ENGI3F entry is provisional and must be replaced by the official brokerage note when Diego sends it.",
-    "The 2026-07-14 Inter FX conversion is registered from Diego screenshot; stock purchases/brokerage note must be appended after the official execution document is available."
+    "The 2026-07-14 ENGI3F complementary trade was replaced by the official Ágora brokerage note 16146244.",
+    "The 2026-07-14 Inter FX conversion was replaced by the official Inter exchange receipt 11515638.",
+    "The 2026-07-14 Inter Global stock purchases were registered from the movement extract sent on 2026-07-15; fractional quantities remain pending because this extract shows USD amounts only."
   ]
 }
