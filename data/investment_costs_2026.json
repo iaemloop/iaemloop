@@ -632,7 +632,7 @@
       "portfolio": "BESST & Buffett Dolarizado",
       "note_number": "Inter-Global-2026-07-15-extrato-movimentacoes",
       "source": "Extrato Inter Plataforma Global solicitado em 15/07/2026",
-      "source_status": "exact_pdf_extracted",
+      "source_status": "official_inter_drivewealth_confirmation",
       "currency": "USD",
       "gross_operations_usd": 97.46,
       "settlement_total_usd": 97.46,
@@ -643,31 +643,42 @@
           "side": "Compra",
           "quantity": 0.65507173,
           "gross_value_usd": 48.73,
-          "average_price_usd": 74.39,
+          "average_price_usd": 74.3888,
           "fee_usd": 0.0,
-          "source_status": "exact_from_inter_order_screenshot"
+          "source_status": "official_inter_drivewealth_confirmation",
+          "execution_time_et": "9:48:38 AM",
+          "settle_date": "2026-07-15",
+          "capacity": "Principal"
         },
         {
           "ticker": "AAPL",
           "side": "Compra",
           "quantity": 0.09321934,
           "gross_value_usd": 29.24,
-          "average_price_usd": 313.67,
+          "average_price_usd": 313.6688,
           "fee_usd": 0.0,
-          "source_status": "exact_from_inter_order_screenshot"
+          "source_status": "official_inter_drivewealth_confirmation",
+          "execution_time_et": "9:49:23 AM",
+          "settle_date": "2026-07-15",
+          "capacity": "Principal"
         },
         {
           "ticker": "MA",
           "side": "Compra",
           "quantity": 0.03599867,
           "gross_value_usd": 19.49,
-          "average_price_usd": 541.41,
+          "average_price_usd": 541.4088,
           "fee_usd": 0.0,
-          "source_status": "exact_from_inter_order_screenshot"
+          "source_status": "official_inter_drivewealth_confirmation",
+          "execution_time_et": "9:50:02 AM",
+          "settle_date": "2026-07-15",
+          "capacity": "Principal"
         }
       ],
       "cost_total_usd": 0.0,
-      "note": "Inter Global stock purchases reconciled with order screenshots for all six positions: ZTS, AAPL, MA, ADBE, PGR and BMY."
+      "note": "Inter/DriveWealth official confirmation reconciled for all six 2026-07-14 U.S. stock purchases; account identifiers redacted from public controls.",
+      "settle_date": "2026-07-15",
+      "capacity": "Principal"
     },
     {
       "date": "2026-07-14",
@@ -677,7 +688,7 @@
       "portfolio": "Magic Formula Dolarizada",
       "note_number": "Inter-Global-2026-07-15-extrato-movimentacoes",
       "source": "Extrato Inter Plataforma Global solicitado em 15/07/2026",
-      "source_status": "exact_pdf_extracted",
+      "source_status": "official_inter_drivewealth_confirmation",
       "currency": "USD",
       "gross_operations_usd": 94.75,
       "settlement_total_usd": 94.75,
@@ -688,31 +699,42 @@
           "side": "Compra",
           "quantity": 0.1766341,
           "gross_value_usd": 38.99,
-          "average_price_usd": 220.74,
+          "average_price_usd": 220.7388,
           "fee_usd": 0.0,
-          "source_status": "exact_from_inter_order_screenshot"
+          "source_status": "official_inter_drivewealth_confirmation",
+          "execution_time_et": "9:51:09 AM",
+          "settle_date": "2026-07-15",
+          "capacity": "Principal"
         },
         {
           "ticker": "PGR",
           "side": "Compra",
           "quantity": 0.12758597,
           "gross_value_usd": 29.24,
-          "average_price_usd": 229.18,
+          "average_price_usd": 229.1788,
           "fee_usd": 0.0,
-          "source_status": "exact_from_inter_order_screenshot"
+          "source_status": "official_inter_drivewealth_confirmation",
+          "execution_time_et": "9:51:47 AM",
+          "settle_date": "2026-07-15",
+          "capacity": "Principal"
         },
         {
           "ticker": "BMY",
           "side": "Compra",
           "quantity": 0.45373044,
           "gross_value_usd": 26.52,
-          "average_price_usd": 58.45,
+          "average_price_usd": 58.4488,
           "fee_usd": 0.0,
-          "source_status": "exact_from_inter_order_screenshot"
+          "source_status": "official_inter_drivewealth_confirmation",
+          "execution_time_et": "9:54:45 AM",
+          "settle_date": "2026-07-15",
+          "capacity": "Principal"
         }
       ],
       "cost_total_usd": 0.0,
-      "note": "Inter Global stock purchases reconciled with order screenshots for all six positions: ZTS, AAPL, MA, ADBE, PGR and BMY."
+      "note": "Inter/DriveWealth official confirmation reconciled for all six 2026-07-14 U.S. stock purchases; account identifiers redacted from public controls.",
+      "settle_date": "2026-07-15",
+      "capacity": "Principal"
     }
   ],
   "summary_by_broker": {
@@ -746,6 +768,6 @@
     "The 2026-07-14 ENGI3F complementary trade was replaced by the official Ágora brokerage note 16146244.",
     "The 2026-07-14 Inter FX conversion was replaced by the official Inter exchange receipt 11515638.",
     "The 2026-07-14 Inter Global stock purchases were registered from the movement extract sent on 2026-07-15; fractional quantities remain pending because this extract shows USD amounts only.",
-    "The 2026-07-14 Inter Global stock purchases now include exact fractional quantities and average prices from Inter order screenshots for all six positions: ZTS, AAPL, MA, ADBE, PGR and BMY."
+    "Official Inter/DriveWealth confirmation dated 2026-07-14 reconciles all six U.S. stock purchases: ZTS, AAPL, MA, ADBE, PGR and BMY; commissions, transaction fees and other fees/credits are $0.00; settlement date 2026-07-15."
   ]
 }
