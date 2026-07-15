@@ -30,10 +30,11 @@
           "sector": "Saúde animal / Healthcare",
           "usd": 48.73,
           "quantity": 0.65507173,
-          "avg_price_usd": 74.39,
+          "avg_price_usd": 74.3888,
           "rank": "#1 BESST & Buffett EUA",
           "reason": "empresa perene, alta rentabilidade e liderança em saúde animal",
-          "quantity_status": "exact_from_inter_order_screenshot"
+          "quantity_status": "official_confirmation",
+          "execution_time_et": "9:48:38 AM"
         },
         {
           "ticker": "AAPL",
@@ -41,10 +42,11 @@
           "sector": "Tecnologia / Ecossistema",
           "usd": 29.24,
           "quantity": 0.09321934,
-          "avg_price_usd": 313.67,
+          "avg_price_usd": 313.6688,
           "rank": "#3 BESST & Buffett EUA",
           "reason": "perenidade, marca/ecossistema e qualidade composta",
-          "quantity_status": "exact_from_inter_order_screenshot"
+          "quantity_status": "official_confirmation",
+          "execution_time_et": "9:49:23 AM"
         },
         {
           "ticker": "MA",
@@ -52,13 +54,15 @@
           "sector": "Pagamentos",
           "usd": 19.49,
           "quantity": 0.03599867,
-          "avg_price_usd": 541.41,
+          "avg_price_usd": 541.4088,
           "rank": "#5 BESST & Buffett EUA",
           "reason": "moat de rede, pagamentos globais e capital leve",
-          "quantity_status": "exact_from_inter_order_screenshot"
+          "quantity_status": "official_confirmation",
+          "execution_time_et": "9:50:02 AM"
         }
       ],
-      "quantity_status": "exact_from_order_screenshots"
+      "quantity_status": "exact_from_order_screenshots",
+      "source_status": "official_inter_drivewealth_confirmation_2026_07_14"
     },
     {
       "id": "magic-formula-stocks",
@@ -75,10 +79,11 @@
           "sector": "Software",
           "usd": 38.99,
           "quantity": 0.1766341,
-          "avg_price_usd": 220.74,
+          "avg_price_usd": 220.7388,
           "rank": "#2 Magic Formula EUA",
           "reason": "qualidade operacional elevada com preço relativo atrativo no ranking",
-          "quantity_status": "exact_from_inter_order_screenshot"
+          "quantity_status": "official_confirmation",
+          "execution_time_et": "9:51:09 AM"
         },
         {
           "ticker": "PGR",
@@ -86,10 +91,11 @@
           "sector": "Seguros",
           "usd": 29.24,
           "quantity": 0.12758597,
-          "avg_price_usd": 229.18,
+          "avg_price_usd": 229.1788,
           "rank": "#3 Magic Formula EUA",
           "reason": "seguradora de alta rentabilidade; exige acompanhamento setorial próprio",
-          "quantity_status": "exact_from_inter_order_screenshot"
+          "quantity_status": "official_confirmation",
+          "execution_time_et": "9:51:47 AM"
         },
         {
           "ticker": "BMY",
@@ -97,13 +103,15 @@
           "sector": "Saúde / Pharma",
           "usd": 26.52,
           "quantity": 0.45373044,
-          "avg_price_usd": 58.45,
+          "avg_price_usd": 58.4488,
           "rank": "#4 Magic Formula EUA",
           "reason": "pharma defensiva e valuation mais baixo; compra ajustada ao saldo real",
-          "quantity_status": "exact_from_inter_order_screenshot"
+          "quantity_status": "official_confirmation",
+          "execution_time_et": "9:54:45 AM"
         }
       ],
-      "quantity_status": "partial_exact_from_order_screenshots; ZTS pending if not present"
+      "quantity_status": "partial_exact_from_order_screenshots; ZTS pending if not present",
+      "source_status": "official_inter_drivewealth_confirmation_2026_07_14"
     }
   ]
 }
