@@ -29,27 +29,36 @@
           "company": "Zoetis Inc.",
           "sector": "Saúde animal / Healthcare",
           "usd": 48.73,
+          "quantity": null,
+          "avg_price_usd": null,
           "rank": "#1 BESST & Buffett EUA",
-          "reason": "empresa perene, alta rentabilidade e liderança em saúde animal"
+          "reason": "empresa perene, alta rentabilidade e liderança em saúde animal",
+          "quantity_status": "pending_screenshot_or_position_statement"
         },
         {
           "ticker": "AAPL",
           "company": "Apple Inc.",
           "sector": "Tecnologia / Ecossistema",
           "usd": 29.24,
+          "quantity": 0.09321934,
+          "avg_price_usd": 313.67,
           "rank": "#3 BESST & Buffett EUA",
-          "reason": "perenidade, marca/ecossistema e qualidade composta"
+          "reason": "perenidade, marca/ecossistema e qualidade composta",
+          "quantity_status": "exact_from_inter_order_screenshot"
         },
         {
           "ticker": "MA",
           "company": "Mastercard Incorporated",
           "sector": "Pagamentos",
           "usd": 19.49,
+          "quantity": 0.03599867,
+          "avg_price_usd": 541.41,
           "rank": "#5 BESST & Buffett EUA",
-          "reason": "moat de rede, pagamentos globais e capital leve"
+          "reason": "moat de rede, pagamentos globais e capital leve",
+          "quantity_status": "exact_from_inter_order_screenshot"
         }
       ],
-      "quantity_status": "pending_position_statement; Inter movement extract provided USD amounts only"
+      "quantity_status": "partial_exact_from_order_screenshots; ZTS pending if not present"
     },
     {
       "id": "magic-formula-stocks",
@@ -65,27 +74,36 @@
           "company": "Adobe Inc.",
           "sector": "Software",
           "usd": 38.99,
+          "quantity": 0.1766341,
+          "avg_price_usd": 220.74,
           "rank": "#2 Magic Formula EUA",
-          "reason": "qualidade operacional elevada com preço relativo atrativo no ranking"
+          "reason": "qualidade operacional elevada com preço relativo atrativo no ranking",
+          "quantity_status": "exact_from_inter_order_screenshot"
         },
         {
           "ticker": "PGR",
           "company": "Progressive Corporation",
           "sector": "Seguros",
           "usd": 29.24,
+          "quantity": 0.12758597,
+          "avg_price_usd": 229.18,
           "rank": "#3 Magic Formula EUA",
-          "reason": "seguradora de alta rentabilidade; exige acompanhamento setorial próprio"
+          "reason": "seguradora de alta rentabilidade; exige acompanhamento setorial próprio",
+          "quantity_status": "exact_from_inter_order_screenshot"
         },
         {
           "ticker": "BMY",
           "company": "Bristol-Myers Squibb Company",
           "sector": "Saúde / Pharma",
           "usd": 26.52,
+          "quantity": 0.45373044,
+          "avg_price_usd": 58.45,
           "rank": "#4 Magic Formula EUA",
-          "reason": "pharma defensiva e valuation mais baixo; compra ajustada ao saldo real"
+          "reason": "pharma defensiva e valuation mais baixo; compra ajustada ao saldo real",
+          "quantity_status": "exact_from_inter_order_screenshot"
         }
       ],
-      "quantity_status": "pending_position_statement; Inter movement extract provided USD amounts only"
+      "quantity_status": "partial_exact_from_order_screenshots; ZTS pending if not present"
     }
   ]
 }

@@ -642,26 +642,30 @@
           "ticker": "ZTS",
           "side": "Compra",
           "quantity": null,
-          "quantity_status": "not_available_in_movement_extract",
+          "quantity_status": "pending_inter_order_screenshot_or_position_statement",
           "gross_value_usd": 48.73
         },
         {
           "ticker": "AAPL",
           "side": "Compra",
-          "quantity": null,
-          "quantity_status": "not_available_in_movement_extract",
-          "gross_value_usd": 29.24
+          "quantity": 0.09321934,
+          "gross_value_usd": 29.24,
+          "average_price_usd": 313.67,
+          "fee_usd": 0.0,
+          "source_status": "exact_from_inter_order_screenshot"
         },
         {
           "ticker": "MA",
           "side": "Compra",
-          "quantity": null,
-          "quantity_status": "not_available_in_movement_extract",
-          "gross_value_usd": 19.49
+          "quantity": 0.03599867,
+          "gross_value_usd": 19.49,
+          "average_price_usd": 541.41,
+          "fee_usd": 0.0,
+          "source_status": "exact_from_inter_order_screenshot"
         }
       ],
       "cost_total_usd": 0.0,
-      "note": "Extrato de movimentações informa valores por compra, mas não quantidades fracionárias; quantidade deve ser conciliada com extrato de posição detalhado."
+      "note": "Inter Global stock purchases reconciled with order screenshots where provided; ZTS quantity remains pending because current screenshots did not show that order."
     },
     {
       "date": "2026-07-14",
@@ -680,27 +684,33 @@
         {
           "ticker": "ADBE",
           "side": "Compra",
-          "quantity": null,
-          "quantity_status": "not_available_in_movement_extract",
-          "gross_value_usd": 38.99
+          "quantity": 0.1766341,
+          "gross_value_usd": 38.99,
+          "average_price_usd": 220.74,
+          "fee_usd": 0.0,
+          "source_status": "exact_from_inter_order_screenshot"
         },
         {
           "ticker": "PGR",
           "side": "Compra",
-          "quantity": null,
-          "quantity_status": "not_available_in_movement_extract",
-          "gross_value_usd": 29.24
+          "quantity": 0.12758597,
+          "gross_value_usd": 29.24,
+          "average_price_usd": 229.18,
+          "fee_usd": 0.0,
+          "source_status": "exact_from_inter_order_screenshot"
         },
         {
           "ticker": "BMY",
           "side": "Compra",
-          "quantity": null,
-          "quantity_status": "not_available_in_movement_extract",
-          "gross_value_usd": 26.52
+          "quantity": 0.45373044,
+          "gross_value_usd": 26.52,
+          "average_price_usd": 58.45,
+          "fee_usd": 0.0,
+          "source_status": "exact_from_inter_order_screenshot"
         }
       ],
       "cost_total_usd": 0.0,
-      "note": "Extrato de movimentações informa valores por compra, mas não quantidades fracionárias; quantidade deve ser conciliada com extrato de posição detalhado."
+      "note": "Inter Global stock purchases reconciled with order screenshots where provided; ZTS quantity remains pending because current screenshots did not show that order."
     }
   ],
   "summary_by_broker": {
@@ -733,6 +743,7 @@
     "Entries marked reconstructed_from_prior_extraction came from previous note-extraction references and current public carteira arithmetic because the original PDFs are not present in the current Hermes cache.",
     "The 2026-07-14 ENGI3F complementary trade was replaced by the official Ágora brokerage note 16146244.",
     "The 2026-07-14 Inter FX conversion was replaced by the official Inter exchange receipt 11515638.",
-    "The 2026-07-14 Inter Global stock purchases were registered from the movement extract sent on 2026-07-15; fractional quantities remain pending because this extract shows USD amounts only."
+    "The 2026-07-14 Inter Global stock purchases were registered from the movement extract sent on 2026-07-15; fractional quantities remain pending because this extract shows USD amounts only.",
+    "The 2026-07-14 Inter Global stock purchases now include exact fractional quantities and average prices from Inter order screenshots for ADBE, MA, AAPL, BMY and PGR; ZTS remains pending until its order/position screenshot is provided."
   ]
 }
