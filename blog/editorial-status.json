@@ -1,13 +1,13 @@
 {
   "knownGaps": [
-    "Confirmar se eficiencia e lucro recorrente da Copel sustentam o premio de valuation.",
-    "Acompanhar dividendos sem sacrificar investimentos e retorno regulatorio.",
-    "Comparar ROIC, P/VP e juros reais antes de tratar CPLE3 como defensiva barata."
+    "Confirmar se a agenda de privatizacao da Copasa avancara com regras claras e prazo crivel.",
+    "Acompanhar se eficiencia operacional, retorno sobre capital e capex sustentam o P/VP mais alto.",
+    "Comparar a evolucao dos proventos com a necessidade de investimento em saneamento."
   ],
-  "lastPost": "blog/posts/2026-07-13-analise-cple3-energia-regulada-dividendos-ia.html",
-  "nextSuggestedPost": "Acompanhar BMGB4 ou BEEF3 como proximos nomes das carteiras reais ainda pouco explorados, evitando repetir CPLE3/BRSR6/PLPL3/QUAL3 no curto prazo.",
+  "lastPost": "blog/posts/2026-07-15-analise-csmg3-saneamento-privatizacao-ia.html",
+  "nextSuggestedPost": "Acompanhar SAPR11, TAEE11 ou BMGB4 como proximos nomes das carteiras reais ainda pouco explorados, evitando repetir CSMG3/CPLE3/BRSR6/PLPL3 no curto prazo.",
   "owner": "IA em Loop",
-  "reading": "CPLE3 foi escolhida por combinar Top 10 BESST, presenca na carteira real BESST e dados publicos verificaveis. Na consulta Fundamentus de 13/07/2026, aparecia a R$ 15,53, com P/L de 17,06, P/VP de 1,94, ROE de 11,4% e ROIC de 8,9%. Na carteira real, sao 3 unidades a R$ 14,40 de preco medio, cerca de +7,8% contra a cotacao consultada. A tese melhora se eficiencia, lucro recorrente e dividendos sustentaveis justificarem o premio; piora se regulacao, juros ou investimentos reduzirem retorno e caixa.",
+  "reading": "CSMG3 foi escolhida por combinar presenca na carteira real BESST, setor perene de saneamento, dados publicos verificaveis e sinal recente de mercado ligado a privatizacao. Na consulta Fundamentus de 15/07/2026, aparecia a R$ 66,10, com P/L de 18,55, P/VP de 2,87, ROE de 15,5% e ROIC de 11,6%. Na carteira real BESST, sao 2 unidades a R$ 53,83 de preco medio, cerca de +22,8% contra a cotacao consultada. A tese melhora se privatizacao, eficiencia e retorno sobre capital caminharem juntos; piora se o preco continuar subindo antes da entrega operacional.",
   "requiredDailyOutputs": [
     "estudo-educacional-de-ativo",
     "leitura-macro-de-carteira",
@@ -17,7 +17,7 @@
     "Nao publicar recomendacao personalizada de investimento.",
     "Nao inventar fonte, preco, noticia ou fala de terceiros.",
     "Manter texto publico sem detalhes operacionais.",
-    "Nao publicar rascunho vazio; todo post deve tese, evidencias, riscos e leitura pratica.",
+    "Nao publicar rascunho vazio; todo post deve ter tese, evidencias, riscos e leitura pratica.",
     "Evitar repeticao automatica de ticker ja analisado recentemente.",
     "Sinais sociais e de mercado sao gatilhos editoriais, nao pauta pronta: antes de publicar, apurar fatos atuais, noticias, precos/contexto de mercado e contrapontos.",
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
@@ -25,9 +25,9 @@
   "sourcesUsed": [
     "Historico BESST do IA em Loop",
     "Carteira real BESST publicada no IA em Loop",
-    "Fundamentus consultado em 13/07/2026 para indicadores de CPLE3",
-    "Google Noticias RSS sobre CPLE3, Copel, resultados, lucro, dividendos e energia"
+    "Fundamentus consultado em 15/07/2026 para indicadores de CSMG3",
+    "Google Noticias RSS sobre CSMG3, Copasa, privatizacao, resultados, dividendos e saneamento"
   ],
-  "tickerOfTheDay": "CPLE3",
-  "updatedAt": "2026-07-13"
+  "tickerOfTheDay": "CSMG3",
+  "updatedAt": "2026-07-15"
 }
