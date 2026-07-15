@@ -29,11 +29,11 @@
           "company": "Zoetis Inc.",
           "sector": "Saúde animal / Healthcare",
           "usd": 48.73,
-          "quantity": null,
-          "avg_price_usd": null,
+          "quantity": 0.65507173,
+          "avg_price_usd": 74.39,
           "rank": "#1 BESST & Buffett EUA",
           "reason": "empresa perene, alta rentabilidade e liderança em saúde animal",
-          "quantity_status": "pending_screenshot_or_position_statement"
+          "quantity_status": "exact_from_inter_order_screenshot"
         },
         {
           "ticker": "AAPL",
@@ -58,7 +58,7 @@
           "quantity_status": "exact_from_inter_order_screenshot"
         }
       ],
-      "quantity_status": "partial_exact_from_order_screenshots; ZTS pending if not present"
+      "quantity_status": "exact_from_order_screenshots"
     },
     {
       "id": "magic-formula-stocks",

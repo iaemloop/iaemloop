@@ -641,9 +641,11 @@
         {
           "ticker": "ZTS",
           "side": "Compra",
-          "quantity": null,
-          "quantity_status": "pending_inter_order_screenshot_or_position_statement",
-          "gross_value_usd": 48.73
+          "quantity": 0.65507173,
+          "gross_value_usd": 48.73,
+          "average_price_usd": 74.39,
+          "fee_usd": 0.0,
+          "source_status": "exact_from_inter_order_screenshot"
         },
         {
           "ticker": "AAPL",
@@ -665,7 +667,7 @@
         }
       ],
       "cost_total_usd": 0.0,
-      "note": "Inter Global stock purchases reconciled with order screenshots where provided; ZTS quantity remains pending because current screenshots did not show that order."
+      "note": "Inter Global stock purchases reconciled with order screenshots for all six positions: ZTS, AAPL, MA, ADBE, PGR and BMY."
     },
     {
       "date": "2026-07-14",
@@ -710,7 +712,7 @@
         }
       ],
       "cost_total_usd": 0.0,
-      "note": "Inter Global stock purchases reconciled with order screenshots where provided; ZTS quantity remains pending because current screenshots did not show that order."
+      "note": "Inter Global stock purchases reconciled with order screenshots for all six positions: ZTS, AAPL, MA, ADBE, PGR and BMY."
     }
   ],
   "summary_by_broker": {
@@ -744,6 +746,6 @@
     "The 2026-07-14 ENGI3F complementary trade was replaced by the official Ágora brokerage note 16146244.",
     "The 2026-07-14 Inter FX conversion was replaced by the official Inter exchange receipt 11515638.",
     "The 2026-07-14 Inter Global stock purchases were registered from the movement extract sent on 2026-07-15; fractional quantities remain pending because this extract shows USD amounts only.",
-    "The 2026-07-14 Inter Global stock purchases now include exact fractional quantities and average prices from Inter order screenshots for ADBE, MA, AAPL, BMY and PGR; ZTS remains pending until its order/position screenshot is provided."
+    "The 2026-07-14 Inter Global stock purchases now include exact fractional quantities and average prices from Inter order screenshots for all six positions: ZTS, AAPL, MA, ADBE, PGR and BMY."
   ]
 }
