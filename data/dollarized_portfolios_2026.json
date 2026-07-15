@@ -1,0 +1,91 @@
+{
+  "schema": "iaemloop-dollarized-real-portfolios-v1",
+  "updated_at": "2026-07-15",
+  "privacy": "Public-safe portfolio data only; private document identifiers and account data are not included.",
+  "custodian": "Inter Global",
+  "fx": {
+    "date": "2026-07-14",
+    "broker": "Inter",
+    "brl_total": 1000.0,
+    "brl_fx_base": 989.12,
+    "usd_received": 192.21,
+    "fx_rate_brl_per_usd": 5.145948,
+    "vet_brl_per_usd": 5.20264294,
+    "iof_brl": 10.88,
+    "tariff_brl": 0.0
+  },
+  "portfolios": [
+    {
+      "id": "besst-buffett-stocks",
+      "name": "BESST & Buffett Dolarizado",
+      "method": "Qualidade, perenidade, moat e valuation",
+      "page": "carteira_besst_buffett_dolarizada_real.html",
+      "ranking_page": "ranking_besst_buffett_dolarizado.html",
+      "total_usd": 97.46,
+      "estimated_brl_by_vet": 507.05,
+      "positions": [
+        {
+          "ticker": "ZTS",
+          "company": "Zoetis Inc.",
+          "sector": "Saúde animal / Healthcare",
+          "usd": 48.73,
+          "rank": "#1 BESST & Buffett EUA",
+          "reason": "empresa perene, alta rentabilidade e liderança em saúde animal"
+        },
+        {
+          "ticker": "AAPL",
+          "company": "Apple Inc.",
+          "sector": "Tecnologia / Ecossistema",
+          "usd": 29.24,
+          "rank": "#3 BESST & Buffett EUA",
+          "reason": "perenidade, marca/ecossistema e qualidade composta"
+        },
+        {
+          "ticker": "MA",
+          "company": "Mastercard Incorporated",
+          "sector": "Pagamentos",
+          "usd": 19.49,
+          "rank": "#5 BESST & Buffett EUA",
+          "reason": "moat de rede, pagamentos globais e capital leve"
+        }
+      ],
+      "quantity_status": "pending_position_statement; Inter movement extract provided USD amounts only"
+    },
+    {
+      "id": "magic-formula-stocks",
+      "name": "Magic Formula Dolarizada",
+      "method": "Retorno sobre capital + preço relativo",
+      "page": "carteira_magic_formula_dolarizada_real.html",
+      "ranking_page": "ranking_magic_formula_dolarizada.html",
+      "total_usd": 94.75,
+      "estimated_brl_by_vet": 492.95,
+      "positions": [
+        {
+          "ticker": "ADBE",
+          "company": "Adobe Inc.",
+          "sector": "Software",
+          "usd": 38.99,
+          "rank": "#2 Magic Formula EUA",
+          "reason": "qualidade operacional elevada com preço relativo atrativo no ranking"
+        },
+        {
+          "ticker": "PGR",
+          "company": "Progressive Corporation",
+          "sector": "Seguros",
+          "usd": 29.24,
+          "rank": "#3 Magic Formula EUA",
+          "reason": "seguradora de alta rentabilidade; exige acompanhamento setorial próprio"
+        },
+        {
+          "ticker": "BMY",
+          "company": "Bristol-Myers Squibb Company",
+          "sector": "Saúde / Pharma",
+          "usd": 26.52,
+          "rank": "#4 Magic Formula EUA",
+          "reason": "pharma defensiva e valuation mais baixo; compra ajustada ao saldo real"
+        }
+      ],
+      "quantity_status": "pending_position_statement; Inter movement extract provided USD amounts only"
+    }
+  ]
+}
