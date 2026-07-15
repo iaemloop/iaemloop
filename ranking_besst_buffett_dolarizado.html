@@ -38,6 +38,13 @@
     .table-wrap { overflow-x: auto; border-radius: 10px; }
     .note { color: #94a3b8; font-size: 0.9rem; line-height: 1.7; }
     footer { color: #64748b; text-align: center; margin-top: 30px; font-size: 0.9rem; }
+
+    .meta-info { background: rgba(19,29,39,.78); border: 1px solid rgba(228,209,127,.2); border-left: 4px solid #E4D17F; border-radius: 12px; padding: 16px 18px; margin: 0 0 22px; display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
+    .meta-info span { color: #cbd5e1; }
+    .meta-info a { color: #E4D17F; text-decoration: underline; font-weight: 800; }
+    .real-portfolio-callout { background: linear-gradient(135deg, rgba(25,54,77,.65), rgba(19,29,39,.92)); border-left: 4px solid #6EE4EF; }
+    .real-portfolio-callout strong { color: #fff; }
+    .real-portfolio-callout a { color: #E4D17F; font-weight: 900; }
   </style>
 </head>
 <body>
@@ -50,12 +57,20 @@
         <a href="ranking_besst_buffett_dolarizado.html">BESST & Buffett EUA</a>
         <a href="ranking_magic_formula_dolarizada.html">Magic Formula EUA</a>
         <a href="historico_rankings_dolarizados.html">Historico dolarizado</a>
-        <a href="carteira_besst_buffett_dolarizada_real.html">Carteira real</a>
         <a href="watchlist_buffett_permanente_eua.html">Watchlist EUA</a>
       </div>
     </header>
+    <div class="meta-info">
+      <span>📅 <strong>Atualização:</strong> 15/07/2026</span>
+      <span>💰 <strong>Carteira Real:</strong> <a href="carteira_besst_buffett_dolarizada_real.html">Acompanhe a carteira</a></span>
+      <span>📈 <strong>Histórico:</strong> <a href="historico_rankings_dolarizados.html">Ver rankings anteriores</a></span>
+      <span>🔁 <strong>Frequência:</strong> Mensal</span>
+    </div>
     <section class="panel note">
       Ranking dolarizado baseado no composite BESST & Buffett para stocks/ADRs dos EUA. Linhas sem ticker foram descartadas da publicacao.
+    </section>
+    <section class="panel note real-portfolio-callout">
+      <strong>Carteira real vinculada a este ranking:</strong> ZTS • AAPL • MA · total inicial US$ 97,46 no Inter Global. A página da carteira fica dentro deste fluxo de ranking, como nas carteiras em R$, e não como uma frente separada da home. <a href="carteira_besst_buffett_dolarizada_real.html">Abrir carteira real</a>.
     </section>
     <section class="panel table-wrap"><table>
       <thead><tr><th>#</th><th>Ticker</th><th>Empresa</th><th>Setor</th><th>P/L</th><th>EV/EBITDA</th><th>ROE</th><th>Dividend Yield</th><th>Score</th></tr></thead>
@@ -80,7 +95,7 @@
 <tr><td class='rank'>19</td><td class='ticker'>BMY</td><td>Bristol-Myers Squibb Company</td><td>Healthcare</td><td>16.1</td><td>8.1</td><td>38.7%</td><td>4.4%</td><td>50.0</td></tr>
 <tr><td class='rank'>20</td><td class='ticker'>UNP</td><td>Union Pacific Corporation</td><td>Industrials</td><td>23.6</td><td>16.0</td><td>40.7%</td><td>1.9%</td><td>49.2</td></tr></tbody>
     </table></section>
-    <footer>Atualizado em 2026-07-11. Conteudo educativo, nao e recomendacao de investimento.</footer>
+    <footer>Atualizado em 2026-07-15. Conteudo educativo, nao e recomendacao de investimento.</footer>
   </div>
 </body>
 </html>
