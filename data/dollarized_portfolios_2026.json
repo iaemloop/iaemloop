@@ -1,6 +1,6 @@
 {
-  "schema": "iaemloop-dollarized-real-portfolios-v1",
-  "updated_at": "2026-07-15",
+  "schema": "iaemloop-dollarized-real-portfolios-v2",
+  "updated_at": "2026-07-16",
   "privacy": "Public-safe portfolio data only; private document identifiers and account data are not included.",
   "custodian": "Inter Global",
   "fx": {
@@ -61,7 +61,7 @@
           "execution_time_et": "9:50:02 AM"
         }
       ],
-      "quantity_status": "exact_from_order_screenshots",
+      "quantity_status": "official_confirmation",
       "source_status": "official_inter_drivewealth_confirmation_2026_07_14"
     },
     {
@@ -110,8 +110,86 @@
           "execution_time_et": "9:54:45 AM"
         }
       ],
-      "quantity_status": "partial_exact_from_order_screenshots; ZTS pending if not present",
+      "quantity_status": "partial_official_confirmation; ZTS pending if not present",
       "source_status": "official_inter_drivewealth_confirmation_2026_07_14"
     }
-  ]
+  ],
+  "monthly_history": {
+    "description": "Public-safe monthly purchase history for dollarized real portfolios; starts at first real dollarized contribution cycle in July 2026.",
+    "unit": "USD executed value from official brokerage/custodian confirmation; BRL conversion only when official FX/VET is registered.",
+    "cycles": [
+      {
+        "month": "2026-07",
+        "settlement_date": "2026-07-15",
+        "portfolio": "besst_buffett_dolarizada",
+        "portfolio_id": "besst-buffett-stocks",
+        "broker": "Inter Global / DriveWealth",
+        "fx_vet_brl_usd": 5.20264294,
+        "source": "official_inter_drivewealth_confirmation_2026_07_14_public_safe",
+        "status": "liquidado_conforme_confirmacao_oficial",
+        "positions": [
+          {
+            "ticker": "ZTS",
+            "company": "Zoetis Inc.",
+            "quantity": 0.65507173,
+            "avg_price_usd": 74.3888,
+            "executed_value_usd": 48.73,
+            "source": "official_inter_drivewealth_confirmation_2026_07_14_public_safe"
+          },
+          {
+            "ticker": "AAPL",
+            "company": "Apple Inc.",
+            "quantity": 0.09321934,
+            "avg_price_usd": 313.6688,
+            "executed_value_usd": 29.24,
+            "source": "official_inter_drivewealth_confirmation_2026_07_14_public_safe"
+          },
+          {
+            "ticker": "MA",
+            "company": "Mastercard Incorporated",
+            "quantity": 0.03599867,
+            "avg_price_usd": 541.4088,
+            "executed_value_usd": 19.49,
+            "source": "official_inter_drivewealth_confirmation_2026_07_14_public_safe"
+          }
+        ]
+      },
+      {
+        "month": "2026-07",
+        "settlement_date": "2026-07-15",
+        "portfolio": "magic_formula_dolarizada",
+        "portfolio_id": "magic-formula-stocks",
+        "broker": "Inter Global / DriveWealth",
+        "fx_vet_brl_usd": 5.20264294,
+        "source": "official_inter_drivewealth_confirmation_2026_07_14_public_safe",
+        "status": "liquidado_conforme_confirmacao_oficial",
+        "positions": [
+          {
+            "ticker": "ADBE",
+            "company": "Adobe Inc.",
+            "quantity": 0.1766341,
+            "avg_price_usd": 220.7388,
+            "executed_value_usd": 38.99,
+            "source": "official_inter_drivewealth_confirmation_2026_07_14_public_safe"
+          },
+          {
+            "ticker": "PGR",
+            "company": "Progressive Corporation",
+            "quantity": 0.12758597,
+            "avg_price_usd": 229.1788,
+            "executed_value_usd": 29.24,
+            "source": "official_inter_drivewealth_confirmation_2026_07_14_public_safe"
+          },
+          {
+            "ticker": "BMY",
+            "company": "Bristol-Myers Squibb Company",
+            "quantity": 0.45373044,
+            "avg_price_usd": 58.4488,
+            "executed_value_usd": 26.52,
+            "source": "official_inter_drivewealth_confirmation_2026_07_14_public_safe"
+          }
+        ]
+      }
+    ]
+  }
 }
