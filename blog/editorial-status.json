@@ -1,13 +1,13 @@
 {
   "knownGaps": [
-    "Confirmar se a agenda de privatizacao da Copasa avancara com regras claras e prazo crivel.",
-    "Acompanhar se eficiencia operacional, retorno sobre capital e capex sustentam o P/VP mais alto.",
-    "Comparar a evolucao dos proventos com a necessidade de investimento em saneamento."
+    "Confirmar se a decisao de nao distribuir proventos no primeiro semestre foi pontual ou sinal de politica de caixa mais conservadora.",
+    "Acompanhar se o lucro recorrente de SAPR11 volta a crescer apos a queda do 1T26.",
+    "Monitorar se regulacao, tarifa e capex preservam retorno sobre capital em saneamento."
   ],
-  "lastPost": "blog/posts/2026-07-15-analise-csmg3-saneamento-privatizacao-ia.html",
-  "nextSuggestedPost": "Acompanhar SAPR11, TAEE11 ou BMGB4 como proximos nomes das carteiras reais ainda pouco explorados, evitando repetir CSMG3/CPLE3/BRSR6/PLPL3 no curto prazo.",
+  "lastPost": "blog/posts/2026-07-17-analise-sapr11-sanepar-regulacao-dividendos-ia.html",
+  "nextSuggestedPost": "Acompanhar TAEE11 ou BMGB4 como proximos nomes das carteiras reais ainda pouco explorados, evitando repetir SAPR11, CSMG3, CPLE3 e BRSR6 no curto prazo.",
   "owner": "IA em Loop",
-  "reading": "CSMG3 foi escolhida por combinar presenca na carteira real BESST, setor perene de saneamento, dados publicos verificaveis e sinal recente de mercado ligado a privatizacao. Na consulta Fundamentus de 15/07/2026, aparecia a R$ 66,10, com P/L de 18,55, P/VP de 2,87, ROE de 15,5% e ROIC de 11,6%. Na carteira real BESST, sao 2 unidades a R$ 53,83 de preco medio, cerca de +22,8% contra a cotacao consultada. A tese melhora se privatizacao, eficiencia e retorno sobre capital caminharem juntos; piora se o preco continuar subindo antes da entrega operacional.",
+  "reading": "SAPR11 foi escolhida por combinar presenca na carteira real BESST, setor perene de saneamento, dados publicos verificaveis e sinais recentes de mercado ligados a queda de lucro e pausa nos proventos. Na consulta Fundamentus de 17/07/2026, aparecia a R$ 37,23, com P/L de 9,19, P/VP de 0,89, ROE de 9,6% e ROIC de 11,8%. Na carteira real BESST, sao 2 cotas a R$ 44,33 de preco medio, com a cotacao consultada cerca de 16,0% abaixo do custo. A tese melhora se lucro recorrente, regulacao e proventos voltarem a caminhar juntos; piora se o desconto refletir deterioracao recorrente.",
   "requiredDailyOutputs": [
     "estudo-educacional-de-ativo",
     "leitura-macro-de-carteira",
@@ -25,9 +25,9 @@
   "sourcesUsed": [
     "Historico BESST do IA em Loop",
     "Carteira real BESST publicada no IA em Loop",
-    "Fundamentus consultado em 15/07/2026 para indicadores de CSMG3",
-    "Google Noticias RSS sobre CSMG3, Copasa, privatizacao, resultados, dividendos e saneamento"
+    "Fundamentus consultado em 17/07/2026 para indicadores de SAPR11",
+    "Google Noticias RSS sobre SAPR11, Sanepar, resultados, dividendos, regulacao e saneamento"
   ],
-  "tickerOfTheDay": "CSMG3",
-  "updatedAt": "2026-07-15"
+  "tickerOfTheDay": "SAPR11",
+  "updatedAt": "2026-07-17"
 }
