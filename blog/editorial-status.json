@@ -1,13 +1,13 @@
 {
   "knownGaps": [
-    "Confirmar se a decisao de nao distribuir proventos no primeiro semestre foi pontual ou sinal de politica de caixa mais conservadora.",
-    "Acompanhar se o lucro recorrente de SAPR11 volta a crescer apos a queda do 1T26.",
-    "Monitorar se regulacao, tarifa e capex preservam retorno sobre capital em saneamento."
+    "Confirmar se o lucro recorrente do Banco BMG segue crescendo sem deterioracao relevante de credito.",
+    "Acompanhar inadimplencia, margem financeira e custo de captacao nos proximos resultados.",
+    "Monitorar se os proventos continuam compativeis com capital regulatorio e rentabilidade sustentavel."
   ],
-  "lastPost": "blog/posts/2026-07-17-analise-sapr11-sanepar-regulacao-dividendos-ia.html",
-  "nextSuggestedPost": "Acompanhar TAEE11 ou BMGB4 como proximos nomes das carteiras reais ainda pouco explorados, evitando repetir SAPR11, CSMG3, CPLE3 e BRSR6 no curto prazo.",
+  "lastPost": "blog/posts/2026-07-20-analise-bmgb4-banco-barato-dividendos-ia.html",
+  "nextSuggestedPost": "Acompanhar TAEE11 como proximo nome da carteira real BESST ainda pouco explorado, evitando repetir BMGB4, SAPR11, CSMG3, CPLE3 e BRSR6 no curto prazo.",
   "owner": "IA em Loop",
-  "reading": "SAPR11 foi escolhida por combinar presenca na carteira real BESST, setor perene de saneamento, dados publicos verificaveis e sinais recentes de mercado ligados a queda de lucro e pausa nos proventos. Na consulta Fundamentus de 17/07/2026, aparecia a R$ 37,23, com P/L de 9,19, P/VP de 0,89, ROE de 9,6% e ROIC de 11,8%. Na carteira real BESST, sao 2 cotas a R$ 44,33 de preco medio, com a cotacao consultada cerca de 16,0% abaixo do custo. A tese melhora se lucro recorrente, regulacao e proventos voltarem a caminhar juntos; piora se o desconto refletir deterioracao recorrente.",
+  "reading": "BMGB4 foi escolhida por combinar Top 2 no BESST, presenca pequena na carteira real, P/VP abaixo de 1, P/L baixo, rendimento em dividendos relevante e dados publicos verificaveis. Na consulta Fundamentus de 17/07/2026, aparecia a R$ 5,13, com P/L de 5,61, P/VP de 0,78, ROE de 14,0% e rendimento em dividendos de 9,6%. Na carteira real BESST, sao 10 acoes a R$ 4,95 de preco medio, com a cotacao consultada cerca de 3,6% acima do custo. A tese melhora se lucro recorrente, credito controlado e proventos sustentaveis avancarem juntos; piora se inadimplencia, margem ou capital pressionarem o resultado.",
   "requiredDailyOutputs": [
     "estudo-educacional-de-ativo",
     "leitura-macro-de-carteira",
@@ -25,9 +25,9 @@
   "sourcesUsed": [
     "Historico BESST do IA em Loop",
     "Carteira real BESST publicada no IA em Loop",
-    "Fundamentus consultado em 17/07/2026 para indicadores de SAPR11",
-    "Google Noticias RSS sobre SAPR11, Sanepar, resultados, dividendos, regulacao e saneamento"
+    "Fundamentus consultado em 17/07/2026 para indicadores de BMGB4",
+    "Google Noticias RSS sobre BMGB4, Banco BMG, lucro, retorno, juros sobre capital proprio e setor bancario"
   ],
-  "tickerOfTheDay": "SAPR11",
-  "updatedAt": "2026-07-17"
+  "tickerOfTheDay": "BMGB4",
+  "updatedAt": "2026-07-20"
 }
