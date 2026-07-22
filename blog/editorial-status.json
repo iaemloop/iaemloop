@@ -1,33 +1,34 @@
 {
-  "knownGaps": [
-    "Confirmar se o lucro recorrente do Banco BMG segue crescendo sem deterioracao relevante de credito.",
-    "Acompanhar inadimplencia, margem financeira e custo de captacao nos proximos resultados.",
-    "Monitorar se os proventos continuam compativeis com capital regulatorio e rentabilidade sustentavel."
-  ],
-  "lastPost": "blog/posts/2026-07-20-analise-bmgb4-banco-barato-dividendos-ia.html",
-  "nextSuggestedPost": "Acompanhar TAEE11 como proximo nome da carteira real BESST ainda pouco explorado, evitando repetir BMGB4, SAPR11, CSMG3, CPLE3 e BRSR6 no curto prazo.",
+  "knownGaps": [],
+  "lastPost": "blog/posts/2026-07-22-analise-adbe-adobe-ia-fosso.html",
+  "nextSuggestedPost": "Ação Brasil: como a última publicação foi Stock EUA (ADBE/Adobe), a próxima pauta deve voltar para ação brasileira/B3, evitando repetir tickers recentes do blog.",
   "owner": "IA em Loop",
-  "reading": "BMGB4 foi escolhida por combinar Top 2 no BESST, presenca pequena na carteira real, P/VP abaixo de 1, P/L baixo, rendimento em dividendos relevante e dados publicos verificaveis. Na consulta Fundamentus de 17/07/2026, aparecia a R$ 5,13, com P/L de 5,61, P/VP de 0,78, ROE de 14,0% e rendimento em dividendos de 9,6%. Na carteira real BESST, sao 10 acoes a R$ 4,95 de preco medio, com a cotacao consultada cerca de 3,6% acima do custo. A tese melhora se lucro recorrente, credito controlado e proventos sustentaveis avancarem juntos; piora se inadimplencia, margem ou capital pressionarem o resultado.",
+  "reading": "Publicação de 22/07/2026 concluiu a alternância para Stock EUA com ADBE/Adobe. O post usa ranking Magic Formula EUA 2026-08, dados de mercado Yahoo Finance consultados em 22/07/2026 e fatos SEC do 10-Q arquivado em 15/06/2026. A próxima publicação deve retornar para Ação Brasil.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-ativo",
-    "leitura-macro-de-carteira",
+    "estudo-educacional-de-acao-brasileira",
+    "leitura-de-ranking-carteira-brl",
     "registro-editorial-publico"
   ],
   "rules": [
     "Nao publicar recomendacao personalizada de investimento.",
     "Nao inventar fonte, preco, noticia ou fala de terceiros.",
     "Manter texto publico sem detalhes operacionais.",
-    "Nao publicar rascunho vazio; todo post deve ter tese, evidencias, riscos e leitura pratica.",
+    "Nao publicar post vazio; todo post deve ter tese, evidencias, riscos e leitura pratica.",
     "Evitar repeticao automatica de ticker ja analisado recentemente.",
+    "Alternar pauta do blog entre acao brasileira e stock EUA: se o ultimo post foi acao brasileira, a proxima publicacao deve priorizar stock EUA; se o ultimo post foi stock EUA, voltar para acao brasileira.",
     "Sinais sociais e de mercado sao gatilhos editoriais, nao pauta pronta: antes de publicar, apurar fatos atuais, noticias, precos/contexto de mercado e contrapontos.",
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
   ],
   "sourcesUsed": [
-    "Historico BESST do IA em Loop",
-    "Carteira real BESST publicada no IA em Loop",
-    "Fundamentus consultado em 17/07/2026 para indicadores de BMGB4",
-    "Google Noticias RSS sobre BMGB4, Banco BMG, lucro, retorno, juros sobre capital proprio e setor bancario"
+    "Historico do blog IA em Loop",
+    "outputs/magic_formula_eua_top20_2026-08.csv",
+    "outputs/stocks_eua_fundamentos_2026-08.csv",
+    "Yahoo Finance chart API consultada em 2026-07-22",
+    "SEC data.sec.gov CIK0000796343 companyfacts e submissions",
+    "Google News RSS consultado em 2026-07-22"
   ],
-  "tickerOfTheDay": "BMGB4",
-  "updatedAt": "2026-07-20"
+  "tickerOfTheDay": "ADBE",
+  "assetTypeOfTheDay": "stock_eua",
+  "draftStatus": "publicado",
+  "updatedAt": "2026-07-22"
 }
