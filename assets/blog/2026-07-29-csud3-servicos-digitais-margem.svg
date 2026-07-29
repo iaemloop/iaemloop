@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">CSUD3, ranking Magic Formula e teste de margem</title>
+  <desc id="desc">Resumo visual da análise IA em Loop sobre CSU Digital: valuation baixo, retorno operacional, posição real e riscos de execução.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06080d"/><stop offset="0.55" stop-color="#132032"/><stop offset="1" stop-color="#19364d"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6ee4ef"/><stop offset="1" stop-color="#e4d17f"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000" flood-opacity="0.35"/></filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1030" cy="105" r="220" fill="#6ee4ef" opacity="0.08"/>
+  <circle cx="120" cy="565" r="260" fill="#e4d17f" opacity="0.08"/>
+  <g filter="url(#shadow)">
+    <rect x="70" y="70" width="1060" height="490" rx="34" fill="#101923" stroke="#e4d17f" stroke-opacity="0.28"/>
+  </g>
+  <text x="110" y="132" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">IA EM LOOP • AÇÃO BRASIL • CARTEIRA REAL</text>
+  <text x="110" y="205" fill="url(#gold)" font-family="Inter, Arial, sans-serif" font-size="66" font-weight="900">CSUD3</text>
+  <text x="110" y="262" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">barata ou execução em teste?</text>
+  <text x="110" y="318" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="25">Serviços digitais com P/L baixo, ROE acima de 20%</text>
+  <text x="110" y="354" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="25">e queda perto da mínima em 52 semanas.</text>
+  <g font-family="Inter, Arial, sans-serif" font-weight="800" font-size="25">
+    <rect x="110" y="405" width="205" height="78" rx="18" fill="#06080d" opacity="0.78" stroke="#6ee4ef" stroke-opacity="0.26"/>
+    <text x="132" y="437" fill="#94a3b8" font-size="17">Magic Formula</text><text x="132" y="469" fill="#e4d17f">#12 local</text>
+    <rect x="340" y="405" width="205" height="78" rx="18" fill="#06080d" opacity="0.78" stroke="#6ee4ef" stroke-opacity="0.26"/>
+    <text x="362" y="437" fill="#94a3b8" font-size="17">P/L Yahoo</text><text x="362" y="469" fill="#e4d17f">5,68</text>
+    <rect x="570" y="405" width="205" height="78" rx="18" fill="#06080d" opacity="0.78" stroke="#6ee4ef" stroke-opacity="0.26"/>
+    <text x="592" y="437" fill="#94a3b8" font-size="17">ROE Yahoo</text><text x="592" y="469" fill="#e4d17f">20,9%</text>
+    <rect x="800" y="405" width="250" height="78" rx="18" fill="#06080d" opacity="0.78" stroke="#6ee4ef" stroke-opacity="0.26"/>
+    <text x="822" y="437" fill="#94a3b8" font-size="17">Posição real</text><text x="822" y="469" fill="#e4d17f">8 ações</text>
+  </g>
+  <path d="M830 165 C900 120, 985 145, 1025 210 S1065 355, 990 410" fill="none" stroke="#6ee4ef" stroke-width="10" opacity="0.42" stroke-linecap="round"/>
+  <path d="M842 365 L912 300 L965 325 L1040 235" fill="none" stroke="#e4d17f" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="842" cy="365" r="11" fill="#e4d17f"/><circle cx="912" cy="300" r="11" fill="#e4d17f"/><circle cx="965" cy="325" r="11" fill="#e4d17f"/><circle cx="1040" cy="235" r="11" fill="#e4d17f"/>
+</svg>
