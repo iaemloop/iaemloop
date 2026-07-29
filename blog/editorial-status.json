@@ -1,12 +1,12 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-07-27-analise-pgr-progressive-seguros-auto-ia.html",
-  "nextSuggestedPost": "Ação Brasil: como a última publicação foi Stock EUA (PGR/Progressive), a próxima pauta deve voltar para ação brasileira, evitando repetir tickers recentes do blog.",
+  "lastPost": "blog/posts/2026-07-29-analise-csud3-servicos-digitais-margem-ia.html",
+  "nextSuggestedPost": "Stock EUA: após CSUD3/CSU Digital em Ação Brasil, a próxima pauta deve voltar para stock americana, evitando repetir tickers recentes do blog.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 27/07/2026 concluiu a alternância para Stock EUA com PGR/Progressive. O post usa ranking Magic Formula EUA, carteira real Magic Formula Dolarizada, SEC data.sec.gov para Progressive CIK 0000080661 e Yahoo Finance via yfinance consultado em 27/07/2026. A próxima publicação deve retornar para Ação Brasil.",
+  "reading": "Publicação de 29/07/2026 concluiu a leitura de Ação Brasil com CSUD3/CSU Digital. O post usa ranking Magic Formula filtrado, carteira Magic Formula real, e Yahoo Finance via yfinance consultado em 29/07/2026. A próxima publicação deve retornar para Stock EUA.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-stock-eua",
-    "leitura-de-ranking-carteira-usd",
+    "estudo-educacional-de-acao-brasileira",
+    "leitura-de-ranking-carteira-brl",
     "registro-editorial-publico"
   ],
   "rules": [
@@ -21,15 +21,13 @@
   ],
   "sourcesUsed": [
     "Historico do blog IA em Loop",
-    "magic_formula_eua_latest.csv",
-    "dollarized_portfolios_2026.json",
-    "carteira_magic_formula_dolarizada_real.html",
-    "SEC data.sec.gov consultado em 2026-07-27",
-    "Yahoo Finance via yfinance consultado em 2026-07-27"
+    "greenblatt_top30_filtered.csv",
+    "carteira_magic_formula_real.html",
+    "Yahoo Finance via yfinance consultado em 2026-07-29"
   ],
-  "tickerOfTheDay": "PGR",
-  "assetTypeOfTheDay": "stock_eua",
+  "tickerOfTheDay": "CSUD3",
+  "assetTypeOfTheDay": "acao_brasil",
   "custodyPerspective": "em_custodia",
   "draftStatus": "publicado",
-  "updatedAt": "2026-07-27"
+  "updatedAt": "2026-07-29"
 }
