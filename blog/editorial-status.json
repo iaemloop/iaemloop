@@ -1,12 +1,12 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-07-29-analise-csud3-servicos-digitais-margem-ia.html",
-  "nextSuggestedPost": "Stock EUA: após CSUD3/CSU Digital em Ação Brasil, a próxima pauta deve voltar para stock americana, evitando repetir tickers recentes do blog.",
+  "lastPost": "blog/posts/2026-07-31-analise-zts-zoetis-saude-animal-valuation.html",
+  "nextSuggestedPost": "Ação Brasil: após ZTS/Zoetis em Stock EUA, a próxima pauta deve voltar para ação brasileira, evitando repetir tickers recentes do blog quando houver alternativa viável.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 29/07/2026 concluiu a leitura de Ação Brasil com CSUD3/CSU Digital. O post usa ranking Magic Formula filtrado, carteira Magic Formula real, e Yahoo Finance via yfinance consultado em 29/07/2026. A próxima publicação deve retornar para Stock EUA.",
+  "reading": "Publicação de 31/07/2026 concluiu a leitura de Stock EUA com ZTS/Zoetis. O post usa ranking BESST & Buffett EUA, ranking Magic Formula EUA, carteira BESST & Buffett Dolarizada real, SEC companyfacts, Yahoo Finance e Google News RSS consultados em 31/07/2026. A próxima publicação deve retornar para Ação Brasil.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-acao-brasileira",
-    "leitura-de-ranking-carteira-brl",
+    "estudo-educacional-de-stock-eua",
+    "leitura-de-ranking-carteira-dolarizada",
     "registro-editorial-publico"
   ],
   "rules": [
@@ -21,13 +21,16 @@
   ],
   "sourcesUsed": [
     "Historico do blog IA em Loop",
-    "greenblatt_top30_filtered.csv",
-    "carteira_magic_formula_real.html",
-    "Yahoo Finance via yfinance consultado em 2026-07-29"
+    "outputs/besst_buffett_eua_latest.csv",
+    "outputs/magic_formula_eua_latest.csv",
+    "carteira_besst_buffett_dolarizada_real.html",
+    "SEC data.sec.gov CIK 0001555280 consultado em 2026-07-31",
+    "Yahoo Finance consultado em 2026-07-31",
+    "Google News RSS consultado em 2026-07-31"
   ],
-  "tickerOfTheDay": "CSUD3",
-  "assetTypeOfTheDay": "acao_brasil",
+  "tickerOfTheDay": "ZTS",
+  "assetTypeOfTheDay": "stock_eua",
   "custodyPerspective": "em_custodia",
   "draftStatus": "publicado",
-  "updatedAt": "2026-07-29"
+  "updatedAt": "2026-07-31"
 }
