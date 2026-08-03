@@ -1,12 +1,12 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-07-31-analise-zts-zoetis-saude-animal-valuation.html",
-  "nextSuggestedPost": "Ação Brasil: após ZTS/Zoetis em Stock EUA, a próxima pauta deve voltar para ação brasileira, evitando repetir tickers recentes do blog quando houver alternativa viável.",
+  "lastPost": "blog/posts/2026-08-03-analise-vale3-minerio-dividendos-ciclo.html",
+  "nextSuggestedPost": "Stock EUA: após VALE3/Vale em Ação Brasil, a próxima pauta deve voltar para stock americana, evitando repetir tickers recentes do blog quando houver alternativa viável.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 31/07/2026 concluiu a leitura de Stock EUA com ZTS/Zoetis. O post usa ranking BESST & Buffett EUA, ranking Magic Formula EUA, carteira BESST & Buffett Dolarizada real, SEC companyfacts, Yahoo Finance e Google News RSS consultados em 31/07/2026. A próxima publicação deve retornar para Ação Brasil.",
+  "reading": "Publicação de 03/08/2026 concluiu a leitura de Ação Brasil com VALE3/Vale. O post usa ranking Magic Formula filtrado local, rastreador Barsi local, Yahoo Finance e Google News RSS consultados em 03/08/2026. A próxima publicação deve retornar para Stock EUA.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-stock-eua",
-    "leitura-de-ranking-carteira-dolarizada",
+    "estudo-educacional-de-acao-brasil",
+    "leitura-de-ranking-carteira-local",
     "registro-editorial-publico"
   ],
   "rules": [
@@ -21,16 +21,14 @@
   ],
   "sourcesUsed": [
     "Historico do blog IA em Loop",
-    "outputs/besst_buffett_eua_latest.csv",
-    "outputs/magic_formula_eua_latest.csv",
-    "carteira_besst_buffett_dolarizada_real.html",
-    "SEC data.sec.gov CIK 0001555280 consultado em 2026-07-31",
-    "Yahoo Finance consultado em 2026-07-31",
-    "Google News RSS consultado em 2026-07-31"
+    "greenblatt_top30_filtered.csv",
+    "outputs/barsi_screener_latest.csv",
+    "Yahoo Finance consultado em 2026-08-03",
+    "Google News RSS consultado em 2026-08-03"
   ],
-  "tickerOfTheDay": "ZTS",
-  "assetTypeOfTheDay": "stock_eua",
-  "custodyPerspective": "em_custodia",
+  "tickerOfTheDay": "VALE3",
+  "assetTypeOfTheDay": "acao_brasil",
+  "custodyPerspective": "fora_da_custodia_watchlist",
   "draftStatus": "publicado",
-  "updatedAt": "2026-07-31"
+  "updatedAt": "2026-08-03"
 }
