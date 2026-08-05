@@ -1,9 +1,9 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-08-03-analise-vale3-minerio-dividendos-ciclo.html",
-  "nextSuggestedPost": "Stock EUA: após VALE3/Vale em Ação Brasil, a próxima pauta deve voltar para stock americana, evitando repetir tickers recentes do blog quando houver alternativa viável.",
+  "lastPost": "blog/posts/2026-08-05-analise-aapl-apple-ia-valuation.html",
+  "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 03/08/2026 concluiu a leitura de Ação Brasil com VALE3/Vale. O post usa ranking Magic Formula filtrado local, rastreador Barsi local, Yahoo Finance e Google News RSS consultados em 03/08/2026. A próxima publicação deve retornar para Stock EUA.",
+  "reading": "Publicação de 05/08/2026 concluiu a leitura de Stock EUA com AAPL/Apple. O post usa ranking BESST & Buffett EUA local, watchlist permanente EUA, SEC companyfacts/submissions e Yahoo Finance consultados em 05/08/2026.",
   "requiredDailyOutputs": [
     "estudo-educacional-de-acao-brasil",
     "leitura-de-ranking-carteira-local",
@@ -12,23 +12,22 @@
   "rules": [
     "Nao publicar recomendacao personalizada de investimento.",
     "Nao inventar fonte, preco, noticia ou fala de terceiros.",
-    "Manter texto publico sem detalhes operacionais.",
+    "Manter texto publico sem bastidores operacionais.",
     "Nao publicar post vazio; todo post deve ter tese, evidencias, riscos e leitura pratica.",
-    "Evitar repeticao automatica de ticker ja analisado recentemente.",
-    "Alternar pauta do blog entre acao brasileira e stock EUA: se o ultimo post foi acao brasileira, a proxima publicacao deve priorizar stock EUA; se o ultimo post foi stock EUA, voltar para acao brasileira.",
+    "Manter selecao de pauta baseada em merito economico, dados verificaveis e relevancia educacional.",
     "Sinais sociais e de mercado sao gatilhos editoriais, nao pauta pronta: antes de publicar, apurar fatos atuais, noticias, precos/contexto de mercado e contrapontos.",
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
   ],
   "sourcesUsed": [
     "Historico do blog IA em Loop",
-    "greenblatt_top30_filtered.csv",
-    "outputs/barsi_screener_latest.csv",
-    "Yahoo Finance consultado em 2026-08-03",
-    "Google News RSS consultado em 2026-08-03"
+    "outputs/besst_buffett_eua_latest.csv",
+    "outputs/watchlist_buffett_permanente_eua_latest.csv",
+    "SEC data.sec.gov Apple CIK 0000320193 consultado em 2026-08-05",
+    "Yahoo Finance consultado em 2026-08-05"
   ],
-  "tickerOfTheDay": "VALE3",
-  "assetTypeOfTheDay": "acao_brasil",
+  "tickerOfTheDay": "AAPL",
+  "assetTypeOfTheDay": "stock_eua",
   "custodyPerspective": "fora_da_custodia_watchlist",
   "draftStatus": "publicado",
-  "updatedAt": "2026-08-03"
+  "updatedAt": "2026-08-05"
 }
