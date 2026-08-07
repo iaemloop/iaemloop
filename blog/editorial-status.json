@@ -1,18 +1,18 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-08-05-analise-aapl-apple-ia-valuation.html",
+  "lastPost": "blog/posts/2026-08-07-analise-sanb11-santander-banco-dividendos.html",
   "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 05/08/2026 concluiu a leitura de Stock EUA com AAPL/Apple. O post usa ranking BESST & Buffett EUA local, watchlist permanente EUA, SEC companyfacts/submissions e Yahoo Finance consultados em 05/08/2026.",
+  "reading": "Publicação de 07/08/2026 concluiu a leitura de Ação Brasil com SANB11/Santander Brasil. O post usa ranking Barsi local, carteira BESST real e dados abertos da CVM consultados em 07/08/2026.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-acao-brasil",
+    "estudo-educacional-de-stock-eua",
     "leitura-de-ranking-carteira-local",
     "registro-editorial-publico"
   ],
   "rules": [
     "Nao publicar recomendacao personalizada de investimento.",
     "Nao inventar fonte, preco, noticia ou fala de terceiros.",
-    "Manter texto publico sem bastidores operacionais.",
+    "Manter texto publico sem conteudo operacional interno.",
     "Nao publicar post vazio; todo post deve ter tese, evidencias, riscos e leitura pratica.",
     "Manter selecao de pauta baseada em merito economico, dados verificaveis e relevancia educacional.",
     "Sinais sociais e de mercado sao gatilhos editoriais, nao pauta pronta: antes de publicar, apurar fatos atuais, noticias, precos/contexto de mercado e contrapontos.",
@@ -20,14 +20,15 @@
   ],
   "sourcesUsed": [
     "Historico do blog IA em Loop",
-    "outputs/besst_buffett_eua_latest.csv",
-    "outputs/watchlist_buffett_permanente_eua_latest.csv",
-    "SEC data.sec.gov Apple CIK 0000320193 consultado em 2026-08-05",
-    "Yahoo Finance consultado em 2026-08-05"
+    "outputs/barsi_screener_latest.csv",
+    "outputs/barsi_latest.json",
+    "carteira_besst_real.html",
+    "Dados abertos CVM cadastro de companhias abertas consultado em 2026-08-07",
+    "Dados abertos CVM ITR 2026 Banco Santander Brasil CD_CVM 020532 consultado em 2026-08-07"
   ],
-  "tickerOfTheDay": "AAPL",
-  "assetTypeOfTheDay": "stock_eua",
-  "custodyPerspective": "fora_da_custodia_watchlist",
+  "tickerOfTheDay": "SANB11",
+  "assetTypeOfTheDay": "acao_brasil",
+  "custodyPerspective": "em_custodia",
   "draftStatus": "publicado",
-  "updatedAt": "2026-08-05"
+  "updatedAt": "2026-08-07"
 }
