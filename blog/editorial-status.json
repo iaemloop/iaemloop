@@ -1,9 +1,9 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-08-07-analise-sanb11-santander-banco-dividendos.html",
+  "lastPost": "blog/posts/2026-08-10-analise-ma-mastercard-pagamentos-valuation.html",
   "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 07/08/2026 concluiu a leitura de Ação Brasil com SANB11/Santander Brasil. O post usa ranking Barsi local, carteira BESST real e dados abertos da CVM consultados em 07/08/2026.",
+  "reading": "Publicação de 10/08/2026 concluiu a leitura de Stock EUA com MA/Mastercard. O post usa ranking BESST & Buffett EUA, carteira dolarizada real, dados SEC e cotação pública consultada em 10/08/2026.",
   "requiredDailyOutputs": [
     "estudo-educacional-de-stock-eua",
     "leitura-de-ranking-carteira-local",
@@ -20,15 +20,16 @@
   ],
   "sourcesUsed": [
     "Historico do blog IA em Loop",
-    "outputs/barsi_screener_latest.csv",
-    "outputs/barsi_latest.json",
-    "carteira_besst_real.html",
-    "Dados abertos CVM cadastro de companhias abertas consultado em 2026-08-07",
-    "Dados abertos CVM ITR 2026 Banco Santander Brasil CD_CVM 020532 consultado em 2026-08-07"
+    "outputs/besst_buffett_eua_latest.csv",
+    "outputs/watchlist_buffett_permanente_eua_latest.csv",
+    "outputs/stocks_eua_fundamentos_latest.csv",
+    "carteira_besst_buffett_dolarizada_real.html",
+    "SEC data.sec.gov submissions e companyfacts Mastercard Inc CIK 0001141391 consultados em 2026-08-10",
+    "Yahoo Finance chart API consultado em 2026-08-10"
   ],
-  "tickerOfTheDay": "SANB11",
-  "assetTypeOfTheDay": "acao_brasil",
+  "tickerOfTheDay": "MA",
+  "assetTypeOfTheDay": "stock_eua",
   "custodyPerspective": "em_custodia",
   "draftStatus": "publicado",
-  "updatedAt": "2026-08-07"
+  "updatedAt": "2026-08-10"
 }
