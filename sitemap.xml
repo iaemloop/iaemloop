@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<?xml version='1.0' encoding='utf-8'?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://iaemloop.com.br/</loc>
     <lastmod>2026-07-15</lastmod>
@@ -11,7 +10,6 @@
       <image:title>IA em Loop logo</image:title>
     </image:image>
   </url>
-
   <url>
     <loc>https://iaemloop.com.br/barsi.html</loc>
     <lastmod>2026-02-25</lastmod>
@@ -62,31 +60,31 @@
   </url>
   <url>
     <loc>https://iaemloop.com.br/ranking_fgc.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-08-11</lastmod>
     <priority>0.7</priority>
     <changefreq>daily</changefreq>
   </url>
   <url>
     <loc>https://iaemloop.com.br/ranking_besst_buffett_dolarizado.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-08-11</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://iaemloop.com.br/ranking_magic_formula_dolarizada.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-08-11</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://iaemloop.com.br/historico_rankings_dolarizados.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-08-11</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://iaemloop.com.br/watchlist_buffett_permanente_eua.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-08-11</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -324,18 +322,28 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
   <url>
     <loc>https://iaemloop.com.br/carteira_besst_buffett_dolarizada_real.html</loc>
     <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://iaemloop.com.br/carteira_magic_formula_dolarizada_real.html</loc>
     <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/historico_rankings.html</loc>
+    <lastmod>2026-08-11</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/historico_rankings_magic_formula.html</loc>
+    <lastmod>2026-08-11</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
   </url>
 </urlset>
