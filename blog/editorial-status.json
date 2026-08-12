@@ -1,9 +1,9 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-08-10-analise-ma-mastercard-pagamentos-valuation.html",
+  "lastPost": "blog/posts/2026-08-12-analise-pssa3-porto-seguro-seguros-valuation.html",
   "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 10/08/2026 concluiu a leitura de Stock EUA com MA/Mastercard. O post usa ranking BESST & Buffett EUA, carteira dolarizada real, dados SEC e cotação pública consultada em 10/08/2026.",
+  "reading": "Publicação de 12/08/2026 concluiu a leitura de Ação Brasil com PSSA3/Porto Seguro. O post usa histórico Magic Formula local, carteiras brasileiras reais, preço público consultado em 12/08/2026 e canal RI da companhia.",
   "requiredDailyOutputs": [
     "estudo-educacional-de-stock-eua",
     "leitura-de-ranking-carteira-local",
@@ -19,17 +19,15 @@
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
   ],
   "sourcesUsed": [
-    "Historico do blog IA em Loop",
-    "outputs/besst_buffett_eua_latest.csv",
-    "outputs/watchlist_buffett_permanente_eua_latest.csv",
-    "outputs/stocks_eua_fundamentos_latest.csv",
-    "carteira_besst_buffett_dolarizada_real.html",
-    "SEC data.sec.gov submissions e companyfacts Mastercard Inc CIK 0001141391 consultados em 2026-08-10",
-    "Yahoo Finance chart API consultado em 2026-08-10"
+    "Histórico Magic Formula IA em Loop 2026-08",
+    "carteira_besst_real.html",
+    "carteira_magic_formula_real.html",
+    "Yahoo Finance chart API consultado em 2026-08-12",
+    "Relações com investidores Porto Seguro consultado em 2026-08-12"
   ],
-  "tickerOfTheDay": "MA",
-  "assetTypeOfTheDay": "stock_eua",
+  "tickerOfTheDay": "PSSA3",
+  "assetTypeOfTheDay": "acao_brasil",
   "custodyPerspective": "em_custodia",
   "draftStatus": "publicado",
-  "updatedAt": "2026-08-10"
+  "updatedAt": "2026-08-12"
 }

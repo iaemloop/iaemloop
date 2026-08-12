@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Análise educacional IA em Loop sobre PSSA3/Porto Seguro: ranking Magic Formula, carteira real, ROIC alto, preço, dividendos futuros, seguros e riscos.">
+    <title>12/08: PSSA3, Porto Seguro e o preço da seguradora de qualidade | IA em Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { min-height: 100%; background: #06080D; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)), url('../../assets/bg-carteiras.jpg') no-repeat center center fixed; background-size: cover; background-color: #06080D; color: #e2e8f0; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 980px; margin: 0 auto; }
+        .back-button { position: fixed; top: 20px; left: 20px; display: inline-flex; align-items: center; gap: 6px; background: rgba(251,191,36,0.9); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: background 0.2s, transform 0.1s; z-index: 1000; }
+        .back-button:hover { background: #E4D17F; transform: translateY(-1px); }
+        article { background: rgba(19, 29, 39, 0.78); border-radius: 14px; padding: 34px; border-left: 4px solid #19364D; border: 1px solid rgba(228, 209, 127, 0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h1 { overflow-wrap: anywhere; hyphens: auto; font-size: clamp(2rem, 5vw, 3.05rem); line-height: 1.08; font-weight: 800; background: linear-gradient(135deg, #6EE4EF, #E4D17F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; }
+        .dek { color: #cbd5e1; font-size: 1.12rem; line-height: 1.75; margin-bottom: 22px; }
+        .meta { display: flex; gap: 8px; flex-wrap: wrap; color: #94a3b8; font-size: 0.86rem; margin-bottom: 30px; }
+        .meta span { background: rgba(228, 209, 127, 0.15); color: #E4D17F; padding: 4px 10px; border-radius: 999px; font-weight: 600; border: 1px solid rgba(228, 209, 127, 0.2); }
+        h2 { color: #fff; font-size: 1.45rem; margin: 34px 0 12px; border-bottom: 2px solid #19364D; padding-bottom: 10px; }
+        h3 { color: #E4D17F; font-size: 1.08rem; margin: 22px 0 8px; }
+        p, li { overflow-wrap: anywhere; color: #cbd5e1; line-height: 1.78; font-size: 1.02rem; }
+        p { margin-bottom: 16px; }
+        ul { padding-left: 22px; margin-bottom: 18px; }
+        li { margin-bottom: 8px; }
+        strong { color: #fff; }
+        a { color: #E4D17F; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .hero-chart { display: block; max-width: 100%; height: auto; width: 100%; border-radius: 14px; border: 1px solid rgba(228, 209, 127, 0.18); margin: 20px 0 8px; background: rgba(6,8,13,.35); box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+        .caption { color: #94a3b8; font-size: .9rem; margin-bottom: 24px; }
+        .callout { background: rgba(6, 8, 13, 0.5); border-left: 4px solid #E4D17F; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .warning { background: rgba(127,29,29,.25); border-left: 4px solid #f87171; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .scorecard { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+        .scorecard div { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 14px; }
+        .scorecard span { display: block; color: #94a3b8; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; }
+        .scorecard strong { color: #E4D17F; font-size: 1.1rem; }
+        .matrix { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 18px 0; }
+        .matrix div { background: rgba(6, 8, 13, 0.42); border: 1px solid rgba(110,228,239,.15); border-radius: 10px; padding: 14px; }
+        .mini-table { width:100%; border-collapse: collapse; margin: 18px 0; overflow:hidden; border-radius:10px; }
+        .mini-table th, .mini-table td { padding: 11px 10px; border-bottom: 1px solid rgba(255,255,255,.08); text-align:left; color:#cbd5e1; }
+        .mini-table th { color:#E4D17F; background:rgba(6,8,13,.55); font-size:.92rem; }
+        .source-note { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 16px; margin-top: 28px; color: #94a3b8; font-size: 0.94rem; }
+        .footer { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        @media (max-width: 768px) { body { padding: 72px 16px 32px; } article { padding: 24px; } .scorecard, .matrix { grid-template-columns: 1fr; } .mini-table { display:block; overflow-x:auto; } .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; } }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "12/08: PSSA3, Porto Seguro e o preço da seguradora de qualidade",
+      "description": "Análise educacional IA em Loop sobre PSSA3/Porto Seguro: ranking Magic Formula, carteira real, ROIC alto, preço, dividendos futuros, seguros e riscos.",
+      "image": "https://iaemloop.com.br/assets/blog/2026-08-12-pssa3-porto-seguro-seguros-valuation.svg",
+      "datePublished": "2026-08-12",
+      "dateModified": "2026-08-12",
+      "author": {"@type": "Organization", "name": "IA em Loop"},
+      "publisher": {"@type": "Organization", "name": "IA em Loop"},
+      "keywords": ["PSSA3", "Porto Seguro", "Magic Formula", "seguros", "ROIC", "carteira real", "dividendos", "valuation"]
+    }
+    </script>
+</head>
+<body>
+    <a href="../index.html" class="back-button" title="Voltar ao blog">← Blog</a>
+    <main class="container">
+        <article>
+            <h1>12/08: PSSA3, Porto Seguro e o preço da seguradora de qualidade</h1>
+            <p class="dek">PSSA3 aparece no topo da Magic Formula local e também está nas duas carteiras brasileiras reais do IA em Loop. A pergunta central é direta: Porto Seguro ainda oferece margem de segurança ou o mercado já cobra caro por uma seguradora de qualidade?</p>
+            <div class="meta"><span>12/08/2026</span><span>Análise educacional</span><span>PSSA3</span><span>Porto Seguro</span><span>Ação Brasil</span><span>Magic Formula #1</span><span>ROIC 77,4%</span><span>Preço R$ 48,53</span><span>Carteira real</span><span>8 min</span></div>
+            <img class="hero-chart" src="../../assets/blog/2026-08-12-pssa3-porto-seguro-seguros-valuation.svg" alt="Diagrama IA em Loop sobre PSSA3, Porto Seguro, ranking Magic Formula, carteira real, seguros, ROIC alto e valuation">
+            <p class="caption">Porto Seguro combina marca, distribuição e histórico operacional; o ponto sensível é se o preço atual ainda compensa os riscos de sinistralidade, juros e concorrência.</p>
+
+            <h2>Resposta curta: qualidade real, mas a régua precisa ser exigente</h2>
+            <p>No histórico Magic Formula mais recente do IA em Loop, PSSA3 aparece em <strong>1º lugar</strong>, com <strong>ROIC de 77,4%</strong>, <strong>earnings yield de 1,6%</strong>, <strong>EV/EBIT de 0,63</strong> e <strong>score 2</strong>. O ativo também aparece nas carteiras reais brasileiras: na BESST, são <strong>2 ações</strong>, preço médio de <strong>R$ 51,65</strong>, valor comprado de <strong>R$ 103,30</strong> e peso de <strong>6,1%</strong>; na Magic Formula, são <strong>3 ações</strong>, preço médio de <strong>R$ 50,57</strong>, valor comprado de <strong>R$ 151,72</strong> e peso de <strong>8,6%</strong>.</p>
+            <p>A cotação pública consultada em 12/08/2026 mostrava PSSA3 perto de <strong>R$ 48,53</strong>, abaixo dos preços médios registrados nas duas carteiras. Isso não transforma a ação automaticamente em barganha. Em seguradoras, preço justo depende de lucro técnico, sinistralidade, resultado financeiro, disciplina de subscrição e capacidade de manter crescimento sem destruir margem.</p>
+
+            <div class="scorecard">
+                <div><span>Ranking local</span><strong>#1 Magic Formula</strong></div>
+                <div><span>Perspectiva</span><strong>Carteira real</strong></div>
+                <div><span>Preço consultado</span><strong>R$ 48,53</strong></div>
+                <div><span>ROIC</span><strong>77,4%</strong></div>
+                <div><span>Faixa 52 semanas</span><strong>R$ 45,09–57,21</strong></div>
+                <div><span>Proventos futuros mapeados</span><strong>R$ 4,79</strong></div>
+            </div>
+
+            <h2>O que os dados verificados mostram</h2>
+            <p>A consulta ao site de relações com investidores da Porto Seguro em 12/08/2026 confirmou o canal público da companhia. Nos arquivos locais do IA em Loop, PSSA3 aparece como Porto Seguro no setor de seguros, com presença tanto na carteira BESST quanto na carteira Magic Formula. O painel de custódia também registra proventos futuros provisionados para PSSA3: <strong>R$ 1,77</strong> em dividendo na carteira BESST, <strong>R$ 0,85</strong> e <strong>R$ 0,90</strong> em juros sobre capital próprio nessa mesma carteira, além de <strong>R$ 1,27</strong> em juros sobre capital próprio na carteira Magic Formula.</p>
+            <p>O histórico de preço público de um ano consultado via provedor de mercado mostrou mínima de <strong>R$ 45,09</strong>, máxima de <strong>R$ 57,21</strong> e preço atual próximo da parte baixa-intermediária da faixa. A leitura é útil: a ação não está no topo anual, mas também não está distante o suficiente da mínima para dispensar análise de resultado.</p>
+
+            <table class="mini-table">
+                <thead><tr><th>Métrica verificada</th><th>Fonte/período</th><th>Valor</th><th>Leitura</th></tr></thead>
+                <tbody>
+                    <tr><td>Posição no ranking</td><td>Histórico Magic Formula IA em Loop 2026-08</td><td>#1</td><td>qualidade/retorno operacional no topo do filtro</td></tr>
+                    <tr><td>ROIC</td><td>Histórico Magic Formula IA em Loop 2026-08</td><td>77,4%</td><td>retorno muito alto, exigindo checagem de recorrência</td></tr>
+                    <tr><td>Custódia BESST</td><td>Carteira real publicada</td><td>2 ações; PM R$ 51,65</td><td>posição real pequena, mas relevante para acompanhamento</td></tr>
+                    <tr><td>Custódia Magic Formula</td><td>Carteira real publicada</td><td>3 ações; PM R$ 50,57</td><td>posição maior no método quantitativo local</td></tr>
+                    <tr><td>Preço de mercado</td><td>Consulta pública 12/08/2026</td><td>R$ 48,53</td><td>abaixo do preço médio das duas carteiras</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Por que PSSA3 importa agora</h2>
+            <p>Seguradoras são negócios que parecem simples por fora, mas têm dois motores diferentes. O primeiro é o resultado técnico: cobrar prêmios adequados, controlar sinistros e distribuir produtos com eficiência. O segundo é o resultado financeiro: aplicar reservas e ganhar com juros, sem assumir risco excessivo. PSSA3 interessa porque junta marca conhecida, base de clientes, distribuição e presença em ramos de seguro com recorrência.</p>
+            <p>Para uma carteira educacional, PSSA3 também tem um papel diferente de commodity ou banco. A tese não depende apenas de ciclo externo; depende de execução diária em precificação de risco, controle de sinistros e venda cruzada. Quando a companhia consegue fazer isso bem, o retorno sobre capital pode ficar alto por bastante tempo. Quando erra preço ou enfrenta inflação de sinistros, a margem some rápido.</p>
+
+            <div class="callout">
+                <strong>Leitura prática do IA em Loop</strong><br>
+                PSSA3 parece uma tese de qualidade operacional, não uma simples aposta em dividendo. O preço atual abaixo dos preços médios da carteira melhora o ponto de observação, mas a decisão educacional deve depender de lucro técnico, sinistralidade, crescimento de prêmios, resultado financeiro e manutenção de disciplina de capital.
+            </div>
+
+            <h2>O que favorece e o que ameaça a tese</h2>
+            <div class="matrix">
+                <div>
+                    <h3>Favoráveis</h3>
+                    <p>• Marca forte e reconhecida em seguros no Brasil.</p>
+                    <p>• Presença simultânea nas duas carteiras brasileiras reais do IA em Loop.</p>
+                    <p>• Liderança no ranking Magic Formula local, com ROIC elevado.</p>
+                    <p>• Preço consultado abaixo do preço médio registrado nas duas carteiras.</p>
+                    <p>• Proventos futuros mapeados nos painéis de custódia.</p>
+                </div>
+                <div>
+                    <h3>Desfavoráveis</h3>
+                    <p>• Seguros sofrem quando sinistros sobem mais rápido que prêmios.</p>
+                    <p>• Resultado financeiro depende do nível de juros e da qualidade das aplicações.</p>
+                    <p>• Concorrência digital pode pressionar preço e comissão.</p>
+                    <p>• ROIC muito alto pode ser cíclico ou sensível à base de cálculo.</p>
+                    <p>• A ação já é reconhecida como empresa de qualidade; desconto pode ser limitado.</p>
+                </div>
+            </div>
+
+            <h2>Checklist para acompanhar daqui em diante</h2>
+            <ul>
+                <li><strong>Sinistralidade:</strong> se piorar de forma persistente, a tese perde margem de segurança.</li>
+                <li><strong>Prêmios emitidos:</strong> crescimento saudável deve vir com preço técnico correto, não só volume.</li>
+                <li><strong>Resultado financeiro:</strong> juros e carteira de aplicações podem ajudar, mas não substituem seguro bem precificado.</li>
+                <li><strong>Retorno sobre capital:</strong> ROIC alto precisa aparecer como padrão, não como fotografia isolada.</li>
+                <li><strong>Proventos e capital:</strong> dividendos são positivos, mas não devem enfraquecer a capacidade de crescer ou absorver sinistros.</li>
+            </ul>
+
+            <h2>Conclusão</h2>
+            <p>A resposta para a pergunta do post é: <strong>PSSA3 tem sinais reais de qualidade, mas não deve ser tratada como compra automática só por liderar o ranking</strong>. O ativo combina presença em carteira real, marca forte e retorno operacional alto. O risco está em pagar por qualidade sem margem suficiente ou subestimar a volatilidade de sinistros e resultado financeiro.</p>
+            <p>Na régua do IA em Loop, PSSA3 merece acompanhamento prioritário porque une ranking, custódia e tese operacional compreensível. O ponto decisivo daqui para frente é confirmar se Porto Seguro continua convertendo escala e marca em lucro técnico recorrente. Se isso se mantiver, o preço abaixo do preço médio das carteiras fica mais interessante; se não, o ranking pode estar olhando pelo retrovisor.</p>
+
+            <div class="warning">
+                <strong>Aviso importante:</strong> este conteúdo é educacional e não representa recomendação personalizada de investimento, compra ou venda. Ações envolvem risco de mercado, risco de liquidez e risco específico da companhia.
+            </div>
+
+            <div class="source-note">
+                <strong>Fontes e critérios:</strong> histórico Magic Formula IA em Loop 2026-08; carteira BESST real e carteira Magic Formula real publicadas no IA em Loop; consulta ao canal de relações com investidores da Porto Seguro em 12/08/2026; preço, mínima e máxima de 52 semanas obtidos por provedor público de mercado em 12/08/2026. Conteúdo educacional, sem recomendação personalizada.
+            </div>
+        </article>
+        <div class="footer">IA em Loop — rankings com dinheiro próprio</div>
+    </main>
+</body>
+</html>
