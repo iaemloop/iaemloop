@@ -75,6 +75,29 @@ def read_csv(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(fh))
 
 
+
+
+def ticker_family(ticker: str) -> str:
+    """Agrupa classes da mesma empresa: PETR3/PETR4 -> PETR; KLBN3/KLBN4 -> KLBN."""
+    match = re.match(r"([A-Z]+)", ticker.strip().upper())
+    return match.group(1) if match else ticker.strip().upper()
+
+
+def one_ticker_per_company(rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    # Regra IA em Loop: publicar uma empresa só uma vez.
+    # O papel mantido é o melhor ranqueado na ordenação de origem; empates continuam
+    # resolvidos pela ordenação bruta do pipeline/fonte.
+    out = []
+    seen_families: set[str] = set()
+    for row in rows:
+        ticker = row.get("ticker", "").strip().upper()
+        family = ticker_family(ticker)
+        if family in seen_families:
+            continue
+        seen_families.add(family)
+        out.append(row)
+    return out
+
 def pct(value: str, *, already_percent: bool = False) -> str:
     try:
         v = float(str(value).replace("%", "").replace(",", "."))
@@ -137,7 +160,7 @@ def fundamentus_link(ticker: str) -> str:
 
 
 def build_besst_entry(month: str, updated: str) -> str:
-    rows = read_csv(BESST_CSV)
+    rows = one_ticker_per_company(read_csv(BESST_CSV))
     body = []
     for pos, row in enumerate(rows[:30], 1):
         ticker = row.get("ticker", "").strip().upper()

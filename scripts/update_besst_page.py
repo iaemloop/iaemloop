@@ -59,10 +59,25 @@ def ticker_link(ticker: str) -> str:
     return f'<a href="{href}" target="_blank" rel="noopener noreferrer"><strong>{escaped}</strong> 🔗</a>'
 
 
+def ticker_family(ticker: str) -> str:
+    """Agrupa classes da mesma empresa: PETR3/PETR4 -> PETR; KLBN3/KLBN4 -> KLBN."""
+    match = re.match(r"([A-Z]+)", ticker.strip().upper())
+    return match.group(1) if match else ticker.strip().upper()
+
+
 def load_rows() -> list[dict[str, str]]:
+    # Regra IA em Loop: uma empresa só aparece uma vez.
+    # Se duas classes/units surgirem no ranking bruto, fica o papel melhor ranqueado
+    # pela própria ordenação do pipeline; as demais classes não contam como nova empresa.
     rows = []
+    seen_families: set[str] = set()
     with CSV_IN.open(newline="", encoding="utf-8-sig") as source:
         for row in csv.DictReader(source):
+            ticker = row.get("ticker", "").strip().upper()
+            family = ticker_family(ticker)
+            if family in seen_families:
+                continue
+            seen_families.add(family)
             rows.append(row)
     return rows
 
