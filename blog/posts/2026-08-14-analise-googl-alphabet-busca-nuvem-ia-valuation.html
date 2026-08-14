@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Análise educacional IA em Loop sobre GOOGL/Alphabet: ranking BESST Buffett EUA, busca, YouTube, nuvem, caixa, valuation, capex, regulação e riscos.">
+    <title>14/08: GOOGL, Alphabet e o preço da máquina de caixa da busca | IA em Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { min-height: 100%; background: #06080D; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)), url('../../assets/bg-carteiras.jpg') no-repeat center center fixed; background-size: cover; background-color: #06080D; color: #e2e8f0; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 980px; margin: 0 auto; }
+        .back-button { position: fixed; top: 20px; left: 20px; display: inline-flex; align-items: center; gap: 6px; background: rgba(251,191,36,0.9); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: background 0.2s, transform 0.1s; z-index: 1000; }
+        .back-button:hover { background: #E4D17F; transform: translateY(-1px); }
+        article { background: rgba(19, 29, 39, 0.78); border-radius: 14px; padding: 34px; border-left: 4px solid #19364D; border: 1px solid rgba(228, 209, 127, 0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h1 { overflow-wrap: anywhere; hyphens: auto; font-size: clamp(2rem, 5vw, 3.05rem); line-height: 1.08; font-weight: 800; background: linear-gradient(135deg, #6EE4EF, #E4D17F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; }
+        .dek { color: #cbd5e1; font-size: 1.12rem; line-height: 1.75; margin-bottom: 22px; }
+        .meta { display: flex; gap: 8px; flex-wrap: wrap; color: #94a3b8; font-size: 0.86rem; margin-bottom: 30px; }
+        .meta span { background: rgba(228, 209, 127, 0.15); color: #E4D17F; padding: 4px 10px; border-radius: 999px; font-weight: 600; border: 1px solid rgba(228, 209, 127, 0.2); }
+        h2 { color: #fff; font-size: 1.45rem; margin: 34px 0 12px; border-bottom: 2px solid #19364D; padding-bottom: 10px; }
+        h3 { color: #E4D17F; font-size: 1.08rem; margin: 22px 0 8px; }
+        p, li { overflow-wrap: anywhere; color: #cbd5e1; line-height: 1.78; font-size: 1.02rem; }
+        p { margin-bottom: 16px; }
+        strong { color: #fff; }
+        a { color: #E4D17F; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .hero-chart { display: block; max-width: 100%; height: auto; width: 100%; border-radius: 14px; border: 1px solid rgba(228, 209, 127, 0.18); margin: 20px 0 8px; background: rgba(6,8,13,.35); box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+        .caption { color: #94a3b8; font-size: .9rem; margin-bottom: 24px; }
+        .callout { background: rgba(6, 8, 13, 0.5); border-left: 4px solid #E4D17F; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .warning { background: rgba(127,29,29,.25); border-left: 4px solid #f87171; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .scorecard { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+        .scorecard div { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 14px; }
+        .scorecard span { display: block; color: #94a3b8; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; }
+        .scorecard strong { color: #E4D17F; font-size: 1.1rem; }
+        .matrix { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 18px 0; }
+        .matrix div { background: rgba(6, 8, 13, 0.42); border: 1px solid rgba(110,228,239,.15); border-radius: 10px; padding: 14px; }
+        .mini-table { width:100%; border-collapse: collapse; margin: 18px 0; overflow:hidden; border-radius:10px; }
+        .mini-table th, .mini-table td { padding: 11px 10px; border-bottom: 1px solid rgba(255,255,255,.08); text-align:left; color:#cbd5e1; }
+        .mini-table th { color:#E4D17F; background:rgba(6,8,13,.55); font-size:.92rem; }
+        .source-note { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 16px; margin-top: 28px; color: #94a3b8; font-size: 0.94rem; }
+        .footer { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        @media (max-width: 768px) { body { padding: 72px 16px 32px; } article { padding: 24px; } .scorecard, .matrix { grid-template-columns: 1fr; } .mini-table { display:block; overflow-x:auto; } .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; } }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "14/08: GOOGL, Alphabet e o preço da máquina de caixa da busca",
+      "description": "Análise educacional IA em Loop sobre GOOGL/Alphabet: ranking BESST Buffett EUA, busca, YouTube, nuvem, caixa, valuation, capex, regulação e riscos.",
+      "image": "https://iaemloop.com.br/assets/blog/2026-08-14-googl-alphabet-busca-nuvem-ia-valuation.svg",
+      "datePublished": "2026-08-14",
+      "dateModified": "2026-08-14",
+      "author": {"@type": "Organization", "name": "IA em Loop"},
+      "publisher": {"@type": "Organization", "name": "IA em Loop"},
+      "keywords": ["GOOGL", "Alphabet", "stocks EUA", "BESST Buffett EUA", "watchlist", "busca", "nuvem", "valuation"]
+    }
+    </script>
+</head>
+<body>
+    <a href="../index.html" class="back-button" title="Voltar ao blog">← Blog</a>
+    <main class="container">
+        <article>
+            <h1>14/08: GOOGL, Alphabet e o preço da máquina de caixa da busca</h1>
+            <p class="dek">GOOGL aparece na watchlist permanente dos Estados Unidos e no top 20 do BESST &amp; Buffett EUA. A pergunta central é direta: Alphabet ainda combina qualidade com valuation razoável ou o risco regulatório e o capex de inteligência artificial mudaram a conta?</p>
+            <div class="meta"><span>14/08/2026</span><span>Análise educacional</span><span>GOOGL</span><span>Alphabet</span><span>Stock EUA</span><span>BESST &amp; Buffett #13</span><span>P/L 18,19</span><span>ROE 48,68%</span><span>Watchlist</span><span>8 min</span></div>
+            <img class="hero-chart" src="../../assets/blog/2026-08-14-googl-alphabet-busca-nuvem-ia-valuation.svg" alt="Diagrama IA em Loop sobre GOOGL, Alphabet, ranking BESST Buffett EUA, busca, YouTube, nuvem, caixa e valuation">
+            <p class="caption">Alphabet combina busca, YouTube, nuvem e caixa em escala; o ponto sensível é se a disputa em inteligência artificial e a regulação reduzem a margem de segurança.</p>
+
+            <h2>Resposta curta: qualidade forte, mas sem piloto automático</h2>
+            <p>No ranking BESST &amp; Buffett EUA com data-base de 06/08/2026, GOOGL aparece em <strong>13º lugar</strong>, com <strong>score 58,78</strong>, <strong>P/L de 18,19</strong>, <strong>EV/EBITDA de 25,00</strong>, <strong>ROE de 48,68%</strong> e <strong>dividend yield de 0,24%</strong>. GOOG aparece logo depois por ser outra classe da mesma empresa; para leitura econômica, faz sentido olhar Alphabet uma única vez e usar GOOGL como referência do estudo.</p>
+            <p>A empresa não está na carteira real dolarizada registrada no site, mas está na watchlist permanente dos Estados Unidos. Isso coloca a análise no campo de acompanhamento para possível entrada futura: negócio dominante, caixa alto e múltiplo menos esticado que outros nomes de tecnologia, mas com riscos reais em antitruste, custo de data centers e competição em busca.</p>
+
+            <div class="scorecard">
+                <div><span>Ranking local</span><strong>#13 BESST &amp; Buffett</strong></div>
+                <div><span>Perspectiva</span><strong>Watchlist</strong></div>
+                <div><span>Preço consultado</span><strong>US$ 344,90</strong></div>
+                <div><span>P/L</span><strong>18,19</strong></div>
+                <div><span>EV/EBITDA</span><strong>25,00</strong></div>
+                <div><span>ROE</span><strong>48,68%</strong></div>
+            </div>
+
+            <h2>O que os dados verificados mostram</h2>
+            <p>A consulta pública à SEC no CIK <strong>0001652044</strong> mostra que a Alphabet arquivou 10-Q em <strong>23/07/2026</strong>, referente ao trimestre encerrado em <strong>30/06/2026</strong>. No 2T26, a companhia registrou <strong>US$ 119,796 bilhões de receita</strong>, <strong>US$ 40,770 bilhões de lucro operacional</strong> e <strong>US$ 112,193 bilhões de lucro líquido</strong>.</p>
+            <p>No acumulado do primeiro semestre de 2026, a SEC mostra <strong>US$ 229,692 bilhões de receita</strong>, <strong>US$ 80,466 bilhões de lucro operacional</strong>, <strong>US$ 174,771 bilhões de lucro líquido</strong> e <strong>US$ 84,859 bilhões de caixa operacional</strong>. O investimento em imobilizado no período foi de <strong>US$ 80,598 bilhões</strong>, ponto que deixa clara a mudança de regime: inteligência artificial e nuvem exigem capital pesado, mesmo em uma empresa altamente lucrativa.</p>
+            <p>No balanço de 30/06/2026, a Alphabet tinha <strong>US$ 921,983 bilhões em ativos</strong>, <strong>US$ 55,911 bilhões em caixa e equivalentes</strong> e <strong>US$ 640,480 bilhões de patrimônio líquido</strong>. O tamanho do balanço dá resiliência, mas também aumenta a cobrança: uma empresa desse porte precisa transformar investimento em infraestrutura em crescimento rentável, não apenas em narrativa tecnológica.</p>
+
+            <table class="mini-table">
+                <thead><tr><th>Métrica verificada</th><th>Fonte/período</th><th>Valor</th><th>Leitura</th></tr></thead>
+                <tbody>
+                    <tr><td>Receita trimestral</td><td>SEC 10-Q 2T26</td><td>US$ 119,796 bi</td><td>escala massiva de publicidade, nuvem e serviços</td></tr>
+                    <tr><td>Lucro operacional trimestral</td><td>SEC 10-Q 2T26</td><td>US$ 40,770 bi</td><td>margem ainda muito forte</td></tr>
+                    <tr><td>Caixa operacional</td><td>SEC 1S26</td><td>US$ 84,859 bi</td><td>alta capacidade de autofinanciamento</td></tr>
+                    <tr><td>Investimento em imobilizado</td><td>SEC 1S26</td><td>US$ 80,598 bi</td><td>custo elevado da corrida por infraestrutura</td></tr>
+                    <tr><td>Caixa e equivalentes</td><td>SEC 30/06/2026</td><td>US$ 55,911 bi</td><td>colchão financeiro relevante</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Por que Alphabet importa para a watchlist</h2>
+            <p>Alphabet é uma das poucas empresas que une distribuição global, dados, marca, engenharia, caixa e múltiplas avenidas de crescimento. Busca continua sendo o motor econômico; YouTube amplia presença em vídeo; Google Cloud dá exposição empresarial; e a camada de inteligência artificial pode proteger ou canibalizar partes do negócio.</p>
+            <p>A leitura de valuation é menos óbvia do que em empresas de tecnologia negociadas a múltiplos extremos. O P/L local de <strong>18,19</strong> e o preço público consultado em 14/08/2026 perto de <strong>US$ 344,90</strong> sugerem que o mercado não precifica Alphabet como uma história sem risco. A dúvida é se esse desconto relativo compensa as incertezas regulatórias e o aumento do capital necessário para competir.</p>
+
+            <div class="callout"><strong>Leitura prática do IA em Loop</strong><br>GOOGL parece mais interessante como empresa de qualidade sob observação do que como compra automática. A tese melhora se a nuvem e a inteligência artificial converterem capex em lucro incremental; piora se a busca perder poder de distribuição ou se decisões regulatórias comprimirem margens.</div>
+
+            <h2>O que favorece e o que ameaça a tese</h2>
+            <div class="matrix">
+                <div><h3>Favoráveis</h3><p>• Busca e YouTube mantêm alcance global difícil de replicar.</p><p>• Caixa operacional elevado financia inovação, infraestrutura e defesa competitiva.</p><p>• P/L abaixo de vários pares de tecnologia reduz parte do risco de preço.</p><p>• Google Cloud pode ampliar diversificação fora de publicidade.</p><p>• Presença na watchlist permite acompanhar sem forçar entrada.</p></div>
+                <div><h3>Desfavoráveis</h3><p>• Regulação antitruste pode afetar distribuição, contratos e modelo de anúncios.</p><p>• Inteligência artificial aumenta capex e pode alterar a economia da busca.</p><p>• Competição em nuvem exige preço, escala e execução operacional.</p><p>• Dependência de publicidade deixa a empresa sensível ao ciclo econômico.</p><p>• Duas classes negociadas podem distorcer rankings; a análise deve consolidar a empresa.</p></div>
+            </div>
+
+            <h2>Checklist para acompanhar daqui em diante</h2>
+            <table class="mini-table"><thead><tr><th>Ponto</th><th>O que monitorar</th><th>Se piorar</th></tr></thead><tbody><tr><td>Busca</td><td>crescimento de receita e estabilidade de participação</td><td>o principal motor de lucro perde previsibilidade</td></tr><tr><td>Nuvem</td><td>margem e crescimento do Google Cloud</td><td>capex pode virar pressão, não vantagem</td></tr><tr><td>Capex</td><td>investimento em data centers versus lucro incremental</td><td>a tese de caixa livre fica menos limpa</td></tr><tr><td>Regulação</td><td>decisões antitruste e restrições de dados</td><td>o fosso de distribuição pode diminuir</td></tr><tr><td>Valuation</td><td>P/L, EV/EBITDA e comparação com crescimento</td><td>preço deixa de compensar o risco regulatório</td></tr></tbody></table>
+
+            <h2>Conclusão</h2>
+            <p>A resposta para a pergunta do post é: <strong>Alphabet ainda combina qualidade e valuation observável, mas a tese depende cada vez mais da conversão de inteligência artificial e nuvem em lucro real</strong>. A base de busca e YouTube sustenta a máquina de caixa; o capex e a regulação impedem tratar o ativo como caso sem risco.</p>
+            <p>Na régua do IA em Loop, GOOGL merece seguir na watchlist como empresa de alta qualidade, com preço menos agressivo que outros nomes de tecnologia. A entrada fica mais defensável quando houver desconto maior ou evidência de que o investimento pesado em infraestrutura está ampliando, e não consumindo, a margem de segurança.</p>
+
+            <div class="warning"><strong>Aviso importante:</strong> este conteúdo é educacional e não representa recomendação personalizada de investimento, compra, venda, remessa ou câmbio. Stocks envolvem risco de mercado, risco cambial, risco de liquidez e risco específico da empresa.</div>
+            <div class="source-note"><strong>Fontes e critérios:</strong> ranking IA em Loop BESST &amp; Buffett EUA, watchlist permanente EUA e fundamentos de stocks, arquivos locais com data-base 06/08/2026; SEC data.sec.gov para Alphabet Inc., CIK 0001652044, incluindo 10-Q arquivado em 23/07/2026 referente ao período encerrado em 30/06/2026; Yahoo Finance consultado em 14/08/2026 para preço público de GOOGL. Conteúdo educacional, sem recomendação personalizada.</div>
+        </article>
+        <div class="footer">IA em Loop — rankings com dinheiro próprio</div>
+    </main>
+</body>
+</html>
