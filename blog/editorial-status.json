@@ -1,9 +1,9 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-08-12-analise-pssa3-porto-seguro-seguros-valuation.html",
+  "lastPost": "blog/posts/2026-08-14-analise-googl-alphabet-busca-nuvem-ia-valuation.html",
   "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 12/08/2026 concluiu a leitura de Ação Brasil com PSSA3/Porto Seguro. O post usa histórico Magic Formula local, carteiras brasileiras reais, preço público consultado em 12/08/2026 e canal RI da companhia.",
+  "reading": "Publicação de 14/08/2026 concluiu a leitura de Stock EUA com GOOGL/Alphabet. O post usa ranking BESST Buffett EUA, watchlist permanente dos EUA, fundamentos locais, consulta pública SEC e preço público consultado em 14/08/2026.",
   "requiredDailyOutputs": [
     "estudo-educacional-de-stock-eua",
     "leitura-de-ranking-carteira-local",
@@ -19,15 +19,15 @@
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
   ],
   "sourcesUsed": [
-    "Histórico Magic Formula IA em Loop 2026-08",
-    "carteira_besst_real.html",
-    "carteira_magic_formula_real.html",
-    "Yahoo Finance chart API consultado em 2026-08-12",
-    "Relações com investidores Porto Seguro consultado em 2026-08-12"
+    "Ranking BESST Buffett EUA 2026-08",
+    "watchlist_buffett_permanente_eua_2026-08.csv",
+    "stocks_eua_fundamentos_2026-08.csv",
+    "SEC data.sec.gov Alphabet CIK 0001652044",
+    "Yahoo Finance chart API consultado em 2026-08-14"
   ],
-  "tickerOfTheDay": "PSSA3",
-  "assetTypeOfTheDay": "acao_brasil",
-  "custodyPerspective": "em_custodia",
+  "tickerOfTheDay": "GOOGL",
+  "assetTypeOfTheDay": "stock_eua",
+  "custodyPerspective": "fora_da_custodia_watchlist",
   "draftStatus": "publicado",
-  "updatedAt": "2026-08-12"
+  "updatedAt": "2026-08-14"
 }

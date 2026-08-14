@@ -90,9 +90,21 @@
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <priority>0.8</priority>
     <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-08-14-analise-googl-alphabet-busca-nuvem-ia-valuation.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-08-12-analise-pssa3-porto-seguro-seguros-valuation.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/posts/2026-08-10-analise-ma-mastercard-pagamentos-valuation.html</loc>
