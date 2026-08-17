@@ -1,11 +1,11 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-08-14-analise-googl-alphabet-busca-nuvem-ia-valuation.html",
+  "lastPost": "blog/posts/2026-08-17-analise-ggbr4-gerdau-aco-ciclo-valuation.html",
   "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 14/08/2026 concluiu a leitura de Stock EUA com GOOGL/Alphabet. O post usa ranking BESST Buffett EUA, watchlist permanente dos EUA, fundamentos locais, consulta pública SEC e preço público consultado em 14/08/2026.",
+  "reading": "Publicação de 17/08/2026 concluiu a leitura de Ação Brasil com GGBR4/Gerdau. O post usa ranking Barsi 2026-08, histórico local de rankings, consulta pública ao RI da Gerdau e preço público consultado em 17/08/2026.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-stock-eua",
+    "estudo-educacional-de-acao-brasil",
     "leitura-de-ranking-carteira-local",
     "registro-editorial-publico"
   ],
@@ -19,15 +19,14 @@
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
   ],
   "sourcesUsed": [
-    "Ranking BESST Buffett EUA 2026-08",
-    "watchlist_buffett_permanente_eua_2026-08.csv",
-    "stocks_eua_fundamentos_2026-08.csv",
-    "SEC data.sec.gov Alphabet CIK 0001652044",
-    "Yahoo Finance chart API consultado em 2026-08-14"
+    "Ranking Barsi 2026-08",
+    "historico_rankings.html",
+    "RI Gerdau ri.gerdau.com consultado em 2026-08-17",
+    "Yahoo Finance chart API consultado em 2026-08-17"
   ],
-  "tickerOfTheDay": "GOOGL",
-  "assetTypeOfTheDay": "stock_eua",
+  "tickerOfTheDay": "GGBR4",
+  "assetTypeOfTheDay": "acao_brasil",
   "custodyPerspective": "fora_da_custodia_watchlist",
   "draftStatus": "publicado",
-  "updatedAt": "2026-08-14"
+  "updatedAt": "2026-08-17"
 }
