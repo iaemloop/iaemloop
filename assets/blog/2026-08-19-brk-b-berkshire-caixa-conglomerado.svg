@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">BRK-B, Berkshire Hathaway: caixa, seguro e conglomerado</title>
+  <desc id="desc">Diagrama visual IA em Loop sobre Berkshire Hathaway, float de seguros, caixa, operação diversificada e valuation.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06080D"/>
+      <stop offset="55%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#19364D"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#E4D17F"/>
+      <stop offset="100%" stop-color="#6EE4EF"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1020" cy="90" r="210" fill="#6EE4EF" opacity="0.08"/>
+  <circle cx="140" cy="560" r="260" fill="#E4D17F" opacity="0.08"/>
+  <g filter="url(#shadow)">
+    <rect x="70" y="62" width="1060" height="506" rx="28" fill="#131D27" opacity="0.9" stroke="#E4D17F" stroke-opacity="0.25"/>
+  </g>
+  <text x="104" y="122" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">IA em Loop • Stock EUA • Watchlist</text>
+  <text x="104" y="182" fill="url(#gold)" font-family="Inter, Arial, sans-serif" font-size="58" font-weight="900">BRK-B: caixa contra valuation</text>
+  <text x="104" y="226" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="27">Berkshire Hathaway une seguro, trilhos, energia, indústria e uma reserva financeira incomum.</text>
+
+  <g transform="translate(104 282)">
+    <rect width="300" height="170" rx="18" fill="#06080D" opacity="0.72" stroke="#6EE4EF" stroke-opacity="0.24"/>
+    <text x="24" y="42" fill="#E4D17F" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">Força defensiva</text>
+    <text x="24" y="82" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900">US$ 177,5 bi</text>
+    <text x="24" y="118" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="20">float aproximado</text>
+    <text x="24" y="146" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="17">base de seguros financia ativos</text>
+  </g>
+
+  <g transform="translate(450 282)">
+    <rect width="300" height="170" rx="18" fill="#06080D" opacity="0.72" stroke="#E4D17F" stroke-opacity="0.24"/>
+    <text x="24" y="42" fill="#E4D17F" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">Escala operacional</text>
+    <text x="24" y="82" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900">US$ 195,5 bi</text>
+    <text x="24" y="118" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="20">receita no 1S26</text>
+    <text x="24" y="146" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="17">seguro, BNSF, energia e negócios</text>
+  </g>
+
+  <g transform="translate(796 282)">
+    <rect width="300" height="170" rx="18" fill="#06080D" opacity="0.72" stroke="#6EE4EF" stroke-opacity="0.24"/>
+    <text x="24" y="42" fill="#E4D17F" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">Preço observado</text>
+    <text x="24" y="82" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900">P/L 15,5</text>
+    <text x="24" y="118" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="20">BRK-B a US$ 518,85</text>
+    <text x="24" y="146" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="17">qualidade não elimina desconto exigido</text>
+  </g>
+
+  <path d="M120 498 C250 462, 356 520, 470 486 S700 450, 820 492 S990 526, 1080 482" fill="none" stroke="url(#gold)" stroke-width="5" opacity="0.8"/>
+  <text x="104" y="540" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="18">Pergunta central: holding defensiva com preço justo ou conglomerado grande demais para gerar retorno superior?</text>
+</svg>

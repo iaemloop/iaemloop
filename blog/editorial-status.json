@@ -1,12 +1,12 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-08-17-analise-ggbr4-gerdau-aco-ciclo-valuation.html",
+  "lastPost": "blog/posts/2026-08-19-analise-brk-b-berkshire-caixa-conglomerado.html",
   "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 17/08/2026 concluiu a leitura de Ação Brasil com GGBR4/Gerdau. O post usa ranking Barsi 2026-08, histórico local de rankings, consulta pública ao RI da Gerdau e preço público consultado em 17/08/2026.",
+  "reading": "Publicação de 19/08/2026 concluiu a leitura de Stock EUA com BRK-B/Berkshire Hathaway. O post usa watchlist permanente EUA, fundamentos locais de stocks 2026-08, consulta pública à SEC para 10-Q de 30/06/2026 e relatório 10-Q para float aproximado.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-acao-brasil",
-    "leitura-de-ranking-carteira-local",
+    "estudo-educacional-de-stock-eua",
+    "leitura-de-watchlist-dolarizada",
     "registro-editorial-publico"
   ],
   "rules": [
@@ -19,14 +19,14 @@
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
   ],
   "sourcesUsed": [
-    "Ranking Barsi 2026-08",
-    "historico_rankings.html",
-    "RI Gerdau ri.gerdau.com consultado em 2026-08-17",
-    "Yahoo Finance chart API consultado em 2026-08-17"
+    "Watchlist permanente EUA 2026-08",
+    "outputs/stocks_eua_fundamentos_2026-08.csv",
+    "SEC data.sec.gov CIK 0001067983 consultado em 2026-08-19",
+    "Berkshire Hathaway 10-Q 2026-06-30 arquivado em 2026-08-10"
   ],
-  "tickerOfTheDay": "GGBR4",
-  "assetTypeOfTheDay": "acao_brasil",
+  "tickerOfTheDay": "BRK-B",
+  "assetTypeOfTheDay": "stock_eua",
   "custodyPerspective": "fora_da_custodia_watchlist",
   "draftStatus": "publicado",
-  "updatedAt": "2026-08-17"
+  "updatedAt": "2026-08-19"
 }
