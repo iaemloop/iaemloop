@@ -1,6 +1,6 @@
 {
   "schema": "iaemloop-real-portfolio-site-summary-v1",
-  "updated_at": "2026-08-20",
+  "updated_at": "2026-08-21",
   "source_files": [
     "data/investment_costs_2026.json",
     "data/dollarized_portfolios_2026.json",
@@ -22,14 +22,14 @@
         "BESST & Buffett B3"
       ]
     },
-    "XP/Rico": {
-      "gross_brl": 549.61,
+    "XP": {
+      "gross_brl": 561.82,
       "gross_usd": 0,
-      "known_cost_brl": 0.0,
+      "known_cost_brl": 57.28,
       "known_cost_usd": 0.0,
-      "unknown": 1,
+      "unknown": 0,
       "entries": 1,
-      "brokerage_brl": 0.0,
+      "brokerage_brl": 49.0,
       "spread_brl": 0.0,
       "iof_brl": 0.0,
       "portfolios": [
@@ -51,15 +51,15 @@
       ]
     },
     "Inter": {
-      "gross_brl": 1000.0,
+      "gross_brl": 1999.99,
       "gross_usd": 0,
-      "known_cost_brl": 25.62,
+      "known_cost_brl": 21.76,
       "known_cost_usd": 0.0,
       "unknown": 0,
-      "entries": 1,
+      "entries": 3,
       "brokerage_brl": 0.0,
-      "spread_brl": 14.62,
-      "iof_brl": 11.0,
+      "spread_brl": 0.0,
+      "iof_brl": 21.76,
       "portfolios": [
         "Dolarizadas / Stocks EUA"
       ]

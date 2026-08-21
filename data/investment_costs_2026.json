@@ -1,6 +1,6 @@
 {
   "schema": "iaemloop-investment-cost-ledger-v2",
-  "updated_at": "2026-08-18",
+  "updated_at": "2026-08-21",
   "scope": "IA em Loop real investment brokerage notes and execution notices for 2026",
   "privacy": "Public-safe aggregate/trade data only; no CPF, address, account number or private PDF text.",
   "entries": [
@@ -83,28 +83,28 @@
       "note": "Original PDF/text not available in current cache; reconstructed from prior carteira update references and current public custody arithmetic."
     },
     {
-      "date": "2026-03-00",
-      "date_precision": "month",
-      "settlement_date": null,
-      "broker": "XP/Rico",
+      "date": "2026-03-03",
+      "date_precision": "day",
+      "settlement_date": "2026-03-05",
+      "broker": "XP",
       "portfolio": "Magic Formula B3",
-      "note_number": "Magic-inicial-marco-2026",
-      "source": "carteira-notes-and-proceeds-workflow-2026-05-18.md + carteira_magic_formula_real.html",
-      "source_status": "reconstructed_from_prior_extraction",
+      "note_number": "131312312",
+      "source": "official_xp_brokerage_note_doc_bf430fece6e0_XP_1_pdf",
+      "source_status": "exact_pdf_extracted",
       "currency": "BRL",
-      "gross_operations_brl": 549.61,
-      "settlement_total_brl": null,
+      "gross_operations_brl": 561.82,
+      "settlement_total_brl": 619.1,
       "costs": {
-        "clearing_fees_brl": null,
-        "exchange_fees_brl": null,
-        "registration_fees_brl": null,
-        "asset_transfer_fee_brl": null,
-        "brokerage_brl": null,
-        "irrf_brl": null,
-        "iss_brl": null,
-        "iof_brl": null,
+        "clearing_fees_brl": 0.12,
+        "exchange_fees_brl": 0.02,
+        "registration_fees_brl": 0.0,
+        "asset_transfer_fee_brl": 0.01,
+        "brokerage_brl": 49.0,
+        "irrf_brl": 0.0,
+        "iss_brl": 5.23,
+        "iof_brl": 0.0,
         "fx_spread_brl": null,
-        "other_costs_brl": null
+        "other_costs_brl": 2.9
       },
       "trades": [
         {
@@ -118,8 +118,8 @@
           "ticker": "CMIN3",
           "side": "Compra",
           "quantity": 11,
-          "average_price_brl": 5.05,
-          "gross_value_brl": 55.55
+          "average_price_brl": 5.24,
+          "gross_value_brl": 57.64
         },
         {
           "ticker": "CSUD3",
@@ -146,8 +146,8 @@
           "ticker": "PLPL3",
           "side": "Compra",
           "quantity": 3,
-          "average_price_brl": 11.8,
-          "gross_value_brl": 35.4
+          "average_price_brl": 14.08,
+          "gross_value_brl": 42.24
         },
         {
           "ticker": "QUAL3",
@@ -174,12 +174,12 @@
           "ticker": "WIZC3",
           "side": "Compra",
           "quantity": 5,
-          "average_price_brl": 4.51,
-          "gross_value_brl": 22.55
+          "average_price_brl": 9.2,
+          "gross_value_brl": 46.0
         }
       ],
-      "cost_total_brl": null,
-      "note": "Reconstructed from May-reference total and current custody history; ticker-level March split is approximate where original March note is no longer in cache."
+      "cost_total_brl": 57.28,
+      "note": "Official XP note received 2026-08-21. High brokerage/taxes confirmed: Taxa Operacional R$49.00, Impostos R$5.23, Outros R$2.90; total costs/despesas R$57.13 plus clearing/exchange/transfer fees R$0.15; settlement R$619.10 on 2026-03-05."
     },
     {
       "date": "2026-05-13",
@@ -598,8 +598,8 @@
       "broker": "Inter",
       "portfolio": "Dolarizadas / Stocks EUA",
       "note_number": "Inter-cambio-2026-07-14",
-      "source": "screenshot Inter: R$ 1.000,00 -> US$ 192,21; cotação comercial R$ 5,07; VET R$ 5,20; spread 1,50%; IOF 1,10%; taxa grátis",
-      "source_status": "fx_conversion_screenshot",
+      "source": "official_inter_fx_receipt_doc_813e9672e64d_change_receipt_11534758_pdf",
+      "source_status": "exact_pdf_extracted",
       "currency": "BRL/USD",
       "gross_operations_brl": 1000.0,
       "settlement_total_brl": 1000.0,
@@ -616,13 +616,26 @@
         "brokerage_brl": 0.0,
         "irrf_brl": 0.0,
         "iss_brl": 0.0,
-        "iof_brl": 11.0,
-        "fx_spread_brl": 14.62,
+        "iof_brl": 10.88,
+        "fx_spread_brl": null,
         "other_costs_brl": 0.0
       },
       "trades": [],
-      "cost_total_brl": 25.62,
-      "note": "Câmbio real do Inter para aporte dolarizado. Compra de stocks será conciliada quando Diego enviar a nota de corretagem."
+      "cost_total_brl": 10.88,
+      "note": "Official Inter FX receipt: US$192.21 sold to fund Inter Global; taxa cambial 5.145948, valor moeda nacional R$989.12, IOF R$10.88, tarifa R$0.00, total R$1000.00, VET 5.20264294. Spread não segregado no comprovante; está implícito na taxa cambial/VET.",
+      "gross_operations_usd": 192.21,
+      "fx": {
+        "foreign_currency_amount_usd": 192.21,
+        "exchange_rate_brl_per_usd": 5.145948,
+        "national_currency_value_brl": 989.12,
+        "vet_brl_per_usd": 5.20264294,
+        "iof_brl": 10.88,
+        "tariff_brl": 0.0,
+        "total_brl": 1000.0,
+        "receipt_number": "11515638",
+        "debit_date": "2026-07-14",
+        "spread_status": "not_separately_disclosed_in_receipt"
+      }
     },
     {
       "date": "2026-07-14",
@@ -946,6 +959,88 @@
       ],
       "cost_total_brl": 0.14,
       "note": "Nota B3 oficial desbloqueada enviada por Diêgo em 2026-08-18. CMIN3 veio em dois lotes e foi consolidada no ledger."
+    },
+    {
+      "date": "2026-08-18",
+      "date_precision": "day",
+      "settlement_date": "2026-08-18",
+      "broker": "Inter",
+      "portfolio": "Dolarizadas / Stocks EUA",
+      "currency": "BRL/USD",
+      "trades": [],
+      "note_number": "Inter-cambio-2026-08-18-A",
+      "source": "official_inter_fx_receipt_doc_6ec922fd0582_change_receipt_11938229_pdf",
+      "source_status": "exact_pdf_extracted",
+      "gross_operations_brl": 500.0,
+      "settlement_total_brl": 500.0,
+      "gross_operations_usd": 93.63,
+      "fx": {
+        "foreign_currency_amount_usd": 93.63,
+        "exchange_rate_brl_per_usd": 5.2820607105,
+        "national_currency_value_brl": 494.56,
+        "vet_brl_per_usd": 5.34016875,
+        "iof_brl": 5.44,
+        "tariff_brl": 0.0,
+        "total_brl": 500.0,
+        "receipt_number": "11928564",
+        "debit_date": "2026-08-18",
+        "spread_status": "not_separately_disclosed_in_receipt"
+      },
+      "costs": {
+        "clearing_fees_brl": 0.0,
+        "exchange_fees_brl": 0.0,
+        "registration_fees_brl": 0.0,
+        "asset_transfer_fee_brl": 0.0,
+        "brokerage_brl": 0.0,
+        "irrf_brl": 0.0,
+        "iss_brl": 0.0,
+        "iof_brl": 5.44,
+        "fx_spread_brl": null,
+        "other_costs_brl": 0.0
+      },
+      "cost_total_brl": 5.44,
+      "note": "Official Inter FX receipt 11928564-A: US$93.63; taxa cambial 5.2820607105; moeda nacional R$494.56; IOF R$5.44; tarifa R$0.00; total R$500.00; VET 5.34016875. Spread não segregado no comprovante; está implícito na taxa cambial/VET."
+    },
+    {
+      "date": "2026-08-18",
+      "date_precision": "day",
+      "settlement_date": "2026-08-18",
+      "broker": "Inter",
+      "portfolio": "Dolarizadas / Stocks EUA",
+      "currency": "BRL/USD",
+      "trades": [],
+      "note_number": "Inter-cambio-2026-08-18-B",
+      "source": "official_inter_fx_receipt_doc_c4074ab847a5_change_receipt_11948987_pdf",
+      "source_status": "exact_pdf_extracted",
+      "gross_operations_brl": 499.99,
+      "settlement_total_brl": 499.99,
+      "gross_operations_usd": 93.48,
+      "fx": {
+        "foreign_currency_amount_usd": 93.48,
+        "exchange_rate_brl_per_usd": 5.29048942275,
+        "national_currency_value_brl": 494.55,
+        "vet_brl_per_usd": 5.34863072,
+        "iof_brl": 5.44,
+        "tariff_brl": 0.0,
+        "total_brl": 499.99,
+        "receipt_number": "11928564",
+        "debit_date": "2026-08-18",
+        "spread_status": "not_separately_disclosed_in_receipt"
+      },
+      "costs": {
+        "clearing_fees_brl": 0.0,
+        "exchange_fees_brl": 0.0,
+        "registration_fees_brl": 0.0,
+        "asset_transfer_fee_brl": 0.0,
+        "brokerage_brl": 0.0,
+        "irrf_brl": 0.0,
+        "iss_brl": 0.0,
+        "iof_brl": 5.44,
+        "fx_spread_brl": null,
+        "other_costs_brl": 0.0
+      },
+      "cost_total_brl": 5.44,
+      "note": "Official Inter FX receipt 11928564-B: US$93.48; taxa cambial 5.29048942275; moeda nacional R$494.55; IOF R$5.44; tarifa R$0.00; total R$499.99; VET 5.34863072. Spread não segregado no comprovante; está implícito na taxa cambial/VET."
     }
   ],
   "summary_by_broker": {
