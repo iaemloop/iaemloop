@@ -1,10 +1,10 @@
 {
   "schema": "iaemloop-dollarized-real-portfolios-v3",
-  "updated_at": "2026-08-18",
+  "updated_at": "2026-08-21",
   "privacy": "Public-safe portfolio data only; private document identifiers and account data are not included.",
   "custodian": "Inter Global / DriveWealth",
   "fx": {
-    "latest_complete_cycle": "2026-07",
+    "latest_complete_cycle": "2026-08",
     "2026-07": {
       "date": "2026-07-14",
       "broker": "Inter",
@@ -19,8 +19,25 @@
     },
     "2026-08": {
       "date": "2026-08-18",
-      "source_status": "pending_encrypted_report_or_fx_receipt",
-      "note": "PDF report.pdf attached in this session is encrypted; unlock/password needed to record BRL remittance, VET, IOF, spread and exact leftover USD."
+      "broker": "Inter",
+      "brl_total": 999.99,
+      "brl_fx_base": 989.11,
+      "usd_received": 187.11,
+      "fx_rate_brl_per_usd_weighted": 5.2862487307,
+      "vet_brl_per_usd_weighted": 5.34439634,
+      "iof_brl": 10.88,
+      "tariff_brl": 0.0,
+      "source_status": "official_inter_fx_receipts_reconciled",
+      "receipts": [
+        "Inter-cambio-2026-08-18-A",
+        "Inter-cambio-2026-08-18-B"
+      ],
+      "reconciliation": {
+        "drivewealth_execution_usd": 187.13,
+        "inter_fx_usd": 187.11,
+        "apple_dividend_usd": 0.02,
+        "status": "closed_by_aapl_dividend_confirmed_by_diego_2026_08_21"
+      }
     }
   },
   "portfolios": [
@@ -125,7 +142,20 @@
         }
       ],
       "quantity_status": "official_confirmation",
-      "source_status": "official_inter_drivewealth_confirmations_2026_07_14_and_2026_08_18"
+      "source_status": "official_inter_drivewealth_confirmations_2026_07_14_and_2026_08_18",
+      "dividends_usd": 0.02,
+      "cash_movements": [
+        {
+          "id": "aapl-dividend-2026-08-0-02",
+          "date": "2026-08-18",
+          "ticker": "AAPL",
+          "type": "dividend",
+          "amount_usd": 0.02,
+          "source_status": "confirmed_by_diego_2026_08_21",
+          "note": "Explains the US$0.02 difference between August Inter FX receipts (US$187.11) and DriveWealth executions (US$187.13)."
+        }
+      ],
+      "total_usd_with_cash_flows": 190.61
     },
     {
       "id": "magic-formula-stocks",
@@ -216,7 +246,10 @@
         }
       ],
       "quantity_status": "official_confirmation",
-      "source_status": "official_inter_drivewealth_confirmations_2026_07_14_and_2026_08_18"
+      "source_status": "official_inter_drivewealth_confirmations_2026_07_14_and_2026_08_18",
+      "dividends_usd": 0.0,
+      "cash_movements": [],
+      "total_usd_with_cash_flows": 188.75
     }
   ],
   "monthly_history": {

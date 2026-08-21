@@ -999,7 +999,8 @@
         "other_costs_brl": 0.0
       },
       "cost_total_brl": 5.44,
-      "note": "Official Inter FX receipt 11928564-A: US$93.63; taxa cambial 5.2820607105; moeda nacional R$494.56; IOF R$5.44; tarifa R$0.00; total R$500.00; VET 5.34016875. Spread não segregado no comprovante; está implícito na taxa cambial/VET."
+      "note": "Official Inter FX receipt 11928564-A: US$93.63; taxa cambial 5.2820607105; moeda nacional R$494.56; IOF R$5.44; tarifa R$0.00; total R$500.00; VET 5.34016875. Spread não segregado no comprovante; está implícito na taxa cambial/VET. August Inter FX receipts total US$187.11; DriveWealth executions total US$187.13; Diego confirmed the US$0.02 difference was an Apple (AAPL) dividend, so the residual is closed.",
+      "reconciliation_status": "closed_with_aapl_dividend_0_02_confirmed_by_diego_2026_08_21"
     },
     {
       "date": "2026-08-18",
@@ -1040,7 +1041,8 @@
         "other_costs_brl": 0.0
       },
       "cost_total_brl": 5.44,
-      "note": "Official Inter FX receipt 11928564-B: US$93.48; taxa cambial 5.29048942275; moeda nacional R$494.55; IOF R$5.44; tarifa R$0.00; total R$499.99; VET 5.34863072. Spread não segregado no comprovante; está implícito na taxa cambial/VET."
+      "note": "Official Inter FX receipt 11928564-B: US$93.48; taxa cambial 5.29048942275; moeda nacional R$494.55; IOF R$5.44; tarifa R$0.00; total R$499.99; VET 5.34863072. Spread não segregado no comprovante; está implícito na taxa cambial/VET. August Inter FX receipts total US$187.11; DriveWealth executions total US$187.13; Diego confirmed the US$0.02 difference was an Apple (AAPL) dividend, so the residual is closed.",
+      "reconciliation_status": "closed_with_aapl_dividend_0_02_confirmed_by_diego_2026_08_21"
     }
   ],
   "summary_by_broker": {
