@@ -1,12 +1,12 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-08-19-analise-brk-b-berkshire-caixa-conglomerado.html",
+  "lastPost": "blog/posts/2026-08-21-analise-cmin3-csn-mineracao-ciclo-dividendos.html",
   "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 19/08/2026 concluiu a leitura de Stock EUA com BRK-B/Berkshire Hathaway. O post usa watchlist permanente EUA, fundamentos locais de stocks 2026-08, consulta pública à SEC para 10-Q de 30/06/2026 e relatório 10-Q para float aproximado.",
+  "reading": "Publicação de 21/08/2026 concluiu a leitura de Ação Brasil com CMIN3/CSN Mineração. O post usa ranking Magic Formula local, carteira real Magic Formula publicada, nota de corretagem de agosto e consulta pública ao Fundamentus para CMIN3.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-stock-eua",
-    "leitura-de-watchlist-dolarizada",
+    "estudo-educacional-de-acao-brasil",
+    "leitura-de-carteira-real",
     "registro-editorial-publico"
   ],
   "rules": [
@@ -19,14 +19,14 @@
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
   ],
   "sourcesUsed": [
-    "Watchlist permanente EUA 2026-08",
-    "outputs/stocks_eua_fundamentos_2026-08.csv",
-    "SEC data.sec.gov CIK 0001067983 consultado em 2026-08-19",
-    "Berkshire Hathaway 10-Q 2026-06-30 arquivado em 2026-08-10"
+    "greenblatt_top30_filtered.csv",
+    "data/compras_b3_agosto_2026.csv",
+    "carteira_magic_formula_real.html",
+    "Fundamentus CMIN3 consultado em 2026-08-21"
   ],
-  "tickerOfTheDay": "BRK-B",
-  "assetTypeOfTheDay": "stock_eua",
-  "custodyPerspective": "fora_da_custodia_watchlist",
+  "tickerOfTheDay": "CMIN3",
+  "assetTypeOfTheDay": "acao_brasil",
+  "custodyPerspective": "em_custodia",
   "draftStatus": "publicado",
-  "updatedAt": "2026-08-19"
+  "updatedAt": "2026-08-21"
 }
