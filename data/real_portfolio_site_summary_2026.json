@@ -1,0 +1,87 @@
+{
+  "schema": "iaemloop-real-portfolio-site-summary-v1",
+  "updated_at": "2026-08-20",
+  "source_files": [
+    "data/investment_costs_2026.json",
+    "data/dollarized_portfolios_2026.json",
+    "data/compras_b3_agosto_2026.csv",
+    "data/compras_stocks_inter_drivewealth_2026.csv"
+  ],
+  "summary_by_broker": {
+    "Ágora": {
+      "gross_brl": 2256.16,
+      "gross_usd": 0,
+      "known_cost_brl": 0.27,
+      "known_cost_usd": 0.0,
+      "unknown": 3,
+      "entries": 6,
+      "brokerage_brl": 0.0,
+      "spread_brl": 0.0,
+      "iof_brl": 0.0,
+      "portfolios": [
+        "BESST & Buffett B3"
+      ]
+    },
+    "XP/Rico": {
+      "gross_brl": 549.61,
+      "gross_usd": 0,
+      "known_cost_brl": 0.0,
+      "known_cost_usd": 0.0,
+      "unknown": 1,
+      "entries": 1,
+      "brokerage_brl": 0.0,
+      "spread_brl": 0.0,
+      "iof_brl": 0.0,
+      "portfolios": [
+        "Magic Formula B3"
+      ]
+    },
+    "Rico": {
+      "gross_brl": 1713.84,
+      "gross_usd": 0,
+      "known_cost_brl": 0.28,
+      "known_cost_usd": 0.0,
+      "unknown": 2,
+      "entries": 4,
+      "brokerage_brl": 0.0,
+      "spread_brl": 0.0,
+      "iof_brl": 0.0,
+      "portfolios": [
+        "Magic Formula B3"
+      ]
+    },
+    "Inter": {
+      "gross_brl": 1000.0,
+      "gross_usd": 0,
+      "known_cost_brl": 25.62,
+      "known_cost_usd": 0.0,
+      "unknown": 0,
+      "entries": 1,
+      "brokerage_brl": 0.0,
+      "spread_brl": 14.62,
+      "iof_brl": 11.0,
+      "portfolios": [
+        "Dolarizadas / Stocks EUA"
+      ]
+    },
+    "Inter Global / DriveWealth": {
+      "gross_brl": 0,
+      "gross_usd": 379.34,
+      "known_cost_brl": 0.0,
+      "known_cost_usd": 0.0,
+      "unknown": 0,
+      "entries": 2,
+      "brokerage_brl": 0.0,
+      "spread_brl": 0.0,
+      "iof_brl": 0.0,
+      "portfolios": [
+        "Dolarizadas / Stocks EUA"
+      ]
+    }
+  },
+  "notes": [
+    "Custos antigos sem PDF detalhado aparecem como lacuna, não como custo zero.",
+    "MFR$ teve primeira compra em XP/Rico com custo detalhado pendente; compras seguintes foram para Rico.",
+    "Dolarizadas têm confirmação de compras em USD; remessa/VET de agosto ainda pendente para BRL/spread/IOF exatos."
+  ]
+}
