@@ -140,7 +140,8 @@ def page_shell(title, meta_desc, body):
 def kpis(total, proventos, positions, currency='BRL', extra_label='Valor comprado'):
     money = brl if currency=='BRL' else usd
     ticket = total / len(positions) if positions else 0
-    return f'<div class="kpis"><div class="kpi"><div class="kpi-val">{money(total)}</div><div class="kpi-lab">{extra_label}</div></div><div class="kpi"><div class="kpi-val" style="color:var(--green)">{brl(proventos) if currency=="BRL" else "—"}</div><div class="kpi-lab">Proventos recebidos</div></div><div class="kpi"><div class="kpi-val">{money(ticket)}</div><div class="kpi-lab">Ticket médio por posição</div></div><div class="kpi"><div class="kpi-val">{len(positions)}</div><div class="kpi-lab">Posições</div></div></div>'
+    proventos_txt = brl(proventos) if currency == 'BRL' else usd(proventos)
+    return f'<div class="kpis"><div class="kpi"><div class="kpi-val">{money(total)}</div><div class="kpi-lab">{extra_label}</div></div><div class="kpi"><div class="kpi-val" style="color:var(--green)">{proventos_txt}</div><div class="kpi-lab">Proventos recebidos</div></div><div class="kpi"><div class="kpi-val">{money(ticket)}</div><div class="kpi-lab">Ticket médio por posição</div></div><div class="kpi"><div class="kpi-val">{len(positions)}</div><div class="kpi-lab">Posições</div></div></div>'
 
 def charts(positions, valkey='valor', currency='BRL'):
     total=sum(p[valkey] for p in positions) or 1; money=brl if currency=='BRL' else usd
@@ -277,8 +278,9 @@ def monthly_panel_dollar(portfolio_id):
 
 def render_dollar(path, portfolio_id, emoji):
     p,positions=load_dollar_positions(portfolio_id); total=sum(x['valor'] for x in positions)
+    dividends_usd=float(p.get('dividends_usd') or 0)
     body=f'<header style="text-align:center"><h1>{emoji} Carteira real {html.escape(p["name"])}</h1><p class="sub">{html.escape(p.get("method") or "Carteira dolarizada")}</p></header>'
-    body+=kpis(total,0,positions,'USD','Valor comprado em USD')
+    body+=kpis(total,dividends_usd,positions,'USD','Valor comprado em USD')
     body+=charts(positions,'valor','USD')
     body+=custody_panel(positions,'USD')
     body+=monthly_panel_dollar(portfolio_id)
@@ -289,7 +291,7 @@ def render_dollar(path, portfolio_id, emoji):
 
 def write_site_summary():
     ledger=load_ledger(); glob=global_costs()
-    payload={'schema':'iaemloop-real-portfolio-site-summary-v1','updated_at':TODAY_ISO,'source_files':['data/investment_costs_2026.json','data/dollarized_portfolios_2026.json','data/compras_b3_agosto_2026.csv','data/compras_stocks_inter_drivewealth_2026.csv'],'summary_by_broker':{k:{kk:(sorted(vv) if isinstance(vv,set) else round(vv,2) if isinstance(vv,float) else vv) for kk,vv in v.items()} for k,v in glob.items()},'notes':['Custos antigos sem PDF detalhado aparecem como lacuna, não como custo zero.','MFR$ teve primeira compra em XP/Rico com custo detalhado pendente; compras seguintes foram para Rico.','Dolarizadas têm confirmação de compras em USD; remessa/VET de agosto ainda pendente para BRL/spread/IOF exatos.']}
+    payload={'schema':'iaemloop-real-portfolio-site-summary-v1','updated_at':TODAY_ISO,'source_files':['data/investment_costs_2026.json','data/dollarized_portfolios_2026.json','data/compras_b3_agosto_2026.csv','data/compras_stocks_inter_drivewealth_2026.csv'],'summary_by_broker':{k:{kk:(sorted(vv) if isinstance(vv,set) else round(vv,2) if isinstance(vv,float) else vv) for kk,vv in v.items()} for k,v in glob.items()},'notes':['Custos antigos sem PDF detalhado aparecem como lacuna, não como custo zero.','MFR$ teve primeira compra em XP com corretagem oficial alta registrada; compras seguintes foram para Rico.','Dolarizadas têm compras em USD e remessas Inter reconciliadas; diferença de US$0.02 em agosto foi fechada como dividendo AAPL confirmado por Diêgo.']}
     (DATA/'real_portfolio_site_summary_2026.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 
 if __name__ == '__main__':
