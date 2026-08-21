@@ -7,8 +7,8 @@ from datetime import date
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data'
-TODAY_BR = '20/08/2026'
-TODAY_ISO = '2026-08-20'
+TODAY_BR = '21/08/2026'
+TODAY_ISO = '2026-08-21'
 COLORS = ['var(--gold)','#e74c3c','#1abc9c','#3498db','#9b59b6','#f39c12','#2ecc71','#95a5a6','#e91e63','#00bcd4','#8e44ad','#16a085','#c0392b','#27ae60','#d35400','#7f8c8d']
 MONTH_ORDER = {'Jan':1,'Fev':2,'Mar':3,'Abr':4,'Mai':5,'Jun':6,'Jul':7,'Ago':8,'Set':9,'Out':10,'Nov':11,'Dez':12}
 MONTH_LABEL = {'2026-03':'Mar/26','2026-05':'Mai/26','2026-06':'Jun/26','2026-07':'Jul/26','2026-08':'Ago/26'}
