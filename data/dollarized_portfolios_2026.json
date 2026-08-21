@@ -1,18 +1,27 @@
 {
-  "schema": "iaemloop-dollarized-real-portfolios-v2",
-  "updated_at": "2026-07-16",
+  "schema": "iaemloop-dollarized-real-portfolios-v3",
+  "updated_at": "2026-08-18",
   "privacy": "Public-safe portfolio data only; private document identifiers and account data are not included.",
-  "custodian": "Inter Global",
+  "custodian": "Inter Global / DriveWealth",
   "fx": {
-    "date": "2026-07-14",
-    "broker": "Inter",
-    "brl_total": 1000.0,
-    "brl_fx_base": 989.12,
-    "usd_received": 192.21,
-    "fx_rate_brl_per_usd": 5.145948,
-    "vet_brl_per_usd": 5.20264294,
-    "iof_brl": 10.88,
-    "tariff_brl": 0.0
+    "latest_complete_cycle": "2026-07",
+    "2026-07": {
+      "date": "2026-07-14",
+      "broker": "Inter",
+      "brl_total": 1000.0,
+      "brl_fx_base": 989.12,
+      "usd_received": 192.21,
+      "fx_rate_brl_per_usd": 5.145948,
+      "vet_brl_per_usd": 5.20264294,
+      "iof_brl": 10.88,
+      "tariff_brl": 0.0,
+      "source_status": "screenshot/existing ledger"
+    },
+    "2026-08": {
+      "date": "2026-08-18",
+      "source_status": "pending_encrypted_report_or_fx_receipt",
+      "note": "PDF report.pdf attached in this session is encrypted; unlock/password needed to record BRL remittance, VET, IOF, spread and exact leftover USD."
+    }
   },
   "portfolios": [
     {
@@ -21,48 +30,102 @@
       "method": "Qualidade, perenidade, moat e valuation",
       "page": "carteira_besst_buffett_dolarizada_real.html",
       "ranking_page": "ranking_besst_buffett_dolarizado.html",
-      "total_usd": 97.46,
-      "estimated_brl_by_vet": 507.05,
+      "total_usd": 190.59,
+      "estimated_brl_by_vet": null,
       "positions": [
-        {
-          "ticker": "ZTS",
-          "company": "Zoetis Inc.",
-          "sector": "Saúde animal / Healthcare",
-          "usd": 48.73,
-          "quantity": 0.65507173,
-          "avg_price_usd": 74.3888,
-          "rank": "#1 BESST & Buffett EUA",
-          "reason": "empresa perene, alta rentabilidade e liderança em saúde animal",
-          "quantity_status": "official_confirmation",
-          "execution_time_et": "9:48:38 AM"
-        },
         {
           "ticker": "AAPL",
           "company": "Apple Inc.",
           "sector": "Tecnologia / Ecossistema",
-          "usd": 29.24,
           "quantity": 0.09321934,
-          "avg_price_usd": 313.6688,
-          "rank": "#3 BESST & Buffett EUA",
-          "reason": "perenidade, marca/ecossistema e qualidade composta",
+          "usd": 29.24,
+          "lots": [
+            {
+              "quantity": 0.09321934,
+              "price_usd": 313.6688,
+              "executed_value_usd": 29.24
+            }
+          ],
+          "avg_price_usd": 313.668816,
           "quantity_status": "official_confirmation",
-          "execution_time_et": "9:49:23 AM"
+          "source_status": "official_inter_drivewealth_confirmations_2026_07_14_and_2026_08_18"
+        },
+        {
+          "ticker": "CME",
+          "company": "CME Group Inc.",
+          "sector": "Bolsas e infraestrutura financeira",
+          "quantity": 0.11264611,
+          "usd": 30.75,
+          "lots": [
+            {
+              "quantity": 0.11264611,
+              "price_usd": 272.9788,
+              "executed_value_usd": 30.75
+            }
+          ],
+          "avg_price_usd": 272.978801,
+          "quantity_status": "official_confirmation",
+          "source_status": "official_inter_drivewealth_confirmations_2026_07_14_and_2026_08_18"
         },
         {
           "ticker": "MA",
           "company": "Mastercard Incorporated",
           "sector": "Pagamentos",
-          "usd": 19.49,
           "quantity": 0.03599867,
-          "avg_price_usd": 541.4088,
-          "rank": "#5 BESST & Buffett EUA",
-          "reason": "moat de rede, pagamentos globais e capital leve",
+          "usd": 19.49,
+          "lots": [
+            {
+              "quantity": 0.03599867,
+              "price_usd": 541.4088,
+              "executed_value_usd": 19.49
+            }
+          ],
+          "avg_price_usd": 541.408891,
           "quantity_status": "official_confirmation",
-          "execution_time_et": "9:50:02 AM"
+          "source_status": "official_inter_drivewealth_confirmations_2026_07_14_and_2026_08_18"
+        },
+        {
+          "ticker": "TSM",
+          "company": "Taiwan Semiconductor Manufacturing Company",
+          "sector": "Semicondutores",
+          "quantity": 0.07672917,
+          "usd": 31.62,
+          "lots": [
+            {
+              "quantity": 0.07672917,
+              "price_usd": 412.0988,
+              "executed_value_usd": 31.62
+            }
+          ],
+          "avg_price_usd": 412.098815,
+          "quantity_status": "official_confirmation",
+          "source_status": "official_inter_drivewealth_confirmations_2026_07_14_and_2026_08_18"
+        },
+        {
+          "ticker": "ZTS",
+          "company": "Zoetis Inc.",
+          "sector": "Saúde animal / Healthcare",
+          "quantity": 1.07064182,
+          "usd": 79.49,
+          "lots": [
+            {
+              "quantity": 0.65507173,
+              "price_usd": 74.3888,
+              "executed_value_usd": 48.73
+            },
+            {
+              "quantity": 0.41557009,
+              "price_usd": 74.0188,
+              "executed_value_usd": 30.76
+            }
+          ],
+          "avg_price_usd": 74.245185,
+          "quantity_status": "official_confirmation",
+          "source_status": "official_inter_drivewealth_confirmations_2026_07_14_and_2026_08_18"
         }
       ],
       "quantity_status": "official_confirmation",
-      "source_status": "official_inter_drivewealth_confirmation_2026_07_14"
+      "source_status": "official_inter_drivewealth_confirmations_2026_07_14_and_2026_08_18"
     },
     {
       "id": "magic-formula-stocks",
@@ -70,48 +133,90 @@
       "method": "Retorno sobre capital + preço relativo",
       "page": "carteira_magic_formula_dolarizada_real.html",
       "ranking_page": "ranking_magic_formula_dolarizada.html",
-      "total_usd": 94.75,
-      "estimated_brl_by_vet": 492.95,
+      "total_usd": 188.75,
+      "estimated_brl_by_vet": null,
       "positions": [
         {
           "ticker": "ADBE",
           "company": "Adobe Inc.",
           "sector": "Software",
-          "usd": 38.99,
-          "quantity": 0.1766341,
-          "avg_price_usd": 220.7388,
-          "rank": "#2 Magic Formula EUA",
-          "reason": "qualidade operacional elevada com preço relativo atrativo no ranking",
+          "quantity": 0.29212176,
+          "usd": 69.75,
+          "lots": [
+            {
+              "quantity": 0.1766341,
+              "price_usd": 220.7388,
+              "executed_value_usd": 38.99
+            },
+            {
+              "quantity": 0.11548766,
+              "price_usd": 266.3488,
+              "executed_value_usd": 30.76
+            }
+          ],
+          "avg_price_usd": 238.770299,
           "quantity_status": "official_confirmation",
-          "execution_time_et": "9:51:09 AM"
+          "source_status": "official_inter_drivewealth_confirmations_2026_07_14_and_2026_08_18"
         },
         {
-          "ticker": "PGR",
-          "company": "Progressive Corporation",
+          "ticker": "ALL",
+          "company": "Allstate Corporation",
           "sector": "Seguros",
-          "usd": 29.24,
-          "quantity": 0.12758597,
-          "avg_price_usd": 229.1788,
-          "rank": "#3 Magic Formula EUA",
-          "reason": "seguradora de alta rentabilidade; exige acompanhamento setorial próprio",
+          "quantity": 0.12012363,
+          "usd": 31.62,
+          "lots": [
+            {
+              "quantity": 0.12012363,
+              "price_usd": 263.2288,
+              "executed_value_usd": 31.62
+            }
+          ],
+          "avg_price_usd": 263.228809,
           "quantity_status": "official_confirmation",
-          "execution_time_et": "9:51:47 AM"
+          "source_status": "official_inter_drivewealth_confirmations_2026_07_14_and_2026_08_18"
         },
         {
           "ticker": "BMY",
           "company": "Bristol-Myers Squibb Company",
           "sector": "Saúde / Pharma",
-          "usd": 26.52,
-          "quantity": 0.45373044,
-          "avg_price_usd": 58.4488,
-          "rank": "#4 Magic Formula EUA",
-          "reason": "pharma defensiva e valuation mais baixo; compra ajustada ao saldo real",
+          "quantity": 0.93116623,
+          "usd": 58.14,
+          "lots": [
+            {
+              "quantity": 0.45373044,
+              "price_usd": 58.4488,
+              "executed_value_usd": 26.52
+            },
+            {
+              "quantity": 0.47743579,
+              "price_usd": 66.2288,
+              "executed_value_usd": 31.62
+            }
+          ],
+          "avg_price_usd": 62.437831,
           "quantity_status": "official_confirmation",
-          "execution_time_et": "9:54:45 AM"
+          "source_status": "official_inter_drivewealth_confirmations_2026_07_14_and_2026_08_18"
+        },
+        {
+          "ticker": "PGR",
+          "company": "Progressive Corporation",
+          "sector": "Seguros",
+          "quantity": 0.12758597,
+          "usd": 29.24,
+          "lots": [
+            {
+              "quantity": 0.12758597,
+              "price_usd": 229.1788,
+              "executed_value_usd": 29.24
+            }
+          ],
+          "avg_price_usd": 229.178804,
+          "quantity_status": "official_confirmation",
+          "source_status": "official_inter_drivewealth_confirmations_2026_07_14_and_2026_08_18"
         }
       ],
-      "quantity_status": "partial_official_confirmation; ZTS pending if not present",
-      "source_status": "official_inter_drivewealth_confirmation_2026_07_14"
+      "quantity_status": "official_confirmation",
+      "source_status": "official_inter_drivewealth_confirmations_2026_07_14_and_2026_08_18"
     }
   ],
   "monthly_history": {
@@ -120,6 +225,7 @@
     "cycles": [
       {
         "month": "2026-07",
+        "trade_date": "2026-07-14",
         "settlement_date": "2026-07-15",
         "portfolio": "besst_buffett_dolarizada",
         "portfolio_id": "besst-buffett-stocks",
@@ -152,10 +258,12 @@
             "executed_value_usd": 19.49,
             "source": "official_inter_drivewealth_confirmation_2026_07_14_public_safe"
           }
-        ]
+        ],
+        "total_usd": 97.46
       },
       {
         "month": "2026-07",
+        "trade_date": "2026-07-14",
         "settlement_date": "2026-07-15",
         "portfolio": "magic_formula_dolarizada",
         "portfolio_id": "magic-formula-stocks",
@@ -188,7 +296,84 @@
             "executed_value_usd": 26.52,
             "source": "official_inter_drivewealth_confirmation_2026_07_14_public_safe"
           }
-        ]
+        ],
+        "total_usd": 94.75
+      },
+      {
+        "month": "2026-08",
+        "trade_date": "2026-08-18",
+        "settlement_date": "2026-08-19",
+        "portfolio": "besst_buffett_dolarizada",
+        "portfolio_id": "besst-buffett-stocks",
+        "broker": "Inter Global / DriveWealth",
+        "fx_vet_brl_usd": null,
+        "source": "official_inter_drivewealth_confirmation_2026_08_18_public_safe",
+        "status": "executado_confirmacao_oficial_settlement_2026_08_19",
+        "positions": [
+          {
+            "ticker": "ZTS",
+            "company": "Zoetis Inc.",
+            "quantity": 0.41557009,
+            "avg_price_usd": 74.0188,
+            "executed_value_usd": 30.76,
+            "source": "official_inter_drivewealth_confirmation_2026_08_18_public_safe"
+          },
+          {
+            "ticker": "CME",
+            "company": "CME Group Inc.",
+            "quantity": 0.11264611,
+            "avg_price_usd": 272.9788,
+            "executed_value_usd": 30.75,
+            "source": "official_inter_drivewealth_confirmation_2026_08_18_public_safe"
+          },
+          {
+            "ticker": "TSM",
+            "company": "Taiwan Semiconductor Manufacturing Company",
+            "quantity": 0.07672917,
+            "avg_price_usd": 412.0988,
+            "executed_value_usd": 31.62,
+            "source": "official_inter_drivewealth_confirmation_2026_08_18_public_safe"
+          }
+        ],
+        "total_usd": 93.13
+      },
+      {
+        "month": "2026-08",
+        "trade_date": "2026-08-18",
+        "settlement_date": "2026-08-19",
+        "portfolio": "magic_formula_dolarizada",
+        "portfolio_id": "magic-formula-stocks",
+        "broker": "Inter Global / DriveWealth",
+        "fx_vet_brl_usd": null,
+        "source": "official_inter_drivewealth_confirmation_2026_08_18_public_safe",
+        "status": "executado_confirmacao_oficial_settlement_2026_08_19",
+        "positions": [
+          {
+            "ticker": "BMY",
+            "company": "Bristol-Myers Squibb Company",
+            "quantity": 0.47743579,
+            "avg_price_usd": 66.2288,
+            "executed_value_usd": 31.62,
+            "source": "official_inter_drivewealth_confirmation_2026_08_18_public_safe"
+          },
+          {
+            "ticker": "ADBE",
+            "company": "Adobe Inc.",
+            "quantity": 0.11548766,
+            "avg_price_usd": 266.3488,
+            "executed_value_usd": 30.76,
+            "source": "official_inter_drivewealth_confirmation_2026_08_18_public_safe"
+          },
+          {
+            "ticker": "ALL",
+            "company": "Allstate Corporation",
+            "quantity": 0.12012363,
+            "avg_price_usd": 263.2288,
+            "executed_value_usd": 31.62,
+            "source": "official_inter_drivewealth_confirmation_2026_08_18_public_safe"
+          }
+        ],
+        "total_usd": 94.0
       }
     ]
   }
