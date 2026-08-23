@@ -18,25 +18,76 @@ CSV_IN = ROOT / "outputs" / "barsi_screener_latest.csv"
 
 SECTOR_TRANSLATION = {
     "Energy": "Petróleo/Gás",
-    "Utilities": "Energia",
+    "Utilities": "Energia elétrica",
     "Basic Materials": "Materiais básicos",
     "Financial Services": "Bancos",
     "Communication Services": "Telecomunicações",
 }
 
+TICKER_SECTOR_PT = {
+    "SANB11": "Bancos",
+    "SANB3": "Bancos",
+    "SANB4": "Bancos",
+    "BBAS3": "Bancos",
+    "BBDC3": "Bancos",
+    "BBDC4": "Bancos",
+    "ITUB3": "Bancos",
+    "ITUB4": "Bancos",
+    "BRSR6": "Bancos",
+    "ENGI3": "Energia elétrica",
+    "ENGI11": "Energia elétrica",
+    "EQTL3": "Energia elétrica",
+    "CPLE3": "Energia elétrica",
+    "CPLE6": "Energia elétrica",
+    "TAEE11": "Transmissão de energia elétrica",
+    "KLBN3": "Papel e celulose",
+    "KLBN4": "Papel e celulose",
+    "SUZB3": "Papel e celulose",
+    "PETR3": "Petróleo e gás",
+    "PETR4": "Petróleo e gás",
+    "VALE3": "Mineração",
+    "GGBR4": "Siderurgia",
+    "CSNA3": "Siderurgia",
+    "CMIN3": "Mineração",
+    "VIVT3": "Telecomunicações",
+    "TIMS3": "Telecomunicações",
+    "SBSP3": "Saneamento",
+    "CSMG3": "Saneamento",
+    "PSSA3": "Seguros",
+    "IRBR3": "Resseguros",
+}
 
-def sector_pt(raw: str, segment: str) -> str:
-    if "Bank" in segment:
+
+def sector_pt(raw: str, segment: str, ticker: str = "") -> str:
+    """Return a specific public-facing sector label.
+
+    Public ranking pages must not show generic Yahoo sector buckets such as
+    "Financial Services", "Utilities" or their broad translations. Prefer the
+    ticker/industry-level label used in the history page: SANB11 = Bancos,
+    ENGI3 = Energia elétrica, etc.
+    """
+    t = ticker.strip().upper()
+    if t in TICKER_SECTOR_PT:
+        return TICKER_SECTOR_PT[t]
+    seg = str(segment or "")
+    raw_s = str(raw or "")
+    if "Bank" in seg:
         return "Bancos"
-    if "Electric" in segment or raw == "Utilities":
-        return "Energia"
-    if "Oil" in segment or raw == "Energy":
-        return "Petróleo/Gás"
-    if "Paper" in segment:
-        return "Papel e Celulose"
-    if "Steel" in segment:
-        return "Mineração/Siderurgia"
-    return SECTOR_TRANSLATION.get(raw, raw or "-")
+    if "Regulated Electric" in seg or "Electric" in seg:
+        return "Energia elétrica"
+    if "Oil" in seg or "Gas" in seg or raw_s == "Energy":
+        return "Petróleo e gás"
+    if "Paper" in seg:
+        return "Papel e celulose"
+    if "Steel" in seg:
+        return "Siderurgia"
+    if "Mining" in seg or "Metals" in seg:
+        return "Mineração"
+    if "Telecom" in seg:
+        return "Telecomunicações"
+    if "Insurance" in seg:
+        return "Seguros"
+    return SECTOR_TRANSLATION.get(raw_s, raw_s or "-")
 
 
 def fmt_percent(value: str) -> str:
@@ -86,7 +137,7 @@ def build_tbody(rows: list[dict[str, str]]) -> str:
     html_rows = []
     for pos, row in enumerate(rows, 1):
         ticker = row["ticker"].strip().upper()
-        sector = sector_pt(row.get("setor", ""), row.get("segmento", ""))
+        sector = sector_pt(row.get("setor", ""), row.get("segmento", ""), ticker)
         html_rows.append(
             f"""                <tr>
                     <td><strong>{pos}</strong></td>
