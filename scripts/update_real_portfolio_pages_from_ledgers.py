@@ -205,8 +205,15 @@ def costs_panel(portfolio, global_panel=False):
     cards=[]
     for broker,b in sorted(by.items(), key=lambda kv:(-(kv[1]['gross_brl']+kv[1]['gross_usd']),kv[0])):
         gross=[]
-        if b['gross_brl']: gross.append(brl(b['gross_brl']))
-        if b['gross_usd']: gross.append(usd(b['gross_usd']))
+        if b['gross_brl'] and b['gross_usd']:
+            # For BRL/USD conversion entries these are the same capital shown in
+            # two currencies, not two separate purchases. Do not render as
+            # "R$ X + US$ Y" because that overstates the amount invested.
+            gross.append(f'{brl(b["gross_brl"])} → {usd(b["gross_usd"])} após conversão')
+        elif b['gross_brl']:
+            gross.append(brl(b['gross_brl']))
+        elif b['gross_usd']:
+            gross.append(usd(b['gross_usd']))
         costs=[]
         if b['known_cost_brl']: costs.append(brl(b['known_cost_brl']))
         if b['known_cost_usd']: costs.append(usd(b['known_cost_usd']))
