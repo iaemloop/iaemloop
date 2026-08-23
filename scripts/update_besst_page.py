@@ -15,6 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PAGE = ROOT / "metodologia_barsi.html"
 CSV_IN = ROOT / "outputs" / "barsi_screener_latest.csv"
+MIN_EXPECTED_RANKING_ROWS = 10
 
 SECTOR_TRANSLATION = {
     "Energy": "Petróleo/Gás",
@@ -155,6 +156,12 @@ def build_tbody(rows: list[dict[str, str]]) -> str:
 def main() -> None:
     page_html = PAGE.read_text(encoding="utf-8")
     rows = load_rows()
+    if len(rows) < MIN_EXPECTED_RANKING_ROWS:
+        raise SystemExit(
+            f"ABORTADO: {CSV_IN} gerou apenas {len(rows)} linhas únicas; "
+            f"a página oficial não será sobrescrita. Verifique se o arquivo latest "
+            f"é o ranking mensal correto antes de publicar."
+        )
     updated = datetime.now().strftime("%d/%m/%Y")
     page_html = re.sub(
         r"<p>📅 <strong>Atualização:</strong> .*?</p>",
