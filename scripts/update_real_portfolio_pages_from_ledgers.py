@@ -205,11 +205,13 @@ def costs_panel(portfolio, global_panel=False):
     cards=[]
     for broker,b in sorted(by.items(), key=lambda kv:(-(kv[1]['gross_brl']+kv[1]['gross_usd']),kv[0])):
         gross=[]
+        gross_label='Compras desde início'
         if b['gross_brl'] and b['gross_usd']:
-            # For BRL/USD conversion entries these are the same capital shown in
-            # two currencies, not two separate purchases. Do not render as
-            # "R$ X + US$ Y" because that overstates the amount invested.
-            gross.append(f'{brl(b["gross_brl"])} → {usd(b["gross_usd"])} após conversão')
+            # BRL/USD conversion is one capital movement expressed in two
+            # currencies, not a purchase sum. The public page should explain the
+            # flow in plain language instead of showing "BRL + USD".
+            gross_label='Reais convertidos para investir'
+            gross.append(f'{brl(b["gross_brl"])} — {usd(b["gross_usd"])} creditados em dólar')
         elif b['gross_brl']:
             gross.append(brl(b['gross_brl']))
         elif b['gross_usd']:
@@ -225,7 +227,7 @@ def costs_panel(portfolio, global_panel=False):
         ports = ''
         if global_panel and b.get('portfolios'):
             ports=f'<div class="note">Carteiras: {html.escape(", ".join(sorted(x for x in b["portfolios"] if x)))}</div>'
-        cards.append(f'<div class="cost-card"><h3>{html.escape(broker)}</h3><div class="cost-row"><span>Compras desde início</span><span class="cost-val">{" + ".join(gross) if gross else "—"}</span></div><div class="cost-row"><span>Custos conhecidos</span><span class="cost-val">{" + ".join(costs) if costs else "R$ 0,00"}</span></div><div class="note">{html.escape("; ".join(detail) if detail else "sem corretagem/spread/IOF conhecido nesta corretora")}</div>{ports}{unk}</div>')
+        cards.append(f'<div class="cost-card"><h3>{html.escape(broker)}</h3><div class="cost-row"><span>{html.escape(gross_label)}</span><span class="cost-val">{" + ".join(gross) if gross else "—"}</span></div><div class="cost-row"><span>Custos conhecidos</span><span class="cost-val">{" + ".join(costs) if costs else "R$ 0,00"}</span></div><div class="note">{html.escape("; ".join(detail) if detail else "sem corretagem/spread/IOF conhecido nesta corretora")}</div>{ports}{unk}</div>')
     title = '🧾 Gastos desde o início por corretora' if global_panel else '🧾 Gastos desde o início por corretora nesta carteira'
     sub = 'Inclui compras em custódia, corretagem, emolumentos/taxas conhecidos, spread e IOF quando documentados. Notas antigas sem PDF detalhado ficam marcadas como lacuna, não como custo zero.'
     return f'<div class="panel"><div class="panel-title">{title}</div><div class="note" style="margin-bottom:16px">{sub}</div><div class="cost-grid">{"".join(cards)}</div></div>'
