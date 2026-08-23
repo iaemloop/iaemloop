@@ -32,7 +32,23 @@ FALLBACK_TICKERS = [
 # ==================== FUNÇÕES ====================
 
 def get_sp500_tickers():
-    """Busca a lista de tickers do S&P 500 da Wikipedia."""
+    """Load the auditable IA em Loop US universe, falling back to S&P 500.
+
+    The dollarized pipelines must not depend on a short fallback/latest file:
+    names such as MELI can be valid in the curated Nasdaq/watchlist universe even
+    when they are not present in a small S&P/fallback sample.
+    """
+    universe_path = 'data/universes/stocks_eua_universe.csv'
+    if os.path.exists(universe_path):
+        try:
+            uni = pd.read_csv(universe_path)
+            active = uni[uni.get('ativo', True).astype(str).str.lower().isin(['true','1','sim','yes'])] if 'ativo' in uni.columns else uni
+            tickers = active['ticker'].dropna().astype(str).str.upper().str.replace('.', '-', regex=False).drop_duplicates().tolist()
+            if tickers:
+                print(f"📚 Universo versionado IA em Loop: {len(tickers)} tickers")
+                return tickers
+        except Exception as e:
+            print(f"⚠️ Falha ao carregar universo versionado {universe_path}: {e}")
     try:
         # Tabela contendo os componentes do S&P 500
         url = 'https://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
