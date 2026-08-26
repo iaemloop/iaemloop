@@ -1,12 +1,12 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-08-24-analise-gddy-godaddy-dominios-ia-valuation.html",
+  "lastPost": "blog/posts/2026-08-26-analise-klbn4-klabin-celulose-dividendos-ciclo.html",
   "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 24/08/2026 concluiu a leitura de Stock EUA com GDDY/GoDaddy. O post usa ranking Magic Formula Dolarizada, fundamentos de stocks com data-base 06/08/2026 e dados estruturados da SEC para o 10-Q de 30/06/2026.",
+  "reading": "Publicação de 26/08/2026 concluiu a leitura de Ação Brasil com KLBN4/Klabin. O post usa ranking BESST e Buffett B3 de agosto de 2026, nota de corretagem de agosto da carteira BESST e Buffett B3, consulta pública ao Fundamentus e página de RI da Klabin.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-stock-eua",
-    "leitura-de-ranking-dolarizado",
+    "estudo-educacional-de-acao-brasil",
+    "leitura-de-ranking-brasil",
     "registro-editorial-publico"
   ],
   "rules": [
@@ -19,14 +19,14 @@
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
   ],
   "sourcesUsed": [
-    "outputs/magic_formula_eua_top20_2026-08.csv",
-    "outputs/stocks_eua_fundamentos_2026-08.csv",
-    "SEC data.sec.gov GoDaddy CIK 0001609711 submissions",
-    "SEC companyfacts XBRL GoDaddy CIK 0001609711"
+    "outputs/barsi_screener_top20_2026-08.csv",
+    "data/compras_b3_agosto_2026.csv",
+    "Fundamentus KLBN4",
+    "Klabin RI"
   ],
-  "tickerOfTheDay": "GDDY",
-  "assetTypeOfTheDay": "stock_eua",
-  "custodyPerspective": "fora_da_custodia_watchlist",
+  "tickerOfTheDay": "KLBN4",
+  "assetTypeOfTheDay": "acao_brasil",
+  "custodyPerspective": "em_custodia",
   "draftStatus": "publicado",
-  "updatedAt": "2026-08-24"
+  "updatedAt": "2026-08-26"
 }
