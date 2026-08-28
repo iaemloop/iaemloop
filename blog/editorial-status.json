@@ -1,12 +1,12 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-08-26-analise-klbn4-klabin-celulose-dividendos-ciclo.html",
+  "lastPost": "blog/posts/2026-08-28-analise-all-allstate-seguros-valuation.html",
   "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 26/08/2026 concluiu a leitura de Ação Brasil com KLBN4/Klabin. O post usa ranking BESST e Buffett B3 de agosto de 2026, nota de corretagem de agosto da carteira BESST e Buffett B3, consulta pública ao Fundamentus e página de RI da Klabin.",
+  "reading": "Publicação de 28/08/2026 concluiu a leitura de Stock EUA com ALL/Allstate. O post usa rankings Magic Formula Dolarizada e BESST e Buffett Dolarizado de agosto de 2026, nota de corretagem de agosto da carteira Magic Formula Dolarizada e consulta pública à SEC para o 10-Q de 30/06/2026.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-acao-brasil",
-    "leitura-de-ranking-brasil",
+    "estudo-educacional-de-stock-eua",
+    "leitura-de-ranking-dolarizado",
     "registro-editorial-publico"
   ],
   "rules": [
@@ -19,14 +19,15 @@
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
   ],
   "sourcesUsed": [
-    "outputs/barsi_screener_top20_2026-08.csv",
-    "data/compras_b3_agosto_2026.csv",
-    "Fundamentus KLBN4",
-    "Klabin RI"
+    "outputs/magic_formula_eua_top20_2026-08.csv",
+    "outputs/besst_buffett_eua_top20_2026-08.csv",
+    "outputs/stocks_eua_fundamentos_2026-08.csv",
+    "data/compras_stocks_inter_drivewealth_2026.csv",
+    "SEC ALL 10-Q 2026-06-30"
   ],
-  "tickerOfTheDay": "KLBN4",
-  "assetTypeOfTheDay": "acao_brasil",
+  "tickerOfTheDay": "ALL",
+  "assetTypeOfTheDay": "stock_eua",
   "custodyPerspective": "em_custodia",
   "draftStatus": "publicado",
-  "updatedAt": "2026-08-26"
+  "updatedAt": "2026-08-28"
 }
