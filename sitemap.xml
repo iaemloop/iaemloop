@@ -90,9 +90,15 @@
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-08-28</lastmod>
     <priority>0.8</priority>
     <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-08-28-analise-all-allstate-seguros-valuation.html</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/posts/2026-08-26-analise-klbn4-klabin-celulose-dividendos-ciclo.html</loc>
