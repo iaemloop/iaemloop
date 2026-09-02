@@ -1,0 +1,13 @@
+# Arquivos/dados que não devem entrar no site público
+carteira_besst_real.html
+carteira_magic_formula_real.html
+carteira_besst_buffett_dolarizada_real.html
+carteira_magic_formula_dolarizada_real.html
+carteira/index.html
+data/investment_costs_2026.json
+data/dollarized_portfolios_2026.json
+data/compras_b3_*.csv
+data/compras_stocks_*.csv
+data/sobras_aportes_*.csv
+outputs/*custodia*
+outputs/*carteira_real*
