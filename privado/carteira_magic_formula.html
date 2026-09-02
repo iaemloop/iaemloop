@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Carteira Magic Formula B3 | IA em Loop Privado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:Inter,system-ui,sans-serif;background:#06080d;color:#e2e8f0;min-height:100vh;margin:0;padding:32px 18px}.wrap{max-width:980px;margin:0 auto}.gate,.card{background:rgba(19,29,39,.86);border:1px solid rgba(228,209,127,.24);border-radius:18px;padding:24px;margin:16px 0;box-shadow:0 18px 60px rgba(0,0,0,.35)}h1{color:#fff;font-size:clamp(2rem,5vw,3.2rem)}a{color:#e4d17f}.btn{display:inline-block;background:#e4d17f;color:#06101a;text-decoration:none;padding:10px 14px;border-radius:10px;font-weight:900;margin-top:12px}.private-content{display:none}html[data-auth="approved"] .private-content{display:block}html[data-auth="approved"] .gate{display:none}.muted{color:#94a3b8;line-height:1.65}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.kpi{background:rgba(6,8,13,.72);border:1px solid rgba(148,163,184,.2);border-radius:14px;padding:16px}.kpi strong{display:block;color:#e4d17f;font-size:1.5rem}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <a href="../area_privada.html">← Área privada</a>
+    <section class="gate" data-requires-approved-user>
+      <h1>🔒 Login necessário</h1>
+      <p class="muted" data-auth-status>Validando acesso...</p>
+      <a class="btn" href="../area_privada.html">Entrar ou solicitar acesso</a>
+    </section>
+    <section class="private-content">
+      <h1>Carteira Magic Formula B3</h1>
+      <p class="muted">Acesso aprovado. Esta rota privada já está protegida por sessão e aprovação manual. O próximo passo técnico é conectar esta página a dados privados via Supabase Storage/Database ou Cloudflare Access, sem publicar custódia em HTML estático.</p>
+      <div class="grid">
+        <div class="kpi"><strong>Privado</strong><span>Custódia</span></div>
+        <div class="kpi"><strong>Manual</strong><span>Aprovação</span></div>
+        <div class="kpi"><strong>B3</strong><span>Fonte da carteira</span></div>
+      </div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/iaemloop-auth-config.js"></script>
+  <script src="../js/iaemloop-auth.js"></script>
+</body>
+</html>
