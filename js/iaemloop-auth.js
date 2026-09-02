@@ -277,7 +277,10 @@
       setStatus('Custódia privada ainda não foi publicada no Supabase para esta carteira.', 'warn');
       return;
     }
-    const html = data.html.replace(/<head(.*?)>/i, '<head$1><base href="/">');
+    const html = data.html
+      .replace(/<head(.*?)>/i, '<head$1><base href="/">')
+      .replace(/<a\s+href=["']javascript:history\.back\(\)["']\s+class=["']back["']\s*>\s*←\s*Voltar\s*<\/a>/gi, '')
+      .replace(/<a\s+class=["']back["']\s+href=["']javascript:history\.back\(\)["']\s*>\s*←\s*Voltar\s*<\/a>/gi, '');
     frame.srcdoc = html;
     frame.addEventListener('load', () => {
       try {
