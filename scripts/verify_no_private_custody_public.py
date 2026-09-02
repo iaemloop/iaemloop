@@ -8,6 +8,7 @@ position ledgers, broker notes, or carteira*_real pages.
 from __future__ import annotations
 import sys
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 DENY_NAME_PARTS = (
@@ -24,10 +25,13 @@ DENY_NAME_PARTS = (
 DENY_TEXT_PATTERNS = (
     'Carteira Real:',
     'Abrir carteira real',
-    'Acompanhe a carteira',
     'total em custódia',
     'Valor comprado</div>',
     'Proventos recebidos</div>',
+)
+DENY_REGEX_PATTERNS = (
+    re.compile(r'href=["\'][^"\']*carteira_[^"\']*_real\.html["\']', re.I),
+    re.compile(r'url\([^)]*carteira_[^)]*_real\.html[^)]*\)', re.I),
 )
 IGNORE_DIRS = {'.git', '__pycache__', '.hermes', '.venv', '.nvm'}
 violations: list[str] = []
@@ -45,6 +49,9 @@ for path in ROOT.rglob('*'):
         for pat in DENY_TEXT_PATTERNS:
             if pat in text:
                 violations.append(f'PRIVATE_TEXT:{rel}:{pat}')
+        for regex in DENY_REGEX_PATTERNS:
+            if regex.search(text):
+                violations.append(f'PRIVATE_LINK:{rel}:{regex.pattern}')
 if violations:
     print('PUBLIC_CUSTODY_GUARD_FAILED')
     for v in violations:
