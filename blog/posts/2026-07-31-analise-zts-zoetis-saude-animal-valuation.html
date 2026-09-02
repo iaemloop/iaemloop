@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Análise educacional IA em Loop sobre ZTS/Zoetis: ranking dolarizado, custódia real, saúde animal, valuation, lucro, caixa e risco de desaceleração em pets.">
+    <title>31/07: ZTS, Zoetis e o teste da saúde animal | IA em Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { min-height: 100%; background: #06080D; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)), url('../../assets/bg-carteiras.jpg') no-repeat center center fixed; background-size: cover; background-color: #06080D; color: #e2e8f0; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 980px; margin: 0 auto; }
+        .back-button { position: fixed; top: 20px; left: 20px; display: inline-flex; align-items: center; gap: 6px; background: rgba(251,191,36,0.9); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: background 0.2s, transform 0.1s; z-index: 1000; }
+        .back-button:hover { background: #E4D17F; transform: translateY(-1px); }
+        article { background: rgba(19, 29, 39, 0.78); border-radius: 14px; padding: 34px; border-left: 4px solid #19364D; border: 1px solid rgba(228, 209, 127, 0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h1 { overflow-wrap: anywhere; hyphens: auto; font-size: clamp(2rem, 5vw, 3.05rem); line-height: 1.08; font-weight: 800; background: linear-gradient(135deg, #6EE4EF, #E4D17F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; }
+        .dek { color: #cbd5e1; font-size: 1.12rem; line-height: 1.75; margin-bottom: 22px; }
+        .meta { display: flex; gap: 8px; flex-wrap: wrap; color: #94a3b8; font-size: 0.86rem; margin-bottom: 30px; }
+        .meta span { background: rgba(228, 209, 127, 0.15); color: #E4D17F; padding: 4px 10px; border-radius: 999px; font-weight: 600; border: 1px solid rgba(228, 209, 127, 0.2); }
+        h2 { color: #fff; font-size: 1.45rem; margin: 34px 0 12px; border-bottom: 2px solid #19364D; padding-bottom: 10px; }
+        h3 { color: #E4D17F; font-size: 1.08rem; margin: 22px 0 8px; }
+        p, li { overflow-wrap: anywhere; color: #cbd5e1; line-height: 1.78; font-size: 1.02rem; }
+        p { margin-bottom: 16px; }
+        ul { padding-left: 22px; margin-bottom: 18px; }
+        li { margin-bottom: 8px; }
+        strong { color: #fff; }
+        a { color: #E4D17F; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .hero-chart { display: block; max-width: 100%; height: auto; width: 100%; border-radius: 14px; border: 1px solid rgba(228, 209, 127, 0.18); margin: 20px 0 8px; background: rgba(6,8,13,.35); box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+        .caption { color: #94a3b8; font-size: .9rem; margin-bottom: 24px; }
+        .callout { background: rgba(6, 8, 13, 0.5); border-left: 4px solid #E4D17F; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .warning { background: rgba(127,29,29,.25); border-left: 4px solid #f87171; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .scorecard { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+        .scorecard div { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 14px; }
+        .scorecard span { display: block; color: #94a3b8; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; }
+        .scorecard strong { color: #E4D17F; font-size: 1.1rem; }
+        .matrix { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 18px 0; }
+        .matrix div { background: rgba(6, 8, 13, 0.42); border: 1px solid rgba(110,228,239,.15); border-radius: 10px; padding: 14px; }
+        .mini-table { width:100%; border-collapse: collapse; margin: 18px 0; overflow:hidden; border-radius:10px; }
+        .mini-table th, .mini-table td { padding: 11px 10px; border-bottom: 1px solid rgba(255,255,255,.08); text-align:left; color:#cbd5e1; }
+        .mini-table th { color:#E4D17F; background:rgba(6,8,13,.55); font-size:.92rem; }
+        .source-note { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 16px; margin-top: 28px; color: #94a3b8; font-size: 0.94rem; }
+        .footer { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        @media (max-width: 768px) { body { padding: 72px 16px 32px; } article { padding: 24px; } .scorecard, .matrix { grid-template-columns: 1fr; } .mini-table { display:block; overflow-x:auto; } .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; } }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "31/07: ZTS, Zoetis e o teste da saúde animal",
+      "description": "Análise educacional IA em Loop sobre ZTS/Zoetis: ranking dolarizado, custódia real, saúde animal, valuation, lucro, caixa e risco de desaceleração em pets.",
+      "image": "https://iaemloop.com.br/assets/blog/2026-07-31-zts-zoetis-saude-animal-valuation.svg",
+      "datePublished": "2026-07-31",
+      "dateModified": "2026-07-31",
+      "author": {"@type": "Organization", "name": "IA em Loop"},
+      "publisher": {"@type": "Organization", "name": "IA em Loop"},
+      "keywords": ["ZTS", "Zoetis", "stocks EUA", "BESST Buffett EUA", "Magic Formula EUA", "saúde animal", "custódia real"]
+    }
+    </script>
+</head>
+<body>
+    <a href="../index.html" class="back-button" title="Voltar ao blog">← Blog</a>
+    <main class="container">
+        <article>
+            <h1>31/07: ZTS, Zoetis e o teste da saúde animal</h1>
+            <p class="dek">ZTS, Zoetis, aparece em primeiro lugar nos dois rankings dolarizados do IA em Loop e já é a maior posição da carteira BESST &amp; Buffett Dolarizada. A pergunta central é direta: o mercado exagerou ao derrubar uma líder de saúde animal ou está avisando que o crescimento em pets ficou menos previsível?</p>
+            <div class="meta"><span>31/07/2026</span><span>Análise educacional</span><span>ZTS</span><span>Zoetis</span><span>Stock EUA</span><span>BESST &amp; Buffett #1</span><span>Magic Formula #1</span><span>P/L 12,39</span><span>Carteira real</span><span>8 min</span></div>
+            <img class="hero-chart" src="../../assets/blog/2026-07-31-zts-zoetis-saude-animal-valuation.svg" alt="Diagrama IA em Loop sobre ZTS, Zoetis, ranking dolarizado, custódia real, saúde animal, valuation e risco de demanda pet">
+            <p class="caption">ZTS une posição real, ranking quantitativo forte e um setor estruturalmente defensável. O contraponto é que a queda de preço veio acompanhada de sinais de demanda mais fraca no mercado pet.</p>
+
+            <h2>Resposta curta: qualidade clara, mas o preço caiu por motivo</h2>
+            <p>Zoetis é uma empresa global de saúde animal, com medicamentos, vacinas, diagnósticos e produtos para animais de companhia e pecuária. No arquivo local de rankings com data-base de 11/07/2026, ZTS aparece em <strong>1º lugar no BESST &amp; Buffett EUA</strong>, com <strong>score de 61,5</strong>, <strong>P/L de 12,39</strong>, <strong>EV/EBITDA de 9,57</strong>, <strong>ROE de 67,75%</strong> e <strong>dividend yield de 2,81%</strong>.</p>
+            <p>A mesma ação também aparece em <strong>1º lugar na Magic Formula EUA</strong>, com <strong>earnings yield de 8,07%</strong>. Essa dupla presença é rara e relevante: qualidade, preço relativo e perenidade parecem convergir. Mas a leitura não pode parar no ranking. A cotação consultada em 31/07/2026 ficou perto de <strong>US$ 76,29</strong>, contra máxima de 52 semanas de <strong>US$ 160,48</strong>, queda aproximada de <strong>52%</strong> frente ao topo.</p>
+            <p>Queda desse tamanho em uma empresa historicamente premium pode criar oportunidade, mas também pode sinalizar que o mercado está revisando crescimento, margem ou previsibilidade. O trabalho é separar barganha de armadilha de valor.</p>
+
+            <div class="scorecard">
+                <div><span>Ranking local</span><strong>#1 BESST &amp; Buffett</strong></div>
+                <div><span>Ranking local</span><strong>#1 Magic Formula</strong></div>
+                <div><span>Carteira real</span><strong>US$ 48,73 • 50%</strong></div>
+                <div><span>P/L</span><strong>12,39</strong></div>
+                <div><span>EV/EBITDA</span><strong>9,57</strong></div>
+                <div><span>ROE</span><strong>67,75%</strong></div>
+            </div>
+
+            <h2>O que os dados verificados mostram</h2>
+            <p>A consulta pública à SEC no CIK <strong>0001555280</strong> mostra que, no 10-Q arquivado em 07/05/2026, referente ao 1T26, a Zoetis registrou <strong>US$ 2,262 bilhões de receita</strong>, <strong>US$ 601 milhões de lucro líquido</strong> e <strong>US$ 401 milhões de caixa operacional</strong>. O capex no mesmo recorte foi de <strong>US$ 110 milhões</strong>.</p>
+            <p>No balanço de 31/03/2026, a companhia tinha <strong>US$ 15,154 bilhões em ativos</strong> e <strong>US$ 3,233 bilhões de patrimônio líquido</strong>. Em 2025, a SEC registra <strong>US$ 9,467 bilhões de receita anual</strong>, <strong>US$ 2,673 bilhões de lucro líquido</strong> e <strong>US$ 2,904 bilhões de caixa operacional</strong>. Isso confirma escala, rentabilidade e geração de caixa relevantes.</p>
+            <p>O ponto frágil não é a existência do negócio. O ponto frágil é o ritmo. Notícias públicas recentes trouxeram leitura de resultados abaixo do esperado no 1T26 e revisão de expectativas por demanda mais fraca em animais de companhia nos EUA. Isso explica por que uma empresa boa pode negociar com múltiplo mais baixo.</p>
+
+            <table class="mini-table">
+                <thead><tr><th>Métrica verificada</th><th>Fonte/período</th><th>Valor</th><th>Leitura</th></tr></thead>
+                <tbody>
+                    <tr><td>Receita</td><td>SEC 10-Q 1T26</td><td>US$ 2,262 bi</td><td>escala global preservada</td></tr>
+                    <tr><td>Lucro líquido</td><td>SEC 10-Q 1T26</td><td>US$ 601 mi</td><td>rentabilidade ainda forte</td></tr>
+                    <tr><td>Caixa operacional</td><td>SEC 10-Q 1T26</td><td>US$ 401 mi</td><td>gera caixa, mas trimestre foi menor que o anualizado histórico</td></tr>
+                    <tr><td>Capex</td><td>SEC 10-Q 1T26</td><td>US$ 110 mi</td><td>investimento físico controlável</td></tr>
+                    <tr><td>Receita anual</td><td>SEC 10-K 2025</td><td>US$ 9,467 bi</td><td>base grande para recomposição</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Por que ZTS importa para a carteira</h2>
+            <p>Na carteira real BESST &amp; Buffett Dolarizada registrada em 16/07/2026, ZTS aparece com <strong>US$ 48,73</strong>, <strong>0,65507173 ação</strong>, preço médio de <strong>US$ 74,3888</strong> e <strong>peso de 50,0%</strong>. É uma posição pequena em valor absoluto, mas grande dentro da carteira recém-iniciada. Por isso, a análise precisa ser mais rigorosa do que uma simples confirmação do ranking.</p>
+            <p>A tese pró-Zoetis é intuitiva: donos de pets tendem a gastar com saúde animal, pecuária precisa de produtividade sanitária e marcas de medicamentos veterinários podem ter poder de preço. A tese contra também é objetiva: se a demanda em clínicas e produtos para animais de companhia desacelera, a empresa perde parte do prêmio de previsibilidade.</p>
+
+            <div class="callout">
+                <strong>Leitura prática do IA em Loop</strong><br>
+                ZTS é um caso de qualidade em queda forte, não uma compra automática. A posição real faz sentido como aprendizado em saúde animal, mas reforço só ficaria mais confortável se os próximos resultados mostrarem estabilização da demanda pet, preservação de margem e caixa operacional voltando a ganhar tração.
+            </div>
+
+            <h2>O que favorece e o que ameaça a tese</h2>
+            <div class="matrix">
+                <div>
+                    <h3>Favoráveis</h3>
+                    <p>• Liderança global em saúde animal, nicho menos comoditizado.</p>
+                    <p>• Dupla presença no topo dos rankings dolarizados locais.</p>
+                    <p>• Receita anual de quase US$ 9,5 bilhões em 2025.</p>
+                    <p>• ROE alto e múltiplos menores que o padrão histórico de empresa premium.</p>
+                    <p>• Exposição diferente de tecnologia, bancos e seguradoras.</p>
+                </div>
+                <div>
+                    <h3>Desfavoráveis</h3>
+                    <p>• Queda de mais de 50% frente ao topo de 52 semanas exige respeito.</p>
+                    <p>• Demanda em pets pode estar mais fraca do que o mercado esperava.</p>
+                    <p>• Revisões de expectativa podem pressionar múltiplos por mais tempo.</p>
+                    <p>• Peso de 50% na carteira BESST &amp; Buffett Dolarizada aumenta risco de concentração.</p>
+                    <p>• Ranking quantitativo não capta sozinho ciclo de clínicas, estoques e mix de produtos.</p>
+                </div>
+            </div>
+
+            <h2>Checklist para acompanhar daqui em diante</h2>
+            <table class="mini-table">
+                <thead><tr><th>Ponto</th><th>O que monitorar</th><th>Se piorar</th></tr></thead>
+                <tbody>
+                    <tr><td>Demanda pet</td><td>volumes e crescimento em animais de companhia</td><td>queda pode ser repricing estrutural, não exagero</td></tr>
+                    <tr><td>Margem</td><td>preço, mix e custo de produção</td><td>qualidade do negócio fica menos evidente</td></tr>
+                    <tr><td>Caixa</td><td>conversão de lucro em caixa operacional</td><td>ranking perde força prática</td></tr>
+                    <tr><td>Guidance</td><td>próximas revisões de receita e lucro</td><td>mercado pode continuar cortando múltiplo</td></tr>
+                    <tr><td>Concentração</td><td>peso de ZTS dentro da carteira dolarizada</td><td>reforço aumenta dependência de uma única tese</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Conclusão</h2>
+            <p>ZTS é uma das melhores pautas educacionais da carteira dolarizada porque combina três elementos úteis: empresa de qualidade, posição real e queda grande de preço. A resposta para a pergunta do post é equilibrada: <strong>a queda pode ter exagero, mas não é sem fundamento</strong>. O mercado está cobrando prova de que a saúde animal continua crescendo com previsibilidade.</p>
+            <p>A leitura de hoje é: <strong>ZTS merece acompanhamento prioritário como posição real de qualidade, mas o gatilho não é o ranking isolado; é a confirmação de demanda, margem e caixa nos próximos trimestres</strong>. Se a desaceleração for transitória, o valuation atual pode ficar interessante. Se a fraqueza persistir, a empresa continua boa, mas talvez não tão barata quanto parece.</p>
+
+            <div class="warning">
+                <strong>Aviso importante:</strong> este conteúdo é educacional e não representa recomendação personalizada de investimento, compra, venda, remessa ou câmbio. Stocks envolvem risco de mercado, risco cambial, risco de liquidez e risco específico da empresa.
+            </div>
+
+            <div class="source-note">
+                <strong>Fontes e critérios:</strong> ranking IA em Loop BESST &amp; Buffett EUA e Magic Formula EUA, arquivos locais com data-base 11/07/2026; carteira real BESST &amp; Buffett Dolarizada registrada em 16/07/2026; SEC `data.sec.gov` para Zoetis Inc., CIK 0001555280, incluindo 10-Q arquivado em 07/05/2026 referente ao período encerrado em 31/03/2026 e 10-K de 2025 arquivado em 12/02/2026; Yahoo Finance consultado em 31/07/2026 para preço, máxima e mínima de 52 semanas; Google News RSS consultado em 31/07/2026 para sinais públicos sobre resultados, demanda pet e expectativa de mercado. Conteúdo educacional, sem recomendação personalizada.
+            </div>
+        </article>
+        <div class="footer">IA em Loop — rankings com dinheiro próprio</div>
+    </main>
+</body>
+</html>

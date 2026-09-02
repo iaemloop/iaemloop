@@ -1,0 +1,30 @@
+--- a/landpage_final.html
++++ b/landpage_final.html
+@@ -91,6 +91,14 @@
+         </div>
+ 
+         <table>
++            <!-- AdSense in-feed ad -->
++            <ins class="adsbygoogle"
++                 style="display:block; margin: 20px auto; text-align: center;"
++                 data-ad-client="ca-pub-1004632420072229"
++                 data-ad-slot="auto"
++                 data-ad-format="auto"></ins>
++            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+             <thead>
+                 <tr>
+                     <th>Rank</th>
+@@ -135,6 +143,14 @@
+         </table>
+ 
+         <div class="methodology">
++            <!-- AdSense in-feed ad -->
++            <ins class="adsbygoogle"
++                 style="display:block; margin: 20px auto; text-align: center;"
++                 data-ad-client="ca-pub-1004632420072229"
++                 data-ad-slot="auto"
++                 data-ad-format="auto"></ins>
++            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+             <h2>📚 Critérios Barsi</h2>
+             <ul>
+                 <li>Dividend Yield ≥ 3% ao ano</li>

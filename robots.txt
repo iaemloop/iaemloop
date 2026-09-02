@@ -9,10 +9,3 @@ Disallow: /data/
 Disallow: /scripts/
 Disallow: /.git/
 Disallow: /.nvm/
-
-# Custódia/carteiras reais não são públicas
-Disallow: /carteira/
-Disallow: /carteira_besst_real.html
-Disallow: /carteira_magic_formula_real.html
-Disallow: /carteira_besst_buffett_dolarizada_real.html
-Disallow: /carteira_magic_formula_dolarizada_real.html

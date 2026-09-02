@@ -4,85 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="O Focus aponta Selic menor em 2026, mas isso não significa juro baixo. Veja como juro real, inflação e CDI afetam renda fixa, bolsa e sua carteira.">
-    <title>Selic caindo não significa juro baixo: entenda o Focus 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Selic caindo não significa juro baixo: o que o Focus mostra para 2026",
-      "description": "O Focus aponta Selic menor em 2026, mas isso não significa juro baixo. Veja como juro real, inflação e CDI afetam renda fixa, bolsa e sua carteira.",
-      "author": {
-        "@type": "Organization",
-        "name": "IA em Loop"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "IA em Loop",
-        "url": "https://iaemloop.com.br"
-      },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://iaemloop.com.br/blog/posts/selic-caindo-juro-real-focus-2026.html"
-      },
-      "datePublished": "2026-05-07",
-      "dateModified": "2026-05-07",
-      "keywords": ["Selic", "Focus", "juro real", "renda fixa", "bolsa", "CDI", "inflacao", "IPCA", "investimentos"]
-    }
-    </script>
+    <title>Selic caindo não significa juro baixo: entenda o Focus 2026 | IA em Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { min-height: 100%; background: #06080D; }
         body {
             font-family: 'Inter', sans-serif;
-            background: #0f172a;
+            background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)),
+                        url('../../assets/bg-carteiras.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-color: #06080D;
             color: #e2e8f0;
             min-height: 100vh;
-            padding: 32px 20px;
+            padding: 40px 20px;
         }
-        .container { max-width: 820px; margin: 0 auto; }
-        .back {
-            color: #7dd3fc;
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 28px;
+        .container { max-width: 920px; margin: 0 auto; }
+        .back-button {
+            position: fixed; top: 20px; left: 20px;
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(251,191,36,0.9); color: white;
+            padding: 8px 16px; border-radius: 8px;
+            text-decoration: none; font-weight: 600; font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: background 0.2s, transform 0.1s; z-index: 1000;
         }
+        .back-button:hover { background: #E4D17F; transform: translateY(-1px); }
         article {
-            border-top: 1px solid rgba(148, 163, 184, 0.24);
-            padding-top: 28px;
+            background: rgba(19, 29, 39, 0.75);
+            border-radius: 12px;
+            padding: 34px;
+            border-left: 4px solid #19364D;
+            border: 1px solid rgba(228, 209, 127, 0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
         h1 {
-            color: #fff;
-            font-size: clamp(2rem, 5vw, 3.1rem);
+            font-size: clamp(2rem, 5vw, 3.05rem);
             line-height: 1.08;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6EE4EF, #E4D17F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 14px;
         }
         .dek {
             color: #cbd5e1;
-            font-size: 1.13rem;
+            font-size: 1.12rem;
             line-height: 1.75;
             margin-bottom: 22px;
         }
         .meta {
-            color: #94a3b8;
             display: flex;
+            gap: 8px;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 28px;
-            font-size: 0.92rem;
+            color: #94a3b8;
+            font-size: 0.86rem;
+            margin-bottom: 30px;
         }
-        .pill {
-            color: #7dd3fc;
-            background: rgba(56, 189, 248, 0.12);
-            border-radius: 999px;
+        .meta span {
+            background: rgba(228, 209, 127, 0.15);
+            color: #E4D17F;
             padding: 4px 10px;
+            border-radius: 999px;
+            font-weight: 600;
+            border: 1px solid rgba(228, 209, 127, 0.2);
         }
         h2 {
             color: #fff;
             font-size: 1.45rem;
-            margin: 30px 0 12px;
+            margin: 34px 0 12px;
+            border-bottom: 2px solid #19364D;
+            padding-bottom: 10px;
         }
-        p, li {
+        p, li { overflow-wrap: anywhere;
             color: #cbd5e1;
             line-height: 1.78;
             font-size: 1.02rem;
@@ -90,123 +84,107 @@
         p { margin-bottom: 16px; }
         ul, ol { padding-left: 22px; margin-bottom: 18px; }
         li { margin-bottom: 8px; }
-        a { color: #7dd3fc; }
-        .quote {
-            border-left: 4px solid #38bdf8;
-            background: rgba(56, 189, 248, 0.08);
-            padding: 16px;
+        strong { color: #fff; }
+        a { color: #E4D17F; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .callout {
+            background: rgba(6, 8, 13, 0.5);
+            border-left: 4px solid #E4D17F;
             border-radius: 8px;
-            margin: 26px 0;
+            padding: 16px;
+            margin: 24px 0;
         }
-        .note {
-            border-left: 4px solid #34d399;
-            background: rgba(16, 185, 129, 0.08);
-            padding: 16px;
+        .source-note {
+            background: rgba(6, 8, 13, 0.45);
+            border: 1px solid rgba(228, 209, 127, 0.18);
             border-radius: 8px;
+            padding: 16px;
             margin-top: 28px;
-        }
-        footer {
             color: #94a3b8;
+            font-size: 0.94rem;
+        }
+        .footer {
+            text-align: center;
+            color: #64748b;
             font-size: 0.9rem;
             margin-top: 40px;
             padding-top: 20px;
-            border-top: 1px solid rgba(148, 163, 184, 0.24);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        @media (max-width: 768px) {
+            body { padding: 72px 16px 32px; }
+            article { padding: 24px; }
+            .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; }
         }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Selic caindo não significa juro baixo: o que o Focus mostra para 2026",
+      "description": "O Focus aponta Selic menor em 2026, mas isso não significa juro baixo. Veja como juro real, inflação e CDI afetam renda fixa, bolsa e sua carteira.",
+      "author": { "@type": "Organization", "name": "IA em Loop" },
+      "publisher": { "@type": "Organization", "name": "IA em Loop", "url": "https://iaemloop.com.br" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://iaemloop.com.br/blog/posts/selic-caindo-juro-real-focus-2026.html" },
+      "datePublished": "2026-05-08",
+      "dateModified": "2026-05-08",
+      "keywords": ["Selic", "Focus", "juro real", "renda fixa", "bolsa", "CDI", "inflação", "IPCA", "investimentos"]
+    }
+    </script>
 </head>
 <body>
+    <a href="../index.html" class="back-button" title="Voltar ao Blog">← Blog</a>
     <main class="container">
-        <a class="back" href="../index.html">Voltar ao Blog</a>
         <article>
             <h1>Selic caindo não significa juro baixo: o que o Focus mostra para 2026</h1>
-            <p class="dek">
-                A Selic pode cair, mas o Brasil ainda pode continuar com juro real alto. O ponto não é abandonar a renda fixa nem correr para a bolsa: é comparar o prêmio de risco de cada investimento com um CDI ainda forte.
-            </p>
+            <p class="dek">A Selic pode cair, mas o Brasil ainda pode continuar com juro real alto. O ponto não é abandonar a renda fixa nem correr para a bolsa: é comparar o prêmio de risco de cada investimento com um CDI ainda forte.</p>
             <div class="meta">
-                <span>Publicado em 07/05/2026</span>
-                <span class="pill">Investimentos</span>
-                <span class="pill">Renda fixa</span>
-                <span class="pill">Macroeconomia</span>
-                <span>Leitura: 5 min</span>
+                <span>08/05/2026</span>
+                <span>Investimentos</span>
+                <span>Renda fixa</span>
+                <span>Macroeconomia</span>
+                <span>5 min</span>
             </div>
 
-            <p>
-                Quando o investidor ouve que a Selic pode cair, é comum aparecer uma conclusão automática: "então está na hora de abandonar a renda fixa e correr para a bolsa". Essa leitura é perigosa.
-            </p>
+            <p>Quando o investidor ouve que a Selic pode cair, é comum aparecer uma conclusão automática: "então está na hora de abandonar a renda fixa e correr para a bolsa". Essa leitura é perigosa.</p>
 
-            <div class="quote">
-                <p>Selic caindo não é a mesma coisa que Selic baixa.</p>
+            <div class="callout">
+                <p><strong>Selic caindo não é a mesma coisa que Selic baixa.</strong></p>
             </div>
 
-            <p>
-                Segundo os dados do Banco Central consultados na manhã de 30/04/2026, a meta Selic mais recente no SGS estava em <strong>14,50% ao ano</strong>. No Focus com data-base de 24/04/2026, a mediana do mercado para 2026 apontava <strong>Selic em 13,00%</strong>, <strong>IPCA em 4,8641%</strong>, dólar em <strong>R$ 5,25</strong> e crescimento do PIB em <strong>1,8511%</strong>.
-            </p>
+            <p>Segundo os dados do Banco Central consultados na manhã de 30/04/2026, a meta Selic mais recente no SGS estava em <strong>14,50% ao ano</strong>. No Focus com data-base de 24/04/2026, a mediana do mercado para 2026 apontava <strong>Selic em 13,00%</strong>, <strong>IPCA em 4,8641%</strong>, dólar em <strong>R$ 5,25</strong> e crescimento do PIB em <strong>1,8511%</strong>.</p>
 
-            <p>
-                O ponto central está aqui: mesmo que a Selic caminhe para 13%, o Brasil ainda pode continuar com um juro real relevante. E isso muda a régua para comparar renda fixa, bolsa e qualquer ativo de risco.
-            </p>
+            <p>O ponto central está aqui: mesmo que a Selic caminhe para 13%, o Brasil ainda pode continuar com um juro real relevante. E isso muda a régua para comparar renda fixa, bolsa e qualquer ativo de risco.</p>
 
             <h2>O que é juro real, sem complicar</h2>
-            <p>
-                O rendimento nominal é aquele número bonito que aparece na tela: 10%, 12%, 13% ao ano. Mas o investidor não vive de rendimento nominal. Ele vive do que sobra depois da inflação.
-            </p>
-            <p>
-                É aí que entra o juro real.
-            </p>
-            <p>
-                De forma simplificada, se a Selic esperada está perto de 13% e a inflação esperada está perto de 4,86%, existe uma diferença importante entre o retorno bruto da taxa de juros e a perda de poder de compra causada pela inflação. A conta exata usa fórmula composta, mas a mensagem prática é simples: o dinheiro ainda está sendo bem remunerado em termos reais quando comparado a muitos outros mercados.
-            </p>
-            <p>
-                Isso não significa que todo investimento em renda fixa é automaticamente bom. Imposto, prazo, risco de crédito e liquidez continuam importando. Mas significa que a renda fixa segue oferecendo uma barra alta para qualquer investimento de risco superar.
-            </p>
+            <p>O rendimento nominal é aquele número bonito que aparece na tela: 10%, 12%, 13% ao ano. Mas o investidor não vive de rendimento nominal. Ele vive do que sobra depois da inflação.</p>
+            <p>É aí que entra o juro real.</p>
+            <p>De forma simplificada, se a Selic esperada está perto de 13% e a inflação esperada está perto de 4,86%, existe uma diferença importante entre o retorno bruto da taxa de juros e a perda de poder de compra causada pela inflação. A conta exata usa fórmula composta, mas a mensagem prática é simples: o dinheiro ainda está sendo bem remunerado em termos reais quando comparado a muitos outros mercados.</p>
+            <p>Isso não significa que todo investimento em renda fixa é automaticamente bom. Imposto, prazo, risco de crédito e liquidez continuam importando. Mas significa que a renda fixa segue oferecendo uma barra alta para qualquer investimento de risco superar.</p>
 
             <h2>Por que isso importa para a bolsa</h2>
-            <p>
-                Quando o CDI está muito baixo, o investidor aceita pagar mais caro por crescimento, dividendos futuros e histórias promissoras. Quando o CDI está alto, a conversa muda.
-            </p>
-            <p>
-                Com juros ainda elevados, uma ação precisa justificar melhor o risco. A empresa precisa ter lucro consistente, balanço saudável, capacidade de repassar inflação, boa geração de caixa ou uma tese de crescimento realmente convincente. Comprar "porque a Selic vai cair" é pouco. Essa é a mesma lógica usada nas carteiras do IA em Loop, como a <a href="../../metodologia_barsi.html">Carteira Barsi de dividendos</a>, onde qualidade e preço importam mais do que narrativa.
-            </p>
-            <p>
-                A queda esperada da Selic pode, sim, melhorar o ambiente para ativos de risco. Juros menores aliviam custo de dívida, podem melhorar consumo e tornam a renda variável mais atraente na comparação. Mas isso é diferente de dizer que qualquer ação fica barata automaticamente.
-            </p>
-            <p>
-                Em um cenário de Selic projetada em 13% e IPCA perto de 4,86%, o investidor precisa perguntar: este ativo compensa a saída de um CDI ainda alto?
-            </p>
-            <p>
-                Essa pergunta vale para bolsa, fundos imobiliários, crédito privado, fundos multimercado e até para produtos "da moda". Se o investimento tem mais risco, ele precisa entregar uma expectativa de retorno maior — e com uma tese clara.
-            </p>
+            <p>Quando o CDI está muito baixo, o investidor aceita pagar mais caro por crescimento, dividendos futuros e histórias promissoras. Quando o CDI está alto, a conversa muda.</p>
+            <p>Com juros ainda elevados, uma ação precisa justificar melhor o risco. A empresa precisa ter lucro consistente, balanço saudável, capacidade de repassar inflação, boa geração de caixa ou uma tese de crescimento realmente convincente. Comprar "porque a Selic vai cair" é pouco. Essa é a mesma lógica usada nas carteiras do IA em Loop, como a <a href="../../metodologia_barsi.html">Carteira Barsi de dividendos</a>, onde qualidade e preço importam mais do que narrativa.</p>
+            <p>A queda esperada da Selic pode, sim, melhorar o ambiente para ativos de risco. Juros menores aliviam custo de dívida, podem melhorar consumo e tornam a renda variável mais atraente na comparação. Mas isso é diferente de dizer que qualquer ação fica barata automaticamente.</p>
+            <p>Em um cenário de Selic projetada em 13% e IPCA perto de 4,86%, o investidor precisa perguntar: este ativo compensa a saída de um CDI ainda alto?</p>
+            <p>Essa pergunta vale para bolsa, fundos imobiliários, crédito privado, fundos multimercado e até para produtos "da moda". Se o investimento tem mais risco, ele precisa entregar uma expectativa de retorno maior — e com uma tese clara.</p>
 
             <h2>O impacto prático para a renda fixa</h2>
-            <p>
-                Para quem está começando, a mensagem não é "fique só na renda fixa". Isso seria simplista demais. A mensagem é: não trate a queda da Selic como um botão mágico que desliga a atratividade da renda fixa.
-            </p>
-            <p>
-                Tesouro Selic, CDBs de bancos sólidos, fundos DI baratos e outros produtos conservadores ainda podem fazer sentido para reserva de emergência, caixa de oportunidade e parte defensiva da carteira. Para comparar alternativas conservadoras, vale olhar também o <a href="../../ranking_fgc.html">Ranking FGC de renda fixa</a>. Já títulos prefixados ou indexados à inflação exigem mais cuidado, porque carregam marcação a mercado e dependem muito do prazo e do ponto de entrada.
-            </p>
+            <p>Para quem está começando, a mensagem não é "fique só na renda fixa". Isso seria simplista demais. A mensagem é: não trate a queda da Selic como um botão mágico que desliga a atratividade da renda fixa.</p>
+            <p>Tesouro Selic, CDBs de bancos sólidos, fundos DI baratos e outros produtos conservadores ainda podem fazer sentido para reserva de emergência, caixa de oportunidade e parte defensiva da carteira. Para comparar alternativas conservadoras, vale olhar também o <a href="../../ranking_fgc.html">Ranking FGC de renda fixa</a>. Já títulos prefixados ou indexados à inflação exigem mais cuidado, porque carregam marcação a mercado e dependem muito do prazo e do ponto de entrada.</p>
             <p>O investidor precisa separar três coisas:</p>
             <ol>
                 <li>reserva de emergência;</li>
                 <li>dinheiro com prazo definido;</li>
                 <li>capital de longo prazo para crescimento patrimonial.</li>
             </ol>
-            <p>
-                Cada bloco pede uma estratégia diferente. Misturar tudo é onde muita gente se machuca.
-            </p>
+            <p>Cada bloco pede uma estratégia diferente. Misturar tudo é onde muita gente se machuca.</p>
 
             <h2>A leitura do IA em Loop</h2>
-            <p>
-                A nossa leitura é direta: a Selic pode cair, mas o investidor brasileiro ainda não está em um mundo de juro baixo.
-            </p>
-            <p>
-                Isso favorece uma postura equilibrada. Renda fixa continua relevante, principalmente para proteção, liquidez e comparação de oportunidade. Bolsa continua importante para crescimento de patrimônio no longo prazo, mas exige mais seletividade. Não basta comprar índice ou ação popular sem olhar preço, lucro, dívida e qualidade.
-            </p>
-            <p>
-                O melhor caminho não é escolher "renda fixa ou bolsa" no grito. É comparar prêmio de risco.
-            </p>
-            <p>
-                Se um CDB, Tesouro ou fundo conservador entrega uma remuneração alta com baixo risco, o ativo de risco precisa oferecer uma razão melhor para entrar na carteira. Pode ser crescimento, dividendo, proteção contra inflação, exposição ao dólar ou assimetria de preço. Mas precisa existir uma razão.
-            </p>
+            <p>A nossa leitura é direta: a Selic pode cair, mas o investidor brasileiro ainda não está em um mundo de juro baixo.</p>
+            <p>Isso favorece uma postura equilibrada. Renda fixa continua relevante, principalmente para proteção, liquidez e comparação de oportunidade. Bolsa continua importante para crescimento de patrimônio no longo prazo, mas exige mais seletividade. Não basta comprar índice ou ação popular sem olhar preço, lucro, dívida e qualidade.</p>
+            <p>O melhor caminho não é escolher "renda fixa ou bolsa" no grito. É comparar prêmio de risco.</p>
+            <p>Se um CDB, Tesouro ou fundo conservador entrega uma remuneração alta com baixo risco, o ativo de risco precisa oferecer uma razão melhor para entrar na carteira. Pode ser crescimento, dividendo, proteção contra inflação, exposição ao dólar ou assimetria de preço. Mas precisa existir uma razão.</p>
 
             <h2>Três ideias para guardar</h2>
             <ul>
@@ -216,21 +194,14 @@
             </ul>
 
             <h2>Próximo passo</h2>
-            <p>
-                Antes de mexer na carteira porque "a Selic vai cair", compare cada investimento com uma alternativa simples de renda fixa. Pergunte: o risco extra está sendo bem pago?
-            </p>
-            <p>
-                Se fizer sentido, o próximo material do IA em Loop pode ser uma calculadora simples de juro real esperado para comparar CDB, Tesouro Selic, inflação e retorno necessário na bolsa.
-            </p>
+            <p>Antes de mexer na carteira porque "a Selic vai cair", compare cada investimento com uma alternativa simples de renda fixa. Pergunte: o risco extra está sendo bem pago?</p>
+            <p>Se fizer sentido, o próximo material do IA em Loop pode ser uma calculadora simples de juro real esperado para comparar CDB, Tesouro Selic, inflação e retorno necessário na bolsa.</p>
 
-            <div class="note">
-                <p>
-                    Conteúdo educacional. Não é recomendação de investimento. As fontes indicadas pelo pipeline foram Banco Central — Focus/Expectativas de Mercado e Banco Central — SGS Meta Selic. Antes de tomar decisão, confira os dados atualizados e considere seu perfil de risco.
-                </p>
-            </div>
+            <p class="source-note">Fontes indicadas pelo pipeline editorial: Banco Central — Focus/Expectativas de Mercado e Banco Central — SGS Meta Selic. Conteúdo educacional; não é recomendação de investimento.</p>
         </article>
-        <footer>
-            <p>IA em Loop • Investimentos com inteligência artificial e transparência operacional.</p>
+
+        <footer class="footer">
+            <p>⌨️ Gerado por script • Não é recomendação de investimento • Faça sua própria análise</p>
         </footer>
     </main>
 </body>

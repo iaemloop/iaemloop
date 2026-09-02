@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Análise IA em Loop de 20/05/2026: TGMA3 no ranking Magic Formula, logística automotiva, ciclo de veículos, IA operacional, carteira real, riscos e decisão entre compra, venda ou espera.">
+    <title>20/05: TGMA3, logística automotiva e IA no teste do ciclo | IA em Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { min-height: 100%; background: #06080D; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)), url('../../assets/bg-carteiras.jpg') no-repeat center center fixed; background-size: cover; background-color: #06080D; color: #e2e8f0; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 980px; margin: 0 auto; }
+        .back-button { position: fixed; top: 20px; left: 20px; display: inline-flex; align-items: center; gap: 6px; background: rgba(251,191,36,0.9); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: background 0.2s, transform 0.1s; z-index: 1000; }
+        .back-button:hover { background: #E4D17F; transform: translateY(-1px); }
+        article { background: rgba(19, 29, 39, 0.78); border-radius: 14px; padding: 34px; border-left: 4px solid #19364D; border: 1px solid rgba(228, 209, 127, 0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h1 { overflow-wrap: anywhere; hyphens: auto; font-size: clamp(2rem, 5vw, 3.05rem); line-height: 1.08; font-weight: 800; background: linear-gradient(135deg, #6EE4EF, #E4D17F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; }
+        .dek { color: #cbd5e1; font-size: 1.12rem; line-height: 1.75; margin-bottom: 22px; }
+        .meta { display: flex; gap: 8px; flex-wrap: wrap; color: #94a3b8; font-size: 0.86rem; margin-bottom: 30px; }
+        .meta span { background: rgba(228, 209, 127, 0.15); color: #E4D17F; padding: 4px 10px; border-radius: 999px; font-weight: 600; border: 1px solid rgba(228, 209, 127, 0.2); }
+        h2 { color: #fff; font-size: 1.45rem; margin: 34px 0 12px; border-bottom: 2px solid #19364D; padding-bottom: 10px; }
+        h3 { color: #E4D17F; font-size: 1.08rem; margin: 22px 0 8px; }
+        p, li { overflow-wrap: anywhere; color: #cbd5e1; line-height: 1.78; font-size: 1.02rem; }
+        p { margin-bottom: 16px; }
+        ul { padding-left: 22px; margin-bottom: 18px; }
+        li { margin-bottom: 8px; }
+        strong { color: #fff; }
+        a { color: #E4D17F; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .hero-chart { display: block; max-width: 100%; height: auto; width: 100%; border-radius: 14px; border: 1px solid rgba(228, 209, 127, 0.18); margin: 20px 0 8px; background: rgba(6,8,13,.35); box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+        .caption { color: #94a3b8; font-size: .9rem; margin-bottom: 24px; }
+        .callout { background: rgba(6, 8, 13, 0.5); border-left: 4px solid #E4D17F; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .scorecard { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+        .scorecard div { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 14px; }
+        .scorecard span { display: block; color: #94a3b8; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; }
+        .scorecard strong { color: #E4D17F; font-size: 1.1rem; }
+        .matrix { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 18px 0; }
+        .matrix div { background: rgba(6, 8, 13, 0.42); border: 1px solid rgba(110,228,239,.15); border-radius: 10px; padding: 14px; }
+        .mini-table { width:100%; border-collapse: collapse; margin: 18px 0; overflow:hidden; border-radius:10px; }
+        .mini-table th, .mini-table td { padding: 11px 10px; border-bottom: 1px solid rgba(255,255,255,.08); text-align:left; color:#cbd5e1; }
+        .mini-table th { color:#E4D17F; background:rgba(6,8,13,.55); font-size:.92rem; }
+        .source-note { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 16px; margin-top: 28px; color: #94a3b8; font-size: 0.94rem; }
+        .footer { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        @media (max-width: 768px) { body { padding: 72px 16px 32px; } article { padding: 24px; } .scorecard, .matrix { grid-template-columns: 1fr; } .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; } .mini-table { font-size:.9rem; } }
+</style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "20/05: TGMA3, logística automotiva e IA no teste do ciclo",
+      "description": "Análise IA em Loop de 20/05/2026: TGMA3 no ranking Magic Formula, logística automotiva, ciclo de veículos, IA operacional, carteira real, riscos e decisão entre compra, venda ou espera.",
+      "author": { "@type": "Organization", "name": "IA em Loop" },
+      "publisher": { "@type": "Organization", "name": "IA em Loop", "url": "https://iaemloop.com.br" },
+      "datePublished": "2026-05-20",
+      "dateModified": "2026-05-20",
+      "image": "https://iaemloop.com.br/assets/blog/tgma3-logistica-ia-ciclo-auto.svg",
+      "keywords": ["TGMA3", "Tegma", "Magic Formula", "logística", "veículos", "IA", "ciclo automotivo", "carteira"]
+    }
+    </script>
+</head>
+<body>
+    <a href="../index.html" class="back-button" title="Voltar ao Blog">← Blog</a>
+    <main class="container">
+        <article>
+            <h1>20/05: TGMA3, logística automotiva e IA no teste do ciclo</h1>
+            <p class="dek">Depois de educação digital, a leitura diária vai para logística automotiva. TGMA3 aparece bem posicionada na Magic Formula e na carteira real, mas a pergunta central não é se a empresa é eficiente: é se o preço já remunera o risco de ciclo, volume de veículos e margem em um negócio dependente da indústria automotiva.</p>
+            <div class="meta"><span>20/05/2026</span><span>Leitura diária</span><span>TGMA3</span><span>Logística</span><span>Magic Formula</span><span>8 min</span></div>
+            <img class="hero-chart" src="../../assets/blog/tgma3-logistica-ia-ciclo-auto.svg" alt="Diagrama IA em Loop sobre TGMA3, logística automotiva, Magic Formula, carteira real e IA operacional">
+            <p class="caption">Leitura visual: TGMA3 combina qualidade operacional e preço ainda razoável, mas depende de volume automotivo, disciplina de custos e uso prático de dados/IA para proteger margem.</p>
+
+            <h2>O sinal do dia</h2>
+            <p>TGMA3 adiciona uma camada diferente da cadeia real da economia: logística automotiva. A tese passa por eficiência operacional, exposição ao ciclo de veículos, contratos com montadoras e capacidade de proteger margens em ambiente de juros altos.</p>
+            <p>No ranking Magic Formula de maio do IA em Loop, TGMA3 aparece em <strong>14º lugar</strong>, setor <strong>Logística</strong>, com <strong>ROIC de 32,0%</strong>, <strong>earnings yield de 13,7%</strong>, <strong>EV/EBIT de 7,29</strong> e <strong>score 54</strong>. Na leitura do Fundamentus feita em 20/05, a ação aparecia a <strong>R$ 30,60</strong>, com <strong>P/L de 8,49</strong>, <strong>P/VP de 2,22</strong>, <strong>ROIC de 27,2%</strong>, <strong>ROE de 26,1%</strong>, <strong>margem EBIT de 13,1%</strong> e <strong>EV/EBIT de 6,69</strong>.</p>
+            <div class="callout"><p><strong>Resposta curta:</strong> TGMA3 parece uma boa empresa cíclica a preço aceitável, não uma barganha óbvia. O ranking coloca o papel no radar e a carteira real já tem exposição; o reforço só faz sentido se volume, caixa e margem seguirem saudáveis mesmo com juros altos e oscilações da produção de veículos.</p></div>
+
+            <h2>Por que TGMA3 hoje?</h2>
+            <p>A carteira real da Magic Formula possui <strong>2 ações de TGMA3</strong>, com custo médio de <strong>R$ 39,40</strong>, valor investido de <strong>R$ 78,80</strong> e peso aproximado de <strong>10,4%</strong>. Como a cotação consultada estava abaixo desse custo, o ativo merece revisão objetiva: queda de preço pode ser oportunidade, mas também pode ser recado sobre ciclo.</p>
+            <p>O pano de fundo é misto. Leituras públicas recentes apontam financiamento de veículos crescendo em abril, produção de veículos em março no melhor nível desde 2019 e projeção de alta da produção em 2026. Do outro lado, também há manchetes sobre queda em caminhões, juros ainda restritivos e balanços que mostram sensibilidade da cadeia automotiva. Para TGMA3, isso significa que o dado de volume importa tanto quanto o múltiplo.</p>
+            <table class="mini-table">
+              <thead><tr><th>Item</th><th>Leitura verificada</th><th>Implicação</th></tr></thead>
+              <tbody>
+                <tr><td>Ranking</td><td>14º na Magic Formula de maio</td><td>Boa combinação de retorno sobre capital e preço, mas já abaixo dos nomes mais baratos</td></tr>
+                <tr><td>Carteira real</td><td>2 ações; R$ 78,80; cerca de 10,4% da carteira Magic Formula</td><td>Exposição relevante para o tamanho da carteira, exigindo disciplina antes de reforçar</td></tr>
+                <tr><td>Valuation</td><td>P/L 8,49; EV/EBIT 6,69; P/VP 2,22</td><td>Preço razoável para qualidade, mas não “de graça”</td></tr>
+                <tr><td>Rentabilidade</td><td>ROIC 32,0% no ranking; 27,2% no Fundamentus; ROE 26,1%</td><td>Qualidade operacional acima da média, desde que o ciclo não normalize para baixo</td></tr>
+                <tr><td>Setor</td><td>Logística de veículos e cadeia automotiva</td><td>Volume, mix, contrato, combustível, mão de obra e montadoras definem a margem</td></tr>
+              </tbody>
+            </table>
+
+            <h2>A tese: logística eficiente ou dependência demais do ciclo?</h2>
+            <p>TGMA3 é uma tese operacional. Diferente de uma plataforma digital pura, a vantagem aparece em rede logística, escala, relacionamento com montadoras, ocupação de frota, roteirização, produtividade e controle de custos. Quando há volume, a alavancagem operacional ajuda; quando o ciclo esfria, a mesma estrutura pode pressionar margem.</p>
+            <p>A pergunta prática é: <strong>o desconto atual compensa o risco do ciclo automotivo?</strong> A leitura atual do IA em Loop é: <strong>compensa para manter posição e acompanhar de perto; ainda não justifica aumentar muito o peso</strong>. A empresa tem retorno sobre capital forte e múltiplos aceitáveis, mas a carteira já carrega exposição relevante e o setor depende de variáveis fora do controle da companhia.</p>
+            <div class="matrix">
+                <div><h3>Pontos positivos</h3><p>ROIC elevado, ROE forte, múltiplo de lucro moderado, presença no ranking e histórico de geração operacional em um nicho logístico especializado.</p></div>
+                <div><h3>Riscos</h3><p>Queda de produção ou venda de veículos, pressão de custos, concentração em clientes automotivos, sensibilidade a juros e risco de margem se volumes recuarem.</p></div>
+                <div><h3>Onde a IA ajuda</h3><p>Previsão de demanda por região, roteirização, manutenção preditiva, alocação de frota, leitura de gargalos, monitoramento de combustível e otimização de pátios.</p></div>
+                <div><h3>Onde a IA engana</h3><p>Se o volume de veículos cair, algoritmo bom não cria carga. IA ajuda a defender margem, mas não elimina dependência do ciclo automotivo.</p></div>
+            </div>
+
+            <h2>Compra, venda ou espera?</h2>
+            <p>Pelos critérios do IA em Loop, TGMA3 fica como <strong>manutenção com viés de espera disciplinada</strong>. Há qualidade suficiente para continuar no radar, mas o peso já é relevante na carteira real e o preço, embora menor que o custo médio, não elimina risco de ciclo.</p>
+            <ul>
+                <li><strong>Gatilho de compra:</strong> volume de veículos sustentado, margem EBIT preservada, geração de caixa consistente, contratos renovados em boas condições e preço ainda abaixo do custo médio sem deterioração operacional.</li>
+                <li><strong>Gatilho de espera:</strong> múltiplos razoáveis, mas sem confirmação de volume, lucro e caixa nos próximos trimestres.</li>
+                <li><strong>Gatilho de venda/redução:</strong> queda persistente de volumes, compressão de margem, aumento de endividamento, perda de contratos relevantes ou sinais de que o lucro atual era pico de ciclo.</li>
+            </ul>
+            <div class="scorecard">
+                <div><span>Classificação de hoje</span><strong>Manter e monitorar</strong></div>
+                <div><span>Viés</span><strong>Qualidade cíclica</strong></div>
+                <div><span>Risco-chave</span><strong>Volume automotivo</strong></div>
+            </div>
+
+            <h2>O que isso muda na carteira</h2>
+            <p>Na carteira real, TGMA3 ajuda a tirar a Magic Formula de uma concentração excessiva em educação, seguros e commodities. O problema é que logística automotiva conversa com o mesmo ciclo industrial de autopeças e montadoras: se a carteira já tem LEVE3, POMO3/POMO4 ou outros nomes ligados a veículos, reforçar TGMA3 aumenta o risco temático.</p>
+            <p>A disciplina prática é comparar TGMA3 com POMO3, POMO4 e LEVE3 antes de qualquer nova compra. Se todas sobem pelo mesmo ciclo, a diversificação é menor do que parece. Se TGMA3 entregar margem e caixa mesmo com ciclo apenas moderado, aí a qualidade operacional ganha peso.</p>
+
+            <h2>Checklist antes de agir</h2>
+            <ul>
+                <li>Conferir o próximo release separando receita por volume, margem, caixa e comentários sobre montadoras.</li>
+                <li>Acompanhar produção, emplacamentos e financiamento de veículos, principalmente se juros continuarem altos.</li>
+                <li>Verificar se ganho de eficiência vem de produtividade recorrente ou de efeito pontual de mix/contratos.</li>
+                <li>Comparar TGMA3 com autopeças e carrocerias para não dobrar exposição ao mesmo ciclo.</li>
+                <li>Usar R$ 30,60 apenas como fotografia de consulta; preço de execução deve ser validado no home broker/B3.</li>
+            </ul>
+
+            <div class="source-note"><strong>Fontes e método:</strong> ranking Magic Formula de maio do IA em Loop; página pública da carteira Magic Formula; consulta ao Fundamentus para TGMA3, POMO3, POMO4, CSED3 e ANIM3; Google News RSS com manchetes públicas sobre Tegma, resultados, dividendos, financiamento de veículos, produção automotiva e caminhões; leitura editorial IA em Loop. Estudo educacional; não é recomendação personalizada de investimento.</div>
+        </article>
+        <div class="footer">⌨️ IA em Loop • Estudo, transparência e skin in the game • Não é recomendação de investimento</div>
+    </main>
+</body>
+</html>

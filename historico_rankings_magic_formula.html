@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<title>Histórico Rankings - Magic Formula</title>
+<style>
+:root{--bg:#06080D;--card:rgba(19,29,39,0.75);--text:#e2e8f0;--primary:#19364D;--accent:#E4D17F;--muted:#94a3b8}
+body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--text);padding:20px;margin:0}
+.container{max-width:1200px;margin:0 auto}
+h1{background:linear-gradient(135deg,#19364D,#AA8451);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-align:center;margin-bottom:5px}
+.tagline{color:var(--muted);text-align:center;margin-bottom:30px}
+.header-card{background:var(--card);border-radius:12px;padding:30px;text-align:center;margin-bottom:30px;border:1px solid rgba(228,209,127,0.2)}
+.back{position:sticky;top:12px;left:0;display:inline-block;background:rgba(19,29,39,.95);color:var(--accent);padding:10px 16px;border-radius:8px;text-decoration:none;z-index:1000;margin:12px 0 18px;border:1px solid rgba(228,209,127,.3)}
+.tabs{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;justify-content:center}
+.tab{background:rgba(19,54,77,0.75);border:1px solid rgba(228,209,127,0.3);border-radius:8px;padding:10px 20px;cursor:pointer;color:#e2e8f0;font-weight:600}
+.tab.active{background:rgba(30,100,160,0.4);border-color:rgba(30,100,160,0.6)}
+.card{background:var(--card);border-radius:16px;padding:30px;}
+.tab-content{display:none}
+.tab-content.active{display:block}
+table{width:100%;border-collapse:collapse;margin-top:1rem;font-size:0.9rem}
+th,td{padding:0.75rem;border-bottom:1px solid #334155;text-align:center}
+th{background:rgba(25,54,77,0.3);color:#E4D17F;font-weight:600}
+tr:hover{background:#334155}
+.footer{text-align:center;margin-top:3rem;color:var(--muted);font-size:.9rem}
+
+
+/* IA em Loop layout refresh — 2026-07-13 */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 20% 10%,rgba(110,228,239,.10),transparent 30%),radial-gradient(circle at 85% 20%,rgba(228,209,127,.10),transparent 28%);z-index:-1}
+.container{width:min(1200px,100%)}
+.header-card{position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(19,29,39,.92),rgba(25,54,77,.72))!important;border-radius:22px!important;border:1px solid rgba(228,209,127,.24)!important;box-shadow:0 18px 60px rgba(0,0,0,.35)!important}
+.header-card::after{content:"";position:absolute;right:-120px;top:-120px;width:280px;height:280px;border-radius:50%;background:rgba(228,209,127,.08);filter:blur(2px)}
+h1{letter-spacing:-.04em;font-size:clamp(2rem,4vw,3.35rem)!important}
+.tagline{max-width:760px;margin-left:auto!important;margin-right:auto!important;line-height:1.55}
+.tabs{position:static;z-index:1;padding:10px;border-radius:16px;background:rgba(6,8,13,.74);backdrop-filter:blur(16px);border:1px solid rgba(228,209,127,.12)}
+.tab{border-radius:999px!important;padding:11px 18px!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.tab.active{background:linear-gradient(135deg,rgba(25,54,77,.95),rgba(170,132,81,.55))!important;border-color:rgba(228,209,127,.65)!important;color:#fff!important}
+.card,.table-wrapper{border:1px solid rgba(228,209,127,.16)!important;box-shadow:0 18px 50px rgba(0,0,0,.28)!important}
+table{border-collapse:separate!important;border-spacing:0!important;overflow:hidden;border-radius:16px!important}
+th{position:static;z-index:auto;background:rgba(13,24,38,.98)!important;backdrop-filter:none}
+tbody tr:nth-child(even){background:rgba(148,163,184,.045)}
+tbody tr:hover{background:rgba(228,209,127,.10)!important}
+td:first-child{font-variant-numeric:tabular-nums}.rank-badge,.ranking-badge{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;background:rgba(228,209,127,.14);border:1px solid rgba(228,209,127,.32);color:#E4D17F;font-size:.78rem;font-weight:800;letter-spacing:.02em;text-transform:uppercase}.section-title-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:.8rem}.ranking-note{color:#cbd5e1;background:rgba(110,228,239,.07);border:1px solid rgba(110,228,239,.16);border-radius:14px;padding:12px 14px;margin:0 0 1rem;line-height:1.55}.table-wrapper{border-radius:18px;background:rgba(6,8,13,.25);padding:6px;overflow-x:auto;-webkit-overflow-scrolling:touch}@media(max-width:760px){body{padding:22px 12px!important}.header-card{padding:24px 16px!important}.tabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap}.tab{white-space:nowrap}.card{padding:18px!important}table{font-size:.82rem!important}}
+
+</style>
+</head>
+<body>
+<div class="meta-info" style="background: rgba(19, 29, 39, 0.75); border-radius: 12px; padding: 16px; margin: 16px 0 24px; border-left: 4px solid #E4D17F; border: 1px solid rgba(228, 209, 127, 0.2); display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: center;">
+  <span style="margin: 0; white-space: nowrap;">📊 <strong>Ranking atual:</strong> <a href="greenblatt_ned_landing_original.html" style="color:#E4D17F;text-decoration:underline;">Ver página da carteira</a></span>
+  <span style="margin: 0; white-space: nowrap;">💰 <strong>Área Privada:</strong> <a href="area_privada.html" style="color:#E4D17F;text-decoration:underline;">Acompanhe a carteira</a></span>
+</div>
+
+<a class="back" href="javascript:history.back()">← Voltar</a>
+<div class="container">
+<div class="header-card">
+<h1>Histórico de Rankings - Magic Formula</h1>
+<p class="tagline">Consulta aos rankings mensais, com setor das empresas</p>
+</div>
+<div class="tabs">
+<button class="tab active" onclick="switchTab('rank-2026-08')">Agosto 2026</button>
+<button class="tab" onclick="switchTab('rank-2026-07')">Julho 2026</button>
+<button class="tab" onclick="switchTab('rank-2026-06')">Junho 2026</button>
+<button class="tab" onclick="switchTab('rank-2026-05')">Maio 2026</button>
+<button class="tab" onclick="switchTab('abril')">Abril 2026</button>
+<button class="tab" onclick="switchTab('marco')">Março 2026</button>
+</div>
+<div id="rank-2026-08" class="tab-content active" data-month="2026-08">
+<div class="card">
+<div style="overflow-x:auto;">
+<table>
+<thead><tr><th>Pos</th><th>Ticker</th><th>Setor</th><th>ROIC</th><th>EY</th><th>EV/EBIT</th><th>DY%</th><th>Score</th></tr></thead>
+<tbody>
+<tr><td style="color:#E4D17F;font-weight:700">1</td><td style="color:#AA8451;font-weight:600">PSSA3</td><td>Seguros</td><td style="color:#10b981">77.4%</td><td>1.6%</td><td>0.63</td><td>-</td><td style="color:#E4D17F;font-weight:600">2</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">2</td><td style="color:#AA8451;font-weight:600">WIZC3</td><td>Seguros/Corretagem</td><td style="color:#10b981">35.5%</td><td>42.2%</td><td>2.37</td><td>-</td><td style="color:#E4D17F;font-weight:600">6</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">3</td><td style="color:#AA8451;font-weight:600">PLPL3</td><td>Construção civil</td><td style="color:#10b981">29.3%</td><td>24.0%</td><td>4.17</td><td>-</td><td style="color:#E4D17F;font-weight:600">20</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">4</td><td style="color:#AA8451;font-weight:600">QUAL3</td><td>Saúde</td><td style="color:#10b981">19.3%</td><td>37.2%</td><td>2.69</td><td>-</td><td style="color:#E4D17F;font-weight:600">22</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">5</td><td style="color:#AA8451;font-weight:600">PETR4</td><td>Petróleo/Gás</td><td style="color:#10b981">17.8%</td><td>25.3%</td><td>3.96</td><td>-</td><td style="color:#E4D17F;font-weight:600">29</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">6</td><td style="color:#AA8451;font-weight:600">CMIN3</td><td>Mineração</td><td style="color:#10b981">26.7%</td><td>19.6%</td><td>5.10</td><td>-</td><td style="color:#E4D17F;font-weight:600">29</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">7</td><td style="color:#AA8451;font-weight:600">LEVE3</td><td>Autopeças</td><td style="color:#10b981">34.8%</td><td>15.8%</td><td>6.34</td><td>-</td><td style="color:#E4D17F;font-weight:600">39</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">8</td><td style="color:#AA8451;font-weight:600">CSUD3</td><td>Tecnologia/Serviços</td><td style="color:#10b981">20.5%</td><td>16.5%</td><td>6.06</td><td>-</td><td style="color:#E4D17F;font-weight:600">43</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">9</td><td style="color:#AA8451;font-weight:600">POMO3</td><td>Autopeças</td><td style="color:#10b981">20.1%</td><td>16.2%</td><td>6.16</td><td>-</td><td style="color:#E4D17F;font-weight:600">47</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">10</td><td style="color:#AA8451;font-weight:600">VTRU3</td><td>Educação</td><td style="color:#10b981">15.0%</td><td>21.0%</td><td>4.76</td><td>-</td><td style="color:#E4D17F;font-weight:600">50</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">11</td><td style="color:#AA8451;font-weight:600">CSED3</td><td>Educação</td><td style="color:#10b981">14.8%</td><td>20.3%</td><td>4.93</td><td>-</td><td style="color:#E4D17F;font-weight:600">52</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">12</td><td style="color:#AA8451;font-weight:600">TGMA3</td><td>Logística</td><td style="color:#10b981">32.0%</td><td>13.7%</td><td>7.29</td><td>-</td><td style="color:#E4D17F;font-weight:600">54</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">13</td><td style="color:#AA8451;font-weight:600">ANIM3</td><td>Educação</td><td style="color:#10b981">14.4%</td><td>20.3%</td><td>4.93</td><td>-</td><td style="color:#E4D17F;font-weight:600">56</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">14</td><td style="color:#AA8451;font-weight:600">ODPV3</td><td>Saúde/Odontologia</td><td style="color:#10b981">47.5%</td><td>12.8%</td><td>7.83</td><td>-</td><td style="color:#E4D17F;font-weight:600">58</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">15</td><td style="color:#AA8451;font-weight:600">MOVI3</td><td>Locação de veículos</td><td style="color:#10b981">15.3%</td><td>16.6%</td><td>6.02</td><td>-</td><td style="color:#E4D17F;font-weight:600">61</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">16</td><td style="color:#AA8451;font-weight:600">VLID3</td><td>Tecnologia/Identificação</td><td style="color:#10b981">14.7%</td><td>17.2%</td><td>5.83</td><td>-</td><td style="color:#E4D17F;font-weight:600">62</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">17</td><td style="color:#AA8451;font-weight:600">SEER3</td><td>Educação</td><td style="color:#10b981">14.0%</td><td>20.2%</td><td>4.95</td><td>-</td><td style="color:#E4D17F;font-weight:600">62</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">18</td><td style="color:#AA8451;font-weight:600">VALE3</td><td>Mineração</td><td style="color:#10b981">16.7%</td><td>15.5%</td><td>6.44</td><td>-</td><td style="color:#E4D17F;font-weight:600">63</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">19</td><td style="color:#AA8451;font-weight:600">CASH3</td><td>Serviços financeiros</td><td style="color:#10b981">13.1%</td><td>23.2%</td><td>4.31</td><td>-</td><td style="color:#E4D17F;font-weight:600">63</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">20</td><td style="color:#AA8451;font-weight:600">VAMO3</td><td>Locação/Logística</td><td style="color:#10b981">15.2%</td><td>16.0%</td><td>6.24</td><td>-</td><td style="color:#E4D17F;font-weight:600">66</td></tr>
+</tbody>
+</table>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:0.8rem;margin-top:1rem;">Dados: Fundamentus + yfinance (Agosto 2026)</p>
+</div>
+</div>
+
+
+
+<div id="rank-2026-07" class="tab-content" data-month="2026-07">
+<div class="card">
+<div style="overflow-x:auto;">
+<table>
+<thead><tr><th>Pos</th><th>Ticker</th><th>Setor</th><th>ROIC</th><th>EY</th><th>EV/EBIT</th><th>DY%</th><th>Score</th></tr></thead>
+<tbody>
+<tr><td style="color:#E4D17F;font-weight:700">1</td><td style="color:#AA8451;font-weight:600">PSSA3</td><td>Seguros</td><td style="color:#10b981">77.4%</td><td>1.6%</td><td>0.63</td><td>-</td><td style="color:#E4D17F;font-weight:600">2</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">2</td><td style="color:#AA8451;font-weight:600">WIZC3</td><td>Serviços financeiros</td><td style="color:#10b981">35.5%</td><td>42.2%</td><td>2.37</td><td>-</td><td style="color:#E4D17F;font-weight:600">6</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">3</td><td style="color:#AA8451;font-weight:600">PLPL3</td><td>Construção civil</td><td style="color:#10b981">29.3%</td><td>24.0%</td><td>4.17</td><td>-</td><td style="color:#E4D17F;font-weight:600">20</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">4</td><td style="color:#AA8451;font-weight:600">LREN3</td><td>-</td><td style="color:#10b981">23.0%</td><td>24.3%</td><td>4.11</td><td>-</td><td style="color:#E4D17F;font-weight:600">22</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">5</td><td style="color:#AA8451;font-weight:600">QUAL3</td><td>Saúde</td><td style="color:#10b981">19.3%</td><td>37.2%</td><td>2.69</td><td>-</td><td style="color:#E4D17F;font-weight:600">22</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">6</td><td style="color:#AA8451;font-weight:600">PETR4</td><td>Petróleo e gás</td><td style="color:#10b981">17.8%</td><td>25.3%</td><td>3.96</td><td>-</td><td style="color:#E4D17F;font-weight:600">29</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">7</td><td style="color:#AA8451;font-weight:600">CMIN3</td><td>Mineração</td><td style="color:#10b981">26.7%</td><td>19.6%</td><td>5.10</td><td>-</td><td style="color:#E4D17F;font-weight:600">29</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">8</td><td style="color:#AA8451;font-weight:600">ASAI3</td><td>Varejo alimentar</td><td style="color:#10b981">19.4%</td><td>24.0%</td><td>4.16</td><td>-</td><td style="color:#E4D17F;font-weight:600">29</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">9</td><td style="color:#AA8451;font-weight:600">PETR3</td><td>Petróleo e gás</td><td style="color:#10b981">17.8%</td><td>24.4%</td><td>4.10</td><td>-</td><td style="color:#E4D17F;font-weight:600">31</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">10</td><td style="color:#AA8451;font-weight:600">CEAB3</td><td>-</td><td style="color:#10b981">16.1%</td><td>24.9%</td><td>4.02</td><td>-</td><td style="color:#E4D17F;font-weight:600">38</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">11</td><td style="color:#AA8451;font-weight:600">LEVE3</td><td>Autopeças</td><td style="color:#10b981">34.8%</td><td>15.8%</td><td>6.34</td><td>-</td><td style="color:#E4D17F;font-weight:600">39</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">12</td><td style="color:#AA8451;font-weight:600">CSUD3</td><td>Tecnologia/serviços</td><td style="color:#10b981">20.5%</td><td>16.5%</td><td>6.06</td><td>-</td><td style="color:#E4D17F;font-weight:600">43</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">13</td><td style="color:#AA8451;font-weight:600">POMO3</td><td>Material rodoviário</td><td style="color:#10b981">20.1%</td><td>16.2%</td><td>6.16</td><td>-</td><td style="color:#E4D17F;font-weight:600">47</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">14</td><td style="color:#AA8451;font-weight:600">VTRU3</td><td>Educação</td><td style="color:#10b981">15.0%</td><td>21.0%</td><td>4.76</td><td>-</td><td style="color:#E4D17F;font-weight:600">50</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">15</td><td style="color:#AA8451;font-weight:600">CSED3</td><td>Educação</td><td style="color:#10b981">14.8%</td><td>20.3%</td><td>4.93</td><td>-</td><td style="color:#E4D17F;font-weight:600">52</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">16</td><td style="color:#AA8451;font-weight:600">POMO4</td><td>Material rodoviário</td><td style="color:#10b981">20.1%</td><td>15.4%</td><td>6.51</td><td>-</td><td style="color:#E4D17F;font-weight:600">52</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">17</td><td style="color:#AA8451;font-weight:600">TGMA3</td><td>Logística</td><td style="color:#10b981">32.0%</td><td>13.7%</td><td>7.29</td><td>-</td><td style="color:#E4D17F;font-weight:600">54</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">18</td><td style="color:#AA8451;font-weight:600">ANIM3</td><td>Educação</td><td style="color:#10b981">14.4%</td><td>20.3%</td><td>4.93</td><td>-</td><td style="color:#E4D17F;font-weight:600">56</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">19</td><td style="color:#AA8451;font-weight:600">ODPV3</td><td>Saúde/Odontologia</td><td style="color:#10b981">47.5%</td><td>12.8%</td><td>7.83</td><td>-</td><td style="color:#E4D17F;font-weight:600">58</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">20</td><td style="color:#AA8451;font-weight:600">MOVI3</td><td>Locação de veículos</td><td style="color:#10b981">15.3%</td><td>16.6%</td><td>6.02</td><td>-</td><td style="color:#E4D17F;font-weight:600">61</td></tr>
+</tbody>
+</table>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:0.8rem;margin-top:1rem;">Dados: Fundamentus + yfinance (Julho 2026)</p>
+</div>
+</div>
+<div id="rank-2026-06" class="tab-content" data-month="2026-06">
+<div class="card">
+<div style="overflow-x:auto;">
+<table>
+<thead><tr><th>Pos</th><th>Ticker</th><th>Setor</th><th>ROIC</th><th>EY</th><th>EV/EBIT</th><th>DY%</th><th>Score</th></tr></thead>
+<tbody>
+<tr><td style="color:#E4D17F;font-weight:700">1</td><td style="color:#AA8451;font-weight:600">PSSA3</td><td>Seguros</td><td style="color:#10b981">77.4%</td><td>1.6%</td><td>0.63</td><td>-</td><td style="color:#E4D17F;font-weight:600">2</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">2</td><td style="color:#AA8451;font-weight:600">WIZC3</td><td>Seguros/Corretagem</td><td style="color:#10b981">35.5%</td><td>42.2%</td><td>2.37</td><td>-</td><td style="color:#E4D17F;font-weight:600">6</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">3</td><td style="color:#AA8451;font-weight:600">PLPL3</td><td>Construção civil</td><td style="color:#10b981">29.3%</td><td>24.0%</td><td>4.17</td><td>-</td><td style="color:#E4D17F;font-weight:600">20</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">4</td><td style="color:#AA8451;font-weight:600">QUAL3</td><td>Saúde</td><td style="color:#10b981">19.3%</td><td>37.2%</td><td>2.69</td><td>-</td><td style="color:#E4D17F;font-weight:600">22</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">5</td><td style="color:#AA8451;font-weight:600">PETR4</td><td>Petróleo/Gás</td><td style="color:#10b981">17.8%</td><td>25.3%</td><td>3.96</td><td>-</td><td style="color:#E4D17F;font-weight:600">29</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">6</td><td style="color:#AA8451;font-weight:600">CMIN3</td><td>Mineração</td><td style="color:#10b981">26.7%</td><td>19.6%</td><td>5.10</td><td>-</td><td style="color:#E4D17F;font-weight:600">29</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">7</td><td style="color:#AA8451;font-weight:600">PETR3</td><td>Petróleo/Gás</td><td style="color:#10b981">17.8%</td><td>24.4%</td><td>4.10</td><td>-</td><td style="color:#E4D17F;font-weight:600">31</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">8</td><td style="color:#AA8451;font-weight:600">LEVE3</td><td>Autopeças</td><td style="color:#10b981">34.8%</td><td>15.8%</td><td>6.34</td><td>-</td><td style="color:#E4D17F;font-weight:600">39</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">9</td><td style="color:#AA8451;font-weight:600">CSUD3</td><td>Tecnologia/Serviços</td><td style="color:#10b981">20.5%</td><td>16.5%</td><td>6.06</td><td>-</td><td style="color:#E4D17F;font-weight:600">43</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">10</td><td style="color:#AA8451;font-weight:600">POMO3</td><td>Autopeças</td><td style="color:#10b981">20.1%</td><td>16.2%</td><td>6.16</td><td>-</td><td style="color:#E4D17F;font-weight:600">47</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">11</td><td style="color:#AA8451;font-weight:600">VTRU3</td><td>Educação</td><td style="color:#10b981">15.0%</td><td>21.0%</td><td>4.76</td><td>-</td><td style="color:#E4D17F;font-weight:600">50</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">12</td><td style="color:#AA8451;font-weight:600">CSED3</td><td>Educação</td><td style="color:#10b981">14.8%</td><td>20.3%</td><td>4.93</td><td>-</td><td style="color:#E4D17F;font-weight:600">52</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">13</td><td style="color:#AA8451;font-weight:600">POMO4</td><td>Autopeças</td><td style="color:#10b981">20.1%</td><td>15.4%</td><td>6.51</td><td>-</td><td style="color:#E4D17F;font-weight:600">52</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">14</td><td style="color:#AA8451;font-weight:600">TGMA3</td><td>Logística</td><td style="color:#10b981">32.0%</td><td>13.7%</td><td>7.29</td><td>-</td><td style="color:#E4D17F;font-weight:600">54</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">15</td><td style="color:#AA8451;font-weight:600">ANIM3</td><td>Educação</td><td style="color:#10b981">14.4%</td><td>20.3%</td><td>4.93</td><td>-</td><td style="color:#E4D17F;font-weight:600">56</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">16</td><td style="color:#AA8451;font-weight:600">ODPV3</td><td>Saúde/Odontologia</td><td style="color:#10b981">47.5%</td><td>12.8%</td><td>7.83</td><td>-</td><td style="color:#E4D17F;font-weight:600">58</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">17</td><td style="color:#AA8451;font-weight:600">MOVI3</td><td>Locação de veículos</td><td style="color:#10b981">15.3%</td><td>16.6%</td><td>6.02</td><td>-</td><td style="color:#E4D17F;font-weight:600">61</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">18</td><td style="color:#AA8451;font-weight:600">VLID3</td><td>Tecnologia/Identificação</td><td style="color:#10b981">14.7%</td><td>17.2%</td><td>5.83</td><td>-</td><td style="color:#E4D17F;font-weight:600">62</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">19</td><td style="color:#AA8451;font-weight:600">SEER3</td><td>Educação</td><td style="color:#10b981">14.0%</td><td>20.2%</td><td>4.95</td><td>-</td><td style="color:#E4D17F;font-weight:600">62</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">20</td><td style="color:#AA8451;font-weight:600">VALE3</td><td>Mineração</td><td style="color:#10b981">16.7%</td><td>15.5%</td><td>6.44</td><td>-</td><td style="color:#E4D17F;font-weight:600">63</td></tr>
+</tbody>
+</table>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:0.8rem;margin-top:1rem;">Dados: Fundamentus + yfinance (Junho 2026)</p>
+</div>
+</div>
+<div id="rank-2026-05" class="tab-content" data-month="2026-05">
+<div class="card">
+<div style="overflow-x:auto;">
+<table>
+<thead><tr><th>Pos</th><th>Ticker</th><th>Setor</th><th>ROIC</th><th>EY</th><th>Score</th><th>Liq. 2 meses</th></tr></thead>
+<tbody>
+<tr><td style="color:#E4D17F;font-weight:700">1</td><td style="color:#AA8451;font-weight:600">PSSA3</td><td>Seguros</td><td style="color:#10b981">77.44%</td><td>175.44%</td><td>2</td><td>R$ 107.0 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">2</td><td style="color:#AA8451;font-weight:600">WIZC3</td><td>Serviços financeiros</td><td style="color:#10b981">36.56%</td><td>51.28%</td><td>7</td><td>R$ 5.7 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">3</td><td style="color:#AA8451;font-weight:600">PLPL3</td><td>Construção civil</td><td style="color:#10b981">35.55%</td><td>31.65%</td><td>12</td><td>R$ 35.7 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">4</td><td style="color:#AA8451;font-weight:600">QUAL3</td><td>Saúde</td><td style="color:#10b981">21.55%</td><td>41.49%</td><td>16</td><td>R$ 10.2 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">5</td><td style="color:#AA8451;font-weight:600">ASAI3</td><td>Varejo alimentar</td><td style="color:#10b981">19.52%</td><td>25.97%</td><td>25</td><td>R$ 140.7 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">6</td><td style="color:#AA8451;font-weight:600">CMIN3</td><td>Mineração</td><td style="color:#10b981">23.02%</td><td>19.27%</td><td>28</td><td>R$ 53.3 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">7</td><td style="color:#AA8451;font-weight:600">BEEF3</td><td>Alimentos</td><td style="color:#10b981">17.90%</td><td>22.27%</td><td>31</td><td>R$ 86.0 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">8</td><td style="color:#AA8451;font-weight:600">VTRU3</td><td>Educação</td><td style="color:#10b981">15.67%</td><td>24.04%</td><td>35</td><td>R$ 7.5 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">9</td><td style="color:#AA8451;font-weight:600">LEVE3</td><td>Autopeças</td><td style="color:#10b981">35.92%</td><td>16.23%</td><td>37</td><td>R$ 12.6 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">10</td><td style="color:#AA8451;font-weight:600">PETR4</td><td>Petróleo e gás</td><td style="color:#10b981">17.43%</td><td>20.33%</td><td>37</td><td>R$ 2219.2 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">11</td><td style="color:#AA8451;font-weight:600">CSED3</td><td>Educação</td><td style="color:#10b981">15.21%</td><td>22.57%</td><td>42</td><td>R$ 3.3 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">12</td><td style="color:#AA8451;font-weight:600">VALE3</td><td>Mineração</td><td style="color:#10b981">17.62%</td><td>17.24%</td><td>47</td><td>R$ 2275.8 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">13</td><td style="color:#AA8451;font-weight:600">POMO4</td><td>Material rodoviário</td><td style="color:#10b981">20.62%</td><td>15.82%</td><td>48</td><td>R$ 77.0 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">14</td><td style="color:#AA8451;font-weight:600">VLID3</td><td>Tecnologia/serviços</td><td style="color:#10b981">14.64%</td><td>19.38%</td><td>49</td><td>R$ 5.4 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">15</td><td style="color:#AA8451;font-weight:600">TGMA3</td><td>Logística</td><td style="color:#10b981">25.78%</td><td>14.79%</td><td>50</td><td>R$ 16.8 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">16</td><td style="color:#AA8451;font-weight:600">PCAR3</td><td>Varejo alimentar</td><td style="color:#10b981">12.17%</td><td>48.54%</td><td>51</td><td>R$ 40.1 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">17</td><td style="color:#AA8451;font-weight:600">CURY3</td><td>Construção civil</td><td style="color:#10b981">39.40%</td><td>13.93%</td><td>54</td><td>R$ 122.8 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">18</td><td style="color:#AA8451;font-weight:600">EUCA4</td><td>Madeira e papel</td><td style="color:#10b981">12.99%</td><td>21.79%</td><td>56</td><td>R$ 0.8 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">19</td><td style="color:#AA8451;font-weight:600">MILS3</td><td>Máquinas e equipamentos</td><td style="color:#10b981">19.70%</td><td>14.75%</td><td>57</td><td>R$ 12.2 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">20</td><td style="color:#AA8451;font-weight:600">VAMO3</td><td>Locação de veículos e máquinas</td><td style="color:#10b981">15.26%</td><td>16.75%</td><td>57</td><td>R$ 74.6 mi</td></tr>
+</tbody>
+</table>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:0.8rem;margin-top:1rem;">Dados: Fundamentus + yfinance (Maio 2026)</p>
+</div>
+</div>
+<div id="abril" class="tab-content">
+<div class="card">
+<div style="overflow-x:auto;">
+<table>
+<thead><tr><th>Pos</th><th>Ticker</th><th>Setor</th><th>ROIC</th><th>EY</th><th>Score</th><th>Liq. 2 meses</th></tr></thead>
+<tbody>
+<tr><td style="color:#E4D17F;font-weight:700">1</td><td style="color:#AA8451;font-weight:600">PSSA3</td><td>Seguros</td><td style="color:#10b981">77.44%</td><td>175.44%</td><td>2</td><td>R$ 107.0 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">2</td><td style="color:#AA8451;font-weight:600">WIZC3</td><td>Serviços financeiros</td><td style="color:#10b981">36.56%</td><td>51.28%</td><td>7</td><td>R$ 5.7 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">3</td><td style="color:#AA8451;font-weight:600">PLPL3</td><td>Construção civil</td><td style="color:#10b981">35.55%</td><td>31.65%</td><td>12</td><td>R$ 35.7 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">4</td><td style="color:#AA8451;font-weight:600">QUAL3</td><td>Saúde</td><td style="color:#10b981">21.55%</td><td>41.49%</td><td>16</td><td>R$ 10.2 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">5</td><td style="color:#AA8451;font-weight:600">ASAI3</td><td>Varejo alimentar</td><td style="color:#10b981">19.52%</td><td>25.97%</td><td>25</td><td>R$ 140.7 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">6</td><td style="color:#AA8451;font-weight:600">CMIN3</td><td>Mineração</td><td style="color:#10b981">23.02%</td><td>19.27%</td><td>28</td><td>R$ 53.3 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">7</td><td style="color:#AA8451;font-weight:600">BEEF3</td><td>Alimentos</td><td style="color:#10b981">17.90%</td><td>22.27%</td><td>31</td><td>R$ 86.0 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">8</td><td style="color:#AA8451;font-weight:600">VTRU3</td><td>Educação</td><td style="color:#10b981">15.67%</td><td>24.04%</td><td>35</td><td>R$ 7.5 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">9</td><td style="color:#AA8451;font-weight:600">LEVE3</td><td>Autopeças</td><td style="color:#10b981">35.92%</td><td>16.23%</td><td>37</td><td>R$ 12.6 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">10</td><td style="color:#AA8451;font-weight:600">PETR4</td><td>Petróleo e gás</td><td style="color:#10b981">17.43%</td><td>20.33%</td><td>37</td><td>R$ 2219.2 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">11</td><td style="color:#AA8451;font-weight:600">CSED3</td><td>Educação</td><td style="color:#10b981">15.21%</td><td>22.57%</td><td>42</td><td>R$ 3.3 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">12</td><td style="color:#AA8451;font-weight:600">VALE3</td><td>Mineração</td><td style="color:#10b981">17.62%</td><td>17.24%</td><td>47</td><td>R$ 2275.8 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">13</td><td style="color:#AA8451;font-weight:600">POMO4</td><td>Material rodoviário</td><td style="color:#10b981">20.62%</td><td>15.82%</td><td>48</td><td>R$ 77.0 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">14</td><td style="color:#AA8451;font-weight:600">VLID3</td><td>Tecnologia/serviços</td><td style="color:#10b981">14.64%</td><td>19.38%</td><td>49</td><td>R$ 5.4 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">15</td><td style="color:#AA8451;font-weight:600">TGMA3</td><td>Logística</td><td style="color:#10b981">25.78%</td><td>14.79%</td><td>50</td><td>R$ 16.8 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">16</td><td style="color:#AA8451;font-weight:600">PCAR3</td><td>Varejo alimentar</td><td style="color:#10b981">12.17%</td><td>48.54%</td><td>51</td><td>R$ 40.1 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">17</td><td style="color:#AA8451;font-weight:600">CURY3</td><td>Construção civil</td><td style="color:#10b981">39.40%</td><td>13.93%</td><td>54</td><td>R$ 122.8 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">18</td><td style="color:#AA8451;font-weight:600">EUCA4</td><td>Madeira e papel</td><td style="color:#10b981">12.99%</td><td>21.79%</td><td>56</td><td>R$ 0.8 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">19</td><td style="color:#AA8451;font-weight:600">MILS3</td><td>Máquinas e equipamentos</td><td style="color:#10b981">19.70%</td><td>14.75%</td><td>57</td><td>R$ 12.2 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">20</td><td style="color:#AA8451;font-weight:600">VAMO3</td><td>Locação de veículos e máquinas</td><td style="color:#10b981">15.26%</td><td>16.75%</td><td>57</td><td>R$ 74.6 mi</td></tr>
+</tbody>
+</table>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:0.8rem;margin-top:1rem;">Dados: Fundamentus + yfinance (22/04/2026)</p>
+</div>
+</div>
+<div id="marco" class="tab-content">
+<div class="card">
+<div style="overflow-x:auto;">
+<table>
+<thead><tr><th>Pos</th><th>Ticker</th><th>Setor</th><th>ROIC</th><th>EY</th><th>EV/EBIT</th><th>DY%</th><th>Score</th></tr></thead>
+<tbody>
+<tr><td style="color:#E4D17F;font-weight:700">1</td><td style="color:#AA8451;font-weight:600">PSSA3</td><td>Seguros</td><td style="color:#10b981">77.44%</td><td>156.25%</td><td>0.64</td><td>3.8</td><td style="color:#E4D17F;font-weight:600">2</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">2</td><td style="color:#AA8451;font-weight:600">WIZC3</td><td>Serviços financeiros</td><td style="color:#10b981">35.46%</td><td>43.86%</td><td>2.28</td><td>6.09</td><td style="color:#E4D17F;font-weight:600">8</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">3</td><td style="color:#AA8451;font-weight:600">QUAL3</td><td>Saúde</td><td style="color:#10b981">21.55%</td><td>39.68%</td><td>2.52</td><td>0.26</td><td style="color:#E4D17F;font-weight:600">18</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">4</td><td style="color:#AA8451;font-weight:600">PLPL3</td><td>Construção civil</td><td style="color:#10b981">29.26%</td><td>22.73%</td><td>4.4</td><td>3.19</td><td style="color:#E4D17F;font-weight:600">22</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">5</td><td style="color:#AA8451;font-weight:600">CMIN3</td><td>Mineração</td><td style="color:#10b981">26.67%</td><td>21.51%</td><td>4.65</td><td>8.89</td><td style="color:#E4D17F;font-weight:600">27</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">6</td><td style="color:#AA8451;font-weight:600">PETR4</td><td>Petróleo e gás</td><td style="color:#10b981">17.85%</td><td>24.21%</td><td>4.13</td><td>8.22</td><td style="color:#E4D17F;font-weight:600">34</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">7</td><td style="color:#AA8451;font-weight:600">BEEF3</td><td>Alimentos</td><td style="color:#10b981">17.04%</td><td>20.88%</td><td>4.79</td><td>3.15</td><td style="color:#E4D17F;font-weight:600">48</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">8</td><td style="color:#AA8451;font-weight:600">CSUD3</td><td>Tecnologia/serviços</td><td style="color:#10b981">20.52%</td><td>16.23%</td><td>6.16</td><td>14.67</td><td style="color:#E4D17F;font-weight:600">53</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">9</td><td style="color:#AA8451;font-weight:600">VTRU3</td><td>Educação</td><td style="color:#10b981">15.04%</td><td>21.51%</td><td>4.65</td><td>0.15</td><td style="color:#E4D17F;font-weight:600">54</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">10</td><td style="color:#AA8451;font-weight:600">TGMA3</td><td>Logística</td><td style="color:#10b981">32.04%</td><td>13.79%</td><td>7.25</td><td>11.23</td><td style="color:#E4D17F;font-weight:600">63</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">11</td><td style="color:#AA8451;font-weight:600">CSED3</td><td>Educação</td><td style="color:#10b981">14.82%</td><td>20.0%</td><td>5.0</td><td>7.31</td><td style="color:#E4D17F;font-weight:600">63</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">12</td><td style="color:#AA8451;font-weight:600">CASH3</td><td>Tecnologia/serviços financeiros</td><td style="color:#10b981">13.13%</td><td>23.75%</td><td>4.21</td><td>0.0</td><td style="color:#E4D17F;font-weight:600">65</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">13</td><td style="color:#AA8451;font-weight:600">POMO4</td><td>Material rodoviário</td><td style="color:#10b981">20.62%</td><td>14.14%</td><td>7.07</td><td>13.61</td><td style="color:#E4D17F;font-weight:600">66</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">14</td><td style="color:#AA8451;font-weight:600">VALE3</td><td>Mineração</td><td style="color:#10b981">17.62%</td><td>15.36%</td><td>6.51</td><td>8.61</td><td style="color:#E4D17F;font-weight:600">68</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">15</td><td style="color:#AA8451;font-weight:600">ANIM3</td><td>Educação</td><td style="color:#10b981">14.37%</td><td>19.92%</td><td>5.02</td><td>1.04</td><td style="color:#E4D17F;font-weight:600">69</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">16</td><td style="color:#AA8451;font-weight:600">MOVI3</td><td>Locação de veículos</td><td style="color:#10b981">15.29%</td><td>16.29%</td><td>6.14</td><td>5.24</td><td style="color:#E4D17F;font-weight:600">70</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">17</td><td style="color:#AA8451;font-weight:600">SEER3</td><td>Educação</td><td style="color:#10b981">14.03%</td><td>20.37%</td><td>4.91</td><td>1.25</td><td style="color:#E4D17F;font-weight:600">70</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">18</td><td style="color:#AA8451;font-weight:600">VLID3</td><td>Tecnologia/serviços</td><td style="color:#10b981">14.69%</td><td>17.12%</td><td>5.84</td><td>14.12</td><td style="color:#E4D17F;font-weight:600">71</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">19</td><td style="color:#AA8451;font-weight:600">VAMO3</td><td>Locação de veículos e máquinas</td><td style="color:#10b981">15.2%</td><td>16.1%</td><td>6.21</td><td>3.2</td><td style="color:#E4D17F;font-weight:600">73</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">20</td><td style="color:#AA8451;font-weight:600">EUCA4</td><td>Madeira e papel</td><td style="color:#10b981">12.6%</td><td>20.79%</td><td>4.81</td><td>5.18</td><td style="color:#E4D17F;font-weight:600">77</td></tr>
+</tbody>
+</table>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:0.8rem;margin-top:1rem;">Dados: Fundamentus + yfinance (01/03/2026)</p>
+</div>
+</div>
+<div class="tab-content" data-month="2026-06" id="rank-2026-06">
+<div class="card">
+<div style="overflow-x:auto;">
+<table>
+<thead><tr><th>Pos</th><th>Ticker</th><th>Setor</th><th>ROIC</th><th>EY</th><th>EV/EBIT</th><th>DY%</th><th>Score</th></tr></thead>
+<tbody>
+<tr><td style="color:#E4D17F;font-weight:700">1</td><td style="color:#AA8451;font-weight:600">PSSA3</td><td>Seguros</td><td style="color:#10b981">77.4%</td><td>1.6%</td><td>0.63</td><td>-</td><td style="color:#E4D17F;font-weight:600">2</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">2</td><td style="color:#AA8451;font-weight:600">WIZC3</td><td>Seguros/Corretagem</td><td style="color:#10b981">35.5%</td><td>42.2%</td><td>2.37</td><td>-</td><td style="color:#E4D17F;font-weight:600">6</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">3</td><td style="color:#AA8451;font-weight:600">PLPL3</td><td>Construção civil</td><td style="color:#10b981">29.3%</td><td>24.0%</td><td>4.17</td><td>-</td><td style="color:#E4D17F;font-weight:600">20</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">4</td><td style="color:#AA8451;font-weight:600">QUAL3</td><td>Saúde</td><td style="color:#10b981">19.3%</td><td>37.2%</td><td>2.69</td><td>-</td><td style="color:#E4D17F;font-weight:600">22</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">5</td><td style="color:#AA8451;font-weight:600">PETR4</td><td>Petróleo/Gás</td><td style="color:#10b981">17.8%</td><td>25.3%</td><td>3.96</td><td>-</td><td style="color:#E4D17F;font-weight:600">29</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">6</td><td style="color:#AA8451;font-weight:600">CMIN3</td><td>Mineração</td><td style="color:#10b981">26.7%</td><td>19.6%</td><td>5.10</td><td>-</td><td style="color:#E4D17F;font-weight:600">29</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">7</td><td style="color:#AA8451;font-weight:600">PETR3</td><td>Petróleo/Gás</td><td style="color:#10b981">17.8%</td><td>24.4%</td><td>4.10</td><td>-</td><td style="color:#E4D17F;font-weight:600">31</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">8</td><td style="color:#AA8451;font-weight:600">LEVE3</td><td>Autopeças</td><td style="color:#10b981">34.8%</td><td>15.8%</td><td>6.34</td><td>-</td><td style="color:#E4D17F;font-weight:600">39</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">9</td><td style="color:#AA8451;font-weight:600">CSUD3</td><td>Tecnologia/Serviços</td><td style="color:#10b981">20.5%</td><td>16.5%</td><td>6.06</td><td>-</td><td style="color:#E4D17F;font-weight:600">43</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">10</td><td style="color:#AA8451;font-weight:600">POMO3</td><td>Autopeças</td><td style="color:#10b981">20.1%</td><td>16.2%</td><td>6.16</td><td>-</td><td style="color:#E4D17F;font-weight:600">47</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">11</td><td style="color:#AA8451;font-weight:600">VTRU3</td><td>Educação</td><td style="color:#10b981">15.0%</td><td>21.0%</td><td>4.76</td><td>-</td><td style="color:#E4D17F;font-weight:600">50</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">12</td><td style="color:#AA8451;font-weight:600">CSED3</td><td>Educação</td><td style="color:#10b981">14.8%</td><td>20.3%</td><td>4.93</td><td>-</td><td style="color:#E4D17F;font-weight:600">52</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">13</td><td style="color:#AA8451;font-weight:600">POMO4</td><td>Autopeças</td><td style="color:#10b981">20.1%</td><td>15.4%</td><td>6.51</td><td>-</td><td style="color:#E4D17F;font-weight:600">52</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">14</td><td style="color:#AA8451;font-weight:600">TGMA3</td><td>Logística</td><td style="color:#10b981">32.0%</td><td>13.7%</td><td>7.29</td><td>-</td><td style="color:#E4D17F;font-weight:600">54</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">15</td><td style="color:#AA8451;font-weight:600">ANIM3</td><td>Educação</td><td style="color:#10b981">14.4%</td><td>20.3%</td><td>4.93</td><td>-</td><td style="color:#E4D17F;font-weight:600">56</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">16</td><td style="color:#AA8451;font-weight:600">ODPV3</td><td>Saúde/Odontologia</td><td style="color:#10b981">47.5%</td><td>12.8%</td><td>7.83</td><td>-</td><td style="color:#E4D17F;font-weight:600">58</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">17</td><td style="color:#AA8451;font-weight:600">MOVI3</td><td>Locação de veículos</td><td style="color:#10b981">15.3%</td><td>16.6%</td><td>6.02</td><td>-</td><td style="color:#E4D17F;font-weight:600">61</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">18</td><td style="color:#AA8451;font-weight:600">VLID3</td><td>Tecnologia/Identificação</td><td style="color:#10b981">14.7%</td><td>17.2%</td><td>5.83</td><td>-</td><td style="color:#E4D17F;font-weight:600">62</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">19</td><td style="color:#AA8451;font-weight:600">SEER3</td><td>Educação</td><td style="color:#10b981">14.0%</td><td>20.2%</td><td>4.95</td><td>-</td><td style="color:#E4D17F;font-weight:600">62</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">20</td><td style="color:#AA8451;font-weight:600">VALE3</td><td>Mineração</td><td style="color:#10b981">16.7%</td><td>15.5%</td><td>6.44</td><td>-</td><td style="color:#E4D17F;font-weight:600">63</td></tr>
+</tbody>
+</table>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:0.8rem;margin-top:1rem;">Dados: Fundamentus + yfinance (Junho 2026)</p>
+</div>
+</div>
+<div class="tab-content" data-month="2026-05" id="rank-2026-05">
+<div class="card">
+<div style="overflow-x:auto;">
+<table>
+<thead><tr><th>Pos</th><th>Ticker</th><th>Setor</th><th>ROIC</th><th>EY</th><th>EV/EBIT</th><th>DY%</th><th>Score</th></tr></thead>
+<tbody>
+<tr><td style="color:#E4D17F;font-weight:700">1</td><td style="color:#AA8451;font-weight:600">PSSA3</td><td>Seguros</td><td style="color:#10b981">77.4%</td><td>1.6%</td><td>0.63</td><td>-</td><td style="color:#E4D17F;font-weight:600">2</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">2</td><td style="color:#AA8451;font-weight:600">WIZC3</td><td>Serviços financeiros</td><td style="color:#10b981">35.5%</td><td>42.2%</td><td>2.37</td><td>-</td><td style="color:#E4D17F;font-weight:600">6</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">3</td><td style="color:#AA8451;font-weight:600">PLPL3</td><td>Construção civil</td><td style="color:#10b981">29.3%</td><td>24.0%</td><td>4.17</td><td>-</td><td style="color:#E4D17F;font-weight:600">20</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">4</td><td style="color:#AA8451;font-weight:600">LREN3</td><td>-</td><td style="color:#10b981">23.0%</td><td>24.3%</td><td>4.11</td><td>-</td><td style="color:#E4D17F;font-weight:600">22</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">5</td><td style="color:#AA8451;font-weight:600">QUAL3</td><td>Saúde</td><td style="color:#10b981">19.3%</td><td>37.2%</td><td>2.69</td><td>-</td><td style="color:#E4D17F;font-weight:600">22</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">6</td><td style="color:#AA8451;font-weight:600">PETR4</td><td>Petróleo e gás</td><td style="color:#10b981">17.8%</td><td>25.3%</td><td>3.96</td><td>-</td><td style="color:#E4D17F;font-weight:600">29</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">7</td><td style="color:#AA8451;font-weight:600">CMIN3</td><td>Mineração</td><td style="color:#10b981">26.7%</td><td>19.6%</td><td>5.10</td><td>-</td><td style="color:#E4D17F;font-weight:600">29</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">8</td><td style="color:#AA8451;font-weight:600">ASAI3</td><td>Varejo alimentar</td><td style="color:#10b981">19.4%</td><td>24.0%</td><td>4.16</td><td>-</td><td style="color:#E4D17F;font-weight:600">29</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">9</td><td style="color:#AA8451;font-weight:600">PETR3</td><td>Petróleo e gás</td><td style="color:#10b981">17.8%</td><td>24.4%</td><td>4.10</td><td>-</td><td style="color:#E4D17F;font-weight:600">31</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">10</td><td style="color:#AA8451;font-weight:600">CEAB3</td><td>-</td><td style="color:#10b981">16.1%</td><td>24.9%</td><td>4.02</td><td>-</td><td style="color:#E4D17F;font-weight:600">38</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">11</td><td style="color:#AA8451;font-weight:600">LEVE3</td><td>Autopeças</td><td style="color:#10b981">34.8%</td><td>15.8%</td><td>6.34</td><td>-</td><td style="color:#E4D17F;font-weight:600">39</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">12</td><td style="color:#AA8451;font-weight:600">CSUD3</td><td>Tecnologia/serviços</td><td style="color:#10b981">20.5%</td><td>16.5%</td><td>6.06</td><td>-</td><td style="color:#E4D17F;font-weight:600">43</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">13</td><td style="color:#AA8451;font-weight:600">POMO3</td><td>Material rodoviário</td><td style="color:#10b981">20.1%</td><td>16.2%</td><td>6.16</td><td>-</td><td style="color:#E4D17F;font-weight:600">47</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">14</td><td style="color:#AA8451;font-weight:600">VTRU3</td><td>Educação</td><td style="color:#10b981">15.0%</td><td>21.0%</td><td>4.76</td><td>-</td><td style="color:#E4D17F;font-weight:600">50</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">15</td><td style="color:#AA8451;font-weight:600">CSED3</td><td>Educação</td><td style="color:#10b981">14.8%</td><td>20.3%</td><td>4.93</td><td>-</td><td style="color:#E4D17F;font-weight:600">52</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">16</td><td style="color:#AA8451;font-weight:600">POMO4</td><td>Material rodoviário</td><td style="color:#10b981">20.1%</td><td>15.4%</td><td>6.51</td><td>-</td><td style="color:#E4D17F;font-weight:600">52</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">17</td><td style="color:#AA8451;font-weight:600">TGMA3</td><td>Logística</td><td style="color:#10b981">32.0%</td><td>13.7%</td><td>7.29</td><td>-</td><td style="color:#E4D17F;font-weight:600">54</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">18</td><td style="color:#AA8451;font-weight:600">ANIM3</td><td>Educação</td><td style="color:#10b981">14.4%</td><td>20.3%</td><td>4.93</td><td>-</td><td style="color:#E4D17F;font-weight:600">56</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">19</td><td style="color:#AA8451;font-weight:600">ODPV3</td><td>Saúde/Odontologia</td><td style="color:#10b981">47.5%</td><td>12.8%</td><td>7.83</td><td>-</td><td style="color:#E4D17F;font-weight:600">58</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">20</td><td style="color:#AA8451;font-weight:600">MOVI3</td><td>Locação de veículos</td><td style="color:#10b981">15.3%</td><td>16.6%</td><td>6.02</td><td>-</td><td style="color:#E4D17F;font-weight:600">61</td></tr>
+</tbody>
+</table>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:0.8rem;margin-top:1rem;">Dados: Fundamentus + yfinance (Maio 2026)</p>
+</div>
+</div>
+<div class="tab-content" data-month="2026-04" id="abril">
+<div class="card">
+<div style="overflow-x:auto;">
+<table>
+<thead><tr><th>Pos</th><th>Ticker</th><th>Setor</th><th>ROIC</th><th>EY</th><th>Score</th><th>Liq. 2 meses</th></tr></thead>
+<tbody>
+<tr><td style="color:#E4D17F;font-weight:700">1</td><td style="color:#AA8451;font-weight:600">PSSA3</td><td>Seguros</td><td style="color:#10b981">77.44%</td><td>175.44%</td><td>2</td><td>R$ 107.0 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">2</td><td style="color:#AA8451;font-weight:600">WIZC3</td><td>Serviços financeiros</td><td style="color:#10b981">36.56%</td><td>51.28%</td><td>7</td><td>R$ 5.7 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">3</td><td style="color:#AA8451;font-weight:600">PLPL3</td><td>Construção civil</td><td style="color:#10b981">35.55%</td><td>31.65%</td><td>12</td><td>R$ 35.7 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">4</td><td style="color:#AA8451;font-weight:600">QUAL3</td><td>Saúde</td><td style="color:#10b981">21.55%</td><td>41.49%</td><td>16</td><td>R$ 10.2 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">5</td><td style="color:#AA8451;font-weight:600">ASAI3</td><td>Varejo alimentar</td><td style="color:#10b981">19.52%</td><td>25.97%</td><td>25</td><td>R$ 140.7 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">6</td><td style="color:#AA8451;font-weight:600">CMIN3</td><td>Mineração</td><td style="color:#10b981">23.02%</td><td>19.27%</td><td>28</td><td>R$ 53.3 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">7</td><td style="color:#AA8451;font-weight:600">BEEF3</td><td>Alimentos</td><td style="color:#10b981">17.90%</td><td>22.27%</td><td>31</td><td>R$ 86.0 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">8</td><td style="color:#AA8451;font-weight:600">VTRU3</td><td>Educação</td><td style="color:#10b981">15.67%</td><td>24.04%</td><td>35</td><td>R$ 7.5 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">9</td><td style="color:#AA8451;font-weight:600">LEVE3</td><td>Autopeças</td><td style="color:#10b981">35.92%</td><td>16.23%</td><td>37</td><td>R$ 12.6 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">10</td><td style="color:#AA8451;font-weight:600">PETR4</td><td>Petróleo e gás</td><td style="color:#10b981">17.43%</td><td>20.33%</td><td>37</td><td>R$ 2219.2 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">11</td><td style="color:#AA8451;font-weight:600">CSED3</td><td>Educação</td><td style="color:#10b981">15.21%</td><td>22.57%</td><td>42</td><td>R$ 3.3 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">12</td><td style="color:#AA8451;font-weight:600">VALE3</td><td>Mineração</td><td style="color:#10b981">17.62%</td><td>17.24%</td><td>47</td><td>R$ 2275.8 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">13</td><td style="color:#AA8451;font-weight:600">POMO4</td><td>Material rodoviário</td><td style="color:#10b981">20.62%</td><td>15.82%</td><td>48</td><td>R$ 77.0 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">14</td><td style="color:#AA8451;font-weight:600">VLID3</td><td>Tecnologia/serviços</td><td style="color:#10b981">14.64%</td><td>19.38%</td><td>49</td><td>R$ 5.4 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">15</td><td style="color:#AA8451;font-weight:600">TGMA3</td><td>Logística</td><td style="color:#10b981">25.78%</td><td>14.79%</td><td>50</td><td>R$ 16.8 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">16</td><td style="color:#AA8451;font-weight:600">PCAR3</td><td>Varejo alimentar</td><td style="color:#10b981">12.17%</td><td>48.54%</td><td>51</td><td>R$ 40.1 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">17</td><td style="color:#AA8451;font-weight:600">CURY3</td><td>Construção civil</td><td style="color:#10b981">39.40%</td><td>13.93%</td><td>54</td><td>R$ 122.8 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">18</td><td style="color:#AA8451;font-weight:600">EUCA4</td><td>Madeira e papel</td><td style="color:#10b981">12.99%</td><td>21.79%</td><td>56</td><td>R$ 0.8 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">19</td><td style="color:#AA8451;font-weight:600">MILS3</td><td>Máquinas e equipamentos</td><td style="color:#10b981">19.70%</td><td>14.75%</td><td>57</td><td>R$ 12.2 mi</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">20</td><td style="color:#AA8451;font-weight:600">VAMO3</td><td>Locação de veículos e máquinas</td><td style="color:#10b981">15.26%</td><td>16.75%</td><td>57</td><td>R$ 74.6 mi</td></tr>
+</tbody>
+</table>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:0.8rem;margin-top:1rem;">Dados: Fundamentus + yfinance (Abril 2026)</p>
+</div>
+</div>
+<div class="tab-content" data-month="2026-03" id="marco">
+<div class="card">
+<div style="overflow-x:auto;">
+<table>
+<thead><tr><th>Pos</th><th>Ticker</th><th>Setor</th><th>ROIC</th><th>EY</th><th>EV/EBIT</th><th>DY%</th><th>Score</th></tr></thead>
+<tbody>
+<tr><td style="color:#E4D17F;font-weight:700">1</td><td style="color:#AA8451;font-weight:600">PSSA3</td><td>Seguros</td><td style="color:#10b981">77.44%</td><td>156.25%</td><td>0.64</td><td>3.8</td><td style="color:#E4D17F;font-weight:600">2</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">2</td><td style="color:#AA8451;font-weight:600">WIZC3</td><td>Serviços financeiros</td><td style="color:#10b981">35.46%</td><td>43.86%</td><td>2.28</td><td>6.09</td><td style="color:#E4D17F;font-weight:600">8</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">3</td><td style="color:#AA8451;font-weight:600">QUAL3</td><td>Saúde</td><td style="color:#10b981">21.55%</td><td>39.68%</td><td>2.52</td><td>0.26</td><td style="color:#E4D17F;font-weight:600">18</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">4</td><td style="color:#AA8451;font-weight:600">PLPL3</td><td>Construção civil</td><td style="color:#10b981">29.26%</td><td>22.73%</td><td>4.4</td><td>3.19</td><td style="color:#E4D17F;font-weight:600">22</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">5</td><td style="color:#AA8451;font-weight:600">CMIN3</td><td>Mineração</td><td style="color:#10b981">26.67%</td><td>21.51%</td><td>4.65</td><td>8.89</td><td style="color:#E4D17F;font-weight:600">27</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">6</td><td style="color:#AA8451;font-weight:600">PETR4</td><td>Petróleo e gás</td><td style="color:#10b981">17.85%</td><td>24.21%</td><td>4.13</td><td>8.22</td><td style="color:#E4D17F;font-weight:600">34</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">7</td><td style="color:#AA8451;font-weight:600">BEEF3</td><td>Alimentos</td><td style="color:#10b981">17.04%</td><td>20.88%</td><td>4.79</td><td>3.15</td><td style="color:#E4D17F;font-weight:600">48</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">8</td><td style="color:#AA8451;font-weight:600">CSUD3</td><td>Tecnologia/serviços</td><td style="color:#10b981">20.52%</td><td>16.23%</td><td>6.16</td><td>14.67</td><td style="color:#E4D17F;font-weight:600">53</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">9</td><td style="color:#AA8451;font-weight:600">VTRU3</td><td>Educação</td><td style="color:#10b981">15.04%</td><td>21.51%</td><td>4.65</td><td>0.15</td><td style="color:#E4D17F;font-weight:600">54</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">10</td><td style="color:#AA8451;font-weight:600">TGMA3</td><td>Logística</td><td style="color:#10b981">32.04%</td><td>13.79%</td><td>7.25</td><td>11.23</td><td style="color:#E4D17F;font-weight:600">63</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">11</td><td style="color:#AA8451;font-weight:600">CSED3</td><td>Educação</td><td style="color:#10b981">14.82%</td><td>20.0%</td><td>5.0</td><td>7.31</td><td style="color:#E4D17F;font-weight:600">63</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">12</td><td style="color:#AA8451;font-weight:600">CASH3</td><td>Tecnologia/serviços financeiros</td><td style="color:#10b981">13.13%</td><td>23.75%</td><td>4.21</td><td>0.0</td><td style="color:#E4D17F;font-weight:600">65</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">13</td><td style="color:#AA8451;font-weight:600">POMO4</td><td>Material rodoviário</td><td style="color:#10b981">20.62%</td><td>14.14%</td><td>7.07</td><td>13.61</td><td style="color:#E4D17F;font-weight:600">66</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">14</td><td style="color:#AA8451;font-weight:600">VALE3</td><td>Mineração</td><td style="color:#10b981">17.62%</td><td>15.36%</td><td>6.51</td><td>8.61</td><td style="color:#E4D17F;font-weight:600">68</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">15</td><td style="color:#AA8451;font-weight:600">ANIM3</td><td>Educação</td><td style="color:#10b981">14.37%</td><td>19.92%</td><td>5.02</td><td>1.04</td><td style="color:#E4D17F;font-weight:600">69</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">16</td><td style="color:#AA8451;font-weight:600">MOVI3</td><td>Locação de veículos</td><td style="color:#10b981">15.29%</td><td>16.29%</td><td>6.14</td><td>5.24</td><td style="color:#E4D17F;font-weight:600">70</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">17</td><td style="color:#AA8451;font-weight:600">SEER3</td><td>Educação</td><td style="color:#10b981">14.03%</td><td>20.37%</td><td>4.91</td><td>1.25</td><td style="color:#E4D17F;font-weight:600">70</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">18</td><td style="color:#AA8451;font-weight:600">VLID3</td><td>Tecnologia/serviços</td><td style="color:#10b981">14.69%</td><td>17.12%</td><td>5.84</td><td>14.12</td><td style="color:#E4D17F;font-weight:600">71</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">19</td><td style="color:#AA8451;font-weight:600">VAMO3</td><td>Locação de veículos e máquinas</td><td style="color:#10b981">15.2%</td><td>16.1%</td><td>6.21</td><td>3.2</td><td style="color:#E4D17F;font-weight:600">73</td></tr>
+<tr><td style="color:#E4D17F;font-weight:700">20</td><td style="color:#AA8451;font-weight:600">EUCA4</td><td>Madeira e papel</td><td style="color:#10b981">12.6%</td><td>20.79%</td><td>4.81</td><td>5.18</td><td style="color:#E4D17F;font-weight:600">77</td></tr>
+</tbody>
+</table>
+</div>
+<p style="text-align:center;color:var(--muted);font-size:0.8rem;margin-top:1rem;">Dados: Fundamentus + yfinance (Março 2026)</p>
+</div>
+</div>
+<div class="footer">
+<p>🦞 IAEMLOOP - Histórico de Rankings Magic Formula</p>
+<p>Atualizado: Agosto 2026</p>
+</div>
+</div>
+<script>
+function switchTab(id) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  const content = document.getElementById(id);
+  if (content) content.classList.add('active');
+  document.querySelectorAll('.tab').forEach(t => {
+    const onclick = t.getAttribute('onclick') || '';
+    if (onclick.includes("'" + id + "'") || onclick.includes('"' + id + '"')) {
+      t.classList.add('active');
+    }
+  });
+}
+</script>
+</body>
+</html>

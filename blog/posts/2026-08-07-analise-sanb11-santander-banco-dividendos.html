@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Análise educacional IA em Loop de SANB11/Santander Brasil: ranking Barsi, carteira real, P/VP baixo, dividendos, lucro, patrimônio, riscos de crédito e gatilhos.">
+    <title>07/08: SANB11, Santander e o teste do banco barato | IA em Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { min-height: 100%; background: #06080D; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)), url('../../assets/bg-carteiras.jpg') no-repeat center center fixed; background-size: cover; background-color: #06080D; color: #e2e8f0; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 980px; margin: 0 auto; }
+        .back-button { position: fixed; top: 20px; left: 20px; display: inline-flex; align-items: center; gap: 6px; background: rgba(251,191,36,0.9); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: background 0.2s, transform 0.1s; z-index: 1000; }
+        .back-button:hover { background: #E4D17F; transform: translateY(-1px); }
+        article { background: rgba(19, 29, 39, 0.78); border-radius: 14px; padding: 34px; border-left: 4px solid #19364D; border: 1px solid rgba(228, 209, 127, 0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h1 { overflow-wrap: anywhere; hyphens: auto; font-size: clamp(2rem, 5vw, 3.05rem); line-height: 1.08; font-weight: 800; background: linear-gradient(135deg, #6EE4EF, #E4D17F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; }
+        .dek { color: #cbd5e1; font-size: 1.12rem; line-height: 1.75; margin-bottom: 22px; }
+        .meta { display: flex; gap: 8px; flex-wrap: wrap; color: #94a3b8; font-size: 0.86rem; margin-bottom: 30px; }
+        .meta span { background: rgba(228, 209, 127, 0.15); color: #E4D17F; padding: 4px 10px; border-radius: 999px; font-weight: 600; border: 1px solid rgba(228, 209, 127, 0.2); }
+        h2 { color: #fff; font-size: 1.45rem; margin: 34px 0 12px; border-bottom: 2px solid #19364D; padding-bottom: 10px; }
+        h3 { color: #E4D17F; font-size: 1.08rem; margin: 22px 0 8px; }
+        p, li { overflow-wrap: anywhere; color: #cbd5e1; line-height: 1.78; font-size: 1.02rem; }
+        p { margin-bottom: 16px; }
+        ul { padding-left: 22px; margin-bottom: 18px; }
+        li { margin-bottom: 8px; }
+        strong { color: #fff; }
+        a { color: #E4D17F; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .hero-chart { display: block; max-width: 100%; height: auto; width: 100%; border-radius: 14px; border: 1px solid rgba(228, 209, 127, 0.18); margin: 20px 0 8px; background: rgba(6,8,13,.35); box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+        .caption { color: #94a3b8; font-size: .9rem; margin-bottom: 24px; }
+        .callout { background: rgba(6, 8, 13, 0.5); border-left: 4px solid #E4D17F; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .scorecard { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+        .scorecard div { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 14px; }
+        .scorecard span { display: block; color: #94a3b8; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; }
+        .scorecard strong { color: #E4D17F; font-size: 1.1rem; }
+        .matrix { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 18px 0; }
+        .matrix div { background: rgba(6, 8, 13, 0.42); border: 1px solid rgba(110,228,239,.15); border-radius: 10px; padding: 14px; }
+        .mini-table { width:100%; border-collapse: collapse; margin: 18px 0; overflow:hidden; border-radius:10px; }
+        .mini-table th, .mini-table td { padding: 11px 10px; border-bottom: 1px solid rgba(255,255,255,.08); text-align:left; color:#cbd5e1; }
+        .mini-table th { color:#E4D17F; background:rgba(6,8,13,.55); font-size:.92rem; }
+        .source-note { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 16px; margin-top: 28px; color: #94a3b8; font-size: 0.94rem; }
+        .footer { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        @media (max-width: 768px) { body { padding: 72px 16px 32px; } article { padding: 24px; } .scorecard, .matrix { grid-template-columns: 1fr; } .mini-table { display:block; overflow-x:auto; } .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; } }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "07/08: SANB11, Santander e o teste do banco barato",
+      "description": "Análise educacional IA em Loop de SANB11/Santander Brasil: ranking Barsi, carteira real, P/VP baixo, dividendos, lucro, patrimônio, riscos de crédito e gatilhos.",
+      "image": "https://iaemloop.com.br/assets/blog/2026-08-07-sanb11-santander-banco-dividendos.svg",
+      "datePublished": "2026-08-07",
+      "dateModified": "2026-08-07",
+      "author": {"@type": "Organization", "name": "IA em Loop"},
+      "publisher": {"@type": "Organization", "name": "IA em Loop"},
+      "keywords": ["SANB11", "Santander Brasil", "Barsi", "bancos", "dividendos", "P/VP", "carteira real", "crédito"]
+    }
+    </script>
+</head>
+<body>
+    <a href="../index.html" class="back-button" title="Voltar ao blog">← Blog</a>
+    <main class="container">
+        <article>
+            <h1>07/08: SANB11, Santander e o teste do banco barato</h1>
+            <p class="dek">SANB11 aparece entre os nomes mais fortes do rastreador Barsi do IA em Loop e também está na carteira BESST real. A pergunta central é direta: o desconto de valuation e o dividendo compensam o risco de crédito de um banco privado em ciclo ainda exigente?</p>
+            <div class="meta"><span>07/08/2026</span><span>Análise educacional</span><span>SANB11</span><span>Santander Brasil</span><span>Ação Brasil</span><span>Barsi #2</span><span>P/VP 0,82</span><span>DY 6,38%</span><span>Carteira real</span><span>8 min</span></div>
+            <img class="hero-chart" src="../../assets/blog/2026-08-07-sanb11-santander-banco-dividendos.svg" alt="Diagrama IA em Loop sobre SANB11, Santander Brasil, ranking Barsi, dividendos, P/VP baixo, carteira real e risco de crédito">
+            <p class="caption">Santander Brasil tem escala, marca e dividendos; o ponto sensível é se o retorno sobre patrimônio volta a melhorar sem piora relevante da inadimplência.</p>
+
+            <h2>Resposta curta: barato no preço patrimonial, mas não sem risco</h2>
+            <p>No rastreador Barsi mais recente do IA em Loop, SANB11 aparece em <strong>2º lugar</strong>, com <strong>score de 70,5</strong>, <strong>dividend yield de 6,38%</strong>, <strong>P/VP de 0,82</strong>, <strong>P/L de 13,55</strong> e histórico de <strong>17 anos com dividendos</strong>. A carteira BESST real também mostra SANB11 como uma das maiores posições, com peso aproximado de <strong>14,4%</strong> no painel publicado.</p>
+            <p>A leitura é simples: o mercado não está pagando prêmio por euforia. Um banco privado de grande porte negociando abaixo do valor patrimonial costuma levantar duas hipóteses. A primeira é oportunidade de renda e recuperação. A segunda é alerta de rentabilidade abaixo do potencial, custo de crédito elevado ou crescimento mais lento.</p>
+
+            <div class="scorecard">
+                <div><span>Ranking local</span><strong>#2 Barsi</strong></div>
+                <div><span>Perspectiva</span><strong>Carteira real</strong></div>
+                <div><span>Preço do rastreador</span><strong>R$ 27,73</strong></div>
+                <div><span>Dividend yield</span><strong>6,38%</strong></div>
+                <div><span>P/VP</span><strong>0,82</strong></div>
+                <div><span>P/L</span><strong>13,55</strong></div>
+            </div>
+
+            <h2>O que os dados verificados mostram</h2>
+            <p>Nos dados abertos da CVM consultados em 07/08/2026, o Banco Santander Brasil aparece como companhia ativa no setor de bancos, sob o código CVM <strong>020532</strong>. O ITR consolidado de 30/06/2026 registra <strong>R$ 85,474 bilhões</strong> em receitas da intermediação financeira no primeiro semestre e <strong>R$ 43,039 bilhões</strong> apenas no segundo trimestre.</p>
+            <p>O mesmo conjunto mostra <strong>R$ 31,910 bilhões</strong> de resultado bruto da intermediação financeira no semestre, <strong>R$ 8,104 bilhões</strong> de lucro/prejuízo consolidado do período na DRE e <strong>R$ 6,244 bilhões</strong> de lucro líquido consolidado do período na demonstração de resultado abrangente. No balanço de 30/06/2026, o ativo total consolidado estava em <strong>R$ 1,291 trilhão</strong> e o patrimônio líquido consolidado em <strong>R$ 129,093 bilhões</strong>.</p>
+
+            <table class="mini-table">
+                <thead><tr><th>Métrica verificada</th><th>Fonte/período</th><th>Valor</th><th>Leitura</th></tr></thead>
+                <tbody>
+                    <tr><td>Receitas da intermediação financeira</td><td>CVM ITR 1S26</td><td>R$ 85,474 bi</td><td>escala relevante de banco sistêmico</td></tr>
+                    <tr><td>Resultado bruto da intermediação</td><td>CVM ITR 1S26</td><td>R$ 31,910 bi</td><td>margem financeira ainda sustenta a tese</td></tr>
+                    <tr><td>Lucro líquido consolidado</td><td>CVM DRA 1S26</td><td>R$ 6,244 bi</td><td>rentabilidade positiva, mas precisa ser comparada ao patrimônio</td></tr>
+                    <tr><td>Ativo total</td><td>CVM balanço 30/06/26</td><td>R$ 1,291 tri</td><td>escala amplia resiliência e complexidade</td></tr>
+                    <tr><td>Patrimônio líquido consolidado</td><td>CVM balanço 30/06/26</td><td>R$ 129,093 bi</td><td>base para julgar retorno e P/VP</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Por que SANB11 importa agora</h2>
+            <p>Banco é uma tese diferente de commodity ou indústria. O ativo pode parecer barato por P/VP, mas o que destrava valor é retorno sobre patrimônio, qualidade da carteira de crédito e controle de despesa. Se a inadimplência estabiliza e a margem financeira melhora, o desconto tende a ficar mais interessante. Se o crédito piora, o P/VP baixo vira armadilha clássica de banco.</p>
+            <p>Para o investidor educacional que acompanha rankings, SANB11 é relevante porque junta três sinais: presença no topo do filtro de dividendos, posição real em carteira e valuation patrimonial abaixo de 1 vez. Nenhum desses pontos elimina o risco; juntos, eles justificam acompanhamento disciplinado.</p>
+
+            <div class="callout">
+                <strong>Leitura prática do IA em Loop</strong><br>
+                SANB11 parece mais uma tese de banco descontado e pagador de dividendos do que uma história de crescimento acelerado. O acompanhamento deve focar em inadimplência, margem financeira, despesas, retorno sobre patrimônio e manutenção dos proventos. Sem melhora operacional, o desconto pode persistir.
+            </div>
+
+            <h2>O que favorece e o que ameaça a tese</h2>
+            <div class="matrix">
+                <div>
+                    <h3>Favoráveis</h3>
+                    <p>• Banco privado de grande porte, com marca conhecida e escala nacional.</p>
+                    <p>• P/VP de 0,82 no rastreador Barsi, sinal de desconto patrimonial.</p>
+                    <p>• Dividend yield de 6,38% e longo histórico de pagamentos.</p>
+                    <p>• Presença na carteira BESST real, com peso relevante.</p>
+                    <p>• Lucro líquido positivo e ativo total acima de R$ 1 trilhão no ITR.</p>
+                </div>
+                <div>
+                    <h3>Desfavoráveis</h3>
+                    <p>• Bancos são sensíveis a inadimplência, provisões e ciclo de crédito.</p>
+                    <p>• P/L de 13,55 não é extremamente barato se a rentabilidade não acelerar.</p>
+                    <p>• Concorrência de bancos digitais e pressão por eficiência seguem relevantes.</p>
+                    <p>• Dividendos dependem de capital, lucro recorrente e regulação.</p>
+                    <p>• A tese pode ficar travada se o mercado exigir retorno maior sobre patrimônio.</p>
+                </div>
+            </div>
+
+            <h2>Gatilhos para acompanhar</h2>
+            <ul>
+                <li><strong>Inadimplência e provisões:</strong> queda ou estabilização melhora a leitura; piora contínua reduz a margem de segurança.</li>
+                <li><strong>Retorno sobre patrimônio:</strong> o P/VP abaixo de 1 só destrava valor se o banco mostrar retorno convincente.</li>
+                <li><strong>Margem financeira:</strong> é o motor principal da geração de resultado em ambiente de juros ainda alto.</li>
+                <li><strong>Eficiência:</strong> controle de despesas e digitalização podem compensar competição maior.</li>
+                <li><strong>Proventos:</strong> manutenção de dividendos reforça a tese de renda; corte relevante muda a narrativa.</li>
+            </ul>
+
+            <h2>Conclusão</h2>
+            <p>SANB11 não é uma tese de crescimento explosivo. É uma tese de banco grande, descontado pelo patrimônio e com dividendo relevante. A oportunidade aparece se o lucro recorrente e o retorno sobre patrimônio melhorarem sem deterioração de crédito. O risco é o desconto estar correto porque o mercado antecipa rentabilidade pressionada por mais tempo.</p>
+            <p>Na régua do IA em Loop, SANB11 merece acompanhamento por combinar ranking, carteira real e dados públicos verificáveis. Mas a decisão educacional não deve parar no dividend yield: o centro da análise é se o banco consegue transformar escala em retorno acima do custo de capital.</p>
+
+            <div class="source-note">
+                <strong>Fontes consultadas em 07/08/2026:</strong> outputs/barsi_screener_latest.csv; outputs/barsi_latest.json; area_privada.html; histórico de rankings do IA em Loop; dados abertos da CVM — cadastro de companhias abertas e ITR 2026 do Banco Santander (Brasil) S.A., código CVM 020532. Texto educacional, sem recomendação personalizada de investimento.
+            </div>
+        </article>
+        <div class="footer">IA em Loop • Blog de análise educacional</div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Histórico de Rankings | IA em Loop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Histórico dos rankings BESST & Buffett mês a mês.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)),
+                        url('../assets/fundo_site.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #e2e8f0;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 {
+            background: linear-gradient(135deg, #19364D, #AA8451);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        .tagline {
+            color: #94a3b8;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        .header-card {
+            background: rgba(19, 29, 39, 0.75);
+            border-radius: 12px;
+            padding: 30px;
+            border-left: 4px solid #19364D;
+            border: 1px solid rgba(228, 209, 127, 0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+            text-align: center;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .header-card:hover {
+            border-color: rgba(212, 181, 106, 0.4);
+            box-shadow: 0 6px 25px rgba(212, 181, 106, 0.15);
+        }
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .tab {
+            background: rgba(19, 54, 77, 0.75);
+            border: 1px solid rgba(228, 209, 127, 0.3);
+            border-radius: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+            color: #e2e8f0;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .tab:hover {
+            border-color: #E4D17F;
+            background: rgba(228, 209, 127, 0.1);
+        }
+        .tab.active {
+            background: rgba(30, 100, 160, 0.4);
+            color: #fff;
+            border-color: rgba(30, 100, 160, 0.6);
+        }
+        .card {
+            background: rgba(19, 29, 39, 0.75);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            border: 1px solid rgba(228, 209, 127, 0.2);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            border-color: rgba(212, 181, 106, 0.4);
+            box-shadow: 0 6px 25px rgba(212, 181, 106, 0.15);
+        }
+        .card h2 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #fff;
+            border-bottom: 2px solid #19364D;
+            padding-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #334155;
+        }
+        th {
+            background: #06080D;
+            color: #E4D17F;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+        tr:hover { background: #334155; }
+        a { color: #E4D17F; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+        }
+        .footer a { color: #E4D17F; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+        .back-button {
+            position: fixed; top: 20px; left: 20px;
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(251,191,36,0.9); color: white;
+            padding: 8px 16px; border-radius: 8px;
+            text-decoration: none; font-weight: 600; font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: background 0.2s, transform 0.1s; z-index: 1000;
+        }
+        .back-button:hover { background: #E4D17F; transform: translateY(-1px); }
+        @media (max-width:768px){.back-button{top:10px;left:10px;padding:6px 12px;font-size:0.8rem}}
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: rgba(251, 191, 36, 0.9);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background: #E4D17F;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+
+/* IA em Loop layout refresh — 2026-07-13 */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 20% 10%,rgba(110,228,239,.10),transparent 30%),radial-gradient(circle at 85% 20%,rgba(228,209,127,.10),transparent 28%);z-index:-1}
+.container{width:min(1200px,100%)}
+.header-card{position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(19,29,39,.92),rgba(25,54,77,.72))!important;border-radius:22px!important;border:1px solid rgba(228,209,127,.24)!important;box-shadow:0 18px 60px rgba(0,0,0,.35)!important}
+.header-card::after{content:"";position:absolute;right:-120px;top:-120px;width:280px;height:280px;border-radius:50%;background:rgba(228,209,127,.08);filter:blur(2px)}
+h1{letter-spacing:-.04em;font-size:clamp(2rem,4vw,3.35rem)!important}
+.tagline{max-width:760px;margin-left:auto!important;margin-right:auto!important;line-height:1.55}
+.tabs{position:static;z-index:1;padding:10px;border-radius:16px;background:rgba(6,8,13,.74);backdrop-filter:blur(16px);border:1px solid rgba(228,209,127,.12)}
+.tab{border-radius:999px!important;padding:11px 18px!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.tab.active{background:linear-gradient(135deg,rgba(25,54,77,.95),rgba(170,132,81,.55))!important;border-color:rgba(228,209,127,.65)!important;color:#fff!important}
+.card,.table-wrapper{border:1px solid rgba(228,209,127,.16)!important;box-shadow:0 18px 50px rgba(0,0,0,.28)!important}
+table{border-collapse:separate!important;border-spacing:0!important;overflow:hidden;border-radius:16px!important}
+th{position:static;z-index:auto;background:rgba(13,24,38,.98)!important;backdrop-filter:none}
+tbody tr:nth-child(even){background:rgba(148,163,184,.045)}
+tbody tr:hover{background:rgba(228,209,127,.10)!important}
+td:first-child{font-variant-numeric:tabular-nums}.rank-badge,.ranking-badge{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;background:rgba(228,209,127,.14);border:1px solid rgba(228,209,127,.32);color:#E4D17F;font-size:.78rem;font-weight:800;letter-spacing:.02em;text-transform:uppercase}.section-title-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:.8rem}.ranking-note{color:#cbd5e1;background:rgba(110,228,239,.07);border:1px solid rgba(110,228,239,.16);border-radius:14px;padding:12px 14px;margin:0 0 1rem;line-height:1.55}.table-wrapper{border-radius:18px;background:rgba(6,8,13,.25);padding:6px;overflow-x:auto;-webkit-overflow-scrolling:touch}@media(max-width:760px){body{padding:22px 12px!important}.header-card{padding:24px 16px!important}.tabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap}.tab{white-space:nowrap}.card{padding:18px!important}table{font-size:.82rem!important}}
+
+</style>
+</head>
+<body>
+<div class="meta-info" style="background: rgba(19, 29, 39, 0.75); border-radius: 12px; padding: 16px; margin: 16px 0 24px; border-left: 4px solid #E4D17F; border: 1px solid rgba(228, 209, 127, 0.2); display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: center;">
+  <span style="margin: 0; white-space: nowrap;">📊 <strong>Ranking atual:</strong> <a href="metodologia_barsi.html" style="color:#E4D17F;text-decoration:underline;">Ver página da carteira</a></span>
+  <span style="margin: 0; white-space: nowrap;">💰 <strong>Área Privada:</strong> <a href="area_privada.html" style="color:#E4D17F;text-decoration:underline;">Acompanhe a carteira</a></span>
+</div>
+
+    <a href="metodologia_barsi.html" class="back-button" title="Voltar">← Voltar</a>
+    <div class="container">
+        <div class="header-card">
+            <h1>Histórico de Rankings</h1>
+            <p class="tagline">Consulta aos rankings mensais BESST & Buffett</p>
+        </div>
+
+        <div class="card">
+            <h2></h2>
+            <div class="tabs" id="tabs">
+            </div>
+            <div id="tab-contents">
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>⌨️ Gerado por script • Não é recomendação de investimento • Faça sua própria análise</p>
+        <p style="margin-top: 0.5rem; color: #94a3b8; font-size: 0.85rem;">
+            Atualizado: 06/08/2026
+        </p>
+        <p style="margin-top: 0.5rem;">
+            <a href="https://github.com/diegotxr/iaemloop" target="_blank">GitHub</a> •
+            <a href="https://www.youtube.com/@IAemLoop" target="_blank">YouTube</a>
+        </p>
+    </div>
+
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+    <script>
+        const rankings = [
+            {
+                id: '2026-08',
+                label: 'Agosto/2026',
+                tabela: `
+<table>
+                    <thead><tr><th>Pos</th><th>Ticker</th><th>Setor</th><th>DY</th><th>P/VP</th><th>ROIC</th><th>ROE</th><th>Score BESST</th></tr></thead>
+                    <tbody>
+<tr><td>1</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=SANB11" target="_blank"><strong>SANB11</strong></a></td><td>Bancos</td><td>7.3%</td><td>0.87</td><td>-</td><td>-</td><td>71.10</td></tr>
+<tr><td>2</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=ENGI3" target="_blank"><strong>ENGI3</strong></a></td><td>Energia</td><td>5.4%</td><td>0.23</td><td>-</td><td>-</td><td>64.40</td></tr>
+<tr><td>3</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=KLBN4" target="_blank"><strong>KLBN4</strong></a></td><td>Papel e Celulose</td><td>8.9%</td><td>0.50</td><td>-</td><td>-</td><td>60.70</td></tr>
+<tr><td>4</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=GGBR4" target="_blank"><strong>GGBR4</strong></a></td><td>Mineração/Siderurgia</td><td>3.5%</td><td>0.98</td><td>-</td><td>-</td><td>60.60</td></tr>
+<tr><td>5</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=PETR4" target="_blank"><strong>PETR4</strong></a></td><td>Petróleo e gás</td><td>9.3%</td><td>1.21</td><td>-</td><td>-</td><td>60.50</td></tr>
+<tr><td>6</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=VIVT3" target="_blank"><strong>VIVT3</strong></a></td><td>Telecomunicações</td><td>8.0%</td><td>1.45</td><td>-</td><td>-</td><td>50.40</td></tr>
+<tr><td>7</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=VALE3" target="_blank"><strong>VALE3</strong></a></td><td>Mineração</td><td>8.2%</td><td>1.66</td><td>-</td><td>-</td><td>40.90</td></tr>
+<tr><td>8</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=EQTL3" target="_blank"><strong>EQTL3</strong></a></td><td>Energia</td><td>6.0%</td><td>1.92</td><td>-</td><td>-</td><td>34.50</td></tr>
+<tr><td>9</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=BBAS3" target="_blank"><strong>BBAS3</strong></a></td><td>Bancos</td><td>1.1%</td><td>0.65</td><td>-</td><td>-</td><td>66.80</td></tr>
+<tr><td>10</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=SUZB3" target="_blank"><strong>SUZB3</strong></a></td><td>Papel e Celulose</td><td>2.6%</td><td>1.10</td><td>-</td><td>-</td><td>58.90</td></tr>
+<tr><td>11</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=BBDC4" target="_blank"><strong>BBDC4</strong></a></td><td>Bancos</td><td>1.3%</td><td>1.06</td><td>-</td><td>-</td><td>58.40</td></tr>
+<tr><td>12</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=IRBR3" target="_blank"><strong>IRBR3</strong></a></td><td>Bancos</td><td>2.9%</td><td>0.83</td><td>-</td><td>-</td><td>54.80</td></tr>
+<tr><td>13</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=CPFE3" target="_blank"><strong>CPFE3</strong></a></td><td>Energia</td><td>8.1%</td><td>2.19</td><td>-</td><td>-</td><td>47.10</td></tr>
+<tr><td>14</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=UNIP3" target="_blank"><strong>UNIP3</strong></a></td><td>Materiais básicos</td><td>15.7%</td><td>3.52</td><td>-</td><td>-</td><td>45.40</td></tr>
+<tr><td>15</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=ITUB4" target="_blank"><strong>ITUB4</strong></a></td><td>Bancos</td><td>2.1%</td><td>2.23</td><td>-</td><td>-</td><td>45.40</td></tr>
+<tr><td>16</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=SBSP3" target="_blank"><strong>SBSP3</strong></a></td><td>Energia</td><td>5.1%</td><td>2.22</td><td>-</td><td>-</td><td>44.60</td></tr>
+</tbody>
+                </table>`
+            },
+            {
+                id: '2026-07',
+                label: 'Julho/2026',
+                tabela: `
+                <table>
+                    <thead><tr><th>Pos</th><th>Ticker</th><th>Setor</th><th>DY</th><th>P/VP</th><th>ROIC</th><th>ROE</th><th>Score BESST</th></tr></thead>
+                    <tbody>
+<tr><td>1</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=PETR4" target="_blank"><strong>PETR4</strong></a></td><td>Petróleo e gás</td><td>9.6%</td><td>1.17</td><td>-</td><td>-</td><td>70.90</td></tr>
+<tr><td>2</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=SANB11" target="_blank"><strong>SANB11</strong></a></td><td>Bancos</td><td>6.4%</td><td>0.82</td><td>-</td><td>-</td><td>70.50</td></tr>
+<tr><td>3</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=ENGI3" target="_blank"><strong>ENGI3</strong></a></td><td>Energia</td><td>5.3%</td><td>0.24</td><td>-</td><td>-</td><td>64.20</td></tr>
+<tr><td>4</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=KLBN4" target="_blank"><strong>KLBN4</strong></a></td><td>Papel e Celulose</td><td>9.4%</td><td>0.48</td><td>-</td><td>-</td><td>61.10</td></tr>
+<tr><td>5</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=VALE3" target="_blank"><strong>VALE3</strong></a></td><td>Mineração</td><td>9.4%</td><td>1.64</td><td>-</td><td>-</td><td>46.10</td></tr>
+<tr><td>6</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=EQTL3" target="_blank"><strong>EQTL3</strong></a></td><td>Energia</td><td>5.8%</td><td>2.00</td><td>-</td><td>-</td><td>34.40</td></tr>
+</tbody>
+                </table>`
+            },
+            {
+                id: '2026-06',
+                label: 'Junho/2026',
+                tabela: `
+                <table>
+                    <thead><tr><th>Pos</th><th>Ticker</th><th>Setor</th><th>DY</th><th>P/VP</th><th>ROIC</th><th>ROE</th><th>Score BESST</th></tr></thead>
+                    <tbody>
+<tr><td>1</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=PETR4" target="_blank"><strong>PETR4</strong></a></td><td>Petróleo e gás</td><td>10.0%</td><td>1.12</td><td>-</td><td>-</td><td>71.30</td></tr>
+<tr><td>2</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=SANB11" target="_blank"><strong>SANB11</strong></a></td><td>Bancos</td><td>6.5%</td><td>0.80</td><td>-</td><td>-</td><td>70.70</td></tr>
+<tr><td>3</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=ENGI3" target="_blank"><strong>ENGI3</strong></a></td><td>Energia</td><td>5.5%</td><td>0.23</td><td>-</td><td>-</td><td>64.80</td></tr>
+<tr><td>4</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=KLBN4" target="_blank"><strong>KLBN4</strong></a></td><td>Papel e Celulose</td><td>9.7%</td><td>0.46</td><td>-</td><td>-</td><td>61.30</td></tr>
+<tr><td>5</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=IRBR3" target="_blank"><strong>IRBR3</strong></a></td><td>Bancos</td><td>3.0%</td><td>0.79</td><td>-</td><td>-</td><td>55.10</td></tr>
+<tr><td>6</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=VIVT3" target="_blank"><strong>VIVT3</strong></a></td><td>Telecomunicações</td><td>7.3%</td><td>1.54</td><td>-</td><td>-</td><td>44.00</td></tr>
+<tr><td>7</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=VALE3" target="_blank"><strong>VALE3</strong></a></td><td>Mineração</td><td>8.5%</td><td>1.82</td><td>-</td><td>-</td><td>44.00</td></tr>
+<tr><td>8</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=EQTL3" target="_blank"><strong>EQTL3</strong></a></td><td>Energia</td><td>6.2%</td><td>1.86</td><td>-</td><td>-</td><td>34.60</td></tr>
+</tbody>
+                </table>`
+            },
+            {
+                id: '2026-05',
+                label: 'Maio/2026',
+                tabela: `
+                <table>
+                    <thead><tr><th>Pos</th><th>Ticker</th><th>Setor</th><th>DY</th><th>P/VP</th><th>ROIC</th><th>ROE</th><th>Score BESST</th></tr></thead>
+                    <tbody>
+<tr><td>1</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=SANB11" target="_blank"><strong>SANB11</strong></a></td><td>Bancos</td><td>6.4%</td><td>0.83</td><td>-</td><td>-</td><td>70.50</td></tr>
+<tr><td>2</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=CSNA3" target="_blank"><strong>CSNA3</strong></a></td><td>Mineração/Siderurgia</td><td>19.4%</td><td>0.67</td><td>-</td><td>-</td><td>69.10</td></tr>
+<tr><td>3</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=ENGI3" target="_blank"><strong>ENGI3</strong></a></td><td>Energia</td><td>5.2%</td><td>0.23</td><td>-</td><td>-</td><td>65.50</td></tr>
+<tr><td>4</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=KLBN4" target="_blank"><strong>KLBN4</strong></a></td><td>Papel e Celulose</td><td>9.8%</td><td>0.52</td><td>-</td><td>-</td><td>61.40</td></tr>
+<tr><td>5</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=PETR4" target="_blank"><strong>PETR4</strong></a></td><td>Petróleo e gás</td><td>8.6%</td><td>1.42</td><td>-</td><td>-</td><td>59.50</td></tr>
+<tr><td>6</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=VALE3" target="_blank"><strong>VALE3</strong></a></td><td>Mineração</td><td>8.3%</td><td>1.93</td><td>-</td><td>-</td><td>43.20</td></tr>
+<tr><td>7</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=VIVT3" target="_blank"><strong>VIVT3</strong></a></td><td>Telecomunicações</td><td>6.6%</td><td>1.69</td><td>-</td><td>-</td><td>41.80</td></tr>
+<tr><td>8</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=EQTL3" target="_blank"><strong>EQTL3</strong></a></td><td>Energia</td><td>5.8%</td><td>2.00</td><td>-</td><td>-</td><td>34.40</td></tr>
+</tbody>
+                </table>`
+            },
+            {
+                id: '2026-04',
+                label: 'Abril/2026',
+                tabela: `
+                <table>
+                    <thead><tr><th>Pos</th><th>Ticker</th><th>Setor</th><th>DY</th><th>P/VP</th><th>ROIC</th><th>ROE</th><th>Score BESST</th></tr></thead>
+                    <tbody>
+<tr><td>1</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=BRSR6" target="_blank"><strong>BRSR6</strong></a></td><td>Bancos</td><td>9.6%</td><td>0.61</td><td>-</td><td>14.4%</td><td>60.82</td></tr>
+<tr><td>2</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=BMGB4" target="_blank"><strong>BMGB4</strong></a></td><td>Bancos</td><td>11.0%</td><td>0.75</td><td>-</td><td>14.4%</td><td>55.49</td></tr>
+<tr><td>3</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=BBAS3" target="_blank"><strong>BBAS3</strong></a></td><td>Bancos</td><td>3.7%</td><td>0.70</td><td>-</td><td>9.8%</td><td>53.01</td></tr>
+<tr><td>4</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=BBDC4" target="_blank"><strong>BBDC4</strong></a></td><td>Bancos</td><td>7.8%</td><td>1.14</td><td>-</td><td>14.2%</td><td>52.09</td></tr>
+<tr><td>5</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=SANB11" target="_blank"><strong>SANB11</strong></a></td><td>Bancos</td><td>7.4%</td><td>1.15</td><td>-</td><td>16.2%</td><td>43.02</td></tr>
+<tr><td>6</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=SAPR11" target="_blank"><strong>SAPR11</strong></a></td><td>Saneamento</td><td>4.6%</td><td>1.05</td><td>9.7%</td><td>16.8%</td><td>32.62</td></tr>
+<tr><td>7</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=TAEE11" target="_blank"><strong>TAEE11</strong></a></td><td>Energia</td><td>7.9%</td><td>1.86</td><td>10.6%</td><td>20.8%</td><td>31.20</td></tr>
+<tr><td>8</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=BPAC5" target="_blank"><strong>BPAC5</strong></a></td><td>Bancos</td><td>3.7%</td><td>1.85</td><td>-</td><td>22.8%</td><td>29.75</td></tr>
+<tr><td>9</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=PSSA3" target="_blank"><strong>PSSA3</strong></a></td><td>Seguros</td><td>4.1%</td><td>2.00</td><td>77.4%</td><td>21.5%</td><td>28.69</td></tr>
+<tr><td>10</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=NEOE3" target="_blank"><strong>NEOE3</strong></a></td><td>Energia</td><td>4.4%</td><td>1.11</td><td>11.1%</td><td>13.8%</td><td>26.41</td></tr>
+<tr><td>11</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=ALUP11" target="_blank"><strong>ALUP11</strong></a></td><td>Energia</td><td>3.7%</td><td>1.25</td><td>9.9%</td><td>13.3%</td><td>19.58</td></tr>
+<tr><td>12</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=EQTL3" target="_blank"><strong>EQTL3</strong></a></td><td>Energia</td><td>5.8%</td><td>1.91</td><td>10.5%</td><td>6.5%</td><td>13.63</td></tr>
+</tbody>
+                </table>`
+            },
+            {
+                id: '2026-03',
+                label: 'Março/2026',
+                tabela: `
+                <table>
+                    <thead><tr><th>Pos</th><th>Ticker</th><th>Setor</th><th>DY</th><th>P/VP</th><th>ROIC</th><th>Score</th></tr></thead>
+                    <tbody>
+<tr><td>1</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=BMGB4" target="_blank"><strong>BMGB4</strong></a></td><td>Bancos</td><td>10.7%</td><td>0.77</td><td>-</td><td>3021</td></tr>
+<tr><td>2</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=BRSR6" target="_blank"><strong>BRSR6</strong></a></td><td>Bancos</td><td>8.6%</td><td>0.68</td><td>-</td><td>2805</td></tr>
+<tr><td>3</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=BBAS3" target="_blank"><strong>BBAS3</strong></a></td><td>Bancos</td><td>5.2%</td><td>0.84</td><td>-</td><td>2521</td></tr>
+<tr><td>4</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=BBDC4" target="_blank"><strong>BBDC4</strong></a></td><td>Bancos</td><td>6.8%</td><td>1.30</td><td>-</td><td>2042</td></tr>
+<tr><td>5</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=SANB11" target="_blank"><strong>SANB11</strong></a></td><td>Bancos</td><td>6.5%</td><td>1.32</td><td>-</td><td>1860</td></tr>
+<tr><td>6</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=NEOE3" target="_blank"><strong>NEOE3</strong></a></td><td>Energia</td><td>4.4%</td><td>1.09</td><td>11.1%</td><td>1087</td></tr>
+<tr><td>7</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=CPLE3" target="_blank"><strong>CPLE3</strong></a></td><td>Energia</td><td>8.3%</td><td>1.89</td><td>8.6%</td><td>998</td></tr>
+<tr><td>8</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=EQTL3" target="_blank"><strong>EQTL3</strong></a></td><td>Energia</td><td>5.4%</td><td>1.86</td><td>9.6%</td><td>986</td></tr>
+<tr><td>9</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=TAEE11" target="_blank"><strong>TAEE11</strong></a></td><td>Energia</td><td>7.3%</td><td>1.99</td><td>11.3%</td><td>964</td></tr>
+<tr><td>10</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=SAPR11" target="_blank"><strong>SAPR11</strong></a></td><td>Saneamento</td><td>4.3%</td><td>1.10</td><td>9.7%</td><td>849</td></tr>
+<tr><td>11</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=ALUP11" target="_blank"><strong>ALUP11</strong></a></td><td>Energia</td><td>3.6%</td><td>1.31</td><td>10.1%</td><td>842</td></tr>
+<tr><td>12</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=CSMG3" target="_blank"><strong>CSMG3</strong></a></td><td>Saneamento</td><td>4.2%</td><td>2.42</td><td>13.4%</td><td>798</td></tr>
+<tr><td>13</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=PSSA3" target="_blank"><strong>PSSA3</strong></a></td><td>Seguros</td><td>3.8%</td><td>2.15</td><td>77.4%</td><td>766</td></tr>
+<tr><td>14</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=BPAC5" target="_blank"><strong>BPAC5</strong></a></td><td>Bancos</td><td>3.5%</td><td>1.93</td><td>-</td><td>670</td></tr>
+</tbody>
+                </table>`
+            }
+        ];
+
+        function renderTabs() {
+            const tabsContainer = document.getElementById('tabs');
+            const contentsContainer = document.getElementById('tab-contents');
+
+            rankings.forEach((rank, idx) => {
+                const tab = document.createElement('button');
+                tab.className = idx === 0 ? 'tab active' : 'tab';
+                tab.textContent = rank.label;
+                tab.onclick = () => switchTab(idx);
+                tabsContainer.appendChild(tab);
+
+                const content = document.createElement('div');
+                content.className = idx === 0 ? 'tab-content active' : 'tab-content';
+                content.id = `tab-${idx}`;
+                content.innerHTML = rank.tabela;
+                contentsContainer.appendChild(content);
+            });
+        }
+
+        function switchTab(idx) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab')[idx].classList.add('active');
+            document.getElementById(`tab-${idx}`).classList.add('active');
+        }
+
+        const backToTop = document.getElementById('backToTop');
+        if (backToTop) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+            backToTop.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTabs();
+        });
+    </script>
+</body>
+</html>

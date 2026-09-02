@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">AAPL, Apple, IA e valuation</title>
+  <desc id="desc">Diagrama sobre Apple: qualidade, caixa, ecossistema, valuation alto e risco de execução em inteligência artificial.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06080D"/>
+      <stop offset="0.55" stop-color="#13202B"/>
+      <stop offset="1" stop-color="#19364D"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6EE4EF"/>
+      <stop offset="1" stop-color="#E4D17F"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="1000" cy="110" r="210" fill="#6EE4EF" opacity="0.08"/>
+  <circle cx="170" cy="565" r="260" fill="#E4D17F" opacity="0.08"/>
+  <text x="70" y="86" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">IA em Loop • Stock EUA • 05/08/2026</text>
+  <text x="70" y="155" fill="url(#gold)" font-family="Inter, Arial, sans-serif" font-size="68" font-weight="800">AAPL: qualidade cara</text>
+  <text x="70" y="215" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">O teste entre ecossistema, caixa e IA</text>
+
+  <g transform="translate(75 285)">
+    <rect x="0" y="0" width="310" height="210" rx="20" fill="#06080D" opacity="0.58" stroke="#E4D17F" stroke-opacity="0.28"/>
+    <text x="24" y="42" fill="#E4D17F" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">Ranking local</text>
+    <text x="24" y="92" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="800">#3 BESST</text>
+    <text x="24" y="135" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="20">P/L 38,17</text>
+    <text x="24" y="170" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="20">ROE 141,47%</text>
+  </g>
+
+  <g transform="translate(445 285)">
+    <rect x="0" y="0" width="310" height="210" rx="20" fill="#06080D" opacity="0.58" stroke="#6EE4EF" stroke-opacity="0.28"/>
+    <text x="24" y="42" fill="#6EE4EF" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">SEC 3T26</text>
+    <text x="24" y="92" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="800">US$ 109,4 bi</text>
+    <text x="24" y="135" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="20">receita trimestral</text>
+    <text x="24" y="170" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="20">US$ 29,8 bi lucro</text>
+  </g>
+
+  <g transform="translate(815 285)">
+    <rect x="0" y="0" width="310" height="210" rx="20" fill="#06080D" opacity="0.58" stroke="#F87171" stroke-opacity="0.34"/>
+    <text x="24" y="42" fill="#FCA5A5" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">Pergunta central</text>
+    <text x="24" y="92" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">Prêmio</text>
+    <text x="24" y="132" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">justificado?</text>
+    <text x="24" y="174" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="20">IA precisa virar ciclo</text>
+  </g>
+
+  <path d="M90 575 C260 525, 355 610, 515 560 S850 518, 1085 565" fill="none" stroke="url(#gold)" stroke-width="5" opacity="0.72" filter="url(#glow)"/>
+  <text x="70" y="625" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="20">Leitura educacional: negócio excelente não dispensa preço, execução e margem de segurança.</text>
+</svg>

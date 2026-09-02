@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Análise educacional IA em Loop sobre PGR/Progressive: Magic Formula EUA, custódia real, seguros auto, valuation, prêmios, lucro e risco de sinistralidade.">
+    <title>27/07: PGR, Progressive e o teste do ciclo de seguros auto | IA em Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { min-height: 100%; background: #06080D; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)), url('../../assets/bg-carteiras.jpg') no-repeat center center fixed; background-size: cover; background-color: #06080D; color: #e2e8f0; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 980px; margin: 0 auto; }
+        .back-button { position: fixed; top: 20px; left: 20px; display: inline-flex; align-items: center; gap: 6px; background: rgba(251,191,36,0.9); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: background 0.2s, transform 0.1s; z-index: 1000; }
+        .back-button:hover { background: #E4D17F; transform: translateY(-1px); }
+        article { background: rgba(19, 29, 39, 0.78); border-radius: 14px; padding: 34px; border-left: 4px solid #19364D; border: 1px solid rgba(228, 209, 127, 0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h1 { overflow-wrap: anywhere; hyphens: auto; font-size: clamp(2rem, 5vw, 3.05rem); line-height: 1.08; font-weight: 800; background: linear-gradient(135deg, #6EE4EF, #E4D17F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; }
+        .dek { color: #cbd5e1; font-size: 1.12rem; line-height: 1.75; margin-bottom: 22px; }
+        .meta { display: flex; gap: 8px; flex-wrap: wrap; color: #94a3b8; font-size: 0.86rem; margin-bottom: 30px; }
+        .meta span { background: rgba(228, 209, 127, 0.15); color: #E4D17F; padding: 4px 10px; border-radius: 999px; font-weight: 600; border: 1px solid rgba(228, 209, 127, 0.2); }
+        h2 { color: #fff; font-size: 1.45rem; margin: 34px 0 12px; border-bottom: 2px solid #19364D; padding-bottom: 10px; }
+        h3 { color: #E4D17F; font-size: 1.08rem; margin: 22px 0 8px; }
+        p, li { overflow-wrap: anywhere; color: #cbd5e1; line-height: 1.78; font-size: 1.02rem; }
+        p { margin-bottom: 16px; }
+        ul { padding-left: 22px; margin-bottom: 18px; }
+        li { margin-bottom: 8px; }
+        strong { color: #fff; }
+        a { color: #E4D17F; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .hero-chart { display: block; max-width: 100%; height: auto; width: 100%; border-radius: 14px; border: 1px solid rgba(228, 209, 127, 0.18); margin: 20px 0 8px; background: rgba(6,8,13,.35); box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+        .caption { color: #94a3b8; font-size: .9rem; margin-bottom: 24px; }
+        .callout { background: rgba(6, 8, 13, 0.5); border-left: 4px solid #E4D17F; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .warning { background: rgba(127,29,29,.25); border-left: 4px solid #f87171; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .scorecard { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+        .scorecard div { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 14px; }
+        .scorecard span { display: block; color: #94a3b8; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; }
+        .scorecard strong { color: #E4D17F; font-size: 1.1rem; }
+        .matrix { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 18px 0; }
+        .matrix div { background: rgba(6, 8, 13, 0.42); border: 1px solid rgba(110,228,239,.15); border-radius: 10px; padding: 14px; }
+        .mini-table { width:100%; border-collapse: collapse; margin: 18px 0; overflow:hidden; border-radius:10px; }
+        .mini-table th, .mini-table td { padding: 11px 10px; border-bottom: 1px solid rgba(255,255,255,.08); text-align:left; color:#cbd5e1; }
+        .mini-table th { color:#E4D17F; background:rgba(6,8,13,.55); font-size:.92rem; }
+        .source-note { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 16px; margin-top: 28px; color: #94a3b8; font-size: 0.94rem; }
+        .footer { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        @media (max-width: 768px) { body { padding: 72px 16px 32px; } article { padding: 24px; } .scorecard, .matrix { grid-template-columns: 1fr; } .mini-table { display:block; overflow-x:auto; } .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; } }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "27/07: PGR, Progressive e o teste do ciclo de seguros auto",
+      "description": "Análise educacional IA em Loop sobre PGR/Progressive: Magic Formula EUA, custódia real, seguros auto, valuation, prêmios, lucro e risco de sinistralidade.",
+      "image": "https://iaemloop.com.br/assets/blog/2026-07-27-pgr-progressive-seguros-auto.svg",
+      "datePublished": "2026-07-27",
+      "dateModified": "2026-07-27",
+      "author": {"@type": "Organization", "name": "IA em Loop"},
+      "publisher": {"@type": "Organization", "name": "IA em Loop"},
+      "keywords": ["PGR", "Progressive", "stocks EUA", "Magic Formula EUA", "seguradoras", "seguros auto", "custódia real"]
+    }
+    </script>
+</head>
+<body>
+    <a href="../index.html" class="back-button" title="Voltar ao blog">← Blog</a>
+    <main class="container">
+        <article>
+            <h1>27/07: PGR, Progressive e o teste do ciclo de seguros auto</h1>
+            <p class="dek">PGR, Progressive Corporation, combina ranking quantitativo forte, posição real pequena na carteira Magic Formula Dolarizada e um setor em que preço, sinistro e disciplina técnica mudam rapidamente a leitura de valor. A pergunta central é simples: o ranking encontrou uma seguradora eficiente a preço razoável ou um lucro forte demais para ser extrapolado?</p>
+            <div class="meta"><span>27/07/2026</span><span>Análise educacional</span><span>PGR</span><span>Progressive</span><span>Stock EUA</span><span>Magic Formula EUA #3</span><span>P/L 11,74</span><span>ROIC proxy 37,9%</span><span>Carteira real</span><span>8 min</span></div>
+            <img class="hero-chart" src="../../assets/blog/2026-07-27-pgr-progressive-seguros-auto.svg" alt="Diagrama IA em Loop sobre PGR, Progressive, Magic Formula EUA, custódia real, seguros auto, valuation e sinistralidade">
+            <p class="caption">PGR combina ranking quantitativo forte, posição real pequena e um setor em que preço, sinistro e disciplina técnica mudam rapidamente a leitura de valor.</p>
+
+            <h2>Resposta curta: qualidade real, ciclo para respeitar</h2>
+            <p>Progressive é uma das grandes seguradoras de automóveis dos EUA e entrou no radar por três motivos: aparece em <strong>3º lugar na Magic Formula EUA</strong> do IA em Loop, está na <strong>carteira real Magic Formula Dolarizada</strong> e carrega métricas que parecem fortes para um negócio financeiro ligado a risco de sinistros.</p>
+            <p>No arquivo local do ranking de 11/07/2026, PGR aparece com <strong>P/L de 11,74</strong>, <strong>ROIC proxy de 37,9%</strong> e <strong>earnings yield de 8,52%</strong>. Na custódia real registrada em 16/07/2026, a posição é pequena: <strong>US$ 29,24</strong>, <strong>0,12758597 ação</strong>, preço médio de <strong>US$ 229,1788</strong> e peso de <strong>30,9%</strong> dentro da carteira Magic Formula Dolarizada.</p>
+            <p>Essa combinação não vira recomendação. Ela vira pauta de acompanhamento. Seguradora pode parecer barata quando o ciclo técnico está favorável e ficar cara se sinistros, inflação de reparos, eventos climáticos ou competição por preço voltarem a pressionar margem.</p>
+
+            <div class="scorecard">
+                <div><span>Ranking local</span><strong>#3 Magic Formula EUA</strong></div>
+                <div><span>Perspectiva</span><strong>Carteira real</strong></div>
+                <div><span>P/L</span><strong>11,74</strong></div>
+                <div><span>ROIC proxy</span><strong>37,9%</strong></div>
+                <div><span>Earnings yield</span><strong>8,52%</strong></div>
+                <div><span>Preço consultado</span><strong>US$ 216,01</strong></div>
+            </div>
+
+            <h2>O que os dados verificados mostram</h2>
+            <p>A consulta pública à SEC no CIK <strong>0000080661</strong> mostra que, no 10-Q de PGR arquivado em 04/05/2026, referente ao 1T26, a companhia registrou <strong>US$ 22,188 bilhões de receita</strong>, <strong>US$ 20,968 bilhões de prêmios líquidos ganhos</strong>, <strong>US$ 2,818 bilhões de lucro líquido</strong> e <strong>US$ 789 milhões de resultado líquido de investimentos</strong>.</p>
+            <p>No balanço de 31/03/2026, a SEC também registra <strong>US$ 122,209 bilhões em ativos</strong> e <strong>US$ 32,039 bilhões de patrimônio líquido</strong>. O ponto técnico é que seguradora não se avalia só por lucro contábil: é preciso olhar a qualidade da subscrição, a sinistralidade e o retorno dos investimentos.</p>
+            <p>Na checagem de mercado feita em 27/07/2026 via Yahoo Finance, PGR retornou preço próximo de <strong>US$ 216,01</strong>, máxima de 52 semanas de <strong>US$ 254,93</strong> e mínima de 52 semanas de <strong>US$ 189,20</strong>. Ou seja: a ação não está “destruída”; ela está em uma zona em que a margem de segurança depende mais da continuidade operacional do que de um desconto extremo.</p>
+
+            <table class="mini-table">
+                <thead><tr><th>Métrica verificada</th><th>Fonte/período</th><th>Valor</th><th>Leitura</th></tr></thead>
+                <tbody>
+                    <tr><td>Receita</td><td>SEC 10-Q 1T26</td><td>US$ 22,188 bi</td><td>escala grande no setor</td></tr>
+                    <tr><td>Prêmios líquidos ganhos</td><td>SEC 10-Q 1T26</td><td>US$ 20,968 bi</td><td>motor principal do negócio</td></tr>
+                    <tr><td>Lucro líquido</td><td>SEC 10-Q 1T26</td><td>US$ 2,818 bi</td><td>ciclo recente lucrativo</td></tr>
+                    <tr><td>Resultado de investimentos</td><td>SEC 10-Q 1T26</td><td>US$ 789 mi</td><td>juros ajudam o float</td></tr>
+                    <tr><td>Patrimônio líquido</td><td>SEC 31/03/2026</td><td>US$ 32,039 bi</td><td>base de capital relevante</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Por que olhar para PGR agora</h2>
+            <p>PGR é uma das maiores posições da carteira Magic Formula Dolarizada e traz uma tese diferente das leituras mais óbvias de tecnologia: seguro auto, disciplina de underwriting, inflação de sinistros, recomposição de preços e eficiência operacional. O ponto não é apenas estar bem colocada no ranking, mas entender se a rentabilidade recente é sustentável ou se reflete um ciclo excepcionalmente favorável.</p>
+            <p>Isso melhora a discussão de carteira. A carteira dolarizada já tem software em ADBE e pharma em BMY; PGR adiciona exposição a um negócio financeiro com dinâmica própria. O benefício potencial é diversificação. O risco é achar que seguradora é defensiva em qualquer cenário, quando o resultado depende de precificação correta do risco.</p>
+
+            <div class="callout">
+                <strong>Leitura prática do IA em Loop</strong><br>
+                PGR é uma posição pequena, real e útil para acompanhar disciplina de subscrição nos EUA. A tese só fica confortável se crescimento de prêmios vier com controle de sinistros. Se a margem atual for ponto alto do ciclo, o P/L baixo pode ser menos barato do que parece.
+            </div>
+
+            <h2>O que favorece e o que ameaça a tese</h2>
+            <div class="matrix">
+                <div>
+                    <h3>Favoráveis</h3>
+                    <p>• Top 3 na Magic Formula EUA local.</p>
+                    <p>• Escala grande em seguros auto nos EUA.</p>
+                    <p>• Lucro líquido forte no 1T26.</p>
+                    <p>• Juros mais altos podem reforçar resultado de investimentos.</p>
+                    <p>• Exposição real pequena permite aprendizado sem concentração excessiva.</p>
+                </div>
+                <div>
+                    <h3>Desfavoráveis</h3>
+                    <p>• Sinistralidade pode normalizar rápido.</p>
+                    <p>• Inflação de peças, reparos e veículos pressiona custo de indenização.</p>
+                    <p>• Competição pode limitar reajuste de prêmio.</p>
+                    <p>• Eventos climáticos e catástrofes aumentam volatilidade.</p>
+                    <p>• Ranking quantitativo não substitui leitura de combined ratio e reservas.</p>
+                </div>
+            </div>
+
+            <h2>Checklist para acompanhar daqui em diante</h2>
+            <table class="mini-table">
+                <thead><tr><th>Ponto</th><th>O que monitorar</th><th>Se piorar</th></tr></thead>
+                <tbody>
+                    <tr><td>Prêmios</td><td>crescimento precisa vir sem afrouxar preço</td><td>crescimento vira risco mal precificado</td></tr>
+                    <tr><td>Sinistralidade</td><td>indenizações e despesas precisam seguir controladas</td><td>lucro atual pode ser pico de ciclo</td></tr>
+                    <tr><td>Investimentos</td><td>float deve render sem elevar risco de carteira</td><td>resultado financeiro perde suporte</td></tr>
+                    <tr><td>Concorrência</td><td>reajustes de prêmio precisam ser aceitos pelo mercado</td><td>margem comprime</td></tr>
+                    <tr><td>Preço</td><td>queda abaixo do preço médio deve ser explicada por dados, não por impulso</td><td>reforço automático aumenta erro de tese</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Conclusão</h2>
+            <p>PGR é uma boa pauta para a carteira dolarizada porque força o IA em Loop a olhar além das megacaps de tecnologia. O caso tem números fortes, presença real na custódia e ranking favorável. Mas o setor exige humildade: seguradora não é apenas múltiplo baixo; é gestão de risco, precificação, reservas, sinistros e disciplina competitiva.</p>
+            <p>A leitura de hoje é: <strong>PGR merece acompanhamento como posição real da Magic Formula Dolarizada, mas o gatilho não é “comprar mais porque está no ranking”; é confirmar que lucro, prêmios e sinistralidade sustentam o valuation</strong>. Se a operação continuar disciplinada, a carteira ganha uma exposição financeira de qualidade. Se o ciclo normalizar contra a empresa, a aparente barganha perde força.</p>
+
+            <div class="warning">
+                <strong>Aviso importante:</strong> este conteúdo é educacional e não representa recomendação personalizada de investimento, compra, venda, remessa ou câmbio. Stocks envolvem risco de mercado, risco cambial, risco de liquidez e risco específico da empresa.
+            </div>
+
+            <div class="source-note">
+                <strong>Fontes e critérios:</strong> ranking IA em Loop Magic Formula EUA 2026-07, arquivo local com data-base 11/07/2026; carteira real Magic Formula Dolarizada registrada em 16/07/2026; SEC `data.sec.gov` para Progressive Corporation, CIK 0000080661, incluindo 10-Q arquivado em 04/05/2026 referente ao período encerrado em 31/03/2026; Yahoo Finance via biblioteca `yfinance` consultado em 27/07/2026 para preço, máxima e mínima de 52 semanas. Conteúdo educacional, sem recomendação personalizada.
+            </div>
+        </article>
+        <div class="footer">IA em Loop — rankings com dinheiro próprio</div>
+    </main>
+</body>
+</html>
