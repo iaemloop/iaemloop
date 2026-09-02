@@ -90,9 +90,19 @@
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <priority>0.8</priority>
     <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-09-02-analise-bmy-bristol-myers-pipeline-divida.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://iaemloop.com.br/assets/blog/2026-09-02-bmy-bristol-myers-pipeline-divida.svg</image:loc>
+      <image:title>BMY, Bristol Myers e o desconto que exige pipeline</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/posts/2026-08-31-analise-engi3-energisa-concessoes-dividendos.html</loc>

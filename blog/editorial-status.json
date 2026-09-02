@@ -1,12 +1,12 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-08-31-analise-engi3-energisa-concessoes-dividendos.html",
+  "lastPost": "blog/posts/2026-09-02-analise-bmy-bristol-myers-pipeline-divida.html",
   "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 31/08/2026 concluiu a leitura de Ação Brasil com ENGI3/Energisa. O post usa o ranking BESST e Buffett B3 de agosto de 2026, a nota de corretagem de agosto da carteira BESST e Buffett B3 e o release consolidado 2T26 do Grupo Energisa publicado em 06/08/2026.",
+  "reading": "Publicação de 02/09/2026 concluiu a leitura de Stock EUA com BMY/Bristol Myers Squibb. O post usa rankings Magic Formula Dolarizada e BESST e Buffett Dolarizado, carteira real Magic Formula Dolarizada e 10-Q 2T26 da Bristol Myers Squibb arquivado na SEC.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-acao-brasil",
-    "leitura-de-ranking-b3",
+    "estudo-educacional-de-stock-eua",
+    "leitura-de-ranking-dolarizado",
     "registro-editorial-publico"
   ],
   "rules": [
@@ -19,14 +19,14 @@
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
   ],
   "sourcesUsed": [
-    "outputs/barsi_screener_top20_2026-08.csv",
-    "data/compras_b3_agosto_2026.csv",
-    "RI Energisa Central de Resultados",
-    "Release 2T26 - Consolidado Grupo Energisa"
+    "outputs/magic_formula_eua_latest.csv",
+    "outputs/besst_buffett_eua_latest.csv",
+    "outputs/stocks_eua_fundamentos_latest.csv",
+    "SEC data.sec.gov Bristol Myers Squibb 10-Q 2T26"
   ],
-  "tickerOfTheDay": "ENGI3",
-  "assetTypeOfTheDay": "acao_brasil",
+  "tickerOfTheDay": "BMY",
+  "assetTypeOfTheDay": "stock_eua",
   "custodyPerspective": "em_custodia",
   "draftStatus": "publicado",
-  "updatedAt": "2026-08-31"
+  "updatedAt": "2026-09-02"
 }
