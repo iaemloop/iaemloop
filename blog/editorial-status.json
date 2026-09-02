@@ -1,0 +1,22 @@
+{
+  "updatedAt": "2026-05-07",
+  "owner": "OpenClaw",
+  "routine": {
+    "dailyBriefing": "08:00 America/Recife",
+    "blogPublication": "09:10 America/Recife"
+  },
+  "requiredDailyOutputs": [
+    "briefing-publico",
+    "estudo-de-acao-do-ranking",
+    "monitoramento-de-influenciadores"
+  ],
+  "rules": [
+    "Nao publicar recomendacao personalizada de investimento.",
+    "Nao inventar fonte, preco, noticia ou fala de influenciador.",
+    "Registrar lacunas quando dados nao estiverem disponiveis.",
+    "Validar HTML, links locais e git diff antes de publicar."
+  ],
+  "lastPost": "blog/posts/selic-caindo-juro-real-focus-2026.html",
+  "sourceDraft": "/Users/diegoteixeira/.openclaw/workspace/content-pipeline/newsletter-selic-13.md",
+  "nextSuggestedPost": "Analise diaria de uma acao dos rankings, conectando tese, riscos, preco/contexto e cenario de compra/venda/espera."
+}
