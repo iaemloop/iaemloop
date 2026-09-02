@@ -1,0 +1,30 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#1a1a1a"/>
+  <!-- Title -->
+  <text x="400" y="80" text-anchor="middle" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="24" font-weight="bold">
+    KLBN4 - Klabin (Papél e Celulose)
+  </text>
+  <!-- Axes -->
+  <line x1="100" y1="500" x2="700" y2="500" stroke="#404040" stroke-width="1"/>
+  <line x1="100" y1="100" x2="100" y2="500" stroke="#404040" stroke-width="1"/>
+  <!-- Y axis labels -->
+  <text x="80" y="110" text-anchor="end" fill="#94a3b8" font-size="12">3,60</text>
+  <text x="80" y="300" text-anchor="end" fill="#94a3b8" font-size="12">3,30</text>
+  <text x="80" y="500" text-anchor="end" fill="#94a3b8" font-size="12">3,00</text>
+  <!-- X axis labels -->
+  <text x="200" y="530" text-anchor="middle" fill="#94a3b8" font-size="12">Mai/26</text>
+  <text x="600" y="530" text-anchor="middle" fill="#94a3b8" font-size="12">Jun/26</text>
+  <!-- Data points -->
+  <!-- Point May/26: price 3.36 -->
+  <circle cx="200" cy="260" r="4" fill="#e4d17f"/>
+  <!-- Point Jun/26: price 3.43 -->
+  <circle cx="600" cy="213" r="4" fill="#e4d17f"/>
+  <!-- Line connecting points -->
+  <line x1="200" y1="260" x2="600" y2="213" stroke="#e4d17f" stroke-width="2"/>
+  <!-- Average cost line (dashed) -->
+  <line x1="150" y1="233" x2="750" y2="233" stroke="#e4d17f" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="760" y="237" text-anchor="start" fill="#e4d17f" font-size="12">Custo médio R$ 3,40</text>
+  <!-- Point for average cost (optional) -->
+  <circle cx="400" cy="233" r="3" fill="#e4d17f" opacity="0.6"/>
+</svg>

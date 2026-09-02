@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Leitura IA em Loop de 07/05/2026: IA, investimentos, Brasil, geopolítica, repertório monitorado e análise de BBAS3 com prós, contras e leitura de compra, venda ou espera.">
+    <title>07/05: IA, geopolítica e BBAS3 no radar | IA em Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { min-height: 100%; background: #06080D; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)),
+                        url('../../assets/bg-carteiras.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-color: #06080D;
+            color: #e2e8f0;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container { max-width: 920px; margin: 0 auto; }
+        .back-button {
+            position: fixed; top: 20px; left: 20px;
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(251,191,36,0.9); color: white;
+            padding: 8px 16px; border-radius: 8px;
+            text-decoration: none; font-weight: 600; font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: background 0.2s, transform 0.1s; z-index: 1000;
+        }
+        .back-button:hover { background: #E4D17F; transform: translateY(-1px); }
+        article {
+            background: rgba(19, 29, 39, 0.75);
+            border-radius: 12px;
+            padding: 34px;
+            border-left: 4px solid #19364D;
+            border: 1px solid rgba(228, 209, 127, 0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.05rem);
+            line-height: 1.08;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6EE4EF, #E4D17F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 14px;
+        }
+        .dek {
+            color: #cbd5e1;
+            font-size: 1.12rem;
+            line-height: 1.75;
+            margin-bottom: 22px;
+        }
+        .meta {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            color: #94a3b8;
+            font-size: 0.86rem;
+            margin-bottom: 30px;
+        }
+        .meta span {
+            background: rgba(228, 209, 127, 0.15);
+            color: #E4D17F;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-weight: 600;
+            border: 1px solid rgba(228, 209, 127, 0.2);
+        }
+        h2 {
+            color: #fff;
+            font-size: 1.45rem;
+            margin: 34px 0 12px;
+            border-bottom: 2px solid #19364D;
+            padding-bottom: 10px;
+        }
+        p, li { overflow-wrap: anywhere;
+            color: #cbd5e1;
+            line-height: 1.78;
+            font-size: 1.02rem;
+        }
+        p { margin-bottom: 16px; }
+        ul { padding-left: 22px; margin-bottom: 18px; }
+        li { margin-bottom: 8px; }
+        strong { color: #fff; }
+        a { color: #E4D17F; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .callout {
+            background: rgba(6, 8, 13, 0.5);
+            border-left: 4px solid #E4D17F;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 24px 0;
+        }
+        .scorecard {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin: 22px 0;
+        }
+        .scorecard div {
+            background: rgba(6, 8, 13, 0.45);
+            border: 1px solid rgba(228, 209, 127, 0.18);
+            border-radius: 8px;
+            padding: 14px;
+        }
+        .scorecard span {
+            display: block;
+            color: #94a3b8;
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .scorecard strong {
+            color: #E4D17F;
+            font-size: 1.1rem;
+        }
+        .source-note {
+            background: rgba(6, 8, 13, 0.45);
+            border: 1px solid rgba(228, 209, 127, 0.18);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 28px;
+            color: #94a3b8;
+            font-size: 0.94rem;
+        }
+        .footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        @media (max-width: 768px) {
+            body { padding: 72px 16px 32px; }
+            article { padding: 24px; }
+            .scorecard { grid-template-columns: 1fr; }
+            .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "07/05: IA, geopolítica e BBAS3 no radar",
+      "description": "Leitura IA em Loop de 07/05/2026: IA, investimentos, Brasil, geopolítica, repertório monitorado e análise de BBAS3 com prós, contras e leitura de compra, venda ou espera.",
+      "author": { "@type": "Organization", "name": "IA em Loop" },
+      "publisher": { "@type": "Organization", "name": "IA em Loop", "url": "https://iaemloop.com.br" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://iaemloop.com.br/blog/posts/2026-05-07-briefing-bbas3-crise-ia.html" },
+      "datePublished": "2026-05-08",
+      "dateModified": "2026-05-08",
+      "keywords": ["briefing", "IA", "investimentos", "geopolítica", "BBAS3", "Banco do Brasil", "ações", "crise"]
+    }
+    </script>
+</head>
+<body>
+    <a href="../index.html" class="back-button" title="Voltar ao Blog">← Blog</a>
+    <main class="container">
+        <article>
+            <h1>07/05: IA, geopolítica e BBAS3 no radar</h1>
+            <p class="dek">O mercado segue dividido entre juros altos, tensão geopolítica e a corrida por eficiência em IA. A ação do dia é BBAS3, escolhida por aparecer entre as primeiras posições do ranking BESST & Buffett.</p>
+            <div class="meta">
+                <span>08/05/2026</span>
+                <span>Leitura diária</span>
+                <span>BBAS3</span>
+                <span>IA e mercado</span>
+                <span>7 min</span>
+            </div>
+
+            <h2>O sinal do dia</h2>
+            <p>O ponto central do dia foi eficiência. Na IA, a disputa deixou de ser apenas por modelos maiores e passou a envolver custo por token, velocidade de inferência, automações que funcionam e integração real com produtos. Para investimentos, isso significa separar empresas que apenas usam a palavra "IA" daquelas que conseguem transformar tecnologia em margem, escala ou vantagem competitiva.</p>
+            <p>No mercado, o alerta continua em juros, dólar e risco fiscal. A leitura prática é simples: com CDI ainda forte, qualquer ativo de risco precisa justificar muito bem o prêmio que promete entregar.</p>
+            <p>No pano de fundo, o Brasil ainda depende da combinação entre inflação, juros, atividade econômica e ruído político. Fora daqui, dólar forte, crescimento desigual e tensão comercial continuam afetando o humor dos mercados. A disputa entre EUA e China aparece menos como manchete distante e mais como variável concreta para quem investe em tecnologia, chips, energia e cadeias de suprimento.</p>
+            <p>Esse ambiente favorece uma carteira menos dependente de narrativas. Empresas com caixa, demanda recorrente, poder de preço, boa governança e balanço resistente tendem a atravessar melhor períodos de crise, guerras e incerteza.</p>
+            <p>Na camada de repertório, esta edição ainda ficou incompleta: o registro recuperado não trouxe links verificáveis de vídeos, posts ou falas específicas dos criadores acompanhados. Em vez de preencher esse espaço com atribuições frágeis, a leitura fica restrita ao que foi possível validar. Para as próximas publicações, cada referência externa precisa entrar com nome, link, tese defendida e impacto prático para carteira, risco ou oportunidade.</p>
+
+            <h2>O futuro dos investimentos em crise</h2>
+            <p>Em um mundo com guerras, tensão comercial, corrida tecnológica e juros ainda relevantes, o investidor precisa pensar menos em "o que sobe amanhã" e mais em "o que sobrevive bem a cenários ruins". Isso coloca alguns temas no centro da análise: infraestrutura de IA, semicondutores, energia, cibersegurança, serviços essenciais, saneamento, seguros, bancos fortes, renda fixa de boa qualidade e empresas com baixa alavancagem.</p>
+            <p>A incerteza não elimina oportunidades. Ela muda a régua. Em vez de buscar apenas crescimento, faz sentido exigir margem de segurança, liquidez e capacidade de continuar gerando caixa quando o cenário piora.</p>
+
+            <h2>Ação do dia: BBAS3</h2>
+            <p>A ação escolhida foi <strong>BBAS3</strong>, Banco do Brasil. No ranking BESST & Buffett do IA em Loop, o papel aparece na 3ª posição, no setor de bancos, com dividend yield indicado de 5,2%, P/VP de 0,84 e score 2521. A escolha não é por popularidade; é por combinação de preço, dividendos e presença no ranking.</p>
+            <div class="scorecard">
+                <div>
+                    <span>Ranking IA em Loop</span>
+                    <strong>3ª posição</strong>
+                </div>
+                <div>
+                    <span>P/VP no ranking</span>
+                    <strong>0,84</strong>
+                </div>
+                <div>
+                    <span>DY no ranking</span>
+                    <strong>5,2%</strong>
+                </div>
+            </div>
+            <p>Fontes de mercado consultadas em 08/05 indicavam BBAS3 perto de R$ 21,80 no pregão de 07/05, com queda no mês e em 12 meses. Esse dado muda a leitura: o papel parece barato por P/VP, mas ainda carrega pressão técnica e risco de resultado.</p>
+
+            <h2>Prós de BBAS3</h2>
+            <ul>
+                <li><strong>Valuation descontado:</strong> P/VP abaixo de 1 sugere que o mercado negocia o banco com desconto frente ao patrimônio contábil.</li>
+                <li><strong>Banco grande e líquido:</strong> BBAS3 tem escala, presença nacional e liquidez maior do que muitos papéis menores do ranking.</li>
+                <li><strong>Dividendos:</strong> o papel continua interessante para uma estratégia de renda, desde que lucro e payout sejam acompanhados.</li>
+                <li><strong>Exposição ao Brasil real:</strong> crédito, agro, varejo, empresas e governo passam pelo Banco do Brasil, o que dá relevância econômica ao ativo.</li>
+            </ul>
+
+            <h2>Contras de BBAS3</h2>
+            <ul>
+                <li><strong>Risco político:</strong> por ser banco estatal, existe risco de interferência em crédito, rentabilidade, dividendos e estratégia.</li>
+                <li><strong>Ciclo de crédito:</strong> inadimplência e provisões podem pressionar lucro, especialmente em segmentos sensíveis como agro e pessoa física.</li>
+                <li><strong>Juros em queda:</strong> a queda da Selic pode ajudar a atividade, mas também pressiona margens financeiras se o banco não compensar com volume e controle de risco.</li>
+                <li><strong>Momento técnico fraco:</strong> a ação caiu no curto prazo, então comprar sem plano pode virar tentativa de acertar fundo.</li>
+            </ul>
+
+            <h2>Compra, venda ou espera?</h2>
+            <div class="callout">
+                <p><strong>Leitura IA em Loop: espera com viés de compra gradual.</strong></p>
+            </div>
+            <p>Pelo ranking, BBAS3 merece estudo e não parece caso óbvio de venda. O desconto de P/VP, a posição no ranking e o histórico de dividendos dão suporte para acompanhar ou montar posição aos poucos.</p>
+            <p>Mas, para compra imediata, falta confirmação em duas frentes: resultado mais recente e estabilização do preço. Com pressão técnica, risco político e dúvidas sobre qualidade do crédito, a leitura mais responsável para hoje é <strong>espera</strong>, com viés de compra gradual se o investidor aceitar o risco estatal e tiver horizonte longo.</p>
+            <p>Venda faria sentido apenas se a tese pessoal depender de crescimento rápido, se a carteira já estiver concentrada em bancos ou se novos resultados mostrarem deterioração forte de lucro, inadimplência ou dividendos.</p>
+
+            <h2>Checklist antes de agir</h2>
+            <ul>
+                <li>Verificar o resultado trimestral mais recente e a evolução das provisões.</li>
+                <li>Comparar BBAS3 com ITUB4, BBDC4 e BBSE3 antes de aumentar exposição ao setor financeiro.</li>
+                <li>Definir tamanho máximo da posição para evitar concentração em banco estatal.</li>
+                <li>Evitar compra única; se a tese fizer sentido, preferir entradas graduais.</li>
+            </ul>
+
+            <p class="source-note">Fontes editoriais: ranking BESST & Buffett do IA em Loop; dados públicos de mercado consultados em 08/05/2026 sobre BBAS3. Conteúdo educacional; não é recomendação de investimento.</p>
+        </article>
+
+        <footer class="footer">
+            <p>⌨️ Gerado por script • Não é recomendação de investimento • Faça sua própria análise</p>
+        </footer>
+    </main>
+</body>
+</html>

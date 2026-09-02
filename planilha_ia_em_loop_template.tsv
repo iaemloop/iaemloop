@@ -1,0 +1,9 @@
+Data	Ativo	Ticker	Operação	Quantidade	Preço Unitário (R$)	Valor Total (R$)	Taxas (R$)	Resultado Líquido (R$)	Resultado (%)	Motivo IA	Comentários
+2025-01-06	Caixa			Depósito inicial	1000.00								Capital inicial
+2025-01-13	Ações	ITUB4	Compra	10	30.50	305.00	1.50			Dividendos + setor bancário sólido
+2025-01-13	Ações	VALE3	Compra	5	68.20	341.00	1.70			Mineração defensiva, bons fundamentos
+2025-01-20	Ações	ITUB4	Venda	10	31.20	312.00	1.60	6.00	1.97%	Alvo atingido	IA sugeriu take profit
+2025-01-27	Cripto	BTC	Compra	0.001	280000.00	280.00	1.00			On-chain positivo, acumulação
+TOTAL			1926.00	8.80	6.00	1.97%			
+Patrimônio total	R$ 1,000.00 + R$ 6.00 = R$ 1,006.00			
+Rentabilidade	+0.60% na semana, +0.60% no total			

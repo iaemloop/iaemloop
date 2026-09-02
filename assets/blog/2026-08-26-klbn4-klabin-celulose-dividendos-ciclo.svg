@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">KLBN4, Klabin e o ciclo da celulose</title>
+  <desc id="desc">Diagrama IA em Loop sobre KLBN4, ranking BESST e Buffett, compra real, dividendos, câmbio, alavancagem e ciclo da celulose.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06080D"/><stop offset="0.5" stop-color="#132032"/><stop offset="1" stop-color="#1b2a22"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6EE4EF"/><stop offset="1" stop-color="#E4D17F"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000" flood-opacity="0.35"/></filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1040" cy="96" r="220" fill="#E4D17F" opacity="0.08"/>
+  <circle cx="150" cy="535" r="230" fill="#6EE4EF" opacity="0.07"/>
+  <path d="M905 92c88 62 115 151 81 267-30 103-114 170-229 204 49-73 64-149 47-229-18-85 13-166 101-242z" fill="#65a30d" opacity="0.18"/>
+  <path d="M924 116c-38 126-88 236-151 330" stroke="#86efac" stroke-width="8" opacity="0.22" fill="none" stroke-linecap="round"/>
+  <text x="70" y="88" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">IA em Loop • leitura educacional</text>
+  <text x="70" y="165" fill="url(#gold)" font-family="Inter, Arial, sans-serif" font-size="68" font-weight="800">KLBN4</text>
+  <text x="70" y="228" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">dividendo bom ou ciclo caro de celulose?</text>
+  <text x="72" y="276" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="24">Klabin na carteira real: perenidade, câmbio, caixa e dívida no mesmo pacote.</text>
+  <g filter="url(#shadow)">
+    <rect x="70" y="335" width="230" height="130" rx="18" fill="#111827" stroke="#E4D17F" stroke-opacity="0.35"/>
+    <text x="95" y="378" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Ranking</text>
+    <text x="95" y="430" fill="#E4D17F" font-family="Inter, Arial, sans-serif" font-size="44" font-weight="800">#3</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="325" y="335" width="230" height="130" rx="18" fill="#111827" stroke="#6EE4EF" stroke-opacity="0.35"/>
+    <text x="350" y="378" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Dividend yield</text>
+    <text x="350" y="430" fill="#6EE4EF" font-family="Inter, Arial, sans-serif" font-size="44" font-weight="800">8,9%</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="580" y="335" width="230" height="130" rx="18" fill="#111827" stroke="#E4D17F" stroke-opacity="0.35"/>
+    <text x="605" y="378" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Compra real</text>
+    <text x="605" y="430" fill="#E4D17F" font-family="Inter, Arial, sans-serif" font-size="44" font-weight="800">46 ações</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="835" y="335" width="295" height="130" rx="18" fill="#111827" stroke="#f87171" stroke-opacity="0.35"/>
+    <text x="860" y="378" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Risco central</text>
+    <text x="860" y="423" fill="#fca5a5" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">celulose</text>
+  </g>
+  <path d="M92 535 C226 492, 345 562, 492 520 S754 486, 920 530 S1070 560, 1130 505" fill="none" stroke="url(#gold)" stroke-width="8" stroke-linecap="round" opacity="0.9"/>
+  <text x="70" y="585" fill="#64748b" font-family="Inter, Arial, sans-serif" font-size="18">Perenidade ajuda; ciclo, câmbio e alavancagem decidem a margem de segurança.</text>
+</svg>

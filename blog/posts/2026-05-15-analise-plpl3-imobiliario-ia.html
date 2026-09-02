@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Análise IA em Loop de 15/05/2026: PLPL3 no ranking Magic Formula, construção civil, juros, crédito imobiliário, Minha Casa Minha Vida e uso de IA na execução operacional.">
+    <title>15/05: PLPL3, juros e IA no ciclo imobiliário | IA em Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { min-height: 100%; background: #06080D; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)), url('../../assets/bg-carteiras.jpg') no-repeat center center fixed; background-size: cover; background-color: #06080D; color: #e2e8f0; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 980px; margin: 0 auto; }
+        .back-button { position: fixed; top: 20px; left: 20px; display: inline-flex; align-items: center; gap: 6px; background: rgba(251,191,36,0.9); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: background 0.2s, transform 0.1s; z-index: 1000; }
+        .back-button:hover { background: #E4D17F; transform: translateY(-1px); }
+        article { background: rgba(19, 29, 39, 0.78); border-radius: 14px; padding: 34px; border-left: 4px solid #19364D; border: 1px solid rgba(228, 209, 127, 0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h1 { overflow-wrap: anywhere; hyphens: auto; font-size: clamp(2rem, 5vw, 3.05rem); line-height: 1.08; font-weight: 800; background: linear-gradient(135deg, #6EE4EF, #E4D17F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; }
+        .dek { color: #cbd5e1; font-size: 1.12rem; line-height: 1.75; margin-bottom: 22px; }
+        .meta { display: flex; gap: 8px; flex-wrap: wrap; color: #94a3b8; font-size: 0.86rem; margin-bottom: 30px; }
+        .meta span { background: rgba(228, 209, 127, 0.15); color: #E4D17F; padding: 4px 10px; border-radius: 999px; font-weight: 600; border: 1px solid rgba(228, 209, 127, 0.2); }
+        h2 { color: #fff; font-size: 1.45rem; margin: 34px 0 12px; border-bottom: 2px solid #19364D; padding-bottom: 10px; }
+        h3 { color: #E4D17F; font-size: 1.08rem; margin: 22px 0 8px; }
+        p, li { overflow-wrap: anywhere; color: #cbd5e1; line-height: 1.78; font-size: 1.02rem; }
+        p { margin-bottom: 16px; }
+        ul { padding-left: 22px; margin-bottom: 18px; }
+        li { margin-bottom: 8px; }
+        strong { color: #fff; }
+        code { color: #E4D17F; background: rgba(6,8,13,.45); padding: 2px 5px; border-radius: 4px; }
+        a { color: #E4D17F; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .hero-chart { display: block; max-width: 100%; height: auto; width: 100%; border-radius: 14px; border: 1px solid rgba(228, 209, 127, 0.18); margin: 20px 0 8px; background: rgba(6,8,13,.35); box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+        .caption { color: #94a3b8; font-size: .9rem; margin-bottom: 24px; }
+        .callout { background: rgba(6, 8, 13, 0.5); border-left: 4px solid #E4D17F; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .scorecard { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+        .scorecard div { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 14px; }
+        .scorecard span { display: block; color: #94a3b8; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; }
+        .scorecard strong { color: #E4D17F; font-size: 1.1rem; }
+        .matrix { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 18px 0; }
+        .matrix div { background: rgba(6, 8, 13, 0.42); border: 1px solid rgba(110,228,239,.15); border-radius: 10px; padding: 14px; }
+        .mini-table { width:100%; border-collapse: collapse; margin: 18px 0; overflow:hidden; border-radius:10px; }
+        .mini-table th, .mini-table td { padding: 11px 10px; border-bottom: 1px solid rgba(255,255,255,.08); text-align:left; color:#cbd5e1; }
+        .mini-table th { color:#E4D17F; background:rgba(6,8,13,.55); font-size:.92rem; }
+        .source-note { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 16px; margin-top: 28px; color: #94a3b8; font-size: 0.94rem; }
+        .footer { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        @media (max-width: 768px) { body { padding: 72px 16px 32px; } article { padding: 24px; } .scorecard, .matrix { grid-template-columns: 1fr; } .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; } .mini-table { font-size:.9rem; } }
+</style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "15/05: PLPL3, juros e IA no ciclo imobiliário",
+      "description": "Análise IA em Loop de 15/05/2026: PLPL3 no ranking Magic Formula, construção civil, juros, crédito imobiliário, Minha Casa Minha Vida e uso de IA na execução operacional.",
+      "author": { "@type": "Organization", "name": "IA em Loop" },
+      "publisher": { "@type": "Organization", "name": "IA em Loop", "url": "https://iaemloop.com.br" },
+      "datePublished": "2026-05-15",
+      "dateModified": "2026-05-15",
+      "image": "https://iaemloop.com.br/assets/blog/plpl3-imobiliario-juros-ia.svg",
+      "keywords": ["PLPL3", "Plano&Plano", "Magic Formula", "construção civil", "juros", "Minha Casa Minha Vida", "IA"]
+    }
+    </script>
+</head>
+<body>
+    <a href="../index.html" class="back-button" title="Voltar ao Blog">← Blog</a>
+    <main class="container">
+        <article>
+            <h1>15/05: PLPL3, juros e IA no ciclo imobiliário</h1>
+            <p class="dek">Depois de PSSA3 e WIZC3, o ranking Magic Formula leva a leitura diária para construção civil. PLPL3 aparece como terceiro nome do filtro de maio, mas o setor exige uma pergunta mais dura: ROIC alto e P/L baixo compensam o risco de juros, crédito, margem e velocidade de vendas?</p>
+            <div class="meta"><span>15/05/2026</span><span>Leitura diária</span><span>PLPL3</span><span>Construção civil</span><span>Magic Formula</span><span>8 min</span></div>
+            <img class="hero-chart" src="../../assets/blog/plpl3-imobiliario-juros-ia.svg" alt="Diagrama IA em Loop sobre PLPL3, construção civil, juros, crédito imobiliário e IA operacional">
+            <p class="caption">Leitura visual: PLPL3 combina posição forte no ranking com sensibilidade alta a execução operacional, crédito imobiliário e ciclo de juros.</p>
+
+            <h2>O sinal do dia</h2>
+            <p>A leitura de 15/05 foca em <strong>PLPL3</strong> porque o papel aparece como próximo nome relevante do ranking Magic Formula que ainda não tinha virado análise diária recente. A escolha também muda o ângulo da sequência: depois de seguros e commodities, entra uma tese mais ligada a juros, crédito imobiliário, Minha Casa Minha Vida e execução operacional.</p>
+            <p>O ambiente segue difícil para empresas cíclicas: juros altos competem com ações, crédito imobiliário precisa de confiança e o comprador de baixa/média renda depende de renda, subsídio e previsibilidade. Ao mesmo tempo, construtoras focadas em Minha Casa Minha Vida podem se beneficiar de demanda estrutural, preço médio acessível e execução eficiente. É exatamente o tipo de situação em que ranking quantitativo ajuda, mas não substitui a leitura de canteiro, caixa e vendas.</p>
+            <div class="callout"><p><strong>Leitura IA em Loop:</strong> PLPL3 não é tese defensiva como seguradora nem commodity como mineração. É uma aposta em execução dentro de um ciclo sensível a juros. O ranking abre a porta; margem, VSO, distratos, caixa e financiamento decidem se vale entrar.</p></div>
+
+            <h2>Por que PLPL3 hoje?</h2>
+            <p>No ranking Magic Formula de maio do IA em Loop, PLPL3 aparece em <strong>3º lugar</strong>, com <strong>ROIC de 29,26%</strong>, <strong>earnings yield de 23,98%</strong> e <strong>score final 20</strong>. Em consulta ao Fundamentus feita hoje, a ação aparecia a <strong>R$ 10,62</strong>, com <strong>P/L de 6,45</strong>, <strong>P/VP de 2,03</strong>, <strong>dividend yield de 4,6%</strong>, <strong>ROE de 31,6%</strong> e <strong>ROIC de 29,4%</strong>. A fotografia é atraente, mas o setor não permite preguiça.</p>
+            <p>O noticiário recente reforça a ambiguidade. Manchetes de mercado apontaram que a Plano&Plano teve alta de lucro no 4T25, mas também trouxeram discussões sobre o 1T26 com receita crescendo e lucro/margens pressionados. XP e Money Times destacaram preço mais alto, VSO mais fraco e pontos de atenção no trimestre. Em outras palavras: o mercado reconhece execução, mas cobra constância.</p>
+            <table class="mini-table">
+              <thead><tr><th>Item</th><th>Leitura verificada</th><th>Implicação</th></tr></thead>
+              <tbody>
+                <tr><td>Ranking</td><td>3º na Magic Formula de maio</td><td>Nome relevante para analisar retorno sobre capital, crescimento e risco do ciclo imobiliário</td></tr>
+                <tr><td>ROIC</td><td>29,26% no ranking; 29,4% no Fundamentus</td><td>Indício de retorno alto, mas dependente de execução e ciclo</td></tr>
+                <tr><td>Earnings yield</td><td>23,98% no ranking local</td><td>Sinal de preço aparentemente razoável frente ao lucro</td></tr>
+                <tr><td>Preço/contexto</td><td>R$ 10,62 no Fundamentus</td><td>Referência pontual, não preço-alvo</td></tr>
+                <tr><td>Setor</td><td>Construção civil, foco em baixa/média renda</td><td>Exige monitorar crédito, subsídio, VSO, distratos e margem bruta</td></tr>
+              </tbody>
+            </table>
+
+            <h2>Tese, pontos positivos e riscos</h2>
+            <div class="matrix">
+                <div><h3>Tese</h3><p>PLPL3 pode capturar demanda estrutural por habitação popular e média renda, especialmente quando programas habitacionais, urbanização e preço acessível sustentam lançamentos e vendas.</p></div>
+                <div><h3>Pontos positivos</h3><p>Ranking forte, ROIC elevado, P/L baixo, ROE robusto e histórico recente de crescimento operacional. Se a companhia mantiver giro rápido e disciplina de margem, o valuation pode continuar interessante.</p></div>
+                <div><h3>Riscos</h3><p>Juros altos, crédito mais seletivo, queda de VSO, distratos, pressão de custos, margem menor no 1T26 e risco de o mercado antecipar desaceleração antes de ela aparecer plenamente nos números anuais.</p></div>
+                <div><h3>Contexto macro</h3><p>Com CDI elevado, o investidor exige prêmio maior para comprar construtora. A tese só fica boa se o retorno operacional superar claramente o risco de ciclo e o custo de oportunidade da renda fixa.</p></div>
+            </div>
+
+            <h2>Onde a IA entra na história</h2>
+            <p>Em construção civil, IA não precisa ser robô em canteiro para gerar valor. Ela pode melhorar precificação de unidades, previsão de demanda por região, controle de orçamento, compras, planejamento de obras, atendimento, qualificação de leads, análise de crédito, pós-venda e redução de retrabalho. Para uma construtora com alto volume de lançamentos, pequenos ganhos de conversão e controle podem virar margem.</p>
+            <p>Mas existe um limite: IA não resolve ciclo de juros ruim, falta de financiamento, terreno mal comprado ou execução fraca. O ponto relevante para PLPL3 é saber se tecnologia e dados reforçam uma operação já disciplinada ou se viram apenas narrativa para mascarar pressão de margem.</p>
+
+            <h2>Compra, venda ou espera?</h2>
+            <p>Pelos critérios do IA em Loop, PLPL3 entra hoje como <strong>espera ativa com viés de compra em recuos</strong>. O ranking e os múltiplos justificam estudo sério, mas o noticiário do 1T26 pede cautela: receita crescendo com lucro/margem pressionados é combinação que precisa de validação no release e nos próximos trimestres.</p>
+            <ul>
+                <li><strong>Gatilho de compra:</strong> VSO estabilizando, margens preservadas, caixa saudável, distratos controlados, demanda forte no público-alvo e preço oferecendo margem de segurança frente ao CDI.</li>
+                <li><strong>Gatilho de espera:</strong> lucro pressionado, dúvida sobre ritmo de vendas, alta de custos, financiamento mais restrito ou ação já precificando cenário perfeito.</li>
+                <li><strong>Gatilho de venda/redução:</strong> deterioração recorrente de margem, consumo de caixa, endividamento subindo sem retorno, queda persistente de lançamentos/vendas ou perda de disciplina de capital.</li>
+            </ul>
+            <div class="scorecard">
+                <div><span>Classificação de hoje</span><strong>Espera ativa</strong></div>
+                <div><span>Viés</span><strong>Compra em recuos</strong></div>
+                <div><span>Risco-chave</span><strong>Margem e VSO</strong></div>
+            </div>
+
+            <h2>O que isso muda na carteira</h2>
+            <p>PLPL3 adiciona uma camada cíclica diferente das leituras anteriores. PSSA3 e WIZC3 puxavam a discussão para seguros, caixa, dividendos e eficiência operacional; CMIN3 e PETR4 carregavam commodities; PLPL3 traz o risco Brasil mais direto: renda, crédito, juros, construção e confiança do consumidor.</p>
+            <p>Para uma carteira skin in the game, a consequência prática é não concentrar demais em um único tipo de proteção. O ranking pode colocar PLPL3 perto do topo, mas uma posição imobiliária precisa conviver com renda fixa, empresas mais defensivas e ativos de setores menos dependentes de crédito. O papel pode ser excelente se comprado com margem; pode ser armadilha se o investidor ignorar ciclo.</p>
+
+            <h2>Checklist antes de agir</h2>
+            <ul>
+                <li>Ler release e apresentação do 1T26, separando crescimento de receita, lucro, margem bruta, margem líquida e geração de caixa.</li>
+                <li>Monitorar VSO, distratos, estoque, lançamentos e velocidade de repasse de preço.</li>
+                <li>Comparar PLPL3 com CURY3, TEND3, MRVE3 e EZTC3 para entender se o desconto é específico ou setorial.</li>
+                <li>Checar endividamento, custo da dívida, andamento de obras e exposição a programas habitacionais.</li>
+                <li>Usar R$ 10,62 apenas como fotografia de consulta; preço de execução deve ser validado no home broker/B3.</li>
+            </ul>
+
+            <div class="source-note"><strong>Fontes e método:</strong> ranking Magic Formula de maio do IA em Loop; consulta ao Fundamentus para PLPL3, QUAL3, LEVE3 e CSUD3; Google News RSS com manchetes de InfoMoney, XP Investimentos, Money Times, Nord Investimentos, EuQueroInvestir e Finance News sobre PLPL3, Plano&Plano, 1T26, construção civil, crédito imobiliário e Minha Casa Minha Vida; leitura editorial IA em Loop. Estudo educacional; não é recomendação personalizada de investimento.</div>
+        </article>
+        <div class="footer">⌨️ IA em Loop • Estudo, transparência e skin in the game • Não é recomendação de investimento</div>
+    </main>
+</body>
+</html>

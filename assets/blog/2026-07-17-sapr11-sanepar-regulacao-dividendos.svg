@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">SAPR11: saneamento, regulação e dividendos</title>
+  <desc id="desc">Painel visual da análise IA em Loop sobre SAPR11, com preço, carteira real BESST, ranking, riscos regulatórios e dividendos.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06101a"/>
+      <stop offset="0.55" stop-color="#0b1724"/>
+      <stop offset="1" stop-color="#10283a"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6EE4EF"/>
+      <stop offset="1" stop-color="#E4D17F"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1030" cy="95" r="190" fill="#6EE4EF" opacity="0.08"/>
+  <circle cx="140" cy="560" r="240" fill="#E4D17F" opacity="0.07"/>
+  <text x="70" y="80" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">IA em Loop • Leitura diária • 17/07/2026</text>
+  <text x="70" y="150" fill="url(#gold)" font-family="Inter, Arial, sans-serif" font-size="66" font-weight="900">SAPR11</text>
+  <text x="70" y="210" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">saneamento barato ou alerta regulatório?</text>
+  <text x="70" y="258" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="25">Sanepar combina negócio essencial, carteira real BESST e preço abaixo do custo.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="315" width="250" height="125" rx="18" fill="#101722" stroke="#E4D17F" stroke-opacity="0.28"/>
+    <text x="95" y="355" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Preço consultado</text>
+    <text x="95" y="405" fill="#E4D17F" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="900">R$ 37,23</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="350" y="315" width="250" height="125" rx="18" fill="#101722" stroke="#6EE4EF" stroke-opacity="0.24"/>
+    <text x="375" y="355" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">PM na carteira</text>
+    <text x="375" y="405" fill="#6EE4EF" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="900">R$ 44,33</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="630" y="315" width="250" height="125" rx="18" fill="#101722" stroke="#f97316" stroke-opacity="0.28"/>
+    <text x="655" y="355" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Variação vs. PM</text>
+    <text x="655" y="405" fill="#fb923c" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="900">-16,0%</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="910" y="315" width="220" height="125" rx="18" fill="#101722" stroke="#E4D17F" stroke-opacity="0.24"/>
+    <text x="935" y="355" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">BESST</text>
+    <text x="935" y="405" fill="#E4D17F" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="900">#6</text>
+  </g>
+
+  <path d="M110 520 C240 470 330 545 470 495 S705 430 850 500 S1030 570 1125 505" fill="none" stroke="#6EE4EF" stroke-width="8" stroke-linecap="round" opacity="0.85"/>
+  <path d="M110 560 C240 510 330 585 470 535 S705 470 850 540 S1030 610 1125 545" fill="none" stroke="#E4D17F" stroke-width="4" stroke-linecap="round" opacity="0.55"/>
+  <text x="70" y="598" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="20">Tese melhora com regulação previsível e retorno sobre capital; piora se dividendos cedem sem ganho operacional.</text>
+</svg>

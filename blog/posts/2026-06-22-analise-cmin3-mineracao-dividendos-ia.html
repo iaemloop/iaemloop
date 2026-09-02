@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Análise IA em Loop de 22/06/2026: CMIN3 CSN Mineração no ranking Magic Formula, dividendos de 25%, ROE 31,5%, ciclo do minério e teste do câmbio.">
+    <title>22/06: CMIN3, mineração e o teste dos dividendos no topo do ciclo | IA em Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { min-height: 100%; background: #06080D; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)), url('../../assets/bg-carteiras.jpg') no-repeat center center fixed; background-size: cover; background-color: #06080D; color: #e2e8f0; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 980px; margin: 0 auto; }
+        .back-button { position: fixed; top: 20px; left: 20px; display: inline-flex; align-items: center; gap: 6px; background: rgba(251,191,36,0.9); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: background 0.2s, transform 0.1s; z-index: 1000; }
+        .back-button:hover { background: #E4D17F; transform: translateY(-1px); }
+        article { background: rgba(19, 29, 39, 0.78); border-radius: 14px; padding: 34px; border-left: 4px solid #19364D; border: 1px solid rgba(228, 209, 127, 0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h1 { overflow-wrap: anywhere; hyphens: auto; font-size: clamp(2rem, 5vw, 3.05rem); line-height: 1.08; font-weight: 800; background: linear-gradient(135deg, #6EE4EF, #E4D17F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; }
+        .dek { color: #cbd5e1; font-size: 1.12rem; line-height: 1.75; margin-bottom: 22px; }
+        .meta { display: flex; gap: 8px; flex-wrap: wrap; color: #94a3b8; font-size: 0.86rem; margin-bottom: 30px; }
+        .meta span { background: rgba(228, 209, 127, 0.15); color: #E4D17F; padding: 4px 10px; border-radius: 999px; font-weight: 600; border: 1px solid rgba(228, 209, 127, 0.2); }
+        h2 { color: #fff; font-size: 1.45rem; margin: 34px 0 12px; border-bottom: 2px solid #19364D; padding-bottom: 10px; }
+        h3 { color: #E4D17F; font-size: 1.08rem; margin: 22px 0 8px; }
+        p, li { overflow-wrap: anywhere; color: #cbd5e1; line-height: 1.78; font-size: 1.02rem; }
+        p { margin-bottom: 16px; }
+        ul { padding-left: 22px; margin-bottom: 18px; }
+        li { margin-bottom: 8px; }
+        strong { color: #fff; }
+        a { color: #E4D17F; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .hero-chart { display: block; max-width: 100%; height: auto; width: 100%; border-radius: 14px; border: 1px solid rgba(228, 209, 127, 0.18); margin: 20px 0 8px; background: rgba(6,8,13,.35); box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+        .caption { color: #94a3b8; font-size: .9rem; margin-bottom: 24px; }
+        .callout { background: rgba(6, 8, 13, 0.5); border-left: 4px solid #E4D17F; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .scorecard { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+        .scorecard div { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 14px; }
+        .scorecard span { display: block; color: #94a3b8; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; }
+        .scorecard strong { color: #E4D17F; font-size: 1.1rem; }
+        .matrix { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 18px 0; }
+        .matrix div { background: rgba(6, 8, 13, 0.42); border: 1px solid rgba(110,228,239,.15); border-radius: 10px; padding: 14px; }
+        .mini-table { width:100%; border-collapse: collapse; margin: 18px 0; overflow:hidden; border-radius:10px; }
+        .mini-table th, .mini-table td { padding: 11px 10px; border-bottom: 1px solid rgba(255,255,255,.08); text-align:left; color:#cbd5e1; }
+        .mini-table th { color:#E4D17F; background:rgba(6,8,13,.55); font-size:.92rem; }
+        .source-note { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 16px; margin-top: 28px; color: #94a3b8; font-size: 0.94rem; }
+        .footer { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        @media (max-width: 768px) { body { padding: 72px 16px 32px; } article { padding: 24px; } .scorecard, .matrix { grid-template-columns: 1fr; } .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; } }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "22/06: CMIN3, mineração e o teste dos dividendos no topo do ciclo",
+      "description": "Análise IA em Loop de CMIN3 CSN Mineração no ranking Magic Formula, com dividendos de 25%, ROE 31,5%, ciclo do minério e câmbio.",
+      "image": "https://iaemloop.com.br/assets/blog/cmin3-mineracao-dividendos-ciclo.svg",
+      "datePublished": "2026-06-22",
+      "dateModified": "2026-06-22",
+      "author": {"@type": "Organization", "name": "IA em Loop"},
+      "publisher": {"@type": "Organization", "name": "IA em Loop"},
+      "keywords": ["CMIN3", "CSN Mineração", "Magic Formula", "mineração", "dividendos", "minério de ferro", "câmbio", "ciclo commodities"]
+    }
+    </script>
+</head>
+<body>
+    <a href="../index.html" class="back-button" title="Voltar ao blog">← Blog</a>
+    <main class="container">
+        <article>
+            <h1>22/06: CMIN3, mineração e o teste dos dividendos no topo do ciclo</h1>
+            <p class="dek">Depois de telecomunicações, a leitura avança para mineração: a Magic Formula coloca CSN Mineração no Top 20 com dividendos de 25%, ROE de 31,5% e dívida quase zero — mas o investidor precisa perguntar se esses números sobrevivem a um turno desfavorável do minério de ferro e do câmbio.</p>
+            <div class="meta"><span>22/06/2026</span><span>Leitura diária</span><span>CMIN3</span><span>Mineração</span><span>Magic Formula</span><span>Dividendos</span><span>Ciclo de commodities</span><span>8 min</span></div>
+            <img class="hero-chart" src="../../assets/blog/cmin3-mineracao-dividendos-ciclo.svg" alt="Diagrama IA em Loop sobre CMIN3, mineração, dividendos, ciclo de commodities e câmbio">
+            <p class="caption">Mineração parece simples: tirar minério, vender para a China, distribuir lucro. Na prática, a criação de valor depende do preço global do minério, da taxa de câmbio, do custo de extração e da disciplina de alavancagem quando o ciclo vira.</p>
+
+            <h2>Resposta curta: dividendos reais, mas dependentes de ciclo e câmbio</h2>
+            <p><strong>CMIN3</strong> é um caso clássico de <strong>cíclico de commodities com dividendos elevados</strong>. Os 25,2% de dividend yield não são ilusão: a CSN Mineração distribuiu quase R$ 800 milhões e mantém programa de recompra de ações. O lucro líquido de R$ 2,23 bilhões nos últimos 12 meses, ROIC de 21,7% e ROE de 31,5% confirmam que a operação gera caixa real. A armadilha clássica de mineração é que esses números crescem no topo do ciclo e encolchem na descida — e a queda de 17% no preço da ação em 2026 sugere que o mercado já está precificando essa possibilidade.</p>
+            <div class="callout"><p><strong>O que é um cíclico de commodities?</strong> É uma empresa cujo resultado oscila com o preço internacional do que ela produz — neste caso, minério de ferro. Quando o preço do minério sobe, lucro e dividendos explodem; quando cai, lucro encolhe rápido porque os custos fixos de mina e logística não diminuem na mesma proporção. O termo "ciclo" refere-se a essa alternância entre fases favoráveis e desfavoráveis, que pode durar anos.</p></div>
+
+            <h2>Por que CMIN3 hoje?</h2>
+            <p>No ranking Magic Formula de junho do IA em Loop, CMIN3 está entre o <strong>Top 20</strong>, no setor de <strong>Mineração / Minerais Metálicos</strong>. O resultado do 1T26, divulgado em maio, mostrou volumes resilientes e avanço na produção própria, mas lucro afetado pelo câmbio desfavorável. O Fundamentus consultado em 19/06/2026 mostrava <strong>cotação de R$ 4,32</strong>, <strong>P/L de 10,53</strong>, <strong>P/VP de 3,31</strong>, <strong>ROIC de 21,7%</strong>, <strong>ROE de 31,5%</strong>, <strong>margem bruta de 45,9%</strong>, <strong>margem EBIT de 28,8%</strong> e <strong>margem líquida de 12,5%</strong>. A dívida líquida/patrimônio de 0,04 é quase zero, com disponibilidades de R$ 8,86 bilhões contra dívida líquida de apenas R$ 268 milhões. O EV/EBITDA de 3,68 reforça o apelo de valuation.</p>
+            <p>Na carteira real Magic Formula do IA em Loop, CMIN3 está presente com 20 unidades a preço médio de R$ 5,05 — posição que投入 no início e ainda aguarda o segundo mês de evolução.</p>
+            <div class="scorecard">
+                <div><span>Ranking IA em Loop</span><strong>Top 20 Magic Formula</strong></div>
+                <div><span>Retorno sobre capital</span><strong>ROIC 21,7% • ROE 31,5%</strong></div>
+                <div><span>Proventos ao acionista</span><strong>Div. Yield 25,2%</strong></div>
+                <div><span>Sinal recente</span><strong>Quase R$ 800 mi em dividendos</strong></div>
+                <div><span>Margem operacional</span><strong>Bruta 45,9% • EBIT 28,8%</strong></div>
+                <div><span>Alavancagem</span><strong>Dív.Liq/PL 0,04 — quase zero</strong></div>
+                <div><span>Valuation</span><strong>EV/EBITDA 3,68 • P/L 10,5</strong></div>
+            </div>
+
+            <h2>O resultado do 1T26 resolve a tese?</h2>
+            <p>Resolve uma parte, não a tese inteira. O 1T26 confirmou volumes resilientes e avanço na produção própria — CSN Mineração está produzindo mais minério próprio, o que reduz dependência de terceiros e melhora margem por tonelada. O problema é que o <strong>lucro foi corroído pelo câmbio</strong>: como exportadora, CMIN3 fatura em dólar e converte para real. Quando o dólar cai frente ao real, a receita em real diminui mesmo que o volume e o preço do minério em dólar estejam estáveis.</p>
+            <p>A leitura da IA em Loop é: <strong>CMIN3 está num momento de geração de caixa forte e balanço limpo, mas a tese depende de dois motores externos — preço do minério de ferro e taxa de câmbio — que a empresa não controla</strong>. A Magic Formula encontra qualidade em ROIC e barateza em EV/EBITDA; o investidor precisa decidir se aceita a volatilidade cíclica em troca desses indicadores.</p>
+
+            <table class="mini-table">
+                <thead><tr><th>Sinal</th><th>Leitura prática</th><th>O que monitorar</th></tr></thead>
+                <tbody>
+                    <tr><td>Top 20 Magic Formula</td><td>ROIC e EY colocam CMIN3 no radar quantitativo</td><td>Sustentabilidade do ROIC se minério cair 20%+</td></tr>
+                    <tr><td>Div. Yield 25,2%</td><td>Indica geração de caixa e política agressiva de retorno</td><td>Capacidade de manter dividendos em ciclo desfavorável</td></tr>
+                    <tr><td>Dívida quase zero</td><td>Balanço blindado; sem risco financeiro imediato</td><td>Se minério cai, a alavancagem pode subir rápido se CAPEX continuar</td></tr>
+                    <tr><td>Lucro afetado pelo câmbio</td><td>1T26 mostra que câmbio desfavorável corrói margem</td><td>Cenário macro de dólar e PIB chinês</td></tr>
+                    <tr><td>Produção própria avançando</td><td>Reduz custo e dependência de terceiros</td><td>Prazo e custo de expansão da mina Casa de Pedra</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Ciclo: pico ou plataforma?</h2>
+            <p>A pergunta que nenhum ranking responde sozinho: o preço do minério de ferro está perto de um topo ou há sustentação estrutural? Os sinais públicos de junho misturam otimismo cauteloso com alertas:</p>
+            <ul>
+                <li><strong>A favor:</strong> produção própria cresce, CAPEX de expansão já realizado, balanço limpo, EV/EBITDA de 3,68 sugere desconto, programa de recompra sinaliza confiança da gestão.</li>
+                <li><strong>Contra:</strong> demanda chinesa em desaceleração estrutural, risco de excesso de oferta global de minério, câmbio desfavorável corroindo resultado em 1T26, queda de 17% no preço da ação em 2026 já reflete cautela.</li>
+            </ul>
+            <p>O termo <strong>turnaround</strong> — uma reversão de tendência após período negativo — não se aplica aqui diretamente. CMIN3 é mais um caso de <strong>cíclico perto do pico de geração de caixa</strong>. O risco não é de turnaround que não acontece, mas de <strong>ciclo que vira</strong> e reduz lucro e dividendos mais rápido do que o mercado antecipa.</p>
+
+            <div class="matrix">
+                <div><h3>O lado bom</h3><p>Top 20 Magic Formula, dividendos de 25%, ROE de 31,5%, dívida quase zero, EV/EBITDA de 3,68, produção própria avançando e programa de recompra ativo. O balanço está entre os mais blindados do setor.</p></div>
+                <div><h3>O lado perigoso</h3><p>Cíclica: lucro e dividendos dependem de preço de minério e câmbio. Demanda chinesa em desaceleração, risco de excesso de oferta global, e a queda de 17% em 2026 pode ser só o começo se o ciclo virar. Recompra de ações no pico pode destruir valor se minério cair.</p></div>
+            </div>
+
+            <h2>Compra, venda ou espera?</h2>
+            <p><strong>Para carteira nova:</strong> CMIN3 parece adequada para <strong>estudo disciplinado ou posição pequena e diversificada</strong>. Os indicadores são excepcionais para o momento, mas o investidor precisa aceitar que mineração é volátil por natureza e os dividendos de 25% não são garantidos para sempre.</p>
+            <p><strong>Para quem já tem:</strong> o ponto não é vender só porque é cíclica, nem comprar mais só porque os dividendos estão altos. A tese melhora se o minério se mantiver acima de US$ 100/tonelada, se o câmbio estabilizar ou voltar a favor, se a produção própria continuar crescendo e se a recompra de ações for suspensa antes de um topo de ciclo. Piora se o minério cair consistentemente, se o real se apreciar demais ou se a China acelerar desaceleração.</p>
+            <p><strong>Gatilhos para melhorar a leitura:</strong> minério de ferro estável ou subindo, câmbio virando a favor, produção própria atingindo metas de Casa de Pedra, manutenção do dividend yield acima de 15% em resultados anuais. <strong>Gatilhos para piorar:</strong> minério caindo abaixo de US$ 90/tonelada, câmbio desfavorável persistente, aumento de CAPEX sem contrapartida de receita, ou corte expressivo de dividendos.</p>
+
+            <h2>Leitura IA em Loop</h2>
+            <p>CMIN3 mostra por que a Magic Formula deve ser usada como porta de entrada, não como piloto automático. O ranking encontra uma empresa com ROIC excepcional, valuation barato e dividendos extraordinários; a análise precisa decidir se esses números sobrevivem a um turno do minério e do câmbio. A resposta de hoje é condicional: os indicadores são reais e o balanço é forte, mas mineração é o setor onde o passado recente é o pior preditor do futuro. Aceitar CMIN3 é aceitar que parte dos dividendos é presente do ciclo, não garantia perpétua.</p>
+            
+            <div class="source-note">
+                <strong>Fontes e critérios:</strong> ranking Magic Formula de junho do IA em Loop; carteira real Magic Formula consultada em 22/06/2026; Fundamentus consultado em 19/06/2026 para indicadores de CMIN3; Google News RSS com notícias públicas sobre CSN Mineração, resultado 1T26, dividendos, recompra de ações, câmbio e minério de ferro. Conteúdo educacional, sem recomendação personalizada de investimento.
+            </div>
+        </article>
+        <div class="footer">IA em Loop — rankings com skin in the game</div>
+    </main>
+</body>
+</html>

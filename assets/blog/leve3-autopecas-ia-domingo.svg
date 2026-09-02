@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">LEVE3, autopeças e IA no ranking Magic Formula</title>
+  <desc id="desc">Painel escuro IA em Loop conectando ranking Magic Formula, indicadores de LEVE3, ciclo automotivo e uso de IA em manufatura.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06080D"/>
+      <stop offset="0.55" stop-color="#102236"/>
+      <stop offset="1" stop-color="#1B2B36"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6EE4EF"/>
+      <stop offset="1" stop-color="#E4D17F"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1040" cy="110" r="210" fill="#6EE4EF" opacity="0.08"/>
+  <circle cx="130" cy="540" r="260" fill="#E4D17F" opacity="0.08"/>
+  <text x="70" y="82" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">IA em Loop • Leitura diária • 17/05/2026</text>
+  <text x="70" y="152" fill="url(#gold)" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="800">LEVE3: autopeças, dividendos</text>
+  <text x="70" y="212" fill="url(#gold)" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="800">e IA na fábrica eficiente</text>
+  <text x="72" y="262" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="24">Magic Formula: qualidade alta, preço razoável e risco cíclico.</text>
+
+  <g transform="translate(70 325)">
+    <rect x="0" y="0" width="220" height="150" rx="18" fill="#06080D" opacity="0.62" stroke="#E4D17F" stroke-opacity="0.32"/>
+    <text x="24" y="44" fill="#94a3b8" font-family="Inter, Arial" font-size="20" font-weight="700">Ranking</text>
+    <text x="24" y="92" fill="#E4D17F" font-family="Inter, Arial" font-size="48" font-weight="800">#11</text>
+    <text x="24" y="124" fill="#cbd5e1" font-family="Inter, Arial" font-size="20">Magic Formula</text>
+  </g>
+  <g transform="translate(320 325)">
+    <rect x="0" y="0" width="220" height="150" rx="18" fill="#06080D" opacity="0.62" stroke="#6EE4EF" stroke-opacity="0.3"/>
+    <text x="24" y="44" fill="#94a3b8" font-family="Inter, Arial" font-size="20" font-weight="700">ROIC</text>
+    <text x="24" y="92" fill="#6EE4EF" font-family="Inter, Arial" font-size="48" font-weight="800">34,85%</text>
+    <text x="24" y="124" fill="#cbd5e1" font-family="Inter, Arial" font-size="20">ranking local</text>
+  </g>
+  <g transform="translate(570 325)">
+    <rect x="0" y="0" width="220" height="150" rx="18" fill="#06080D" opacity="0.62" stroke="#E4D17F" stroke-opacity="0.32"/>
+    <text x="24" y="44" fill="#94a3b8" font-family="Inter, Arial" font-size="20" font-weight="700">Fundamentus</text>
+    <text x="24" y="92" fill="#E4D17F" font-family="Inter, Arial" font-size="48" font-weight="800">P/L 6,77</text>
+    <text x="24" y="124" fill="#cbd5e1" font-family="Inter, Arial" font-size="20">DY 8,6%</text>
+  </g>
+  <g transform="translate(820 325)">
+    <rect x="0" y="0" width="300" height="150" rx="18" fill="#06080D" opacity="0.62" stroke="#6EE4EF" stroke-opacity="0.3"/>
+    <text x="24" y="44" fill="#94a3b8" font-family="Inter, Arial" font-size="20" font-weight="700">IA operacional</text>
+    <path d="M36 92 C86 48, 138 130, 188 86 S258 68, 276 98" fill="none" stroke="url(#gold)" stroke-width="7" stroke-linecap="round" filter="url(#glow)"/>
+    <text x="24" y="124" fill="#cbd5e1" font-family="Inter, Arial" font-size="20">qualidade • estoque • manutenção</text>
+  </g>
+  <text x="70" y="558" fill="#94a3b8" font-family="Inter, Arial" font-size="22">Conclusão: compra estudada/espera — exigir margem, demanda e caixa.</text>
+</svg>

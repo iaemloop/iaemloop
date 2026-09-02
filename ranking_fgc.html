@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏆 Ranking FGC - Melhores Renda Fixa</title>
+    <style>
+        :root {
+            --primary: #19364D; /* azul principal (blue-400) */
+            --secondary: #E4D17F; /* violeta para destaque/gradiente */
+            --positive: #10b981; /* verde para resultados positivos */
+            --warning: #f59e0b; /* amber para atenção */
+            --negative: #ef4444; /* vermelho para negativo */
+            --muted: #94a3b8;
+            --bg: #06080D; /* fundo escuro */
+            --card: rgba(19, 29, 39, 0.75); /* cartão escuro */
+            --text: #e2e8f0; /* texto claro */
+            --border: #334155;
+        }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)),
+                        url('../assets/fundo_site.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .header-card {
+            background: rgba(19, 29, 39, 0.75);
+            border-radius: 12px;
+            padding: 30px;
+            border-left: 4px solid var(--primary);
+            border: 1px solid rgba(228, 209, 127, 0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+            text-align: center;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .header-card:hover {
+            border-color: rgba(212, 181, 106, 0.4);
+            box-shadow: 0 6px 25px rgba(212, 181, 106, 0.15);
+        }
+        .header-card h1 {
+            font-size: 2.5rem;
+            margin: 0 0 5px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header-card .tagline {
+            color: var(--muted);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        .header-card h1 {
+            font-size: 2.5rem;
+            margin: 0 0 5px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header-card .tagline {
+            color: var(--muted);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .filter-group label {
+            font-weight: 600;
+        }
+        .filter-group select {
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            font-size: 0.9rem;
+            background: var(--card);
+            color: var(--text);
+        }
+
+
+        table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.3); }
+
+        thead th { position: sticky; top: 0; background: #06080D; z-index: 10; box-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        th, td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            background: #06080D;
+            font-weight: 600;
+            color: var(--text);
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        /* Largura das colunas */
+        #ranking-table th:nth-child(4), /* Indexador */
+        #ranking-table td:nth-child(4) {
+            min-width: 120px;
+            white-space: nowrap;
+        }
+        td {
+            text-align: center;
+        }
+        tr:hover {
+            background: #334155;
+        }
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--muted);
+            font-size: 0.9rem;
+            padding: 1rem;
+        }
+        @media (max-width: 900px) {
+            table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.3); }
+            th, td { padding: 0.5rem; }
+        }
+        @media (max-width: 600px) {
+            .filters { flex-direction: column; align-items: stretch; }
+            .stats { gap: 1rem; }
+            h1 { font-size: 1.8rem; }
+            table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.3); }
+        }
+
+    .novo { background: #10b981; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-left: 5px; }
+    .data-nova { color: #10b981; font-weight: 600; }
+
+                .back-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(251, 191, 36, 0.9);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        transition: background 0.2s, transform 0.1s;
+        z-index: 1000;
+    }
+                .back-button:hover {
+        background: var(--accent);
+        transform: translateY(-1px);
+    }
+        @media (max-width: 768px) {
+                .back-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(251, 191, 36, 0.9);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        transition: background 0.2s, transform 0.1s;
+        z-index: 1000;
+    }
+        }
+
+
+/* Glow dourado suave */
+.card, .metric, .legend, section.card, .meta-info, .container > header,     .back-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(251, 191, 36, 0.9);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        transition: background 0.2s, transform 0.1s;
+        z-index: 1000;
+    }
+.card:hover, .metric:hover, .legend:hover, section.card:hover, .meta-info:hover, .container > header:hover,     .back-button:hover {
+        background: var(--accent);
+        transform: translateY(-1px);
+    }
+
+
+
+        #backToTop:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+        #backToTop.show {
+            display: flex;
+        }
+
+
+
+
+
+
+                .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: rgba(251, 191, 36, 0.9);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+
+        </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1004632420072229"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+<a href="../index.html" class="back-button" title="Voltar ao menu">
+        ← Menu
+    </a>
+
+    <div class="container">
+        <div class="header-card">
+            <header>
+                <h1>Ranking Renda Fixa FGC</h1>
+                <p class="tagline">Melhores produtos de Renda Fixa com proteção do Fundo Garantidor de Créditos</p>
+            </header>
+        </div>
+
+        <div class="header-card" style="border-left-color: var(--secondary); margin-top: -12px;">
+            <p class="tagline"><strong>Atualização oficial:</strong> Agosto/2026 — publicado em 11/08/2026. Base local validada: 180 produtos FGC e histórico com 186 registros. Conteúdo educativo; não é recomendação de investimento.</p>
+        </div>
+        <div class="filters">
+                <div class="filter-group">
+                    <label for="indexador-filter">Indexador:</label>
+                    <select id="indexador-filter">
+                        <option value="all">Todos</option>
+                        <option value="CDI">CDI</option>
+                        <option value="IPCA+">IPCA+</option>
+                        <option value="Selic">Selic</option>
+                        <option value="Pré-fixado">Pré-fixado</option>
+                        <option value="Pós-fixado">Pós-fixado</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="prazo-filter">Prazo:</label>
+                    <select id="prazo-filter">
+                        <option value="all">Todos</option>
+                        <option value="curto">Curto (≤2 anos)</option>
+                        <option value="medio">Médio (2-5 anos)</option>
+                        <option value="longo">Longo (+5 anos)</option>
+                    </select>
+                </div>
+            </div> <!-- Fecha header-card -->
+
+            <table id="ranking-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Produto</th>
+                        <th>Rating</th>
+                        <th>Indexador</th>
+                        <th>Tipo</th>
+                        <th>Rent. Bruta</th>
+                        <th>Rent. Líquida</th>
+                        <th>Mínimo</th>
+                        <th>Prazo</th>
+</tr>
+                </thead>
+                                <tbody id="ranking-body">
+                </tbody>
+            </table>
+
+        <footer>
+            <p>⌨️ Gerado por script • Não é recomendação de investimento • Faça sua própria análise</p>
+            <p style="margin-top: 0.5rem; color: #94a3b8; font-size: 0.85rem;">
+                <span id="last-updated">Última atualização: 11/08/2026</span>
+            </p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://github.com/diegotxr/iaemloop" target="_blank">GitHub</a> •
+                <a href="https://www.youtube.com/@IAemLoop" target="_blank">YouTube</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const indexadorFilter = document.getElementById('indexador-filter');
+            const prazoFilter = document.getElementById('prazo-filter');
+            const rows = document.querySelectorAll('#ranking-table tbody tr');
+
+            function applyFilters() {
+                const indexador = indexadorFilter.value;
+                const prazo = prazoFilter.value;
+                let visibleCount = 0;
+                rows.forEach(row => {
+                    const cardIndexador = row.getAttribute('data-indexador');
+                    const cardPrazo = row.getAttribute('data-prazo');
+                    const matchIndexador = indexador === 'all' || (indexador === 'Pós-fixado' ? cardIndexador !== 'Pré-fixado' : cardIndexador === indexador);
+                    const matchPrazo = prazo === 'all' || cardPrazo === prazo;
+                    if (matchIndexador && matchPrazo) {
+                        row.style.display = '';
+                        visibleCount++;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+                console.log(`Mostrando ${visibleCount} de ${rows.length} produtos`);
+            }
+
+            indexadorFilter.addEventListener('change', applyFilters);
+            prazoFilter.addEventListener('change', applyFilters);
+        });
+    </script>
+<!-- FGCHISTORY: data/fgc_history.json com {id: data_primeira} -->
+        <script src="scripts/fgc-dynamic.js?v=20260811"></script>
+
+
+
+
+
+
+
+
+
+
+        <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+        <script>
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                });
+                backToTop.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        </script>
+
+</body>
+</html>
