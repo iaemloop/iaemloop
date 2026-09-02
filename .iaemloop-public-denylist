@@ -11,3 +11,5 @@ data/compras_stocks_*.csv
 data/sobras_aportes_*.csv
 outputs/*custodia*
 outputs/*carteira_real*
+
+data/real_portfolio_site_summary_2026.json

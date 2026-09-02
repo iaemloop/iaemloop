@@ -18,6 +18,7 @@ DENY_NAME_PARTS = (
     'carteira_magic_formula_dolarizada_real',
     'investment_costs_2026',
     'dollarized_portfolios_2026',
+    'real_portfolio_site_summary_2026',
     'compras_b3_',
     'compras_stocks_',
     'sobras_aportes_',
