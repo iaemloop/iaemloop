@@ -1,8 +1,8 @@
 window.IAEMLOOP_AUTH_CONFIG = {
-  // Preencher após criar o projeto grátis no Supabase.
-  // Project Settings → API → Project URL / anon public key.
-  supabaseUrl: "",
-  supabaseAnonKey: "",
+  // Supabase project URL and anon public key.
+  // A anon key is public by design. Never put the service_role key in GitHub Pages.
+  supabaseUrl: "https://nfhhjqgyuvwhaorkyfhq.supabase.co",
+  supabaseAnonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5maGhqcWd5dXZ3aGFvcmt5ZmhxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgzNjE1NTgsImV4cCI6MjEwMzkzNzU1OH0.zmFI38b80ZNztZdbU978K3WQgLuLFcw4tYuCqLCBndc",
   approvalEmail: "equipeiaemloop@gmail.com",
   defaultRedirect: "area_privada.html",
   pages: {
