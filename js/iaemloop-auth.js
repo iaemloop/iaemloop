@@ -48,7 +48,7 @@
     }
     const form = document.createElement('form');
     form.method = 'POST';
-    form.action = 'https://formsubmit.co/equipeiaemloop@gmail.com';
+    form.action = `https://formsubmit.co/${encodeURIComponent(cfg.approvalEmail || 'equipeiaemloop@gmail.com')}`;
     form.target = iframeName;
     const fields = {
       _subject: 'Novo pedido de acesso — IA em Loop',
@@ -97,21 +97,12 @@
       setStatus('Erro no cadastro: ' + error.message, 'error');
       return false;
     }
-    const user = data.user;
-    if (user) {
-      const { error: insertError } = await sb.from('access_requests').upsert({
-        user_id: user.id,
-        email,
-        full_name: fullName,
-        status: 'pending'
-      }, { onConflict: 'user_id' });
-      if (insertError) {
-        setStatus('Cadastro criado, mas o pedido ficou pendente de registro: ' + insertError.message, 'warn');
-        return false;
-      }
-    }
+    // O pedido em access_requests é criado por trigger seguro no Supabase
+    // quando auth.users recebe o novo usuário. O front não tenta inserir aqui,
+    // porque antes da confirmação de e-mail a sessão pode não existir e o RLS
+    // bloqueia corretamente a escrita direta.
     notifyApprovalEmail({ email, fullName });
-    setStatus('Pedido enviado. Você receberá e-mail de confirmação do Supabase; a equipe recebeu o pedido e o acesso só será liberado após aprovação manual.', 'ok');
+    setStatus(`Cadastro criado. Confirme o e-mail do Supabase. O pedido de aprovação será registrado no Supabase e enviado para ${cfg.approvalEmail || 'equipeiaemloop@gmail.com'}; o acesso só será liberado após aprovação manual.`, 'ok');
     return false;
   }
 

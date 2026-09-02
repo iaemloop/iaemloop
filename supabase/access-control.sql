@@ -17,6 +17,47 @@ create table if not exists public.access_requests (
 
 alter table public.access_requests enable row level security;
 
+-- Cria automaticamente o pedido pendente quando um usuário nasce no Auth.
+-- Isso evita erro de RLS no front-end durante cadastro/confirmacao de e-mail.
+create or replace function public.handle_new_access_request()
+returns trigger
+language plpgsql
+security definer
+set search_path = public
+as $$
+begin
+  insert into public.access_requests (user_id, email, full_name, status)
+  values (
+    new.id,
+    new.email,
+    coalesce(new.raw_user_meta_data->>'full_name', new.raw_user_meta_data->>'name', ''),
+    'pending'
+  )
+  on conflict (user_id) do update
+    set email = excluded.email,
+        full_name = coalesce(nullif(excluded.full_name, ''), public.access_requests.full_name),
+        updated_at = now();
+  return new;
+end;
+$$;
+
+drop trigger if exists on_auth_user_created_access_request on auth.users;
+create trigger on_auth_user_created_access_request
+after insert on auth.users
+for each row execute function public.handle_new_access_request();
+
+-- Backfill: cria pedido para usuários já cadastrados antes deste trigger.
+insert into public.access_requests (user_id, email, full_name, status)
+select
+  u.id,
+  u.email,
+  coalesce(u.raw_user_meta_data->>'full_name', u.raw_user_meta_data->>'name', ''),
+  'pending'
+from auth.users u
+where not exists (
+  select 1 from public.access_requests ar where ar.user_id = u.id
+);
+
 -- O usuário pode ver apenas o próprio pedido.
 drop policy if exists "users_read_own_access_request" on public.access_requests;
 create policy "users_read_own_access_request"

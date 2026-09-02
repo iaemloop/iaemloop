@@ -5,8 +5,8 @@ Sistema já implementado no front-end do site:
 - Login com Supabase Auth.
 - Cadastro com senha.
 - Recuperação de senha via Supabase.
-- Pedido de cadastro salvo como `pending`.
-- Notificação do pedido para `equipeiaemloop@gmail.com` via FormSubmit.
+- Pedido de cadastro salvo como `pending` por trigger seguro em `auth.users`.
+- Notificação do pedido para `equipeiaemloop@gmail.com` via FormSubmit; na primeira vez, o FormSubmit pode exigir ativação no próprio e-mail.
 - Acesso privado só passa se `access_requests.status = 'approved'`.
 
 ## 1. Criar projeto Supabase grátis
