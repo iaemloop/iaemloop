@@ -26,16 +26,12 @@
       <h1>🔒 Área privada — Carteira Magic Formula</h1>
       <span>Dados reais liberados apenas após autenticação</span>
     </div>
-    <form class="login-grid" onsubmit="return blockLogin(event)">
-      <div class="field"><label for="email">E-mail</label><input id="email" type="email" autocomplete="email" placeholder="seu@email.com"></div>
-      <div class="field"><label for="password">Senha</label><input id="password" type="password" autocomplete="current-password" placeholder="••••••••"></div>
-      <button class="btn" type="submit">Entrar</button>
-    </form>
+    <form class="login-grid" data-redirect="privado/carteira_magic_formula.html" onsubmit="return IAEMLOOPAuth.login(event)"><div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" placeholder="seu@email.com" required></div><div class="field"><label for="password">Senha</label><input id="password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required></div><button class="btn" type="submit">Entrar</button></form>
     <div class="links">
       <a href="area_privada.html">Cadastrar acesso</a>
       <a href="area_privada.html">Recuperar senha</a>
     </div>
-    <div id="notice" class="notice"></div>
+    <div id="notice" class="notice" data-auth-status></div>
   </section>
 
   <main class="container" aria-hidden="true">
@@ -73,12 +69,9 @@
     </section>
   </main>
   <div class="watermark">CONTEÚDO PRIVADO • LOGIN NECESSÁRIO</div>
-  <script>
-    function blockLogin(event){
-      event.preventDefault();
-      document.getElementById('notice').textContent='Login real em implantação. Use “Cadastrar acesso” ou “Recuperar senha” para ir à área privada.';
-      return false;
-    }
-  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/iaemloop-auth-config.js"></script>
+  <script src="js/iaemloop-auth.js"></script>
 </body>
 </html>

@@ -39,16 +39,20 @@
       <h2>Acompanhe a carteira</h2>
       <p>Entre, cadastre interesse ou recupere acesso. Nesta versão pública, os dados reais não são carregados no navegador.</p>
       <div class="tabs"><button class="tab active" data-tab="login">Login</button><button class="tab" data-tab="cadastro">Cadastro</button><button class="tab" data-tab="senha">Senha</button></div>
-      <form class="form active" id="login"><div class="field"><label>E-mail</label><input type="email" placeholder="seu@email.com" autocomplete="email"></div><div class="field"><label>Senha</label><input type="password" placeholder="••••••••" autocomplete="current-password"></div><button type="button" class="btn" onclick="notice()">Entrar na área privada</button><button type="button" class="btn secondary" onclick="notice()">Receber link mágico</button></form>
-      <form class="form" id="cadastro" action="https://formsubmit.co/equipeiaemloop@gmail.com" method="POST"><input type="hidden" name="_subject" value="Novo pedido de acesso — IA em Loop"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="tipo" value="pedido_cadastro_area_privada"><div class="field"><label>Nome</label><input name="nome" type="text" placeholder="Seu nome" required></div><div class="field"><label>E-mail</label><input name="email" type="email" placeholder="seu@email.com" required></div><button type="submit" class="btn">Solicitar cadastro</button></form>
-      <form class="form" id="senha" action="https://formsubmit.co/equipeiaemloop@gmail.com" method="POST"><input type="hidden" name="_subject" value="Recuperação de acesso — IA em Loop"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="tipo" value="recuperacao_senha_area_privada"><div class="field"><label>E-mail cadastrado</label><input name="email" type="email" placeholder="seu@email.com" required></div><button type="submit" class="btn">Solicitar recuperação</button></form>
+      <form class="form active" id="login" onsubmit="return IAEMLOOPAuth.login(event)"><div class="field"><label>E-mail</label><input name="email" type="email" placeholder="seu@email.com" autocomplete="email" required></div><div class="field"><label>Senha</label><input name="password" type="password" placeholder="••••••••" autocomplete="current-password" required></div><button type="submit" class="btn">Entrar na área privada</button></form>
+      <form class="form" id="cadastro" onsubmit="return IAEMLOOPAuth.signup(event)"><div class="field"><label>Nome</label><input name="nome" type="text" placeholder="Seu nome" required></div><div class="field"><label>E-mail</label><input name="email" type="email" placeholder="seu@email.com" autocomplete="email" required></div><div class="field"><label>Senha</label><input name="password" type="password" placeholder="Crie uma senha" autocomplete="new-password" minlength="8" required></div><button type="submit" class="btn">Solicitar cadastro</button></form>
+      <form class="form" id="senha" onsubmit="return IAEMLOOPAuth.recover(event)"><div class="field"><label>E-mail cadastrado</label><input name="email" type="email" placeholder="seu@email.com" autocomplete="email" required></div><button type="submit" class="btn">Solicitar recuperação</button></form>
       <div class="warning"><strong>Segurança:</strong> o fundo é uma prévia visual sem dados reais. A carteira completa só deve ser entregue por backend autenticado, Cloudflare Access, Supabase Auth ou outro provedor que bloqueie o arquivo antes do download.</div>
-      <p class="note" id="notice"></p>
+      <p class="note" id="notice" data-auth-status></p>
     </section>
   </main>
   <script>
     document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.tab,.form').forEach(x=>x.classList.remove('active'));btn.classList.add('active');document.getElementById(btn.dataset.tab).classList.add('active')}));
-    function notice(){document.getElementById('notice').textContent='Login real em implantação. Cadastros e recuperações geram pedido para equipeiaemloop@gmail.com; acesso só deve ser liberado manualmente.'}
+    function notice(){document.getElementById('notice').textContent='Sistema de acesso preparado. Enquanto o Supabase não for configurado, nenhum dado privado é liberado.'}
   </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/iaemloop-auth-config.js"></script>
+  <script src="js/iaemloop-auth.js"></script>
 </body>
 </html>
