@@ -6,7 +6,7 @@
 (function () {
   const cfg = window.IAEMLOOP_AUTH_CONFIG || {};
   const ACTIVITY_KEY = 'iaemloop:last_activity_at';
-  const DEFAULT_IDLE_MINUTES = 720; // 12h sliding session while the user is active.
+  const DEFAULT_IDLE_MINUTES = 5; // Sliding session: 5 min of inactivity requires login again.
   let lastActivityWrite = 0;
 
   const statusEl = () => document.querySelector('[data-auth-status]') || document.getElementById('notice');
@@ -38,12 +38,20 @@
 
   function idleLimitMs() {
     const minutes = Number(cfg.sessionIdleMinutes || DEFAULT_IDLE_MINUTES);
-    return Math.max(15, minutes) * 60 * 1000;
+    return Math.max(1, minutes) * 60 * 1000;
   }
 
   function markActivity(force = false) {
     const now = Date.now();
-    if (!force && now - lastActivityWrite < 60000) return;
+    if (!force) {
+      try {
+        const raw = localStorage.getItem(ACTIVITY_KEY);
+        if (!raw) return;
+        const last = Number(raw);
+        if (Number.isFinite(last) && now - last > idleLimitMs()) return;
+      } catch (_) {}
+      if (now - lastActivityWrite < 60000) return;
+    }
     lastActivityWrite = now;
     try { localStorage.setItem(ACTIVITY_KEY, String(now)); } catch (_) {}
   }
@@ -63,7 +71,8 @@
     ['click', 'keydown', 'scroll', 'touchstart', 'mousemove'].forEach((eventName) => {
       window.addEventListener(eventName, () => markActivity(false), { passive: true });
     });
-    markActivity(false);
+    // Do not mark activity on page load. Only real user movement keeps the
+    // 5-minute sliding session alive; once expired, a new login is required.
   }
 
   function normalizeRedirect(target) {
@@ -86,6 +95,27 @@
       .maybeSingle();
     if (error) throw error;
     return data;
+  }
+
+  async function getApprovedSession(sb) {
+    if (isIdleExpired()) {
+      await sb.auth.signOut();
+      try { localStorage.removeItem(ACTIVITY_KEY); } catch (_) {}
+      return { user: null, profile: null, expired: true };
+    }
+    const { data } = await sb.auth.getUser();
+    if (!data.user) return { user: null, profile: null, expired: false };
+    const profile = await getApprovedProfile(sb, data.user.id);
+    if (profile && profile.status === 'approved') {
+      try {
+        if (!localStorage.getItem(ACTIVITY_KEY)) markActivity(true);
+        else markActivity(false);
+      } catch (_) {
+        markActivity(false);
+      }
+      return { user: data.user, profile, expired: false };
+    }
+    return { user: data.user, profile, expired: false };
   }
 
   function notifyApprovalEmail(payload) {
@@ -122,6 +152,26 @@
     document.body.appendChild(form);
     form.submit();
     setTimeout(() => form.remove(), 5000);
+  }
+
+  async function autoOpenIfAlreadyApproved() {
+    const form = document.querySelector('form[data-redirect], form#login');
+    if (!form || document.querySelector('[data-requires-approved-user]')) return;
+    const sb = client();
+    if (!sb) return;
+    try {
+      const session = await getApprovedSession(sb);
+      if (session.profile && session.profile.status === 'approved') {
+        const paramsRedirect = new URLSearchParams(location.search).get('redirect');
+        const target = normalizeRedirect(form.dataset.redirect || paramsRedirect || cfg.defaultRedirect || '/privado/index.html');
+        setStatus('Sessão ativa. Abrindo área privada...', 'ok');
+        window.location.assign(target);
+      } else if (session.expired) {
+        setStatus('Sessão expirada por inatividade. Faça login novamente.', 'warn');
+      }
+    } catch (_) {
+      // Keep the login form usable if the silent check fails.
+    }
   }
 
   async function signup(event) {
@@ -229,7 +279,15 @@
     }
     const html = data.html.replace(/<head(.*?)>/i, '<head$1><base href="/">');
     frame.srcdoc = html;
-    setStatus('Custódia privada carregada. Sessão ativa enquanto houver movimentação na página.', 'ok');
+    frame.addEventListener('load', () => {
+      try {
+        const doc = frame.contentWindow?.document;
+        ['click', 'keydown', 'scroll', 'touchstart', 'mousemove'].forEach((eventName) => {
+          doc?.addEventListener(eventName, () => markActivity(false), { passive: true });
+        });
+      } catch (_) {}
+    }, { once: true });
+    setStatus('Custódia privada carregada.', 'ok');
   }
 
   async function protectPage() {
@@ -241,23 +299,17 @@
       setStatus('Área privada ainda não configurada. Nenhum dado real foi carregado.', 'warn');
       return;
     }
-    if (isIdleExpired()) {
-      await logout();
-      return;
-    }
-    const { data } = await sb.auth.getUser();
-    if (!data.user) {
-      gate.hidden = false;
-      setStatus('Faça login para desbloquear esta página.', 'warn');
-      return;
-    }
     try {
-      const profile = await getApprovedProfile(sb, data.user.id);
-      if (profile && profile.status === 'approved') {
-        markActivity(false);
+      const session = await getApprovedSession(sb);
+      if (!session.user) {
+        gate.hidden = false;
+        setStatus(session.expired ? 'Sessão expirada por inatividade. Faça login novamente.' : 'Faça login para desbloquear esta página.', 'warn');
+        return;
+      }
+      if (session.profile && session.profile.status === 'approved') {
         document.documentElement.dataset.auth = 'approved';
         gate.hidden = true;
-        setStatus('Acesso aprovado. Sessão ativa enquanto houver movimentação na página.', 'ok');
+        setStatus('Acesso aprovado.', 'ok');
         await loadPrivatePage(sb);
       } else {
         gate.hidden = false;
@@ -271,5 +323,8 @@
 
   installActivityTracking();
   window.IAEMLOOPAuth = { signup, login, recover, logout, protectPage, client };
-  document.addEventListener('DOMContentLoaded', protectPage);
+  document.addEventListener('DOMContentLoaded', () => {
+    protectPage();
+    autoOpenIfAlreadyApproved();
+  });
 })();
