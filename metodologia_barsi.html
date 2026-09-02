@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Metodologia BESST & Buffett | IA em Loop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Metodologia pública BESST e Warren Buffett para estudo educacional de ações: setores perenes, dividendos, qualidade, preço e margem de segurança.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)), url('../assets/bg-carteiras.jpg') no-repeat center center fixed; background-size: cover; color: #e2e8f0; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 {
+            background: linear-gradient(135deg, #19364D, #AA8451);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        .tagline {
+            color: #94a3b8;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        .header-card {
+            background: rgba(19, 29, 39, 0.75);
+            border-radius: 12px;
+            padding: 30px;
+            border-left: 4px solid #19364D;
+            border: 1px solid rgba(228, 209, 127, 0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+            text-align: center;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .header-card:hover {
+            border-color: rgba(212, 181, 106, 0.4);
+            box-shadow: 0 6px 25px rgba(212, 181, 106, 0.15);
+        }
+        .meta-info {
+            background: rgba(19, 29, 39, 0.75);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #19364D;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .meta-info p {
+            margin: 0;
+        }
+        .card { background: rgba(19, 29, 39, 0.75); border-radius: 16px; padding: 30px; margin-bottom: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        .card h2 { font-size: 1.4rem; margin-bottom: 40px; color: #fff; border-bottom: 2px solid #19364D; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #334155; }
+        th { background: #06080D; color: #E4D17F; font-weight: 600; position: sticky; top: 0; }
+        tr:hover { background: #334155; }
+        .positive { color: #10b981; font-weight: 600; }
+        .footer { margin-top: 40px; text-align: center; color: #64748b; font-size: 0.9rem; padding-top: 20px; border-top: 1px solid #334155; }
+        a { color: #E4D17F; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            .meta-info { flex-direction: column; gap: 10px; }
+            table { display: block; overflow-x: auto; }
+        }
+
+        .back-button {
+            position: fixed; top: 20px; left: 20px;
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(251,191,36,0.9); color: white;
+            padding: 8px 16px; border-radius: 8px;
+            text-decoration: none; font-weight: 600; font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: background 0.2s, transform 0.1s; z-index: 1000;
+        }
+        .back-button:hover { background: #E4D17F; transform: translateY(-1px); }
+        @media (max-width:768px){.back-button{top:10px;left:10px;padding:6px 12px;font-size:0.8rem}}
+
+
+/* Glow dourado suave */
+.card, .metric, .legend, .table-wrapper, section.card, .meta-info, .container > header, .back-button {
+    border: 1px solid rgba(228, 209, 127, 0.15);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.card:hover, .metric:hover, .legend:hover, .table-wrapper:hover, section.card:hover, .meta-info:hover, .container > header:hover, .back-button:hover {
+    border-color: rgba(212, 181, 106, 0.4);
+    box-shadow: 0 6px 25px rgba(212, 181, 106, 0.15);
+}
+
+
+
+        #backToTop:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+        #backToTop.show {
+            display: flex;
+        }
+
+
+
+
+
+
+                .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: rgba(251, 191, 36, 0.9);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+
+        </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1004632420072229"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <a href="../index.html" class="back-button" title="Voltar ao menu">← Menu</a>
+    <div class="container">
+        <div class="header-card">
+            <h1>Metodologia BESST & Buffett</h1>
+            <p class="tagline">Critérios educacionais para estudar ações de dividendos, qualidade e valor. A custódia real não é publicada.</p></div>
+
+        <div class="meta-info">
+            <p>📅 <strong>Atualização:</strong> 11/08/2026 — Agosto/2026</p>
+            <p>🔒 <strong>Custódia real:</strong> privada; o site público mantém metodologia, rankings e estudos educacionais.</p>
+            <p>📈 <strong>Histórico:</strong> <a href="historico_rankings.html" style="color:#E4D17F;text-decoration:underline;">Ver rankings anteriores</a></p>
+            <p>🔁 <strong>Frequência:</strong> Mensal</p>
+        </div>
+
+        <div class="card">
+            <h2>Ranking BESST & Buffett (Oficial)</h2>
+                            <table>
+                    <thead>
+                        <tr>
+                            <th>Pos</th>
+                            <th>Ticker</th>
+                            <th>Setor</th>
+                            <th>DY</th>
+                            <th>P/VP</th>
+                            <th>ROIC</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+            <tbody>
+<tr>
+                    <td><strong>1</strong></td>
+                    <td><a href="https://www.fundamentus.com.br/detalhes.php?papel=SANB11" target="_blank" rel="noopener noreferrer"><strong>SANB11</strong> 🔗</a></td>
+                    <td>Bancos</td>
+                    <td class="positive">7.26%</td>
+                    <td>0.87</td>
+                    <td class="">-</td>
+                    <td>71.10</td>
+                </tr>
+<tr>
+                    <td><strong>2</strong></td>
+                    <td><a href="https://www.fundamentus.com.br/detalhes.php?papel=ENGI3" target="_blank" rel="noopener noreferrer"><strong>ENGI3</strong> 🔗</a></td>
+                    <td>Energia elétrica</td>
+                    <td class="positive">5.39%</td>
+                    <td>0.23</td>
+                    <td class="">-</td>
+                    <td>64.40</td>
+                </tr>
+<tr>
+                    <td><strong>3</strong></td>
+                    <td><a href="https://www.fundamentus.com.br/detalhes.php?papel=KLBN4" target="_blank" rel="noopener noreferrer"><strong>KLBN4</strong> 🔗</a></td>
+                    <td>Papel e celulose</td>
+                    <td class="positive">8.89%</td>
+                    <td>0.50</td>
+                    <td class="">-</td>
+                    <td>60.70</td>
+                </tr>
+<tr>
+                    <td><strong>4</strong></td>
+                    <td><a href="https://www.fundamentus.com.br/detalhes.php?papel=GGBR4" target="_blank" rel="noopener noreferrer"><strong>GGBR4</strong> 🔗</a></td>
+                    <td>Siderurgia</td>
+                    <td class="positive">3.50%</td>
+                    <td>0.98</td>
+                    <td class="">-</td>
+                    <td>60.60</td>
+                </tr>
+<tr>
+                    <td><strong>5</strong></td>
+                    <td><a href="https://www.fundamentus.com.br/detalhes.php?papel=PETR4" target="_blank" rel="noopener noreferrer"><strong>PETR4</strong> 🔗</a></td>
+                    <td>Petróleo e gás</td>
+                    <td class="positive">9.30%</td>
+                    <td>1.21</td>
+                    <td class="">-</td>
+                    <td>60.50</td>
+                </tr>
+<tr>
+                    <td><strong>6</strong></td>
+                    <td><a href="https://www.fundamentus.com.br/detalhes.php?papel=VIVT3" target="_blank" rel="noopener noreferrer"><strong>VIVT3</strong> 🔗</a></td>
+                    <td>Telecomunicações</td>
+                    <td class="positive">7.95%</td>
+                    <td>1.45</td>
+                    <td class="">-</td>
+                    <td>50.40</td>
+                </tr>
+<tr>
+                    <td><strong>7</strong></td>
+                    <td><a href="https://www.fundamentus.com.br/detalhes.php?papel=VALE3" target="_blank" rel="noopener noreferrer"><strong>VALE3</strong> 🔗</a></td>
+                    <td>Mineração</td>
+                    <td class="positive">8.17%</td>
+                    <td>1.66</td>
+                    <td class="">-</td>
+                    <td>40.90</td>
+                </tr>
+<tr>
+                    <td><strong>8</strong></td>
+                    <td><a href="https://www.fundamentus.com.br/detalhes.php?papel=EQTL3" target="_blank" rel="noopener noreferrer"><strong>EQTL3</strong> 🔗</a></td>
+                    <td>Energia elétrica</td>
+                    <td class="positive">6.05%</td>
+                    <td>1.92</td>
+                    <td class="">-</td>
+                    <td>34.50</td>
+                </tr>
+<tr>
+                    <td><strong>9</strong></td>
+                    <td><a href="https://www.fundamentus.com.br/detalhes.php?papel=BBAS3" target="_blank" rel="noopener noreferrer"><strong>BBAS3</strong> 🔗</a></td>
+                    <td>Bancos</td>
+                    <td class="positive">1.14%</td>
+                    <td>0.65</td>
+                    <td class="">-</td>
+                    <td>66.80</td>
+                </tr>
+<tr>
+                    <td><strong>10</strong></td>
+                    <td><a href="https://www.fundamentus.com.br/detalhes.php?papel=SUZB3" target="_blank" rel="noopener noreferrer"><strong>SUZB3</strong> 🔗</a></td>
+                    <td>Papel e celulose</td>
+                    <td class="positive">2.61%</td>
+                    <td>1.10</td>
+                    <td class="">-</td>
+                    <td>58.90</td>
+                </tr>
+<tr>
+                    <td><strong>11</strong></td>
+                    <td><a href="https://www.fundamentus.com.br/detalhes.php?papel=BBDC4" target="_blank" rel="noopener noreferrer"><strong>BBDC4</strong> 🔗</a></td>
+                    <td>Bancos</td>
+                    <td class="positive">1.27%</td>
+                    <td>1.06</td>
+                    <td class="">-</td>
+                    <td>58.40</td>
+                </tr>
+<tr>
+                    <td><strong>12</strong></td>
+                    <td><a href="https://www.fundamentus.com.br/detalhes.php?papel=IRBR3" target="_blank" rel="noopener noreferrer"><strong>IRBR3</strong> 🔗</a></td>
+                    <td>Resseguros</td>
+                    <td class="positive">2.92%</td>
+                    <td>0.83</td>
+                    <td class="">-</td>
+                    <td>54.80</td>
+                </tr>
+<tr>
+                    <td><strong>13</strong></td>
+                    <td><a href="https://www.fundamentus.com.br/detalhes.php?papel=CPFE3" target="_blank" rel="noopener noreferrer"><strong>CPFE3</strong> 🔗</a></td>
+                    <td>Energia elétrica</td>
+                    <td class="positive">8.09%</td>
+                    <td>2.19</td>
+                    <td class="">-</td>
+                    <td>47.10</td>
+                </tr>
+<tr>
+                    <td><strong>14</strong></td>
+                    <td><a href="https://www.fundamentus.com.br/detalhes.php?papel=UNIP3" target="_blank" rel="noopener noreferrer"><strong>UNIP3</strong> 🔗</a></td>
+                    <td>Químicos</td>
+                    <td class="positive">15.65%</td>
+                    <td>3.52</td>
+                    <td class="">-</td>
+                    <td>45.40</td>
+                </tr>
+<tr>
+                    <td><strong>15</strong></td>
+                    <td><a href="https://www.fundamentus.com.br/detalhes.php?papel=ITUB4" target="_blank" rel="noopener noreferrer"><strong>ITUB4</strong> 🔗</a></td>
+                    <td>Bancos</td>
+                    <td class="positive">2.10%</td>
+                    <td>2.23</td>
+                    <td class="">-</td>
+                    <td>45.40</td>
+                </tr>
+<tr>
+                    <td><strong>16</strong></td>
+                    <td><a href="https://www.fundamentus.com.br/detalhes.php?papel=SBSP3" target="_blank" rel="noopener noreferrer"><strong>SBSP3</strong> 🔗</a></td>
+                    <td>Saneamento</td>
+                    <td class="positive">5.12%</td>
+                    <td>2.22</td>
+                    <td class="">-</td>
+                    <td>44.60</td>
+                </tr>
+</tbody>
+</table>
+
+        <!-- Metodologia Barsi BESST -->
+        <div class="card" style="margin-top: 2rem;">
+            <h2>Metodologia BESST (Barsi)</h2>
+            <p>Criada/inspirada por Luiz Barsi, o maior investidor individual da B3. Foca em setores perenes e defensivos que geram dividendos consistentes, independentemente de crises econômicas.</p>
+            <h3>A sigla BESST representa:</h3>
+            <ul style="margin-left: 20px; line-height: 1.8;">
+                <li><strong>Bancos</strong>: Estáveis, lucram com juros e crédito essencial.</li>
+                <li><strong>Energia/Elétricas</strong>: Contratos longos, reajustes por inflação.</li>
+                <li><strong>Saneamento</strong>: Demanda básica (água/esgoto), monopólios regionais.</li>
+                <li><strong>Seguros/Seguridade</strong>: Resilientes, florescem com sinistros e investimentos.</li>
+                <li><strong>Telecomunicações</strong>: Infraestrutura recorrente, alta retenção.</li>
+            </ul>
+            <h3>Estratégia Principal</h3>
+            <ul style="margin-left: 20px; line-height: 1.8;">
+                <li>Comprar ações descontadas (DY projetado ≥6%) nesses setores.</li>
+                <li>Reinvestir dividendos para efeito composto ao longo de décadas.</li>
+                <li>Horizonte: longo prazo (10+ anos), ignorando volatilidade de curto prazo.</li>
+            </ul>
+            <h3>Vantagens</h3>
+            <ul style="margin-left: 20px; line-height: 1.8;">
+                <li>Baixa volatilidade: setores essenciais resistem a recessões.</li>
+                <li>Renda passiva previsível: dividendos mensais/trimestrais.</li>
+                <li>Simplicidade: fácil para iniciantes vs. análise complexa.</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Exemplos de empresas:</strong> ITUB4, BBAS3 (Bancos); EGIE3, TAEE11 (Energia); SBSP3 (Saneamento); BBSE3 (Seguros); VIVT3 (Telecom).</p>
+            <p><em>Ideal para quem busca segurança e renda, mas não maximiza ganhos em bull markets. Sempre analise balanços atuais.</em></p>
+        </div>
+
+        <!-- Metodologia Warren Buffett (Value Investing) -->
+        <div class="card">
+            <h2>Metodologia Warren Buffett (Value Investing)</h2>
+            <p>Baseada em Benjamin Graham, foca em comprar empresas excepcionais por preços abaixo do valor intrínseco.</p>
+            <h3>Princípios Fundamentais</h3>
+            <ul style="margin-left: 20px; line-height: 1.8;">
+                <li><strong>Análise profunda dos fundamentos</strong>: ignora ruído de curto prazo.</li>
+                <li><strong>Moat econômico</strong>: vantagem competitiva sustentável (marcas fortes, economias de escala).</li>
+                <li><strong>Gestão honesta e competente</strong>.</li>
+                <li><strong>Margem de segurança</strong>: compra subvalorizado para minimizar riscos.</li>
+                <li><strong>Horizonte eterno</strong>: "Nossa holding favorita é para sempre"; reinveste lucros.</li>
+                <li><strong>Círculo de competência</strong>: só investe no que entende.</li>
+            </ul>
+            <h3>Passos Práticos</h3>
+            <ul style="margin-left: 20px; line-height: 1.8;">
+                <li>Calcular o <strong>valor intrínseco</strong>: fluxos de caixa futuros descontados, ROE alto (>15%), baixo endividamento, lucros consistentes.</li>
+                <li>Comprar quando <strong>P/L ou P/VP</strong> estiverem bem abaixo da média histórica ou concorrentes.</li>
+                <li>Focar em <strong>blue chips</strong>: líderes de setor com histórico longo (20+ anos).</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Exemplos icônicos:</strong> Coca-Cola (moat de marca), Apple (ecossistema), American Express (rede de pagamentos).</p>
+            <p><em>Para dividendos, buscamos empresas que distribuem lucros de forma consistente sem comprometer o crescimento, combinando moat e valor intrínseco.</em></p>
+        </div>
+
+
+        <div class="footer">
+            <p>⌨️ Gerado por script • Não é recomendação de investimento • Faça sua própria análise</p>
+            <p style="margin-top: 0.5rem; color: #94a3b8; font-size: 0.85rem;">
+                Atualizado: 11/08/2026 — Agosto/2026
+            </p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://github.com/diegotxr/iaemloop" target="_blank">GitHub</a> •
+                <a href="https://www.youtube.com/@IAemLoop" target="_blank">YouTube</a>
+            </p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+        <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+        <script>
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                });
+                backToTop.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        </script>
+
+</body>
+</html>
