@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">BMY, pipeline, dívida e valuation</title>
+  <desc id="desc">Mapa visual IA em Loop sobre Bristol Myers Squibb, Magic Formula, receita, pesquisa, dívida e risco de patentes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06111f"/><stop offset="0.52" stop-color="#10263a"/><stop offset="1" stop-color="#07090f"/></linearGradient>
+    <linearGradient id="gold" x1="0" x2="1"><stop offset="0" stop-color="#6EE4EF"/><stop offset="1" stop-color="#E4D17F"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000" flood-opacity=".35"/></filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="1040" cy="110" r="220" fill="#6EE4EF" opacity=".08"/>
+  <circle cx="130" cy="590" r="260" fill="#E4D17F" opacity=".07"/>
+  <g filter="url(#shadow)">
+    <rect x="78" y="72" width="1044" height="531" rx="30" fill="#101d2a" opacity=".92" stroke="#E4D17F" stroke-opacity=".28"/>
+    <text x="115" y="145" fill="#E4D17F" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800">IA em Loop • Stock EUA • Carteira real</text>
+    <text x="115" y="226" fill="url(#gold)" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="900">BMY</text>
+    <text x="310" y="220" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">Bristol Myers Squibb</text>
+    <text x="115" y="286" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="28">P/L baixo só basta se o pipeline compensar patentes e dívida.</text>
+    <g font-family="Inter, Arial, sans-serif" font-weight="800" font-size="25">
+      <rect x="115" y="345" width="215" height="116" rx="18" fill="#07111f" stroke="#6EE4EF" stroke-opacity=".3"/><text x="140" y="392" fill="#94a3b8">Magic Formula</text><text x="140" y="430" fill="#E4D17F">#4</text>
+      <rect x="355" y="345" width="215" height="116" rx="18" fill="#07111f" stroke="#6EE4EF" stroke-opacity=".3"/><text x="380" y="392" fill="#94a3b8">P/L local</text><text x="380" y="430" fill="#E4D17F">16,1</text>
+      <rect x="595" y="345" width="215" height="116" rx="18" fill="#07111f" stroke="#6EE4EF" stroke-opacity=".3"/><text x="620" y="392" fill="#94a3b8">Receita 1S26</text><text x="620" y="430" fill="#E4D17F">US$ 24,5 bi</text>
+      <rect x="835" y="345" width="215" height="116" rx="18" fill="#07111f" stroke="#6EE4EF" stroke-opacity=".3"/><text x="860" y="392" fill="#94a3b8">Dívida 2T26</text><text x="860" y="430" fill="#E4D17F">US$ 42,9 bi</text>
+    </g>
+    <path d="M132 525 C260 475, 392 560, 520 512 S773 470, 1042 520" fill="none" stroke="#6EE4EF" stroke-width="7" stroke-linecap="round" opacity=".8"/>
+    <text x="115" y="570" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="23">Valuation defensivo • medicamentos maduros • reposição por inovação • desalavancagem</text>
+  </g>
+</svg>

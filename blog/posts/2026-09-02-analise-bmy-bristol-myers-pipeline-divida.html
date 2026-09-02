@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Análise educacional IA em Loop sobre BMY/Bristol Myers Squibb: Magic Formula EUA, carteira real, receita, lucro, pesquisa, dívida, dividendos, patentes e pipeline.">
+    <title>02/09: BMY, Bristol Myers e o desconto que exige pipeline | IA em Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { min-height: 100%; background: #06080D; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)), url('../../assets/bg-carteiras.jpg') no-repeat center center fixed; background-size: cover; background-color: #06080D; color: #e2e8f0; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 980px; margin: 0 auto; }
+        .back-button { position: fixed; top: 20px; left: 20px; display: inline-flex; align-items: center; gap: 6px; background: rgba(251,191,36,0.9); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: background 0.2s, transform 0.1s; z-index: 1000; }
+        .back-button:hover { background: #E4D17F; transform: translateY(-1px); }
+        article { background: rgba(19, 29, 39, 0.78); border-radius: 14px; padding: 34px; border-left: 4px solid #19364D; border: 1px solid rgba(228, 209, 127, 0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h1 { overflow-wrap: anywhere; hyphens: auto; font-size: clamp(2rem, 5vw, 3.05rem); line-height: 1.08; font-weight: 800; background: linear-gradient(135deg, #6EE4EF, #E4D17F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; }
+        .dek { color: #cbd5e1; font-size: 1.12rem; line-height: 1.75; margin-bottom: 22px; }
+        .meta { display: flex; gap: 8px; flex-wrap: wrap; color: #94a3b8; font-size: 0.86rem; margin-bottom: 30px; }
+        .meta span { background: rgba(228, 209, 127, 0.15); color: #E4D17F; padding: 4px 10px; border-radius: 999px; font-weight: 600; border: 1px solid rgba(228, 209, 127, 0.2); }
+        h2 { color: #fff; font-size: 1.45rem; margin: 34px 0 12px; border-bottom: 2px solid #19364D; padding-bottom: 10px; }
+        h3 { color: #E4D17F; font-size: 1.08rem; margin: 22px 0 8px; }
+        p, li { overflow-wrap: anywhere; color: #cbd5e1; line-height: 1.78; font-size: 1.02rem; }
+        p { margin-bottom: 16px; }
+        ul { padding-left: 22px; margin-bottom: 18px; }
+        li { margin-bottom: 8px; }
+        strong { color: #fff; }
+        a { color: #E4D17F; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .hero-chart { display: block; max-width: 100%; height: auto; width: 100%; border-radius: 14px; border: 1px solid rgba(228, 209, 127, 0.18); margin: 20px 0 8px; background: rgba(6,8,13,.35); box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+        .caption { color: #94a3b8; font-size: .9rem; margin-bottom: 24px; }
+        .callout { background: rgba(6, 8, 13, 0.5); border-left: 4px solid #E4D17F; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .warning { background: rgba(127,29,29,.25); border-left: 4px solid #f87171; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .scorecard { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+        .scorecard div { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 14px; }
+        .scorecard span { display: block; color: #94a3b8; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; }
+        .scorecard strong { color: #E4D17F; font-size: 1.1rem; }
+        .matrix { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 18px 0; }
+        .matrix div { background: rgba(6, 8, 13, 0.42); border: 1px solid rgba(110,228,239,.15); border-radius: 10px; padding: 14px; }
+        .mini-table { width:100%; border-collapse: collapse; margin: 18px 0; overflow:hidden; border-radius:10px; }
+        .mini-table th, .mini-table td { padding: 11px 10px; border-bottom: 1px solid rgba(255,255,255,.08); text-align:left; color:#cbd5e1; }
+        .mini-table th { color:#E4D17F; background:rgba(6,8,13,.55); font-size:.92rem; }
+        .source-note { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 16px; margin-top: 28px; color: #94a3b8; font-size: 0.94rem; }
+        .footer { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        @media (max-width: 768px) { body { padding: 72px 16px 32px; } article { padding: 24px; } .scorecard, .matrix { grid-template-columns: 1fr; } .mini-table { display:block; overflow-x:auto; } .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; } }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "02/09: BMY, Bristol Myers e o desconto que exige pipeline",
+      "description": "Análise educacional IA em Loop sobre BMY/Bristol Myers Squibb: Magic Formula EUA, carteira real, receita, lucro, pesquisa, dívida, dividendos, patentes e pipeline.",
+      "image": "https://iaemloop.com.br/assets/blog/2026-09-02-bmy-bristol-myers-pipeline-divida.svg",
+      "datePublished": "2026-09-02",
+      "dateModified": "2026-09-02",
+      "author": {"@type": "Organization", "name": "IA em Loop"},
+      "publisher": {"@type": "Organization", "name": "IA em Loop"},
+      "keywords": ["BMY", "Bristol Myers Squibb", "Magic Formula", "stocks EUA", "farmacêuticas", "pipeline", "dívida", "valuation"]
+    }
+    </script>
+</head>
+<body>
+    <a href="../index.html" class="back-button" title="Voltar ao blog">← Blog</a>
+    <main class="container">
+        <article>
+            <h1>02/09: BMY, Bristol Myers e o desconto que exige pipeline</h1>
+            <p class="dek">Bristol Myers Squibb está na carteira real de Magic Formula Dolarizada e segue barata nos múltiplos locais. A pergunta central é direta: o desconto remunera o risco de patentes e dívida, ou esconde uma farmacêutica que precisa provar renovação de portfólio?</p>
+            <div class="meta"><span>02/09/2026</span><span>Análise educacional</span><span>BMY</span><span>Bristol Myers Squibb</span><span>Stock EUA</span><span>Magic Formula #4</span><span>BESST e Buffett #19</span><span>P/L 16,1</span><span>EY 6,2%</span><span>Carteira real</span><span>8 min</span></div>
+            <img class="hero-chart" src="../../assets/blog/2026-09-02-bmy-bristol-myers-pipeline-divida.svg" alt="Diagrama IA em Loop sobre BMY, Bristol Myers Squibb, pipeline, dívida, Magic Formula EUA e valuation">
+            <p class="caption">Em farmacêuticas, valuation baixo só vira margem de segurança quando a reposição de receita supera perdas de exclusividade, pressão de preço e alavancagem.</p>
+
+            <h2>Resposta curta: desconto real, mas dependente de execução científica</h2>
+            <p>Na base dolarizada local com data-base de <strong>11/07/2026</strong>, BMY aparece em <strong>4º lugar na Magic Formula EUA</strong> e em <strong>19º lugar no ranking BESST e Buffett EUA</strong>. A base mostra <strong>preço de US$ 57,58</strong>, <strong>P/L de 16,13</strong>, <strong>P/L projetado de 9,29</strong>, <strong>P/VP de 5,86</strong>, <strong>EV/EBITDA de 8,09</strong>, <strong>ROE de 38,73%</strong>, <strong>dividend yield de 4,38%</strong> e <strong>earnings yield de 6,20%</strong>.</p>
+            <p>A perspectiva de custódia reforça a necessidade de acompanhamento. BMY aparece como posição da carteira Magic Formula Dolarizada, mas quantidades, preço médio e detalhes de execução ficam fora da página pública. Isso não é recomendação; é uma leitura educacional de uma tese que precisa ser testada contra pipeline, vencimento de patentes, geração de caixa e dívida.</p>
+
+            <div class="scorecard">
+                <div><span>Ranking local</span><strong>#4 Magic Formula EUA</strong></div>
+                <div><span>Ranking qualidade/preço</span><strong>#19 BESST e Buffett EUA</strong></div>
+                <div><span>Perspectiva</span><strong>Carteira real</strong></div>
+                <div><span>Preço-base</span><strong>US$ 57,58</strong></div>
+                <div><span>P/L</span><strong>16,13</strong></div>
+                <div><span>Dividend yield</span><strong>4,38%</strong></div>
+            </div>
+
+            <h2>O que os documentos verificados mostram</h2>
+            <p>A consulta à SEC mostra a Bristol Myers Squibb Co, CIK <strong>0000014272</strong>, classificada como preparação farmacêutica. O 10-Q arquivado em <strong>30/07/2026</strong>, referente ao trimestre encerrado em <strong>30/06/2026</strong>, informa <strong>US$ 12,973 bilhões de receitas</strong> no 2T26, contra <strong>US$ 12,269 bilhões</strong> no 2T25.</p>
+            <p>No mesmo trimestre, o lucro líquido foi de <strong>US$ 3,317 bilhões</strong>, acima dos <strong>US$ 1,310 bilhão</strong> do 2T25. No semestre, as receitas chegaram a <strong>US$ 24,462 bilhões</strong> e o lucro líquido somou <strong>US$ 5,994 bilhões</strong>. O balanço de 30/06/2026 mostrava <strong>US$ 87,634 bilhões em ativos</strong>, <strong>US$ 65,315 bilhões em passivos</strong>, <strong>US$ 22,319 bilhões em patrimônio líquido</strong>, <strong>US$ 42,861 bilhões em dívida de longo prazo</strong> e <strong>US$ 8,722 bilhões em caixa</strong>.</p>
+            <p>O ponto decisivo é a escala de reinvestimento. A companhia registrou <strong>US$ 2,959 bilhões em pesquisa e desenvolvimento no 2T26</strong> e <strong>US$ 5,608 bilhões no semestre</strong>. Para uma farmacêutica madura, esse gasto não é detalhe: é a ponte entre medicamentos atuais, perda de exclusividade futura e novos produtos capazes de sustentar receita.</p>
+
+            <table class="mini-table">
+                <thead><tr><th>Métrica verificada</th><th>Período/fonte</th><th>Valor</th><th>Leitura</th></tr></thead>
+                <tbody>
+                    <tr><td>Receitas</td><td>SEC 2T26</td><td>US$ 12,973 bi</td><td>crescimento sobre o 2T25</td></tr>
+                    <tr><td>Lucro líquido</td><td>SEC 2T26</td><td>US$ 3,317 bi</td><td>recuperação de lucro, mas exige normalização</td></tr>
+                    <tr><td>Pesquisa e desenvolvimento</td><td>SEC 1S26</td><td>US$ 5,608 bi</td><td>combustível do pipeline</td></tr>
+                    <tr><td>Dívida de longo prazo</td><td>SEC 30/06/2026</td><td>US$ 42,861 bi</td><td>alavancagem relevante para a tese</td></tr>
+                    <tr><td>Caixa</td><td>SEC 30/06/2026</td><td>US$ 8,722 bi</td><td>liquidez ajuda, mas não elimina o risco</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Por que Bristol Myers importa para o investidor</h2>
+            <p>BMY combina três elementos que costumam atrair o investidor de valor: lucro relevante, dividendo visível e múltiplos menores que os de muitas empresas de crescimento. O mercado, porém, cobra desconto de farmacêuticas maduras quando há dúvida sobre patentes, pressão regulatória de preços, integração de aquisições e capacidade de transformar pesquisa em vendas futuras.</p>
+            <p>Por isso, a leitura não pode parar no P/L. O P/L projetado abaixo do P/L corrente sugere expectativa de lucro melhor à frente, mas a dívida líquida e a necessidade permanente de pesquisa reduzem o espaço para erro. O ranking encontra preço razoável para retorno sobre patrimônio alto; a análise precisa perguntar se esse retorno é sustentável quando produtos antigos perdem proteção e produtos novos precisam ganhar tração.</p>
+
+            <div class="callout"><strong>Leitura prática do IA em Loop</strong><br>BMY é uma posição pequena, com valuation defensivo e presença relevante na Magic Formula. A tese melhora se a empresa converter pesquisa em crescimento, preservar caixa, reduzir alavancagem e manter dividendos sem sacrificar investimento. A tese piora se a renovação de portfólio atrasar ou se a dívida limitar flexibilidade.</div>
+
+            <h2>O que favorece e o que ameaça a tese</h2>
+            <div class="matrix">
+                <div><h3>Favoráveis</h3><p>• Presença simultânea nos rankings dolarizados.</p><p>• P/L local moderado e P/L projetado menor.</p><p>• Dividendo acima de 4% na base local.</p><p>• Receita e lucro líquido fortes no 2T26.</p><p>• Gasto robusto em pesquisa e desenvolvimento.</p></div>
+                <div><h3>Desfavoráveis</h3><p>• Farmacêuticas maduras sofrem com perda de exclusividade.</p><p>• Dívida de longo prazo elevada frente ao patrimônio.</p><p>• P/VP alto exige ROE persistente.</p><p>• Pressão regulatória pode comprimir preços.</p><p>• Pipeline pode atrasar, falhar ou exigir novas aquisições.</p></div>
+            </div>
+
+            <h2>Checklist para acompanhar daqui em diante</h2>
+            <table class="mini-table"><thead><tr><th>Ponto</th><th>O que monitorar</th><th>Se piorar</th></tr></thead><tbody><tr><td>Pipeline</td><td>aprovações, estudos, lançamentos e crescimento de novos produtos</td><td>o desconto pode ser justificado</td></tr><tr><td>Patentes</td><td>perda de exclusividade e erosão de receitas maduras</td><td>receita futura fica mais frágil</td></tr><tr><td>Dívida</td><td>dívida líquida, juros e desalavancagem</td><td>dividendos e recompras perdem espaço</td></tr><tr><td>Caixa</td><td>geração operacional e conversão de lucro em caixa</td><td>o lucro contábil vira sinal menos confiável</td></tr><tr><td>Valuation</td><td>P/L normalizado, P/VP e dividend yield</td><td>preço baixo pode refletir queda estrutural</td></tr></tbody></table>
+
+            <h2>Conclusão</h2>
+            <p>A resposta para a pergunta do post é: <strong>Bristol Myers parece descontada o suficiente para justificar acompanhamento, mas não para ignorar o risco de renovação do portfólio</strong>. Os números do 2T26 mostram receita, lucro e pesquisa relevantes; os rankings mostram valuation atrativo; a dívida e o ciclo de patentes explicam por que o mercado exige desconto.</p>
+            <p>Na régua do IA em Loop, BMY é uma tese de valor farmacêutico: boa quando lucro, caixa, pipeline e desalavancagem caminham juntos; perigosa quando o investidor compra apenas dividendo e P/L sem cobrar evidência de crescimento futuro.</p>
+
+            <div class="warning"><strong>Aviso importante:</strong> este conteúdo é educacional e não representa recomendação personalizada de investimento, compra, venda, remessa ou câmbio. Stocks envolvem risco de mercado, risco cambial, risco de liquidez e risco específico da empresa.</div>
+            <div class="source-note"><strong>Fontes e critérios:</strong> rankings Magic Formula Dolarizada e BESST e Buffett Dolarizado do IA em Loop com data-base 11/07/2026; base local de fundamentos dolarizados com data-base 11/07/2026; perspectiva pública de custódia sem divulgar quantidades, preço médio ou detalhes de execução; SEC data.sec.gov para Bristol Myers Squibb Co, CIK 0000014272, incluindo 10-Q arquivado em 30/07/2026 referente ao período encerrado em 30/06/2026; dados estruturados XBRL e demonstrações do 10-Q para receitas, lucro líquido, ativos, passivos, patrimônio líquido, dívida, caixa e pesquisa e desenvolvimento. Conteúdo educacional, sem recomendação personalizada.</div>
+        </article>
+        <div class="footer">IA em Loop • Educação financeira com dados, método e transparência</div>
+    </main>
+</body>
+</html>
