@@ -43,6 +43,10 @@ regenerate_*.py
 # Arquivos de configuração local
 openclaw.local.json
 
+# Uploads privados gerados para Supabase; contêm HTML de custódia real.
+supabase/private-pages/
+supabase/private-pages*.sql
+
 # System
 .DS_Store
 Thumbs.db

@@ -5,6 +5,10 @@
  */
 (function () {
   const cfg = window.IAEMLOOP_AUTH_CONFIG || {};
+  const ACTIVITY_KEY = 'iaemloop:last_activity_at';
+  const DEFAULT_IDLE_MINUTES = 720; // 12h sliding session while the user is active.
+  let lastActivityWrite = 0;
+
   const statusEl = () => document.querySelector('[data-auth-status]') || document.getElementById('notice');
   const setStatus = (message, kind = 'info') => {
     const el = statusEl();
@@ -20,9 +24,58 @@
   function client() {
     if (!hasConfig()) return null;
     if (!window.__iaemloopSupabase) {
-      window.__iaemloopSupabase = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey);
+      window.__iaemloopSupabase = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey, {
+        auth: {
+          persistSession: true,
+          autoRefreshToken: true,
+          detectSessionInUrl: true,
+          storageKey: 'iaemloop-auth-token'
+        }
+      });
     }
     return window.__iaemloopSupabase;
+  }
+
+  function idleLimitMs() {
+    const minutes = Number(cfg.sessionIdleMinutes || DEFAULT_IDLE_MINUTES);
+    return Math.max(15, minutes) * 60 * 1000;
+  }
+
+  function markActivity(force = false) {
+    const now = Date.now();
+    if (!force && now - lastActivityWrite < 60000) return;
+    lastActivityWrite = now;
+    try { localStorage.setItem(ACTIVITY_KEY, String(now)); } catch (_) {}
+  }
+
+  function isIdleExpired() {
+    try {
+      const raw = localStorage.getItem(ACTIVITY_KEY);
+      if (!raw) return false;
+      const last = Number(raw);
+      return Number.isFinite(last) && Date.now() - last > idleLimitMs();
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function installActivityTracking() {
+    ['click', 'keydown', 'scroll', 'touchstart', 'mousemove'].forEach((eventName) => {
+      window.addEventListener(eventName, () => markActivity(false), { passive: true });
+    });
+    markActivity(false);
+  }
+
+  function normalizeRedirect(target) {
+    const fallback = cfg.defaultRedirect || '/privado/index.html';
+    const requested = target || fallback;
+    try {
+      const url = new URL(requested, window.location.origin);
+      if (url.origin !== window.location.origin) return fallback;
+      return url.pathname + url.search + url.hash;
+    } catch (_) {
+      return fallback;
+    }
   }
 
   async function getApprovedProfile(sb, userId) {
@@ -87,8 +140,8 @@
       return false;
     }
     setStatus('Criando pedido de acesso...', 'info');
-    const redirectTo = new URL('area_privada.html', window.location.href).toString();
-    const { data, error } = await sb.auth.signUp({
+    const redirectTo = new URL('area_privada.html', window.location.origin).toString();
+    const { error } = await sb.auth.signUp({
       email,
       password,
       options: { emailRedirectTo: redirectTo, data: { full_name: fullName } }
@@ -97,10 +150,6 @@
       setStatus('Erro no cadastro: ' + error.message, 'error');
       return false;
     }
-    // O pedido em access_requests é criado por trigger seguro no Supabase
-    // quando auth.users recebe o novo usuário. O front não tenta inserir aqui,
-    // porque antes da confirmação de e-mail a sessão pode não existir e o RLS
-    // bloqueia corretamente a escrita direta.
     notifyApprovalEmail({ email, fullName });
     setStatus(`Cadastro criado. Confirme o e-mail do Supabase. O pedido de aprovação será registrado no Supabase e enviado para ${cfg.approvalEmail || 'equipeiaemloop@gmail.com'}; o acesso só será liberado após aprovação manual.`, 'ok');
     return false;
@@ -128,9 +177,11 @@
       setStatus('Cadastro recebido, mas ainda não aprovado pelo IA em Loop.', 'warn');
       return false;
     }
-    setStatus('Acesso aprovado. Abrindo área privada...', 'ok');
-    const target = form.dataset.redirect || new URLSearchParams(location.search).get('redirect') || cfg.defaultRedirect || 'area_privada.html';
-    window.location.href = target;
+    markActivity(true);
+    setStatus('Acesso aprovado. Abrindo carteiras em custódia...', 'ok');
+    const paramsRedirect = new URLSearchParams(location.search).get('redirect');
+    const target = normalizeRedirect(form.dataset.redirect || paramsRedirect || cfg.defaultRedirect || '/privado/index.html');
+    window.location.assign(target);
     return false;
   }
 
@@ -142,7 +193,7 @@
       return false;
     }
     const email = event.currentTarget.email.value.trim();
-    const redirectTo = new URL('area_privada.html', window.location.href).toString();
+    const redirectTo = new URL('area_privada.html', window.location.origin).toString();
     const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo });
     if (error) {
       setStatus('Erro ao solicitar recuperação: ' + error.message, 'error');
@@ -150,6 +201,35 @@
     }
     setStatus('Se o e-mail estiver cadastrado, a recuperação será enviada.', 'ok');
     return false;
+  }
+
+  async function logout() {
+    const sb = client();
+    try { localStorage.removeItem(ACTIVITY_KEY); } catch (_) {}
+    if (sb) await sb.auth.signOut();
+    window.location.assign('/area_privada.html');
+  }
+
+  async function loadPrivatePage(sb) {
+    const container = document.querySelector('[data-private-page]');
+    if (!container) return;
+    const slug = container.dataset.privatePage;
+    const frame = document.querySelector('[data-private-frame]');
+    if (!slug || !frame) return;
+    setStatus('Carregando custódia privada...', 'info');
+    const { data, error } = await sb
+      .from('private_pages')
+      .select('html,updated_at')
+      .eq('slug', slug)
+      .maybeSingle();
+    if (error) throw error;
+    if (!data || !data.html) {
+      setStatus('Custódia privada ainda não foi publicada no Supabase para esta carteira.', 'warn');
+      return;
+    }
+    const html = data.html.replace(/<head(.*?)>/i, '<head$1><base href="/">');
+    frame.srcdoc = html;
+    setStatus('Custódia privada carregada. Sessão ativa enquanto houver movimentação na página.', 'ok');
   }
 
   async function protectPage() {
@@ -161,6 +241,10 @@
       setStatus('Área privada ainda não configurada. Nenhum dado real foi carregado.', 'warn');
       return;
     }
+    if (isIdleExpired()) {
+      await logout();
+      return;
+    }
     const { data } = await sb.auth.getUser();
     if (!data.user) {
       gate.hidden = false;
@@ -170,9 +254,11 @@
     try {
       const profile = await getApprovedProfile(sb, data.user.id);
       if (profile && profile.status === 'approved') {
+        markActivity(false);
         document.documentElement.dataset.auth = 'approved';
         gate.hidden = true;
-        setStatus('Acesso aprovado.', 'ok');
+        setStatus('Acesso aprovado. Sessão ativa enquanto houver movimentação na página.', 'ok');
+        await loadPrivatePage(sb);
       } else {
         gate.hidden = false;
         setStatus('Usuário autenticado, mas ainda pendente de aprovação.', 'warn');
@@ -183,6 +269,7 @@
     }
   }
 
-  window.IAEMLOOPAuth = { signup, login, recover, protectPage, client };
+  installActivityTracking();
+  window.IAEMLOOPAuth = { signup, login, recover, logout, protectPage, client };
   document.addEventListener('DOMContentLoaded', protectPage);
 })();

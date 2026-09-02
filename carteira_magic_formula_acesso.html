@@ -26,10 +26,10 @@
       <h1>🔒 Área privada — Carteira Magic Formula</h1>
       <span>Dados reais liberados apenas após autenticação</span>
     </div>
-    <form class="login-grid" data-redirect="privado/carteira_magic_formula.html" onsubmit="return IAEMLOOPAuth.login(event)"><div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" placeholder="seu@email.com" required></div><div class="field"><label for="password">Senha</label><input id="password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required></div><button class="btn" type="submit">Entrar</button></form>
+    <form class="login-grid" data-redirect="/privado/carteira_magic_formula.html" onsubmit="return IAEMLOOPAuth.login(event)"><div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" placeholder="seu@email.com" required></div><div class="field"><label for="password">Senha</label><input id="password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required></div><button class="btn" type="submit">Entrar</button></form>
     <div class="links">
-      <a href="area_privada.html">Cadastrar acesso</a>
-      <a href="area_privada.html">Recuperar senha</a>
+      <a href="/area_privada.html">Cadastrar acesso</a>
+      <a href="/area_privada.html">Recuperar senha</a>
     </div>
     <div id="notice" class="notice" data-auth-status></div>
   </section>
@@ -71,7 +71,7 @@
   <div class="watermark">CONTEÚDO PRIVADO • LOGIN NECESSÁRIO</div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="js/iaemloop-auth-config.js"></script>
-  <script src="js/iaemloop-auth.js"></script>
+  <script src="/js/iaemloop-auth-config.js"></script>
+  <script src="/js/iaemloop-auth.js"></script>
 </body>
 </html>
