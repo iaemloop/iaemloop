@@ -5,8 +5,8 @@ window.IAEMLOOP_AUTH_CONFIG = {
   supabaseAnonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5maGhqcWd5dXZ3aGFvcmt5ZmhxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgzNjE1NTgsImV4cCI6MjEwMzkzNzU1OH0.zmFI38b80ZNztZdbU978K3WQgLuLFcw4tYuCqLCBndc",
   approvalEmail: "equipeiaemloop@gmail.com",
   // Sessão deslizante: mantém o login enquanto houver atividade na página.
-  // Após esse período sem cliques/toques/teclas/rolagem, força novo login.
-  sessionIdleMinutes: 720,
+  // Após 5 minutos sem cliques/toques/teclas/rolagem, força novo login.
+  sessionIdleMinutes: 5,
   defaultRedirect: "/privado/index.html",
   pages: {
     hub: "/privado/index.html",
