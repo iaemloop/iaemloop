@@ -51,12 +51,12 @@
         <div class="panel-title">
           <div>
             <h2 id="main-chart-title">Todas da custódia</h2>
-            <p class="muted">Gráfico grande em tempo real com os ativos sobrepostos na mesma tela. Use os botões acima para alternar entre todas, B3 e stocks.</p>
+            <p class="muted">Gráfico em tempo real com seleção por ativo. Use os botões acima para alternar entre todas, B3 e stocks; dentro do gráfico, escolha o ticker que quer ver.</p>
           </div>
           <a class="pill" id="open-tv" target="_blank" rel="noopener noreferrer" href="https://www.tradingview.com/markets/">Abrir TradingView</a>
         </div>
         <div id="main-chart" class="tv-box"></div>
-        <p class="chart-note">Cada linha representa um ativo da custódia no filtro atual. Em “Todas da custódia”, o gráfico tenta carregar a carteira completa; se o TradingView limitar muitos comparativos, os cards abaixo continuam mostrando todos os ativos individualmente.</p>
+        <p class="chart-note">O seletor do TradingView carrega os ativos do filtro atual e mostra um gráfico por vez, como na primeira versão.</p>
         <div id="chart-legend" class="legend-inline"></div>
       </section>
 
@@ -81,7 +81,6 @@
     const PRIVATE_PAGE_SLUGS = ['besst_b3', 'magic_b3', 'besst_usd', 'magic_usd'];
     let allAssets = [];
     let activeFilter = 'all';
-    let lastMainChartKey = '';
 
     function brNumber(text) {
       if (!text) return null;
@@ -183,47 +182,46 @@
       });
     }
 
-    function createTradingViewWidget(container, list, title) {
+    function createTradingViewWidget(container, symbols, title) {
       clearNode(container);
-      renderChartLegend(list);
-      if (!list.length) return;
-      const widgetId = `tv-main-${Date.now()}`;
-      const chartDiv = document.createElement('div');
-      chartDiv.id = widgetId;
-      chartDiv.style.height = '100%';
-      chartDiv.style.width = '100%';
-      container.appendChild(chartDiv);
-
-      const load = () => {
-        if (!window.TradingView || !window.TradingView.widget) {
-          setTimeout(load, 200);
-          return;
-        }
-        const [primary, ...comparisons] = list;
-        new TradingView.widget({
-          autosize: true,
-          symbol: primary.tvSymbol,
-          interval: '5',
-          timezone: 'America/Sao_Paulo',
-          theme: 'dark',
-          style: '8',
-          locale: 'br',
-          toolbar_bg: '#0b1020',
-          enable_publishing: false,
-          allow_symbol_change: true,
-          hide_side_toolbar: false,
-          hide_top_toolbar: false,
-          withdateranges: true,
-          range: '1D',
-          details: true,
-          hotlist: false,
-          calendar: false,
-          studies: [],
-          compareSymbols: comparisons.map(asset => ({ symbol: asset.tvSymbol, position: 'SameScale' })),
-          container_id: widgetId
-        });
-      };
-      load();
+      if (!symbols.length) {
+        renderChartLegend([]);
+        return;
+      }
+      renderChartLegend(filteredAssets());
+      const widgetDiv = document.createElement('div');
+      widgetDiv.className = 'tradingview-widget-container__widget';
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js';
+      script.async = true;
+      script.text = JSON.stringify({
+        symbols: symbols.map(s => [s, `${s}|1D`]),
+        chartOnly: false,
+        width: '100%',
+        height: '100%',
+        locale: 'br',
+        colorTheme: 'dark',
+        autosize: true,
+        showVolume: false,
+        showMA: false,
+        hideDateRanges: false,
+        hideMarketStatus: false,
+        hideSymbolLogo: false,
+        scalePosition: 'right',
+        scaleMode: 'Normal',
+        fontFamily: 'Inter, sans-serif',
+        fontSize: '10',
+        noTimeScale: false,
+        valuesTracking: '1',
+        changeMode: 'price-and-percent',
+        chartType: 'line',
+        lineWidth: 2,
+        dateRanges: ['1d|5', '5d|15', '1m|60', '6m|1D', '12m|1D'],
+        title
+      });
+      container.appendChild(widgetDiv);
+      container.appendChild(script);
     }
 
     function createMiniWidget(container, asset) {
@@ -258,11 +256,7 @@
       const title = activeFilter === 'b3' ? 'Ações B3' : activeFilter === 'stocks' ? 'Stocks EUA' : 'Todas da custódia';
       document.getElementById('main-chart-title').textContent = title;
       document.getElementById('open-tv').href = list[0] ? `https://www.tradingview.com/chart/?symbol=${encodeURIComponent(list[0].tvSymbol)}` : 'https://www.tradingview.com/markets/';
-      const chartKey = `${activeFilter}:${list.map(a => a.tvSymbol).join('|')}`;
-      if (chartKey !== lastMainChartKey) {
-        lastMainChartKey = chartKey;
-        createTradingViewWidget(document.getElementById('main-chart'), list, title);
-      }
+      createTradingViewWidget(document.getElementById('main-chart'), list.map(a => a.tvSymbol), title);
       const grid = document.getElementById('asset-grid');
       clearNode(grid);
       document.getElementById('empty-state').classList.toggle('hidden', list.length > 0);
