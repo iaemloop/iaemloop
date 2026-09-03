@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Gráficos da Custódia | IA em Loop Privado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#06080d;--card:rgba(15,23,42,.86);--gold:#e4d17f;--cyan:#6ee4ef;--muted:#94a3b8;--border:rgba(228,209,127,.22);--green:#22c55e;--red:#ef4444;--yellow:#facc15}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,system-ui,sans-serif;min-height:100vh;background:radial-gradient(circle at top,#19364d 0,#06080d 48%,#030509 100%);color:#e2e8f0;padding:24px 16px 44px}
+    a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1380px;margin:0 auto}
+    .top{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:22px;flex-wrap:wrap}.nav{display:flex;gap:10px;flex-wrap:wrap}.pill,.logout,.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--border);background:rgba(228,209,127,.08);color:var(--gold);padding:10px 14px;border-radius:999px;font-weight:800}.logout{cursor:pointer}.btn{background:linear-gradient(135deg,var(--gold),#aa8451);color:#06101a;border:0}
+    .gate,.hero,.panel,.asset-card{background:var(--card);border:1px solid var(--border);border-radius:22px;box-shadow:0 18px 60px rgba(0,0,0,.32)}.gate{padding:24px;margin:28px 0}.hero{padding:28px;margin-bottom:16px;background:linear-gradient(135deg,rgba(25,54,77,.88),rgba(6,8,13,.92))}.badge{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(34,197,94,.35);background:rgba(34,197,94,.10);color:#86efac;padding:8px 12px;border-radius:999px;font-weight:900;margin-bottom:14px}h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.04;color:#fff;margin-bottom:12px}.lead,.muted{color:#cbd5e1;line-height:1.7}.muted{color:var(--muted)}.private-content{display:none}html[data-auth="approved"] .private-content{display:block}html[data-auth="approved"] .gate{display:none}
+    .tabs{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}.tab{border:1px solid var(--border);background:rgba(148,163,184,.08);color:#e2e8f0;padding:10px 14px;border-radius:999px;font-weight:900;cursor:pointer}.tab.active{background:linear-gradient(135deg,#19364D,#AA8451);color:#fff;border-color:rgba(228,209,127,.65)}
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}.stat{background:rgba(6,8,13,.55);border:1px solid rgba(228,209,127,.12);border-radius:16px;padding:14px}.stat b{display:block;font-size:1.35rem;color:#fff}.stat span{color:var(--muted);font-size:.86rem}.panel{padding:16px;margin:16px 0}.panel-title{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}.panel-title h2{font-size:1.25rem;color:#fff}.tv-box{min-height:500px;background:#0b1020;border:1px solid rgba(228,209,127,.10);border-radius:16px;overflow:hidden}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:14px;margin-top:14px}.asset-card{padding:13px;overflow:hidden}.asset-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:10px}.ticker{font-weight:900;color:#fff;font-size:1.05rem}.name{color:var(--muted);font-size:.82rem;line-height:1.35}.status{font-weight:900;border-radius:999px;padding:5px 9px;font-size:.75rem;white-space:nowrap}.status.green{color:#86efac;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35)}.status.red{color:#fca5a5;background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.35)}.status.neutral{color:#fde68a;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.35)}.asset-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;color:#cbd5e1;font-size:.82rem;margin-bottom:10px}.asset-meta span{background:rgba(6,8,13,.42);border:1px solid rgba(148,163,184,.13);border-radius:10px;padding:8px}.mini-chart{height:220px;border-radius:14px;overflow:hidden;background:#0b1020}.note{margin-top:14px;color:#94a3b8;font-size:.88rem;line-height:1.55}.error{color:#fca5a5}.hidden{display:none!important}@media(max-width:720px){body{padding:16px 10px}.tv-box{min-height:420px}.asset-meta{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="top">
+      <div class="nav">
+        <a class="pill" href="index.html">Carteiras em custódia</a>
+        <a class="pill" href="/index.html">Site IA em Loop</a>
+      </div>
+      <button class="logout" type="button" onclick="IAEMLOOPAuth.logout()">Sair</button>
+    </div>
+
+    <section class="gate" data-requires-approved-user>
+      <h1>🔒 Login necessário</h1>
+      <p class="muted" data-auth-status>Validando acesso aprovado...</p>
+      <a class="btn" href="../area_privada.html?redirect=/privado/graficos_custodia.html">Entrar novamente</a>
+    </section>
+
+    <section class="private-content">
+      <div class="hero">
+        <div class="badge">📈 Área logada</div>
+        <h1>Gráficos da custódia</h1>
+        <p class="lead">Painel privado para acompanhar, em uma única página, ações B3 e stocks das carteiras em custódia. Os tickers e preços médios são lidos somente após login aprovado.</p>
+        <p class="note" data-auth-status>Validando sessão...</p>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Filtros de custódia">
+        <button class="tab active" type="button" data-filter="all">Todas da custódia</button>
+        <button class="tab" type="button" data-filter="b3">Ações B3</button>
+        <button class="tab" type="button" data-filter="stocks">Stocks EUA</button>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><b id="stat-total">--</b><span>ativos no filtro</span></div>
+        <div class="stat"><b id="stat-green">--</b><span>acima do preço médio</span></div>
+        <div class="stat"><b id="stat-red">--</b><span>abaixo do preço médio</span></div>
+        <div class="stat"><b id="stat-updated">--</b><span>fonte privada</span></div>
+      </div>
+
+      <section class="panel">
+        <div class="panel-title">
+          <div>
+            <h2 id="main-chart-title">Todas da custódia</h2>
+            <p class="muted">Gráfico em tempo real via TradingView. Use os botões acima para alternar entre todas, B3 e stocks.</p>
+          </div>
+          <a class="pill" id="open-tv" target="_blank" rel="noopener noreferrer" href="https://www.tradingview.com/markets/">Abrir TradingView</a>
+        </div>
+        <div id="main-chart" class="tv-box"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-title">
+          <div>
+            <h2>Ativos e preço médio</h2>
+            <p class="muted">Cards ficam verdes/vermelhos conforme a última variação disponível na custódia e, quando a cotação pública permitir, conforme preço atual versus PM.</p>
+          </div>
+        </div>
+        <div id="asset-grid" class="grid"></div>
+        <p id="empty-state" class="note hidden">Nenhum ativo encontrado nesse filtro.</p>
+      </section>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/iaemloop-auth-config.js"></script>
+  <script src="../js/iaemloop-auth.js"></script>
+  <script src="https://s3.tradingview.com/tv.js"></script>
+  <script>
+    const PRIVATE_PAGE_SLUGS = ['besst_b3', 'magic_b3', 'besst_usd', 'magic_usd'];
+    let allAssets = [];
+    let activeFilter = 'all';
+
+    function brNumber(text) {
+      if (!text) return null;
+      const clean = String(text).replace(/[^0-9,.-]/g, '').replace(/\./g, '').replace(',', '.');
+      const n = Number(clean);
+      return Number.isFinite(n) ? n : null;
+    }
+
+    function fmtMoney(value, currency) {
+      if (!Number.isFinite(value)) return '--';
+      return new Intl.NumberFormat(currency === 'USD' ? 'en-US' : 'pt-BR', { style: 'currency', currency, minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value);
+    }
+
+    function normalizeTvSymbol(ticker, market) {
+      return market === 'b3' ? `BMFBOVESPA:${ticker}` : ticker;
+    }
+
+    function quoteSymbol(ticker, market) {
+      return market === 'b3' ? `${ticker}.SA` : ticker;
+    }
+
+    function parsePrivateHtml(slug, html) {
+      const market = slug.endsWith('_usd') ? 'stocks' : 'b3';
+      const currency = market === 'stocks' ? 'USD' : 'BRL';
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      const assets = [];
+      doc.querySelectorAll('.v31-row').forEach((row) => {
+        const ticker = row.querySelector('b a')?.textContent?.trim();
+        const small = row.querySelector('small')?.innerText?.replace(/\s+/g, ' ')?.trim() || '';
+        if (!ticker || !small.includes(' PM ')) return;
+        const name = small.split(' • ')[0] || ticker;
+        const qtyMatch = small.match(/([0-9.,]+)\s*un\./i);
+        const pmMatch = small.match(/PM\s*(R\$|US\$)\s*([0-9.,]+)/i);
+        const varMatch = small.match(/var\.\s*([-0-9.,]+)%/i);
+        const qty = brNumber(qtyMatch?.[1]);
+        const avgPrice = brNumber(pmMatch?.[2]);
+        const varPct = brNumber(varMatch?.[1]);
+        if (!Number.isFinite(avgPrice)) return;
+        assets.push({ ticker, name, market, currency, qty, avgPrice, varPct, source: slug, tvSymbol: normalizeTvSymbol(ticker, market), quoteSymbol: quoteSymbol(ticker, market) });
+      });
+      return assets;
+    }
+
+    function mergeAssets(assets) {
+      const map = new Map();
+      assets.forEach((asset) => {
+        const key = `${asset.market}:${asset.ticker}`;
+        const prev = map.get(key);
+        if (!prev) {
+          map.set(key, { ...asset, sources: [asset.source] });
+          return;
+        }
+        const prevQty = Number.isFinite(prev.qty) ? prev.qty : 0;
+        const qty = Number.isFinite(asset.qty) ? asset.qty : 0;
+        if (prevQty + qty > 0) {
+          prev.avgPrice = ((prev.avgPrice * prevQty) + (asset.avgPrice * qty)) / (prevQty + qty);
+          prev.qty = prevQty + qty;
+        }
+        prev.varPct = Number.isFinite(asset.varPct) ? asset.varPct : prev.varPct;
+        prev.sources.push(asset.source);
+      });
+      return [...map.values()].sort((a, b) => a.market.localeCompare(b.market) || a.ticker.localeCompare(b.ticker));
+    }
+
+    function filteredAssets() {
+      if (activeFilter === 'b3') return allAssets.filter(a => a.market === 'b3');
+      if (activeFilter === 'stocks') return allAssets.filter(a => a.market === 'stocks');
+      return allAssets;
+    }
+
+    function statusFromAsset(asset) {
+      if (Number.isFinite(asset.currentPrice)) return asset.currentPrice >= asset.avgPrice ? 'green' : 'red';
+      if (Number.isFinite(asset.varPct)) return asset.varPct >= 0 ? 'green' : 'red';
+      return 'neutral';
+    }
+
+    function renderStats(list) {
+      const green = list.filter(a => statusFromAsset(a) === 'green').length;
+      const red = list.filter(a => statusFromAsset(a) === 'red').length;
+      document.getElementById('stat-total').textContent = list.length;
+      document.getElementById('stat-green').textContent = green;
+      document.getElementById('stat-red').textContent = red;
+      document.getElementById('stat-updated').textContent = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    }
+
+    function clearNode(node) {
+      while (node.firstChild) node.removeChild(node.firstChild);
+    }
+
+    function createTradingViewWidget(container, symbols, title) {
+      clearNode(container);
+      if (!symbols.length) return;
+      const widgetDiv = document.createElement('div');
+      widgetDiv.className = 'tradingview-widget-container__widget';
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js';
+      script.async = true;
+      script.text = JSON.stringify({
+        symbols: symbols.map(s => [s, `${s}|1D`]),
+        chartOnly: false,
+        width: '100%',
+        height: '500',
+        locale: 'br',
+        colorTheme: 'dark',
+        autosize: true,
+        showVolume: false,
+        showMA: false,
+        hideDateRanges: false,
+        hideMarketStatus: false,
+        hideSymbolLogo: false,
+        scalePosition: 'right',
+        scaleMode: 'Normal',
+        fontFamily: 'Inter, sans-serif',
+        fontSize: '10',
+        noTimeScale: false,
+        valuesTracking: '1',
+        changeMode: 'price-and-percent',
+        chartType: 'line',
+        lineWidth: 2,
+        dateRanges: ['1d|5', '5d|15', '1m|60', '6m|1D', '12m|1D'],
+        title
+      });
+      container.appendChild(widgetDiv);
+      container.appendChild(script);
+    }
+
+    function createMiniWidget(container, asset) {
+      const status = statusFromAsset(asset);
+      const color = status === 'green' ? '#22c55e' : status === 'red' ? '#ef4444' : '#e4d17f';
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js';
+      script.async = true;
+      script.text = JSON.stringify({
+        symbol: asset.tvSymbol,
+        width: '100%',
+        height: 220,
+        locale: 'br',
+        dateRange: '1D',
+        colorTheme: 'dark',
+        isTransparent: true,
+        autosize: false,
+        largeChartUrl: `https://www.tradingview.com/chart/?symbol=${encodeURIComponent(asset.tvSymbol)}`,
+        chartOnly: false,
+        noTimeScale: false,
+        trendLineColor: color,
+        underLineColor: status === 'green' ? 'rgba(34,197,94,0.16)' : status === 'red' ? 'rgba(239,68,68,0.16)' : 'rgba(228,209,127,0.14)'
+      });
+      container.appendChild(script);
+    }
+
+    function renderAssets() {
+      const list = filteredAssets();
+      renderStats(list);
+      document.querySelectorAll('.tab').forEach(btn => btn.classList.toggle('active', btn.dataset.filter === activeFilter));
+      const title = activeFilter === 'b3' ? 'Ações B3' : activeFilter === 'stocks' ? 'Stocks EUA' : 'Todas da custódia';
+      document.getElementById('main-chart-title').textContent = title;
+      document.getElementById('open-tv').href = list[0] ? `https://www.tradingview.com/chart/?symbol=${encodeURIComponent(list[0].tvSymbol)}` : 'https://www.tradingview.com/markets/';
+      createTradingViewWidget(document.getElementById('main-chart'), list.map(a => a.tvSymbol), title);
+      const grid = document.getElementById('asset-grid');
+      clearNode(grid);
+      document.getElementById('empty-state').classList.toggle('hidden', list.length > 0);
+      list.forEach((asset) => {
+        const status = statusFromAsset(asset);
+        const card = document.createElement('article');
+        card.className = 'asset-card';
+        card.innerHTML = `
+          <div class="asset-head">
+            <div><div class="ticker">${asset.ticker}</div><div class="name">${asset.name}</div></div>
+            <span class="status ${status}">${status === 'green' ? 'ACIMA/OK' : status === 'red' ? 'ABAIXO PM' : 'SEM PREÇO'}</span>
+          </div>
+          <div class="asset-meta">
+            <span><b>PM</b><br>${fmtMoney(asset.avgPrice, asset.currency)}</span>
+            <span><b>Qtd.</b><br>${Number.isFinite(asset.qty) ? asset.qty.toLocaleString('pt-BR', { maximumFractionDigits: 8 }) : '--'}</span>
+            <span><b>Mercado</b><br>${asset.market === 'b3' ? 'B3' : 'Stocks EUA'}</span>
+            <span><b>Variação base</b><br>${Number.isFinite(asset.varPct) ? asset.varPct.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + '%' : '--'}</span>
+          </div>
+          <div class="mini-chart"></div>
+        `;
+        grid.appendChild(card);
+        createMiniWidget(card.querySelector('.mini-chart'), asset);
+      });
+    }
+
+    async function hydrateQuotes() {
+      // Best effort: Yahoo often blocks browser CORS. TradingView remains the real-time visual source if this fails.
+      await Promise.all(allAssets.map(async (asset) => {
+        try {
+          const res = await fetch(`https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(asset.quoteSymbol)}?range=1d&interval=5m`);
+          if (!res.ok) return;
+          const json = await res.json();
+          const price = json?.chart?.result?.[0]?.meta?.regularMarketPrice;
+          if (Number.isFinite(price)) asset.currentPrice = price;
+        } catch (_) {}
+      }));
+      renderAssets();
+    }
+
+    async function initCustodyCharts() {
+      const sb = IAEMLOOPAuth?.client?.();
+      if (!sb) throw new Error('Cliente Supabase indisponível.');
+      const { data, error } = await sb.from('private_pages').select('slug,html,updated_at').in('slug', PRIVATE_PAGE_SLUGS);
+      if (error) throw error;
+      const parsed = [];
+      (data || []).forEach(row => parsed.push(...parsePrivateHtml(row.slug, row.html || '')));
+      allAssets = mergeAssets(parsed);
+      renderAssets();
+      hydrateQuotes();
+      setInterval(hydrateQuotes, 60000);
+    }
+
+    function waitForApproved() {
+      if (document.documentElement.dataset.auth === 'approved') {
+        initCustodyCharts().catch((err) => {
+          document.getElementById('empty-state').classList.remove('hidden');
+          document.getElementById('empty-state').innerHTML = `<span class="error">Não foi possível carregar gráficos: ${err.message}</span>`;
+        });
+        return;
+      }
+      setTimeout(waitForApproved, 300);
+    }
+
+    document.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => {
+      activeFilter = btn.dataset.filter;
+      renderAssets();
+    }));
+    document.addEventListener('DOMContentLoaded', waitForApproved);
+  </script>
+</body>
+</html>
