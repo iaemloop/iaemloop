@@ -14,7 +14,7 @@
     .top{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:22px;flex-wrap:wrap}.nav{display:flex;gap:10px;flex-wrap:wrap}.pill,.logout,.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--border);background:rgba(228,209,127,.08);color:var(--gold);padding:10px 14px;border-radius:999px;font-weight:800}.logout{cursor:pointer}.btn{background:linear-gradient(135deg,var(--gold),#aa8451);color:#06101a;border:0}
     .gate,.hero,.panel,.asset-card{background:var(--card);border:1px solid var(--border);border-radius:22px;box-shadow:0 18px 60px rgba(0,0,0,.32)}.gate{padding:24px;margin:28px 0}.hero{padding:28px;margin-bottom:16px;background:linear-gradient(135deg,rgba(25,54,77,.88),rgba(6,8,13,.92))}.badge{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(34,197,94,.35);background:rgba(34,197,94,.10);color:#86efac;padding:8px 12px;border-radius:999px;font-weight:900;margin-bottom:14px}h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.04;color:#fff;margin-bottom:12px}.lead,.muted{color:#cbd5e1;line-height:1.7}.muted{color:var(--muted)}.private-content{display:none}html[data-auth="approved"] .private-content{display:block}html[data-auth="approved"] .gate{display:none}
     .tabs{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}.tab{border:1px solid var(--border);background:rgba(148,163,184,.08);color:#e2e8f0;padding:10px 14px;border-radius:999px;font-weight:900;cursor:pointer}.tab.active{background:linear-gradient(135deg,#19364D,#AA8451);color:#fff;border-color:rgba(228,209,127,.65)}
-    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}.stat{background:rgba(6,8,13,.55);border:1px solid rgba(228,209,127,.12);border-radius:16px;padding:14px}.stat b{display:block;font-size:1.35rem;color:#fff}.stat span{color:var(--muted);font-size:.86rem}.panel{padding:16px;margin:16px 0}.panel-title{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}.panel-title h2{font-size:1.25rem;color:#fff}.tv-box{min-height:500px;background:#0b1020;border:1px solid rgba(228,209,127,.10);border-radius:16px;overflow:hidden}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:14px;margin-top:14px}.asset-card{padding:13px;overflow:hidden}.asset-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:10px}.ticker{font-weight:900;color:#fff;font-size:1.05rem}.name{color:var(--muted);font-size:.82rem;line-height:1.35}.status{font-weight:900;border-radius:999px;padding:5px 9px;font-size:.75rem;white-space:nowrap}.status.green{color:#86efac;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35)}.status.red{color:#fca5a5;background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.35)}.status.neutral{color:#fde68a;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.35)}.asset-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;color:#cbd5e1;font-size:.82rem;margin-bottom:10px}.asset-meta span{background:rgba(6,8,13,.42);border:1px solid rgba(148,163,184,.13);border-radius:10px;padding:8px}.mini-chart{height:220px;border-radius:14px;overflow:hidden;background:#0b1020}.note{margin-top:14px;color:#94a3b8;font-size:.88rem;line-height:1.55}.error{color:#fca5a5}.hidden{display:none!important}@media(max-width:720px){body{padding:16px 10px}.tv-box{min-height:420px}.asset-meta{grid-template-columns:1fr}}
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}.stat{background:rgba(6,8,13,.55);border:1px solid rgba(228,209,127,.12);border-radius:16px;padding:14px}.stat b{display:block;font-size:1.35rem;color:#fff}.stat span{color:var(--muted);font-size:.86rem}.panel{padding:16px;margin:16px 0}.chart-panel{padding:18px}.panel-title{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}.panel-title h2{font-size:1.25rem;color:#fff}.tv-box{height:clamp(640px,76vh,920px);min-height:640px;background:#0b1020;border:1px solid rgba(228,209,127,.10);border-radius:16px;overflow:hidden}.chart-note{margin-top:10px;color:#cbd5e1;font-size:.88rem;line-height:1.5}.legend-inline{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.legend-chip{border:1px solid rgba(148,163,184,.20);background:rgba(6,8,13,.42);border-radius:999px;padding:6px 10px;color:#cbd5e1;font-size:.78rem;font-weight:800}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:14px;margin-top:14px}.asset-card{padding:13px;overflow:hidden}.asset-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:10px}.ticker{font-weight:900;color:#fff;font-size:1.05rem}.name{color:var(--muted);font-size:.82rem;line-height:1.35}.status{font-weight:900;border-radius:999px;padding:5px 9px;font-size:.75rem;white-space:nowrap}.status.green{color:#86efac;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35)}.status.red{color:#fca5a5;background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.35)}.status.neutral{color:#fde68a;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.35)}.asset-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;color:#cbd5e1;font-size:.82rem;margin-bottom:10px}.asset-meta span{background:rgba(6,8,13,.42);border:1px solid rgba(148,163,184,.13);border-radius:10px;padding:8px}.mini-chart{height:220px;border-radius:14px;overflow:hidden;background:#0b1020}.note{margin-top:14px;color:#94a3b8;font-size:.88rem;line-height:1.55}.error{color:#fca5a5}.hidden{display:none!important}@media(max-width:720px){body{padding:16px 10px}.tv-box{height:72vh;min-height:520px}.asset-meta{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -54,15 +54,17 @@
         <div class="stat"><b id="stat-updated">--</b><span>fonte privada</span></div>
       </div>
 
-      <section class="panel">
+      <section class="panel chart-panel">
         <div class="panel-title">
           <div>
             <h2 id="main-chart-title">Todas da custódia</h2>
-            <p class="muted">Gráfico em tempo real via TradingView. Use os botões acima para alternar entre todas, B3 e stocks.</p>
+            <p class="muted">Gráfico grande em tempo real com os ativos sobrepostos na mesma tela. Use os botões acima para alternar entre todas, B3 e stocks.</p>
           </div>
           <a class="pill" id="open-tv" target="_blank" rel="noopener noreferrer" href="https://www.tradingview.com/markets/">Abrir TradingView</a>
         </div>
         <div id="main-chart" class="tv-box"></div>
+        <p class="chart-note">Cada linha representa um ativo da custódia no filtro atual. Em “Todas da custódia”, o gráfico tenta carregar a carteira completa; se o TradingView limitar muitos comparativos, os cards abaixo continuam mostrando todos os ativos individualmente.</p>
+        <div id="chart-legend" class="legend-inline"></div>
       </section>
 
       <section class="panel">
@@ -86,6 +88,7 @@
     const PRIVATE_PAGE_SLUGS = ['besst_b3', 'magic_b3', 'besst_usd', 'magic_usd'];
     let allAssets = [];
     let activeFilter = 'all';
+    let lastMainChartKey = '';
 
     function brNumber(text) {
       if (!text) return null;
@@ -175,42 +178,59 @@
       while (node.firstChild) node.removeChild(node.firstChild);
     }
 
-    function createTradingViewWidget(container, symbols, title) {
-      clearNode(container);
-      if (!symbols.length) return;
-      const widgetDiv = document.createElement('div');
-      widgetDiv.className = 'tradingview-widget-container__widget';
-      const script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js';
-      script.async = true;
-      script.text = JSON.stringify({
-        symbols: symbols.map(s => [s, `${s}|1D`]),
-        chartOnly: false,
-        width: '100%',
-        height: '500',
-        locale: 'br',
-        colorTheme: 'dark',
-        autosize: true,
-        showVolume: false,
-        showMA: false,
-        hideDateRanges: false,
-        hideMarketStatus: false,
-        hideSymbolLogo: false,
-        scalePosition: 'right',
-        scaleMode: 'Normal',
-        fontFamily: 'Inter, sans-serif',
-        fontSize: '10',
-        noTimeScale: false,
-        valuesTracking: '1',
-        changeMode: 'price-and-percent',
-        chartType: 'line',
-        lineWidth: 2,
-        dateRanges: ['1d|5', '5d|15', '1m|60', '6m|1D', '12m|1D'],
-        title
+    function renderChartLegend(list) {
+      const legend = document.getElementById('chart-legend');
+      if (!legend) return;
+      clearNode(legend);
+      list.forEach((asset) => {
+        const chip = document.createElement('span');
+        chip.className = 'legend-chip';
+        chip.textContent = asset.ticker;
+        legend.appendChild(chip);
       });
-      container.appendChild(widgetDiv);
-      container.appendChild(script);
+    }
+
+    function createTradingViewWidget(container, list, title) {
+      clearNode(container);
+      renderChartLegend(list);
+      if (!list.length) return;
+      const widgetId = `tv-main-${Date.now()}`;
+      const chartDiv = document.createElement('div');
+      chartDiv.id = widgetId;
+      chartDiv.style.height = '100%';
+      chartDiv.style.width = '100%';
+      container.appendChild(chartDiv);
+
+      const load = () => {
+        if (!window.TradingView || !window.TradingView.widget) {
+          setTimeout(load, 200);
+          return;
+        }
+        const [primary, ...comparisons] = list;
+        new TradingView.widget({
+          autosize: true,
+          symbol: primary.tvSymbol,
+          interval: '5',
+          timezone: 'America/Sao_Paulo',
+          theme: 'dark',
+          style: '8',
+          locale: 'br',
+          toolbar_bg: '#0b1020',
+          enable_publishing: false,
+          allow_symbol_change: true,
+          hide_side_toolbar: false,
+          hide_top_toolbar: false,
+          withdateranges: true,
+          range: '1D',
+          details: true,
+          hotlist: false,
+          calendar: false,
+          studies: [],
+          compareSymbols: comparisons.map(asset => ({ symbol: asset.tvSymbol, position: 'SameScale' })),
+          container_id: widgetId
+        });
+      };
+      load();
     }
 
     function createMiniWidget(container, asset) {
@@ -245,7 +265,11 @@
       const title = activeFilter === 'b3' ? 'Ações B3' : activeFilter === 'stocks' ? 'Stocks EUA' : 'Todas da custódia';
       document.getElementById('main-chart-title').textContent = title;
       document.getElementById('open-tv').href = list[0] ? `https://www.tradingview.com/chart/?symbol=${encodeURIComponent(list[0].tvSymbol)}` : 'https://www.tradingview.com/markets/';
-      createTradingViewWidget(document.getElementById('main-chart'), list.map(a => a.tvSymbol), title);
+      const chartKey = `${activeFilter}:${list.map(a => a.tvSymbol).join('|')}`;
+      if (chartKey !== lastMainChartKey) {
+        lastMainChartKey = chartKey;
+        createTradingViewWidget(document.getElementById('main-chart'), list, title);
+      }
       const grid = document.getElementById('asset-grid');
       clearNode(grid);
       document.getElementById('empty-state').classList.toggle('hidden', list.length > 0);
