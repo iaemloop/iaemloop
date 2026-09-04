@@ -216,48 +216,47 @@
         ...list.filter(asset => asset.tvSymbol !== selectedTvSymbol)
       ];
       renderChartLegend(ordered);
-      const symbols = ordered.map(asset => asset.tvSymbol);
-      const widgetDiv = document.createElement('div');
-      widgetDiv.className = 'tradingview-widget-container__widget';
-      const script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js';
-      script.async = true;
-      script.text = JSON.stringify({
-        symbols: symbols.map(s => [s, `${s}|1D`]),
-        chartOnly: false,
-        width: '100%',
-        height: '100%',
-        locale: 'br',
-        colorTheme: 'dark',
-        autosize: true,
-        showVolume: false,
-        showMA: false,
-        hideDateRanges: false,
-        hideMarketStatus: false,
-        hideSymbolLogo: false,
-        scalePosition: 'right',
-        scaleMode: 'Normal',
-        fontFamily: 'Inter, sans-serif',
-        fontSize: '10',
-        noTimeScale: false,
-        valuesTracking: '1',
-        changeMode: 'price-and-percent',
-        dateRanges: ['1d|5', '5d|15', '1m|60', '6m|1D', '12m|1D', '5y|1W', 'all|1M'],
-        title
-      });
-      container.appendChild(widgetDiv);
-      container.appendChild(script);
+      const widgetId = `tv-main-${Date.now()}`;
+      const chartDiv = document.createElement('div');
+      chartDiv.id = widgetId;
+      chartDiv.style.width = '100%';
+      chartDiv.style.height = '100%';
+      container.appendChild(chartDiv);
+
+      const load = () => {
+        if (!window.TradingView || !window.TradingView.widget) {
+          setTimeout(load, 200);
+          return;
+        }
+        new TradingView.widget({
+          autosize: true,
+          symbol: selectedTvSymbol,
+          interval: 'D',
+          timezone: 'America/Sao_Paulo',
+          theme: 'dark',
+          style: '1',
+          locale: 'br',
+          enable_publishing: false,
+          allow_symbol_change: true,
+          hide_side_toolbar: false,
+          hide_top_toolbar: false,
+          withdateranges: true,
+          range: '12M',
+          details: true,
+          hotlist: false,
+          calendar: false,
+          support_host: 'https://www.tradingview.com',
+          container_id: widgetId
+        });
+      };
+      load();
     }
 
     function createMiniWidget(container, asset) {
       const status = statusFromAsset(asset);
       const color = status === 'green' ? '#22c55e' : status === 'red' ? '#ef4444' : '#e4d17f';
-      const script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js';
-      script.async = true;
-      script.text = JSON.stringify({
+      clearNode(container);
+      const config = {
         symbol: asset.tvSymbol,
         width: '100%',
         height: 220,
@@ -271,8 +270,18 @@
         noTimeScale: false,
         trendLineColor: color,
         underLineColor: status === 'green' ? 'rgba(34,197,94,0.16)' : status === 'red' ? 'rgba(239,68,68,0.16)' : 'rgba(228,209,127,0.14)'
-      });
-      container.appendChild(script);
+      };
+      const iframe = document.createElement('iframe');
+      iframe.title = `Mini gráfico ${asset.ticker}`;
+      iframe.loading = 'lazy';
+      iframe.allowTransparency = true;
+      iframe.frameBorder = '0';
+      iframe.scrolling = 'no';
+      iframe.style.width = '100%';
+      iframe.style.height = '220px';
+      iframe.style.border = '0';
+      iframe.src = `https://s.tradingview.com/embed-widget/mini-symbol-overview/?locale=br#${encodeURIComponent(JSON.stringify(config))}`;
+      container.appendChild(iframe);
     }
 
     function renderAssets() {
