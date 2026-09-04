@@ -90,9 +90,19 @@
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <priority>0.8</priority>
     <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-09-04-analise-leve3-mahle-autopecas-margem-ciclo.html</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://iaemloop.com.br/assets/blog/2026-09-04-leve3-mahle-autopecas-margem-ciclo.svg</image:loc>
+      <image:title>LEVE3, Mahle e o preço da margem automotiva</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/posts/2026-09-02-analise-bmy-bristol-myers-pipeline-divida.html</loc>

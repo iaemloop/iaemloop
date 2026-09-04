@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Análise educacional IA em Loop sobre LEVE3/Mahle Metal Leve: Magic Formula, compra em carteira, margens, dívida baixa, reposição, exportações e ciclo automotivo.">
+    <title>04/09: LEVE3, Mahle e o preço da margem automotiva | IA em Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { min-height: 100%; background: #06080D; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)), url('../../assets/bg-carteiras.jpg') no-repeat center center fixed; background-size: cover; background-color: #06080D; color: #e2e8f0; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 980px; margin: 0 auto; }
+        .back-button { position: fixed; top: 20px; left: 20px; display: inline-flex; align-items: center; gap: 6px; background: rgba(251,191,36,0.9); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: background 0.2s, transform 0.1s; z-index: 1000; }
+        .back-button:hover { background: #E4D17F; transform: translateY(-1px); }
+        article { background: rgba(19, 29, 39, 0.78); border-radius: 14px; padding: 34px; border-left: 4px solid #19364D; border: 1px solid rgba(228, 209, 127, 0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h1 { overflow-wrap: anywhere; hyphens: auto; font-size: clamp(2rem, 5vw, 3.05rem); line-height: 1.08; font-weight: 800; background: linear-gradient(135deg, #6EE4EF, #E4D17F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; }
+        .dek { color: #cbd5e1; font-size: 1.12rem; line-height: 1.75; margin-bottom: 22px; }
+        .meta { display: flex; gap: 8px; flex-wrap: wrap; color: #94a3b8; font-size: 0.86rem; margin-bottom: 30px; }
+        .meta span { background: rgba(228, 209, 127, 0.15); color: #E4D17F; padding: 4px 10px; border-radius: 999px; font-weight: 600; border: 1px solid rgba(228, 209, 127, 0.2); }
+        h2 { color: #fff; font-size: 1.45rem; margin: 34px 0 12px; border-bottom: 2px solid #19364D; padding-bottom: 10px; }
+        h3 { color: #E4D17F; font-size: 1.08rem; margin: 22px 0 8px; }
+        p, li { overflow-wrap: anywhere; color: #cbd5e1; line-height: 1.78; font-size: 1.02rem; }
+        p { margin-bottom: 16px; }
+        ul { padding-left: 22px; margin-bottom: 18px; }
+        li { margin-bottom: 8px; }
+        strong { color: #fff; }
+        a { color: #E4D17F; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .hero-chart { display: block; max-width: 100%; height: auto; width: 100%; border-radius: 14px; border: 1px solid rgba(228, 209, 127, 0.18); margin: 20px 0 8px; background: rgba(6,8,13,.35); box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+        .caption { color: #94a3b8; font-size: .9rem; margin-bottom: 24px; }
+        .callout { background: rgba(6, 8, 13, 0.5); border-left: 4px solid #E4D17F; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .warning { background: rgba(127,29,29,.25); border-left: 4px solid #f87171; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .scorecard { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+        .scorecard div { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 14px; }
+        .scorecard span { display: block; color: #94a3b8; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; }
+        .scorecard strong { color: #E4D17F; font-size: 1.1rem; }
+        .matrix { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 18px 0; }
+        .matrix div { background: rgba(6, 8, 13, 0.42); border: 1px solid rgba(110,228,239,.15); border-radius: 10px; padding: 14px; }
+        .mini-table { width:100%; border-collapse: collapse; margin: 18px 0; overflow:hidden; border-radius:10px; }
+        .mini-table th, .mini-table td { padding: 11px 10px; border-bottom: 1px solid rgba(255,255,255,.08); text-align:left; color:#cbd5e1; }
+        .mini-table th { color:#E4D17F; background:rgba(6,8,13,.55); font-size:.92rem; }
+        .source-note { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 16px; margin-top: 28px; color: #94a3b8; font-size: 0.94rem; }
+        .footer { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        @media (max-width: 768px) { body { padding: 72px 16px 32px; } article { padding: 24px; } .scorecard, .matrix { grid-template-columns: 1fr; } .mini-table { display:block; overflow-x:auto; } .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; } }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "04/09: LEVE3, Mahle e o preço da margem automotiva",
+      "description": "Análise educacional IA em Loop sobre LEVE3/Mahle Metal Leve: Magic Formula, compra em carteira, margens, dívida baixa, reposição, exportações e ciclo automotivo.",
+      "image": "https://iaemloop.com.br/assets/blog/2026-09-04-leve3-mahle-autopecas-margem-ciclo.svg",
+      "datePublished": "2026-09-04",
+      "dateModified": "2026-09-04",
+      "author": {"@type": "Organization", "name": "IA em Loop"},
+      "publisher": {"@type": "Organization", "name": "IA em Loop"},
+      "keywords": ["LEVE3", "Mahle Metal Leve", "Magic Formula", "autopeças", "margem", "ROIC", "ciclo automotivo", "valuation"]
+    }
+    </script>
+</head>
+<body>
+    <a href="../index.html" class="back-button" title="Voltar ao blog">← Blog</a>
+    <main class="container">
+        <article>
+            <h1>04/09: LEVE3, Mahle e o preço da margem automotiva</h1>
+            <p class="dek">LEVE3 entrou no aporte real de agosto da carteira Magic Formula B3 e aparece no top 15 do ranking local. A pergunta central é simples: a rentabilidade forte de autopeças compensa a exposição ao ciclo automotivo, câmbio e reposição mais fraca?</p>
+            <div class="meta"><span>04/09/2026</span><span>Análise educacional</span><span>LEVE3</span><span>Mahle Metal Leve</span><span>Ação Brasil</span><span>Magic Formula #11</span><span>ROIC 34,9%</span><span>EY 15,8%</span><span>Carteira real</span><span>8 min</span></div>
+            <img class="hero-chart" src="../../assets/blog/2026-09-04-leve3-mahle-autopecas-margem-ciclo.svg" alt="Diagrama IA em Loop sobre LEVE3, Mahle Metal Leve, ranking Magic Formula, compra real, margens, dívida e ciclo automotivo">
+            <p class="caption">Autopeças podem combinar margem e tecnologia, mas o acionista precisa monitorar demanda, exportações, reposição e disciplina de capital.</p>
+
+            <h2>Resposta curta: qualidade operacional existe, mas o ciclo cobra desconto</h2>
+            <p>Na base local do IA em Loop de agosto de 2026, LEVE3 aparece em <strong>11º lugar no ranking Magic Formula B3</strong>, com <strong>ROIC de 34,85%</strong> e <strong>earnings yield de 15,77%</strong>. No aporte real de agosto, a carteira Magic Formula B3 comprou <strong>4 ações a preço médio de R$ 32,50</strong>, total bruto de <strong>R$ 130,00</strong>.</p>
+            <p>A leitura prática é: <strong>LEVE3 tem mérito quantitativo por retorno sobre capital e geração de lucro, mas não deve ser tratada como defensiva pura</strong>. A empresa vende para montadoras, reposição e exportação; portanto, margem alta só vira tese sustentável se a demanda automotiva, o mix de produtos e o câmbio não corroerem o resultado.</p>
+
+            <div class="scorecard">
+                <div><span>Ranking local</span><strong>#11 Magic Formula</strong></div>
+                <div><span>Perspectiva</span><strong>Carteira real</strong></div>
+                <div><span>Aporte real de agosto</span><strong>4 ações</strong></div>
+                <div><span>Preço médio</span><strong>R$ 32,50</strong></div>
+                <div><span>ROIC local</span><strong>34,85%</strong></div>
+                <div><span>Earnings yield</span><strong>15,77%</strong></div>
+            </div>
+
+            <h2>O que os dados verificados mostram</h2>
+            <p>No release do 2T26, a Mahle Metal Leve reportou <strong>receita operacional líquida de R$ 1,332 bilhão</strong> no trimestre, queda de <strong>2,7%</strong> frente ao 2T25. No primeiro semestre, a receita líquida foi de <strong>R$ 2,589 bilhões</strong>, queda de <strong>1,8%</strong> frente ao 1S25.</p>
+            <p>Mesmo com receita levemente menor, a rentabilidade melhorou. O <strong>lucro bruto</strong> do 2T26 foi de <strong>R$ 385,2 milhões</strong>, margem bruta de <strong>28,9%</strong>, acima dos <strong>27,2%</strong> do 2T25. O <strong>EBITDA ajustado</strong> ficou em <strong>R$ 273,8 milhões</strong>, margem de <strong>20,5%</strong>; o <strong>lucro líquido</strong> foi de <strong>R$ 159,6 milhões</strong>, margem líquida de <strong>12,0%</strong>.</p>
+            <p>O balanço também ajuda na leitura de risco: ao fim do 1S26, a companhia reportou <strong>financiamentos de R$ 1,557 bilhão</strong>, <strong>caixa e equivalentes de R$ 499,7 milhões</strong> e <strong>dívida líquida/EBITDA ajustado de 1,05 vez</strong>. Não é caixa líquido, mas a alavancagem é bem menor que em muitas empresas industriais cíclicas.</p>
+
+            <table class="mini-table">
+                <thead><tr><th>Métrica verificada</th><th>Fonte/período</th><th>Valor</th><th>Leitura</th></tr></thead>
+                <tbody>
+                    <tr><td>Posição no ranking</td><td>Magic Formula B3 IA em Loop</td><td>#11</td><td>boa combinação de retorno e preço</td></tr>
+                    <tr><td>Aporte recente</td><td>Nota de corretagem de agosto</td><td>4 ações a R$ 32,50</td><td>posição real em carteira</td></tr>
+                    <tr><td>Receita líquida</td><td>Release 2T26</td><td>R$ 1,332 bi</td><td>queda moderada no trimestre</td></tr>
+                    <tr><td>EBITDA ajustado</td><td>Release 2T26</td><td>R$ 273,8 mi</td><td>margem de 20,5%</td></tr>
+                    <tr><td>Dívida líquida/EBITDA</td><td>Release 1S26</td><td>1,05x</td><td>alavancagem controlada</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Por que Mahle importa agora</h2>
+            <p>Mahle importa porque combina três características que a Magic Formula costuma favorecer: retorno sobre capital alto, lucro relevante em relação ao preço e negócio industrial com barreiras técnicas. A companhia fornece componentes para motores, sistemas térmicos e soluções de mobilidade, com presença em equipamento original e reposição.</p>
+            <p>O lado positivo é que a empresa demonstrou disciplina operacional: custos caíram mais que a receita no 2T26, margens subiram e a dívida líquida permaneceu administrável. O lado que exige cuidado é a origem da receita: <strong>Aftermarket</strong> caiu <strong>9,4%</strong> no trimestre e <strong>6,2%</strong> no semestre, enquanto exportações de equipamento original também recuaram. Margem boa em indústria cíclica precisa ser testada quando volume, câmbio e competição apertam ao mesmo tempo.</p>
+
+            <div class="callout">
+                <strong>Leitura prática do IA em Loop</strong><br>
+                LEVE3 parece uma tese de qualidade industrial comprada com disciplina quantitativa: ROIC alto, geração de lucro e dívida moderada. O teste é a resiliência. Se a empresa mantiver margem acima de 20% no EBITDA ajustado, defender participação de mercado e atravessar a fraqueza de reposição/exportação, o desconto pode ser interessante. Se a receita continuar caindo e a concorrência comprimir preços, a margem atual pode representar pico de ciclo.
+            </div>
+
+            <h2>O que favorece e o que ameaça a tese</h2>
+            <div class="matrix">
+                <div>
+                    <h3>Favoráveis</h3>
+                    <p>• Presença em 11º lugar no ranking Magic Formula B3.</p>
+                    <p>• Compra real recente, conectando ranking e carteira publicada.</p>
+                    <p>• ROIC local de 34,85%, sinal de bom uso do capital.</p>
+                    <p>• Margem EBITDA ajustada de 20,5% no 2T26.</p>
+                    <p>• Dívida líquida/EBITDA ajustado de 1,05 vez no 1S26.</p>
+                </div>
+                <div>
+                    <h3>Desfavoráveis</h3>
+                    <p>• Receita líquida caiu 2,7% no 2T26 e 1,8% no 1S26.</p>
+                    <p>• Aftermarket recuou 9,4% no trimestre e 6,2% no semestre.</p>
+                    <p>• Exportações sofrem com câmbio e demanda externa.</p>
+                    <p>• Autopeças dependem do ciclo de produção, venda e manutenção de veículos.</p>
+                    <p>• Concorrência de importados pode limitar preço e volume.</p>
+                </div>
+            </div>
+
+            <h2>Checklist para acompanhar daqui em diante</h2>
+            <ul>
+                <li><strong>Margem:</strong> confirmar se EBITDA ajustado acima de 20% é recorrente ou efeito temporário de mix e custos.</li>
+                <li><strong>Receita:</strong> observar se equipamento original doméstico compensa reposição e exportação mais fracas.</li>
+                <li><strong>Câmbio:</strong> medir impacto da conversão de exportações e da operação argentina.</li>
+                <li><strong>Dívida:</strong> acompanhar vencimentos, custo médio e manutenção da alavancagem perto de 1 vez EBITDA.</li>
+                <li><strong>Capital:</strong> verificar se investimentos em tecnologia e mobilidade preservam retorno sobre capital.</li>
+            </ul>
+
+            <h2>Conclusão</h2>
+            <p>A resposta para a pergunta do post é: <strong>LEVE3 tem qualidade operacional suficiente para justificar acompanhamento, mas a margem de segurança depende de o ciclo automotivo não derrubar receita e margens ao mesmo tempo</strong>. O ranking aponta retorno alto; a compra real mostra exposição em carteira; o release confirma rentabilidade forte, mas também revela queda em segmentos importantes.</p>
+            <p>Na régua do IA em Loop, Mahle Metal Leve deve ser acompanhada como indústria de boa rentabilidade, não como renda previsível. A tese melhora com recuperação do Aftermarket, estabilidade nas exportações e manutenção de dívida baixa. Piora se a margem de 2026 se mostrar temporária diante de concorrência, câmbio e desaceleração de demanda.</p>
+
+            <div class="warning">
+                <strong>Aviso importante:</strong> este conteúdo é educacional e não representa recomendação personalizada de investimento, compra ou venda. Ações envolvem risco de mercado, risco cambial, risco de liquidez e risco específico da companhia.
+            </div>
+
+            <div class="source-note">
+                <strong>Fontes e critérios:</strong> ranking Magic Formula B3 IA em Loop de agosto de 2026; nota de corretagem de agosto da carteira Magic Formula B3; central de resultados de Relações com Investidores da Mahle Metal Leve; release de resultados do 2T26/1S26 publicado em 12/08/2026; leitura setorial de autopeças, equipamento original, reposição, exportações, margem, dívida e retorno sobre capital. Conteúdo educacional, sem recomendação personalizada.
+            </div>
+        </article>
+        <div class="footer">IA em Loop — rankings com dinheiro próprio</div>
+    </main>
+</body>
+</html>

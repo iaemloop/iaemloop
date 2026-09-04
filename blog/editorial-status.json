@@ -1,12 +1,12 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-09-02-analise-bmy-bristol-myers-pipeline-divida.html",
+  "lastPost": "blog/posts/2026-09-04-analise-leve3-mahle-autopecas-margem-ciclo.html",
   "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 02/09/2026 concluiu a leitura de Stock EUA com BMY/Bristol Myers Squibb. O post usa rankings Magic Formula Dolarizada e BESST e Buffett Dolarizado, carteira real Magic Formula Dolarizada e 10-Q 2T26 da Bristol Myers Squibb arquivado na SEC.",
+  "reading": "Publicação de 04/09/2026 concluiu a leitura de Ação Brasil com LEVE3/Mahle Metal Leve. O post usa ranking Magic Formula B3, nota de corretagem de agosto da carteira Magic Formula B3 e release de resultados 2T26/1S26 da Mahle Metal Leve em RI.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-stock-eua",
-    "leitura-de-ranking-dolarizado",
+    "estudo-educacional-de-acao-brasil",
+    "leitura-de-ranking-brasil",
     "registro-editorial-publico"
   ],
   "rules": [
@@ -19,14 +19,13 @@
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
   ],
   "sourcesUsed": [
-    "outputs/magic_formula_eua_latest.csv",
-    "outputs/besst_buffett_eua_latest.csv",
-    "outputs/stocks_eua_fundamentos_latest.csv",
-    "SEC data.sec.gov Bristol Myers Squibb 10-Q 2T26"
+    "greenblatt_top30.csv",
+    "data/compras_b3_agosto_2026.csv",
+    "RI Mahle Metal Leve central de resultados 2T26/1S26"
   ],
-  "tickerOfTheDay": "BMY",
-  "assetTypeOfTheDay": "stock_eua",
+  "tickerOfTheDay": "LEVE3",
+  "assetTypeOfTheDay": "acao_brasil",
   "custodyPerspective": "em_custodia",
   "draftStatus": "publicado",
-  "updatedAt": "2026-09-02"
+  "updatedAt": "2026-09-04"
 }
