@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">LEVE3, Mahle Metal Leve e o teste da margem automotiva</title>
+  <desc id="desc">Visual escuro IA em Loop com ponte entre ranking Magic Formula, compra em carteira, margens e riscos do ciclo automotivo.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#06080D"/>
+      <stop offset="55%" stop-color="#102033"/>
+      <stop offset="100%" stop-color="#19364D"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" x2="1">
+      <stop offset="0%" stop-color="#E4D17F"/>
+      <stop offset="100%" stop-color="#AA8451"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000" flood-opacity="0.38"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1030" cy="80" r="220" fill="#6EE4EF" opacity="0.08"/>
+  <circle cx="80" cy="560" r="260" fill="#E4D17F" opacity="0.08"/>
+  <g opacity="0.18" stroke="#6EE4EF" stroke-width="1">
+    <path d="M70 120 H1130"/><path d="M70 220 H1130"/><path d="M70 320 H1130"/><path d="M70 420 H1130"/><path d="M70 520 H1130"/>
+    <path d="M160 60 V570"/><path d="M360 60 V570"/><path d="M560 60 V570"/><path d="M760 60 V570"/><path d="M960 60 V570"/>
+  </g>
+  <text x="72" y="92" fill="#E4D17F" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800" letter-spacing="2">IA EM LOOP • AÇÃO BRASIL</text>
+  <text x="72" y="160" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="74" font-weight="900">LEVE3</text>
+  <text x="72" y="218" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="700">Mahle Metal Leve</text>
+  <text x="72" y="275" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="27">Margem alta, compra real e ciclo automotivo no radar</text>
+  <g transform="translate(72 335)" filter="url(#shadow)">
+    <rect x="0" y="0" width="235" height="116" rx="18" fill="rgba(6,8,13,0.62)" stroke="#E4D17F" stroke-opacity="0.35"/>
+    <text x="24" y="42" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Magic Formula</text>
+    <text x="24" y="86" fill="#E4D17F" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="900">#11</text>
+  </g>
+  <g transform="translate(330 335)" filter="url(#shadow)">
+    <rect x="0" y="0" width="235" height="116" rx="18" fill="rgba(6,8,13,0.62)" stroke="#6EE4EF" stroke-opacity="0.25"/>
+    <text x="24" y="42" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">ROIC local</text>
+    <text x="24" y="86" fill="#6EE4EF" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="900">34,9%</text>
+  </g>
+  <g transform="translate(588 335)" filter="url(#shadow)">
+    <rect x="0" y="0" width="235" height="116" rx="18" fill="rgba(6,8,13,0.62)" stroke="#E4D17F" stroke-opacity="0.35"/>
+    <text x="24" y="42" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">EBITDA ajustado</text>
+    <text x="24" y="86" fill="#E4D17F" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="900">20,5%</text>
+  </g>
+  <g transform="translate(846 335)" filter="url(#shadow)">
+    <rect x="0" y="0" width="235" height="116" rx="18" fill="rgba(6,8,13,0.62)" stroke="#6EE4EF" stroke-opacity="0.25"/>
+    <text x="24" y="42" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Dívida líq./EBITDA</text>
+    <text x="24" y="86" fill="#6EE4EF" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="900">1,05x</text>
+  </g>
+  <path d="M110 535 C230 480, 330 505, 430 455 S650 390, 770 425 S945 510, 1080 455" fill="none" stroke="url(#gold)" stroke-width="10" stroke-linecap="round" opacity="0.9"/>
+  <g fill="#6EE4EF">
+    <circle cx="110" cy="535" r="9"/><circle cx="430" cy="455" r="9"/><circle cx="770" cy="425" r="9"/><circle cx="1080" cy="455" r="9"/>
+  </g>
+  <text x="72" y="596" fill="#64748b" font-family="Inter, Arial, sans-serif" font-size="20">Conteúdo educacional • sem recomendação personalizada</text>
+</svg>
