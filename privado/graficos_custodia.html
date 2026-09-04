@@ -389,7 +389,6 @@
         const text = await fetchJinaText(target);
         const parsed = text ? parseYahooChartText(text) : null;
         if (parsed) applyQuote(asset.ticker, parsed.price, parsed.dayPct);
-        renderAssets();
         await delay(250);
       }
       for (const ticker of stocks) {
@@ -397,9 +396,9 @@
         const text = await fetchJinaText(target);
         const parsed = text ? parseNasdaqPriceText(text) : null;
         if (parsed) applyQuote(ticker, parsed.price, parsed.dayPct);
-        renderAssets();
         await delay(250);
       }
+      renderAssets();
     }
 
     async function initCustodyCharts() {
