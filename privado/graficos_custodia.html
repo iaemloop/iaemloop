@@ -84,7 +84,10 @@
 
     function brNumber(text) {
       if (!text) return null;
-      const clean = String(text).replace(/[^0-9,.-]/g, '').replace(/\./g, '').replace(',', '.');
+      let clean = String(text).replace(/[^0-9,.-]/g, '').trim();
+      if (!clean) return null;
+      // BR values arrive as 1.234,56 or 76,75; stock quantities arrive as 0.09321934.
+      if (clean.includes(',')) clean = clean.replace(/\./g, '').replace(',', '.');
       const n = Number(clean);
       return Number.isFinite(n) ? n : null;
     }
@@ -161,8 +164,16 @@
 
     function statusFromAsset(asset) {
       if (Number.isFinite(asset.currentPrice)) return asset.currentPrice >= asset.avgPrice ? 'green' : 'red';
-      if (Number.isFinite(asset.varPct)) return asset.varPct >= 0 ? 'green' : 'red';
       return 'neutral';
+    }
+
+    function vsPmPct(asset) {
+      if (!Number.isFinite(asset.currentPrice) || !Number.isFinite(asset.avgPrice) || asset.avgPrice === 0) return null;
+      return (asset.currentPrice / asset.avgPrice - 1) * 100;
+    }
+
+    function fmtPct(value) {
+      return Number.isFinite(value) ? value.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + '%' : '--';
     }
 
     function renderStats(list) {
@@ -302,13 +313,13 @@
         card.innerHTML = `
           <div class="asset-head">
             <div><button class="ticker ticker-button" type="button" data-symbol="${asset.tvSymbol}">${asset.ticker}</button><div class="name">${asset.name}</div></div>
-            <span class="status ${status}">${status === 'green' ? 'ACIMA/OK' : status === 'red' ? 'ABAIXO PM' : 'SEM PREÇO'}</span>
+            <span class="status ${status}">${status === 'green' ? 'ACIMA/OK' : status === 'red' ? 'ABAIXO PM' : 'COTAÇÃO N/D'}</span>
           </div>
           <div class="asset-meta">
             <span><b>PM</b><br>${fmtMoney(asset.avgPrice, asset.currency)}</span>
             <span><b>Qtd.</b><br>${Number.isFinite(asset.qty) ? asset.qty.toLocaleString('pt-BR', { maximumFractionDigits: 8 }) : '--'}</span>
-            <span><b>Mercado</b><br>${asset.market === 'b3' ? 'B3' : 'Stocks EUA'}</span>
-            <span><b>Variação base</b><br>${Number.isFinite(asset.varPct) ? asset.varPct.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + '%' : '--'}</span>
+            <span><b>Preço atual</b><br>${fmtMoney(asset.currentPrice, asset.currency)}</span>
+            <span><b>vs PM</b><br>${fmtPct(vsPmPct(asset))}</span>
           </div>
           <div class="mini-chart"></div>
         `;
@@ -318,18 +329,77 @@
       });
     }
 
-    async function hydrateQuotes() {
-      // Best effort: Yahoo often blocks browser CORS. TradingView remains the real-time visual source if this fails.
-      await Promise.all(allAssets.map(async (asset) => {
+    function applyQuote(ticker, price, dayChangePct = null) {
+      const n = Number(price);
+      if (!Number.isFinite(n)) return;
+      allAssets.forEach((asset) => {
+        if (asset.ticker === ticker) {
+          asset.currentPrice = n;
+          if (Number.isFinite(Number(dayChangePct))) asset.dayChangePct = Number(dayChangePct);
+        }
+      });
+    }
+
+    function parseJsonFromJinaText(text, marker) {
+      const start = String(text || '').indexOf(marker);
+      if (start < 0) return null;
+      try { return JSON.parse(text.slice(start).trim()); } catch (_) { return null; }
+    }
+
+    function parseNasdaqPriceText(text) {
+      const data = parseJsonFromJinaText(text, '{"data"');
+      const primary = data?.data?.primaryData || {};
+      const price = brNumber(primary.lastSalePrice);
+      const dayPct = brNumber(primary.percentageChange);
+      return Number.isFinite(price) ? { price, dayPct } : null;
+    }
+
+    function parseYahooChartText(text) {
+      const data = parseJsonFromJinaText(text, '{"chart"');
+      const meta = data?.chart?.result?.[0]?.meta || {};
+      const price = Number(meta.regularMarketPrice);
+      const previousClose = Number(meta.chartPreviousClose || meta.previousClose);
+      const dayPct = Number.isFinite(price) && Number.isFinite(previousClose) && previousClose !== 0
+        ? (price / previousClose - 1) * 100
+        : null;
+      return Number.isFinite(price) ? { price, dayPct } : null;
+    }
+
+    function delay(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
+
+    async function fetchJinaText(target) {
+      const url = `https://r.jina.ai/http://${target}`;
+      for (let attempt = 0; attempt < 2; attempt += 1) {
         try {
-          const res = await fetch(`https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(asset.quoteSymbol)}?range=1d&interval=5m`);
-          if (!res.ok) return;
-          const json = await res.json();
-          const price = json?.chart?.result?.[0]?.meta?.regularMarketPrice;
-          if (Number.isFinite(price)) asset.currentPrice = price;
-        } catch (_) {}
-      }));
-      renderAssets();
+          const res = await fetch(url);
+          if (res.ok) return await res.text();
+          if (res.status === 429) await delay(1800);
+        } catch (_) {
+          await delay(600);
+        }
+      }
+      return null;
+    }
+
+    async function hydrateQuotes() {
+      const b3Assets = allAssets.filter(a => a.market === 'b3');
+      const stocks = [...new Set(allAssets.filter(a => a.market === 'stocks').map(a => a.ticker))];
+      for (const asset of b3Assets) {
+        const target = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(asset.quoteSymbol)}?range=1d&interval=1d`;
+        const text = await fetchJinaText(target);
+        const parsed = text ? parseYahooChartText(text) : null;
+        if (parsed) applyQuote(asset.ticker, parsed.price, parsed.dayPct);
+        renderAssets();
+        await delay(250);
+      }
+      for (const ticker of stocks) {
+        const target = `https://api.nasdaq.com/api/quote/${encodeURIComponent(ticker)}/info?assetclass=stocks`;
+        const text = await fetchJinaText(target);
+        const parsed = text ? parseNasdaqPriceText(text) : null;
+        if (parsed) applyQuote(ticker, parsed.price, parsed.dayPct);
+        renderAssets();
+        await delay(250);
+      }
     }
 
     async function initCustodyCharts() {
