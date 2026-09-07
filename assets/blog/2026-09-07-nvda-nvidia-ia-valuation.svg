@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">NVDA, IA e valuation — IA em Loop</title>
+  <desc id="desc">Matriz educacional mostrando ranking, tese de IA, valuation e riscos para Nvidia.</desc>
+  <rect width="1200" height="630" fill="#07111f"/>
+  <circle cx="1010" cy="120" r="230" fill="#19c37d" opacity="0.10"/>
+  <circle cx="160" cy="520" r="250" fill="#60a5fa" opacity="0.09"/>
+  <text x="72" y="92" fill="#e5f6ff" font-family="Arial, sans-serif" font-size="42" font-weight="700">NVDA: qualidade extrema, preço exigente</text>
+  <text x="72" y="140" fill="#9fb4c7" font-family="Arial, sans-serif" font-size="24">Análise educacional — Stock EUA / watchlist</text>
+  <g transform="translate(72 205)">
+    <rect x="0" y="0" width="315" height="170" rx="22" fill="#0f1f35" stroke="#1f3b57"/>
+    <text x="26" y="48" fill="#19c37d" font-family="Arial, sans-serif" font-size="23" font-weight="700">Ranking</text>
+    <text x="26" y="90" fill="#e5f6ff" font-family="Arial, sans-serif" font-size="31" font-weight="700">B&B EUA #19</text>
+    <text x="26" y="128" fill="#9fb4c7" font-family="Arial, sans-serif" font-size="20">ROE 117,2% · P/L 29,2</text>
+  </g>
+  <g transform="translate(442 205)">
+    <rect x="0" y="0" width="315" height="170" rx="22" fill="#0f1f35" stroke="#1f3b57"/>
+    <text x="26" y="48" fill="#60a5fa" font-family="Arial, sans-serif" font-size="23" font-weight="700">Tese</text>
+    <text x="26" y="90" fill="#e5f6ff" font-family="Arial, sans-serif" font-size="28" font-weight="700">infraestrutura de IA</text>
+    <text x="26" y="128" fill="#9fb4c7" font-family="Arial, sans-serif" font-size="20">GPUs, data centers, ecossistema</text>
+  </g>
+  <g transform="translate(812 205)">
+    <rect x="0" y="0" width="315" height="170" rx="22" fill="#0f1f35" stroke="#1f3b57"/>
+    <text x="26" y="48" fill="#fbbf24" font-family="Arial, sans-serif" font-size="23" font-weight="700">Risco</text>
+    <text x="26" y="90" fill="#e5f6ff" font-family="Arial, sans-serif" font-size="28" font-weight="700">expectativa alta</text>
+    <text x="26" y="128" fill="#9fb4c7" font-family="Arial, sans-serif" font-size="20">margem, exportação e ciclo</text>
+  </g>
+  <path d="M115 465 C260 405, 395 520, 535 450 S800 385, 1048 430" fill="none" stroke="#19c37d" stroke-width="8" stroke-linecap="round" opacity="0.85"/>
+  <line x1="115" y1="510" x2="1048" y2="510" stroke="#334155" stroke-width="2"/>
+  <text x="72" y="570" fill="#9fb4c7" font-family="Arial, sans-serif" font-size="22">Pergunta do post: o preço já cobra execução perfeita ou há margem para quem compra?</text>
+</svg>

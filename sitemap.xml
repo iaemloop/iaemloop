@@ -95,6 +95,16 @@
     <changefreq>daily</changefreq>
   </url>
   <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-09-07-analise-nvda-nvidia-ia-valuation.html</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://iaemloop.com.br/assets/blog/2026-09-07-nvda-nvidia-ia-valuation.svg</image:loc>
+      <image:title>NVDA, Nvidia e o preço da infraestrutura de IA</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://iaemloop.com.br/blog/posts/2026-09-04-analise-leve3-mahle-autopecas-margem-ciclo.html</loc>
     <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>

@@ -1,12 +1,12 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-09-04-analise-leve3-mahle-autopecas-margem-ciclo.html",
+  "lastPost": "blog/posts/2026-09-07-analise-nvda-nvidia-ia-valuation.html",
   "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 04/09/2026 concluiu a leitura de Ação Brasil com LEVE3/Mahle Metal Leve. O post usa ranking Magic Formula B3, nota de corretagem de agosto da carteira Magic Formula B3 e release de resultados 2T26/1S26 da Mahle Metal Leve em RI.",
+  "reading": "Publicação de 07/09/2026 concluiu a leitura de Stock EUA com NVDA/Nvidia. O post usa ranking BESST & Buffett EUA, base local de fundamentos dolarizados, SEC 10-Q de 26/08/2026 e watchlist Buffett Permanente EUA.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-acao-brasil",
-    "leitura-de-ranking-brasil",
+    "estudo-educacional-de-stock-eua",
+    "leitura-de-ranking-eua",
     "registro-editorial-publico"
   ],
   "rules": [
@@ -19,13 +19,14 @@
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
   ],
   "sourcesUsed": [
-    "greenblatt_top30.csv",
-    "data/compras_b3_agosto_2026.csv",
-    "RI Mahle Metal Leve central de resultados 2T26/1S26"
+    "besst_buffett_eua_top20_2026-09.csv",
+    "stocks_eua_fundamentos_2026-09.csv",
+    "watchlist_buffett_permanente_eua_2026-09.csv",
+    "SEC 10-Q NVIDIA 26/08/2026 CIK 0001045810"
   ],
-  "tickerOfTheDay": "LEVE3",
-  "assetTypeOfTheDay": "acao_brasil",
-  "custodyPerspective": "em_custodia",
+  "tickerOfTheDay": "NVDA",
+  "assetTypeOfTheDay": "stock_eua",
+  "custodyPerspective": "fora_da_custodia_watchlist",
   "draftStatus": "publicado",
-  "updatedAt": "2026-09-04"
+  "updatedAt": "2026-09-07"
 }
