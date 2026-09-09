@@ -1,0 +1,50 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">WIZC3, Wiz e o desconto da distribuição financeira</title>
+  <desc id="desc">Visual IA em Loop sobre ranking Magic Formula, carteira real, seguros, crédito, margem e riscos de canal.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06080D"/>
+      <stop offset="0.45" stop-color="#0D1B2A"/>
+      <stop offset="1" stop-color="#19364D"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6EE4EF"/>
+      <stop offset="1" stop-color="#E4D17F"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1040" cy="80" r="220" fill="#6EE4EF" opacity="0.08"/>
+  <circle cx="120" cy="560" r="230" fill="#E4D17F" opacity="0.08"/>
+  <rect x="60" y="58" width="1080" height="514" rx="28" fill="#131D27" opacity="0.82" stroke="#E4D17F" stroke-opacity="0.22" filter="url(#shadow)"/>
+  <text x="88" y="118" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">IA em Loop • Ação Brasil • Carteira real</text>
+  <text x="88" y="178" fill="url(#gold)" font-family="Inter, Arial, sans-serif" font-size="58" font-weight="800">WIZC3</text>
+  <text x="88" y="232" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="800">Wiz e o desconto da distribuição financeira</text>
+  <text x="88" y="276" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="24">Ranking forte, lucro pressionado e tese dependente de canal, crédito e parcerias.</text>
+
+  <g transform="translate(88 332)">
+    <rect width="220" height="118" rx="18" fill="#06080D" opacity="0.64" stroke="#E4D17F" stroke-opacity="0.24"/>
+    <text x="22" y="36" fill="#94A3B8" font-family="Inter, Arial" font-size="18" font-weight="700">Magic Formula</text>
+    <text x="22" y="82" fill="#E4D17F" font-family="Inter, Arial" font-size="38" font-weight="800">#2</text>
+  </g>
+  <g transform="translate(336 332)">
+    <rect width="220" height="118" rx="18" fill="#06080D" opacity="0.64" stroke="#E4D17F" stroke-opacity="0.24"/>
+    <text x="22" y="36" fill="#94A3B8" font-family="Inter, Arial" font-size="18" font-weight="700">ROIC local</text>
+    <text x="22" y="82" fill="#E4D17F" font-family="Inter, Arial" font-size="38" font-weight="800">35,5%</text>
+  </g>
+  <g transform="translate(584 332)">
+    <rect width="220" height="118" rx="18" fill="#06080D" opacity="0.64" stroke="#E4D17F" stroke-opacity="0.24"/>
+    <text x="22" y="36" fill="#94A3B8" font-family="Inter, Arial" font-size="18" font-weight="700">Lucro ajustado 2T26</text>
+    <text x="22" y="82" fill="#E4D17F" font-family="Inter, Arial" font-size="38" font-weight="800">R$ 101 mi</text>
+  </g>
+  <g transform="translate(832 332)">
+    <rect width="220" height="118" rx="18" fill="#06080D" opacity="0.64" stroke="#E4D17F" stroke-opacity="0.24"/>
+    <text x="22" y="36" fill="#94A3B8" font-family="Inter, Arial" font-size="18" font-weight="700">Aporte real</text>
+    <text x="22" y="82" fill="#E4D17F" font-family="Inter, Arial" font-size="38" font-weight="800">7 ações</text>
+  </g>
+
+  <path d="M116 510 C260 470, 336 544, 472 500 S730 442, 868 492 S1010 536, 1086 488" fill="none" stroke="#6EE4EF" stroke-width="5" opacity="0.7"/>
+  <text x="88" y="548" fill="#94A3B8" font-family="Inter, Arial" font-size="20">Tese: barato no filtro, mas só melhora com retomada de receita, crédito e qualidade do lucro.</text>
+</svg>
