@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Análise educacional IA em Loop sobre WIZC3/Wiz: Magic Formula, compra em carteira, seguros, crédito, margens, queda de receita e risco de canais.">
+    <title>09/09: WIZC3, Wiz e o desconto da distribuição financeira | IA em Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { min-height: 100%; background: #06080D; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)), url('../../assets/bg-carteiras.jpg') no-repeat center center fixed; background-size: cover; background-color: #06080D; color: #e2e8f0; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 980px; margin: 0 auto; }
+        .back-button { position: fixed; top: 20px; left: 20px; display: inline-flex; align-items: center; gap: 6px; background: rgba(251,191,36,0.9); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: background 0.2s, transform 0.1s; z-index: 1000; }
+        .back-button:hover { background: #E4D17F; transform: translateY(-1px); }
+        article { background: rgba(19, 29, 39, 0.78); border-radius: 14px; padding: 34px; border-left: 4px solid #19364D; border: 1px solid rgba(228, 209, 127, 0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h1 { overflow-wrap: anywhere; hyphens: auto; font-size: clamp(2rem, 5vw, 3.05rem); line-height: 1.08; font-weight: 800; background: linear-gradient(135deg, #6EE4EF, #E4D17F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; }
+        .dek { color: #cbd5e1; font-size: 1.12rem; line-height: 1.75; margin-bottom: 22px; }
+        .meta { display: flex; gap: 8px; flex-wrap: wrap; color: #94a3b8; font-size: 0.86rem; margin-bottom: 30px; }
+        .meta span { background: rgba(228, 209, 127, 0.15); color: #E4D17F; padding: 4px 10px; border-radius: 999px; font-weight: 600; border: 1px solid rgba(228, 209, 127, 0.2); }
+        h2 { color: #fff; font-size: 1.45rem; margin: 34px 0 12px; border-bottom: 2px solid #19364D; padding-bottom: 10px; }
+        h3 { color: #E4D17F; font-size: 1.08rem; margin: 22px 0 8px; }
+        p, li { overflow-wrap: anywhere; color: #cbd5e1; line-height: 1.78; font-size: 1.02rem; }
+        p { margin-bottom: 16px; }
+        ul { padding-left: 22px; margin-bottom: 18px; }
+        li { margin-bottom: 8px; }
+        strong { color: #fff; }
+        a { color: #E4D17F; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .hero-chart { display: block; max-width: 100%; height: auto; width: 100%; border-radius: 14px; border: 1px solid rgba(228, 209, 127, 0.18); margin: 20px 0 8px; background: rgba(6,8,13,.35); box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+        .caption { color: #94a3b8; font-size: .9rem; margin-bottom: 24px; }
+        .callout { background: rgba(6, 8, 13, 0.5); border-left: 4px solid #E4D17F; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .warning { background: rgba(127,29,29,.25); border-left: 4px solid #f87171; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .scorecard { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+        .scorecard div { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 14px; }
+        .scorecard span { display: block; color: #94a3b8; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; }
+        .scorecard strong { color: #E4D17F; font-size: 1.1rem; }
+        .matrix { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 18px 0; }
+        .matrix div { background: rgba(6, 8, 13, 0.42); border: 1px solid rgba(110,228,239,.15); border-radius: 10px; padding: 14px; }
+        .mini-table { width:100%; border-collapse: collapse; margin: 18px 0; overflow:hidden; border-radius:10px; }
+        .mini-table th, .mini-table td { padding: 11px 10px; border-bottom: 1px solid rgba(255,255,255,.08); text-align:left; color:#cbd5e1; }
+        .mini-table th { color:#E4D17F; background:rgba(6,8,13,.55); font-size:.92rem; }
+        .source-note { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 16px; margin-top: 28px; color: #94a3b8; font-size: 0.94rem; }
+        .footer { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        @media (max-width: 768px) { body { padding: 72px 16px 32px; } article { padding: 24px; } .scorecard, .matrix { grid-template-columns: 1fr; } .mini-table { display:block; overflow-x:auto; } .back-button { top: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; } }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "09/09: WIZC3, Wiz e o desconto da distribuição financeira",
+      "description": "Análise educacional IA em Loop sobre WIZC3/Wiz: Magic Formula, compra em carteira, seguros, crédito, margens, queda de receita e risco de canais.",
+      "image": "https://iaemloop.com.br/assets/blog/2026-09-09-wizc3-wiz-seguros-distribuicao-credito.svg",
+      "datePublished": "2026-09-09",
+      "dateModified": "2026-09-09",
+      "author": {"@type": "Organization", "name": "IA em Loop"},
+      "publisher": {"@type": "Organization", "name": "IA em Loop"},
+      "keywords": ["WIZC3", "Wiz", "Magic Formula", "seguros", "distribuição financeira", "crédito", "ROIC", "valuation"]
+    }
+    </script>
+</head>
+<body>
+    <a href="../index.html" class="back-button" title="Voltar ao blog">← Blog</a>
+    <main class="container">
+        <article>
+            <h1>09/09: WIZC3, Wiz e o desconto da distribuição financeira</h1>
+            <p class="dek">WIZC3 aparece em 2º lugar no ranking Magic Formula B3 e entrou no aporte real de agosto. A pergunta central é direta: o retorno sobre capital e o preço barato compensam a queda de receita, a dependência de canais e o ciclo de crédito?</p>
+            <div class="meta"><span>09/09/2026</span><span>Análise educacional</span><span>WIZC3</span><span>Wiz</span><span>Ação Brasil</span><span>Magic Formula #2</span><span>ROIC 35,5%</span><span>EY 42,2%</span><span>Carteira real</span><span>8 min</span></div>
+            <img class="hero-chart" src="../../assets/blog/2026-09-09-wizc3-wiz-seguros-distribuicao-credito.svg" alt="Diagrama IA em Loop sobre WIZC3, Wiz, ranking Magic Formula, compra real, seguros, crédito, margem e risco de canais">
+            <p class="caption">Distribuição financeira pode gerar muito retorno com pouco capital físico, mas a tese depende de contratos, parceiros, inadimplência e qualidade recorrente do lucro.</p>
+
+            <h2>Resposta curta: barato no filtro, mas não é desconto sem contrapartida</h2>
+            <p>Na base local do IA em Loop de agosto de 2026, WIZC3 aparece em <strong>2º lugar no ranking Magic Formula B3</strong>, com <strong>ROIC de 35,46%</strong> e <strong>earnings yield de 42,19%</strong>. No aporte real de agosto, a carteira Magic Formula B3 comprou <strong>7 ações a preço médio de R$ 7,49</strong>, total bruto de <strong>R$ 52,43</strong>.</p>
+            <p>A leitura prática é: <strong>WIZC3 tem um sinal quantitativo forte, mas a margem de segurança depende de a companhia estabilizar receita e preservar a qualidade do lucro</strong>. O negócio é leve em ativos físicos, o que ajuda o retorno sobre capital; em compensação, depende de parcerias, canais de venda, ciclo de crédito, regulação e execução comercial.</p>
+
+            <div class="scorecard">
+                <div><span>Ranking local</span><strong>#2 Magic Formula</strong></div>
+                <div><span>Perspectiva</span><strong>Carteira real</strong></div>
+                <div><span>Aporte real de agosto</span><strong>7 ações</strong></div>
+                <div><span>Preço médio</span><strong>R$ 7,49</strong></div>
+                <div><span>ROIC local</span><strong>35,46%</strong></div>
+                <div><span>Earnings yield</span><strong>42,19%</strong></div>
+            </div>
+
+            <h2>O que os dados verificados mostram</h2>
+            <p>No release do 2T26, a Wiz reportou <strong>receita bruta consolidada de R$ 412,9 milhões</strong>, queda de <strong>19,2%</strong> frente ao 2T25. A <strong>receita líquida consolidada</strong> foi de <strong>R$ 235,3 milhões</strong>, queda de <strong>18,0%</strong>; no semestre, a receita líquida somou <strong>R$ 472,6 milhões</strong>, queda de <strong>13,4%</strong>.</p>
+            <p>A rentabilidade ainda chama atenção. O <strong>EBITDA consolidado ajustado</strong> foi de <strong>R$ 152,8 milhões</strong> no 2T26, com <strong>margem de 65,0%</strong>. O <strong>lucro líquido consolidado ajustado</strong> ficou em <strong>R$ 101,0 milhões</strong>, queda de <strong>13,5%</strong>, mas com <strong>margem líquida ajustada de 42,9%</strong>.</p>
+            <p>O ponto fraco está no crescimento: a companhia citou ambiente mais desafiador em parte das operações, impactos de mudanças regulatórias no mercado de consignado e cenário macroeconômico adverso. Em seguros, o prêmio comercializado foi de <strong>R$ 879,7 milhões</strong> no 2T26, queda de <strong>10,2%</strong>, com destaque positivo para Inter Seguros, que atingiu <strong>R$ 128,2 milhões</strong> e cresceu <strong>23,4%</strong> frente ao 2T25.</p>
+
+            <table class="mini-table">
+                <thead><tr><th>Métrica verificada</th><th>Fonte/período</th><th>Valor</th><th>Leitura</th></tr></thead>
+                <tbody>
+                    <tr><td>Posição no ranking</td><td>Magic Formula B3 IA em Loop</td><td>#2</td><td>forte retorno sobre capital e preço baixo</td></tr>
+                    <tr><td>Aporte recente</td><td>Nota de corretagem de agosto</td><td>7 ações a R$ 7,49</td><td>posição real em carteira</td></tr>
+                    <tr><td>Receita líquida</td><td>Release 2T26</td><td>R$ 235,3 mi</td><td>queda relevante no trimestre</td></tr>
+                    <tr><td>EBITDA ajustado</td><td>Release 2T26</td><td>R$ 152,8 mi</td><td>margem ainda muito alta</td></tr>
+                    <tr><td>Lucro líquido ajustado</td><td>Release 2T26</td><td>R$ 101,0 mi</td><td>lucro caiu, mas segue robusto</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Por que Wiz importa agora</h2>
+            <p>Wiz importa porque o ranking encontrou uma combinação rara: retorno sobre capital elevado, lucro grande em relação ao valor de mercado e baixa necessidade aparente de capital físico. Esse tipo de empresa pode gerar caixa relevante quando os canais funcionam, os contratos são bem desenhados e a tecnologia aumenta conversão sem inflar custo.</p>
+            <p>Mas o mesmo modelo tem risco específico. Distribuição de seguros, crédito e consórcios depende de parceiros, bases de clientes, acordos comerciais, regulação e apetite do consumidor. Se um canal perde força ou se uma mudança regulatória reduz originação, o lucro pode cair rápido mesmo sem grande deterioração de ativos físicos.</p>
+
+            <div class="callout">
+                <strong>Leitura prática do IA em Loop</strong><br>
+                WIZC3 parece barata e eficiente no filtro quantitativo, mas o desconto só vira oportunidade se a empresa provar que a queda de receita é administrável. A tese melhora com recuperação de prêmios, retomada de crédito, diversificação de canais e manutenção de margens altas. Piora se a dependência de parceiros, mudanças regulatórias e ambiente macro continuarem comprimindo volume.
+            </div>
+
+            <h2>O que favorece e o que ameaça a tese</h2>
+            <div class="matrix">
+                <div>
+                    <h3>Favoráveis</h3>
+                    <p>• Presença em 2º lugar no ranking Magic Formula B3.</p>
+                    <p>• Compra real recente, conectando tese e carteira publicada.</p>
+                    <p>• ROIC local de 35,46%, sinal de eficiência no uso de capital.</p>
+                    <p>• Margem EBITDA ajustada de 65,0% no 2T26.</p>
+                    <p>• Crescimento de 23,4% em Inter Seguros no trimestre.</p>
+                </div>
+                <div>
+                    <h3>Desfavoráveis</h3>
+                    <p>• Receita bruta consolidada caiu 19,2% no 2T26.</p>
+                    <p>• Lucro líquido ajustado caiu 13,5% no trimestre.</p>
+                    <p>• Crédito e consignado sofreram com regulação e macro.</p>
+                    <p>• Dependência de canais e parceiros pode reduzir previsibilidade.</p>
+                    <p>• Negócios com margem muito alta atraem competição e renegociação.</p>
+                </div>
+            </div>
+
+            <h2>Checklist para acompanhar daqui em diante</h2>
+            <ul>
+                <li><strong>Receita:</strong> verificar se a queda trimestral perde força ou vira tendência.</li>
+                <li><strong>Seguros:</strong> acompanhar prêmio comercializado, mix de canais e contribuição da Inter Seguros.</li>
+                <li><strong>Crédito:</strong> observar originação, consignado, inadimplência e efeito de regras novas.</li>
+                <li><strong>Margens:</strong> confirmar se EBITDA ajustado perto de 65% é recorrente ou efeito de mix.</li>
+                <li><strong>Contratos:</strong> monitorar renovações, concentração de parceiros e dependência de grandes canais.</li>
+            </ul>
+
+            <h2>Conclusão</h2>
+            <p>A resposta para a pergunta do post é: <strong>o retorno sobre capital e o preço barato justificam acompanhamento de WIZC3, mas ainda não eliminam o risco de queda operacional</strong>. O ranking aponta eficiência; a compra real mostra exposição disciplinada; o release confirma margem alta, mas também queda relevante de receita e lucro ajustado.</p>
+            <p>Na régua do IA em Loop, Wiz deve ser acompanhada como empresa de distribuição financeira eficiente, porém sensível a canais, crédito e regulação. A tese fica mais forte se a receita estabilizar sem destruir margem. Fica mais fraca se a contração de volume mostrar que o múltiplo baixo está apenas precificando menor recorrência do lucro.</p>
+
+            <div class="warning">
+                <strong>Aviso importante:</strong> este conteúdo é educacional e não representa recomendação personalizada de investimento, compra ou venda. Ações envolvem risco de mercado, risco regulatório, risco de liquidez e risco específico da companhia.
+            </div>
+
+            <div class="source-note">
+                <strong>Fontes e critérios:</strong> ranking Magic Formula B3 IA em Loop de agosto de 2026; nota de corretagem de agosto da carteira Magic Formula B3; central de resultados de Relações com Investidores da Wiz; release de resultados do 2T26 publicado em 06/08/2026; leitura setorial de distribuição de seguros, crédito, consórcios, canais, margem e retorno sobre capital. Conteúdo educacional, sem recomendação personalizada.
+            </div>
+        </article>
+        <div class="footer">IA em Loop — rankings com dinheiro próprio</div>
+    </main>
+</body>
+</html>
