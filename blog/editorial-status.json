@@ -1,12 +1,12 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-09-09-analise-wizc3-wiz-seguros-distribuicao-credito.html",
+  "lastPost": "blog/posts/2026-09-11-analise-adbe-adobe-ia-fluxo-caixa.html",
   "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 09/09/2026 concluiu a leitura de Ação Brasil com WIZC3/Wiz. O post usa ranking Magic Formula B3, nota de corretagem da carteira real de agosto, central de resultados RI Wiz e release 2T26 publicado em 06/08/2026.",
+  "reading": "Publicação de 11/09/2026 concluiu a leitura de Stock EUA com ADBE/Adobe. O post usa ranking Magic Formula EUA, base de fundamentos de stocks, compras reais DriveWealth/Inter de julho e agosto e release público de resultados 3T fiscal 2026 da Adobe.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-acao-brasil",
-    "leitura-de-ranking-brasil",
+    "estudo-educacional-de-stock-eua",
+    "leitura-de-ranking-dolarizado",
     "registro-editorial-publico"
   ],
   "rules": [
@@ -19,14 +19,14 @@
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
   ],
   "sourcesUsed": [
-    "greenblatt_top30.csv",
-    "data/compras_b3_agosto_2026.csv",
-    "RI Wiz central de resultados 2026",
-    "Release de Resultados 2T26 Wiz publicado em 06/08/2026"
+    "magic_formula_eua_top20_2026-09.csv",
+    "outputs/stocks_eua_fundamentos_2026-09.csv",
+    "data/compras_stocks_inter_drivewealth_2026.csv",
+    "release público Adobe 3T fiscal 2026"
   ],
-  "tickerOfTheDay": "WIZC3",
-  "assetTypeOfTheDay": "acao_brasil",
+  "tickerOfTheDay": "ADBE",
+  "assetTypeOfTheDay": "stock_eua",
   "custodyPerspective": "em_custodia",
   "draftStatus": "publicado",
-  "updatedAt": "2026-09-09"
+  "updatedAt": "2026-09-11"
 }
