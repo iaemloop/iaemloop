@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Análise educacional IA em Loop sobre ADBE/Adobe: Magic Formula EUA, software criativo, IA generativa, receita recorrente, fluxo de caixa, valuation e riscos.">
+    <title>11/09: ADBE, Adobe e a prova de caixa da IA criativa | IA em Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { min-height: 100%; background: #06080D; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)), url('../../assets/bg-carteiras.jpg') no-repeat center center fixed; background-size: cover; background-color: #06080D; color: #e2e8f0; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 980px; margin: 0 auto; }
+        .back-button { position: fixed; top: 20px; left: 20px; display: inline-flex; align-items: center; gap: 6px; background: rgba(251,191,36,0.9); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; }
+        article { background: rgba(19, 29, 39, 0.78); border-radius: 14px; padding: 34px; border-left: 4px solid #19364D; border: 1px solid rgba(228, 209, 127, 0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h1 { overflow-wrap: anywhere; hyphens: auto; font-size: clamp(2rem, 5vw, 3.05rem); line-height: 1.08; font-weight: 800; background: linear-gradient(135deg, #6EE4EF, #E4D17F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; }
+        .dek { color: #cbd5e1; font-size: 1.12rem; line-height: 1.75; margin-bottom: 22px; }
+        .meta { display: flex; gap: 8px; flex-wrap: wrap; color: #94a3b8; font-size: 0.86rem; margin-bottom: 30px; }
+        .meta span { background: rgba(228, 209, 127, 0.15); color: #E4D17F; padding: 4px 10px; border-radius: 999px; font-weight: 600; border: 1px solid rgba(228, 209, 127, 0.2); }
+        h2 { color: #fff; font-size: 1.45rem; margin: 34px 0 12px; border-bottom: 2px solid #19364D; padding-bottom: 10px; }
+        h3 { color: #E4D17F; font-size: 1.08rem; margin: 22px 0 8px; }
+        p, li { overflow-wrap: anywhere; color: #cbd5e1; line-height: 1.78; font-size: 1.02rem; }
+        p { margin-bottom: 16px; } ul { padding-left: 22px; margin-bottom: 18px; } li { margin-bottom: 8px; } strong { color: #fff; }
+        .hero-chart { display: block; max-width: 100%; height: auto; width: 100%; border-radius: 14px; border: 1px solid rgba(228, 209, 127, 0.18); background: rgba(6,8,13,.35); box-shadow: 0 12px 30px rgba(0,0,0,.25); margin: 20px 0 8px; }
+        .caption { color: #94a3b8; font-size: .9rem; margin-bottom: 24px; }
+        .callout { background: rgba(6, 8, 13, 0.5); border-left: 4px solid #E4D17F; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .warning { background: rgba(127,29,29,.25); border-left: 4px solid #f87171; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .scorecard { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+        .scorecard div, .matrix div { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 14px; }
+        .scorecard span { display: block; color: #94a3b8; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; }
+        .scorecard strong { color: #E4D17F; font-size: 1.1rem; }
+        .matrix { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 18px 0; }
+        .mini-table { width:100%; border-collapse: collapse; margin: 18px 0; overflow:hidden; border-radius:10px; }
+        .mini-table th, .mini-table td { padding: 11px 10px; border-bottom: 1px solid rgba(255,255,255,.08); text-align:left; color:#cbd5e1; }
+        .mini-table th { color:#E4D17F; background:rgba(6,8,13,.55); font-size:.92rem; }
+        .source-note { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 16px; margin-top: 28px; color: #94a3b8; font-size: 0.94rem; }
+        .footer { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        @media (max-width: 768px) { body { padding: 72px 16px 32px; } article { padding: 24px; } .scorecard, .matrix { grid-template-columns: 1fr; } .mini-table { display:block; overflow-x:auto; } }
+    </style>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"11/09: ADBE, Adobe e a prova de caixa da IA criativa","description":"Análise educacional IA em Loop sobre ADBE/Adobe: Magic Formula EUA, software criativo, IA generativa, receita recorrente, fluxo de caixa, valuation e riscos.","image":"https://iaemloop.com.br/assets/blog/2026-09-11-adbe-adobe-ia-fluxo-caixa.svg","datePublished":"2026-09-11","dateModified":"2026-09-11","author":{"@type":"Organization","name":"IA em Loop"},"publisher":{"@type":"Organization","name":"IA em Loop"},"keywords":["ADBE","Adobe","Magic Formula EUA","stocks EUA","inteligência artificial","software","valuation"]}</script>
+</head>
+<body><a href="../index.html" class="back-button" title="Voltar ao blog">← Blog</a><main class="container"><article>
+<h1>11/09: ADBE, Adobe e a prova de caixa da IA criativa</h1>
+<p class="dek">Adobe voltou a aparecer no Top 20 da Magic Formula EUA e está na carteira dolarizada do IA em Loop. A pergunta central é objetiva: a inteligência artificial aumenta o valor do pacote criativo ou ameaça cobrar mais investimento sem elevar retorno?</p>
+<div class="meta"><span>11/09/2026</span><span>Análise educacional</span><span>ADBE</span><span>Adobe</span><span>Stock EUA</span><span>Magic Formula #14</span><span>P/L 15,25</span><span>ROE 62,95%</span><span>Carteira real</span><span>8 min</span></div>
+<img class="hero-chart" src="../../assets/blog/2026-09-11-adbe-adobe-ia-fluxo-caixa.svg" alt="Diagrama IA em Loop sobre ADBE, Adobe, IA criativa, Magic Formula EUA, fluxo de caixa e valuation">
+<p class="caption">ADBE reúne software recorrente, marca forte e alta rentabilidade. O ponto de atenção é provar que IA vira receita incremental, não apenas custo competitivo.</p>
+<h2>Resposta curta: qualidade clara, tese depende de monetização de IA</h2>
+<p>Na base local de fundamentos de stocks EUA com data-base de <strong>06/09/2026</strong>, ADBE aparece com <strong>preço de US$ 266,51</strong>, <strong>valor de mercado de aproximadamente US$ 105,94 bilhões</strong>, <strong>P/L de 15,25</strong>, <strong>P/L projetado de 9,69</strong>, <strong>EV/EBITDA de 11,04</strong>, <strong>ROE de 62,95%</strong> e sem dividend yield informado.</p>
+<p>No ranking Magic Formula EUA de setembro, ADBE está em <strong>14º lugar</strong>. A leitura combina retorno alto sobre capital, preço menos esticado que outros nomes de software e negócio com receita recorrente. A presença na carteira real dolarizada vem de compras verificadas em julho e agosto de 2026, com execução de <strong>US$ 38,99</strong> em julho e <strong>US$ 30,76</strong> em agosto.</p>
+<div class="scorecard"><div><span>Ranking local</span><strong>#14 Magic Formula EUA</strong></div><div><span>Preço-base</span><strong>US$ 266,51</strong></div><div><span>Valor de mercado</span><strong>US$ 105,94 bi</strong></div><div><span>P/L</span><strong>15,25</strong></div><div><span>EV/EBITDA</span><strong>11,04</strong></div><div><span>ROE</span><strong>62,95%</strong></div></div>
+<h2>O que os números recentes indicam</h2>
+<p>O release de resultados do 3º trimestre fiscal de 2026 informou <strong>US$ 6,76 bilhões de receita</strong>, avanço de <strong>13%</strong> sobre o ano anterior, <strong>US$ 2,35 bilhões de lucro operacional GAAP</strong> e <strong>US$ 2,97 bilhões de lucro operacional não GAAP</strong>. A companhia também reportou <strong>ARR total de US$ 27,50 bilhões</strong>, métrica relevante para medir recorrência.</p>
+<p>O ponto favorável é que Adobe continua convertendo software essencial em receita previsível. O ponto que exige acompanhamento é a transição competitiva: ferramentas de geração de imagem, vídeo e produtividade podem aumentar o valor do pacote Creative Cloud e Document Cloud, mas também reduzem barreiras para concorrentes se a diferenciação ficar apenas no modelo de IA.</p>
+<table class="mini-table"><thead><tr><th>Métrica</th><th>Fonte/período</th><th>Valor</th><th>Leitura</th></tr></thead><tbody><tr><td>Receita</td><td>3T fiscal 2026</td><td>US$ 6,76 bi</td><td>crescimento ainda saudável</td></tr><tr><td>ARR total</td><td>saída do 3T fiscal</td><td>US$ 27,50 bi</td><td>recorrência alta</td></tr><tr><td>Lucro operacional GAAP</td><td>3T fiscal 2026</td><td>US$ 2,35 bi</td><td>margem relevante</td></tr><tr><td>Fluxo de caixa operacional</td><td>3T fiscal 2026</td><td>US$ 2,52 bi</td><td>boa conversão em caixa</td></tr><tr><td>Guidance de receita 2026</td><td>faixa atualizada</td><td>US$ 26,576 bi a US$ 26,626 bi</td><td>visibilidade para o ano</td></tr></tbody></table>
+<h2>Por que Adobe importa para o investidor</h2>
+<p>Adobe é uma tese didática porque junta três elementos raros: marca global, ferramentas que viraram padrão de trabalho e modelo de assinatura. Photoshop, Illustrator, Premiere, Acrobat e Experience Cloud criam hábito, integração e custo de troca em empresas, criadores e áreas de marketing.</p>
+<p>A inteligência artificial muda a pergunta. Se Firefly e os recursos generativos elevarem produtividade e justificarem tíquetes maiores, a Adobe pode defender preço e margem. Se a IA comoditizar parte da criação visual, a empresa precisará gastar mais para preservar o mesmo crescimento.</p>
+<div class="callout"><strong>Leitura prática do IA em Loop</strong><br>ADBE parece mais interessante como estudo de qualidade com valuation menos exagerado do que como aposta cega em IA. A tese melhora se ARR, margem e fluxo de caixa continuarem subindo junto com adoção de recursos generativos. A tese piora se a IA pressionar preço, elevar custo de computação ou acelerar perda de usuários para ferramentas mais baratas.</div>
+<h2>O que favorece e o que ameaça a tese</h2><div class="matrix"><div><h3>Favoráveis</h3><p>• Receita recorrente e base instalada global.</p><p>• ROE alto e múltiplos menores que várias empresas de software.</p><p>• Portfólio essencial para criação, documento e marketing.</p><p>• Fluxo de caixa operacional forte no trimestre.</p><p>• Compras reais pequenas permitem acompanhar sem transformar tese em certeza.</p></div><div><h3>Desfavoráveis</h3><p>• Concorrência de ferramentas nativas de IA e soluções mais baratas.</p><p>• Custo de computação pode pressionar margem se monetização atrasar.</p><p>• Crescimento de dois dígitos precisa continuar para sustentar reprecificação.</p><p>• Risco regulatório e de direitos autorais em conteúdo gerado por IA.</p><p>• Sem dividendo relevante: retorno depende de crescimento e recompra.</p></div></div>
+<h2>Checklist para acompanhar daqui em diante</h2>
+<table class="mini-table"><thead><tr><th>Ponto</th><th>O que monitorar</th><th>Se piorar</th></tr></thead><tbody><tr><td>ARR</td><td>crescimento de assinaturas e retenção</td><td>tese de recorrência perde força</td></tr><tr><td>IA</td><td>monetização do Firefly e pacotes generativos</td><td>IA vira custo, não vantagem</td></tr><tr><td>Margem</td><td>lucro operacional e custo de computação</td><td>valuation deve contrair</td></tr><tr><td>Concorrência</td><td>Canva, Microsoft, Google e modelos abertos</td><td>poder de preço diminui</td></tr><tr><td>Fluxo de caixa</td><td>caixa operacional, recompra e endividamento</td><td>qualidade financeira fica menos evidente</td></tr></tbody></table>
+<h2>Conclusão</h2>
+<p>A resposta para a pergunta do post é: <strong>Adobe ainda tem qualidade suficiente para justificar acompanhamento e posição pequena, mas a prova da IA precisa aparecer em caixa e retenção</strong>. O ranking mostra retorno elevado; o release recente mostra crescimento; o valuation parece mais razoável que o de muitos nomes de tecnologia. O risco está em pagar por uma vantagem competitiva que pode diminuir se a IA tornar criação digital mais barata e abundante.</p>
+<p>Na régua do IA em Loop, ADBE é uma boa candidata para observar a transição entre software tradicional e software aumentado por inteligência artificial: a tese é forte quando recorrência, margem e fluxo de caixa caminham juntos; fica frágil quando o discurso de IA cresce mais rápido que a monetização.</p>
+<div class="warning"><strong>Aviso importante:</strong> este conteúdo é educacional e não representa recomendação personalizada de investimento, compra, venda, remessa ou câmbio. Stocks envolvem risco de mercado, risco cambial, risco de liquidez e risco específico da empresa.</div>
+<div class="source-note"><strong>Fontes e critérios:</strong> ranking Magic Formula Dolarizada do IA em Loop com data-base 06/09/2026; base local de fundamentos de stocks EUA com data-base 06/09/2026; notas de corretagem DriveWealth/Inter registradas em julho e agosto de 2026; release público de resultados da Adobe do 3º trimestre fiscal de 2026, encerrado em 28/08/2026, com receita, ARR, lucro operacional, fluxo de caixa operacional e guidance anual. Conteúdo educacional, sem recomendação personalizada.</div>
+</article><div class="footer">IA em Loop • Educação financeira com dados, método e transparência</div></main></body></html>

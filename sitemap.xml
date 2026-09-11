@@ -90,9 +90,19 @@
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <priority>0.8</priority>
     <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-09-11-analise-adbe-adobe-ia-fluxo-caixa.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://iaemloop.com.br/assets/blog/2026-09-11-adbe-adobe-ia-fluxo-caixa.svg</image:loc>
+      <image:title>ADBE, Adobe e a prova de caixa da IA criativa</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/posts/2026-09-09-analise-wizc3-wiz-seguros-distribuicao-credito.html</loc>
