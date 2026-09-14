@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">ENGI3, Energisa e o teste entre dividendos, alavancagem e regulação</title>
+  <desc id="desc">Diagrama IA em Loop sobre Energisa, BESST Buffett B3, dividend yield, P/VPA e risco de alavancagem.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06080D"/><stop offset="0.55" stop-color="#102133"/><stop offset="1" stop-color="#19364D"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6EE4EF"/><stop offset="1" stop-color="#E4D17F"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1020" cy="110" r="160" fill="#6EE4EF" opacity="0.09"/>
+  <circle cx="165" cy="540" r="210" fill="#E4D17F" opacity="0.08"/>
+  <text x="72" y="92" fill="#94a3b8" font-family="Inter, Arial" font-size="26" font-weight="700">IA em Loop • Ação Brasil • BESST Buffett B3</text>
+  <text x="72" y="168" fill="#fff" font-family="Inter, Arial" font-size="58" font-weight="800">ENGI3 no radar</text>
+  <text x="72" y="230" fill="url(#gold)" font-family="Inter, Arial" font-size="42" font-weight="800">dividendos, energia e disciplina de dívida</text>
+  <g transform="translate(72 300)">
+    <rect width="320" height="132" rx="18" fill="#06080D" opacity="0.65" stroke="#E4D17F" stroke-opacity="0.28"/>
+    <text x="24" y="42" fill="#94a3b8" font-family="Inter, Arial" font-size="20" font-weight="700">Ranking local</text>
+    <text x="24" y="86" fill="#E4D17F" font-family="Inter, Arial" font-size="38" font-weight="800">#2 BESST B3</text>
+  </g>
+  <g transform="translate(440 300)">
+    <rect width="320" height="132" rx="18" fill="#06080D" opacity="0.65" stroke="#E4D17F" stroke-opacity="0.28"/>
+    <text x="24" y="42" fill="#94a3b8" font-family="Inter, Arial" font-size="20" font-weight="700">Dividend yield</text>
+    <text x="24" y="86" fill="#E4D17F" font-family="Inter, Arial" font-size="38" font-weight="800">5,39%</text>
+  </g>
+  <g transform="translate(808 300)">
+    <rect width="320" height="132" rx="18" fill="#06080D" opacity="0.65" stroke="#E4D17F" stroke-opacity="0.28"/>
+    <text x="24" y="42" fill="#94a3b8" font-family="Inter, Arial" font-size="20" font-weight="700">P/VPA</text>
+    <text x="24" y="86" fill="#E4D17F" font-family="Inter, Arial" font-size="38" font-weight="800">0,23x</text>
+  </g>
+  <path d="M110 520 C250 455 380 545 520 490 S810 450 1045 520" fill="none" stroke="#6EE4EF" stroke-width="8" opacity="0.75" filter="url(#glow)"/>
+  <text x="72" y="584" fill="#cbd5e1" font-family="Inter, Arial" font-size="24">Leitura: concessões previsíveis favorecem renda, mas lucro ajustado e alavancagem precisam confirmar a tese.</text>
+</svg>
