@@ -192,7 +192,7 @@ td:first-child{font-variant-numeric:tabular-nums}.rank-badge,.ranking-badge{disp
 <body>
 <div class="meta-info" style="background: rgba(19, 29, 39, 0.75); border-radius: 12px; padding: 16px; margin: 16px 0 24px; border-left: 4px solid #E4D17F; border: 1px solid rgba(228, 209, 127, 0.2); display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: center;">
   <span style="margin: 0; white-space: nowrap;">📊 <strong>Ranking atual:</strong> <a href="metodologia_barsi.html" style="color:#E4D17F;text-decoration:underline;">Ver página da carteira</a></span>
-  <span style="margin: 0; white-space: nowrap;">💰 <strong>Área Privada:</strong> <a href="area_privada.html" style="color:#E4D17F;text-decoration:underline;">Acompanhe a carteira</a></span>
+  <span style="margin: 0; white-space: nowrap;">💰 <strong>Carteira Real:</strong> <a href="carteira_besst_real.html" style="color:#E4D17F;text-decoration:underline;">Acompanhe a carteira</a></span>
 </div>
 
     <a href="metodologia_barsi.html" class="back-button" title="Voltar">← Voltar</a>
@@ -214,7 +214,7 @@ td:first-child{font-variant-numeric:tabular-nums}.rank-badge,.ranking-badge{disp
     <div class="footer">
         <p>⌨️ Gerado por script • Não é recomendação de investimento • Faça sua própria análise</p>
         <p style="margin-top: 0.5rem; color: #94a3b8; font-size: 0.85rem;">
-            Atualizado: 06/08/2026
+            Atualizado: 14/09/2026
         </p>
         <p style="margin-top: 0.5rem;">
             <a href="https://github.com/diegotxr/iaemloop" target="_blank">GitHub</a> •
@@ -226,6 +226,24 @@ td:first-child{font-variant-numeric:tabular-nums}.rank-badge,.ranking-badge{disp
 
     <script>
         const rankings = [
+            {
+                id: '2026-09',
+                label: 'Setembro/2026',
+                tabela: `
+                <table>
+                    <thead><tr><th>Pos</th><th>Ticker</th><th>Setor</th><th>DY</th><th>P/VP</th><th>ROIC</th><th>ROE</th><th>Score BESST</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=SANB11" target="_blank"><strong>SANB11</strong></a></td><td>Bancos</td><td>7.0%</td><td>0.89</td><td>-</td><td>-</td><td>70.70</td></tr>
+                        <tr><td>2</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=ENGI3" target="_blank"><strong>ENGI3</strong></a></td><td>Energia</td><td>3.3%</td><td>0.24</td><td>-</td><td>-</td><td>61.40</td></tr>
+                        <tr><td>3</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=GGBR4" target="_blank"><strong>GGBR4</strong></a></td><td>Mineração/Siderurgia</td><td>3.6%</td><td>0.94</td><td>-</td><td>-</td><td>60.90</td></tr>
+                        <tr><td>4</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=PETR4" target="_blank"><strong>PETR4</strong></a></td><td>Petróleo e gás</td><td>9.0%</td><td>1.29</td><td>-</td><td>-</td><td>60.70</td></tr>
+                        <tr><td>5</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=KLBN4" target="_blank"><strong>KLBN4</strong></a></td><td>Papel e Celulose</td><td>8.6%</td><td>0.50</td><td>-</td><td>-</td><td>60.40</td></tr>
+                        <tr><td>6</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=VIVT3" target="_blank"><strong>VIVT3</strong></a></td><td>Comunicação</td><td>4.4%</td><td>1.40</td><td>-</td><td>-</td><td>46.90</td></tr>
+                        <tr><td>7</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=VALE3" target="_blank"><strong>VALE3</strong></a></td><td>Mineração</td><td>7.9%</td><td>1.71</td><td>-</td><td>-</td><td>40.60</td></tr>
+                        <tr><td>8</td><td><a href="https://www.fundamentus.com.br/detalhes.php?papel=EQTL3" target="_blank"><strong>EQTL3</strong></a></td><td>Energia</td><td>6.0%</td><td>1.89</td><td>-</td><td>-</td><td>34.50</td></tr>
+                    </tbody>
+                </table>`
+            },
             {
                 id: '2026-08',
                 label: 'Agosto/2026',
@@ -397,9 +415,5 @@ td:first-child{font-variant-numeric:tabular-nums}.rank-badge,.ranking-badge{disp
             renderTabs();
         });
     </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="/js/iaemloop-auth-config.js"></script>
-  <script src="/js/iaemloop-auth.js"></script>
 </body>
 </html>
