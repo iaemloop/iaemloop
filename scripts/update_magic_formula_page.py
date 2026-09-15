@@ -46,6 +46,7 @@ SECTOR_BY_TICKER = {
     "CMIN3": "Mineração",
     "CSED3": "Educação",
     "CSUD3": "Tecnologia/Serviços",
+    "CURY3": "Construção civil",
     "EUCA4": "Papel e madeira",
     "GMAT3": "Varejo",
     "GOLL4": "Aviação",
@@ -57,6 +58,8 @@ SECTOR_BY_TICKER = {
     "PETR3": "Petróleo/Gás",
     "PETR4": "Petróleo/Gás",
     "PLPL3": "Construção civil",
+    "PCAR3": "Varejo",
+    "PGMN3": "Varejo",
     "POMO3": "Autopeças",
     "POMO4": "Autopeças",
     "PSSA3": "Seguros",
@@ -65,11 +68,14 @@ SECTOR_BY_TICKER = {
     "RECV3": "Petróleo/Gás",
     "SEER3": "Educação",
     "TGMA3": "Logística",
+    "TEND3": "Construção civil",
+    "UGPA3": "Distribuição de combustíveis",
     "VALE3": "Mineração",
     "VAMO3": "Locação/Logística",
     "VLID3": "Tecnologia/Identificação",
     "VTRU3": "Educação",
     "WIZC3": "Seguros/Corretagem",
+    "JHSF3": "Imobiliário/Shoppings",
 }
 
 EXCLUDED_TICKERS = {
@@ -81,6 +87,8 @@ EXCLUDED_TICKERS = {
     "GOLL4",
     "LREN3",
     "MGLU3",
+    "PCAR3",
+    "PGMN3",
     "SBFG3",
     "VIIA3",
     "VIVA3",
@@ -275,7 +283,7 @@ def replace_table(page_html: str, rows: list[dict[str, str]]) -> str:
     )
     top20 = rows[:20]
     page_html = re.sub(
-        r"Dados: Fundamentus \+ yfinance \(.*?\)\. Setores: classificação B3 oficial\. \d+ empresas \(duplicata removida\)\.|Dados: Fundamentus \+ yfinance \(.*?\)\. Setores: classificação IA em Loop\. \d+ empresas após filtros de varejo e aviação\.",
+        r"Dados: Fundamentus \+ yfinance \(.*?\)\. Setores: classificação B3 oficial\. \d+ empresas \(duplicata removida\)\.|Dados: Fundamentus \+ yfinance \(.*?\)\. Setores: classificação IA em Loop\. (?:\d+ empresas|Top 20) após filtros de varejo e aviação\.",
         f"Dados: Fundamentus + yfinance ({updated}). Setores: classificação IA em Loop. Top 20 após filtros de varejo e aviação.",
         page_html,
         count=1,
