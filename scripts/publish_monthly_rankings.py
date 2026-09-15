@@ -55,7 +55,8 @@ SECTOR_BY_TICKER = {
     "PLPL3": "Construção civil", "POMO3": "Material rodoviário", "POMO4": "Material rodoviário",
     "PSSA3": "Seguros", "QUAL3": "Saúde", "RANI3": "Papel e celulose",
     "RECV3": "Petróleo e gás", "SANB11": "Bancos", "SAPR11": "Saneamento",
-    "SEER3": "Educação", "TAEE11": "Energia", "TGMA3": "Logística",
+    "SEER3": "Educação", "TAEE11": "Energia", "TGMA3": "Logística", "TEND3": "Construção civil",
+    "UGPA3": "Distribuição de combustíveis", "JHSF3": "Imobiliário/Shoppings",
     "VALE3": "Mineração", "VAMO3": "Locação de veículos e máquinas", "VLID3": "Tecnologia/serviços",
     "VTRU3": "Educação", "WIZC3": "Serviços financeiros",
 }
@@ -103,7 +104,7 @@ def pct(value: str, *, already_percent: bool = False) -> str:
         v = float(str(value).replace("%", "").replace(",", "."))
     except (TypeError, ValueError):
         return "-"
-    if not already_percent and abs(v) <= 1:
+    if not already_percent:
         v *= 100
     return f"{v:.1f}%"
 
@@ -264,11 +265,22 @@ def update_magic_history(month: str) -> None:
     text = normalize_magic_switcher(MAGIC_HISTORY.read_text(encoding="utf-8"))
     tab_id = f"rank-{month}"
     label = month_label_space(month)
+    new_table = build_magic_table(month)
+    new_signature = re.sub(r"\s+", "", new_table)
+    previous_tables = re.findall(
+        rf'<div id="rank-(?!{re.escape(month)})\d{{4}}-\d{{2}}"[^>]*>.*?(<table>.*?</table>)',
+        text,
+        flags=re.S,
+    )
+    if previous_tables and new_signature == re.sub(r"\s+", "", previous_tables[0]):
+        raise RuntimeError(
+            f"Magic Formula {month} é idêntica ao mês anterior; publicação bloqueada para evitar rotular CSV antigo como novo"
+        )
     button = f'<button class="tab active" onclick="switchTab(\'{tab_id}\')">{label}</button>'
     content = f"""<div id="{tab_id}" class="tab-content active" data-month="{month}">
 <div class="card">
 <div style="overflow-x:auto;">
-{build_magic_table(month)}
+{new_table}
 </div>
 <p style="text-align:center;color:var(--muted);font-size:0.8rem;margin-top:1rem;">Dados: Fundamentus + yfinance ({label})</p>
 </div>
@@ -327,12 +339,13 @@ def run_pipelines(skip: bool) -> None:
         return
     py = pipeline_python()
     # Instala dependências necessárias para os pipelines existentes.
-    run([py, "-m", "pip", "install", "pandas", "numpy", "yfinance", "beautifulsoup4"])
+    run([py, "-m", "pip", "install", "pandas", "numpy", "yfinance", "beautifulsoup4", "requests", "lxml"])
     # BESST: pipeline funcional atual gera outputs/barsi_screener_latest.csv.
     run([py, "pipeline_final.py"])
     run([py, "scripts/update_besst_page.py"])
-    # Magic Formula: hoje o repositório possui o CSV greenblatt_top30.csv como fonte.
-    # O script aplica filtros editoriais, setor e atualiza a página principal.
+    # Magic Formula: gere uma fonte nova antes de aplicar filtros editoriais.
+    # Reutilizar o CSV estático rotulava dados antigos como se fossem do mês atual.
+    run([py, "scripts/generate_magic_formula_b3.py"])
     run([py, "scripts/update_magic_formula_page.py"])
 
 
