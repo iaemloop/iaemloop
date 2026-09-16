@@ -8,6 +8,8 @@ replacement candidates.
 """
 from __future__ import annotations
 
+import csv
+import html
 import json
 import re
 from pathlib import Path
@@ -22,6 +24,8 @@ HISTORY_FILES = [
 CURRENT_BESST_USD = ROOT / "ranking_besst_buffett_dolarizado.html"
 LATEST_BESST_USD = ROOT / "outputs" / "besst_buffett_eua_latest.json"
 LATEST_BESST_USD_CSV = ROOT / "outputs" / "besst_buffett_eua_latest.csv"
+BESST_USD_SEPTEMBER = ROOT / "outputs" / "besst_buffett_eua_top20_2026-09.csv"
+MAGIC_USD_SEPTEMBER = ROOT / "outputs" / "magic_formula_eua_top20_2026-09.csv"
 
 ROW_RE = re.compile(r"<tr>.*?</tr>", re.S)
 TICKER_RE = re.compile(r"(?:class=['\"]ticker['\"][^>]*>|<strong>|font-weight:\s*600[^>]*>)([A-Z]{1,6}(?:\d{1,2}|\.[A-Z])?)(?:</td>|</strong>)")
@@ -39,7 +43,8 @@ def issuer_key(ticker: str, cells: list[str]) -> str:
         return "US:ALPHABET"
     # B3 numerical share classes and units belong to the same issuer.
     if re.fullmatch(r"[A-Z]{4,6}\d{1,2}", ticker):
-        return "BR:" + re.match(r"[A-Z]+", ticker).group(0)
+        match = re.match(r"[A-Z]+", ticker)
+        return "BR:" + (match.group(0) if match else ticker)
     # For US tables, the company name is the cell immediately after ticker.
     try:
         idx = next(i for i, c in enumerate(cells) if c == ticker)
@@ -118,8 +123,102 @@ def repair_latest_json() -> dict:
     return {"file": LATEST_BESST_USD.name, "removed": removed, "count": len(kept)}
 
 
+def read_csv(path: Path) -> list[dict[str, str]]:
+    with path.open(newline="", encoding="utf-8-sig") as fh:
+        return list(csv.DictReader(fh))
+
+
+def number(value: str, digits: int = 1) -> str:
+    if value in (None, ""):
+        return "-"
+    return f"{float(value):.{digits}f}"
+
+
+def percent(value: str, digits: int = 1) -> str:
+    formatted = number(value, digits)
+    return formatted if formatted == "-" else formatted + "%"
+
+
+def replace_tab_tbody(page: Path, tab_id: str, rows: str) -> None:
+    text = page.read_text(encoding="utf-8")
+    start = text.index(f'<div id="{tab_id}"')
+    next_tab = text.find('<div id="', start + 1)
+    if next_tab < 0:
+        next_tab = len(text)
+    block = text[start:next_tab]
+    match = re.search(r"(<tbody[^>]*>)(.*?)(</tbody>)", block, re.S)
+    if not match:
+        raise ValueError(f"tbody not found for {tab_id} in {page}")
+    block = block[:match.start(2)] + "\n" + rows + "\n" + block[match.end(2):]
+    page.write_text(text[:start] + block + text[next_tab:], encoding="utf-8")
+
+
+def publish_september_dollarized_history() -> list[dict]:
+    besst = []
+    seen = set()
+    for row in read_csv(BESST_USD_SEPTEMBER):
+        ticker = row["ticker"].upper()
+        key = "ALPHABET" if ticker in {"GOOG", "GOOGL"} else ticker
+        if key in seen:
+            continue
+        seen.add(key)
+        besst.append(row)
+    besst_rows = []
+    for rank, row in enumerate(besst, 1):
+        values = [
+            str(rank), row["ticker"], row["empresa"], row["industria"] or row["setor"],
+            number(row["pl"]), number(row["ev_ebitda"]), percent(row["roe_pct"]),
+            percent(row["dividend_yield_pct"]), number(row["score_total"]),
+        ]
+        cells = "".join(
+            f"<td class='rank'>{html.escape(v)}</td>" if i == 0 else
+            f"<td class='ticker'>{html.escape(v)}</td>" if i == 1 else
+            f"<td>{html.escape(v)}</td>"
+            for i, v in enumerate(values)
+        )
+        besst_rows.append(f"<tr>{cells}</tr>")
+    replace_tab_tbody(ROOT / "historico_rankings_dolarizados.html", "set", "\n".join(besst_rows))
+
+    magic = read_csv(MAGIC_USD_SEPTEMBER)
+    magic_rows = []
+    for rank, row in enumerate(magic, 1):
+        values = [
+            str(rank), row["ticker"], row["empresa"], row["industria"] or row["setor"],
+            number(row["pl"]), number(row["ev_ebitda"]), percent(row["roic_proxy_pct"]),
+            percent(row["earnings_yield_pct"]), percent(row["fcf_yield_pct"]),
+            number(row["score_total"], 3),
+        ]
+        cells = "".join(
+            f"<td class='rank'>{html.escape(v)}</td>" if i == 0 else
+            f"<td class='ticker'>{html.escape(v)}</td>" if i == 1 else
+            f"<td>{html.escape(v)}</td>"
+            for i, v in enumerate(values)
+        )
+        magic_rows.append(f"<tr>{cells}</tr>")
+    replace_tab_tbody(ROOT / "historico_rankings_magic_formula_dolarizada.html", "set", "\n".join(magic_rows))
+    return [
+        {"file": "historico_rankings_dolarizados.html", "month": "2026-09", "rows": len(besst)},
+        {"file": "historico_rankings_magic_formula_dolarizada.html", "month": "2026-09", "rows": len(magic)},
+    ]
+
+
+def remove_duplicate_magic_b3_blocks() -> dict:
+    path = ROOT / "historico_rankings_magic_formula.html"
+    text = path.read_text(encoding="utf-8")
+    marker = '<div class="tab-content" data-month="2026-06" id="rank-2026-06">'
+    start = text.find(marker)
+    footer = text.find('<div class="footer">', start)
+    changed = start >= 0 and footer > start
+    if changed:
+        text = text[:start] + text[footer:]
+        path.write_text(text, encoding="utf-8")
+    return {"file": path.name, "duplicate_block_removed": changed}
+
+
 def main() -> None:
-    results = [repair_html(path) for path in HISTORY_FILES + [CURRENT_BESST_USD]]
+    results = publish_september_dollarized_history()
+    results.append(remove_duplicate_magic_b3_blocks())
+    results.extend(repair_html(path) for path in HISTORY_FILES + [CURRENT_BESST_USD])
     results.append(repair_latest_json())
     print(json.dumps(results, ensure_ascii=False, indent=2))
 
