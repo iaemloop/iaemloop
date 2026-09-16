@@ -11,18 +11,36 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUTS = ROOT / "outputs"
 
 
+def issuer_key(ticker: str, company: str) -> str:
+    """Return an issuer identity without merging security fundamentals.
+
+    Alphabet's GOOG/GOOGL classes are the currently known US multi-class pair
+    in the monthly universe. Company-name fallback prevents future duplicate
+    classes from occupying two ranking positions while preserving the first
+    (best-ranked) security exactly as calculated.
+    """
+    ticker = ticker.upper()
+    if ticker in {"GOOG", "GOOGL"}:
+        return "alphabet"
+    normalized = company.lower().strip()
+    normalized = normalized.replace(" class a", "").replace(" class b", "").replace(" class c", "")
+    return normalized or ticker
+
+
 def load_assets(name: str) -> tuple[dict, list[dict]]:
     data = json.loads((OUTPUTS / name).read_text(encoding="utf-8"), parse_constant=lambda _: None)
     assets = []
-    seen = set()
+    seen_issuers = set()
     for item in data["assets"]:
         ticker = item.get("ticker")
-        if not ticker or not item.get("empresa"):
+        company = item.get("empresa")
+        if not ticker or not company:
             continue
         ticker = str(ticker).upper()
-        if ticker in seen:
+        key = issuer_key(ticker, str(company))
+        if key in seen_issuers:
             continue
-        seen.add(ticker)
+        seen_issuers.add(key)
         item["ticker"] = ticker
         assets.append(item)
     return data["meta"], assets
@@ -140,7 +158,7 @@ def build_besst() -> str:
     )
     updated = meta.get("updated_at", "")[:10] or datetime.now().strftime("%Y-%m-%d")
     body = f"""<section class="panel note">
-      Ranking dolarizado baseado no composite BESST & Buffett para stocks/ADRs dos EUA. Linhas sem ticker foram descartadas da publicacao.
+      Ranking dolarizado baseado no composite BESST & Buffett para stocks/ADRs dos EUA. Cada empresa aparece uma única vez: quando há mais de uma classe, permanece o papel mais bem ranqueado, sem misturar fundamentos entre classes.
     </section>
     <section class="panel table-wrap"><table>
       <thead><tr><th>#</th><th>Ticker</th><th>Empresa</th><th>Setor</th><th>P/L</th><th>EV/EBITDA</th><th>ROE</th><th>Dividend Yield</th><th>Score</th></tr></thead>
