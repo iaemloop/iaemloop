@@ -1,12 +1,12 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-09-14-engi3-energisa-dividendos-alavancagem.html",
+  "lastPost": "blog/posts/2026-09-16-analise-meta-publicidade-ia-capex.html",
   "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 14/09/2026 concluiu a leitura de Ação Brasil com ENGI3/Energisa. O post usa ranking BESST Buffett B3, compra real B3 de agosto, página pública de dividendos da Energisa RI e reportagens públicas sobre resultado 2T26.",
+  "reading": "Publicação de 16/09/2026 concluiu a leitura de Stock EUA com META/Meta Platforms. O post usa watchlist permanente EUA, base local de fundamentos de stocks EUA, release público do 2T26 e página pública de RI da Meta.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-acao-brasil",
-    "leitura-de-ranking-besst-buffett-b3",
+    "estudo-educacional-de-stock-eua",
+    "leitura-de-watchlist-eua",
     "registro-editorial-publico"
   ],
   "rules": [
@@ -19,14 +19,14 @@
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
   ],
   "sourcesUsed": [
-    "outputs/barsi_screener_top20_2026-08.csv",
-    "data/compras_b3_agosto_2026.csv",
-    "pagina publica de dividendos Energisa RI",
-    "reportagens publicas sobre resultado Energisa 2T26"
+    "outputs/stocks_eua_fundamentos_2026-09.csv",
+    "outputs/watchlist_buffett_permanente_eua_2026-09.csv",
+    "release público de resultados Meta Platforms 2T26",
+    "página pública de relações com investidores da Meta"
   ],
-  "tickerOfTheDay": "ENGI3",
-  "assetTypeOfTheDay": "acao_brasil",
-  "custodyPerspective": "em_custodia",
+  "tickerOfTheDay": "META",
+  "assetTypeOfTheDay": "stock_eua",
+  "custodyPerspective": "fora_da_custodia_watchlist",
   "draftStatus": "publicado",
-  "updatedAt": "2026-09-14"
+  "updatedAt": "2026-09-16"
 }
