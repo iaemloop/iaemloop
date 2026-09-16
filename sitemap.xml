@@ -90,7 +90,7 @@
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <priority>0.8</priority>
     <changefreq>daily</changefreq>
   </url>
@@ -482,6 +482,16 @@
     <image:image>
       <image:loc>https://iaemloop.com.br/assets/blog/2026-09-14-engi3-energisa-dividendos-alavancagem.svg</image:loc>
       <image:title>ENGI3, Energisa e o teste entre dividendos e alavancagem</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-09-16-analise-meta-publicidade-ia-capex.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://iaemloop.com.br/assets/blog/2026-09-16-meta-publicidade-ia-capex.svg</image:loc>
+      <image:title>META, Meta e o custo da inteligência artificial</image:title>
     </image:image>
   </url>
 </urlset>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">META, publicidade e capex de IA — IA em Loop</title>
+  <desc id="desc">Matriz educacional sobre Meta, publicidade, IA, capital intensivo e valuation.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06101a"/>
+      <stop offset="0.55" stop-color="#102338"/>
+      <stop offset="1" stop-color="#2a1d10"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6EE4EF"/>
+      <stop offset="1" stop-color="#E4D17F"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1060" cy="80" r="260" fill="#6EE4EF" opacity="0.08"/>
+  <circle cx="150" cy="560" r="260" fill="#E4D17F" opacity="0.08"/>
+  <text x="72" y="88" fill="#e5f6ff" font-family="Inter, Arial, sans-serif" font-size="43" font-weight="800">META: publicidade forte, IA cara</text>
+  <text x="72" y="136" fill="#9fb4c7" font-family="Inter, Arial, sans-serif" font-size="23">Análise educacional — Stock EUA / watchlist</text>
+  <g transform="translate(72 190)">
+    <rect width="320" height="150" rx="20" fill="rgba(6,8,13,.48)" stroke="#6EE4EF" stroke-opacity=".45"/>
+    <text x="28" y="44" fill="#E4D17F" font-family="Arial" font-size="19" font-weight="700">Qualidade</text>
+    <text x="28" y="83" fill="#fff" font-family="Arial" font-size="34" font-weight="800">ROE 29,9%</text>
+    <text x="28" y="119" fill="#b9c6d3" font-family="Arial" font-size="18">escala global em anúncios</text>
+  </g>
+  <g transform="translate(440 190)">
+    <rect width="320" height="150" rx="20" fill="rgba(6,8,13,.48)" stroke="#E4D17F" stroke-opacity=".45"/>
+    <text x="28" y="44" fill="#E4D17F" font-family="Arial" font-size="19" font-weight="700">Preço</text>
+    <text x="28" y="83" fill="#fff" font-family="Arial" font-size="34" font-weight="800">P/L 23,3x</text>
+    <text x="28" y="119" fill="#b9c6d3" font-family="Arial" font-size="18">não é barganha óbvia</text>
+  </g>
+  <g transform="translate(808 190)">
+    <rect width="320" height="150" rx="20" fill="rgba(6,8,13,.48)" stroke="#f87171" stroke-opacity=".5"/>
+    <text x="28" y="44" fill="#E4D17F" font-family="Arial" font-size="19" font-weight="700">Risco</text>
+    <text x="28" y="83" fill="#fff" font-family="Arial" font-size="34" font-weight="800">capex alto</text>
+    <text x="28" y="119" fill="#b9c6d3" font-family="Arial" font-size="18">IA precisa virar retorno</text>
+  </g>
+  <path d="M160 462 C320 382, 470 535, 628 455 S930 406, 1045 478" fill="none" stroke="url(#gold)" stroke-width="8" stroke-linecap="round"/>
+  <text x="72" y="555" fill="#e2e8f0" font-family="Arial" font-size="24" font-weight="700">Tese: core publicitário financia IA; disciplina de capital define margem de segurança.</text>
+  <text x="72" y="595" fill="#94a3b8" font-family="Arial" font-size="17">IA em Loop • conteúdo educacional, sem recomendação personalizada</text>
+</svg>
