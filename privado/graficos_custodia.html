@@ -81,6 +81,7 @@
     let allAssets = [];
     let activeFilter = 'all';
     let selectedTvSymbol = null;
+    let latestPrivateUpdatedAt = null;
 
     function brNumber(text) {
       if (!text) return null;
@@ -182,7 +183,9 @@
       document.getElementById('stat-total').textContent = list.length;
       document.getElementById('stat-green').textContent = green;
       document.getElementById('stat-red').textContent = red;
-      document.getElementById('stat-updated').textContent = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+      document.getElementById('stat-updated').textContent = latestPrivateUpdatedAt
+        ? new Intl.DateTimeFormat('pt-BR', { dateStyle: 'short', timeStyle: 'short' }).format(latestPrivateUpdatedAt)
+        : '--';
     }
 
     function clearNode(node) {
@@ -406,6 +409,12 @@
       if (!sb) throw new Error('Cliente Supabase indisponível.');
       const { data, error } = await sb.from('private_pages').select('slug,html,updated_at').in('slug', PRIVATE_PAGE_SLUGS);
       if (error) throw error;
+      const updateTimes = (data || [])
+        .map(row => new Date(row.updated_at))
+        .filter(date => !Number.isNaN(date.getTime()));
+      latestPrivateUpdatedAt = updateTimes.length
+        ? new Date(Math.max(...updateTimes.map(date => date.getTime())))
+        : null;
       const parsed = [];
       (data || []).forEach(row => parsed.push(...parsePrivateHtml(row.slug, row.html || '')));
       allAssets = mergeAssets(parsed);
