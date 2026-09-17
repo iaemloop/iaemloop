@@ -38,13 +38,19 @@ def main():
     base_csv = 'outputs/stocks_eua_fundamentos_latest.csv'
     if not os.path.exists(base_csv):
         print(f"❌ Arquivo base não encontrado: {base_csv}. Execute o pipeline base primeiro.")
-        return
+        raise SystemExit(1)
     df = pd.read_csv(base_csv)
+    month = datetime.now().strftime('%Y-%m')
+    if df.empty or 'data_base' not in df or not df['data_base'].astype(str).str.startswith(month).all():
+        raise ValueError(f'Fundamentos não pertencem ao mês {month}; regenerar a fonte antes do ranking.')
     print(f"📊 Lidos {len(df)} registros do base.")
     ranked = compute_magic_formula(df)
     if ranked.empty:
         print("⚠️ Nenhum dado com EY e ROE válidos.")
-        return
+        raise SystemExit(1)
+    ranked['_company_key'] = ranked['empresa'].fillna(ranked['ticker'])
+    ranked.loc[ranked['ticker'].isin(['GOOG', 'GOOGL']), '_company_key'] = 'Alphabet'
+    ranked = ranked.drop_duplicates('_company_key')
     top20 = ranked.head(20).copy().reset_index(drop=True)
     print(f"🏆 Top 20 Magic Formula EUA (menor soma de ranks = melhor):")
     print(top20[['ticker', 'empresa', 'setor', 'ey', 'roe', 'rank_ey', 'rank_roe', 'rank_sum']].to_string(index=False))
@@ -69,7 +75,7 @@ def main():
     out['rank_fcf'] = np.nan
     out['score_total'] = 1 / (top20['rank_sum'] + 1e-9)  # inverso para score maior = melhor
     out['fonte_dados'] = 'yfinance'
-    out['data_base'] = datetime.now().strftime('%Y-%m-%d')
+    out['data_base'] = top20['data_base']
     out['observacoes'] = ''
     out.to_csv(out_csv, index=False, encoding='utf-8-sig')
     out.to_csv('outputs/magic_formula_eua_latest.csv', index=False, encoding='utf-8-sig')
@@ -83,10 +89,10 @@ def main():
             "total_assets": len(out),
             "methodology": "Magic Formula (EY + ROE)"
         },
-        "assets": out.to_dict(orient='records')
+        "assets": out.astype(object).where(pd.notna(out), None).to_dict(orient='records')
     }
     with open('outputs/magic_formula_eua_latest.json', 'w', encoding='utf-8') as f:
-        json.dump(json_data, f, ensure_ascii=False, indent=2)
+        json.dump(json_data, f, ensure_ascii=False, indent=2, allow_nan=False)
     print("💾 JSON salvo: outputs/magic_formula_eua_latest.json")
 
 if __name__ == '__main__':
