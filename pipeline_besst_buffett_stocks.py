@@ -54,13 +54,18 @@ def main():
     base_csv = 'outputs/stocks_eua_fundamentos_latest.csv'
     if not os.path.exists(base_csv):
         print(f"❌ Arquivo base não encontrado: {base_csv}. Execute o pipeline base primeiro.")
-        return
+        raise SystemExit(1)
     df = pd.read_csv(base_csv)
+    month = datetime.now().strftime('%Y-%m')
+    if df.empty or 'data_base' not in df or not df['data_base'].astype(str).str.startswith(month).all():
+        raise ValueError(f'Fundamentos não pertencem ao mês {month}; regenerar a fonte antes do ranking.')
     print(f"📊 Lidos {len(df)} registros do base.")
     # Calcular score
     df['score_besst'] = df.apply(compute_besst_score, axis=1)
     # Ordenar por score desc
-    df_sorted = df.sort_values('score_besst', ascending=False)
+    df['_company_key'] = df['empresa'].fillna(df['ticker'])
+    df.loc[df['ticker'].isin(['GOOG', 'GOOGL']), '_company_key'] = 'Alphabet'
+    df_sorted = df.sort_values('score_besst', ascending=False).drop_duplicates('_company_key')
     top20 = df_sorted.head(20).copy().reset_index(drop=True)
     print(f"🏆 Top 20 BESST & Buffett EUA:")
     print(top20[['ticker', 'empresa', 'setor', 'roe', 'dividend_yield', 'score_besst']].to_string(index=False))
@@ -101,10 +106,10 @@ def main():
             "total_assets": len(out),
             "methodology": "BESST & Buffett composite score"
         },
-        "assets": out.to_dict(orient='records')
+        "assets": out.astype(object).where(pd.notna(out), None).to_dict(orient='records')
     }
     with open('outputs/besst_buffett_eua_latest.json', 'w', encoding='utf-8') as f:
-        json.dump(json_data, f, ensure_ascii=False, indent=2)
+        json.dump(json_data, f, ensure_ascii=False, indent=2, allow_nan=False)
     print("💾 JSON salvo: outputs/besst_buffett_eua_latest.json")
 
 if __name__ == '__main__':

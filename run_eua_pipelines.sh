@@ -4,7 +4,7 @@
 
 set -e
 
-REPO_DIR="/Users/diegoteixeira/iaemloop-review-blog-20260507"
+REPO_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 cd "$REPO_DIR"
 
 echo "[$(date)] Starting EUA pipelines..."
@@ -24,5 +24,8 @@ python3 pipeline_magic_formula_stocks.py
 # 4. Watchlist
 echo "Running Watchlist pipeline..."
 python3 pipeline_watchlist_buffett_stocks.py
+
+python3 scripts/publish_us_monthly_rankings.py --month "$(date +%Y-%m)"
+python3 scripts/verify_us_monthly_rankings.py --month "$(date +%Y-%m)"
 
 echo "[$(date)] EUA pipelines completed."
