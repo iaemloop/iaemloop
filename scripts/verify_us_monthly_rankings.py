@@ -5,7 +5,10 @@ import csv
 import io
 import json
 import re
+import ssl
+import sys
 import urllib.request
+from pathlib import Path
 from publish_us_monthly_rankings import ROOT, TABS, load_snapshot, signature, table_rows
 
 
@@ -13,7 +16,9 @@ def verify(month, base_url=None):
     def read(name):
         if base_url:
             url = base_url.rstrip('/') + '/' + name + '?verify=' + month
-            with urllib.request.urlopen(url, timeout=30) as response:
+            # Homebrew Python may not have a CA bundle configured on macOS.
+            cafile = '/etc/ssl/cert.pem' if sys.platform == 'darwin' and Path('/etc/ssl/cert.pem').is_file() else None
+            with urllib.request.urlopen(url, timeout=30, context=ssl.create_default_context(cafile=cafile)) as response:
                 return response.read().decode('utf-8-sig')
         return (ROOT / name).read_text(encoding='utf-8-sig')
 
