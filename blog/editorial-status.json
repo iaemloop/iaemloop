@@ -1,12 +1,12 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-09-16-analise-meta-publicidade-ia-capex.html",
+  "lastPost": "blog/posts/2026-09-18-analise-petr4-petrobras-caixa-dividendos-brent.html",
   "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 16/09/2026 concluiu a leitura de Stock EUA com META/Meta Platforms. O post usa watchlist permanente EUA, base local de fundamentos de stocks EUA, release público do 2T26 e página pública de RI da Meta.",
+  "reading": "Publicação de 18/09/2026 concluiu a leitura de Ação Brasil com PETR4/Petrobras. O post usa ranking BESST Buffett B3 local, base Magic Formula filtrada local, comunicado público do resultado 2T26 da Petrobras, página pública de RI e indicadores públicos de PETR4.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-stock-eua",
-    "leitura-de-watchlist-eua",
+    "estudo-educacional-de-acao-brasileira",
+    "leitura-de-rankings-b3",
     "registro-editorial-publico"
   ],
   "rules": [
@@ -19,14 +19,15 @@
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
   ],
   "sourcesUsed": [
-    "outputs/stocks_eua_fundamentos_2026-09.csv",
-    "outputs/watchlist_buffett_permanente_eua_2026-09.csv",
-    "release público de resultados Meta Platforms 2T26",
-    "página pública de relações com investidores da Meta"
+    "outputs/barsi_screener_latest.csv",
+    "greenblatt_top30_filtered.csv",
+    "Agência Petrobras sobre resultado 2T26",
+    "página pública de relações com investidores da Petrobras",
+    "Investidor10 PETR4"
   ],
-  "tickerOfTheDay": "META",
-  "assetTypeOfTheDay": "stock_eua",
+  "tickerOfTheDay": "PETR4",
+  "assetTypeOfTheDay": "acao_brasil",
   "custodyPerspective": "fora_da_custodia_watchlist",
   "draftStatus": "publicado",
-  "updatedAt": "2026-09-16"
+  "updatedAt": "2026-09-18"
 }
