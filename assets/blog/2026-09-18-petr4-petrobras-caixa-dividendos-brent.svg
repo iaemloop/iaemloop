@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">PETR4, Petrobras e o teste entre caixa, dividendos e petróleo</title>
+  <desc id="desc">Visual IA em Loop com barras de ranking, caixa operacional, dividendos e riscos de commodity para Petrobras PETR4.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06080D"/>
+      <stop offset="55%" stop-color="#102333"/>
+      <stop offset="100%" stop-color="#1b2d25"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6EE4EF"/>
+      <stop offset="100%" stop-color="#E4D17F"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1000" cy="120" r="180" fill="#E4D17F" opacity="0.08"/>
+  <circle cx="160" cy="520" r="220" fill="#6EE4EF" opacity="0.08"/>
+  <g filter="url(#shadow)">
+    <rect x="64" y="58" width="1072" height="514" rx="28" fill="rgba(19,29,39,0.84)" stroke="rgba(228,209,127,0.28)"/>
+  </g>
+  <text x="92" y="118" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">IA em Loop • Ação Brasil • análise educacional</text>
+  <text x="92" y="184" fill="#E4D17F" font-family="Inter, Arial, sans-serif" font-size="70" font-weight="800">PETR4</text>
+  <text x="92" y="238" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">caixa forte não elimina</text>
+  <text x="92" y="286" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">risco de ciclo</text>
+  <text x="92" y="342" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="25">Petrobras combina produção recorde, dividendos e valuation baixo.</text>
+  <text x="92" y="378" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="25">A tese depende de Brent, investimento e disciplina de capital.</text>
+  <g transform="translate(92,428)">
+    <rect width="228" height="82" rx="16" fill="rgba(6,8,13,0.62)" stroke="rgba(228,209,127,0.24)"/>
+    <text x="18" y="32" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">BESST B3</text>
+    <text x="18" y="62" fill="#E4D17F" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800">score 70,9</text>
+  </g>
+  <g transform="translate(340,428)">
+    <rect width="228" height="82" rx="16" fill="rgba(6,8,13,0.62)" stroke="rgba(228,209,127,0.24)"/>
+    <text x="18" y="32" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Dividend yield</text>
+    <text x="18" y="62" fill="#E4D17F" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800">9,64%</text>
+  </g>
+  <g transform="translate(588,428)">
+    <rect width="228" height="82" rx="16" fill="rgba(6,8,13,0.62)" stroke="rgba(228,209,127,0.24)"/>
+    <text x="18" y="32" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">P/L local</text>
+    <text x="18" y="62" fill="#E4D17F" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800">4,98x</text>
+  </g>
+  <g transform="translate(844,130)">
+    <path d="M115 8 C76 62 44 114 44 166 c0 57 45 102 101 102s101-45 101-102C246 114 201 58 160 8c-12-15-32-15-45 0z" fill="url(#gold)" opacity="0.95"/>
+    <path d="M145 276c-54 0-98-44-98-98 0-18 5-35 14-49-39 16-66 55-66 100 0 60 49 109 109 109 45 0 84-27 100-66-17 9-37 14-59 14z" fill="#6EE4EF" opacity="0.35"/>
+    <text x="-16" y="376" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">produção • refino • dividendos</text>
+  </g>
+</svg>
