@@ -1,12 +1,12 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-09-18-analise-petr4-petrobras-caixa-dividendos-brent.html",
+  "lastPost": "blog/posts/2026-09-21-analise-zts-zoetis-saude-animal-valuation.html",
   "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 18/09/2026 concluiu a leitura de Ação Brasil com PETR4/Petrobras. O post usa ranking BESST Buffett B3 local, base Magic Formula filtrada local, comunicado público do resultado 2T26 da Petrobras, página pública de RI e indicadores públicos de PETR4.",
+  "reading": "Publicação de 21/09/2026 concluiu a leitura de Stock EUA com ZTS/Zoetis. O post usa ranking BESST Buffett Dolarizado, ranking Magic Formula Dolarizada, base local de fundamentos de stocks EUA, registros internos de compras apenas para classificar a perspectiva pública e fontes públicas da Zoetis/SEC sobre 2T26.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-acao-brasileira",
-    "leitura-de-rankings-b3",
+    "estudo-educacional-de-stock-eua",
+    "leitura-de-rankings-dolarizados",
     "registro-editorial-publico"
   ],
   "rules": [
@@ -19,15 +19,16 @@
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
   ],
   "sourcesUsed": [
-    "outputs/barsi_screener_latest.csv",
-    "greenblatt_top30_filtered.csv",
-    "Agência Petrobras sobre resultado 2T26",
-    "página pública de relações com investidores da Petrobras",
-    "Investidor10 PETR4"
+    "outputs/stocks_eua_fundamentos_latest.csv",
+    "ranking_besst_buffett_dolarizado.html",
+    "ranking_magic_formula_dolarizada.html",
+    "data/compras_stocks_inter_drivewealth_2026.csv",
+    "Zoetis comunicado público de resultados 2T26",
+    "SEC Form 10-Q Zoetis 2026-06-30"
   ],
-  "tickerOfTheDay": "PETR4",
-  "assetTypeOfTheDay": "acao_brasil",
-  "custodyPerspective": "fora_da_custodia_watchlist",
+  "tickerOfTheDay": "ZTS",
+  "assetTypeOfTheDay": "stock_eua",
+  "custodyPerspective": "em_custodia",
   "draftStatus": "publicado",
-  "updatedAt": "2026-09-18"
+  "updatedAt": "2026-09-21"
 }
