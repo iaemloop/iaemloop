@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">SANB11, Santander Brasil e o teste da rentabilidade bancária</title>
+  <desc id="desc">Diagrama com ranking, valuation, proventos, resultado 2T26 e riscos de crédito para SANB11.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#06080d"/><stop offset="0.55" stop-color="#102235"/><stop offset="1" stop-color="#2b2118"/></linearGradient>
+    <linearGradient id="gold" x1="0" x2="1"><stop offset="0" stop-color="#6ee4ef"/><stop offset="1" stop-color="#e4d17f"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000" flood-opacity="0.35"/></filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="990" cy="110" r="210" fill="#e4d17f" opacity="0.08"/>
+  <circle cx="150" cy="560" r="260" fill="#6ee4ef" opacity="0.07"/>
+  <text x="72" y="82" font-family="Inter, Arial, sans-serif" font-size="24" fill="#e4d17f" font-weight="700">IA em Loop • Ação Brasil</text>
+  <text x="72" y="142" font-family="Inter, Arial, sans-serif" font-size="56" fill="#ffffff" font-weight="800">SANB11</text>
+  <text x="72" y="196" font-family="Inter, Arial, sans-serif" font-size="34" fill="#cbd5e1" font-weight="700">preço descontado exige ROE melhor</text>
+  <g filter="url(#shadow)">
+    <rect x="72" y="250" width="320" height="132" rx="18" fill="#101923" stroke="#e4d17f" stroke-opacity="0.32"/>
+    <text x="98" y="296" font-family="Inter, Arial, sans-serif" font-size="20" fill="#94a3b8" font-weight="700">Ranking BESST B3</text>
+    <text x="98" y="346" font-family="Inter, Arial, sans-serif" font-size="42" fill="#e4d17f" font-weight="800">#2 / 70,5</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="440" y="250" width="320" height="132" rx="18" fill="#101923" stroke="#e4d17f" stroke-opacity="0.32"/>
+    <text x="466" y="296" font-family="Inter, Arial, sans-serif" font-size="20" fill="#94a3b8" font-weight="700">Valuation local</text>
+    <text x="466" y="346" font-family="Inter, Arial, sans-serif" font-size="42" fill="#e4d17f" font-weight="800">0,82x P/VPA</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="808" y="250" width="320" height="132" rx="18" fill="#101923" stroke="#e4d17f" stroke-opacity="0.32"/>
+    <text x="834" y="296" font-family="Inter, Arial, sans-serif" font-size="20" fill="#94a3b8" font-weight="700">Proventos locais</text>
+    <text x="834" y="346" font-family="Inter, Arial, sans-serif" font-size="42" fill="#e4d17f" font-weight="800">DY 6,38%</text>
+  </g>
+  <path d="M166 458 C 312 405, 454 525, 600 465 S 887 415, 1034 485" fill="none" stroke="url(#gold)" stroke-width="8" stroke-linecap="round"/>
+  <g font-family="Inter, Arial, sans-serif" font-weight="700">
+    <text x="72" y="530" font-size="25" fill="#ffffff">Tese:</text>
+    <text x="152" y="530" font-size="25" fill="#cbd5e1">renda + desconto</text>
+    <text x="430" y="530" font-size="25" fill="#ffffff">Teste:</text>
+    <text x="512" y="530" font-size="25" fill="#cbd5e1">ROAE 12,5% no 2T26</text>
+    <text x="815" y="530" font-size="25" fill="#ffffff">Risco:</text>
+    <text x="898" y="530" font-size="25" fill="#cbd5e1">crédito e Selic</text>
+  </g>
+  <text x="72" y="594" font-family="Inter, Arial, sans-serif" font-size="18" fill="#64748b">Conteúdo educacional • não é recomendação personalizada</text>
+</svg>

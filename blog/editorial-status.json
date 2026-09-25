@@ -1,12 +1,12 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-09-21-analise-zts-zoetis-saude-animal-valuation.html",
+  "lastPost": "blog/posts/2026-09-25-analise-sanb11-santander-brasil-rentabilidade-proventos.html",
   "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 21/09/2026 concluiu a leitura de Stock EUA com ZTS/Zoetis. O post usa ranking BESST Buffett Dolarizado, ranking Magic Formula Dolarizada, base local de fundamentos de stocks EUA, registros internos de compras apenas para classificar a perspectiva pública e fontes públicas da Zoetis/SEC sobre 2T26.",
+  "reading": "Publicação de 25/09/2026 concluiu leitura de Ação Brasil com SANB11/Santander Brasil. O post usa ranking BESST Buffett B3, classificação pública de custódia sem expor quantidade ou preço médio, dados públicos de RI sobre resultado 2T26 e proventos/JCP.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-stock-eua",
-    "leitura-de-rankings-dolarizados",
+    "estudo-educacional-de-acao-brasil",
+    "leitura-de-rankings-b3",
     "registro-editorial-publico"
   ],
   "rules": [
@@ -19,16 +19,15 @@
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
   ],
   "sourcesUsed": [
-    "outputs/stocks_eua_fundamentos_latest.csv",
-    "ranking_besst_buffett_dolarizado.html",
-    "ranking_magic_formula_dolarizada.html",
-    "data/compras_stocks_inter_drivewealth_2026.csv",
-    "Zoetis comunicado público de resultados 2T26",
-    "SEC Form 10-Q Zoetis 2026-06-30"
+    "outputs/barsi_screener_latest.csv",
+    "data/compras_b3_agosto_2026.csv",
+    "Santander Brasil RI - resultados 2T26",
+    "Santander Brasil RI - prática de distribuição de proventos",
+    "Santander Brasil RI - tabela de JCP e dividendos"
   ],
-  "tickerOfTheDay": "ZTS",
-  "assetTypeOfTheDay": "stock_eua",
+  "tickerOfTheDay": "SANB11",
+  "assetTypeOfTheDay": "acao_brasil",
   "custodyPerspective": "em_custodia",
   "draftStatus": "publicado",
-  "updatedAt": "2026-09-21"
+  "updatedAt": "2026-09-25"
 }
