@@ -90,9 +90,19 @@
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <priority>0.8</priority>
     <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-09-25-analise-sanb11-santander-brasil-rentabilidade-proventos.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://iaemloop.com.br/assets/blog/2026-09-25-sanb11-santander-brasil-rentabilidade-proventos.svg</image:loc>
+      <image:title>SANB11, Santander Brasil e o teste da rentabilidade bancária</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/posts/2026-09-21-analise-zts-zoetis-saude-animal-valuation.html</loc>
