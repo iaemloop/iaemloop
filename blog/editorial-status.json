@@ -1,12 +1,12 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-09-25-analise-sanb11-santander-brasil-rentabilidade-proventos.html",
+  "lastPost": "blog/posts/2026-09-28-analise-amzn-amazon-aws-ia-capex.html",
   "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 25/09/2026 concluiu leitura de Ação Brasil com SANB11/Santander Brasil. O post usa ranking BESST Buffett B3, classificação pública de custódia sem expor quantidade ou preço médio, dados públicos de RI sobre resultado 2T26 e proventos/JCP.",
+  "reading": "Publicação de 28/09/2026 concluiu leitura de Stock EUA com AMZN/Amazon. O post usa watchlist permanente dolarizada, fundamentos locais de setembro, comunicado público de resultados 2T26 e foco educacional em AWS, publicidade, capex de IA, fluxo de caixa e valuation.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-acao-brasil",
-    "leitura-de-rankings-b3",
+    "estudo-educacional-de-stock-eua",
+    "leitura-de-watchlist-dolarizada",
     "registro-editorial-publico"
   ],
   "rules": [
@@ -19,15 +19,15 @@
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
   ],
   "sourcesUsed": [
-    "outputs/barsi_screener_latest.csv",
-    "data/compras_b3_agosto_2026.csv",
-    "Santander Brasil RI - resultados 2T26",
-    "Santander Brasil RI - prática de distribuição de proventos",
-    "Santander Brasil RI - tabela de JCP e dividendos"
+    "outputs/stocks_eua_fundamentos_2026-09.csv",
+    "outputs/watchlist_buffett_permanente_eua_2026-09.csv",
+    "outputs/besst_buffett_eua_top20_2026-09.csv",
+    "outputs/magic_formula_eua_top20_2026-09.csv",
+    "Amazon Q2 2026 results - Business Wire"
   ],
-  "tickerOfTheDay": "SANB11",
-  "assetTypeOfTheDay": "acao_brasil",
-  "custodyPerspective": "em_custodia",
+  "tickerOfTheDay": "AMZN",
+  "assetTypeOfTheDay": "stock_eua",
+  "custodyPerspective": "fora_da_custodia_watchlist",
   "draftStatus": "publicado",
-  "updatedAt": "2026-09-25"
+  "updatedAt": "2026-09-28"
 }
