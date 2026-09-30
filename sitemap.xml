@@ -90,9 +90,19 @@
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <priority>0.8</priority>
     <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-09-30-analise-klbn4-klabin-celulose-embalagens-alavancagem.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://iaemloop.com.br/assets/blog/2026-09-30-klbn4-klabin-celulose-embalagens-alavancagem.svg</image:loc>
+      <image:title>KLBN4, Klabin e o teste entre dividendos, celulose e dívida</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/posts/2026-09-28-analise-amzn-amazon-aws-ia-capex.html</loc>

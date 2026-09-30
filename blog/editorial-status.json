@@ -1,12 +1,12 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-09-28-analise-amzn-amazon-aws-ia-capex.html",
+  "lastPost": "blog/posts/2026-09-30-analise-klbn4-klabin-celulose-embalagens-alavancagem.html",
   "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 28/09/2026 concluiu leitura de Stock EUA com AMZN/Amazon. O post usa watchlist permanente dolarizada, fundamentos locais de setembro, comunicado público de resultados 2T26 e foco educacional em AWS, publicidade, capex de IA, fluxo de caixa e valuation.",
+  "reading": "Publicação de 30/09/2026 concluiu leitura de Ação Brasil com KLBN4/Klabin. O post usa ranking BESST Buffett B3 local, comunicado público de resultados 2T26 da Klabin e foco educacional em celulose, embalagens, dividendos, recompra, câmbio, caixa livre e alavancagem.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-stock-eua",
-    "leitura-de-watchlist-dolarizada",
+    "estudo-educacional-de-acao-brasil",
+    "leitura-de-ranking-b3",
     "registro-editorial-publico"
   ],
   "rules": [
@@ -19,15 +19,12 @@
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
   ],
   "sourcesUsed": [
-    "outputs/stocks_eua_fundamentos_2026-09.csv",
-    "outputs/watchlist_buffett_permanente_eua_2026-09.csv",
-    "outputs/besst_buffett_eua_top20_2026-09.csv",
-    "outputs/magic_formula_eua_top20_2026-09.csv",
-    "Amazon Q2 2026 results - Business Wire"
+    "outputs/barsi_screener_latest.csv",
+    "Klabin resultados 2T26 - comunicado publico de 05/08/2026"
   ],
-  "tickerOfTheDay": "AMZN",
-  "assetTypeOfTheDay": "stock_eua",
-  "custodyPerspective": "fora_da_custodia_watchlist",
+  "tickerOfTheDay": "KLBN4",
+  "assetTypeOfTheDay": "acao_brasil",
+  "custodyPerspective": "em_custodia",
   "draftStatus": "publicado",
-  "updatedAt": "2026-09-28"
+  "updatedAt": "2026-09-30"
 }
