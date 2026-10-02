@@ -1,12 +1,12 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-09-30-analise-klbn4-klabin-celulose-embalagens-alavancagem.html",
+  "lastPost": "blog/posts/2026-10-02-analise-brk-b-berkshire-lennar-sucessao-capital.html",
   "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 30/09/2026 concluiu leitura de Ação Brasil com KLBN4/Klabin. O post usa ranking BESST Buffett B3 local, comunicado público de resultados 2T26 da Klabin e foco educacional em celulose, embalagens, dividendos, recompra, câmbio, caixa livre e alavancagem.",
+  "reading": "Publicação de 02/10/2026 concluiu leitura de Stock EUA com BRK-B/Berkshire Hathaway. O post usa watchlist permanente EUA, fundamentos locais de stocks, Form 4 público da SEC sobre Lennar e comunicado oficial de sucessão da Berkshire, com foco educacional em cultura, alocação de capital, float, valuation e riscos.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-acao-brasil",
-    "leitura-de-ranking-b3",
+    "estudo-educacional-de-stock-eua",
+    "leitura-de-watchlist-eua",
     "registro-editorial-publico"
   ],
   "rules": [
@@ -19,12 +19,14 @@
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
   ],
   "sourcesUsed": [
-    "outputs/barsi_screener_latest.csv",
-    "Klabin resultados 2T26 - comunicado publico de 05/08/2026"
+    "outputs/watchlist_buffett_permanente_eua_latest.csv",
+    "outputs/stocks_eua_fundamentos_latest.csv",
+    "SEC EDGAR Form 4 Lennar/Berkshire de 30/09/2026",
+    "Berkshire Hathaway comunicado oficial de 18/09/2026"
   ],
-  "tickerOfTheDay": "KLBN4",
-  "assetTypeOfTheDay": "acao_brasil",
+  "tickerOfTheDay": "BRK-B",
+  "assetTypeOfTheDay": "stock_eua",
   "custodyPerspective": "em_custodia",
   "draftStatus": "publicado",
-  "updatedAt": "2026-09-30"
+  "updatedAt": "2026-10-02"
 }
