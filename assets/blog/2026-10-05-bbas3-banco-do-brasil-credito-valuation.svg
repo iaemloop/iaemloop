@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">BBAS3: preço baixo contra risco de crédito</title>
+  <desc id="desc">Painel visual IA em Loop sobre Banco do Brasil, lucro, inadimplência, ROE, guidance e ranking BESST Buffett B3.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#06080D"/>
+      <stop offset="0.55" stop-color="#0B1722"/>
+      <stop offset="1" stop-color="#19364D"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" x2="1">
+      <stop offset="0" stop-color="#E4D17F"/>
+      <stop offset="1" stop-color="#AA8451"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1030" cy="110" r="190" fill="#6EE4EF" opacity="0.08"/>
+  <circle cx="110" cy="560" r="210" fill="#E4D17F" opacity="0.08"/>
+  <g filter="url(#shadow)">
+    <rect x="70" y="70" width="1060" height="490" rx="28" fill="#131D27" opacity="0.88" stroke="#E4D17F" stroke-opacity="0.22"/>
+  </g>
+  <text x="100" y="130" fill="#6EE4EF" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="800">IA em Loop • Ação Brasil</text>
+  <text x="100" y="185" fill="#FFFFFF" font-family="Inter,Arial,sans-serif" font-size="54" font-weight="900">BBAS3: desconto ou alerta?</text>
+  <text x="100" y="225" fill="#CBD5E1" font-family="Inter,Arial,sans-serif" font-size="24">Banco do Brasil combina múltiplos baixos com teste duro de crédito e rentabilidade.</text>
+
+  <g transform="translate(100 285)">
+    <rect width="215" height="125" rx="18" fill="#06080D" opacity="0.65" stroke="#E4D17F" stroke-opacity="0.20"/>
+    <text x="22" y="38" fill="#94A3B8" font-family="Inter,Arial" font-size="18" font-weight="700">Ranking local</text>
+    <text x="22" y="78" fill="url(#gold)" font-family="Inter,Arial" font-size="36" font-weight="900">#12</text>
+    <text x="22" y="106" fill="#CBD5E1" font-family="Inter,Arial" font-size="17">score 66,8</text>
+  </g>
+  <g transform="translate(345 285)">
+    <rect width="215" height="125" rx="18" fill="#06080D" opacity="0.65" stroke="#E4D17F" stroke-opacity="0.20"/>
+    <text x="22" y="38" fill="#94A3B8" font-family="Inter,Arial" font-size="18" font-weight="700">Valuation</text>
+    <text x="22" y="78" fill="url(#gold)" font-family="Inter,Arial" font-size="36" font-weight="900">P/L 9,48x</text>
+    <text x="22" y="106" fill="#CBD5E1" font-family="Inter,Arial" font-size="17">P/VPA 0,65x</text>
+  </g>
+  <g transform="translate(590 285)">
+    <rect width="215" height="125" rx="18" fill="#06080D" opacity="0.65" stroke="#E4D17F" stroke-opacity="0.20"/>
+    <text x="22" y="38" fill="#94A3B8" font-family="Inter,Arial" font-size="18" font-weight="700">2T26</text>
+    <text x="22" y="78" fill="url(#gold)" font-family="Inter,Arial" font-size="36" font-weight="900">R$ 3,9 bi</text>
+    <text x="22" y="106" fill="#CBD5E1" font-family="Inter,Arial" font-size="17">lucro ajustado</text>
+  </g>
+  <g transform="translate(835 285)">
+    <rect width="215" height="125" rx="18" fill="#06080D" opacity="0.65" stroke="#F87171" stroke-opacity="0.35"/>
+    <text x="22" y="38" fill="#94A3B8" font-family="Inter,Arial" font-size="18" font-weight="700">Risco-chave</text>
+    <text x="22" y="78" fill="#FCA5A5" font-family="Inter,Arial" font-size="36" font-weight="900">5,61%</text>
+    <text x="22" y="106" fill="#CBD5E1" font-family="Inter,Arial" font-size="17">inadimplência 90d+</text>
+  </g>
+
+  <path d="M140 472 C250 430, 350 470, 465 435 S690 420, 805 462 S980 475, 1060 430" fill="none" stroke="#6EE4EF" stroke-width="6" opacity="0.70"/>
+  <path d="M140 505 C260 498, 365 450, 480 500 S700 545, 815 500 S970 455, 1060 500" fill="none" stroke="#E4D17F" stroke-width="6" opacity="0.78"/>
+  <text x="100" y="548" fill="#94A3B8" font-family="Inter,Arial" font-size="18">Leitura: o preço parece barato, mas a margem de segurança depende de crédito, agro e ROE voltarem a respirar.</text>
+</svg>

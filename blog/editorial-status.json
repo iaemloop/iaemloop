@@ -1,12 +1,12 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-10-02-analise-brk-b-berkshire-lennar-sucessao-capital.html",
+  "lastPost": "blog/posts/2026-10-05-analise-bbas3-banco-do-brasil-credito-valuation.html",
   "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 02/10/2026 concluiu leitura de Stock EUA com BRK-B/Berkshire Hathaway. O post usa watchlist permanente EUA, fundamentos locais de stocks, Form 4 público da SEC sobre Lennar e comunicado oficial de sucessão da Berkshire, com foco educacional em cultura, alocação de capital, float, valuation e riscos.",
+  "reading": "Publicação de 05/10/2026 concluiu leitura de Ação Brasil com BBAS3/Banco do Brasil. O post usa ranking BESST Buffett B3 local de agosto de 2026, Central de Resultados do Banco do Brasil RI, comunicados CVM/RI e dados públicos de mercado, com foco educacional em valuation, crédito, inadimplência, agro, ROE, guidance e riscos.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-stock-eua",
-    "leitura-de-watchlist-eua",
+    "estudo-educacional-de-acao-brasil",
+    "leitura-de-watchlist-b3",
     "registro-editorial-publico"
   ],
   "rules": [
@@ -19,14 +19,14 @@
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
   ],
   "sourcesUsed": [
-    "outputs/watchlist_buffett_permanente_eua_latest.csv",
-    "outputs/stocks_eua_fundamentos_latest.csv",
-    "SEC EDGAR Form 4 Lennar/Berkshire de 30/09/2026",
-    "Berkshire Hathaway comunicado oficial de 18/09/2026"
+    "outputs/barsi_screener_top20_2026-08.csv",
+    "outputs/barsi_screener_latest.csv",
+    "Banco do Brasil RI — Central de Resultados",
+    "Banco do Brasil RI — Comunicados CVM/RI"
   ],
-  "tickerOfTheDay": "BRK-B",
-  "assetTypeOfTheDay": "stock_eua",
-  "custodyPerspective": "em_custodia",
+  "tickerOfTheDay": "BBAS3",
+  "assetTypeOfTheDay": "acao_brasil",
+  "custodyPerspective": "fora_da_custodia_watchlist",
   "draftStatus": "publicado",
-  "updatedAt": "2026-10-02"
+  "updatedAt": "2026-10-05"
 }

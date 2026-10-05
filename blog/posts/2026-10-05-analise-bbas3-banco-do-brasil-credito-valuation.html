@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Análise educacional IA em Loop sobre BBAS3/Banco do Brasil: ranking BESST Buffett B3, lucro 2T26, guidance, inadimplência, agro, ROE, valuation e riscos.">
+    <title>05/10: BBAS3, Banco do Brasil e o teste entre preço baixo e crédito | IA em Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { min-height: 100%; background: #06080D; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)), url('../../assets/bg-carteiras.jpg') no-repeat center center fixed; background-size: cover; background-color: #06080D; color: #e2e8f0; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 980px; margin: 0 auto; }
+        .back-button { position: fixed; top: 20px; left: 20px; display: inline-flex; align-items: center; gap: 6px; background: rgba(251,191,36,0.9); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; }
+        article { background: rgba(19, 29, 39, 0.78); border-radius: 14px; padding: 34px; border-left: 4px solid #19364D; border: 1px solid rgba(228, 209, 127, 0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h1 { overflow-wrap: anywhere; hyphens: auto; font-size: clamp(2rem, 5vw, 3.05rem); line-height: 1.08; font-weight: 800; background: linear-gradient(135deg, #6EE4EF, #E4D17F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; }
+        .dek { color: #cbd5e1; font-size: 1.12rem; line-height: 1.75; margin-bottom: 22px; }
+        .meta { display: flex; gap: 8px; flex-wrap: wrap; color: #94a3b8; font-size: 0.86rem; margin-bottom: 30px; }
+        .meta span { background: rgba(228, 209, 127, 0.15); color: #E4D17F; padding: 4px 10px; border-radius: 999px; font-weight: 600; border: 1px solid rgba(228, 209, 127, 0.2); }
+        h2 { color: #fff; font-size: 1.45rem; margin: 34px 0 12px; border-bottom: 2px solid #19364D; padding-bottom: 10px; }
+        h3 { color: #E4D17F; font-size: 1.08rem; margin: 22px 0 8px; }
+        p, li { overflow-wrap: anywhere; color: #cbd5e1; line-height: 1.78; font-size: 1.02rem; }
+        p { margin-bottom: 16px; } ul { padding-left: 22px; margin-bottom: 18px; } li { margin-bottom: 8px; } strong { color: #fff; }
+        a { color: #E4D17F; }
+        .hero-chart { display: block; max-width: 100%; height: auto; width: 100%; border-radius: 14px; border: 1px solid rgba(228, 209, 127, 0.18); background: rgba(6,8,13,.35); box-shadow: 0 12px 30px rgba(0,0,0,.25); margin: 20px 0 8px; }
+        .caption { color: #94a3b8; font-size: .9rem; margin-bottom: 24px; }
+        .callout { background: rgba(6, 8, 13, 0.5); border-left: 4px solid #E4D17F; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .warning { background: rgba(127,29,29,.25); border-left: 4px solid #f87171; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .scorecard { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+        .scorecard div, .matrix div { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 14px; }
+        .scorecard span { display: block; color: #94a3b8; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; }
+        .scorecard strong { color: #E4D17F; font-size: 1.1rem; }
+        .matrix { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 18px 0; }
+        .mini-table { width:100%; border-collapse: collapse; margin: 18px 0; overflow:hidden; border-radius:10px; }
+        .mini-table th, .mini-table td { padding: 11px 10px; border-bottom: 1px solid rgba(255,255,255,.08); text-align:left; color:#cbd5e1; vertical-align: top; }
+        .mini-table th { color:#E4D17F; background:rgba(6,8,13,.55); font-size:.92rem; }
+        .source-note { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 16px; margin-top: 28px; color: #94a3b8; font-size: 0.94rem; }
+        .footer { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        @media (max-width: 768px) { body { padding: 72px 16px 32px; } article { padding: 24px; } .scorecard, .matrix { grid-template-columns: 1fr; } .mini-table { display:block; overflow-x:auto; } }
+    </style>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"05/10: BBAS3, Banco do Brasil e o teste entre preço baixo e crédito","description":"Análise educacional IA em Loop sobre BBAS3/Banco do Brasil: ranking BESST Buffett B3, lucro 2T26, guidance, inadimplência, agro, ROE, valuation e riscos.","image":"https://iaemloop.com.br/assets/blog/2026-10-05-bbas3-banco-do-brasil-credito-valuation.svg","datePublished":"2026-10-05","dateModified":"2026-10-05","author":{"@type":"Organization","name":"IA em Loop"},"publisher":{"@type":"Organization","name":"IA em Loop"},"mainEntityOfPage":"https://iaemloop.com.br/blog/posts/2026-10-05-analise-bbas3-banco-do-brasil-credito-valuation.html","keywords":["BBAS3","Banco do Brasil","BESST Buffett B3","ações brasileiras","bancos","inadimplência","agro","valuation"]}</script>
+</head>
+<body><a href="../index.html" class="back-button" title="Voltar ao blog">← Blog</a><main class="container"><article>
+<h1>05/10: BBAS3, Banco do Brasil e o teste entre preço baixo e crédito</h1>
+<p class="dek">Banco do Brasil aparece barato em múltiplos, mas o mercado não está discutindo só preço: a pergunta central é se BBAS3 oferece margem de segurança suficiente enquanto lucro, inadimplência e agro pressionam a rentabilidade.</p>
+<div class="meta"><span>05/10/2026</span><span>Análise educacional</span><span>BBAS3</span><span>Banco do Brasil</span><span>Ação Brasil</span><span>BESST B3 #12</span><span>Score 66,8</span><span>P/L 9,48x</span><span>P/VPA 0,65x</span><span>Watchlist B3</span><span>8 min</span></div>
+<img class="hero-chart" src="../../assets/blog/2026-10-05-bbas3-banco-do-brasil-credito-valuation.svg" alt="Diagrama IA em Loop sobre BBAS3, Banco do Brasil, valuation, lucro, inadimplência, ROE e risco de crédito">
+<p class="caption">BBAS3 é um caso clássico de banco aparentemente barato: o múltiplo ajuda, mas o teste verdadeiro está na qualidade do crédito e na capacidade de recompor ROE.</p>
+<h2>Resposta curta: barato no múltiplo, mas ainda em prova de crédito</h2>
+<p>Na base local do ranking BESST Buffett B3 de agosto, BBAS3 aparece com <strong>preço-base de R$ 21,05</strong>, <strong>valor de mercado de aproximadamente R$ 120,2 bilhões</strong>, <strong>P/L de 9,48x</strong>, <strong>P/VPA de 0,65x</strong>, <strong>20 anos listados</strong>, <strong>19 anos com dividendos</strong> e <strong>score 66,8</strong>. O ponto fraco do filtro foi a remuneração: <strong>dividend yield de 1,14%</strong> naquela base, abaixo da régua estrita de dividendos.</p>
+<p>O resultado recente explica por que o desconto existe. O Banco do Brasil reportou no 2T26 <strong>lucro líquido ajustado de R$ 3,9 bilhões</strong>, queda forte contra o ano anterior, <strong>ROE ajustado de 8,4%</strong> e <strong>inadimplência acima de 90 dias de 5,61%</strong>. A administração também revisou o guidance de 2026, colocando lucro ajustado em faixa menor, de <strong>R$ 18 bilhões a R$ 22 bilhões</strong>. Em banco, múltiplo baixo só vira oportunidade se o custo do risco parar de corroer lucro.</p>
+<div class="scorecard"><div><span>BESST Buffett B3</span><strong>#12 / score 66,8</strong></div><div><span>P/L local</span><strong>9,48x</strong></div><div><span>P/VPA local</span><strong>0,65x</strong></div><div><span>Lucro ajustado 2T26</span><strong>R$ 3,9 bi</strong></div><div><span>ROE ajustado 2T26</span><strong>8,4%</strong></div><div><span>Inadimplência 90d+</span><strong>5,61%</strong></div></div>
+<h2>O que favorece BBAS3</h2>
+<p>O primeiro ponto favorável é escala. Banco do Brasil tem franquia nacional, base de clientes ampla, relacionamento com agronegócio, presença em crédito, cartões, seguros, previdência, investimentos e serviços. Essa capilaridade não desaparece em um trimestre ruim.</p>
+<p>O segundo ponto é valuation. Um banco grande negociando abaixo do valor patrimonial chama atenção porque o mercado já embute parte do problema no preço. Se a inadimplência estabilizar, se o agro parar de surpreender negativamente e se o ROE voltar para dois dígitos saudáveis, o desconto pode fechar sem exigir uma tese heroica de crescimento.</p>
+<table class="mini-table"><thead><tr><th>Métrica</th><th>Valor</th><th>Leitura</th></tr></thead><tbody><tr><td>Preço-base local</td><td>R$ 21,05</td><td>referência da base IA em Loop, não preço-alvo</td></tr><tr><td>P/VPA</td><td>0,65x</td><td>mercado precifica risco no patrimônio</td></tr><tr><td>P/L</td><td>9,48x</td><td>aparenta barato se lucro normalizar</td></tr><tr><td>Anos com dividendos</td><td>19</td><td>histórico longo, mas yield atual não sustentou filtro estrito</td></tr><tr><td>Setor</td><td>banco</td><td>escala e franquia importam, crédito decide</td></tr></tbody></table>
+<h2>O que ameaça a tese</h2>
+<p>O risco principal é crédito. O número de inadimplência acima de 90 dias em 5,61% mostra que a discussão saiu de “banco barato” para “quanto do lucro será consumido por provisões?”. Em Banco do Brasil, a exposição ao agronegócio é vantagem estrutural quando o ciclo está saudável, mas vira foco de atenção quando safra, preços, clima, renegociações e garantias entram em stress.</p>
+<p>O segundo risco é rentabilidade. ROE ajustado de 8,4% é baixo para um banco grande, especialmente quando o investidor pode comparar BBAS3 com pares privados, renda fixa e outras ações brasileiras. Se o lucro ficar preso na parte baixa do guidance, o P/L barato pode ser só reflexo de lucro ainda pressionado, não margem de segurança.</p>
+<div class="callout"><strong>Leitura prática do IA em Loop</strong><br>BBAS3 merece watchlist porque o desconto é real, mas a tese só fica mais limpa quando inadimplência, provisões, lucro recorrente e ROE mostrarem estabilização. Antes disso, o preço baixo precisa ser lido junto com o risco de crédito.</div>
+<h2>Favoráveis e desfavoráveis</h2><div class="matrix"><div><h3>Favoráveis</h3><p>• Banco de escala nacional, com franquia forte e histórico longo.</p><p>• P/VPA abaixo de 1x na base local.</p><p>• P/L abaixo de 10x se o lucro normalizar.</p><p>• Relação estrutural com agro pode voltar a ajudar em ciclo melhor.</p><p>• Score local alto mesmo fora do filtro estrito de dividendos.</p></div><div><h3>Desfavoráveis</h3><p>• Inadimplência de 90 dias elevada.</p><p>• Lucro ajustado caiu de forma relevante no 2T26.</p><p>• ROE ajustado ainda fraco para banco.</p><p>• Guidance reduzido diminui visibilidade.</p><p>• Dividend yield da base local ficou baixo para a régua de renda.</p></div></div>
+<h2>Checklist para acompanhar daqui em diante</h2>
+<table class="mini-table"><thead><tr><th>Ponto</th><th>O que monitorar</th><th>Se piorar</th></tr></thead><tbody><tr><td>Inadimplência</td><td>NPL 90 dias, renegociações e carteira agro</td><td>provisões seguem consumindo lucro</td></tr><tr><td>ROE</td><td>retorno sobre patrimônio em base recorrente</td><td>P/VPA baixo pode continuar merecido</td></tr><tr><td>Margem financeira</td><td>spread, mix de crédito e custo de captação</td><td>lucro normalizado fica distante</td></tr><tr><td>Guidance</td><td>se lucro caminha para a faixa baixa ou alta</td><td>mercado revisa expectativa para baixo</td></tr><tr><td>Proventos</td><td>payout, JCP e dividendos futuros</td><td>tese de renda perde força</td></tr></tbody></table>
+<h2>Conclusão</h2>
+<p>A resposta para a pergunta do post é: <strong>BBAS3 parece barata, mas ainda não é uma tese limpa enquanto crédito e ROE não melhorarem</strong>. O desconto sobre patrimônio é atraente; a inadimplência elevada impede uma leitura automática de oportunidade.</p>
+<p>Na régua do IA em Loop, Banco do Brasil é um bom estudo de banco cíclico com franquia forte. O investidor que olha apenas P/VPA pode comprar problema barato; o investidor que acompanha provisões, agro, ROE e guidance entende melhor quando o desconto vira assimetria e quando continua sendo prêmio pelo risco.</p>
+<div class="warning"><strong>Aviso importante:</strong> este conteúdo é educacional e não representa recomendação personalizada de investimento, compra ou venda. Ações brasileiras envolvem risco de mercado, risco de liquidez, risco de crédito, risco regulatório, risco de juros, risco político e risco específico da empresa.</div>
+<div class="source-note"><strong>Fontes e critérios:</strong> base local IA em Loop do ranking BESST Buffett B3 de agosto de 2026; <a href="https://ri.bb.com.br/informacoes-financeiras/central-de-resultados/">Central de Resultados do Banco do Brasil RI</a>; <a href="https://ri.bb.com.br/publicacoes-e-comunicados/cvm-44/">comunicados ao mercado/CVM do Banco do Brasil RI</a>; dados públicos de mercado sobre BBAS3. Conteúdo educacional, sem recomendação personalizada.</div>
+</article><div class="footer">IA em Loop • Educação financeira com dados, método e transparência</div></main></body></html>
