@@ -1,13 +1,21 @@
 /* IA em Loop private-area auth.
  * Requires Supabase project config in js/iaemloop-auth-config.js.
  * Security model: public teaser pages never contain real custody data. Real private
- * pages must be served only after approved session, or from authenticated storage.
+ * pages must be served only after an approved session and fetched under RLS.
  */
 (function () {
+  'use strict';
+
   const cfg = window.IAEMLOOP_AUTH_CONFIG || {};
   const ACTIVITY_KEY = 'iaemloop:last_activity_at';
-  const DEFAULT_IDLE_MINUTES = 5; // Sliding session: 5 min of inactivity requires login again.
+  const DEFAULT_IDLE_MINUTES = 5;
+  const ACTIVITY_WRITE_INTERVAL_MS = 5000;
   let lastActivityWrite = 0;
+  let lastActivityMemory = null;
+  let idleTimer = null;
+  let invalidatingSession = false;
+  let recoveryMode = false;
+  let authSubscription = null;
 
   const statusEl = () => document.querySelector('[data-auth-status]') || document.getElementById('notice');
   const setStatus = (message, kind = 'info') => {
@@ -17,8 +25,43 @@
     el.dataset.kind = kind;
   };
 
+  function decodeJwtPayload(token) {
+    try {
+      const encoded = token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');
+      return JSON.parse(window.atob(encoded.padEnd(Math.ceil(encoded.length / 4) * 4, '=')));
+    } catch (_) {
+      return null;
+    }
+  }
+
+  function configIssue() {
+    const url = String(cfg.supabaseUrl || '').trim();
+    const key = String(cfg.supabaseAnonKey || '').trim();
+    if (!window.supabase) return 'biblioteca Supabase indisponível';
+    if (!/^https:\/\/[a-z0-9]{20}\.supabase\.co\/?$/i.test(url)) return 'URL pública do projeto ausente ou inválida';
+    if (!key) return 'chave pública do navegador ausente';
+    if (/\.\.\.|placeholder|sua[_ -]?(anon|publishable)|seu[_ -]?projeto|example/i.test(key)) {
+      return 'chave pública do navegador incompleta ou de exemplo';
+    }
+    if (key.startsWith('sb_secret_') || /service[_-]?role/i.test(key)) {
+      return 'chave privilegiada não pode ser usada no navegador';
+    }
+    if (key.startsWith('eyJ')) {
+      if (key.length < 80 || key.split('.').length !== 3) return 'chave pública do navegador incompleta ou de exemplo';
+      const payload = decodeJwtPayload(key);
+      if (!payload || !['anon', 'publishable'].includes(payload.role)) return 'a chave configurada não é pública';
+      const projectRef = new URL(url).hostname.split('.')[0];
+      if (payload.ref && payload.ref !== projectRef) return 'a chave pública pertence a outro projeto';
+    } else if (key.startsWith('sb_publishable_')) {
+      if (key.length < 30) return 'chave pública do navegador incompleta ou de exemplo';
+    } else {
+      return 'formato de chave pública não reconhecido';
+    }
+    return '';
+  }
+
   function hasConfig() {
-    return Boolean(cfg.supabaseUrl && cfg.supabaseAnonKey && window.supabase);
+    return !configIssue();
   }
 
   function client() {
@@ -41,38 +84,103 @@
     return Math.max(1, minutes) * 60 * 1000;
   }
 
+  function clearActivity() {
+    try { localStorage.removeItem(ACTIVITY_KEY); } catch (_) {}
+    lastActivityMemory = null;
+    lastActivityWrite = 0;
+    if (idleTimer) window.clearTimeout(idleTimer);
+    idleTimer = null;
+  }
+
+  function lastActivityAt() {
+    let stored = null;
+    try {
+      const last = Number(localStorage.getItem(ACTIVITY_KEY));
+      stored = Number.isFinite(last) && last > 0 ? last : null;
+    } catch (_) {}
+    return Math.max(stored || 0, lastActivityMemory || 0) || null;
+  }
+
+  function clearApprovedUi() {
+    delete document.documentElement.dataset.auth;
+    const gate = document.querySelector('[data-requires-approved-user]');
+    if (gate) gate.hidden = false;
+    document.dispatchEvent(new CustomEvent('iaemloop:session-invalidated'));
+  }
+
+  async function invalidateSession(message, options = {}) {
+    if (invalidatingSession) return;
+    invalidatingSession = true;
+    clearActivity();
+    clearApprovedUi();
+    setStatus(message, options.kind || 'warn');
+    const sb = window.__iaemloopSupabase;
+    try { if (sb) await sb.auth.signOut(); } catch (_) {}
+    if (options.redirect && document.querySelector('[data-requires-approved-user]')) {
+      const loginUrl = new URL('/area_privada.html', window.location.origin);
+      loginUrl.searchParams.set('redirect', window.location.pathname);
+      loginUrl.searchParams.set('reason', options.reason || 'expired');
+      window.location.replace(loginUrl.pathname + loginUrl.search);
+    }
+  }
+
+  function scheduleIdleExpiry() {
+    if (idleTimer) window.clearTimeout(idleTimer);
+    idleTimer = null;
+    const last = lastActivityAt();
+    if (!last) return;
+    const remaining = idleLimitMs() - (Date.now() - last);
+    if (remaining <= 0) {
+      void invalidateSession('Sessão expirada por inatividade. Faça login novamente.', {
+        redirect: true, reason: 'idle'
+      });
+      return;
+    }
+    idleTimer = window.setTimeout(() => {
+      void invalidateSession('Sessão expirada por inatividade. Faça login novamente.', {
+        redirect: true, reason: 'idle'
+      });
+    }, remaining + 50);
+  }
+
   function markActivity(force = false) {
     const now = Date.now();
     if (!force) {
-      try {
-        const raw = localStorage.getItem(ACTIVITY_KEY);
-        if (!raw) return;
-        const last = Number(raw);
-        if (Number.isFinite(last) && now - last > idleLimitMs()) return;
-      } catch (_) {}
-      if (now - lastActivityWrite < 60000) return;
+      const last = lastActivityAt();
+      if (last === null || now - last >= idleLimitMs()) return;
     }
-    lastActivityWrite = now;
-    try { localStorage.setItem(ACTIVITY_KEY, String(now)); } catch (_) {}
+    lastActivityMemory = now;
+    if (force || now - lastActivityWrite >= ACTIVITY_WRITE_INTERVAL_MS) {
+      lastActivityWrite = now;
+      try { localStorage.setItem(ACTIVITY_KEY, String(now)); } catch (_) {}
+    }
+    scheduleIdleExpiry();
   }
 
   function isIdleExpired() {
-    try {
-      const raw = localStorage.getItem(ACTIVITY_KEY);
-      if (!raw) return false;
-      const last = Number(raw);
-      return Number.isFinite(last) && Date.now() - last > idleLimitMs();
-    } catch (_) {
-      return false;
-    }
+    const last = lastActivityAt();
+    return last !== null && Date.now() - last >= idleLimitMs();
   }
 
   function installActivityTracking() {
     ['click', 'keydown', 'scroll', 'touchstart', 'mousemove'].forEach((eventName) => {
       window.addEventListener(eventName, () => markActivity(false), { passive: true });
     });
-    // Do not mark activity on page load. Only real user movement keeps the
-    // 5-minute sliding session alive; once expired, a new login is required.
+    window.addEventListener('storage', (event) => {
+      if (event.key !== ACTIVITY_KEY) return;
+      if (event.newValue === null) {
+        void invalidateSession('Sua sessão foi encerrada em outra aba. Faça login novamente.', {
+          redirect: true, reason: 'signed-out'
+        });
+        return;
+      }
+      const observed = Number(event.newValue);
+      if (Number.isFinite(observed) && observed > 0) lastActivityMemory = observed;
+      scheduleIdleExpiry();
+    });
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) scheduleIdleExpiry();
+    });
   }
 
   function normalizeRedirect(target) {
@@ -87,6 +195,85 @@
     }
   }
 
+  function callbackParams() {
+    const query = new URLSearchParams(window.location.search);
+    const hash = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+    return { query, hash };
+  }
+
+  function hasAuthCallbackHint() {
+    const { query, hash } = callbackParams();
+    return query.has('code') || query.has('token_hash') || query.has('error')
+      || hash.has('access_token') || hash.has('error') || hash.get('type') === 'recovery';
+  }
+
+  function clearAuthCallbackUrl() {
+    if (!window.history?.replaceState) return;
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+
+  function showAuthForm(formId) {
+    document.querySelectorAll('.form').forEach((form) => {
+      const active = form.id === formId;
+      form.classList.toggle('active', active);
+      form.hidden = !active;
+    });
+    document.querySelectorAll('.tab').forEach((tab) => {
+      const active = tab.dataset.tab === formId;
+      tab.classList.toggle('active', active);
+      tab.setAttribute('aria-selected', String(active));
+    });
+  }
+
+  function setRecoveryUi(active) {
+    recoveryMode = active;
+    const tabs = document.querySelector('[data-auth-tabs]');
+    if (tabs) tabs.hidden = active;
+    if (active) {
+      clearActivity();
+      clearApprovedUi();
+      showAuthForm('nova-senha');
+      window.setTimeout(() => document.getElementById('new-password')?.focus(), 0);
+      return;
+    }
+    showAuthForm('login');
+  }
+
+  function recoveryCallbackError() {
+    const { query, hash } = callbackParams();
+    const error = query.get('error') || hash.get('error');
+    if (!error) return '';
+    return query.get('error_description') || hash.get('error_description') || error;
+  }
+
+  function handleRecoveryCallbackError() {
+    if (!recoveryCallbackError()) return false;
+    recoveryMode = true;
+    clearActivity();
+    clearApprovedUi();
+    clearAuthCallbackUrl();
+    setRecoveryUi(false);
+    showAuthForm('senha');
+    setStatus('O link de recuperação é inválido ou expirou. Solicite um novo na aba Senha.', 'error');
+    return true;
+  }
+
+  function enterRecoveryMode() {
+    setRecoveryUi(true);
+    setStatus('Link confirmado. Digite e confirme sua nova senha.', 'info');
+  }
+
+  function installAuthStateListener(sb) {
+    if (!sb || authSubscription) return;
+    const { data } = sb.auth.onAuthStateChange((event) => {
+      if (event === 'PASSWORD_RECOVERY') {
+        recoveryMode = true;
+        window.setTimeout(enterRecoveryMode, 0);
+      }
+    });
+    authSubscription = data?.subscription || true;
+  }
+
   async function getApprovedProfile(sb, userId) {
     const { data, error } = await sb
       .from('access_requests')
@@ -99,28 +286,46 @@
 
   async function getApprovedSession(sb) {
     if (isIdleExpired()) {
-      await sb.auth.signOut();
-      try { localStorage.removeItem(ACTIVITY_KEY); } catch (_) {}
+      await invalidateSession('Sessão expirada por inatividade. Faça login novamente.', {
+        redirect: true, reason: 'idle'
+      });
       return { user: null, profile: null, expired: true };
     }
-    const { data } = await sb.auth.getUser();
+    const { data, error } = await sb.auth.getUser();
+    if (error) throw error;
     if (!data.user) return { user: null, profile: null, expired: false };
     const profile = await getApprovedProfile(sb, data.user.id);
     if (profile && profile.status === 'approved') {
-      try {
-        if (!localStorage.getItem(ACTIVITY_KEY)) markActivity(true);
-        else markActivity(false);
-      } catch (_) {
-        markActivity(false);
-      }
-      return { user: data.user, profile, expired: false };
+      if (lastActivityAt() === null) markActivity(true);
+      scheduleIdleExpiry();
     }
     return { user: data.user, profile, expired: false };
   }
 
+  async function requireApprovedSession() {
+    const sb = client();
+    if (!sb) throw new Error(`Configuração incompleta: ${configIssue()}.`);
+    try {
+      const session = await getApprovedSession(sb);
+      if (!session.user || !session.profile || session.profile.status !== 'approved') {
+        await invalidateSession(
+          session.expired ? 'Sessão expirada por inatividade. Faça login novamente.' : 'Sua sessão não está aprovada. Faça login novamente.',
+          { redirect: true, reason: session.expired ? 'idle' : 'approval' }
+        );
+        throw new Error(session.expired ? 'Sessão expirada por inatividade.' : 'Sessão aprovada necessária.');
+      }
+      return { client: sb, ...session };
+    } catch (error) {
+      if (!invalidatingSession) {
+        await invalidateSession('Não foi possível confirmar sua sessão e aprovação. Faça login novamente.', {
+          kind: 'error', redirect: true, reason: 'validation'
+        });
+      }
+      throw error;
+    }
+  }
+
   function notifyApprovalEmail(payload) {
-    // Free/static notification path. FormSubmit may request one-time activation
-    // on equipeiaemloop@gmail.com the first time it receives a submission.
     const iframeName = 'iaemloop-formsubmit-silent';
     let iframe = document.querySelector(`iframe[name="${iframeName}"]`);
     if (!iframe) {
@@ -151,26 +356,30 @@
     }
     document.body.appendChild(form);
     form.submit();
-    setTimeout(() => form.remove(), 5000);
+    window.setTimeout(() => form.remove(), 5000);
   }
 
   async function autoOpenIfAlreadyApproved() {
+    if (recoveryMode) return;
     const form = document.querySelector('form[data-redirect], form#login');
     if (!form || document.querySelector('[data-requires-approved-user]')) return;
     const sb = client();
-    if (!sb) return;
+    if (!sb) {
+      setStatus(`Acesso privado indisponível: ${configIssue()}.`, 'warn');
+      return;
+    }
     try {
       const session = await getApprovedSession(sb);
       if (session.profile && session.profile.status === 'approved') {
         const paramsRedirect = new URLSearchParams(location.search).get('redirect');
-        const target = normalizeRedirect(form.dataset.redirect || paramsRedirect || cfg.defaultRedirect || '/privado/index.html');
+        const target = normalizeRedirect(form.dataset.redirect || paramsRedirect || cfg.defaultRedirect);
         setStatus('Sessão ativa. Abrindo área privada...', 'ok');
         window.location.assign(target);
       } else if (session.expired) {
         setStatus('Sessão expirada por inatividade. Faça login novamente.', 'warn');
       }
     } catch (_) {
-      // Keep the login form usable if the silent check fails.
+      await invalidateSession('Não foi possível confirmar uma sessão existente. Entre novamente.', { kind: 'error' });
     }
   }
 
@@ -178,7 +387,7 @@
     event.preventDefault();
     const sb = client();
     if (!sb) {
-      setStatus('Cadastro real ainda não configurado: falta preencher Supabase URL e anon key.', 'warn');
+      setStatus(`Cadastro indisponível: ${configIssue()}.`, 'warn');
       return false;
     }
     const form = event.currentTarget;
@@ -201,15 +410,16 @@
       return false;
     }
     notifyApprovalEmail({ email, fullName });
-    setStatus(`Cadastro criado. Confirme o e-mail do Supabase. O pedido de aprovação será registrado no Supabase e enviado para ${cfg.approvalEmail || 'equipeiaemloop@gmail.com'}; o acesso só será liberado após aprovação manual.`, 'ok');
+    setStatus(`Cadastro criado. Confirme o e-mail do Supabase. O pedido será enviado para ${cfg.approvalEmail || 'equipeiaemloop@gmail.com'} e só será liberado após aprovação manual.`, 'ok');
     return false;
   }
 
   async function login(event) {
     event.preventDefault();
+    invalidatingSession = false;
     const sb = client();
     if (!sb) {
-      setStatus('Login real ainda não configurado: falta preencher Supabase URL e anon key.', 'warn');
+      setStatus(`Login indisponível: ${configIssue()}.`, 'warn');
       return false;
     }
     const form = event.currentTarget;
@@ -218,19 +428,37 @@
     setStatus('Verificando login...', 'info');
     const { data, error } = await sb.auth.signInWithPassword({ email, password });
     if (error) {
-      setStatus('Login negado: ' + error.message, 'error');
+      const invalidCredentials = error.code === 'invalid_credentials'
+        || /invalid login credentials/i.test(error.message || '');
+      setStatus(
+        invalidCredentials
+          ? 'Não foi possível entrar com esses dados. Confira e-mail e senha ou use a aba Senha para redefinir o acesso.'
+          : 'Não foi possível entrar agora. Tente novamente em instantes.',
+        'error'
+      );
       return false;
     }
-    const profile = await getApprovedProfile(sb, data.user.id);
+    let profile;
+    try {
+      profile = await getApprovedProfile(sb, data.user.id);
+    } catch (_) {
+      await sb.auth.signOut();
+      clearActivity();
+      clearApprovedUi();
+      setStatus('Login confirmado, mas não foi possível validar a aprovação. Entre novamente quando a conexão estiver disponível.', 'error');
+      return false;
+    }
     if (!profile || profile.status !== 'approved') {
       await sb.auth.signOut();
+      clearActivity();
+      clearApprovedUi();
       setStatus('Cadastro recebido, mas ainda não aprovado pelo IA em Loop.', 'warn');
       return false;
     }
     markActivity(true);
-    setStatus('Acesso aprovado. Abrindo carteiras em custódia...', 'ok');
+    setStatus('Acesso aprovado. Abrindo Minha Carteira...', 'ok');
     const paramsRedirect = new URLSearchParams(location.search).get('redirect');
-    const target = normalizeRedirect(form.dataset.redirect || paramsRedirect || cfg.defaultRedirect || '/privado/index.html');
+    const target = normalizeRedirect(form.dataset.redirect || paramsRedirect || cfg.defaultRedirect);
     window.location.assign(target);
     return false;
   }
@@ -239,7 +467,7 @@
     event.preventDefault();
     const sb = client();
     if (!sb) {
-      setStatus('Recuperação real ainda não configurada: falta preencher Supabase URL e anon key.', 'warn');
+      setStatus(`Recuperação indisponível: ${configIssue()}.`, 'warn');
       return false;
     }
     const email = event.currentTarget.email.value.trim();
@@ -253,53 +481,81 @@
     return false;
   }
 
-  async function logout() {
+  async function updateRecoveredPassword(event) {
+    event.preventDefault();
+    if (!recoveryMode) {
+      setStatus('Abra novamente o link enviado por e-mail para redefinir a senha.', 'warn');
+      return false;
+    }
     const sb = client();
-    try { localStorage.removeItem(ACTIVITY_KEY); } catch (_) {}
-    if (sb) await sb.auth.signOut();
-    window.location.assign('/area_privada.html');
+    if (!sb) {
+      setStatus(`Não foi possível redefinir a senha: ${configIssue()}.`, 'error');
+      return false;
+    }
+    const form = event.currentTarget;
+    const password = form.password.value;
+    const confirmation = form.password_confirmation.value;
+    if (password.length < 8) {
+      setStatus('A nova senha deve ter pelo menos 8 caracteres.', 'warn');
+      form.password.focus();
+      return false;
+    }
+    if (password !== confirmation) {
+      setStatus('As senhas não coincidem. Digite novamente.', 'warn');
+      form.password_confirmation.focus();
+      return false;
+    }
+    const submit = form.querySelector('[type="submit"]');
+    if (submit) submit.disabled = true;
+    setStatus('Salvando a nova senha...', 'info');
+    const { error } = await sb.auth.updateUser({ password });
+    if (error) {
+      if (submit) submit.disabled = false;
+      const expired = /expired|invalid|session|token/i.test(`${error.code || ''} ${error.message || ''}`);
+      setStatus(
+        expired
+          ? 'O link de recuperação expirou ou já foi usado. Solicite um novo na aba Senha.'
+          : 'Não foi possível salvar a nova senha. Tente novamente.',
+        'error'
+      );
+      if (expired) {
+        clearActivity();
+        try { await sb.auth.signOut({ scope: 'local' }); } catch (_) {}
+        clearAuthCallbackUrl();
+        setRecoveryUi(false);
+        showAuthForm('senha');
+      }
+      return false;
+    }
+    clearActivity();
+    clearApprovedUi();
+    try { await sb.auth.signOut({ scope: 'local' }); } catch (_) {}
+    clearAuthCallbackUrl();
+    form.reset();
+    if (submit) submit.disabled = false;
+    setRecoveryUi(false);
+    setStatus('Senha atualizada. Entre com a nova senha para testar o acesso.', 'ok');
+    window.setTimeout(() => document.getElementById('login-email')?.focus(), 0);
+    return false;
   }
 
-  async function loadPrivatePage(sb) {
-    const container = document.querySelector('[data-private-page]');
-    if (!container) return;
-    const slug = container.dataset.privatePage;
-    const frame = document.querySelector('[data-private-frame]');
-    if (!slug || !frame) return;
-    setStatus('Carregando custódia privada...', 'info');
-    const { data, error } = await sb
-      .from('private_pages')
-      .select('html,updated_at')
-      .eq('slug', slug)
-      .maybeSingle();
-    if (error) throw error;
-    if (!data || !data.html) {
-      setStatus('Custódia privada ainda não foi publicada no Supabase para esta carteira.', 'warn');
-      return;
-    }
-    const html = data.html
-      .replace(/<head(.*?)>/i, '<head$1><base href="/">')
-      .replace(/<a\s+href=["']javascript:history\.back\(\)["']\s+class=["']back["']\s*>\s*←\s*Voltar\s*<\/a>/gi, '')
-      .replace(/<a\s+class=["']back["']\s+href=["']javascript:history\.back\(\)["']\s*>\s*←\s*Voltar\s*<\/a>/gi, '');
-    frame.srcdoc = html;
-    frame.addEventListener('load', () => {
-      try {
-        const doc = frame.contentWindow?.document;
-        ['click', 'keydown', 'scroll', 'touchstart', 'mousemove'].forEach((eventName) => {
-          doc?.addEventListener(eventName, () => markActivity(false), { passive: true });
-        });
-      } catch (_) {}
-    }, { once: true });
-    setStatus('Custódia privada carregada.', 'ok');
+  async function logout() {
+    const sb = client();
+    clearActivity();
+    clearApprovedUi();
+    if (sb) await sb.auth.signOut();
+    window.location.assign('/area_privada.html');
   }
 
   async function protectPage() {
     const gate = document.querySelector('[data-requires-approved-user]');
     if (!gate) return;
+    invalidatingSession = false;
     const sb = client();
     if (!sb) {
       gate.hidden = false;
-      setStatus('Área privada ainda não configurada. Nenhum dado real foi carregado.', 'warn');
+      clearApprovedUi();
+      setStatus(`Área privada indisponível: ${configIssue()}. Nenhum dado real foi carregado.`, 'warn');
       return;
     }
     try {
@@ -313,21 +569,40 @@
         document.documentElement.dataset.auth = 'approved';
         gate.hidden = true;
         setStatus('Acesso aprovado.', 'ok');
-        await loadPrivatePage(sb);
+        scheduleIdleExpiry();
       } else {
-        gate.hidden = false;
-        setStatus('Usuário autenticado, mas ainda pendente de aprovação.', 'warn');
+        await invalidateSession('Usuário autenticado, mas sem aprovação ativa.', { redirect: true, reason: 'approval' });
       }
-    } catch (err) {
-      gate.hidden = false;
-      setStatus('Não foi possível validar aprovação: ' + err.message, 'error');
+    } catch (error) {
+      await invalidateSession('Não foi possível validar sua aprovação. Faça login novamente.', {
+        kind: 'error', redirect: true, reason: 'validation'
+      });
+      setStatus('Não foi possível validar aprovação: ' + error.message, 'error');
     }
   }
 
+  async function approvedSession() {
+    const sb = client();
+    if (!sb) return { client: null, user: null, profile: null, expired: false };
+    const session = await getApprovedSession(sb);
+    return { client: sb, ...session };
+  }
+
   installActivityTracking();
-  window.IAEMLOOPAuth = { signup, login, recover, logout, protectPage, client };
+  window.IAEMLOOPAuth = {
+    signup, login, recover, updateRecoveredPassword, logout, protectPage, client, approvedSession,
+    requireApprovedSession, hasConfig, configIssue, idleLimitMs
+  };
   document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.tab').forEach((tab) => {
+      tab.addEventListener('click', () => {
+        if (!recoveryMode) showAuthForm(tab.dataset.tab);
+      });
+    });
+    if (handleRecoveryCallbackError()) return;
+    const sb = client();
+    installAuthStateListener(sb);
     protectPage();
-    autoOpenIfAlreadyApproved();
+    if (!hasAuthCallbackHint()) autoOpenIfAlreadyApproved();
   });
 })();
