@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Minha Carteira | IA em Loop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/privado-app.css">
+</head>
+<body>
+  <main class="wrap">
+    <div class="topbar">
+      <a class="pill" href="../area_privada.html">← Área privada</a>
+      <div class="top-actions">
+        <a class="pill" href="index.html">Painel privado legado</a>
+        <button class="btn secondary" id="refresh-data" type="button">Atualizar dados</button>
+        <button class="pill" type="button" onclick="IAEMLOOPAuth.logout()">Sair</button>
+      </div>
+    </div>
+    <section class="gate" data-requires-approved-user>
+      <h1>🔒 Login necessário</h1><p data-auth-status role="status" aria-live="assertive" aria-atomic="true">Validando sua sessão e aprovação...</p>
+      <a class="btn" href="../area_privada.html?redirect=/privado/minha-carteira.html">Entrar novamente</a>
+    </section>
+    <div class="private-content" id="private-app">
+      <section class="hero">
+        <p class="eyebrow">Dados privados e isolados por usuário</p><h1>Minha Carteira</h1>
+        <p>Olá, <strong id="current-user">usuário</strong>. Aqui você cadastra somente os dados vinculados ao seu login. O banco aplica RLS e valida o seu UUID em cada operação.</p>
+        <p class="status" id="app-status" data-kind="info" role="status" aria-live="polite" aria-atomic="true">Preparando seu painel privado...</p>
+      </section>
+      <section class="metrics" aria-label="Resumo da carteira">
+        <article class="metric"><span>Carteiras</span><strong id="metric-portfolios">0</strong></article><article class="metric"><span>Contas</span><strong id="metric-accounts">0</strong></article><article class="metric"><span>Posições</span><strong id="metric-holdings">0</strong></article><article class="metric"><span>Movimentações</span><strong id="metric-transactions">0</strong></article><article class="metric"><span>Custo das posições</span><strong id="metric-cost">Sem posições</strong></article>
+      </section>
+      <section class="panel">
+        <div class="panel-heading"><div><h2>Carteiras</h2><p>Crie separações por método, país ou objetivo.</p></div></div>
+        <form class="form-grid" data-form="portfolio"><div class="field"><label for="portfolio-name">Nome</label><input id="portfolio-name" name="name" maxlength="120" required></div><div class="field"><label for="portfolio-currency">Moeda-base</label><select id="portfolio-currency" name="base_currency"><option>BRL</option><option>USD</option><option>EUR</option></select></div><div class="field wide"><label for="portfolio-description">Descrição</label><input id="portfolio-description" name="description" maxlength="300"></div><div class="form-actions"><button class="btn" type="submit">Criar carteira</button></div></form>
+        <div class="table-wrap"><table><thead><tr><th>Nome</th><th>Moeda</th><th>Descrição</th><th>Ações</th></tr></thead><tbody id="portfolios-body"></tbody></table></div>
+      </section>
+      <section class="panel">
+        <div class="panel-heading"><div><h2>Contas e corretoras</h2><p>Cada conta pertence a uma carteira do mesmo usuário.</p></div></div>
+        <form class="form-grid" data-form="account"><div class="field"><label for="account-portfolio">Carteira</label><select id="account-portfolio" name="portfolio_id" data-portfolio-select required></select></div><div class="field"><label for="account-name">Nome da conta</label><input id="account-name" name="name" maxlength="120" required></div><div class="field"><label for="account-institution">Instituição</label><input id="account-institution" name="institution" maxlength="120"></div><div class="field"><label for="account-type">Tipo</label><select id="account-type" name="account_type"><option value="brokerage">Corretora</option><option value="bank">Banco</option><option value="retirement">Previdência</option><option value="crypto">Cripto</option><option value="other">Outro</option></select></div><div class="field"><label for="account-currency">Moeda</label><select id="account-currency" name="currency"><option>BRL</option><option>USD</option><option>EUR</option></select></div><div class="field"><label for="account-cash">Saldo em caixa</label><input id="account-cash" name="cash_balance" type="number" min="0" step="0.01" value="0" required></div><div class="form-actions"><button class="btn" type="submit">Adicionar conta</button></div></form>
+        <div class="table-wrap"><table><thead><tr><th>Conta</th><th>Carteira</th><th>Instituição</th><th>Tipo</th><th>Caixa</th><th>Ações</th></tr></thead><tbody id="accounts-body"></tbody></table></div>
+      </section>
+      <section class="panel">
+        <div class="panel-heading"><div><h2>Posições atuais</h2><p>Quantidades e custos ficam restritos ao seu UUID.</p></div></div>
+        <form class="form-grid" data-form="holding"><div class="field"><label for="holding-portfolio">Carteira</label><select id="holding-portfolio" name="portfolio_id" data-portfolio-select required></select></div><div class="field"><label for="holding-account">Conta</label><select id="holding-account" name="account_id" data-account-select data-portfolio-field="holding-portfolio" required></select></div><div class="field"><label for="holding-symbol">Ticker</label><input id="holding-symbol" name="symbol" maxlength="32" required></div><div class="field"><label for="holding-type">Classe</label><select id="holding-type" name="asset_type"><option value="equity">Ação/Stock</option><option value="fund">Fundo/ETF/FII</option><option value="fixed_income">Renda fixa</option><option value="crypto">Cripto</option><option value="cash">Caixa</option><option value="other">Outro</option></select></div><div class="field"><label for="holding-quantity">Quantidade</label><input id="holding-quantity" name="quantity" type="number" min="0.0000000001" step="any" required></div><div class="field"><label for="holding-cost">Custo médio</label><input id="holding-cost" name="average_cost" type="number" min="0" step="any" required></div><div class="field"><label for="holding-currency">Moeda</label><select id="holding-currency" name="currency"><option>BRL</option><option>USD</option><option>EUR</option></select></div><div class="field"><label for="holding-date">Data de aquisição</label><input id="holding-date" name="acquired_at" type="date"></div><div class="form-actions"><button class="btn" type="submit">Adicionar posição</button></div></form>
+        <div class="table-wrap"><table><thead><tr><th>Ativo</th><th>Classe</th><th>Carteira</th><th>Conta</th><th>Quantidade</th><th>Custo médio</th><th>Custo total</th><th>Ações</th></tr></thead><tbody id="holdings-body"></tbody></table></div>
+      </section>
+      <section class="panel">
+        <div class="panel-heading"><div><h2>Movimentações</h2><p>Registre compras, vendas, dividendos, depósitos, taxas e impostos.</p></div></div>
+        <form class="form-grid" data-form="transaction"><div class="field"><label for="transaction-portfolio">Carteira</label><select id="transaction-portfolio" name="portfolio_id" data-portfolio-select required></select></div><div class="field"><label for="transaction-account">Conta</label><select id="transaction-account" name="account_id" data-account-select data-portfolio-field="transaction-portfolio" required></select></div><div class="field"><label for="transaction-type">Tipo</label><select id="transaction-type" name="transaction_type"><option value="buy">Compra</option><option value="sell">Venda</option><option value="dividend">Dividendo</option><option value="interest">Juros</option><option value="deposit">Depósito</option><option value="withdrawal">Retirada</option><option value="fee">Taxa</option><option value="tax">Imposto</option></select></div><div class="field"><label for="transaction-symbol">Ticker</label><input id="transaction-symbol" name="symbol" maxlength="32"></div><div class="field"><label for="transaction-quantity">Quantidade <span class="trade-only">(obrigatória em compra/venda)</span></label><input id="transaction-quantity" name="quantity" type="number" min="0.0000000001" step="any" required aria-required="true"></div><div class="field"><label for="transaction-unit-price">Preço unitário <span class="trade-only">(obrigatório em compra/venda)</span></label><input id="transaction-unit-price" name="unit_price" type="number" min="0.0000000001" step="any" required aria-required="true"></div><div class="field"><label for="transaction-amount">Valor total</label><input id="transaction-amount" name="amount" type="number" step="any" required></div><div class="field"><label for="transaction-fees">Taxas</label><input id="transaction-fees" name="fees" type="number" min="0" step="any" value="0"></div><div class="field"><label for="transaction-currency">Moeda</label><select id="transaction-currency" name="currency"><option>BRL</option><option>USD</option><option>EUR</option></select></div><div class="field"><label for="transaction-date">Data e hora</label><input id="transaction-date" name="occurred_at" type="datetime-local" required></div><div class="field wide"><label for="transaction-notes">Observações</label><input id="transaction-notes" name="notes" maxlength="500"></div><div class="form-actions"><button class="btn" type="submit">Registrar movimentação</button></div></form>
+        <div class="table-wrap"><table><thead><tr><th>Data</th><th>Tipo</th><th>Ativo</th><th>Carteira</th><th>Conta</th><th>Quantidade</th><th>Valor</th><th>Ações</th></tr></thead><tbody id="transactions-body"></tbody></table></div>
+      </section>
+      <section class="panel"><div class="panel-heading"><div><h2>Próximos serviços</h2><p>Entrarão após os dados individuais e o isolamento remoto serem validados.</p></div></div><div class="future-grid"><article class="future-card"><h3>Análise de carteira com IA</h3><p>Balanceamento, concentração, aderência aos métodos Barsi & Buffett e Magic Formula, riscos e sugestões justificadas.</p></article><article class="future-card"><h3>Sugestão mensal de aporte</h3><p>Distribuição do valor disponível por carteira, ativo e renda fixa, usando custódia, rankings e limites definidos.</p></article><article class="future-card"><h3>Conexão B3</h3><p>Importação será implementada por integração oficial e consentimento explícito, sem solicitar senha da corretora dentro do site.</p></article></div></section>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2"></script><script src="../js/iaemloop-auth-config.js"></script><script src="../js/iaemloop-auth.js"></script><script src="../js/privado/api.js"></script><script src="../js/privado/render.js"></script><script src="../js/privado/app.js"></script>
+</body>
+</html>

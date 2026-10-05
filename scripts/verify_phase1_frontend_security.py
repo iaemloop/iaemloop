@@ -14,30 +14,31 @@ APP = ROOT / "js" / "privado" / "app.js"
 RENDER = ROOT / "js" / "privado" / "render.js"
 AUTH = ROOT / "js" / "iaemloop-auth.js"
 AUTH_CONFIG = ROOT / "js" / "iaemloop-auth-config.js"
-HTML = ROOT / "privado" / "index.html"
+HTML = ROOT / "privado" / "minha-carteira.html"
+LEGACY_INDEX = ROOT / "privado" / "index.html"
+GRAPHICS_HTML = ROOT / "privado" / "graficos_custodia.html"
 LOGIN_HTML = ROOT / "area_privada.html"
 CSS = ROOT / "css" / "privado-app.css"
 PRIVATE_HTML_FILES = tuple(sorted((ROOT / "privado").glob("*.html")))
 LEGACY_PRIVATE_HTML = (
-    ROOT / "privado" / "graficos_custodia.html",
     ROOT / "privado" / "carteira_besst.html",
     ROOT / "privado" / "carteira_magic_formula.html",
     ROOT / "privado" / "carteira_besst_dolarizada.html",
     ROOT / "privado" / "carteira_magic_formula_dolarizada.html",
 )
+LEGACY_REQUIRED_MARKERS = ("data-private-page", "data-private-frame")
 APPLICATION_FILES = tuple(dict.fromkeys(
-    (API, APP, RENDER, AUTH, AUTH_CONFIG, LOGIN_HTML, CSS, *PRIVATE_HTML_FILES, *LEGACY_PRIVATE_HTML)
+    (API, APP, RENDER, AUTH, AUTH_CONFIG, LOGIN_HTML, LEGACY_INDEX, GRAPHICS_HTML,
+     CSS, *PRIVATE_HTML_FILES, *LEGACY_PRIVATE_HTML)
 ))
 FILES = APPLICATION_FILES
 TABLES = ("portfolios", "portfolio_accounts", "holdings", "portfolio_transactions")
 FORBIDDEN_TOKENS = (
-    "private_pages",
     "srcdoc",
     "innerHTML",
     "insertAdjacentHTML",
     "eval(",
 )
-LEGACY_MARKERS = ("data-private-page", "data-private-frame")
 INDEX_LINK_RE = re.compile(r"href\s*=\s*['\"]index\.html(?:[?#][^'\"]*)?['\"]", re.I)
 
 
@@ -61,9 +62,18 @@ def legacy_page_errors(sources: dict[Path, str]) -> list[str]:
     for path in LEGACY_PRIVATE_HTML:
         text = sources.get(path, "")
         relative = path.relative_to(ROOT)
-        for marker in LEGACY_MARKERS:
-            if marker.casefold() in text.casefold():
-                errors.append(f"frontend:{relative} must not contain {marker}")
+        for marker in LEGACY_REQUIRED_MARKERS:
+            if marker.casefold() not in text.casefold():
+                errors.append(f"frontend:{relative} must contain {marker}")
+        frame_match = re.search(r"<iframe[^>]*data-private-frame[^>]*>", text, re.I)
+        if not frame_match:
+            errors.append(f"frontend:{relative} must contain the private iframe")
+        else:
+            frame = frame_match.group(0).casefold()
+            if "sandbox=" not in frame:
+                errors.append(f"frontend:{relative} private iframe must be sandboxed")
+            if "allow-scripts" in frame:
+                errors.append(f"frontend:{relative} private iframe must not allow scripts")
         if not INDEX_LINK_RE.search(text):
             errors.append(f"frontend:{relative} must link to index.html")
         if not re.search(r'<meta\s+name=["\']robots["\'][^>]*\bnoindex\b', text, re.I):
@@ -125,20 +135,36 @@ def verify_adversarial_detection(errors: list[str], auth: str, login_html: str) 
                     f"frontend:self-test failed to reject {token} in {path.relative_to(ROOT)}", errors)
 
     clean_legacy = {
-        path: '<meta name="robots" content="noindex"><a href="index.html">Minha Carteira</a>'
+        path: (
+            '<meta name="robots" content="noindex">'
+            '<a href="index.html">Carteiras em custódia</a>'
+            '<section data-private-page="fixture">'
+            '<iframe data-private-frame sandbox="allow-same-origin"></iframe>'
+            '</section>'
+        )
         for path in LEGACY_PRIVATE_HTML
     }
     require(not legacy_page_errors(clean_legacy),
             "frontend:self-test rejected clean legacy fixtures", errors)
     for path in LEGACY_PRIVATE_HTML:
-        for marker in LEGACY_MARKERS:
+        for marker in LEGACY_REQUIRED_MARKERS:
             mutated = dict(clean_legacy)
-            mutated[path] += marker
+            mutated[path] = mutated[path].replace(marker, "REMOVED_BY_SELF_TEST")
             require(any(marker in error and str(path.relative_to(ROOT)) in error
                         for error in legacy_page_errors(mutated)),
-                    f"frontend:self-test failed to reject {marker} in {path.relative_to(ROOT)}", errors)
+                    f"frontend:self-test failed to require {marker} in {path.relative_to(ROOT)}", errors)
         mutated = dict(clean_legacy)
-        mutated[path] = '<meta name="robots" content="noindex">'
+        mutated[path] = mutated[path].replace(' sandbox="allow-same-origin"', '')
+        require(any("must be sandboxed" in error and str(path.relative_to(ROOT)) in error
+                    for error in legacy_page_errors(mutated)),
+                f"frontend:self-test failed to require iframe sandbox in {path.relative_to(ROOT)}", errors)
+        mutated = dict(clean_legacy)
+        mutated[path] = mutated[path].replace('allow-same-origin', 'allow-same-origin allow-scripts')
+        require(any("must not allow scripts" in error and str(path.relative_to(ROOT)) in error
+                    for error in legacy_page_errors(mutated)),
+                f"frontend:self-test failed to reject script-enabled iframe in {path.relative_to(ROOT)}", errors)
+        mutated = dict(clean_legacy)
+        mutated[path] = mutated[path].replace('<a href="index.html">Carteiras em custódia</a>', '')
         require(any("must link to index.html" in error and str(path.relative_to(ROOT)) in error
                     for error in legacy_page_errors(mutated)),
                 f"frontend:self-test failed to require index link in {path.relative_to(ROOT)}", errors)
@@ -218,6 +244,20 @@ def main() -> int:
             "frontend:refresh/create/delete/start paths must revalidate the approved session", errors)
     require("clearPrivateState" in app and "iaemloop:session-invalidated" in app,
             "frontend:app must erase rendered private state when the session is invalidated", errors)
+    require(".from('private_pages')" in auth and "new Blob(" in auth
+            and "window.URL.createObjectURL" in auth and "window.URL.revokeObjectURL" in auth,
+            "frontend:legacy portfolio pages must load approved private_pages through revocable Blob URLs", errors)
+    require("frame.sandbox.contains('allow-scripts')" in auth and "frame.src = blobUrl" in auth,
+            "frontend:legacy loader must reject script-enabled sandboxes and avoid HTML injection sinks", errors)
+    require("PRIVATE_PAGE_SLUGS = ['besst_b3', 'magic_b3', 'besst_usd', 'magic_usd']" in sources[GRAPHICS_HTML]
+            and ".from('private_pages')" in sources[GRAPHICS_HTML]
+            and "new DOMParser().parseFromString" in sources[GRAPHICS_HTML],
+            "frontend:legacy charts must derive the four custody portfolios from authenticated private_pages", errors)
+    require('href="minha-carteira.html"' in sources[LEGACY_INDEX]
+            and 'href="graficos_custodia.html"' in sources[LEGACY_INDEX],
+            "frontend:legacy dashboard must link separately to charts and the new-user portfolio app", errors)
+    require('href="index.html"' in html,
+            "frontend:new-user portfolio app must link back to the legacy custody dashboard", errors)
     require("isTrade && (!(quantity > 0) || !(unitPrice > 0))" in app,
             "frontend:buy/sell must require positive quantity and unit price", errors)
     require("isTrade && !symbol" in app,
