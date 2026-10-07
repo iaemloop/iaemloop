@@ -14,7 +14,8 @@
     .top{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:22px;flex-wrap:wrap}.nav{display:flex;gap:10px;flex-wrap:wrap}.pill,.logout,.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--border);background:rgba(228,209,127,.08);color:var(--gold);padding:10px 14px;border-radius:999px;font-weight:800}.logout{cursor:pointer}.btn{background:linear-gradient(135deg,var(--gold),#aa8451);color:#06101a;border:0}
     .gate,.hero,.panel,.asset-card{background:var(--card);border:1px solid var(--border);border-radius:22px;box-shadow:0 18px 60px rgba(0,0,0,.32)}.gate{padding:24px;margin:28px 0}.hero{padding:28px;margin-bottom:16px;background:linear-gradient(135deg,rgba(25,54,77,.88),rgba(6,8,13,.92))}.badge{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(34,197,94,.35);background:rgba(34,197,94,.10);color:#86efac;padding:8px 12px;border-radius:999px;font-weight:900;margin-bottom:14px}h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.04;color:#fff;margin-bottom:12px}.lead,.muted{color:#cbd5e1;line-height:1.7}.muted{color:var(--muted)}.private-content{display:none}html[data-auth="approved"] .private-content{display:block}html[data-auth="approved"] .gate{display:none}
     .tabs{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}.tab{border:1px solid var(--border);background:rgba(148,163,184,.08);color:#e2e8f0;padding:10px 14px;border-radius:999px;font-weight:900;cursor:pointer}.tab.active{background:linear-gradient(135deg,#19364D,#AA8451);color:#fff;border-color:rgba(228,209,127,.65)}
-    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}.stat{background:rgba(6,8,13,.55);border:1px solid rgba(228,209,127,.12);border-radius:16px;padding:14px}.stat b{display:block;font-size:1.35rem;color:#fff}.stat span{color:var(--muted);font-size:.86rem}.panel{padding:16px;margin:16px 0}.chart-panel{padding:18px}.panel-title{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}.panel-title h2{font-size:1.25rem;color:#fff}.tv-box{height:clamp(640px,76vh,920px);min-height:640px;background:#0b1020;border:1px solid rgba(228,209,127,.10);border-radius:16px;overflow:hidden}.chart-note{margin-top:10px;color:#cbd5e1;font-size:.88rem;line-height:1.5}.legend-inline{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.legend-chip{border:1px solid rgba(148,163,184,.20);background:rgba(6,8,13,.42);border-radius:999px;padding:7px 11px;color:#cbd5e1;font-size:.78rem;font-weight:900;cursor:pointer}.legend-chip:hover{border-color:rgba(228,209,127,.55);color:#fff}.legend-chip.active{background:linear-gradient(135deg,#19364D,#AA8451);border-color:rgba(228,209,127,.75);color:#fff}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:14px;margin-top:14px}.asset-card{padding:13px;overflow:hidden}.asset-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:10px}.ticker{font-weight:900;color:#fff;font-size:1.05rem}.ticker-button{border:0;background:transparent;padding:0;cursor:pointer;font-family:inherit}.ticker-button:hover{color:var(--gold);text-decoration:underline}.name{color:var(--muted);font-size:.82rem;line-height:1.35}.status{font-weight:900;border-radius:999px;padding:5px 9px;font-size:.75rem;white-space:nowrap}.status.green{color:#86efac;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35)}.status.red{color:#fca5a5;background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.35)}.status.neutral{color:#fde68a;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.35)}.asset-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;color:#cbd5e1;font-size:.82rem;margin-bottom:10px}.asset-meta span{background:rgba(6,8,13,.42);border:1px solid rgba(148,163,184,.13);border-radius:10px;padding:8px}.mini-chart{height:220px;border-radius:14px;overflow:hidden;background:#0b1020}.note{margin-top:14px;color:#94a3b8;font-size:.88rem;line-height:1.55}.error{color:#fca5a5}.hidden{display:none!important}@media(max-width:720px){body{padding:16px 10px}.tv-box{height:72vh;min-height:520px}.asset-meta{grid-template-columns:1fr}}
+    .balance-panel{background:linear-gradient(135deg,rgba(25,54,77,.78),rgba(15,23,42,.94));border-color:rgba(110,228,239,.25)}.balance-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:14px}.balance-card{background:rgba(6,8,13,.56);border:1px solid rgba(148,163,184,.16);border-radius:16px;padding:15px}.balance-card span{display:block;color:var(--muted);font-size:.82rem;font-weight:700;margin-bottom:6px}.balance-card strong{display:block;color:#fff;font-size:clamp(1.15rem,2.5vw,1.55rem);line-height:1.2}.balance-card.positive strong{color:#86efac}.balance-card.negative strong{color:#fca5a5}.balance-breakdown{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.balance-chip{border:1px solid rgba(148,163,184,.20);background:rgba(6,8,13,.40);border-radius:12px;padding:8px 11px;color:#cbd5e1;font-size:.8rem}.balance-chip b{color:#fff}.balance-footnote{color:var(--muted);font-size:.78rem;line-height:1.5;margin-top:10px}
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}.stat{background:rgba(6,8,13,.55);border:1px solid rgba(228,209,127,.12);border-radius:16px;padding:14px}.stat b{display:block;font-size:1.35rem;color:#fff}.stat.positive b{color:#86efac}.stat.negative b{color:#fca5a5}.stat span{color:var(--muted);font-size:.86rem}.panel{padding:16px;margin:16px 0}.chart-panel{padding:18px}.panel-title{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}.panel-title h2{font-size:1.25rem;color:#fff}.tv-box{height:clamp(640px,76vh,920px);min-height:640px;background:#0b1020;border:1px solid rgba(228,209,127,.10);border-radius:16px;overflow:hidden}.chart-note{margin-top:10px;color:#cbd5e1;font-size:.88rem;line-height:1.5}.legend-inline{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.legend-chip{border:1px solid rgba(148,163,184,.20);background:rgba(6,8,13,.42);border-radius:999px;padding:7px 11px;color:#cbd5e1;font-size:.78rem;font-weight:900;cursor:pointer}.legend-chip:hover{border-color:rgba(228,209,127,.55);color:#fff}.legend-chip.active{background:linear-gradient(135deg,#19364D,#AA8451);border-color:rgba(228,209,127,.75);color:#fff}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:14px;margin-top:14px}.asset-card{padding:13px;overflow:hidden}.asset-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:10px}.ticker{font-weight:900;color:#fff;font-size:1.05rem}.ticker-button{border:0;background:transparent;padding:0;cursor:pointer;font-family:inherit}.ticker-button:hover{color:var(--gold);text-decoration:underline}.name{color:var(--muted);font-size:.82rem;line-height:1.35}.status{font-weight:900;border-radius:999px;padding:5px 9px;font-size:.75rem;white-space:nowrap}.status.green{color:#86efac;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35)}.status.red{color:#fca5a5;background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.35)}.status.neutral{color:#fde68a;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.35)}.asset-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;color:#cbd5e1;font-size:.82rem;margin-bottom:10px}.asset-meta span{background:rgba(6,8,13,.42);border:1px solid rgba(148,163,184,.13);border-radius:10px;padding:8px}.mini-chart{height:220px;border-radius:14px;overflow:hidden;background:#0b1020}.note{margin-top:14px;color:#94a3b8;font-size:.88rem;line-height:1.55}.error{color:#fca5a5}.hidden{display:none!important}@media(max-width:720px){body{padding:16px 10px}.tv-box{height:72vh;min-height:520px}.asset-meta{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -40,11 +41,28 @@
         <button class="tab" type="button" data-filter="stocks">Stocks EUA</button>
       </div>
 
+      <section class="panel balance-panel" aria-labelledby="balance-title">
+        <div class="panel-title">
+          <div>
+            <h2 id="balance-title">Saldo geral da custódia</h2>
+            <p class="muted">Somatório das posições selecionadas com base nas cotações mais recentes disponíveis.</p>
+          </div>
+        </div>
+        <div class="balance-grid">
+          <div class="balance-card"><span>Valor investido</span><strong id="balance-invested">--</strong></div>
+          <div class="balance-card"><span>Valor atual</span><strong id="balance-current">--</strong></div>
+          <div class="balance-card" id="balance-result-card"><span>Saldo</span><strong id="balance-result">--</strong></div>
+          <div class="balance-card" id="balance-return-card"><span>Rentabilidade</span><strong id="balance-return">--</strong></div>
+        </div>
+        <div id="balance-breakdown" class="balance-breakdown"></div>
+        <p id="balance-footnote" class="balance-footnote">Aguardando cotações para calcular o saldo.</p>
+      </section>
+
       <div class="stats">
         <div class="stat"><b id="stat-total">--</b><span>ativos no filtro</span></div>
         <div class="stat"><b id="stat-green">--</b><span>acima do preço médio</span></div>
         <div class="stat"><b id="stat-red">--</b><span>abaixo do preço médio</span></div>
-        <div class="stat"><b id="stat-updated">--</b><span>fonte privada</span></div>
+        <div class="stat" id="stat-custody-card"><b id="stat-custody">Selecione B3 ou Stocks</b><span>minha custódia</span></div>
       </div>
 
       <section class="panel chart-panel">
@@ -81,10 +99,11 @@
     let allAssets = [];
     let activeFilter = 'all';
     let selectedTvSymbol = null;
-    let latestPrivateUpdatedAt = null;
+
     let quoteRefreshRunning = false;
     let custodyRefreshRunning = false;
     let renderedChartSymbol = null;
+    let usdBrlRate = null;
 
     function brNumber(text) {
       if (!text) return null;
@@ -92,6 +111,13 @@
       if (!clean) return null;
       // BR values arrive as 1.234,56 or 76,75; stock quantities arrive as 0.09321934.
       if (clean.includes(',')) clean = clean.replace(/\./g, '').replace(',', '.');
+      const n = Number(clean);
+      return Number.isFinite(n) ? n : null;
+    }
+
+    function enNumber(text) {
+      if (text === null || text === undefined || text === '') return null;
+      const clean = String(text).replace(/,/g, '').replace(/[^0-9.-]/g, '').trim();
       const n = Number(clean);
       return Number.isFinite(n) ? n : null;
     }
@@ -180,15 +206,154 @@
       return Number.isFinite(value) ? value.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + '%' : '--';
     }
 
+    function aggregateMarket(list, market) {
+      const assets = list.filter(asset => asset.market === market && Number.isFinite(asset.qty) && Number.isFinite(asset.avgPrice));
+      const quoted = assets.filter(asset => Number.isFinite(asset.currentPrice));
+      const invested = assets.reduce((sum, asset) => sum + (asset.qty * asset.avgPrice), 0);
+      const current = quoted.reduce((sum, asset) => sum + (asset.qty * asset.currentPrice), 0);
+      const quotedInvested = quoted.reduce((sum, asset) => sum + (asset.qty * asset.avgPrice), 0);
+      return { invested, current, quotedInvested, total: assets.length, quoted: quoted.length };
+    }
+
+    function appendBalanceChip(container, label, value) {
+      const chip = document.createElement('span');
+      chip.className = 'balance-chip';
+      const strong = document.createElement('b');
+      strong.textContent = `${label}: `;
+      chip.append(strong, document.createTextNode(value));
+      container.appendChild(chip);
+    }
+
+    function setBalanceTone(cardId, value) {
+      const card = document.getElementById(cardId);
+      card.classList.remove('positive', 'negative');
+      if (!Number.isFinite(value) || value === 0) return;
+      card.classList.add(value > 0 ? 'positive' : 'negative');
+    }
+
+    function renderPortfolioSummary(list) {
+      const b3 = aggregateMarket(list, 'b3');
+      const stocks = aggregateMarket(list, 'stocks');
+      const breakdown = document.getElementById('balance-breakdown');
+      const selectionLabel = activeFilter === 'b3' ? 'Ações B3' : activeFilter === 'stocks' ? 'Stocks EUA' : 'Ações + stocks';
+      document.getElementById('balance-title').textContent = `Saldo geral — ${selectionLabel}`;
+      clearNode(breakdown);
+
+      if (b3.total) {
+        if (b3.quoted === b3.total) {
+          const b3Result = b3.current - b3.quotedInvested;
+          appendBalanceChip(breakdown, 'Ações B3', `${fmtMoney(b3.current, 'BRL')} · saldo ${fmtMoney(b3Result, 'BRL')}`);
+        } else if (b3.quoted) {
+          appendBalanceChip(breakdown, 'Ações B3', `${b3.quoted} de ${b3.total} cotações · total pendente`);
+        } else {
+          appendBalanceChip(breakdown, 'Ações B3', 'cotação pendente');
+        }
+      }
+      if (stocks.total) {
+        if (stocks.quoted === stocks.total) {
+          const stocksResult = stocks.current - stocks.quotedInvested;
+          appendBalanceChip(breakdown, 'Stocks EUA', `${fmtMoney(stocks.current, 'USD')} · saldo ${fmtMoney(stocksResult, 'USD')}`);
+        } else if (stocks.quoted) {
+          appendBalanceChip(breakdown, 'Stocks EUA', `${stocks.quoted} de ${stocks.total} cotações · total pendente`);
+        } else {
+          appendBalanceChip(breakdown, 'Stocks EUA', 'cotação pendente');
+        }
+      }
+      if (activeFilter === 'all' && Number.isFinite(usdBrlRate)) {
+        appendBalanceChip(breakdown, 'Câmbio usado', `US$ 1 = ${fmtMoney(usdBrlRate, 'BRL')}`);
+      }
+
+      let invested;
+      let current;
+      let quotedInvested;
+      let currency;
+      let coverageComplete = false;
+      if (activeFilter === 'b3') {
+        ({ current, quotedInvested } = b3);
+        invested = b3.invested;
+        currency = 'BRL';
+        coverageComplete = b3.total > 0 && b3.quoted === b3.total;
+      } else if (activeFilter === 'stocks') {
+        ({ current, quotedInvested } = stocks);
+        invested = stocks.invested;
+        currency = 'USD';
+        coverageComplete = stocks.total > 0 && stocks.quoted === stocks.total;
+      } else if (b3.total > 0 && stocks.total === 0) {
+        invested = b3.invested;
+        current = b3.current;
+        quotedInvested = b3.quotedInvested;
+        currency = 'BRL';
+        coverageComplete = b3.quoted === b3.total;
+      } else if (stocks.total > 0 && b3.total === 0) {
+        invested = stocks.invested;
+        current = stocks.current;
+        quotedInvested = stocks.quotedInvested;
+        currency = 'USD';
+        coverageComplete = stocks.quoted === stocks.total;
+      } else if (b3.total > 0 && stocks.total > 0 && Number.isFinite(usdBrlRate)) {
+        invested = b3.invested + (stocks.invested * usdBrlRate);
+        current = b3.current + (stocks.current * usdBrlRate);
+        quotedInvested = b3.quotedInvested + (stocks.quotedInvested * usdBrlRate);
+        currency = 'BRL';
+        coverageComplete = b3.quoted === b3.total && stocks.quoted === stocks.total;
+      }
+
+      if (!coverageComplete) current = null;
+      const result = coverageComplete && Number.isFinite(current) && Number.isFinite(quotedInvested) ? current - quotedInvested : null;
+      const returnPct = Number.isFinite(result) && quotedInvested > 0 ? (result / quotedInvested) * 100 : null;
+      document.getElementById('balance-invested').textContent = fmtMoney(invested, currency);
+      document.getElementById('balance-current').textContent = fmtMoney(current, currency);
+      document.getElementById('balance-result').textContent = fmtMoney(result, currency);
+      document.getElementById('balance-return').textContent = fmtPct(returnPct);
+      setBalanceTone('balance-result-card', result);
+      setBalanceTone('balance-return-card', returnPct);
+
+      const total = b3.total + stocks.total;
+      const quoted = b3.quoted + stocks.quoted;
+      const footnote = document.getElementById('balance-footnote');
+      if (!total) {
+        footnote.textContent = 'Nenhuma posição encontrada no filtro selecionado.';
+      } else if (activeFilter === 'all' && b3.total > 0 && stocks.total > 0 && !Number.isFinite(usdBrlRate)) {
+        footnote.textContent = `Consolidado em reais aguardando câmbio USD/BRL. Cotações disponíveis para ${quoted} de ${total} ${total === 1 ? 'posição' : 'posições'}.`;
+      } else if (quoted < total) {
+        footnote.textContent = `Cotações disponíveis para ${quoted} de ${total} ${total === 1 ? 'posição' : 'posições'}. O valor investido é o total do filtro; valor atual, saldo e rentabilidade aguardam todas as cotações.`;
+      } else {
+        if (activeFilter === 'all' && b3.total > 0 && stocks.total > 0) {
+          footnote.textContent = 'Total consolidado em reais com o câmbio USD/BRL atual. Nas stocks, a rentabilidade compara preço e PM em dólares, sem calcular o efeito do câmbio histórico das remessas.';
+        } else if (activeFilter === 'stocks' || (activeFilter === 'all' && stocks.total > 0 && b3.total === 0)) {
+          footnote.textContent = 'Valores em dólares. A rentabilidade compara a cotação atual ao preço médio em dólares, sem calcular o efeito cambial histórico das remessas.';
+        } else {
+          footnote.textContent = `Cotações disponíveis para ${total === 1 ? 'a posição' : `as ${total} posições`} do filtro.`;
+        }
+      }
+    }
+
     function renderStats(list) {
       const green = list.filter(a => statusFromAsset(a) === 'green').length;
       const red = list.filter(a => statusFromAsset(a) === 'red').length;
       document.getElementById('stat-total').textContent = list.length;
       document.getElementById('stat-green').textContent = green;
       document.getElementById('stat-red').textContent = red;
-      document.getElementById('stat-updated').textContent = latestPrivateUpdatedAt
-        ? new Intl.DateTimeFormat('pt-BR', { dateStyle: 'short', timeStyle: 'short' }).format(latestPrivateUpdatedAt)
-        : '--';
+      const custodyCard = document.getElementById('stat-custody-card');
+      const custodyValue = document.getElementById('stat-custody');
+      custodyCard.classList.remove('positive', 'negative');
+      if (activeFilter === 'all') {
+        custodyValue.textContent = 'Selecione B3 ou Stocks';
+        return;
+      }
+      const currency = activeFilter === 'b3' ? 'BRL' : 'USD';
+      const complete = list.length > 0 && list.every(asset =>
+        Number.isFinite(asset.qty) && Number.isFinite(asset.avgPrice) && Number.isFinite(asset.currentPrice)
+      );
+      if (!complete) {
+        custodyValue.textContent = 'Aguardando cotações';
+        return;
+      }
+      const custodyResult = list.reduce((sum, asset) =>
+        sum + ((asset.currentPrice - asset.avgPrice) * asset.qty), 0
+      );
+      custodyValue.textContent = `${custodyResult >= 0 ? '+' : ''}${fmtMoney(custodyResult, currency)}`;
+      if (custodyResult !== 0) custodyCard.classList.add(custodyResult > 0 ? 'positive' : 'negative');
     }
 
     function clearNode(node) {
@@ -307,6 +472,7 @@
 
     function renderAssets() {
       const list = filteredAssets();
+      renderPortfolioSummary(list);
       renderStats(list);
       document.querySelectorAll('.tab').forEach(btn => btn.classList.toggle('active', btn.dataset.filter === activeFilter));
       const title = activeFilter === 'b3' ? 'Ações B3' : activeFilter === 'stocks' ? 'Stocks EUA' : 'Todas da custódia';
@@ -387,8 +553,8 @@
     function parseNasdaqPriceText(text) {
       const data = parseJsonFromJinaText(text, '{"data"');
       const primary = data?.data?.primaryData || {};
-      const price = brNumber(primary.lastSalePrice);
-      const dayPct = brNumber(primary.percentageChange);
+      const price = enNumber(primary.lastSalePrice);
+      const dayPct = enNumber(primary.percentageChange);
       return Number.isFinite(price) ? { price, dayPct } : null;
     }
 
@@ -423,6 +589,9 @@
       if (quoteRefreshRunning || document.documentElement.dataset.auth !== 'approved') return;
       quoteRefreshRunning = true;
       try {
+        const fxText = await fetchJinaText('https://query1.finance.yahoo.com/v8/finance/chart/BRL=X?range=1d&interval=1d');
+        const fx = fxText ? parseYahooChartText(fxText) : null;
+        if (fx && Number.isFinite(fx.price)) usdBrlRate = fx.price;
         const b3Assets = allAssets.filter(a => a.market === 'b3');
         const stocks = [...new Set(allAssets.filter(a => a.market === 'stocks').map(a => a.ticker))];
         for (const asset of b3Assets) {
@@ -446,14 +615,8 @@
     async function initCustodyCharts() {
       const sb = IAEMLOOPAuth?.client?.();
       if (!sb) throw new Error('Cliente Supabase indisponível.');
-      const { data, error } = await sb.from('private_pages').select('slug,html,updated_at').in('slug', PRIVATE_PAGE_SLUGS);
+      const { data, error } = await sb.from('private_pages').select('slug,html').in('slug', PRIVATE_PAGE_SLUGS);
       if (error) throw error;
-      const updateTimes = (data || [])
-        .map(row => new Date(row.updated_at))
-        .filter(date => !Number.isNaN(date.getTime()));
-      latestPrivateUpdatedAt = updateTimes.length
-        ? new Date(Math.max(...updateTimes.map(date => date.getTime())))
-        : null;
       const parsed = [];
       (data || []).forEach(row => parsed.push(...parsePrivateHtml(row.slug, row.html || '')));
       if ((data || []).length !== PRIVATE_PAGE_SLUGS.length) throw new Error('Uma ou mais carteiras não estão disponíveis.');
