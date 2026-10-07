@@ -16,7 +16,7 @@
   let invalidatingSession = false;
   let recoveryMode = false;
   let authSubscription = null;
-  let privatePageBlobUrl = null;
+  let approvedSessionPromise = null;
   let signupPending = false;
   let signupCooldownTimer = null;
 
@@ -105,26 +105,12 @@
   }
 
   function clearApprovedUi() {
-    clearPrivatePageContent();
     delete document.documentElement.dataset.auth;
     const gate = document.querySelector('[data-requires-approved-user]');
     if (gate) gate.hidden = false;
     document.dispatchEvent(new CustomEvent('iaemloop:session-invalidated'));
   }
 
-  function revokePrivatePageBlobUrl() {
-    if (!privatePageBlobUrl) return;
-    window.URL.revokeObjectURL(privatePageBlobUrl);
-    privatePageBlobUrl = null;
-  }
-
-  function clearPrivatePageContent() {
-    revokePrivatePageBlobUrl();
-    const frame = document.querySelector('[data-private-frame]');
-    if (!frame) return;
-    frame.removeAttribute('src');
-    frame.src = 'about:blank';
-  }
 
   async function invalidateSession(message, options = {}) {
     if (invalidatingSession) return;
@@ -320,11 +306,20 @@
     return { user: data.user, profile, expired: false };
   }
 
+  function getApprovedSessionShared(sb) {
+    if (!approvedSessionPromise) {
+      approvedSessionPromise = getApprovedSession(sb).finally(() => {
+        approvedSessionPromise = null;
+      });
+    }
+    return approvedSessionPromise;
+  }
+
   async function requireApprovedSession() {
     const sb = client();
     if (!sb) throw new Error(`Configuração incompleta: ${configIssue()}.`);
     try {
-      const session = await getApprovedSession(sb);
+      const session = await getApprovedSessionShared(sb);
       if (!session.user || !session.profile || session.profile.status !== 'approved') {
         await invalidateSession(
           session.expired ? 'Sessão expirada por inatividade. Faça login novamente.' : 'Sua sessão não está aprovada. Faça login novamente.',
@@ -363,7 +358,7 @@
       nome: payload.fullName || '',
       email: payload.email || '',
       status: 'pending',
-      observacao: 'Aprovar manualmente no Supabase SQL Editor ou Dashboard.'
+      observacao: 'Revisar e decidir no painel administrativo de acessos.'
     };
     for (const [name, value] of Object.entries(fields)) {
       const input = document.createElement('input');
@@ -387,7 +382,7 @@
       return;
     }
     try {
-      const session = await getApprovedSession(sb);
+      const session = await getApprovedSessionShared(sb);
       if (session.profile && session.profile.status === 'approved') {
         const paramsRedirect = new URLSearchParams(location.search).get('redirect');
         const target = normalizeRedirect(form.dataset.redirect || paramsRedirect || cfg.defaultRedirect);
@@ -613,53 +608,6 @@
     window.location.assign('/area_privada.html');
   }
 
-  function preparePrivatePageHtml(rawHtml) {
-    const html = String(rawHtml || '');
-    if (/<head(?:\s[^>]*)?>/i.test(html)) {
-      return html.replace(/<head(.*?)>/i, '<head$1><base href="/">');
-    }
-    return '<!DOCTYPE html><html><head><base href="/"></head><body>' + html + '</body></html>';
-  }
-
-  async function loadPrivatePage(sb) {
-    const container = document.querySelector('[data-private-page]');
-    if (!container) return;
-    const slug = container.dataset.privatePage;
-    const frame = document.querySelector('[data-private-frame]');
-    if (!slug || !frame) return;
-    if (frame.sandbox.contains('allow-scripts')) {
-      throw new Error('Configuração insegura do quadro privado.');
-    }
-    setStatus('Carregando custódia privada...', 'info');
-    const { data, error } = await sb
-      .from('private_pages')
-      .select('html,updated_at')
-      .eq('slug', slug)
-      .maybeSingle();
-    if (error) throw error;
-    if (!data || !data.html) {
-      clearPrivatePageContent();
-      setStatus('Custódia privada ainda não foi publicada no Supabase para esta carteira.', 'warn');
-      return;
-    }
-
-    revokePrivatePageBlobUrl();
-    const blob = new Blob([preparePrivatePageHtml(data.html)], { type: 'text/html;charset=utf-8' });
-    const blobUrl = window.URL.createObjectURL(blob);
-    privatePageBlobUrl = blobUrl;
-    frame.addEventListener('load', () => {
-      if (privatePageBlobUrl === blobUrl) privatePageBlobUrl = null;
-      window.URL.revokeObjectURL(blobUrl);
-      try {
-        const doc = frame.contentWindow?.document;
-        ['click', 'keydown', 'scroll', 'touchstart', 'mousemove'].forEach((eventName) => {
-          doc?.addEventListener(eventName, () => markActivity(false), { passive: true });
-        });
-      } catch (_) {}
-    }, { once: true });
-    frame.src = blobUrl;
-    setStatus('Custódia privada carregada.', 'ok');
-  }
 
   async function protectPage() {
     const gate = document.querySelector('[data-requires-approved-user]');
@@ -673,7 +621,7 @@
       return;
     }
     try {
-      const session = await getApprovedSession(sb);
+      const session = await getApprovedSessionShared(sb);
       if (!session.user) {
         gate.hidden = false;
         setStatus(session.expired ? 'Sessão expirada por inatividade. Faça login novamente.' : 'Faça login para desbloquear esta página.', 'warn');
@@ -684,7 +632,6 @@
         gate.hidden = true;
         setStatus('Acesso aprovado.', 'ok');
         scheduleIdleExpiry();
-        await loadPrivatePage(sb);
       } else {
         await invalidateSession('Usuário autenticado, mas sem aprovação ativa.', { redirect: true, reason: 'approval' });
       }
@@ -699,7 +646,7 @@
   async function approvedSession() {
     const sb = client();
     if (!sb) return { client: null, user: null, profile: null, expired: false };
-    const session = await getApprovedSession(sb);
+    const session = await getApprovedSessionShared(sb);
     return { client: sb, ...session };
   }
 
