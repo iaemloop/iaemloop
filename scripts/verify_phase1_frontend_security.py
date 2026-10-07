@@ -253,13 +253,16 @@ def main() -> int:
             and ".from('private_pages')" in sources[GRAPHICS_HTML]
             and "new DOMParser().parseFromString" in sources[GRAPHICS_HTML],
             "frontend:legacy charts must derive the four custody portfolios from authenticated private_pages", errors)
-    require('id="stat-custody"' in sources[GRAPHICS_HTML]
-            and "(asset.currentPrice - asset.avgPrice) * asset.qty" in sources[GRAPHICS_HTML]
-            and "activeFilter === 'b3' ? 'BRL' : 'USD'" in sources[GRAPHICS_HTML],
-            "frontend:custody chart must sum per-position results and format B3 in BRL and stocks in USD", errors)
+    require('id="balance-result"' in sources[GRAPHICS_HTML]
+            and "current - quotedInvested" in sources[GRAPHICS_HTML]
+            and "currency = 'BRL'" in sources[GRAPHICS_HTML]
+            and "currency = 'USD'" in sources[GRAPHICS_HTML],
+            "frontend:custody panel must calculate results and format B3 in BRL and stocks in USD", errors)
     require("fonte privada" not in sources[GRAPHICS_HTML]
-            and "stat-updated" not in sources[GRAPHICS_HTML],
-            "frontend:custody result card must replace the obsolete private-source timestamp", errors)
+            and "stat-updated" not in sources[GRAPHICS_HTML]
+            and "stat-custody" not in sources[GRAPHICS_HTML]
+            and "Selecione B3 ou Stocks" not in sources[GRAPHICS_HTML],
+            "frontend:custody panel must replace the obsolete timestamp and redundant result card", errors)
     require('href="minha-carteira.html"' in sources[LEGACY_INDEX]
             and 'href="graficos_custodia.html"' in sources[LEGACY_INDEX],
             "frontend:legacy dashboard must link separately to charts and the new-user portfolio app", errors)
