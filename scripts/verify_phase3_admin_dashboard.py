@@ -12,6 +12,7 @@ AUTH = ROOT / "js" / "iaemloop-auth.js"
 AUTH_CONFIG = ROOT / "js" / "iaemloop-auth-config.js"
 LOGIN_HTML = ROOT / "area_privada.html"
 INDEX = ROOT / "privado" / "index.html"
+PORTFOLIO_HTML = ROOT / "privado" / "minha-carteira.html"
 GRAPHICS = ROOT / "privado" / "graficos_custodia.html"
 ADMIN_HTML = ROOT / "privado" / "admin-acessos.html"
 ADMIN_JS = ROOT / "js" / "privado" / "admin-access.js"
@@ -318,8 +319,15 @@ def browser_errors(sources: dict[Path, str]) -> list[str]:
             "browser:admin entry must be revealed only by the admin RPC", errors)
     require("approvedSessionPromise" in auth and "getApprovedSessionShared" in auth,
             "browser:concurrent private navigation checks must coalesce duplicate session fetches", errors)
-    require("carteira_besst.html" not in index and "carteira_magic_formula.html" not in index and "quatro rotas antigas" in index,
-            "browser:hub must remove misleading duplicate legacy cards and clarify consolidated navigation", errors)
+    custody_routes = (
+        "carteira_besst.html",
+        "carteira_magic_formula.html",
+        "carteira_besst_dolarizada.html",
+        "carteira_magic_formula_dolarizada.html",
+    )
+    require(all(route in index and route in sources[PORTFOLIO_HTML] for route in custody_routes)
+            and "Minhas 4 carteiras em custódia" in sources[PORTFOLIO_HTML],
+            "browser:hub and Minha Carteira must preserve direct access to all four custody routes", errors)
     return errors
 
 
