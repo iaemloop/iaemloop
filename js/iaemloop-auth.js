@@ -17,6 +17,8 @@
   let recoveryMode = false;
   let authSubscription = null;
   let privatePageBlobUrl = null;
+  let signupPending = false;
+  let signupCooldownTimer = null;
 
   const statusEl = () => document.querySelector('[data-auth-status]') || document.getElementById('notice');
   const setStatus = (message, kind = 'info') => {
@@ -399,6 +401,37 @@
     }
   }
 
+  function signupRetrySeconds(error) {
+    const message = String(error?.message || '');
+    const match = message.match(/after\s+(\d+)\s+seconds?/i)
+      || message.match(/(\d+)\s+seconds?/i);
+    if (match) return Math.max(1, Number(match[1]));
+    if (error?.status === 429 || /rate.?limit|security purposes/i.test(message)) return 60;
+    return 0;
+  }
+
+  function startSignupCooldown(form, seconds) {
+    const button = form.querySelector('button[type="submit"]');
+    if (!button) return;
+    if (signupCooldownTimer) window.clearInterval(signupCooldownTimer);
+    const readyAt = Date.now() + Math.max(1, seconds) * 1000;
+    const update = () => {
+      const remaining = Math.max(0, Math.ceil((readyAt - Date.now()) / 1000));
+      if (remaining > 0) {
+        button.disabled = true;
+        button.textContent = `Aguarde ${remaining}s`;
+        return;
+      }
+      window.clearInterval(signupCooldownTimer);
+      signupCooldownTimer = null;
+      button.disabled = false;
+      button.textContent = 'Solicitar cadastro';
+      setStatus('Você já pode tentar o cadastro novamente.', 'info');
+    };
+    update();
+    signupCooldownTimer = window.setInterval(update, 1000);
+  }
+
   async function signup(event) {
     event.preventDefault();
     const sb = client();
@@ -407,6 +440,8 @@
       return false;
     }
     const form = event.currentTarget;
+    const submitButton = form.querySelector('button[type="submit"]');
+    if (signupPending || submitButton?.disabled) return false;
     const email = form.email.value.trim();
     const password = form.password?.value || form.senha?.value || '';
     const fullName = form.nome?.value?.trim() || form.full_name?.value?.trim() || '';
@@ -414,19 +449,34 @@
       setStatus('Informe e-mail e senha para solicitar acesso.', 'warn');
       return false;
     }
+    signupPending = true;
+    if (submitButton) submitButton.disabled = true;
     setStatus('Criando pedido de acesso...', 'info');
-    const redirectTo = new URL('area_privada.html', window.location.origin).toString();
-    const { error } = await sb.auth.signUp({
-      email,
-      password,
-      options: { emailRedirectTo: redirectTo, data: { full_name: fullName } }
-    });
-    if (error) {
-      setStatus('Erro no cadastro: ' + error.message, 'error');
-      return false;
+    try {
+      const redirectTo = new URL('area_privada.html', window.location.origin).toString();
+      const { error } = await sb.auth.signUp({
+        email,
+        password,
+        options: { emailRedirectTo: redirectTo, data: { full_name: fullName } }
+      });
+      if (error) {
+        const retrySeconds = signupRetrySeconds(error);
+        if (retrySeconds) {
+          setStatus(`O Supabase limitou novas tentativas por segurança. Aguarde ${retrySeconds} segundos e tente novamente. Se você já enviou o cadastro, confira também a caixa de entrada e o spam.`, 'warn');
+          startSignupCooldown(form, retrySeconds);
+        } else {
+          setStatus('Não foi possível concluir o cadastro agora. Confira os dados e tente novamente.', 'error');
+        }
+        return false;
+      }
+      notifyApprovalEmail({ email, fullName });
+      setStatus(`Cadastro criado. Confirme o e-mail do Supabase. O pedido será enviado para ${cfg.approvalEmail || 'equipeiaemloop@gmail.com'} e só será liberado após aprovação manual.`, 'ok');
+    } catch (_) {
+      setStatus('Não foi possível conectar ao serviço de cadastro. Tente novamente em instantes.', 'error');
+    } finally {
+      signupPending = false;
+      if (submitButton && !signupCooldownTimer) submitButton.disabled = false;
     }
-    notifyApprovalEmail({ email, fullName });
-    setStatus(`Cadastro criado. Confirme o e-mail do Supabase. O pedido será enviado para ${cfg.approvalEmail || 'equipeiaemloop@gmail.com'} e só será liberado após aprovação manual.`, 'ok');
     return false;
   }
 
