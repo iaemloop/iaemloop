@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Administração de acessos | IA em Loop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/privado-app.css">
+</head>
+<body>
+  <main class="wrap">
+    <div class="topbar">
+      <a class="pill" href="index.html">← Painel privado</a>
+      <div class="top-actions">
+        <button class="btn secondary" id="admin-refresh" type="button">Atualizar</button>
+        <button class="pill" id="admin-logout" type="button">Sair</button>
+      </div>
+    </div>
+
+    <section class="gate" data-requires-approved-user>
+      <h1>🔒 Login necessário</h1>
+      <p data-auth-status role="status" aria-live="assertive" aria-atomic="true">Validando sua sessão e aprovação...</p>
+      <a class="btn" href="../area_privada.html?redirect=/privado/admin-acessos.html">Entrar novamente</a>
+    </section>
+
+    <section class="panel admin-denied" id="admin-denied" hidden>
+      <h1>Acesso restrito</h1>
+      <p class="muted">Esta página é exclusiva para administradores autorizados.</p>
+      <a class="btn" href="index.html">Voltar ao painel privado</a>
+    </section>
+
+    <div class="private-content" id="admin-app" hidden>
+      <section class="hero">
+        <p class="eyebrow">Administração</p>
+        <h1>Solicitações de acesso</h1>
+        <p>Aprove, rejeite ou reabra solicitações. Cada decisão é registrada de forma imutável no banco.</p>
+        <p class="status" id="admin-status" data-kind="info" role="status" aria-live="polite" aria-atomic="true">Preparando o painel administrativo...</p>
+      </section>
+
+      <section class="metrics" aria-label="Resumo das solicitações">
+        <article class="metric"><span>Pendentes</span><strong id="admin-count-pending">0</strong></article>
+        <article class="metric"><span>Aprovados</span><strong id="admin-count-approved">0</strong></article>
+        <article class="metric"><span>Rejeitados</span><strong id="admin-count-rejected">0</strong></article>
+        <article class="metric"><span>Total</span><strong id="admin-count-total">0</strong></article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <div><h2>Usuários e pedidos</h2><p>Resultados paginados e consultados por RPC administrativa.</p></div>
+        </div>
+        <form class="admin-filters" id="admin-filters">
+          <div class="field">
+            <label for="admin-status-filter">Status</label>
+            <select id="admin-status-filter" name="status">
+              <option value="all">Todos</option>
+              <option value="pending">Pendentes</option>
+              <option value="approved">Aprovados</option>
+              <option value="rejected">Rejeitados</option>
+            </select>
+          </div>
+          <div class="field admin-search-field">
+            <label for="admin-search">Buscar por nome ou e-mail</label>
+            <input id="admin-search" name="search" type="search" maxlength="120" autocomplete="off">
+          </div>
+          <div class="form-actions"><button class="btn" type="submit">Buscar</button></div>
+        </form>
+        <div class="table-wrap">
+          <table class="admin-table">
+            <thead><tr><th>Usuário</th><th>Status</th><th>Papel</th><th>Cadastro</th><th>Último acesso</th><th>Ações</th></tr></thead>
+            <tbody id="admin-access-body"></tbody>
+          </table>
+        </div>
+        <nav class="admin-pagination" aria-label="Paginação das solicitações">
+          <button class="btn secondary" id="admin-page-previous" type="button" disabled>← Anterior</button>
+          <p id="admin-page-range" aria-live="polite">Nenhum resultado filtrado.</p>
+          <button class="btn secondary" id="admin-page-next" type="button" disabled>Próxima →</button>
+        </nav>
+      </section>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2"></script>
+  <script src="../js/iaemloop-auth-config.js"></script>
+  <script src="../js/iaemloop-auth.js"></script>
+  <script src="../js/privado/admin-access.js"></script>
+</body>
+</html>
