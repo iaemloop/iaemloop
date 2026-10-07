@@ -1,12 +1,12 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-10-05-analise-bbas3-banco-do-brasil-credito-valuation.html",
+  "lastPost": "blog/posts/2026-10-07-analise-hon-honeywell-automation-spin-off-valuation.html",
   "nextSuggestedPost": "Buscar o próximo ativo com mérito econômico claro, dados verificáveis e tese educacional relevante para o investidor.",
   "owner": "IA em Loop",
-  "reading": "Publicação de 05/10/2026 concluiu leitura de Ação Brasil com BBAS3/Banco do Brasil. O post usa ranking BESST Buffett B3 local de agosto de 2026, Central de Resultados do Banco do Brasil RI, comunicados CVM/RI e dados públicos de mercado, com foco educacional em valuation, crédito, inadimplência, agro, ROE, guidance e riscos.",
+  "reading": "Publicação de 07/10/2026 concluiu leitura de Stock EUA com HON/Honeywell Technologies. O post usa rankings Magic Formula EUA e BESST & Buffett EUA de setembro de 2026, fundamentos dolarizados, comunicado oficial do spin-off da Honeywell Aerospace e resultado 2T26 da Honeywell Technologies, com foco educacional em automação, crescimento orgânico, margem, backlog, valuation, risco de execução e transição de perímetro.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-acao-brasil",
-    "leitura-de-watchlist-b3",
+    "estudo-educacional-de-stock-eua",
+    "leitura-de-watchlist-dolarizada",
     "registro-editorial-publico"
   ],
   "rules": [
@@ -19,14 +19,16 @@
     "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
   ],
   "sourcesUsed": [
-    "outputs/barsi_screener_top20_2026-08.csv",
-    "outputs/barsi_screener_latest.csv",
-    "Banco do Brasil RI — Central de Resultados",
-    "Banco do Brasil RI — Comunicados CVM/RI"
+    "outputs/magic_formula_eua_latest.csv",
+    "outputs/besst_buffett_eua_latest.csv",
+    "outputs/stocks_eua_fundamentos_latest.csv",
+    "Honeywell Technologies — spin-off da Honeywell Aerospace em 29/06/2026",
+    "Honeywell Technologies — resultados do 2T26",
+    "SEC exhibit 99 — Q2 2026 earnings release"
   ],
-  "tickerOfTheDay": "BBAS3",
-  "assetTypeOfTheDay": "acao_brasil",
+  "tickerOfTheDay": "HON",
+  "assetTypeOfTheDay": "stock_eua",
   "custodyPerspective": "fora_da_custodia_watchlist",
   "draftStatus": "publicado",
-  "updatedAt": "2026-10-05"
+  "updatedAt": "2026-10-07"
 }
