@@ -81,6 +81,20 @@ def legacy_page_errors(sources: dict[Path, str]) -> list[str]:
     return errors
 
 
+def private_navigation_sanitizer_errors(auth: str) -> list[str]:
+    errors: list[str] = []
+    requirements = (
+        ("new DOMParser().parseFromString(html, 'text/html')", "private-page:stored HTML must be parsed before display"),
+        ("doc.querySelectorAll('a, button')", "private-page:stored navigation controls must be inspected"),
+        ("element.classList.contains('back')", "private-page:legacy back controls must be removed"),
+        ("label === '← Voltar'", "private-page:the broken inner Voltar control must be removed"),
+        ("href.startsWith('javascript:history.back')", "private-page:history.back links must be removed"),
+    )
+    for marker, message in requirements:
+        require(marker in auth, message, errors)
+    return errors
+
+
 def password_recovery_errors(auth: str, login_html: str) -> list[str]:
     errors: list[str] = []
     auth_requirements = (
@@ -211,6 +225,7 @@ def main() -> int:
 
     verify_adversarial_detection(errors, auth, login_html)
     errors.extend(password_recovery_errors(auth, login_html))
+    errors.extend(private_navigation_sanitizer_errors(auth))
     for path, token in find_forbidden_tokens(sources):
         errors.append(f"frontend:{path.relative_to(ROOT)} must not contain {token}")
     errors.extend(legacy_page_errors(sources))
