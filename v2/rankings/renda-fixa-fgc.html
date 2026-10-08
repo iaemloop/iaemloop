@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="🏆 Ranking FGC - Melhores Renda Fixa"><title>Renda Fixa FGC | IA em Loop V2</title><link rel="stylesheet" href="/css/v2/observatory.css?v=3"><link rel="stylesheet" href="/css/v2/public.css?v=3"></head>
+<body class="v2-page v2-public v2-data-page"><header class="v2-site-nav v2-global-nav">
+      <a class="v2-brand" href="/v2/index.html" aria-label="IA em Loop V2"><span class="v2-brand-mark">∞</span><span>IA em Loop<small>Investment observatory · V2</small></span></a>
+      <button class="v2-menu-toggle" type="button" aria-expanded="false" aria-controls="v2-main-menu"><span></span><span></span><span></span><b class="sr-only">Abrir menu</b></button>
+      <nav class="v2-main-menu" id="v2-main-menu" aria-label="Navegação principal"><a href="/v2/index.html" data-v2-nav>Início</a><a href="/v2/rankings/index.html" data-v2-nav>Rankings</a><a href="/v2/metodos/index.html" data-v2-nav>Métodos</a><a href="/v2/indicadores/index.html" data-v2-nav>Indicadores</a><a href="/v2/blog/index.html" data-v2-nav>Blog</a><a class="v2-primary" href="/v2/area-privada.html?redirect=/privado/v2/index.html">Área privada</a></nav>
+    </header><main><section class="v2-page-intro"><p class="v2-kicker">Renda fixa</p><div><h1>Renda Fixa FGC</h1><p>Produtos protegidos pelo FGC organizados por retorno, prazo e indexador.</p></div></section><div class="v2-source-ribbon"><span>Visual V2</span><p>Conteúdo público sincronizado da fonte canônica <code>/ranking_fgc.html</code>.</p></div><div class="v2-content v2-imported-content">
+
+<div class="container">
+<div class="header-card">
+<header>
+<h1>Ranking Renda Fixa FGC</h1>
+<p class="tagline">Melhores produtos de Renda Fixa com proteção do Fundo Garantidor de Créditos</p>
+</header>
+</div>
+<div class="header-card" style="border-left-color: var(--secondary); margin-top: -12px;">
+<p class="tagline"><strong>Atualização oficial:</strong> Setembro/2026 — publicado em 14/09/2026. Base validada: 180 produtos cobertos pelo FGC e histórico com 186 registros. Conteúdo educativo; não é recomendação de investimento.</p>
+</div>
+<div class="filters">
+<div class="filter-group">
+<label for="indexador-filter">Indexador:</label>
+<select id="indexador-filter">
+<option value="all">Todos</option>
+<option value="CDI">CDI</option>
+<option value="IPCA+">IPCA+</option>
+<option value="Selic">Selic</option>
+<option value="Pré-fixado">Pré-fixado</option>
+<option value="Pós-fixado">Pós-fixado</option>
+</select>
+</div>
+<div class="filter-group">
+<label for="prazo-filter">Prazo:</label>
+<select id="prazo-filter">
+<option value="all">Todos</option>
+<option value="curto">Curto (≤2 anos)</option>
+<option value="medio">Médio (2-5 anos)</option>
+<option value="longo">Longo (+5 anos)</option>
+</select>
+</div>
+</div> <!-- Fecha header-card -->
+<table id="ranking-table">
+<thead>
+<tr>
+<th>Rank</th>
+<th>Produto</th>
+<th>Rating</th>
+<th>Indexador</th>
+<th>Tipo</th>
+<th>Rent. Bruta</th>
+<th>Rent. Líquida</th>
+<th>Mínimo</th>
+<th>Prazo</th>
+</tr>
+</thead>
+<tbody id="ranking-body">
+</tbody>
+</table>
+
+</div>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const indexadorFilter = document.getElementById('indexador-filter');
+            const prazoFilter = document.getElementById('prazo-filter');
+            const rows = document.querySelectorAll('#ranking-table tbody tr');
+
+            function applyFilters() {
+                const indexador = indexadorFilter.value;
+                const prazo = prazoFilter.value;
+                let visibleCount = 0;
+                rows.forEach(row => {
+                    const cardIndexador = row.getAttribute('data-indexador');
+                    const cardPrazo = row.getAttribute('data-prazo');
+                    const matchIndexador = indexador === 'all' || (indexador === 'Pós-fixado' ? cardIndexador !== 'Pré-fixado' : cardIndexador === indexador);
+                    const matchPrazo = prazo === 'all' || cardPrazo === prazo;
+                    if (matchIndexador && matchPrazo) {
+                        row.style.display = '';
+                        visibleCount++;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+                console.log(`Mostrando ${visibleCount} de ${rows.length} produtos`);
+            }
+
+            indexadorFilter.addEventListener('change', applyFilters);
+            prazoFilter.addEventListener('change', applyFilters);
+        });
+    </script>
+ FGCHISTORY: data/fgc_history.json com {id: data_primeira} 
+<script src="/js/v2/fgc.js?v=3"></script>
+
+<script>
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                });
+                backToTop.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        </script>
+</div></main><footer class="v2-footer"><div><a class="v2-brand" href="/v2/index.html"><span class="v2-brand-mark">∞</span><span>IA em Loop<small>Dados, método e skin in the game</small></span></a><p>Conteúdo educacional. Não é recomendação personalizada de investimento.</p></div><nav aria-label="Links do rodapé"><a href="/v2/rankings/index.html">Rankings</a><a href="/v2/metodos/index.html">Metodologias</a><a href="/v2/indicadores/index.html">Indicadores</a><a href="/v2/blog/index.html">Blog</a><a href="/index.html">Visual clássico</a></nav></footer><script src="/js/v2/public.js?v=3"></script><script src="/js/v2/shell.js?v=3"></script></body></html>
