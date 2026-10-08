@@ -16,6 +16,7 @@
   let invalidatingSession = false;
   let recoveryMode = false;
   let authSubscription = null;
+  let privatePageBlobUrl = null;
   let approvedSessionPromise = null;
   let signupPending = false;
   let signupCooldownTimer = null;
@@ -105,10 +106,25 @@
   }
 
   function clearApprovedUi() {
+    clearPrivatePageContent();
     delete document.documentElement.dataset.auth;
     const gate = document.querySelector('[data-requires-approved-user]');
     if (gate) gate.hidden = false;
     document.dispatchEvent(new CustomEvent('iaemloop:session-invalidated'));
+  }
+
+  function revokePrivatePageBlobUrl() {
+    if (!privatePageBlobUrl) return;
+    window.URL.revokeObjectURL(privatePageBlobUrl);
+    privatePageBlobUrl = null;
+  }
+
+  function clearPrivatePageContent() {
+    revokePrivatePageBlobUrl();
+    const frame = document.querySelector('[data-private-frame]');
+    if (!frame) return;
+    frame.removeAttribute('src');
+    frame.src = 'about:blank';
   }
 
 
@@ -608,6 +624,54 @@
     window.location.assign('/area_privada.html');
   }
 
+  function preparePrivatePageHtml(rawHtml) {
+    const html = String(rawHtml || '');
+    if (/<head(?:\s[^>]*)?>/i.test(html)) {
+      return html.replace(/<head(.*?)>/i, '<head$1><base href="/">');
+    }
+    return '<!DOCTYPE html><html><head><base href="/"></head><body>' + html + '</body></html>';
+  }
+
+  async function loadPrivatePage(sb) {
+    const container = document.querySelector('[data-private-page]');
+    if (!container) return;
+    const slug = container.dataset.privatePage;
+    const frame = document.querySelector('[data-private-frame]');
+    if (!slug || !frame) return;
+    if (frame.sandbox.contains('allow-scripts')) {
+      throw new Error('Configuração insegura do quadro privado.');
+    }
+    setStatus('Carregando custódia privada...', 'info');
+    const { data, error } = await sb
+      .from('private_pages')
+      .select('html,updated_at')
+      .eq('slug', slug)
+      .maybeSingle();
+    if (error) throw error;
+    if (!data || !data.html) {
+      clearPrivatePageContent();
+      setStatus('Custódia privada ainda não foi publicada no Supabase para esta carteira.', 'warn');
+      return;
+    }
+
+    revokePrivatePageBlobUrl();
+    const blob = new Blob([preparePrivatePageHtml(data.html)], { type: 'text/html;charset=utf-8' });
+    const blobUrl = window.URL.createObjectURL(blob);
+    privatePageBlobUrl = blobUrl;
+    frame.addEventListener('load', () => {
+      if (privatePageBlobUrl === blobUrl) privatePageBlobUrl = null;
+      window.URL.revokeObjectURL(blobUrl);
+      try {
+        const doc = frame.contentWindow?.document;
+        ['click', 'keydown', 'scroll', 'touchstart', 'mousemove'].forEach((eventName) => {
+          doc?.addEventListener(eventName, () => markActivity(false), { passive: true });
+        });
+      } catch (_) {}
+    }, { once: true });
+    frame.src = blobUrl;
+    setStatus('Custódia privada carregada.', 'ok');
+  }
+
 
   async function protectPage() {
     const gate = document.querySelector('[data-requires-approved-user]');
@@ -632,6 +696,7 @@
         gate.hidden = true;
         setStatus('Acesso aprovado.', 'ok');
         scheduleIdleExpiry();
+        await loadPrivatePage(sb);
       } else {
         await invalidateSession('Usuário autenticado, mas sem aprovação ativa.', { redirect: true, reason: 'approval' });
       }
