@@ -133,6 +133,37 @@ def password_recovery_errors(auth: str, login_html: str) -> list[str]:
     return errors
 
 
+def signup_security_errors(auth: str, login_html: str) -> list[str]:
+    errors: list[str] = []
+    signup_function = re.search(r"async function signup\(event\).*?\n  }\n\n  async function login", auth, re.S)
+    signup_body = signup_function.group(0) if signup_function else ""
+    require(bool(signup_body), "signup:signup function must remain available", errors)
+    for marker, message in (
+        ("form.password_confirmation?.value", "signup:must read the password confirmation field"),
+        ("password.length < 8", "signup:must enforce the password minimum in JavaScript"),
+        ("password !== confirmation", "signup:must reject mismatched passwords before calling Supabase"),
+        ("form.reset();", "signup:must clear password fields after successful registration"),
+    ):
+        require(marker in signup_body, message, errors)
+
+    signup_form = re.search(r'<form class="form" id="cadastro".*?</form>', login_html, re.S)
+    form = signup_form.group(0) if signup_form else ""
+    require(bool(form), "signup:registration form must remain available", errors)
+    require('name="password_confirmation"' in form,
+            "signup:registration form must include password confirmation", errors)
+    require(form.count('autocomplete="new-password"') == 2,
+            "signup:both password controls must use new-password autocomplete", errors)
+    require(form.count('minlength="8"') == 2,
+            "signup:both password controls must enforce minlength eight", errors)
+    require(form.count('maxlength="72"') == 2,
+            "signup:both password controls must cap unexpectedly long input", errors)
+    require('maxlength="254"' in form and 'spellcheck="false"' in form,
+            "signup:e-mail input must use bounded, non-spellchecked input", errors)
+    require("não fica disponível no painel administrativo" in form,
+            "signup:form must explain how the password is handled", errors)
+    return errors
+
+
 def verify_adversarial_detection(errors: list[str], auth: str, login_html: str) -> None:
     require(Path(__file__).resolve() not in APPLICATION_FILES,
             "frontend:self-test must not scan the verifier source", errors)
@@ -225,6 +256,7 @@ def main() -> int:
 
     verify_adversarial_detection(errors, auth, login_html)
     errors.extend(password_recovery_errors(auth, login_html))
+    errors.extend(signup_security_errors(auth, login_html))
     errors.extend(private_navigation_sanitizer_errors(auth))
     for path, token in find_forbidden_tokens(sources):
         errors.append(f"frontend:{path.relative_to(ROOT)} must not contain {token}")

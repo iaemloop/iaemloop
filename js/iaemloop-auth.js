@@ -455,9 +455,20 @@
     if (signupPending || submitButton?.disabled) return false;
     const email = form.email.value.trim();
     const password = form.password?.value || form.senha?.value || '';
+    const confirmation = form.password_confirmation?.value || '';
     const fullName = form.nome?.value?.trim() || form.full_name?.value?.trim() || '';
     if (!email || !password) {
       setStatus('Informe e-mail e senha para solicitar acesso.', 'warn');
+      return false;
+    }
+    if (password.length < 8) {
+      setStatus('A senha deve ter pelo menos 8 caracteres.', 'warn');
+      form.password.focus();
+      return false;
+    }
+    if (password !== confirmation) {
+      setStatus('As senhas não coincidem. Digite novamente.', 'warn');
+      form.password_confirmation.focus();
       return false;
     }
     signupPending = true;
@@ -481,6 +492,7 @@
         return false;
       }
       notifyApprovalEmail({ email, fullName });
+      form.reset();
       setStatus(`Cadastro criado. Confirme o e-mail do Supabase. O pedido será enviado para ${cfg.approvalEmail || 'equipeiaemloop@gmail.com'} e só será liberado após aprovação manual.`, 'ok');
     } catch (_) {
       setStatus('Não foi possível conectar ao serviço de cadastro. Tente novamente em instantes.', 'error');
