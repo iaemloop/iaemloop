@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Observatório privado | IA em Loop V2</title>
+  <link rel="stylesheet" href="/css/v2/observatory.css?v=1">
+</head>
+<body class="v2-page">
+  <main class="v2-private-hub">
+    <div class="topbar">
+      <a class="v2-brand" href="/v2/index.html"><span class="v2-brand-mark">∞</span><span>IA em Loop<small>Private observatory · V2</small></span></a>
+      <div class="top-actions"><a class="pill" href="/v2/index.html">V2 pública</a><button class="logout" type="button" onclick="IAEMLOOPAuth.logout()">Sair</button></div>
+    </div>
+
+    <section class="gate" data-requires-approved-user>
+      <p class="v2-kicker">Fronteira privada</p><h1>Login necessário</h1>
+      <p data-auth-status>Validando acesso aprovado...</p>
+      <a class="btn" href="../../v2/area-privada.html?redirect=/privado/v2/index.html">Entrar novamente</a>
+    </section>
+
+    <section class="private-content">
+      <div class="v2-hub-hero">
+        <article class="v2-pulse">
+          <p class="v2-kicker">Acesso aprovado · observatório privado</p>
+          <h1>O patrimônio em movimento.</h1>
+          <p>Quatro estratégias, uma visão consolidada e caminhos claros para investigar cada posição sem transformar toda informação em urgência.</p>
+          <p data-auth-status>Validando sessão...</p>
+        </article>
+        <div class="v2-quick">
+          <article class="v2-quick-card">
+            <span class="v2-kicker">Pulso</span><div><h2>Ativos em órbita</h2><p>Cotações, saldo e desempenho com atualização rápida.</p><a href="graficos-custodia.html">Abrir gráficos ↗</a></div>
+          </article>
+          <article class="v2-quick-card">
+            <span class="v2-kicker">Laboratório</span><div><h2>Minha carteira</h2><p>Cadastros, importação, contas, posições e movimentações.</p><a href="minha-carteira.html">Entrar no laboratório ↗</a></div>
+          </article>
+        </div>
+      </div>
+
+      <div class="v2-portfolio-title"><h2>Estratégias em órbita</h2><p>Cada metodologia mantém sua própria moeda, lógica e leitura. A consolidação não mistura o que precisa continuar separado.</p></div>
+      <div class="v2-orbit-grid">
+        <article class="orbit-card" data-index="01"><span class="market">Brasil · Qualidade</span><h3>BESST & Buffett B3</h3><p>Empresas brasileiras vistas por qualidade, perenidade, governança e capacidade de compor valor.</p><a href="graficos-custodia.html?portfolio_key=besst-b3">Explorar carteira ↗</a></article>
+        <article class="orbit-card" data-index="02"><span class="market">Brasil · Eficiência</span><h3>Magic Formula B3</h3><p>Retorno sobre capital e preço relativo organizados em uma leitura objetiva da custódia brasileira.</p><a href="graficos-custodia.html?portfolio_key=magic-b3">Explorar carteira ↗</a></article>
+        <article class="orbit-card" data-index="03"><span class="market">Exterior · Qualidade</span><h3>BESST & Buffett USD</h3><p>Companhias internacionais mantidas em sua moeda de origem, sem apagar o contexto cambial.</p><a href="graficos-custodia.html?portfolio_key=besst-usd">Explorar carteira ↗</a></article>
+        <article class="orbit-card" data-index="04"><span class="market">Exterior · Eficiência</span><h3>Magic Formula USD</h3><p>A estratégia quantitativa internacional, preservada separadamente da carteira brasileira.</p><a href="graficos-custodia.html?portfolio_key=magic-usd">Explorar carteira ↗</a></article>
+      </div>
+
+      <section class="panel" data-admin-entry hidden style="margin-top:16px">
+        <p class="eyebrow">Administração</p><h2>Torre de controle</h2><p>Revise solicitações e papéis administrativos em um espaço dedicado.</p><a class="btn" href="admin-acessos.html">Gerenciar acessos</a>
+      </section>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2"></script>
+  <script src="../../js/iaemloop-auth-config.js"></script>
+  <script src="../../js/v2/auth.js?v=1"></script>
+  <script src="../../js/privado/admin-nav.js"></script>
+  <script src="../../js/v2/shell.js?v=1"></script>
+</body>
+</html>
