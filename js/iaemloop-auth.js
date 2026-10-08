@@ -626,10 +626,20 @@
 
   function preparePrivatePageHtml(rawHtml) {
     const html = String(rawHtml || '');
-    if (/<head(?:\s[^>]*)?>/i.test(html)) {
-      return html.replace(/<head(.*?)>/i, '<head$1><base href="/">');
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    doc.querySelectorAll('a, button').forEach((element) => {
+      const label = String(element.textContent || '').replace(/\s+/g, ' ').trim();
+      const href = String(element.getAttribute('href') || '').replace(/\s+/g, '').toLowerCase();
+      if (element.classList.contains('back') || label === '← Voltar' || href.startsWith('javascript:history.back')) {
+        element.remove();
+      }
+    });
+    if (!doc.head.querySelector('base')) {
+      const base = doc.createElement('base');
+      base.href = '/';
+      doc.head.prepend(base);
     }
-    return '<!DOCTYPE html><html><head><base href="/"></head><body>' + html + '</body></html>';
+    return '<!DOCTYPE html>\n' + doc.documentElement.outerHTML;
   }
 
   async function loadPrivatePage(sb) {
