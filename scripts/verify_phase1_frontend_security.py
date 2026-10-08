@@ -74,8 +74,8 @@ def legacy_page_errors(sources: dict[Path, str]) -> list[str]:
                 errors.append(f"frontend:{relative} private iframe must be sandboxed")
             if "allow-scripts" in frame:
                 errors.append(f"frontend:{relative} private iframe must not allow scripts")
-        if INDEX_LINK_RE.search(text) or "Carteiras em custódia" in text:
-            errors.append(f"frontend:{relative} must not show the top-left back button")
+        if not INDEX_LINK_RE.search(text):
+            errors.append(f"frontend:{relative} must link to index.html")
         if not re.search(r'<meta\s+name=["\']robots["\'][^>]*\bnoindex\b', text, re.I):
             errors.append(f"frontend:{relative} must be noindex")
     return errors
@@ -137,6 +137,7 @@ def verify_adversarial_detection(errors: list[str], auth: str, login_html: str) 
     clean_legacy = {
         path: (
             '<meta name="robots" content="noindex">'
+            '<a href="index.html">Carteiras em custódia</a>'
             '<section data-private-page="fixture">'
             '<iframe data-private-frame sandbox="allow-same-origin"></iframe>'
             '</section>'
@@ -163,10 +164,10 @@ def verify_adversarial_detection(errors: list[str], auth: str, login_html: str) 
                     for error in legacy_page_errors(mutated)),
                 f"frontend:self-test failed to reject script-enabled iframe in {path.relative_to(ROOT)}", errors)
         mutated = dict(clean_legacy)
-        mutated[path] = mutated[path].replace('<section data-private-page="fixture">', '<a href="index.html">Carteiras em custódia</a><section data-private-page="fixture">')
-        require(any("must not show the top-left back button" in error and str(path.relative_to(ROOT)) in error
+        mutated[path] = mutated[path].replace('<a href="index.html">Carteiras em custódia</a>', '')
+        require(any("must link to index.html" in error and str(path.relative_to(ROOT)) in error
                     for error in legacy_page_errors(mutated)),
-                f"frontend:self-test failed to reject the removed back button in {path.relative_to(ROOT)}", errors)
+                f"frontend:self-test failed to require index link in {path.relative_to(ROOT)}", errors)
 
     require(not password_recovery_errors(auth, login_html),
             "recovery:self-test baseline password-recovery implementation is invalid", errors)
