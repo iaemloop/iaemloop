@@ -132,8 +132,8 @@ def footer_html() -> str:
 
 def document(title: str, description: str, body: str, extra_head: str = "", body_class: str = "") -> str:
     return f'''<!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{html.escape(description, quote=True)}"><title>{html.escape(title)} | IA em Loop V2</title><link rel="stylesheet" href="/css/v2/observatory.css?v=3"><link rel="stylesheet" href="/css/v2/public.css?v=3">{extra_head}</head>
-<body class="v2-page v2-public {body_class}">{nav_html()}<main>{body}</main>{footer_html()}<script src="/js/v2/public.js?v=3"></script><script src="/js/v2/shell.js?v=3"></script></body></html>'''
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{html.escape(description, quote=True)}"><title>{html.escape(title)} | IA em Loop V2</title><link rel="stylesheet" href="/css/v2/observatory.css?v=4"><link rel="stylesheet" href="/css/v2/public.css?v=4">{extra_head}</head>
+<body class="v2-page v2-public {body_class}">{nav_html()}<main>{body}</main>{footer_html()}<script src="/js/v2/public.js?v=4"></script><script src="/js/v2/shell.js?v=4"></script></body></html>'''
 
 
 def resolve_url(value: str, source: str, attr: str) -> str:
@@ -197,7 +197,7 @@ def extract_source(source: str) -> tuple[str, str]:
 def source_page(route: dict[str, str]) -> str:
     inner, source_description = extract_source(route["source"])
     if route["source"] == "ranking_fgc.html":
-        inner = inner.replace('/scripts/fgc-dynamic.js?v=20260914', '/js/v2/fgc.js?v=3')
+        inner = inner.replace('/scripts/fgc-dynamic.js?v=20260914', '/js/v2/fgc.js?v=4')
     breadcrumb = f'''<section class="v2-page-intro"><p class="v2-kicker">{html.escape(route['category'])}</p><div><h1>{html.escape(route['title'])}</h1><p>{html.escape(route['description'])}</p></div></section>'''
     source_note = f'''<div class="v2-source-ribbon"><span>Visual V2</span><p>Conteúdo público sincronizado da fonte canônica <code>/{html.escape(route['source'])}</code>.</p></div>'''
     body = breadcrumb + source_note + f'<div class="v2-content v2-imported-content">{inner}</div>'
