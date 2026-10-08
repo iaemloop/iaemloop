@@ -111,8 +111,10 @@
     let usdBrlRate = null;
     const QUOTE_CACHE_PREFIX = 'iaemloop:public-quotes:v2';
     const QUOTE_CONCURRENCY = 8;
+    const QUOTE_BATCH_SIZE = 20;
     const QUOTE_CACHE_MAX_AGE_MS = 24 * 60 * 60 * 1000;
     const QUOTE_CACHE_RETENTION_MS = 7 * 24 * 60 * 60 * 1000;
+    const QUOTE_UPDATE_BUDGET_MS = 15 * 1000;
     let quoteCache = { version: 2, fx: null, quotes: {} };
     let activeQuoteCacheKey = null;
     let quoteViewTimer = null;
@@ -153,7 +155,7 @@
     }
 
     function quoteSymbol(ticker, market) {
-      return market === 'b3' ? `${ticker}.SA` : ticker;
+      return market === 'b3' ? `${ticker}.SA` : String(ticker).replace(/\./g, '-');
     }
 
     function tradingViewWidgetSymbol(ticker, market) {
@@ -181,7 +183,8 @@
         const avgPrice = brNumber(pmMatch?.[2]);
         const varPct = brNumber(varMatch?.[1]);
         if (!Number.isFinite(avgPrice)) return;
-        assets.push({ ticker, name, market, currency, qty, avgPrice, varPct, source: slug, tvSymbol: tradingViewWidgetSymbol(ticker, market), quoteSymbol: quoteSymbol(ticker, market) });
+        const currentPrice = Number.isFinite(varPct) ? avgPrice * (1 + (varPct / 100)) : null;
+        assets.push({ ticker, name, market, currency, qty, avgPrice, currentPrice, varPct, source: slug, tvSymbol: tradingViewWidgetSymbol(ticker, market), quoteSymbol: quoteSymbol(ticker, market) });
       });
       return assets;
     }
@@ -198,6 +201,11 @@
         const prevQty = Number.isFinite(prev.qty) ? prev.qty : 0;
         const qty = Number.isFinite(asset.qty) ? asset.qty : 0;
         if (prevQty + qty > 0) {
+          if (Number.isFinite(prev.currentPrice) && Number.isFinite(asset.currentPrice)) {
+            prev.currentPrice = ((prev.currentPrice * prevQty) + (asset.currentPrice * qty)) / (prevQty + qty);
+          } else if (Number.isFinite(asset.currentPrice)) {
+            prev.currentPrice = asset.currentPrice;
+          }
           prev.avgPrice = ((prev.avgPrice * prevQty) + (asset.avgPrice * qty)) / (prevQty + qty);
           prev.qty = prevQty + qty;
         }
@@ -372,7 +380,7 @@
     function validCacheEntry(entry, maxAge = QUOTE_CACHE_RETENTION_MS) {
       if (!entry || typeof entry !== 'object' || Array.isArray(entry)) return false;
       const updatedAt = new Date(entry.updatedAt).getTime();
-      return Number.isFinite(Number(entry.price)) && Number.isFinite(updatedAt) && Date.now() - updatedAt <= maxAge;
+      return Number.isFinite(Number(entry.price)) && Number(entry.price) > 0 && Number.isFinite(updatedAt) && Date.now() - updatedAt <= maxAge;
     }
 
     function readQuoteCache() {
@@ -398,6 +406,7 @@
 
     function applyCachedQuotes() {
       quoteCache = readQuoteCache();
+      usdBrlRate = null;
       const freshFx = validCacheEntry(quoteCache.fx, QUOTE_CACHE_MAX_AGE_MS);
       if (freshFx) usdBrlRate = Number(quoteCache.fx.price);
       let restored = 0;
@@ -419,13 +428,26 @@
       return { restored, expired, oldestAt };
     }
 
-    function clearActiveQuoteCache() {
-      if (activeQuoteCacheKey) localStorage.removeItem(activeQuoteCacheKey);
+    function clearCustodyQuoteCaches() {
+      const prefixes = ['iaemloop:custody-public-quotes:', 'iaemloop:public-quotes:'];
+      for (let index = localStorage.length - 1; index >= 0; index -= 1) {
+        const key = localStorage.key(index);
+        if (key && prefixes.some(prefix => key.startsWith(prefix))) localStorage.removeItem(key);
+      }
+      sessionStorage.removeItem('iaemloop:custody-public-quotes:v1');
       quoteCache = emptyQuoteCache();
     }
 
+    function pruneOtherCustodyQuoteCaches(userId) {
+      const prefixes = ['iaemloop:custody-public-quotes:', 'iaemloop:public-quotes:'];
+      for (let index = localStorage.length - 1; index >= 0; index -= 1) {
+        const key = localStorage.key(index);
+        if (key && !key.endsWith(`:${userId}`) && prefixes.some(prefix => key.startsWith(prefix))) localStorage.removeItem(key);
+      }
+    }
+
     async function logoutWithCacheClear() {
-      clearActiveQuoteCache();
+      clearCustodyQuoteCaches();
       await IAEMLOOPAuth.logout();
     }
 
@@ -687,7 +709,7 @@
 
     function applyQuote(market, ticker, price, dayChangePct = null) {
       const n = Number(price);
-      if (!Number.isFinite(n)) return;
+      if (!Number.isFinite(n) || n <= 0) return;
       allAssets.forEach((asset) => {
         if (asset.market === market && asset.ticker === ticker) {
           asset.currentPrice = n;
@@ -706,38 +728,54 @@
       return null;
     }
 
-    function parseNasdaqPriceText(text) {
-      const data = parseJsonFromJinaText(text, '{"data"');
-      const primary = data?.data?.primaryData || {};
-      const price = enNumber(primary.lastSalePrice);
-      const dayPct = enNumber(primary.percentageChange);
-      return Number.isFinite(price) ? { price, dayPct } : null;
-    }
-
     function parseYahooChartText(text) {
       const data = parseJsonFromJinaText(text, '{"chart"');
       const meta = data?.chart?.result?.[0]?.meta || {};
-      const price = Number(meta.regularMarketPrice);
+      const rawPrice = meta.regularMarketPrice;
+      const price = rawPrice == null ? null : Number(rawPrice);
       const previousClose = Number(meta.chartPreviousClose || meta.previousClose);
       const dayPct = Number.isFinite(price) && Number.isFinite(previousClose) && previousClose !== 0
         ? (price / previousClose - 1) * 100
         : null;
-      return Number.isFinite(price) ? { price, dayPct } : null;
+      return Number.isFinite(price) && price > 0 ? { price, dayPct } : null;
+    }
+
+    function parseYahooSparkText(text) {
+      const data = parseJsonFromJinaText(text, '{"spark"');
+      return (data?.spark?.result || []).map((item) => {
+        const meta = item?.response?.[0]?.meta || {};
+        const rawPrice = meta.regularMarketPrice;
+        const price = rawPrice == null ? null : Number(rawPrice);
+        const previousClose = Number(meta.chartPreviousClose || meta.previousClose);
+        const dayPct = Number.isFinite(Number(meta.regularMarketChangePercent))
+          ? Number(meta.regularMarketChangePercent)
+          : Number.isFinite(price) && Number.isFinite(previousClose) && previousClose !== 0
+            ? (price / previousClose - 1) * 100
+            : null;
+        return { symbol: String(item.symbol || meta.symbol || '').toUpperCase(), price, dayPct };
+      }).filter(item => item.symbol && Number.isFinite(item.price) && item.price > 0);
     }
 
     function delay(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
 
-    async function fetchJinaText(target) {
+    async function fetchJinaText(target, deadline = Date.now() + QUOTE_UPDATE_BUDGET_MS) {
       const url = `https://r.jina.ai/${target}`;
-      try {
-        const res = await fetch(url, { signal: AbortSignal.timeout(8000) });
-        return res.ok ? await res.text() : null;
-      } catch (_) { return null; }
+      for (let attempt = 0; attempt < 2; attempt += 1) {
+        const remaining = deadline - Date.now();
+        if (remaining <= 300) return null;
+        try {
+          const res = await fetch(url, { cache: 'no-store', signal: AbortSignal.timeout(Math.min(6000, remaining)) });
+          if (res.ok) return await res.text();
+          if (res.status !== 429) return null;
+        } catch (_) {}
+        if (deadline - Date.now() > 600) await delay(Math.min(450 * (attempt + 1), deadline - Date.now() - 100));
+      }
+      return null;
     }
 
-    async function runConcurrent(jobs, worker) {
+    async function runConcurrent(jobs, worker, limit = QUOTE_CONCURRENCY) {
       let cursor = 0;
-      const runners = Array.from({ length: Math.min(QUOTE_CONCURRENCY, jobs.length) }, async () => {
+      const runners = Array.from({ length: Math.min(limit, jobs.length) }, async () => {
         while (cursor < jobs.length) {
           const job = jobs[cursor];
           cursor += 1;
@@ -747,48 +785,114 @@
       await Promise.all(runners);
     }
 
+    function chunksOf(items, size) {
+      const chunks = [];
+      for (let index = 0; index < items.length; index += size) chunks.push(items.slice(index, index + size));
+      return chunks;
+    }
+
+    async function fetchBrapiQuotes(tickers, deadline) {
+      const collected = [];
+      await runConcurrent(chunksOf(tickers, 4), async (batch) => {
+        if (Date.now() >= deadline) return;
+        const url = `https://brapi.dev/api/quote/${batch.map(encodeURIComponent).join(',')}?range=1d&interval=1d&fundamental=false&dividends=false`;
+        for (let attempt = 0; attempt < 2; attempt += 1) {
+          const remaining = deadline - Date.now();
+          if (remaining <= 300) break;
+          try {
+            const response = await fetch(url, { cache: 'no-store', signal: AbortSignal.timeout(Math.min(5000, remaining)) });
+            if (response.ok) {
+              const data = await response.json();
+              collected.push(...(data.results || []).map(item => ({
+                ticker: String(item.symbol || '').toUpperCase(),
+                price: item.regularMarketPrice == null ? null : Number(item.regularMarketPrice),
+                dayPct: Number(item.regularMarketChangePercent)
+              })).filter(item => item.ticker && Number.isFinite(item.price) && item.price > 0));
+              break;
+            }
+            if (response.status !== 429) break;
+          } catch (_) {}
+          if (deadline - Date.now() > 600) await delay(Math.min(450 * (attempt + 1), deadline - Date.now() - 100));
+        }
+      }, 2);
+      return collected;
+    }
+
     async function hydrateQuotes() {
       if (quoteRefreshRunning || document.documentElement.dataset.auth !== 'approved') return;
       quoteRefreshRunning = true;
       try {
-        const b3Assets = allAssets.filter(a => a.market === 'b3');
-        const stocks = [...new Set(allAssets.filter(a => a.market === 'stocks').map(a => a.ticker))];
-        const jobs = [
-          { type: 'fx', market: 'fx', ticker: 'BRL=X', target: 'https://query1.finance.yahoo.com/v8/finance/chart/BRL=X?range=1d&interval=1d' },
-          ...b3Assets.map(asset => ({ type: 'yahoo', market: 'b3', ticker: asset.ticker, target: `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(asset.quoteSymbol)}?range=1d&interval=1d` })),
-          ...stocks.map(ticker => ({ type: 'nasdaq', market: 'stocks', ticker, target: `https://api.nasdaq.com/api/quote/${encodeURIComponent(ticker)}/info?assetclass=stocks` }))
-        ];
+        const deadline = Date.now() + QUOTE_UPDATE_BUDGET_MS;
+        const symbolMap = new Map();
+        allAssets.forEach(asset => symbolMap.set(asset.quoteSymbol.toUpperCase(), asset));
+        const batches = chunksOf(['BRL=X', ...symbolMap.keys()], QUOTE_BATCH_SIZE);
+        const updated = new Set();
+        let fxUpdated = false;
         let completed = 0;
-        let succeeded = 0;
         const visibleBeforeRefresh = allAssets.filter(asset => Number.isFinite(asset.currentPrice)).length;
         setQuoteStatus('updating', visibleBeforeRefresh
-          ? `0 de ${jobs.length} consultas concluídas. ${visibleBeforeRefresh} últimos valores válidos continuam visíveis.`
-          : `0 de ${jobs.length} consultas concluídas. Os valores aparecerão à medida que forem obtidos.`);
-        await runConcurrent(jobs, async (job) => {
-          const text = await fetchJinaText(job.target);
-          const parsed = text ? (job.type === 'nasdaq' ? parseNasdaqPriceText(text) : parseYahooChartText(text)) : null;
-          if (parsed && Number.isFinite(parsed.price)) {
+          ? `${visibleBeforeRefresh} últimos valores já estão visíveis. Consultando ${batches.length} lotes rápidos.`
+          : `Consultando ${batches.length} lotes rápidos; os valores aparecerão à medida que forem obtidos.`);
+        await Promise.all(batches.map(async (batch) => {
+          const target = `https://query1.finance.yahoo.com/v7/finance/spark?symbols=${encodeURIComponent(batch.join(','))}&range=1d&interval=1d`;
+          const text = await fetchJinaText(target, deadline);
+          parseYahooSparkText(text).forEach((quote) => {
             const updatedAt = new Date().toISOString();
-            if (job.type === 'fx') {
-              usdBrlRate = parsed.price;
-              quoteCache.fx = { price: parsed.price, updatedAt };
-            } else {
-              applyQuote(job.market, job.ticker, parsed.price, parsed.dayPct);
-              quoteCache.quotes[`${job.market}:${job.ticker}`] = { price: parsed.price, dayPct: parsed.dayPct, updatedAt };
+            if (quote.symbol === 'BRL=X') {
+              usdBrlRate = quote.price;
+              quoteCache.fx = { price: quote.price, updatedAt };
+              fxUpdated = true;
+              return;
             }
-            succeeded += 1;
-            saveQuoteCache();
-            scheduleQuoteViewRefresh();
-          }
+            const asset = symbolMap.get(quote.symbol);
+            if (!asset) return;
+            applyQuote(asset.market, asset.ticker, quote.price, quote.dayPct);
+            quoteCache.quotes[assetKey(asset)] = { price: quote.price, dayPct: quote.dayPct, updatedAt };
+            updated.add(assetKey(asset));
+          });
           completed += 1;
-          setQuoteStatus('updating', `${completed} de ${jobs.length} consultas concluídas. Os valores mudam à medida que chegam.`);
-        });
+          saveQuoteCache();
+          scheduleQuoteViewRefresh();
+          setQuoteStatus('updating', `${completed} de ${batches.length} lotes concluídos; ${updated.size} de ${allAssets.length} cotações atualizadas agora.`);
+        }));
+
+        const missingB3 = allAssets.filter(asset => asset.market === 'b3' && !updated.has(assetKey(asset)));
+        if (missingB3.length) {
+          const fallback = await fetchBrapiQuotes([...new Set(missingB3.map(asset => asset.ticker))], deadline);
+          fallback.forEach((quote) => {
+            const asset = missingB3.find(item => item.ticker === quote.ticker);
+            if (!asset) return;
+            const updatedAt = new Date().toISOString();
+            applyQuote('b3', quote.ticker, quote.price, quote.dayPct);
+            quoteCache.quotes[assetKey(asset)] = { price: quote.price, dayPct: quote.dayPct, updatedAt };
+            updated.add(assetKey(asset));
+          });
+          saveQuoteCache();
+          scheduleQuoteViewRefresh();
+        }
+
+        const missingStocks = allAssets.filter(asset => asset.market === 'stocks' && !updated.has(assetKey(asset)));
+        await runConcurrent(missingStocks, async (asset) => {
+          if (Date.now() >= deadline) return;
+          const text = await fetchJinaText(`https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(asset.quoteSymbol)}?range=1d&interval=1d`, deadline);
+          const parsed = text ? parseYahooChartText(text) : null;
+          if (!parsed) return;
+          const updatedAt = new Date().toISOString();
+          applyQuote('stocks', asset.ticker, parsed.price, parsed.dayPct);
+          quoteCache.quotes[assetKey(asset)] = { price: parsed.price, dayPct: parsed.dayPct, updatedAt };
+          updated.add(assetKey(asset));
+          saveQuoteCache();
+          scheduleQuoteViewRefresh();
+        }, 2);
+
         refreshRenderedQuotes();
         const stamp = formatCacheTime(oldestDisplayedQuoteTime() || new Date().toISOString());
-        if (succeeded === jobs.length) {
-          setQuoteStatus('success', `Cotações obtidas nesta atualização. Valor mais antigo: ${stamp}.`);
+        const complete = updated.size === allAssets.length && fxUpdated;
+        if (complete) {
+          setQuoteStatus('success', `As ${allAssets.length} cotações e o câmbio foram atualizados em lotes. Horário: ${stamp}.`);
         } else {
-          setQuoteStatus('partial', `${succeeded} de ${jobs.length} fontes responderam em até 8 segundos. Valores válidos anteriores foram mantidos; o mais antigo é de ${stamp}.`);
+          const timedOut = Date.now() >= deadline;
+          setQuoteStatus('partial', `${updated.size} de ${allAssets.length} cotações públicas foram atualizadas agora. Os demais ativos exibem o último valor salvo na custódia.${timedOut ? ' A consulta foi encerrada após 15 segundos para não atrasar a página.' : ''}`);
         }
       } finally { quoteRefreshRunning = false; }
     }
@@ -797,6 +901,7 @@
       const context = await IAEMLOOPAuth.requireApprovedSession();
       const sb = context.client;
       activeQuoteCacheKey = `${QUOTE_CACHE_PREFIX}:${context.user.id}`;
+      pruneOtherCustodyQuoteCaches(context.user.id);
       const { data, error } = await sb.from('private_pages').select('slug,html').in('slug', PRIVATE_PAGE_SLUGS);
       if (error) throw error;
       const parsed = [];
@@ -808,7 +913,10 @@
       const custodyChanged = nextSignature !== custodySignature;
       custodySignature = nextSignature;
       allAssets = merged;
-      allAssets.forEach(asset => { asset.currentPrice = quotes.get(`${asset.market}:${asset.ticker}`); });
+      allAssets.forEach((asset) => {
+        const previous = quotes.get(`${asset.market}:${asset.ticker}`);
+        if (Number.isFinite(previous)) asset.currentPrice = previous;
+      });
       const cached = applyCachedQuotes();
       const cacheTime = cached.oldestAt ? ` O valor mais antigo é de ${formatCacheTime(cached.oldestAt)}.` : '';
       setQuoteStatus('updating', cached.restored
@@ -853,7 +961,7 @@
       activeFilter = btn.dataset.filter;
       renderAssets();
     }));
-    document.addEventListener('iaemloop:session-invalidated', clearActiveQuoteCache);
+    document.addEventListener('iaemloop:session-invalidated', clearCustodyQuoteCaches);
     document.addEventListener('DOMContentLoaded', waitForApproved);
   </script>
 </body>
