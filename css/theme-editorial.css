@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap');
+
+/* Tema editorial alternativo. O visual clássico permanece intacto. */
+html.theme-editorial {
+  --theme-paper: #f3f0e8;
+  --theme-white: #fffdf8;
+  --theme-ink: #101828;
+  --theme-muted: #667085;
+  --theme-blue: #2447d8;
+  --theme-orange: #f05a28;
+  --theme-yellow: #f4c542;
+  --theme-green: #18794e;
+  --theme-line: #101828;
+  background: var(--theme-paper) !important;
+}
+
+html.theme-editorial body {
+  color: var(--theme-ink) !important;
+  background-color: var(--theme-paper) !important;
+  background-image:
+    linear-gradient(90deg, transparent 0 72%, rgba(36,71,216,.055) 72% 72.15%, transparent 72.15%),
+    linear-gradient(var(--theme-paper), var(--theme-paper)) !important;
+  font-family: "DM Sans", system-ui, sans-serif !important;
+}
+
+html.theme-editorial h1,
+html.theme-editorial h2,
+html.theme-editorial h3,
+html.theme-editorial h4 {
+  color: var(--theme-ink) !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: currentColor !important;
+  font-family: "DM Serif Display", Georgia, serif !important;
+  letter-spacing: -.025em;
+}
+
+html.theme-editorial p,
+html.theme-editorial li,
+html.theme-editorial td,
+html.theme-editorial .lead,
+html.theme-editorial .dek,
+html.theme-editorial .tagline,
+html.theme-editorial .muted,
+html.theme-editorial .caption,
+html.theme-editorial .note {
+  color: #344054 !important;
+}
+
+html.theme-editorial a { color: var(--theme-blue); }
+html.theme-editorial a:hover { color: var(--theme-orange); }
+
+html.theme-editorial header,
+html.theme-editorial .hero,
+html.theme-editorial .header-card,
+html.theme-editorial article,
+html.theme-editorial section.card,
+html.theme-editorial .card,
+html.theme-editorial .post-card,
+html.theme-editorial .future-card,
+html.theme-editorial .login-box,
+html.theme-editorial .panel,
+html.theme-editorial .metric,
+html.theme-editorial .kpi,
+html.theme-editorial .gate,
+html.theme-editorial .meta-info,
+html.theme-editorial .table-wrap,
+html.theme-editorial .table-wrapper,
+html.theme-editorial .source-note,
+html.theme-editorial .callout,
+html.theme-editorial .warning,
+html.theme-editorial .matrix > div,
+html.theme-editorial .scorecard > div {
+  color: var(--theme-ink) !important;
+  background: var(--theme-white) !important;
+  border: 2px solid var(--theme-line) !important;
+  border-radius: 0 !important;
+  box-shadow: 8px 8px 0 rgba(16,24,40,.13) !important;
+  backdrop-filter: none !important;
+}
+
+html.theme-editorial header,
+html.theme-editorial .hero,
+html.theme-editorial .header-card {
+  position: relative;
+  background: var(--theme-yellow) !important;
+}
+
+html.theme-editorial .card:nth-child(3n+2),
+html.theme-editorial .metric:nth-child(3n+2) {
+  border-top-color: var(--theme-blue) !important;
+}
+
+html.theme-editorial .card:nth-child(3n),
+html.theme-editorial .metric:nth-child(3n) {
+  border-top-color: var(--theme-orange) !important;
+}
+
+html.theme-editorial .btn,
+html.theme-editorial button:not(.theme-toggle),
+html.theme-editorial .pill,
+html.theme-editorial .back,
+html.theme-editorial .logout,
+html.theme-editorial .back-button {
+  color: var(--theme-white) !important;
+  background: var(--theme-blue) !important;
+  border: 2px solid var(--theme-line) !important;
+  border-radius: 0 !important;
+  box-shadow: 4px 4px 0 var(--theme-line) !important;
+  text-decoration: none !important;
+}
+
+html.theme-editorial .btn:hover,
+html.theme-editorial button:not(.theme-toggle):hover,
+html.theme-editorial .pill:hover,
+html.theme-editorial .back:hover,
+html.theme-editorial .logout:hover,
+html.theme-editorial .back-button:hover {
+  color: var(--theme-ink) !important;
+  background: var(--theme-orange) !important;
+  transform: translate(2px, 2px) !important;
+  box-shadow: 2px 2px 0 var(--theme-line) !important;
+}
+
+html.theme-editorial .meta span,
+html.theme-editorial .chips span,
+html.theme-editorial .badge,
+html.theme-editorial [class*="badge"] {
+  color: var(--theme-ink) !important;
+  background: var(--theme-yellow) !important;
+  border: 1px solid var(--theme-line) !important;
+  border-radius: 0 !important;
+}
+
+html.theme-editorial table {
+  color: var(--theme-ink) !important;
+  background: var(--theme-white) !important;
+  border: 2px solid var(--theme-line) !important;
+  border-radius: 0 !important;
+}
+
+html.theme-editorial th {
+  color: var(--theme-white) !important;
+  background: var(--theme-blue) !important;
+  border-color: var(--theme-line) !important;
+}
+
+html.theme-editorial td { border-color: rgba(16,24,40,.22) !important; }
+html.theme-editorial tr:hover { background: rgba(244,197,66,.2) !important; }
+
+html.theme-editorial input,
+html.theme-editorial select,
+html.theme-editorial textarea {
+  color: var(--theme-ink) !important;
+  background: var(--theme-white) !important;
+  border: 2px solid var(--theme-line) !important;
+  border-radius: 0 !important;
+}
+
+html.theme-editorial .footer {
+  color: var(--theme-muted) !important;
+  border-top: 2px solid var(--theme-line) !important;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 76px;
+  right: 20px;
+  z-index: 1001;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 9px 14px;
+  color: #101828;
+  background: #f4c542;
+  border: 2px solid #101828;
+  border-radius: 0;
+  box-shadow: 4px 4px 0 #101828;
+  cursor: pointer;
+  font: 700 .88rem/1 "DM Sans", system-ui, sans-serif;
+  letter-spacing: .01em;
+}
+
+.theme-toggle:hover {
+  background: #f05a28;
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #101828;
+}
+
+.theme-toggle svg { width: 20px; height: 20px; flex: 0 0 auto; }
+html.theme-editorial .theme-toggle { color: #fffdf8; background: #2447d8; }
+html.theme-editorial .theme-toggle:hover { color: #101828; background: #f4c542; }
+
+@media (max-width: 768px) {
+  .theme-toggle {
+    position: static;
+    margin: 12px auto 0;
+  }
+  html.theme-editorial body { background-image: linear-gradient(var(--theme-paper), var(--theme-paper)) !important; }
+  html.theme-editorial header,
+  html.theme-editorial .hero,
+  html.theme-editorial .header-card,
+  html.theme-editorial article,
+  html.theme-editorial .card,
+  html.theme-editorial .panel { box-shadow: 5px 5px 0 rgba(16,24,40,.13) !important; }
+}
