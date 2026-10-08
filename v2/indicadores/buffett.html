@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Indicador Buffett para Estados Unidos e Brasil: valor de mercado das empresas listadas dividido pelo PIB, com leitura histórica, faixas de atenção e comparação entre EUA e B3."><title>Indicador Buffett | IA em Loop V2</title><link rel="stylesheet" href="/css/v2/observatory.css?v=3"><link rel="stylesheet" href="/css/v2/public.css?v=3"></head>
+<body class="v2-page v2-public v2-data-page"><header class="v2-site-nav v2-global-nav">
+      <a class="v2-brand" href="/v2/index.html" aria-label="IA em Loop V2"><span class="v2-brand-mark">∞</span><span>IA em Loop<small>Investment observatory · V2</small></span></a>
+      <button class="v2-menu-toggle" type="button" aria-expanded="false" aria-controls="v2-main-menu"><span></span><span></span><span></span><b class="sr-only">Abrir menu</b></button>
+      <nav class="v2-main-menu" id="v2-main-menu" aria-label="Navegação principal"><a href="/v2/index.html" data-v2-nav>Início</a><a href="/v2/rankings/index.html" data-v2-nav>Rankings</a><a href="/v2/metodos/index.html" data-v2-nav>Métodos</a><a href="/v2/indicadores/index.html" data-v2-nav>Indicadores</a><a href="/v2/blog/index.html" data-v2-nav>Blog</a><a class="v2-primary" href="/v2/area-privada.html?redirect=/privado/v2/index.html">Área privada</a></nav>
+    </header><main><section class="v2-page-intro"><p class="v2-kicker">Indicador macro</p><div><h1>Indicador Buffett</h1><p>Valor de mercado das empresas listadas dividido pelo PIB nos EUA e no Brasil.</p></div></section><div class="v2-source-ribbon"><span>Visual V2</span><p>Conteúdo público sincronizado da fonte canônica <code>/indicador-buffett.html</code>.</p></div><div class="v2-content v2-imported-content">
+<div class="container">
+
+<section class="hero">
+<div class="kicker">Valuation macro • EUA x Brasil</div>
+<h1>Indicador Buffett: quando a bolsa inteira fica cara ou barata?</h1>
+<p>
+        O indicador compara o <strong>valor de mercado das empresas listadas</strong> com o <strong>PIB</strong>. Ele não escolhe ações sozinho, mas ajuda a responder uma pergunta maior: o mercado está barato, normal ou esticado em relação ao tamanho da economia?
+      </p>
+<div class="hero-actions">
+<a class="btn" href="#graficos">Ver gráficos</a>
+<a class="btn secondary" href="#metodologia">Como ler</a>
+</div>
+</section>
+<section class="grid" id="graficos">
+<article class="card" id="us-card">
+<h2>Estados Unidos 🇺🇸</h2>
+<p>Nos EUA o indicador é mais maduro e costuma ficar estruturalmente alto porque o mercado americano concentra empresas globais, margens elevadas e maior participação de tecnologia.</p>
+<div class="metric-row">
+<div class="metric"><div class="label">Último dado</div><div class="value blue" id="us-value">--</div></div>
+<div class="metric"><div class="label">Ano</div><div class="value" id="us-year">--</div></div>
+<div class="metric"><div class="label">Percentil histórico</div><div class="value gold" id="us-percentile">--</div></div>
+</div>
+<span class="status high" id="us-status">Carregando...</span>
+</article>
+<article class="card" id="br-card">
+<h2>Brasil / B3 🇧🇷</h2>
+<p>No Brasil o indicador precisa ser lido contra a própria história brasileira. A bolsa é menor em relação ao PIB, tem menos empresas listadas e maior peso de bancos, commodities e estatais.</p>
+<div class="metric-row">
+<div class="metric"><div class="label">Último dado</div><div class="value blue" id="br-value">--</div></div>
+<div class="metric"><div class="label">Ano</div><div class="value" id="br-year">--</div></div>
+<div class="metric"><div class="label">Percentil histórico</div><div class="value gold" id="br-percentile">--</div></div>
+</div>
+<span class="status low" id="br-status">Carregando...</span>
+</article>
+<article class="card chart-card">
+<h2>Histórico comparado: valor de mercado / PIB</h2>
+<p>Escala em % do PIB. O gráfico usa a série anual do Banco Mundial para manter EUA e Brasil comparáveis.</p>
+<div class="chart-wrap"><svg aria-label="Gráfico histórico do Indicador Buffett para EUA e Brasil" id="chart" role="img" viewbox="0 0 1120 520"></svg></div>
+<details class="monthly" id="monthly-details">
+<summary>Visualizar estimativa mensal — janeiro ao mês atual</summary>
+<div class="monthly-body">
+<p><strong>Camada mensal IA em Loop:</strong> estimativa tática atualizada junto com os rankings mensais. Ela parte do último dado anual oficial e ajusta pelo movimento de índice amplo até o mês atual.</p>
+<p class="sources">EUA: proxy S&amp;P 500. Brasil: proxy Ibovespa. O PIB fica ancorado no dado oficial mais recente até nova divulgação. Portanto, esta camada é estimativa, não série oficial fechada.</p>
+<div class="grid">
+<div>
+<h2>Estados Unidos — mensal estimado</h2>
+<div class="mini-chart"><svg aria-label="Estimativa mensal do Indicador Buffett dos EUA" id="monthly-us-chart" role="img" viewbox="0 0 520 220"></svg></div>
+<div class="table-wrap"><table id="monthly-us-table"></table></div>
+</div>
+<div>
+<h2>Brasil / B3 — mensal estimado</h2>
+<div class="mini-chart"><svg aria-label="Estimativa mensal do Indicador Buffett do Brasil" id="monthly-br-chart" role="img" viewbox="0 0 520 220"></svg></div>
+<div class="table-wrap"><table id="monthly-br-table"></table></div>
+</div>
+</div>
+</div>
+</details>
+</article>
+</section>
+<section class="grid" id="metodologia">
+<article class="card">
+<h2>Como interpretar</h2>
+<div class="band">
+<div><strong>&lt; 70%</strong><span>Mercado potencialmente barato, principalmente se juros e lucros ajudarem.</span></div>
+<div><strong>70%–100%</strong><span>Zona intermediária. Preço agregado mais próximo do normal.</span></div>
+<div><strong>100%–140%</strong><span>Atenção. O mercado pode depender mais de crescimento futuro e juros baixos.</span></div>
+<div><strong>&gt; 140%</strong><span>Zona esticada. Não é venda automática, mas exige margem de segurança maior.</span></div>
+</div>
+<p class="note"><strong>Importante:</strong> essas faixas funcionam melhor para os EUA. Para o Brasil, a leitura mais útil é comparar o Brasil com sua própria história e cruzar com juros reais, câmbio, commodities, risco fiscal e fluxo estrangeiro.</p>
+</article>
+<article class="card">
+<h2>Como vamos usar no IA em Loop</h2>
+<ul>
+<li><strong>Alocação macro:</strong> quando EUA estiver muito esticado e Brasil barato, podemos preferir aumentar o cuidado com stocks e procurar assimetria na B3.</li>
+<li><strong>Timing de aporte:</strong> não substitui os rankings, mas ajuda a calibrar agressividade.</li>
+<li><strong>Contexto para carteiras:</strong> BESST &amp; Buffett e Magic Formula continuam escolhendo empresas; o Indicador Buffett mostra o pano de fundo do mercado.</li>
+<li><strong>Comparação internacional:</strong> ajuda a explicar por que uma bolsa pode parecer barata por múltiplos, mas ainda carregar risco macro.</li>
+</ul>
+</article>
+<article class="card chart-card">
+<h2>Metodologia e fontes</h2>
+<p>
+          Fórmula usada nesta página: <strong>valor de mercado das empresas domésticas listadas ÷ PIB</strong>. Esta é uma aproximação padronizada do Indicador Buffett para permitir comparação entre países.
+        </p>
+<p class="sources">
+          Fonte de dados: Banco Mundial, série <a href="https://data.worldbank.org/indicator/CM.MKT.LCAP.GD.ZS" rel="noopener noreferrer" target="_blank">CM.MKT.LCAP.GD.ZS — Market capitalization of listed domestic companies (% of GDP)</a>.<br/>
+          O ano de referência aparece como 2024 porque é o último dado anual oficial disponível na série do Banco Mundial/WFE no momento; a camada mês a mês é uma estimativa IA em Loop ancorada nesse dado oficial.<br/>
+          Atualização local dos dados: <span id="updated-at">--</span>.
+        </p>
+</article>
+</section>
+
+</div>
+<script>
+    const fmtPct = (v) => `${Number(v).toFixed(1).replace('.', ',')}%`;
+
+    function statusFor(country, value, percentile) {
+      if (country === 'usa') {
+        if (value > 140) return ['high', 'Mercado americano em zona historicamente esticada'];
+        if (value > 100) return ['watch', 'Mercado americano acima da zona neutra'];
+        return ['low', 'Mercado americano em zona mais razoável'];
+      }
+      if (percentile >= 75) return ['high', 'Brasil caro contra a própria história'];
+      if (percentile <= 25) return ['low', 'Brasil barato contra a própria história'];
+      return ['watch', 'Brasil em zona intermediária'];
+    }
+
+    function setCard(prefix, countryKey, s) {
+      document.getElementById(`${prefix}-value`).textContent = fmtPct(s.latest.value);
+      document.getElementById(`${prefix}-year`).textContent = s.latest.year;
+      document.getElementById(`${prefix}-percentile`).textContent = `${String(s.percentile).replace('.', ',')}º`;
+      const [cls, label] = statusFor(countryKey, s.latest.value, s.percentile);
+      const el = document.getElementById(`${prefix}-status`);
+      el.className = `status ${cls}`;
+      el.textContent = label;
+    }
+
+    function drawChart(data) {
+      const svg = document.getElementById('chart');
+      const us = data.series.usa.history;
+      const br = data.series.bra.history;
+      const all = [...us, ...br];
+      const minYear = Math.min(...all.map(d => d.year));
+      const maxYear = Math.max(...all.map(d => d.year));
+      const maxVal = Math.ceil(Math.max(...all.map(d => d.value)) / 25) * 25;
+      const W = 1120, H = 520, L = 70, R = 24, T = 52, B = 56;
+      const x = y => L + (y - minYear) / (maxYear - minYear) * (W - L - R);
+      const y = v => T + (maxVal - v) / maxVal * (H - T - B);
+      const path = arr => arr.map((d,i) => `${i ? 'L' : 'M'} ${x(d.year).toFixed(1)} ${y(d.value).toFixed(1)}`).join(' ');
+      const area = arr => `${path(arr)} L ${x(arr[arr.length-1].year).toFixed(1)} ${y(0).toFixed(1)} L ${x(arr[0].year).toFixed(1)} ${y(0).toFixed(1)} Z`;
+      let out = '';
+      out += `<text x="${L}" y="28" class="chart-title">Indicador Buffett — EUA x Brasil (% do PIB)</text>`;
+      for (let v = 0; v <= maxVal; v += 50) {
+        out += `<line x1="${L}" y1="${y(v)}" x2="${W-R}" y2="${y(v)}" class="gridline"/>`;
+        out += `<text x="${L-12}" y="${y(v)+4}" text-anchor="end" class="tick">${v}%</text>`;
+      }
+      for (let yr = Math.ceil(minYear/5)*5; yr <= maxYear; yr += 5) {
+        out += `<text x="${x(yr)}" y="${H-22}" text-anchor="middle" class="tick">${yr}</text>`;
+      }
+      out += `<line x1="${L}" y1="${T}" x2="${L}" y2="${H-B}" class="axis"/>`;
+      out += `<line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" class="axis"/>`;
+      out += `<path d="${area(us)}" class="area-us"/><path d="${area(br)}" class="area-br"/>`;
+      out += `<path d="${path(us)}" class="line-us"/><path d="${path(br)}" class="line-br"/>`;
+      for (const d of us.filter((_,i)=>i%4===0 || i===us.length-1)) out += `<circle cx="${x(d.year)}" cy="${y(d.value)}" r="3.5" class="dot-us"><title>EUA ${d.year}: ${fmtPct(d.value)}</title></circle>`;
+      for (const d of br.filter((_,i)=>i%3===0 || i===br.length-1)) out += `<circle cx="${x(d.year)}" cy="${y(d.value)}" r="3.5" class="dot-br"><title>Brasil ${d.year}: ${fmtPct(d.value)}</title></circle>`;
+      out += `<circle cx="${W-260}" cy="25" r="5" class="dot-us"/><text x="${W-248}" y="29" class="legend-text">Estados Unidos</text>`;
+      out += `<circle cx="${W-130}" cy="25" r="5" class="dot-br"/><text x="${W-118}" y="29" class="legend-text">Brasil/B3</text>`;
+      svg.innerHTML = out;
+    }
+
+    function renderMonthlyTable(tableId, rows, proxyName) {
+      const table = document.getElementById(tableId);
+      if (!table || !rows || !rows.length) return;
+      table.innerHTML = `
+        <thead><tr><th>Mês</th><th>Proxy</th><th>Indicador estimado</th></tr></thead>
+        <tbody>${rows.map(r => `
+          <tr>
+            <td>${r.date}</td>
+            <td>${proxyName}: ${Number(r.proxy_close).toLocaleString('pt-BR', { maximumFractionDigits: 2 })}</td>
+            <td>${fmtPct(r.estimated_value)}</td>
+          </tr>`).join('')}
+        </tbody>`;
+    }
+
+    function drawMonthlyChart(svgId, rows, colorClass, title) {
+      const svg = document.getElementById(svgId);
+      if (!svg || !rows || !rows.length) return;
+      const W = 520, H = 220, L = 46, R = 18, T = 34, B = 38;
+      const vals = rows.map(r => r.estimated_value);
+      const minVal = Math.floor(Math.min(...vals) / 10) * 10;
+      const maxVal = Math.ceil(Math.max(...vals) / 10) * 10;
+      const span = Math.max(1, maxVal - minVal);
+      const x = i => L + i / Math.max(1, rows.length - 1) * (W - L - R);
+      const y = v => T + (maxVal - v) / span * (H - T - B);
+      const path = rows.map((r,i)=>`${i ? 'L' : 'M'} ${x(i).toFixed(1)} ${y(r.estimated_value).toFixed(1)}`).join(' ');
+      const cls = colorClass === 'us' ? 'line-us' : 'line-br';
+      const dot = colorClass === 'us' ? 'dot-us' : 'dot-br';
+      let out = `<text x="${L}" y="22" class="chart-title">${title}</text>`;
+      for (let i=0; i<rows.length; i++) {
+        out += `<text x="${x(i)}" y="${H-14}" text-anchor="middle" class="tick">${rows[i].date.slice(5)}</text>`;
+      }
+      for (const v of [minVal, Math.round((minVal+maxVal)/2), maxVal]) {
+        out += `<line x1="${L}" y1="${y(v)}" x2="${W-R}" y2="${y(v)}" class="gridline"/>`;
+        out += `<text x="${L-8}" y="${y(v)+4}" text-anchor="end" class="tick">${v}%</text>`;
+      }
+      out += `<path d="${path}" class="${cls}"/>`;
+      rows.forEach((r,i)=>{ out += `<circle cx="${x(i)}" cy="${y(r.estimated_value)}" r="4" class="${dot}"><title>${r.date}: ${fmtPct(r.estimated_value)}</title></circle>`; });
+      svg.innerHTML = out;
+    }
+
+    function renderMonthlyEstimates(data) {
+      const monthly = data.monthly_estimates && data.monthly_estimates.series;
+      if (!monthly) return;
+      renderMonthlyTable('monthly-us-table', monthly.usa.values, monthly.usa.proxy);
+      renderMonthlyTable('monthly-br-table', monthly.bra.values, monthly.bra.proxy);
+      drawMonthlyChart('monthly-us-chart', monthly.usa.values, 'us', 'EUA — estimativa mensal');
+      drawMonthlyChart('monthly-br-chart', monthly.bra.values, 'br', 'Brasil — estimativa mensal');
+    }
+
+    async function init() {
+      try {
+        const response = await fetch('/data/buffett_indicator_worldbank.json');
+        const data = await response.json();
+        setCard('us', 'usa', data.series.usa);
+        setCard('br', 'bra', data.series.bra);
+        document.getElementById('updated-at').textContent = data.updated_at;
+        drawChart(data);
+        renderMonthlyEstimates(data);
+      } catch (err) {
+        document.getElementById('chart').innerHTML = '<text x="70" y="80" fill="#e2e8f0">Não foi possível carregar os dados locais do indicador.</text>';
+      }
+    }
+    init();
+  </script>
+</div></main><footer class="v2-footer"><div><a class="v2-brand" href="/v2/index.html"><span class="v2-brand-mark">∞</span><span>IA em Loop<small>Dados, método e skin in the game</small></span></a><p>Conteúdo educacional. Não é recomendação personalizada de investimento.</p></div><nav aria-label="Links do rodapé"><a href="/v2/rankings/index.html">Rankings</a><a href="/v2/metodos/index.html">Metodologias</a><a href="/v2/indicadores/index.html">Indicadores</a><a href="/v2/blog/index.html">Blog</a><a href="/index.html">Visual clássico</a></nav></footer><script src="/js/v2/public.js?v=3"></script><script src="/js/v2/shell.js?v=3"></script></body></html>
