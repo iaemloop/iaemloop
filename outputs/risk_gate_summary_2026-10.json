@@ -1,0 +1,26 @@
+{
+  "month": "2026-10",
+  "automatic_contribution": false,
+  "sleeves": {
+    "besst-b3": {
+      "assets": 6,
+      "blocked_for_contribution": 0,
+      "file": "outputs/risk_gate_besst-b3_2026-10.csv"
+    },
+    "magic-b3": {
+      "assets": 20,
+      "blocked_for_contribution": 3,
+      "file": "outputs/risk_gate_magic-b3_2026-10.csv"
+    },
+    "besst-usd": {
+      "assets": 20,
+      "blocked_for_contribution": 0,
+      "file": "outputs/risk_gate_besst-usd_2026-10.csv"
+    },
+    "magic-usd": {
+      "assets": 20,
+      "blocked_for_contribution": 0,
+      "file": "outputs/risk_gate_magic-usd_2026-10.csv"
+    }
+  }
+}

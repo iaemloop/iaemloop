@@ -104,6 +104,8 @@ EXCLUDED_SECTOR_WORDS = (
     "airline",
 )
 
+MONTHS_PT = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+
 
 def fundamentus_link(ticker: str) -> str:
     return f"https://www.fundamentus.com.br/detalhes.php?papel={ticker}"
@@ -269,6 +271,13 @@ def build_rows(rows: list[dict[str, str]]) -> str:
 
 def replace_table(page_html: str, rows: list[dict[str, str]]) -> str:
     updated = datetime.now().strftime("%d/%m/%Y")
+    month_label = f"{MONTHS_PT[datetime.now().month - 1]}/{datetime.now().year}"
+    page_html = re.sub(
+        r'<p class="tagline">Ranking mensal Magic Formula Brasil — .*?</p>',
+        f'<p class="tagline">Ranking mensal Magic Formula Brasil — {month_label}</p>',
+        page_html,
+        count=1,
+    )
     page_html = re.sub(
         r"📅 <strong>Atualização:</strong> \d{2}/\d{2}/\d{4}",
         f"📅 <strong>Atualização:</strong> {updated}",

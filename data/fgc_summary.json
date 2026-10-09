@@ -1,0 +1,13 @@
+{
+  "total_produtos": 180,
+  "total_emissores": 44,
+  "maior_concentracao": {
+    "emissor": "BTG Pactual",
+    "produtos": 24,
+    "percentual": 13.33
+  },
+  "ratings_na": 28,
+  "carencia_disponivel": false,
+  "liquidez_disponivel": false,
+  "aviso": "O ranking compara rentabilidade líquida estimada. Confirme carência, liquidez, tributação, limite FGC por instituição/conglomerado e condições da plataforma antes de investir."
+}

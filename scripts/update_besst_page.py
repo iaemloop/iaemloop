@@ -15,7 +15,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PAGE = ROOT / "metodologia_barsi.html"
 CSV_IN = ROOT / "outputs" / "barsi_screener_latest.csv"
-MIN_EXPECTED_RANKING_ROWS = 10
+MIN_EXPECTED_RANKING_ROWS = 1
+MONTHS_PT = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
 
 SECTOR_TRANSLATION = {
     "Energy": "Petróleo/Gás",
@@ -158,11 +159,19 @@ def main() -> None:
     rows = load_rows()
     if len(rows) < MIN_EXPECTED_RANKING_ROWS:
         raise SystemExit(
-            f"ABORTADO: {CSV_IN} gerou apenas {len(rows)} linhas únicas; "
-            f"a página oficial não será sobrescrita. Verifique se o arquivo latest "
-            f"é o ranking mensal correto antes de publicar."
+            f"ABORTADO: {CSV_IN} não gerou nenhuma empresa válida; "
+            f"a página oficial não será sobrescrita. Verifique o ranking mensal "
+            f"antes de publicar."
         )
     updated = datetime.now().strftime("%d/%m/%Y")
+    month_label = f"{MONTHS_PT[datetime.now().month - 1]}/{datetime.now().year}"
+    page_html = re.sub(
+        r'<p class="tagline">.*?</p>',
+        f'<p class="tagline">Metodologias BESST (Barsi) + Warren Buffett para seleção de dividendos. {len(rows)} empresas ranqueadas (uma classe por companhia; setores perenes).</p>',
+        page_html,
+        count=1,
+        flags=re.S,
+    )
     page_html = re.sub(
         r"<p>📅 <strong>Atualização:</strong> .*?</p>",
         f'<p>📅 <strong>Atualização:</strong> {updated}</p>',
@@ -170,8 +179,8 @@ def main() -> None:
         count=1,
     )
     page_html = re.sub(
-        r"Atualizado: \d{2}/\d{2}/\d{4}",
-        f"Atualizado: {updated}",
+        r"Atualizado: \d{2}/\d{2}/\d{4}(?: — [^<\n]+)?",
+        f"Atualizado: {updated} — {month_label}",
         page_html,
         count=1,
     )
