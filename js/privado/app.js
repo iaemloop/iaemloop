@@ -24,6 +24,10 @@
     return state.accounts.find((item) => item.id === id)?.name || 'Conta removida';
   }
 
+  function strategyName(key) {
+    return ({ 'besst-b3': 'BESST & Buffett Brasil', 'magic-b3': 'Magic Formula Brasil', 'besst-usd': 'BESST & Buffett Dolarizado', 'magic-usd': 'Magic Formula Dolarizada' })[key] || 'Aguardando análise dos ativos';
+  }
+
   function replaceOptions(select, items, label, placeholder) {
     if (!select) return;
     const current = select.value;
@@ -75,10 +79,10 @@
   function renderPortfolios() {
     const body = byId('portfolios-body');
     body.replaceChildren();
-    if (!state.portfolios.length) return body.appendChild(render.emptyRow(4, 'Nenhuma carteira cadastrada.'));
+    if (!state.portfolios.length) return body.appendChild(render.emptyRow(5, 'Nenhuma carteira cadastrada.'));
     state.portfolios.forEach((item) => {
       const tr = document.createElement('tr');
-      tr.append(render.cell(item.name), render.cell(item.base_currency), render.cell(item.description || '—'));
+      tr.append(render.cell(item.name), render.cell(strategyName(item.strategy_key)), render.cell(item.base_currency), render.cell(item.description || '—'));
       const actions = document.createElement('td');
       actions.appendChild(render.button('Excluir', 'delete-portfolio', item.id, true));
       tr.appendChild(actions);
@@ -137,6 +141,7 @@
     renderHoldings();
     renderTransactions();
     syncSelects();
+    document.dispatchEvent(new Event('iaemloop:portfolio-data-refreshed'));
   }
 
   function clearPrivateState() {
@@ -189,7 +194,7 @@
       await currentContext();
       setAppStatus('Salvando...', 'info');
       if (kind === 'portfolio') {
-        await api.createPortfolio({ name: value(form, 'name'), base_currency: value(form, 'base_currency'), description: value(form, 'description') || null });
+        await api.createPortfolio({ name: value(form, 'name'), base_currency: value(form, 'base_currency'), strategy_key: value(form, 'strategy_key') || null, description: value(form, 'description') || null });
       } else if (kind === 'account') {
         await api.createAccount({ portfolio_id: value(form, 'portfolio_id'), name: value(form, 'name'), institution: value(form, 'institution') || null, account_type: value(form, 'account_type'), currency: value(form, 'currency'), cash_balance: numeric(form, 'cash_balance') });
       } else if (kind === 'holding') {
@@ -238,6 +243,9 @@
     document.querySelectorAll('[data-portfolio-select]').forEach((select) => select.addEventListener('change', syncSelects));
     byId('refresh-data').addEventListener('click', () => refresh().catch((error) => setAppStatus(error.message, 'error')));
     document.querySelector('[data-form="transaction"] [name="transaction_type"]').addEventListener('change', syncTransactionRequirements);
+    document.querySelector('[data-form="portfolio"] [name="strategy_key"]').addEventListener('change', (event) => {
+      if (event.target.value) document.querySelector('[data-form="portfolio"] [name="base_currency"]').value = event.target.value.endsWith('-usd') ? 'USD' : 'BRL';
+    });
     syncTransactionRequirements();
   }
 
