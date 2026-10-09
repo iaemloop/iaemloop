@@ -272,12 +272,11 @@
 
 /* IA em Loop home refresh — 2026-07-13 */
 .grid{grid-template-columns:repeat(auto-fit,minmax(255px,1fr))!important;align-items:stretch}.card{position:relative;overflow:hidden;border-radius:18px!important;background:linear-gradient(180deg,rgba(19,29,39,.88),rgba(11,18,32,.82))!important;border:1px solid rgba(228,209,127,.16)!important;border-left:1px solid rgba(228,209,127,.22)!important;box-shadow:0 16px 45px rgba(0,0,0,.28)}.card::after{content:"";position:absolute;right:-45px;top:-45px;width:110px;height:110px;border-radius:50%;background:rgba(228,209,127,.08)}.card:nth-of-type(-n+2){background:linear-gradient(180deg,rgba(25,54,77,.92),rgba(11,18,32,.86))!important}.btn{border-radius:999px!important;background:linear-gradient(135deg,#19364D,#AA8451)!important}.card h2{font-size:clamp(1.05rem,1.6vw,1.35rem)!important}.card p{line-height:1.58}.footer{color:#94a3b8!important}
+.theme-toggle{position:absolute;top:76px;right:20px;z-index:1001;display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:9px 14px;color:#101828;background:#f4c542;border:2px solid #101828;border-radius:0;box-shadow:4px 4px 0 #101828;cursor:pointer;font:700 .88rem/1 system-ui,sans-serif;letter-spacing:.01em;text-decoration:none}.theme-toggle:hover{color:#101828;background:#f05a28;transform:translate(2px,2px);box-shadow:2px 2px 0 #101828}.theme-toggle svg{width:20px;height:20px;flex:0 0 auto}@media(max-width:768px){.theme-toggle{position:static;margin:12px auto 0}}
 
 </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1004632420072229"
         crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/css/theme-editorial.css">
-  <script src="/js/theme-switcher.js"></script>
 </head>
 <body>
     <div class="container">
@@ -292,12 +291,12 @@
                 </svg>
                 Login
             </a>
-            <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" onclick="IAEMLOOPTheme.toggle()">
+            <a class="theme-toggle" href="/v2/" aria-label="Abrir a Versão 2 do IA em Loop">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.5 6.5 0 0 0 21 12.8Z"></path>
+                    <path d="M5 12h14M13 6l6 6-6 6"></path>
                 </svg>
-                <span data-theme-label>Visual editorial</span>
-            </button>
+                <span>Versão 2</span>
+            </a>
         </header>
 
         <!-- [1.2] Grid de Cards -->
