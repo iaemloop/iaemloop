@@ -9,6 +9,22 @@ import numpy as np
 import os
 from datetime import datetime
 
+EXCLUDED_SECTORS = {'Utilities', 'Real Estate'}
+EXCLUDED_INDUSTRY_TERMS = ('bank', 'reit', 'regulated electric', 'utilities')
+
+
+def apply_methodology_filters(df):
+    """Remove negócios incompatíveis antes de formar o Top 20."""
+    sector = df.get('setor', pd.Series('', index=df.index)).fillna('').astype(str)
+    industry = df.get('industria', pd.Series('', index=df.index)).fillna('').astype(str)
+    excluded = sector.isin(EXCLUDED_SECTORS) | industry.str.lower().apply(
+        lambda value: any(term in value for term in EXCLUDED_INDUSTRY_TERMS)
+    )
+    filtered = df.loc[~excluded].copy()
+    filtered['filtro_metodologico'] = 'aprovado'
+    filtered['criterio_filtro'] = 'exclui bancos, utilities e REITs antes do Top 20'
+    return filtered, df.loc[excluded, ['ticker', 'empresa', 'setor', 'industria']].copy()
+
 def compute_magic_formula(df):
     """
     Espera dataframe com colunas: 'pe', 'roe', 'ticker', 'empresa', etc.
@@ -44,7 +60,9 @@ def main():
     if df.empty or 'data_base' not in df or not df['data_base'].astype(str).str.startswith(month).all():
         raise ValueError(f'Fundamentos não pertencem ao mês {month}; regenerar a fonte antes do ranking.')
     print(f"📊 Lidos {len(df)} registros do base.")
-    ranked = compute_magic_formula(df)
+    eligible, excluded = apply_methodology_filters(df)
+    print(f"🧹 Filtro metodológico: {len(excluded)} excluídas antes do ranking.")
+    ranked = compute_magic_formula(eligible)
     if ranked.empty:
         print("⚠️ Nenhum dado com EY e ROE válidos.")
         raise SystemExit(1)
@@ -75,8 +93,12 @@ def main():
     out['rank_fcf'] = np.nan
     out['score_total'] = 1 / (top20['rank_sum'] + 1e-9)  # inverso para score maior = melhor
     out['fonte_dados'] = 'yfinance'
+    out['fonte_universo'] = 'universo amplo IA em Loop; filtro explícito pré-Top 20'
     out['data_base'] = top20['data_base']
-    out['observacoes'] = ''
+    out['filtro_metodologico'] = top20['filtro_metodologico']
+    out['criterio_filtro'] = top20['criterio_filtro']
+    out['risco_estrutural_status'] = 'revisao_editorial_obrigatoria'
+    out['observacoes'] = 'Ranking quantitativo; não equivale a recomendação de aporte.'
     out.to_csv(out_csv, index=False, encoding='utf-8-sig')
     out.to_csv('outputs/magic_formula_eua_latest.csv', index=False, encoding='utf-8-sig')
     print(f"💾 CSV salvo: {out_csv}")

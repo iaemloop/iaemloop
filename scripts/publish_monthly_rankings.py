@@ -162,6 +162,11 @@ def fundamentus_link(ticker: str) -> str:
 
 def build_besst_entry(month: str, updated: str) -> str:
     rows = one_ticker_per_company(read_csv(BESST_CSV))
+    if not rows:
+        raise RuntimeError(
+            f"BESST/Buffett B3 {month} não possui nenhuma empresa válida; "
+            "o histórico não será atualizado com uma tabela vazia"
+        )
     body = []
     for pos, row in enumerate(rows[:30], 1):
         ticker = row.get("ticker", "").strip().upper()

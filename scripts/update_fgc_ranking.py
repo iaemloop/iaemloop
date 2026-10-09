@@ -11,6 +11,7 @@ Atualiza ranking FGC:
 
 import json
 import os
+import re
 from datetime import datetime, timedelta
 
 DATA_DIR = 'data'
@@ -19,6 +20,7 @@ HISTORY_FILE = os.path.join(DATA_DIR, 'fgc_history.json')
 RATINGS_FILE = os.path.join(DATA_DIR, 'ratings_bancos.json')
 OUTPUT_FILE = os.path.join(DATA_DIR, 'fgc_products.json')
 TIMESTAMP_FILE = os.path.join(DATA_DIR, 'last_updated.txt')
+PAGE_FILE = 'ranking_fgc.html'
 
 hoje = datetime.now()
 hoje_str = hoje.strftime('%Y-%m-%d')
@@ -128,6 +130,24 @@ with open(HISTORY_FILE, 'w', encoding='utf-8') as f:
 
 with open(TIMESTAMP_FILE, 'w', encoding='utf-8') as f:
     f.write(hoje_str)
+
+if os.path.exists(PAGE_FILE):
+    with open(PAGE_FILE, 'r', encoding='utf-8') as f:
+        page = f.read()
+    months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+              'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+    label = f"{months[hoje.month - 1]}/{hoje.year}"
+    date_br = hoje.strftime('%d/%m/%Y')
+    page = re.sub(
+        r'<p class="tagline"><strong>Atualização oficial:</strong> .*?</p>',
+        f'<p class="tagline"><strong>Atualização oficial:</strong> {label} — publicado em {date_br}. Base validada: {len(produtos_atualizados)} produtos cobertos pelo FGC. Conteúdo educativo; não é recomendação de investimento.</p>',
+        page,
+        count=1,
+    )
+    page = re.sub(r'Última atualização: \d{2}/\d{2}/\d{4}', f'Última atualização: {date_br}', page, count=1)
+    page = re.sub(r'scripts/fgc-dynamic\.js\?v=\d+', f'scripts/fgc-dynamic.js?v={hoje.strftime("%Y%m%d")}', page, count=1)
+    with open(PAGE_FILE, 'w', encoding='utf-8') as f:
+        f.write(page)
 
 total = len(produtos_atualizados)
 novos = sum(1 for p in produtos_atualizados if p['is_new'])

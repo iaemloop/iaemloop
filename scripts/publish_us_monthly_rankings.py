@@ -131,6 +131,12 @@ def publish(month):
                 raise ValueError(f'Histórico ausente: {history}')
             entry = f'<div id="{tab}" class="tab-content active"><div class="table-wrap"><table>{head}<tbody>{body}</tbody></table></div></div>'
             history_source = history_source[:anchor.start()] + entry + history_source[anchor.start():]
+        history_source = re.sub(
+            r'(Atualizado em )\d{2}/\d{2}/\d{4}',
+            r'\g<1>' + date_br,
+            history_source,
+            count=1,
+        )
         pending[current] = source
         pending[history] = history_source
         assets = []
