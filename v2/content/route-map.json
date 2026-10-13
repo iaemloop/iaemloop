@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08",
+  "generated_at": "2026-10-13",
   "legacy_preserved": true,
   "routes": [
     "/v2/blog/index.html",
@@ -86,6 +86,8 @@
     "/v2/metodos/index.html",
     "/v2/metodos/magic-formula.html",
     "/v2/metodos/watchlist-buffett.html",
+    "/v2/radar/index.html",
+    "/v2/radar/watchlist-buffett-eua.html",
     "/v2/rankings/besst-buffett-b3.html",
     "/v2/rankings/besst-buffett-eua.html",
     "/v2/rankings/historico/besst-buffett-b3.html",
@@ -108,7 +110,7 @@
     "historico_rankings_dolarizados.html": "/v2/rankings/historico/besst-buffett-eua.html",
     "ranking_magic_formula_dolarizada.html": "/v2/rankings/magic-formula-eua.html",
     "historico_rankings_magic_formula_dolarizada.html": "/v2/rankings/historico/magic-formula-eua.html",
-    "watchlist_buffett_permanente_eua.html": "/v2/rankings/watchlist-buffett-eua.html",
+    "watchlist_buffett_permanente_eua.html": "/v2/radar/watchlist-buffett-eua.html",
     "historico_watchlist_buffett_permanente_eua.html": "/v2/rankings/historico/watchlist-buffett-eua.html",
     "metodologia_watchlist_eua.html": "/v2/metodos/watchlist-buffett.html",
     "ranking_fgc.html": "/v2/rankings/renda-fixa-fgc.html",

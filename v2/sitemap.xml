@@ -84,6 +84,8 @@
   <url><loc>https://iaemloop.com.br/v2/metodos/index.html</loc></url>
   <url><loc>https://iaemloop.com.br/v2/metodos/magic-formula.html</loc></url>
   <url><loc>https://iaemloop.com.br/v2/metodos/watchlist-buffett.html</loc></url>
+  <url><loc>https://iaemloop.com.br/v2/radar/index.html</loc></url>
+  <url><loc>https://iaemloop.com.br/v2/radar/watchlist-buffett-eua.html</loc></url>
   <url><loc>https://iaemloop.com.br/v2/rankings/besst-buffett-b3.html</loc></url>
   <url><loc>https://iaemloop.com.br/v2/rankings/besst-buffett-eua.html</loc></url>
   <url><loc>https://iaemloop.com.br/v2/rankings/historico/besst-buffett-b3.html</loc></url>
@@ -95,5 +97,4 @@
   <url><loc>https://iaemloop.com.br/v2/rankings/magic-formula-b3.html</loc></url>
   <url><loc>https://iaemloop.com.br/v2/rankings/magic-formula-eua.html</loc></url>
   <url><loc>https://iaemloop.com.br/v2/rankings/renda-fixa-fgc.html</loc></url>
-  <url><loc>https://iaemloop.com.br/v2/rankings/watchlist-buffett-eua.html</loc></url>
 </urlset>

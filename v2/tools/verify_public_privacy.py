@@ -11,9 +11,9 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[2]
 POSTS = ROOT / "v2/blog/posts"
-EXPLICIT_PRIVATE = re.compile(r"carteira real|custódia real|aporte real", re.I)
+EXPLICIT_PRIVATE = re.compile(r"carteiras?(?: brasileiras?)? rea(?:l|is)|carteiras? rea(?:l|is)(?: brasileiras?)?|custódia real|aporte real", re.I)
 CONTEXT = re.compile(
-    r"custódia|posição (?:real|da carteira|na carteira)|carteira (?:magic formula|besst|dolarizada)",
+    r"carteiras? brasileiras? reais|carteiras? reais|preços? médios?.{0,70}carteiras?|carteiras?.{0,70}preços? médios?|custódia|posição (?:real|da carteira|na carteira)|carteira (?:magic formula|besst|dolarizada)",
     re.I,
 )
 DETAIL = re.compile(
@@ -30,7 +30,8 @@ for page in sorted(POSTS.glob("*.html")):
     if not article:
         errors.append(f"missing_article {page.name}")
         continue
-    full_text = " ".join(article.stripped_strings)
+    full_text = " ".join(soup.stripped_strings)
+    full_text += " " + " ".join(str(tag.get(attr, "")) for tag in soup.find_all(True) for attr in ("content", "title", "alt", "aria-label"))
     if EXPLICIT_PRIVATE.search(full_text):
         errors.append(f"explicit_private_custody {page.name}")
     for node in article.find_all(["p", "li", "tr", "div"]):
@@ -38,6 +39,17 @@ for page in sorted(POSTS.glob("*.html")):
         if CONTEXT.search(text) and DETAIL.search(text):
             errors.append(f"custody_detail {page.name}: {text[:140]}")
             break
+    for image in article.select("img[src]"):
+        src = str(image["src"]).split("?", 1)[0]
+        if src.startswith("/") and src.endswith(".svg"):
+            asset = ROOT / src.lstrip("/")
+            asset_soup = BeautifulSoup(asset.read_text(encoding="utf-8"), "xml")
+            asset_text = " ".join(asset_soup.stripped_strings)
+            if EXPLICIT_PRIVATE.search(asset_text) or re.search(r"custódia|compra real|preço médio|\bPM\b|\d+[\d.,]*\s*(?:ações|ação|unidades)", asset_text, re.I):
+                errors.append(f"private_referenced_asset {page.name}: {src}")
+    metadata = " ".join(str(tag.get(attr, "")) for tag in soup.find_all(True) for attr in ("content", "title", "alt", "aria-label"))
+    if CONTEXT.search(metadata) and DETAIL.search(metadata):
+        errors.append(f"private_metadata {page.name}")
     serialized = str(article)
     if "投入" in serialized or "o papéis está" in serialized:
         errors.append(f"editorial_corruption {page.name}")
