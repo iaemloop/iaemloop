@@ -26,7 +26,7 @@ ROUTES = [
     {"source":"historico_rankings_dolarizados.html","target":"rankings/historico/besst-buffett-eua.html","title":"Histórico BESST & Buffett EUA","category":"Histórico internacional","description":"Evolução mensal do ranking dolarizado BESST & Buffett."},
     {"source":"ranking_magic_formula_dolarizada.html","target":"rankings/magic-formula-eua.html","title":"Magic Formula EUA","category":"Ranking internacional","description":"ROIC, preço e eficiência operacional no universo de stocks."},
     {"source":"historico_rankings_magic_formula_dolarizada.html","target":"rankings/historico/magic-formula-eua.html","title":"Histórico Magic Formula EUA","category":"Histórico internacional","description":"Arquivo mensal da Magic Formula dolarizada."},
-    {"source":"watchlist_buffett_permanente_eua.html","target":"rankings/watchlist-buffett-eua.html","title":"Watchlist Buffett Permanente EUA","category":"Radar internacional","description":"Empresas excepcionais para acompanhar continuamente, sem compra automática."},
+    {"source":"watchlist_buffett_permanente_eua.html","target":"radar/watchlist-buffett-eua.html","title":"Watchlist Buffett Permanente EUA","category":"Radar internacional","description":"Empresas excepcionais para acompanhar continuamente, sem compra automática."},
     {"source":"historico_watchlist_buffett_permanente_eua.html","target":"rankings/historico/watchlist-buffett-eua.html","title":"Histórico da Watchlist Buffett EUA","category":"Histórico internacional","description":"Mudanças e permanências do radar Buffett ao longo do tempo."},
     {"source":"metodologia_watchlist_eua.html","target":"metodos/watchlist-buffett.html","title":"Método Watchlist Buffett EUA","category":"Metodologia","description":"Critérios de qualidade, resiliência e acompanhamento da watchlist permanente."},
     {"source":"metodologia_barsi.html","target":"metodos/besst-buffett.html","title":"Método BESST & Buffett","category":"Metodologia","description":"Como combinamos dividendos de setores perenes com qualidade e valor intrínseco."},
@@ -46,6 +46,7 @@ LEGACY_TO_V2.update({
 NAV = [
     ("Início", "/v2/index.html"),
     ("Rankings", "/v2/rankings/index.html"),
+    ("Radar", "/v2/radar/index.html"),
     ("Métodos", "/v2/metodos/index.html"),
     ("Indicadores", "/v2/indicadores/index.html"),
     ("Blog", "/v2/blog/index.html"),
@@ -69,52 +70,76 @@ PRIVATE_DETAIL = re.compile(
 )
 
 
+# Disclosure detection happens before any neutralization so private numbers cannot orphan.
+DISCLOSURE = re.compile(
+    r"carteiras?(?: brasileiras?)? rea(?:l|is)|carteiras? reais|custódia|aporte real|compra real|"
+    r"peso.{0,50}(?:na|da) carteira|presença confirmada.{0,70}carteiras?|"
+    r"carteira (?:BESST(?: & Buffett)?|Magic Formula|dolarizada) real|"
+    r"posição pequena.{0,90}carteira|"
+    r"posiç(?:ão|ões) (?:real|da carteira|na carteira)|"
+    r"preços? médios?.{0,90}carteiras?|carteiras?.{0,90}preços? médios?|"
+    r"variaç(?:ão|ões) (?:vs\.?|contra)\s*(?:PM|preço médio)|"
+    r"exposição real.{0,90}carteiras?|presença.{0,90}carteiras?.{0,30}reais",
+    re.I,
+)
+
+
+def is_disclosure(text: str) -> bool:
+    return bool(DISCLOSURE.search(text) or (PRIVATE_CONTEXT.search(text) and PRIVATE_DETAIL.search(text)))
+
+
+def public_text(text: str) -> str:
+    text = clean_text(text)
+    # Protect abbreviations/decimal punctuation while splitting disclosure sentences.
+    protected = re.sub(r"\b(vs|Var|Sr|Sra)\.", lambda m: m.group(0).replace(".", "∯"), text, flags=re.I)
+    parts = re.split(r"(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÂÊÔÃÕ0-9•])", protected)
+    kept = [part.replace("∯", ".") for part in parts if not is_disclosure(part)]
+    return " ".join(kept).replace("posição que投入 no início", "posição iniciada no período").replace("o papéis está próximo", "o papel está próximo")
+
+
 def sanitize_public_article(article: BeautifulSoup) -> None:
-    """Remove real-custody disclosures while leaving public analysis intact."""
-    for span in list(article.select(".meta span, .chips span")):
-        if re.search(r"carteira real|custódia|aporte real|posição real", clean_text(span.get_text(" ")), re.I):
-            span.decompose()
-
-    for heading in list(article.find_all(["h2", "h3"])):
-        heading_text = clean_text(heading.get_text(" "))
-        if not re.search(r"carteira real|custódia|aporte real|posição na carteira", heading_text, re.I):
-            continue
-        siblings = []
-        for sibling in heading.next_siblings:
-            if getattr(sibling, "name", None) in ("h2", "h3"):
-                break
-            siblings.append(sibling)
-        section_text = clean_text(" ".join(getattr(node, "get_text", lambda *_: str(node))(" ") for node in siblings))
-        if PRIVATE_DETAIL.search(section_text):
-            for sibling in siblings:
-                sibling.extract()
-            heading.decompose()
-
-    for node in list(article.find_all(["p", "li", "tr", "div"])):
+    """Strip private leaf blocks; preserve public prose in mixed paragraphs."""
+    for image in list(article.find_all("img")):
+        src = str(image.get("src", "")).split("?", 1)[0]
+        if src.startswith("/") and src.endswith(".svg"):
+            asset = ROOT / src.lstrip("/")
+            if asset.exists():
+                svg = BeautifulSoup(asset.read_text(encoding="utf-8"), "xml")
+                asset_text = clean_text(svg.get_text(" "))
+                if is_disclosure(asset_text) or re.search(r"preço médio|\bPM\b|\d+[\d.,]*\s*(?:ações|ação|unidades)", asset_text, re.I):
+                    parent = image.parent
+                    image.decompose()
+                    if parent.name == "figure" and not parent.find("img"):
+                        parent.decompose()
+    for node in list(article.find_all(["p", "li", "tr", "div", "span", "h1", "h2", "h3"])):
         if node.parent is None:
             continue
+        # Handle structured rows and scorecards as a complete private leaf.
+        leaf = node.name == "tr" or not node.find(["p", "li", "tr", "div"])
+        if not leaf:
+            continue
         text = clean_text(node.get_text(" "))
-        if PRIVATE_CONTEXT.search(text) and (PRIVATE_DETAIL.search(text) or re.search(r"carteira real|custódia|aporte real", text, re.I)):
+        if not is_disclosure(text):
+            continue
+        safe = public_text(text)
+        if safe and node.name in ("p", "li"):
+            node.clear()
+            node.append(safe)
+        else:
             node.decompose()
-
-    # Editorial typo fixes are applied only to the isolated V2 output.
-    for text_node in article.find_all(string=True):
-        fixed = str(text_node).replace("posição que投入 no início", "posição iniciada no período")
-        fixed = fixed.replace("o papéis está próximo", "o papel está próximo")
-        fixed = re.sub(r"carteira real", "acompanhamento privado", fixed, flags=re.I)
-        fixed = re.sub(r"custódia real", "custódia privada", fixed, flags=re.I)
-        fixed = re.sub(r"aporte real", "acompanhamento privado", fixed, flags=re.I)
-        if fixed != str(text_node):
-            text_node.replace_with(fixed)
     for tag in article.find_all(True):
         for attr in ("alt", "title", "aria-label"):
-            if not tag.has_attr(attr):
-                continue
-            value = str(tag[attr])
-            value = re.sub(r"carteira real", "acompanhamento privado", value, flags=re.I)
-            value = re.sub(r"custódia real", "custódia privada", value, flags=re.I)
-            value = re.sub(r"aporte real", "acompanhamento privado", value, flags=re.I)
-            tag[attr] = value
+            if tag.has_attr(attr):
+                tag[attr] = public_text(str(tag[attr]))
+    for text_node in list(article.find_all(string=True)):
+        fixed = str(text_node).replace("posição que投入 no início", "posição iniciada no período").replace("o papéis está próximo", "o papel está próximo")
+        if fixed != str(text_node):
+            text_node.replace_with(fixed)
+    # Remove an empty section heading without destroying the neighboring analysis.
+    for heading in list(article.find_all(["h2", "h3"])):
+        sibling = heading.find_next_sibling()
+        if sibling is None or sibling.name in ("h2", "h3"):
+            heading.decompose()
 
 
 def nav_html() -> str:
@@ -127,13 +152,15 @@ def nav_html() -> str:
 
 
 def footer_html() -> str:
-    return '''<footer class="v2-footer"><div><a class="v2-brand" href="/v2/index.html"><span class="v2-brand-mark">∞</span><span>IA em Loop<small>Dados, método e skin in the game</small></span></a><p>Conteúdo educacional. Não é recomendação personalizada de investimento.</p></div><nav aria-label="Links do rodapé"><a href="/v2/rankings/index.html">Rankings</a><a href="/v2/metodos/index.html">Metodologias</a><a href="/v2/indicadores/index.html">Indicadores</a><a href="/v2/blog/index.html">Blog</a><a href="/index.html">Visual clássico</a></nav></footer>'''
+    return '''<footer class="v2-footer"><div><a class="v2-brand" href="/v2/index.html"><span class="v2-brand-mark">∞</span><span>IA em Loop<small>Dados, método e skin in the game</small></span></a><p>Conteúdo educacional. Não é recomendação de investimento.</p></div><nav aria-label="Links do rodapé"><a href="/v2/rankings/index.html">Rankings</a><a href="/v2/metodos/index.html">Metodologias</a><a href="/v2/indicadores/index.html">Indicadores</a><a href="/v2/blog/index.html">Blog</a><a href="/index.html">Visual clássico</a></nav></footer>'''
 
 
 def document(title: str, description: str, body: str, extra_head: str = "", body_class: str = "") -> str:
+    title = public_text(title) or "Análise de investimentos"
+    description = public_text(description) or "Análise educacional do IA em Loop."
     return f'''<!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{html.escape(description, quote=True)}"><title>{html.escape(title)} | IA em Loop V2</title><link rel="stylesheet" href="/css/v2/observatory.css?v=4"><link rel="stylesheet" href="/css/v2/public.css?v=4">{extra_head}</head>
-<body class="v2-page v2-public {body_class}">{nav_html()}<main>{body}</main>{footer_html()}<script src="/js/v2/public.js?v=4"></script><script src="/js/v2/shell.js?v=4"></script></body></html>'''
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{html.escape(description, quote=True)}"><title>{html.escape(title)} | IA em Loop V2</title><link rel="stylesheet" href="/css/v2/observatory.css?v=5"><link rel="stylesheet" href="/css/v2/public.css?v=5">{extra_head}</head>
+<body class="v2-page v2-public {body_class}">{nav_html()}<main>{body}</main>{footer_html()}<script src="/js/v2/public.js?v=5"></script><script src="/js/v2/shell.js?v=5"></script></body></html>'''
 
 
 def resolve_url(value: str, source: str, attr: str) -> str:
@@ -181,6 +208,41 @@ def extract_source(source: str) -> tuple[str, str]:
                 lambda match: f"fetch({match.group(1)}{resolve_url(match.group(2), source, 'src')}{match.group(1)})",
                 script.string,
             ))
+    # Remove only imported mastheads, never dated data/update cards.
+    for hero in soup.select("section.hero"):
+        for heading in list(hero.find_all("h1")):
+            heading.decompose()
+    for node in list(soup.select(".header-card, header")):
+        if node.parent is not None and node.find("h1"):
+            node.decompose()
+    for node in list(soup.find_all(["p", "div", "span"])):
+        if node.parent is not None and not node.find(True) and re.fullmatch(
+            r"Conteúdo educacional\. Não (?:é|constitui) recomendação(?: personalizada)? de investimento\.",
+            clean_text(node.get_text(" ")), re.I,
+        ):
+            node.decompose()
+    # Static history buttons must not depend on the nonstandard global event.
+    static_tabs = soup.select("button.tab[onclick]")
+    if static_tabs:
+        for old_script in list(soup.find_all("script")):
+            if not old_script.get("src") and "function switchTab" in (old_script.string or old_script.decode_contents()):
+                old_script.decompose()
+        for button in static_tabs:
+            match = re.fullmatch(r"switchTab\(['\"]([^'\"]+)['\"](?:,\s*this)?\)", button["onclick"])
+            if match:
+                button["onclick"] = "switchTab(" + json.dumps(match.group(1)) + ", this)"
+        script = soup.new_tag("script")
+        script.string = """
+function switchTab(id, button) {
+  const root = document.querySelector('.v2-imported-content');
+  const target = document.getElementById(id);
+  if (!root || !target || !root.contains(target) || !button) return;
+  root.querySelectorAll('.tab,.tab-content').forEach(el => el.classList.remove('active'));
+  target.classList.add('active');
+  button.classList.add('active');
+}
+"""
+        (soup.body or soup).append(script)
     content = soup.body or soup
     for main in content.find_all("main"):
         main.unwrap()
@@ -197,10 +259,12 @@ def extract_source(source: str) -> tuple[str, str]:
 def source_page(route: dict[str, str]) -> str:
     inner, source_description = extract_source(route["source"])
     if route["source"] == "ranking_fgc.html":
-        inner = inner.replace('/scripts/fgc-dynamic.js?v=20260914', '/js/v2/fgc.js?v=4')
-    breadcrumb = f'''<section class="v2-page-intro"><p class="v2-kicker">{html.escape(route['category'])}</p><div><h1>{html.escape(route['title'])}</h1><p>{html.escape(route['description'])}</p></div></section>'''
-    source_note = f'''<div class="v2-source-ribbon"><span>Visual V2</span><p>Conteúdo público sincronizado da fonte canônica <code>/{html.escape(route['source'])}</code>.</p></div>'''
-    body = breadcrumb + source_note + f'<div class="v2-content v2-imported-content">{inner}</div>'
+        inner = inner.replace('/scripts/fgc-dynamic.js?v=20260914', '/js/v2/fgc.js?v=5')
+    inner_soup = BeautifulSoup(inner, "html.parser")
+    for heading in list(inner_soup.find_all("h1")):
+        heading.decompose()
+    inner = str(inner_soup)
+    body = f'<div class="v2-content v2-imported-content"><h1 class="v2-data-title">{html.escape(route["title"])}</h1>{inner}</div>'
     return document(route["title"], source_description, body, body_class="v2-data-page")
 
 
@@ -251,7 +315,12 @@ def parse_blog_cards() -> list[dict[str, Any]]:
                 pass
         return datetime.min
 
-    return sorted(posts, key=date_key, reverse=True)
+    posts = sorted(posts, key=date_key, reverse=True)
+    for post in posts:
+        post["title"] = public_text(str(post["title"])) or "Análise de investimentos"
+        post["summary"] = public_text(str(post["summary"]))
+        post["chips"] = [safe for chip in post["chips"] if (safe := public_text(str(chip)))]
+    return posts
 
 
 def blog_index(posts: list[dict[str, Any]]) -> str:
@@ -299,10 +368,14 @@ def build() -> None:
         card("Magic Formula B3","Ranking atual e histórico mensal.","/v2/rankings/magic-formula-b3.html","Ações brasileiras","02","cyan"),
         card("BESST & Buffett EUA","Ranking dolarizado de qualidade e valor.","/v2/rankings/besst-buffett-eua.html","Stocks","03","coral"),
         card("Magic Formula EUA","ROIC e preço no universo americano.","/v2/rankings/magic-formula-eua.html","Stocks","04","gold"),
-        card("Watchlist Buffett EUA","Radar permanente de empresas excepcionais.","/v2/rankings/watchlist-buffett-eua.html","Watchlist","05","blue"),
         card("Renda Fixa FGC","Comparativo de produtos protegidos pelo FGC.","/v2/rankings/renda-fixa-fgc.html","Renda fixa","06","cyan"),
     ]
-    outputs["rankings/index.html"] = hub("Rankings para investigar, não para obedecer.","Seleção quantitativa","Quatro estratégias de ações, uma watchlist permanente e um radar de renda fixa.",ranking_cards,"v2-rankings")
+    outputs["rankings/index.html"] = hub("Rankings para investigar, não para obedecer.","Seleção quantitativa","Quatro estratégias de ações e um comparativo de renda fixa.",ranking_cards,"v2-rankings")
+    outputs["radar/index.html"] = hub("Empresas para acompanhar.","Radar de qualidade","Watchlists são acompanhamento, não rankings ou ordens de compra.",[
+        card("Watchlist Buffett EUA","Radar permanente de empresas excepcionais.","/v2/radar/watchlist-buffett-eua.html","Watchlist","01","blue"),
+    ],"v2-radar")
+    # Keep existing bookmarks working without indexing the retired route.
+    outputs["rankings/watchlist-buffett-eua.html"] = document("Watchlist Buffett EUA", "A watchlist agora está no Radar.", '<section class="v2-hub-hero"><h1>Watchlist Buffett EUA</h1><a href="/v2/radar/watchlist-buffett-eua.html">Abrir radar Buffett EUA</a></section>', extra_head='<meta name="robots" content="noindex,nofollow,noarchive"><meta http-equiv="refresh" content="0;url=/v2/radar/watchlist-buffett-eua.html">')
     method_cards = [
         card("BESST & Buffett","Dividendos, perenidade, moat e margem de segurança.","/v2/metodos/besst-buffett.html","Metodologia","01","lime"),
         card("Magic Formula","Retorno sobre capital e rendimento do lucro.","/v2/metodos/magic-formula.html","Metodologia","02","cyan"),
@@ -324,7 +397,7 @@ def build() -> None:
     for rel, content in outputs.items():
         path = V2 / rel
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(content, encoding="utf-8")
+        path.write_text("\n".join(line.rstrip() for line in content.splitlines()), encoding="utf-8")
 
     route_map = {
         "generated_at":date.today().isoformat(),
@@ -336,7 +409,7 @@ def build() -> None:
     (V2 / "content").mkdir(exist_ok=True)
     (V2 / "content/route-map.json").write_text(json.dumps(route_map, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    sitemap.extend(f"  <url><loc>{SITE}{route}</loc></url>" for route in route_map["routes"])
+    sitemap.extend(f"  <url><loc>{SITE}{route}</loc></url>" for route in route_map["routes"] if route != "/v2/rankings/watchlist-buffett-eua.html")
     sitemap.append("</urlset>")
     (V2 / "sitemap.xml").write_text("\n".join(sitemap) + "\n", encoding="utf-8")
     print(f"V2_BUILD_OK pages={len(outputs)} blog_posts={len(posts)}")
