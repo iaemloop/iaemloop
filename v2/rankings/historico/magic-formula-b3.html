@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Histórico Rankings - Magic Formula"><title>Histórico Magic Formula B3 | IA em Loop V2</title><link rel="stylesheet" href="/css/v2/observatory.css?v=5"><link rel="stylesheet" href="/css/v2/public.css?v=5"></head>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Histórico Rankings - Magic Formula"><title>Histórico Magic Formula B3 | IA em Loop V2</title><link rel="stylesheet" href="/css/v2/observatory.css?v=6"><link rel="stylesheet" href="/css/v2/public.css?v=6"></head>
 <body class="v2-page v2-public v2-data-page"><header class="v2-site-nav v2-global-nav">
       <a class="v2-brand" href="/v2/index.html" aria-label="IA em Loop V2"><span class="v2-brand-mark">∞</span><span>IA em Loop<small>Investment observatory · V2</small></span></a>
       <button class="v2-menu-toggle" type="button" aria-expanded="false" aria-controls="v2-main-menu"><span></span><span></span><span></span><b class="sr-only">Abrir menu</b></button>
@@ -10,17 +10,17 @@
 <span style="margin: 0; white-space: nowrap;">💰 <strong>Carteira em custódia:</strong> <a href="/v2/area-privada.html?redirect=/privado/v2/index.html" style="color:#E4D17F;text-decoration:underline;">Acompanhe a carteira</a></span>
 </div>
 <div class="container">
-<div class="tabs">
-<button class="tab active" onclick='switchTab("rank-2026-10", this)'>Outubro 2026</button>
-<button class="tab" onclick='switchTab("rank-2026-09", this)'>Setembro 2026</button>
-<button class="tab" onclick='switchTab("rank-2026-08", this)'>Agosto 2026</button>
-<button class="tab" onclick='switchTab("rank-2026-07", this)'>Julho 2026</button>
-<button class="tab" onclick='switchTab("rank-2026-06", this)'>Junho 2026</button>
-<button class="tab" onclick='switchTab("rank-2026-05", this)'>Maio 2026</button>
-<button class="tab" onclick='switchTab("abril", this)'>Abril 2026</button>
-<button class="tab" onclick='switchTab("marco", this)'>Março 2026</button>
+<div aria-label="Meses do histórico" class="tabs v2-history-tabs" role="tablist">
+<button aria-controls="rank-2026-10" aria-selected="true" class="tab active" onclick='switchTab("rank-2026-10", this)' role="tab" type="button">Outubro 2026</button>
+<button aria-controls="rank-2026-09" aria-selected="false" class="tab" onclick='switchTab("rank-2026-09", this)' role="tab" type="button">Setembro 2026</button>
+<button aria-controls="rank-2026-08" aria-selected="false" class="tab" onclick='switchTab("rank-2026-08", this)' role="tab" type="button">Agosto 2026</button>
+<button aria-controls="rank-2026-07" aria-selected="false" class="tab" onclick='switchTab("rank-2026-07", this)' role="tab" type="button">Julho 2026</button>
+<button aria-controls="rank-2026-06" aria-selected="false" class="tab" onclick='switchTab("rank-2026-06", this)' role="tab" type="button">Junho 2026</button>
+<button aria-controls="rank-2026-05" aria-selected="false" class="tab" onclick='switchTab("rank-2026-05", this)' role="tab" type="button">Maio 2026</button>
+<button aria-controls="abril" aria-selected="false" class="tab" onclick='switchTab("abril", this)' role="tab" type="button">Abril 2026</button>
+<button aria-controls="marco" aria-selected="false" class="tab" onclick='switchTab("marco", this)' role="tab" type="button">Março 2026</button>
 </div>
-<div class="tab-content active" data-month="2026-10" id="rank-2026-10">
+<div class="tab-content active" data-month="2026-10" id="rank-2026-10" role="tabpanel">
 <div class="card">
 <div style="overflow-x:auto;">
 <table>
@@ -52,7 +52,7 @@
 <p style="text-align:center;color:var(--muted);font-size:0.8rem;margin-top:1rem;">Dados: Fundamentus + yfinance (Outubro 2026)</p>
 </div>
 </div>
-<div class="tab-content" data-month="2026-09" id="rank-2026-09">
+<div class="tab-content" data-month="2026-09" id="rank-2026-09" role="tabpanel">
 <div class="card">
 <div style="overflow-x:auto;">
 <table>
@@ -84,7 +84,7 @@
 <p style="text-align:center;color:var(--muted);font-size:0.8rem;margin-top:1rem;">Dados: Fundamentus + yfinance (Setembro 2026)</p>
 </div>
 </div>
-<div class="tab-content" data-month="2026-08" id="rank-2026-08">
+<div class="tab-content" data-month="2026-08" id="rank-2026-08" role="tabpanel">
 <div class="card">
 <div style="overflow-x:auto;">
 <table>
@@ -116,7 +116,7 @@
 <p style="text-align:center;color:var(--muted);font-size:0.8rem;margin-top:1rem;">Dados: Fundamentus + yfinance (Agosto 2026)</p>
 </div>
 </div>
-<div class="tab-content" data-month="2026-07" id="rank-2026-07">
+<div class="tab-content" data-month="2026-07" id="rank-2026-07" role="tabpanel">
 <div class="card">
 <div style="overflow-x:auto;">
 <table>
@@ -144,7 +144,7 @@
 <p style="text-align:center;color:var(--muted);font-size:0.8rem;margin-top:1rem;">Dados: Fundamentus + yfinance (Julho 2026)</p>
 </div>
 </div>
-<div class="tab-content" data-month="2026-06" id="rank-2026-06">
+<div class="tab-content" data-month="2026-06" id="rank-2026-06" role="tabpanel">
 <div class="card">
 <div style="overflow-x:auto;">
 <table>
@@ -172,7 +172,7 @@
 <p style="text-align:center;color:var(--muted);font-size:0.8rem;margin-top:1rem;">Dados: Fundamentus + yfinance (Junho 2026)</p>
 </div>
 </div>
-<div class="tab-content" data-month="2026-05" id="rank-2026-05">
+<div class="tab-content" data-month="2026-05" id="rank-2026-05" role="tabpanel">
 <div class="card">
 <div style="overflow-x:auto;">
 <table>
@@ -204,7 +204,7 @@
 <p style="text-align:center;color:var(--muted);font-size:0.8rem;margin-top:1rem;">Dados: Fundamentus + yfinance (Maio 2026)</p>
 </div>
 </div>
-<div class="tab-content" id="abril">
+<div class="tab-content" id="abril" role="tabpanel">
 <div class="card">
 <div style="overflow-x:auto;">
 <table>
@@ -236,7 +236,7 @@
 <p style="text-align:center;color:var(--muted);font-size:0.8rem;margin-top:1rem;">Dados: Fundamentus + yfinance (22/04/2026)</p>
 </div>
 </div>
-<div class="tab-content" id="marco">
+<div class="tab-content" id="marco" role="tabpanel">
 <div class="card">
 <div style="overflow-x:auto;">
 <table>
@@ -275,7 +275,9 @@ function switchTab(id, button) {
   const target = document.getElementById(id);
   if (!root || !target || !root.contains(target) || !button) return;
   root.querySelectorAll('.tab,.tab-content').forEach(el => el.classList.remove('active'));
+  root.querySelectorAll('.tab[aria-selected]').forEach(el => el.setAttribute('aria-selected', 'false'));
   target.classList.add('active');
   button.classList.add('active');
+  button.setAttribute('aria-selected', 'true');
 }
-</script></div></main><footer class="v2-footer"><div><a class="v2-brand" href="/v2/index.html"><span class="v2-brand-mark">∞</span><span>IA em Loop<small>Dados, método e skin in the game</small></span></a><p>Conteúdo educacional. Não é recomendação de investimento.</p></div><nav aria-label="Links do rodapé"><a href="/v2/rankings/index.html">Rankings</a><a href="/v2/metodos/index.html">Metodologias</a><a href="/v2/indicadores/index.html">Indicadores</a><a href="/v2/blog/index.html">Blog</a><a href="/index.html">Visual clássico</a></nav></footer><script src="/js/v2/public.js?v=5"></script><script src="/js/v2/shell.js?v=5"></script></body></html>
+</script></div></main><footer class="v2-footer"><div><a class="v2-brand" href="/v2/index.html"><span class="v2-brand-mark">∞</span><span>IA em Loop<small>Dados, método e skin in the game</small></span></a><p>Conteúdo educacional. Não é recomendação de investimento.</p></div><nav aria-label="Links do rodapé"><a href="/v2/rankings/index.html">Rankings</a><a href="/v2/metodos/index.html">Metodologias</a><a href="/v2/indicadores/index.html">Indicadores</a><a href="/v2/blog/index.html">Blog</a><a href="/index.html">Visual clássico</a></nav></footer><script src="/js/v2/public.js?v=6"></script><script src="/js/v2/shell.js?v=6"></script></body></html>
