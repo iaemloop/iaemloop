@@ -75,7 +75,8 @@ DISCLOSURE = re.compile(
     r"carteiras?(?: brasileiras?)? rea(?:l|is)|carteiras? reais|custódia|aporte real|compra real|"
     r"peso.{0,50}(?:na|da) carteira|presença confirmada.{0,70}carteiras?|"
     r"carteira (?:BESST(?: & Buffett)?|Magic Formula|dolarizada) real|"
-    r"posição pequena.{0,90}carteira|"
+    r"posição pequena.{0,90}carteira|proventos futuros mapeados|essa dupla confirmação|"
+    r"presença tanto na carteira|"
     r"posiç(?:ão|ões) (?:real|da carteira|na carteira)|"
     r"preços? médios?.{0,90}carteiras?|carteiras?.{0,90}preços? médios?|"
     r"variaç(?:ão|ões) (?:vs\.?|contra)\s*(?:PM|preço médio)|"
@@ -85,7 +86,9 @@ DISCLOSURE = re.compile(
 
 
 def is_disclosure(text: str) -> bool:
-    return bool(DISCLOSURE.search(text) or (PRIVATE_CONTEXT.search(text) and PRIVATE_DETAIL.search(text)))
+    return bool(DISCLOSURE.search(text) or (PRIVATE_CONTEXT.search(text) and PRIVATE_DETAIL.search(text)) or
+                (re.search(r"BESST|Magic Formula", text, re.I) and
+                 re.search(r"\b\d+[\d.,]*\s*(?:ações|ação|unidades?)\b", text, re.I)))
 
 
 def public_text(text: str) -> str:
@@ -159,8 +162,8 @@ def document(title: str, description: str, body: str, extra_head: str = "", body
     title = public_text(title) or "Análise de investimentos"
     description = public_text(description) or "Análise educacional do IA em Loop."
     return f'''<!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{html.escape(description, quote=True)}"><title>{html.escape(title)} | IA em Loop V2</title><link rel="stylesheet" href="/css/v2/observatory.css?v=5"><link rel="stylesheet" href="/css/v2/public.css?v=5">{extra_head}</head>
-<body class="v2-page v2-public {body_class}">{nav_html()}<main>{body}</main>{footer_html()}<script src="/js/v2/public.js?v=5"></script><script src="/js/v2/shell.js?v=5"></script></body></html>'''
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{html.escape(description, quote=True)}"><title>{html.escape(title)} | IA em Loop V2</title><link rel="stylesheet" href="/css/v2/observatory.css?v=6"><link rel="stylesheet" href="/css/v2/public.css?v=6">{extra_head}</head>
+<body class="v2-page v2-public {body_class}">{nav_html()}<main>{body}</main>{footer_html()}<script src="/js/v2/public.js?v=6"></script><script src="/js/v2/shell.js?v=6"></script></body></html>'''
 
 
 def resolve_url(value: str, source: str, attr: str) -> str:
@@ -221,6 +224,45 @@ def extract_source(source: str) -> tuple[str, str]:
             clean_text(node.get_text(" ")), re.I,
         ):
             node.decompose()
+    is_history = source.startswith("historico_")
+    if is_history:
+        tabs = soup.select_one(".tabs")
+        if tabs is None:
+            monthly_sections = [
+                section for section in soup.select("section")
+                if section.select_one("table") and section.find(["h2", "h3"])
+            ]
+            if len(monthly_sections) > 1:
+                tabs = soup.new_tag("div", attrs={
+                    "class": "tabs v2-history-tabs",
+                    "role": "tablist",
+                    "aria-label": "Meses do histórico",
+                })
+                monthly_sections[0].insert_before(tabs)
+                for idx, section in enumerate(monthly_sections):
+                    heading = section.find(["h2", "h3"])
+                    panel_id = f"history-month-{idx}"
+                    panel = soup.new_tag("div", attrs={
+                        "class": "tab-content" + (" active" if idx == 0 else ""),
+                        "id": panel_id,
+                        "role": "tabpanel",
+                    })
+                    section.wrap(panel)
+                    button = soup.new_tag("button", attrs={
+                        "class": "tab" + (" active" if idx == 0 else ""),
+                        "type": "button",
+                        "role": "tab",
+                        "aria-controls": panel_id,
+                        "aria-selected": "true" if idx == 0 else "false",
+                        "onclick": f"switchTab({json.dumps(panel_id)}, this)",
+                    })
+                    button.string = clean_text(heading.get_text(" "))
+                    tabs.append(button)
+        if tabs is not None:
+            tabs["class"] = list(dict.fromkeys([*tabs.get("class", []), "v2-history-tabs"]))
+            tabs["role"] = "tablist"
+            tabs["aria-label"] = "Meses do histórico"
+
     # Static history buttons must not depend on the nonstandard global event.
     static_tabs = soup.select("button.tab[onclick]")
     if static_tabs:
@@ -230,7 +272,15 @@ def extract_source(source: str) -> tuple[str, str]:
         for button in static_tabs:
             match = re.fullmatch(r"switchTab\(['\"]([^'\"]+)['\"](?:,\s*this)?\)", button["onclick"])
             if match:
-                button["onclick"] = "switchTab(" + json.dumps(match.group(1)) + ", this)"
+                target_id = match.group(1)
+                button["onclick"] = "switchTab(" + json.dumps(target_id) + ", this)"
+                button["type"] = "button"
+                button["role"] = "tab"
+                button["aria-controls"] = target_id
+                button["aria-selected"] = "true" if "active" in button.get("class", []) else "false"
+                target = soup.find(id=target_id)
+                if target is not None:
+                    target["role"] = "tabpanel"
         script = soup.new_tag("script")
         script.string = """
 function switchTab(id, button) {
@@ -238,8 +288,10 @@ function switchTab(id, button) {
   const target = document.getElementById(id);
   if (!root || !target || !root.contains(target) || !button) return;
   root.querySelectorAll('.tab,.tab-content').forEach(el => el.classList.remove('active'));
+  root.querySelectorAll('.tab[aria-selected]').forEach(el => el.setAttribute('aria-selected', 'false'));
   target.classList.add('active');
   button.classList.add('active');
+  button.setAttribute('aria-selected', 'true');
 }
 """
         (soup.body or soup).append(script)
@@ -259,7 +311,7 @@ function switchTab(id, button) {
 def source_page(route: dict[str, str]) -> str:
     inner, source_description = extract_source(route["source"])
     if route["source"] == "ranking_fgc.html":
-        inner = inner.replace('/scripts/fgc-dynamic.js?v=20260914', '/js/v2/fgc.js?v=5')
+        inner = inner.replace('/scripts/fgc-dynamic.js?v=20260914', '/js/v2/fgc.js?v=6')
     inner_soup = BeautifulSoup(inner, "html.parser")
     for heading in list(inner_soup.find_all("h1")):
         heading.decompose()

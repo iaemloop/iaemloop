@@ -32,6 +32,12 @@ for page in sorted(POSTS.glob("*.html")):
         continue
     full_text = " ".join(soup.stripped_strings)
     full_text += " " + " ".join(str(tag.get(attr, "")) for tag in soup.find_all(True) for attr in ("content", "title", "alt", "aria-label"))
+    if re.search(r"proventos futuros mapeados|presença tanto na carteira|essa dupla confirmação", full_text, re.I):
+        errors.append(f"custody_derived_fact {page.name}")
+    for paragraph in article.select('p,li,tr'):
+        text = paragraph.get_text(' ', strip=True)
+        if re.search(r"BESST|Magic Formula", text, re.I) and re.search(r"\b\d+[\d.,]*\s*(?:ações|ação|unidades?)\b", text, re.I):
+            errors.append(f"method_custody_units {page.name}")
     if EXPLICIT_PRIVATE.search(full_text):
         errors.append(f"explicit_private_custody {page.name}")
     for node in article.find_all(["p", "li", "tr", "div"]):

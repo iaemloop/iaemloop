@@ -12,6 +12,7 @@ assert spec is not None and spec.loader is not None
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 handlers = scripts = 0
+history_routes = []
 for route in module.ROUTES:
     path = ROOT / 'v2' / route['target']
     soup = BeautifulSoup(path.read_text(), 'html.parser')
@@ -21,11 +22,28 @@ for route in module.ROUTES:
         assert sum('function switchTab' in x.get_text() for x in soup.select('script')) == 1, path
     assert not soup.select('.v2-page-intro,.v2-source-ribbon'), path
     assert not soup.select('.v2-imported-content header'), path
+    if route['target'].startswith('rankings/historico/'):
+        history_routes.append(route['target'])
+        tabs = soup.select_one('.v2-history-tabs[role="tablist"]')
+        assert tabs, path
+        static_buttons = tabs.select('button.tab[onclick]')
+        if static_buttons:
+            panels = soup.select('.tab-content')
+            assert len(static_buttons) == len(panels) >= 2, path
+            assert len(soup.select('.tab-content.active')) == 1, path
+            assert len(tabs.select('button.tab.active')) == 1, path
+        else:
+            # Dynamic B3 history keeps its numeric switchTab(idx) handler and data.
+            source_script = '\n'.join(x.get_text() for x in soup.select('script:not([src])'))
+            assert 'tab.onclick = () => switchTab(idx)' in source_script, path
+            assert 'function switchTab(idx)' in source_script, path
     for button in soup.select('button.tab[onclick]'):
         handler = button['onclick']
         assert '\\' not in handler and ', this)' in handler, (path, handler)
         match = re.search(r'switchTab\("([^\"]+)"', handler)
         assert match and soup.find(id=match.group(1)), (path, handler)
+        assert button.get('type') == 'button' and button.get('role') == 'tab', (path, button)
+        assert button.get('aria-controls') == match.group(1), (path, button)
         subprocess.run(['node', '--check', '-'], input=handler, text=True, check=True, capture_output=True)
         handlers += 1
     for script in soup.select('script:not([src])'):
@@ -33,6 +51,13 @@ for route in module.ROUTES:
             continue
         subprocess.run(['node', '--check', '-'], input=script.get_text(), text=True, check=True, capture_output=True)
         scripts += 1
+assert sorted(history_routes) == sorted([
+    'rankings/historico/besst-buffett-b3.html',
+    'rankings/historico/besst-buffett-eua.html',
+    'rankings/historico/magic-formula-b3.html',
+    'rankings/historico/magic-formula-eua.html',
+    'rankings/historico/watchlist-buffett-eua.html',
+])
 legacy = ROOT / 'v2/rankings/watchlist-buffett-eua.html'
 soup = BeautifulSoup(legacy.read_text(), 'html.parser')
 assert soup.find('meta', attrs={'name': 'robots'})['content'] == 'noindex,nofollow,noarchive'
