@@ -49,37 +49,9 @@
 </tbody>
 </table>
 </div>
-<script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const indexadorFilter = document.getElementById('indexador-filter');
-            const prazoFilter = document.getElementById('prazo-filter');
-            const rows = document.querySelectorAll('#ranking-table tbody tr');
 
-            function applyFilters() {
-                const indexador = indexadorFilter.value;
-                const prazo = prazoFilter.value;
-                let visibleCount = 0;
-                rows.forEach(row => {
-                    const cardIndexador = row.getAttribute('data-indexador');
-                    const cardPrazo = row.getAttribute('data-prazo');
-                    const matchIndexador = indexador === 'all' || (indexador === 'Pós-fixado' ? cardIndexador !== 'Pré-fixado' : cardIndexador === indexador);
-                    const matchPrazo = prazo === 'all' || cardPrazo === prazo;
-                    if (matchIndexador && matchPrazo) {
-                        row.style.display = '';
-                        visibleCount++;
-                    } else {
-                        row.style.display = 'none';
-                    }
-                });
-                console.log(`Mostrando ${visibleCount} de ${rows.length} produtos`);
-            }
-
-            indexadorFilter.addEventListener('change', applyFilters);
-            prazoFilter.addEventListener('change', applyFilters);
-        });
-    </script>
  FGCHISTORY: data/fgc_history.json com {id: data_primeira}
-<script src="/scripts/fgc-dynamic.js?v=20261009"></script>
+<script src="/js/v2/fgc.js?v=6"></script>
 <script>
             const backToTop = document.getElementById('backToTop');
             if (backToTop) {

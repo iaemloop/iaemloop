@@ -76,3 +76,21 @@ assert '77%' in text and 'margem de segurança' in text
 assert '51,65' not in text and '+15%' not in text and '2 ações' not in text
 assert not module.public_text('Carteiras brasileiras reais, preço médio R$ 51,65.')
 print('V2_DISCLOSURE_AND_RETENTION_REGRESSIONS_OK')
+
+for name in ('besst-buffett-eua', 'magic-formula-eua'):
+    page = BeautifulSoup((ROOT / f'v2/rankings/historico/{name}.html').read_text(), 'html.parser')
+    assert not page.select('.kpis,.portfolio-v31-title'), name
+    assert len(page.select('.v2-history-tabs button')) == 4, name
+fgc = BeautifulSoup((ROOT / 'v2/rankings/renda-fixa-fgc.html').read_text(), 'html.parser')
+assert fgc.select_one('script[src^="/js/v2/fgc.js?"]')
+assert not fgc.select('script[src^="/scripts/fgc-dynamic.js"]')
+assert 'function applyFilters()' not in str(fgc)
+# Legacy cache-version changes must not reintroduce a relative-fetch loader.
+fgc_route = next(r for r in module.ROUTES if r['source'] == 'ranking_fgc.html')
+original_extract = module.extract_source
+try:
+    module.extract_source = lambda _: ('<script src="/scripts/fgc-dynamic.js?v=future"></script>', 'FGC')
+    assert '/js/v2/fgc.js?' in module.source_page(fgc_route)
+finally:
+    module.extract_source = original_extract
+print('V2_US_HISTORY_AND_FGC_REGRESSIONS_OK')

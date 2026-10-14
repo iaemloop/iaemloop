@@ -310,9 +310,18 @@ function switchTab(id, button) {
 
 def source_page(route: dict[str, str]) -> str:
     inner, source_description = extract_source(route["source"])
-    if route["source"] == "ranking_fgc.html":
-        inner = inner.replace('/scripts/fgc-dynamic.js?v=20260914', '/js/v2/fgc.js?v=6')
     inner_soup = BeautifulSoup(inner, "html.parser")
+    if route["target"] in ("rankings/historico/besst-buffett-eua.html", "rankings/historico/magic-formula-eua.html"):
+        for node in list(inner_soup.select(".kpis, .portfolio-v31-title")):
+            node.decompose()
+    if route["source"] == "ranking_fgc.html":
+        # Match the script path, independent of the legacy cache version.
+        for script in list(inner_soup.find_all("script")):
+            if str(script.get("src", "")).split("?", 1)[0] == "/scripts/fgc-dynamic.js":
+                script["src"] = "/js/v2/fgc.js?v=6"
+            elif "function applyFilters()" in (script.string or script.decode_contents()):
+                script.decompose()  # V2 loader owns the filters after rendering rows.
+
     for heading in list(inner_soup.find_all("h1")):
         heading.decompose()
     inner = str(inner_soup)
