@@ -81,13 +81,13 @@
 
   function prepareImportedTables(root = document) {
     root.querySelectorAll('.v2-imported-content table').forEach(wrapTable);
-    if (document.body.classList.contains('v2-ranking-page')) {
+    if (document.body.matches('.v2-ranking-page, .v2-tabular-page')) {
       root.querySelectorAll('.v2-imported-content table').forEach(annotateRankingTable);
     }
   }
 
   prepareImportedTables();
-  if (document.body.classList.contains('v2-ranking-page')) {
+  if (document.body.matches('.v2-ranking-page, .v2-tabular-page')) {
     const rankingRoot = document.querySelector('.v2-imported-content');
     if (rankingRoot) {
       new MutationObserver(() => prepareImportedTables(rankingRoot)).observe(rankingRoot, {
