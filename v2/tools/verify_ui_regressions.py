@@ -11,6 +11,15 @@ spec = importlib.util.spec_from_file_location('v2build', ROOT / 'v2/tools/build.
 assert spec is not None and spec.loader is not None
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
+expected_nav = [
+    ('Início', '/v2/index.html'),
+    ('Métodos', '/v2/metodos/index.html'),
+    ('Indicadores', '/v2/indicadores/index.html'),
+    ('Rankings', '/v2/rankings/index.html'),
+    ('Radar', '/v2/radar/index.html'),
+    ('Blog', '/v2/blog/index.html'),
+]
+assert module.NAV == expected_nav
 handlers = scripts = 0
 history_routes = []
 for route in module.ROUTES:
@@ -64,6 +73,12 @@ assert soup.find('meta', attrs={'name': 'robots'})['content'] == 'noindex,nofoll
 assert '/v2/rankings/watchlist-buffett-eua.html' not in (ROOT / 'v2/sitemap.xml').read_text()
 assert not BeautifulSoup((ROOT / 'v2/rankings/index.html').read_text(), 'html.parser').select('a[href="/v2/radar/watchlist-buffett-eua.html"]')
 assert (ROOT / 'v2/radar/watchlist-buffett-eua.html').exists()
+for path in (ROOT / 'v2').rglob('*.html'):
+    page = BeautifulSoup(path.read_text(), 'html.parser')
+    nav = page.select('.v2-main-menu a[data-v2-nav]')
+    if nav:
+        actual = [(link.get_text(' ', strip=True), link.get('href')) for link in nav]
+        assert actual == expected_nav, (path, actual)
 print(f'V2_UI_REGRESSIONS_OK source_routes={len(module.ROUTES)} static_handlers={handlers} scripts={scripts}')
 
 indicator = BeautifulSoup((ROOT / 'v2/indicadores/buffett.html').read_text(), 'html.parser')

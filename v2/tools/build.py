@@ -47,10 +47,10 @@ LEGACY_TO_V2.update({
 
 NAV = [
     ("Início", "/v2/index.html"),
-    ("Rankings", "/v2/rankings/index.html"),
-    ("Radar", "/v2/radar/index.html"),
     ("Métodos", "/v2/metodos/index.html"),
     ("Indicadores", "/v2/indicadores/index.html"),
+    ("Rankings", "/v2/rankings/index.html"),
+    ("Radar", "/v2/radar/index.html"),
     ("Blog", "/v2/blog/index.html"),
 ]
 
