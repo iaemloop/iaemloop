@@ -154,7 +154,7 @@
   {
     "produto": "Bancoob 90% CDI",
     "emissor": "Bancoob",
-    "rating": "N/A",
+    "rating": "AAA",
     "indexador": "CDI",
     "tipo": "LCA",
     "rent_bruta": "90% CDI",
@@ -173,7 +173,7 @@
   {
     "produto": "PagBank 109% CDI",
     "emissor": "PagBank",
-    "rating": "N/A",
+    "rating": "AAA",
     "indexador": "CDI",
     "tipo": "CDB",
     "rent_bruta": "109% CDI",
@@ -249,7 +249,7 @@
   {
     "produto": "BV Prefixado 12,52%",
     "emissor": "BV",
-    "rating": "N/A",
+    "rating": "AA",
     "indexador": "Pré-Fixado",
     "tipo": "LCA",
     "rent_bruta": "12,52% a.a.",
@@ -325,7 +325,7 @@
   {
     "produto": "Realize Financeira 108% CDI",
     "emissor": "Realize Financeira",
-    "rating": "N/A",
+    "rating": "Sem rating público",
     "indexador": "CDI",
     "tipo": "CDB",
     "rent_bruta": "108% CDI",
@@ -382,7 +382,7 @@
   {
     "produto": "Tribanco Prefixado 15,07%",
     "emissor": "Tribanco",
-    "rating": "N/A",
+    "rating": "A",
     "indexador": "Pré-Fixado",
     "tipo": "CDB",
     "rent_bruta": "15,07% a.a.",
@@ -439,7 +439,7 @@
   {
     "produto": "NBC Prefixado 14,98%",
     "emissor": "NBC",
-    "rating": "N/A",
+    "rating": "AAA",
     "indexador": "Pré-Fixado",
     "tipo": "CDB",
     "rent_bruta": "14,98% a.a.",
@@ -496,7 +496,7 @@
   {
     "produto": "PagBank 107% CDI",
     "emissor": "PagBank",
-    "rating": "N/A",
+    "rating": "AAA",
     "indexador": "CDI",
     "tipo": "CDB",
     "rent_bruta": "107% CDI",
@@ -591,7 +591,7 @@
   {
     "produto": "PAN Prefixado 14,91%",
     "emissor": "PAN",
-    "rating": "AA",
+    "rating": "AAA",
     "indexador": "Pré-Fixado",
     "tipo": "CDB",
     "rent_bruta": "14,91% a.a.",
@@ -667,7 +667,7 @@
   {
     "produto": "Tribanco Prefixado 14,87%",
     "emissor": "Tribanco",
-    "rating": "N/A",
+    "rating": "A",
     "indexador": "Pré-Fixado",
     "tipo": "CDB",
     "rent_bruta": "14,87% a.a.",
@@ -686,7 +686,7 @@
   {
     "produto": "C6 Bank Prefixado 14,85%",
     "emissor": "C6 Bank",
-    "rating": "N/A",
+    "rating": "A",
     "indexador": "Pré-Fixado",
     "tipo": "CDB",
     "rent_bruta": "14,85% a.a.",
@@ -724,7 +724,7 @@
   {
     "produto": "PAN IPCA + 9,52%",
     "emissor": "PAN",
-    "rating": "AA",
+    "rating": "AAA",
     "indexador": "IPCA+",
     "tipo": "CDB",
     "rent_bruta": "IPCA + 9,52%",
@@ -819,7 +819,7 @@
   {
     "produto": "RNX 106% CDI",
     "emissor": "RNX",
-    "rating": "N/A",
+    "rating": "Sem rating público",
     "indexador": "CDI",
     "tipo": "CDB",
     "rent_bruta": "106% CDI",
@@ -971,7 +971,7 @@
   {
     "produto": "Realize Financeira 105,25% CDI",
     "emissor": "Realize Financeira",
-    "rating": "N/A",
+    "rating": "Sem rating público",
     "indexador": "CDI",
     "tipo": "CDB",
     "rent_bruta": "105,25% CDI",
@@ -1066,7 +1066,7 @@
   {
     "produto": "C6 Bank IPCA + 9,3%",
     "emissor": "C6 Bank",
-    "rating": "N/A",
+    "rating": "A",
     "indexador": "IPCA+",
     "tipo": "CDB",
     "rent_bruta": "IPCA + 9,3%",
@@ -1085,7 +1085,7 @@
   {
     "produto": "C6 Bank Prefixado 14,6%",
     "emissor": "C6 Bank",
-    "rating": "N/A",
+    "rating": "A",
     "indexador": "Pré-Fixado",
     "tipo": "CDB",
     "rent_bruta": "14,6% a.a.",
@@ -1104,7 +1104,7 @@
   {
     "produto": "BV IPCA + 6,85%",
     "emissor": "BV",
-    "rating": "N/A",
+    "rating": "AA",
     "indexador": "IPCA+",
     "tipo": "LCA",
     "rent_bruta": "IPCA + 6,85%",
@@ -1142,7 +1142,7 @@
   {
     "produto": "BV Prefixado 14,58%",
     "emissor": "BV",
-    "rating": "N/A",
+    "rating": "AA",
     "indexador": "Pré-Fixado",
     "tipo": "CDB",
     "rent_bruta": "14,58% a.a.",
@@ -1237,7 +1237,7 @@
   {
     "produto": "PAN 104% CDI",
     "emissor": "PAN",
-    "rating": "AA",
+    "rating": "AAA",
     "indexador": "CDI",
     "tipo": "CDB",
     "rent_bruta": "104% CDI",
@@ -1465,7 +1465,7 @@
   {
     "produto": "PAN 103,5% CDI",
     "emissor": "PAN",
-    "rating": "AA",
+    "rating": "AAA",
     "indexador": "CDI",
     "tipo": "CDB",
     "rent_bruta": "103,5% CDI",
@@ -1522,7 +1522,7 @@
   {
     "produto": "Caruana Financeira CDI + 0,4%",
     "emissor": "Caruana Financeira",
-    "rating": "N/A",
+    "rating": "BBB",
     "indexador": "CDI",
     "tipo": "CDB",
     "rent_bruta": "CDI + 0,4%",
@@ -1636,7 +1636,7 @@
   {
     "produto": "C6 Bank IPCA + 9,1%",
     "emissor": "C6 Bank",
-    "rating": "N/A",
+    "rating": "A",
     "indexador": "IPCA+",
     "tipo": "CDB",
     "rent_bruta": "IPCA + 9,1%",
@@ -1693,7 +1693,7 @@
   {
     "produto": "Tribanco 103% CDI",
     "emissor": "Tribanco",
-    "rating": "N/A",
+    "rating": "A",
     "indexador": "CDI",
     "tipo": "CDB",
     "rent_bruta": "103% CDI",
@@ -1750,7 +1750,7 @@
   {
     "produto": "C6 Bank 102,5% CDI",
     "emissor": "C6 Bank",
-    "rating": "N/A",
+    "rating": "A",
     "indexador": "CDI",
     "tipo": "CDB",
     "rent_bruta": "102,5% CDI",
@@ -1807,7 +1807,7 @@
   {
     "produto": "Alfa 102,5% CDI",
     "emissor": "Alfa",
-    "rating": "A",
+    "rating": "Sem rating público",
     "indexador": "CDI",
     "tipo": "CDB",
     "rent_bruta": "102,5% CDI",
@@ -1845,7 +1845,7 @@
   {
     "produto": "BV IPCA + 9%",
     "emissor": "BV",
-    "rating": "N/A",
+    "rating": "AA",
     "indexador": "IPCA+",
     "tipo": "CDB",
     "rent_bruta": "IPCA + 9%",
@@ -2054,7 +2054,7 @@
   {
     "produto": "Facta Financeira 102% CDI",
     "emissor": "Facta Financeira",
-    "rating": "N/A",
+    "rating": "Sem rating público",
     "indexador": "CDI",
     "tipo": "CDB",
     "rent_bruta": "102% CDI",
@@ -2168,7 +2168,7 @@
   {
     "produto": "PagBank 101,75% CDI",
     "emissor": "PagBank",
-    "rating": "N/A",
+    "rating": "AAA",
     "indexador": "CDI",
     "tipo": "CDB",
     "rent_bruta": "101,75% CDI",
@@ -2339,7 +2339,7 @@
   {
     "produto": "Tribanco 101% CDI",
     "emissor": "Tribanco",
-    "rating": "N/A",
+    "rating": "A",
     "indexador": "CDI",
     "tipo": "CDB",
     "rent_bruta": "101% CDI",
@@ -2453,7 +2453,7 @@
   {
     "produto": "C6 Bank 100,5% CDI",
     "emissor": "C6 Bank",
-    "rating": "N/A",
+    "rating": "A",
     "indexador": "CDI",
     "tipo": "CDB",
     "rent_bruta": "100,5% CDI",
@@ -2662,7 +2662,7 @@
   {
     "produto": "PAN 100% CDI",
     "emissor": "PAN",
-    "rating": "AA",
+    "rating": "AAA",
     "indexador": "CDI",
     "tipo": "CDB",
     "rent_bruta": "100% CDI",
@@ -2833,7 +2833,7 @@
   {
     "produto": "NBC 99% CDI",
     "emissor": "NBC",
-    "rating": "N/A",
+    "rating": "AAA",
     "indexador": "CDI",
     "tipo": "CDB",
     "rent_bruta": "99% CDI",
@@ -2852,7 +2852,7 @@
   {
     "produto": "BV 99% CDI",
     "emissor": "BV",
-    "rating": "N/A",
+    "rating": "AA",
     "indexador": "CDI",
     "tipo": "CDB",
     "rent_bruta": "99% CDI",
@@ -3061,7 +3061,7 @@
   {
     "produto": "Mercado Livre 100% CDI",
     "emissor": "Mercado Livre",
-    "rating": "N/A",
+    "rating": "AAA",
     "indexador": "CDI",
     "tipo": "CDB",
     "rent_bruta": "100% CDI",
@@ -3327,7 +3327,7 @@
   {
     "produto": "Alfa 93% CDI",
     "emissor": "Alfa",
-    "rating": "A",
+    "rating": "Sem rating público",
     "indexador": "CDI",
     "tipo": "CDB",
     "rent_bruta": "93% CDI",
@@ -3365,7 +3365,7 @@
   {
     "produto": "RNX Prefixado 12,1%",
     "emissor": "RNX",
-    "rating": "N/A",
+    "rating": "Sem rating público",
     "indexador": "Pré-Fixado",
     "tipo": "CDB",
     "rent_bruta": "12,1% a.a.",

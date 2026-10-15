@@ -40,7 +40,9 @@
         row.dataset.indexador = String(product.indexador || '').replace(/\s/g, '').toLowerCase();
         row.dataset.prazo = String(product.prazo_tipo || '').toLowerCase();
         const fgc = product.tem_fgc ? badge('FGC', '#16a34a', '#fff') : '';
-        const rating = badge(product.rating || 'N/A', product.rating === 'N/A' ? '#d9e0ea' : '#fff1a8', '#1b2430');
+        const ratingText = String(product.rating || 'Sem rating público');
+        const hasPublicRating = !/^sem rating público$/i.test(ratingText);
+        const rating = badge(ratingText, hasPublicRating ? '#fff1a8' : '#d9e0ea', '#1b2430');
         const indexador = badge(String(product.indexador || '').replace(/\s/g, ''), '#d8f7ff', '#19364d');
         row.innerHTML = `<td><strong>#${safe(product.rank)}</strong></td><td><strong>${safe(product.produto)} ${fgc}</strong><br><small>${safe(product.emissor)}</small></td><td>${rating}</td><td>${indexador}</td><td>${safe(product.tipo)}</td><td>${safe(product.rent_bruta)}</td><td>${safe(product.rent_liquida)}</td><td>${safe(product.minimo)}</td><td>${safe(product.prazo)}<br><small>${safe(product.prazo_tipo)}</small></td>`;
         tbody.appendChild(row);

@@ -30,7 +30,7 @@
   const empty = document.querySelector('.v2-empty-state');
   if (input && list) {
     const cards = [...list.children];
-    input.addEventListener('input', () => {
+    const filterCards = () => {
       const query = input.value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
       let visible = 0;
       cards.forEach((card) => {
@@ -40,6 +40,13 @@
         if (show) visible += 1;
       });
       if (empty) empty.hidden = visible !== 0;
+    };
+    input.addEventListener('input', filterCards);
+    input.addEventListener('search', filterCards);
+    input.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter') return;
+      event.preventDefault();
+      filterCards();
     });
   }
 
