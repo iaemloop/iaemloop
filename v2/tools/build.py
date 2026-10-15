@@ -6,6 +6,7 @@ from __future__ import annotations
 import html
 import json
 import re
+import unicodedata
 from datetime import date, datetime
 from pathlib import Path
 from typing import Any
@@ -16,6 +17,7 @@ from bs4 import BeautifulSoup
 ROOT = Path(__file__).resolve().parents[2]
 V2 = ROOT / "v2"
 SITE = "https://iaemloop.com.br"
+ASSET_VERSION = 7
 
 ROUTES = [
     {"source":"metodologia_barsi.html","target":"rankings/besst-buffett-b3.html","title":"BESST & Buffett B3","category":"Ranking B3","description":"Dividendos, setores perenes, qualidade e valor intrínseco em uma mesma leitura."},
@@ -55,6 +57,43 @@ NAV = [
 
 def clean_text(value: str | None) -> str:
     return re.sub(r"\s+", " ", value or "").strip()
+
+
+def ranking_column_alignment(header: str) -> str:
+    """Return the semantic alignment for a public ranking column."""
+    normalized = unicodedata.normalize("NFKD", clean_text(header)).encode("ascii", "ignore").decode().lower()
+    normalized = re.sub(r"\s+", " ", normalized).strip()
+    if normalized == "#" or re.search(r"\b(?:pos(?:icao)?|rank|ticker|codigo|score)\b", normalized):
+        return "center"
+    if re.search(
+        r"\b(?:empresa|companhia|nome|setor|segmento|industria|produto|emissor|instituicao|"
+        r"rating|indexador|tipo|categoria|observac(?:ao|oes)|ativo)\b",
+        normalized,
+    ):
+        return "left"
+    return "right"
+
+
+def annotate_ranking_tables(soup: BeautifulSoup) -> None:
+    """Apply one semantic alignment contract to static ranking tables."""
+    for table in soup.select("table"):
+        headers = table.select("thead tr:first-child th")
+        if not headers:
+            continue
+        classes = list(dict.fromkeys([*table.get("class", []), "v2-ranking-table"]))
+        table["class"] = classes
+        alignments = []
+        for header in headers:
+            alignment = ranking_column_alignment(header.get_text(" ", strip=True))
+            css_class = f"v2-align-{alignment}"
+            header["class"] = list(dict.fromkeys([*header.get("class", []), css_class]))
+            alignments.append(css_class)
+        for row in table.select("tbody tr"):
+            cells = row.find_all(["td", "th"], recursive=False)
+            if len(cells) != len(alignments):
+                continue
+            for cell, css_class in zip(cells, alignments):
+                cell["class"] = list(dict.fromkeys([*cell.get("class", []), css_class]))
 
 
 PRIVATE_CONTEXT = re.compile(
@@ -162,8 +201,8 @@ def document(title: str, description: str, body: str, extra_head: str = "", body
     title = public_text(title) or "Análise de investimentos"
     description = public_text(description) or "Análise educacional do IA em Loop."
     return f'''<!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{html.escape(description, quote=True)}"><title>{html.escape(title)} | IA em Loop V2</title><link rel="stylesheet" href="/css/v2/observatory.css?v=6"><link rel="stylesheet" href="/css/v2/public.css?v=6">{extra_head}</head>
-<body class="v2-page v2-public {body_class}">{nav_html()}<main>{body}</main>{footer_html()}<script src="/js/v2/public.js?v=6"></script><script src="/js/v2/shell.js?v=6"></script></body></html>'''
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{html.escape(description, quote=True)}"><title>{html.escape(title)} | IA em Loop V2</title><link rel="stylesheet" href="/css/v2/observatory.css?v={ASSET_VERSION}"><link rel="stylesheet" href="/css/v2/public.css?v={ASSET_VERSION}">{extra_head}</head>
+<body class="v2-page v2-public {body_class}">{nav_html()}<main>{body}</main>{footer_html()}<script src="/js/v2/public.js?v={ASSET_VERSION}"></script><script src="/js/v2/shell.js?v={ASSET_VERSION}"></script></body></html>'''
 
 
 def resolve_url(value: str, source: str, attr: str) -> str:
@@ -318,15 +357,19 @@ def source_page(route: dict[str, str]) -> str:
         # Match the script path, independent of the legacy cache version.
         for script in list(inner_soup.find_all("script")):
             if str(script.get("src", "")).split("?", 1)[0] == "/scripts/fgc-dynamic.js":
-                script["src"] = "/js/v2/fgc.js?v=6"
+                script["src"] = f"/js/v2/fgc.js?v={ASSET_VERSION}"
             elif "function applyFilters()" in (script.string or script.decode_contents()):
                 script.decompose()  # V2 loader owns the filters after rendering rows.
 
+    is_ranking = route["target"].startswith(("rankings/", "radar/"))
+    if is_ranking:
+        annotate_ranking_tables(inner_soup)
     for heading in list(inner_soup.find_all("h1")):
         heading.decompose()
     inner = str(inner_soup)
     body = f'<div class="v2-content v2-imported-content"><h1 class="v2-data-title">{html.escape(route["title"])}</h1>{inner}</div>'
-    return document(route["title"], source_description, body, body_class="v2-data-page")
+    body_class = "v2-data-page v2-ranking-page" if is_ranking else "v2-data-page"
+    return document(route["title"], source_description, body, body_class=body_class)
 
 
 def card(title: str, description: str, href: str, tag: str, index: str, accent: str = "blue") -> str:
