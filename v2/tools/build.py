@@ -17,7 +17,7 @@ from bs4 import BeautifulSoup
 ROOT = Path(__file__).resolve().parents[2]
 V2 = ROOT / "v2"
 SITE = "https://iaemloop.com.br"
-ASSET_VERSION = 7
+ASSET_VERSION = 8
 
 ROUTES = [
     {"source":"metodologia_barsi.html","target":"rankings/besst-buffett-b3.html","title":"BESST & Buffett B3","category":"Ranking B3","description":"Dividendos, setores perenes, qualidade e valor intrínseco em uma mesma leitura."},
@@ -30,7 +30,6 @@ ROUTES = [
     {"source":"historico_rankings_magic_formula_dolarizada.html","target":"rankings/historico/magic-formula-eua.html","title":"Histórico Magic Formula EUA","category":"Histórico internacional","description":"Arquivo mensal da Magic Formula dolarizada."},
     {"source":"watchlist_buffett_permanente_eua.html","target":"radar/watchlist-buffett-eua.html","title":"Watchlist Buffett Permanente EUA","category":"Radar internacional","description":"Empresas excepcionais para acompanhar continuamente, sem compra automática."},
     {"source":"historico_watchlist_buffett_permanente_eua.html","target":"rankings/historico/watchlist-buffett-eua.html","title":"Histórico da Watchlist Buffett EUA","category":"Histórico internacional","description":"Mudanças e permanências do radar Buffett ao longo do tempo."},
-    {"source":"metodologia_watchlist_eua.html","target":"metodos/watchlist-buffett.html","title":"Método Watchlist Buffett EUA","category":"Metodologia","description":"Critérios de qualidade, resiliência e acompanhamento da watchlist permanente."},
     {"source":"metodologia_barsi.html","target":"metodos/besst-buffett.html","title":"Método BESST & Buffett","category":"Metodologia","description":"Como combinamos dividendos de setores perenes com qualidade e valor intrínseco."},
     {"source":"greenblatt_ned_landing_original.html","target":"metodos/magic-formula.html","title":"Método Magic Formula","category":"Metodologia","description":"A lógica por trás do ranking de empresas boas negociadas a preços interessantes."},
     {"source":"ranking_fgc.html","target":"rankings/renda-fixa-fgc.html","title":"Renda Fixa FGC","category":"Renda fixa","description":"Produtos protegidos pelo FGC organizados por retorno, prazo e indexador."},
@@ -43,6 +42,7 @@ LEGACY_TO_V2.update({
     "/index.html":"/v2/index.html",
     "/blog/index.html":"/v2/blog/index.html",
     "/area_privada.html":"/v2/area-privada.html?redirect=/privado/v2/index.html",
+    "/metodologia_watchlist_eua.html":"/v2/radar/watchlist-buffett-eua.html",
 })
 
 NAV = [
@@ -362,13 +362,14 @@ def source_page(route: dict[str, str]) -> str:
                 script.decompose()  # V2 loader owns the filters after rendering rows.
 
     is_ranking = route["target"].startswith(("rankings/", "radar/"))
-    if is_ranking:
+    is_tabular = is_ranking or route["target"].startswith("metodos/")
+    if is_tabular:
         annotate_ranking_tables(inner_soup)
     for heading in list(inner_soup.find_all("h1")):
         heading.decompose()
     inner = str(inner_soup)
     body = f'<div class="v2-content v2-imported-content"><h1 class="v2-data-title">{html.escape(route["title"])}</h1>{inner}</div>'
-    body_class = "v2-data-page v2-ranking-page" if is_ranking else "v2-data-page"
+    body_class = "v2-data-page v2-ranking-page" if is_ranking else "v2-data-page v2-tabular-page" if is_tabular else "v2-data-page"
     return document(route["title"], source_description, body, body_class=body_class)
 
 
@@ -483,7 +484,6 @@ def build() -> None:
     method_cards = [
         card("BESST & Buffett","Dividendos, perenidade, moat e margem de segurança.","/v2/metodos/besst-buffett.html","Metodologia","01","lime"),
         card("Magic Formula","Retorno sobre capital e rendimento do lucro.","/v2/metodos/magic-formula.html","Metodologia","02","cyan"),
-        card("Watchlist Buffett EUA","Qualidade permanente sem automatizar compra.","/v2/metodos/watchlist-buffett.html","Metodologia","03","gold"),
     ]
     outputs["metodos/index.html"] = hub("A lógica vem antes da lista.","Metodologias","Entenda o que cada ranking procura, onde pode falhar e como deve ser interpretado.",method_cards,"v2-methods")
     indicator_cards = [
@@ -494,6 +494,14 @@ def build() -> None:
 
     for route in ROUTES:
         outputs[route["target"]] = source_page(route)
+    # Watchlists belong to Radar, not to the catalogue of methodologies.
+    # Preserve the former URL as a non-indexed compatibility redirect.
+    outputs["metodos/watchlist-buffett.html"] = document(
+        "Watchlist Buffett EUA",
+        "A lista de observação agora está no Radar.",
+        '<section class="v2-hub-hero"><h1>Watchlist Buffett EUA</h1><p>Listas de observação ficam no Radar.</p><a href="/v2/radar/watchlist-buffett-eua.html">Abrir Watchlist Buffett EUA</a></section>',
+        extra_head='<meta name="robots" content="noindex,nofollow,noarchive"><link rel="canonical" href="https://iaemloop.com.br/v2/radar/watchlist-buffett-eua.html"><meta http-equiv="refresh" content="0;url=/v2/radar/watchlist-buffett-eua.html">',
+    )
     outputs["blog/index.html"] = blog_index(posts)
     for post in posts:
         outputs["blog/posts/" + str(post["slug"])] = blog_post(post)
@@ -513,7 +521,11 @@ def build() -> None:
     (V2 / "content").mkdir(exist_ok=True)
     (V2 / "content/route-map.json").write_text(json.dumps(route_map, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    sitemap.extend(f"  <url><loc>{SITE}{route}</loc></url>" for route in route_map["routes"] if route != "/v2/rankings/watchlist-buffett-eua.html")
+    compatibility_redirects = {
+        "/v2/rankings/watchlist-buffett-eua.html",
+        "/v2/metodos/watchlist-buffett.html",
+    }
+    sitemap.extend(f"  <url><loc>{SITE}{route}</loc></url>" for route in route_map["routes"] if route not in compatibility_redirects)
     sitemap.append("</urlset>")
     (V2 / "sitemap.xml").write_text("\n".join(sitemap) + "\n", encoding="utf-8")
     print(f"V2_BUILD_OK pages={len(outputs)} blog_posts={len(posts)}")

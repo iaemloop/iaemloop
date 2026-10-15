@@ -55,14 +55,15 @@ for header, expected in EXPECTED_HEADERS.items():
 
 ranking_routes = [
     route for route in build.ROUTES
-    if route["target"].startswith(("rankings/", "radar/"))
+    if route["target"].startswith(("rankings/", "radar/", "metodos/"))
 ]
 assert ranking_routes
 static_tables = static_rows = 0
 for route in ranking_routes:
     path = ROOT / "v2" / route["target"]
     soup = BeautifulSoup(path.read_text(encoding="utf-8"), "html.parser")
-    assert "v2-ranking-page" in soup.body.get("class", []), path
+    page_classes = soup.body.get("class", [])
+    assert "v2-ranking-page" in page_classes or "v2-tabular-page" in page_classes, path
     for table in soup.select(".v2-imported-content table"):
         static_tables += 1
         assert "v2-ranking-table" in table.get("class", []), (path, table.get("class"))
@@ -88,11 +89,19 @@ assert static_rows >= 400, static_rows
 public_js = (ROOT / "js/v2/public.js").read_text(encoding="utf-8")
 assert "MutationObserver" in public_js
 assert "v2-ranking-page" in public_js
+assert "v2-tabular-page" in public_js
 assert "v2-align-center" in public_js and "v2-align-left" in public_js and "v2-align-right" in public_js
 
 public_css = (ROOT / "css/v2/public.css").read_text(encoding="utf-8")
 for alignment in ("center", "left", "right"):
     assert f".v2-ranking-table .v2-align-{alignment}" in public_css
+
+methods_index = BeautifulSoup((ROOT / "v2/metodos/index.html").read_text(encoding="utf-8"), "html.parser")
+assert not methods_index.select('a[href="/v2/metodos/watchlist-buffett.html"]')
+watchlist_redirect = (ROOT / "v2/metodos/watchlist-buffett.html").read_text(encoding="utf-8")
+assert 'content="noindex,nofollow,noarchive"' in watchlist_redirect
+assert '/v2/radar/watchlist-buffett-eua.html' in watchlist_redirect
+assert "/v2/metodos/watchlist-buffett.html" not in (ROOT / "v2/sitemap.xml").read_text(encoding="utf-8")
 
 # Editorial tables are intentionally outside the ranking alignment contract.
 editorial = BeautifulSoup(
