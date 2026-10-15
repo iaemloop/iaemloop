@@ -17,7 +17,7 @@ from bs4 import BeautifulSoup
 ROOT = Path(__file__).resolve().parents[2]
 V2 = ROOT / "v2"
 SITE = "https://iaemloop.com.br"
-ASSET_VERSION = 8
+ASSET_VERSION = 9
 
 ROUTES = [
     {"source":"metodologia_barsi.html","target":"rankings/besst-buffett-b3.html","title":"BESST & Buffett B3","category":"Ranking B3","description":"Dividendos, setores perenes, qualidade e valor intrínseco em uma mesma leitura."},
@@ -53,6 +53,19 @@ NAV = [
     ("Radar", "/v2/radar/index.html"),
     ("Blog", "/v2/blog/index.html"),
 ]
+
+PORTFOLIO_DESTINATIONS = {
+    "rankings/besst-buffett-b3.html": "/privado/carteira_besst.html",
+    "metodos/besst-buffett.html": "/privado/carteira_besst.html",
+    "rankings/historico/besst-buffett-b3.html": "/privado/carteira_besst.html",
+    "rankings/magic-formula-b3.html": "/privado/carteira_magic_formula.html",
+    "metodos/magic-formula.html": "/privado/carteira_magic_formula.html",
+    "rankings/historico/magic-formula-b3.html": "/privado/carteira_magic_formula.html",
+    "rankings/besst-buffett-eua.html": "/privado/carteira_besst_dolarizada.html",
+    "rankings/historico/besst-buffett-eua.html": "/privado/carteira_besst_dolarizada.html",
+    "rankings/magic-formula-eua.html": "/privado/carteira_magic_formula_dolarizada.html",
+    "rankings/historico/magic-formula-eua.html": "/privado/carteira_magic_formula_dolarizada.html",
+}
 
 
 def clean_text(value: str | None) -> str:
@@ -360,6 +373,14 @@ def source_page(route: dict[str, str]) -> str:
                 script["src"] = f"/js/v2/fgc.js?v={ASSET_VERSION}"
             elif "function applyFilters()" in (script.string or script.decode_contents()):
                 script.decompose()  # V2 loader owns the filters after rendering rows.
+
+    portfolio_destination = PORTFOLIO_DESTINATIONS.get(route["target"])
+    if portfolio_destination:
+        login_href = f"/v2/area-privada.html?redirect={portfolio_destination}"
+        for anchor in inner_soup.find_all("a", href=True):
+            href = str(anchor.get("href", ""))
+            if "/area-privada.html" in href or "/area_privada.html" in href:
+                anchor["href"] = login_href
 
     is_ranking = route["target"].startswith(("rankings/", "radar/"))
     is_tabular = is_ranking or route["target"].startswith("metodos/")

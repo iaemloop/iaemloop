@@ -2,6 +2,7 @@
 """Regression gates for the isolated public V2 presentation."""
 from pathlib import Path
 import importlib.util
+import json
 import re
 import subprocess
 from bs4 import BeautifulSoup
@@ -79,11 +80,30 @@ for path in (ROOT / 'v2').rglob('*.html'):
     if nav:
         actual = [(link.get_text(' ', strip=True), link.get('href')) for link in nav]
         assert actual == expected_nav, (path, actual)
+
+portfolio_expectations = {
+    'rankings/besst-buffett-b3.html': '/privado/carteira_besst.html',
+    'metodos/besst-buffett.html': '/privado/carteira_besst.html',
+    'rankings/magic-formula-b3.html': '/privado/carteira_magic_formula.html',
+    'metodos/magic-formula.html': '/privado/carteira_magic_formula.html',
+    'rankings/besst-buffett-eua.html': '/privado/carteira_besst_dolarizada.html',
+    'rankings/magic-formula-eua.html': '/privado/carteira_magic_formula_dolarizada.html',
+}
+for rel, destination in portfolio_expectations.items():
+    page = BeautifulSoup((ROOT / 'v2' / rel).read_text(), 'html.parser')
+    links = [a.get('href') for a in page.find_all('a') if 'Acompanhe a carteira' in a.get_text(' ', strip=True)]
+    assert links == [f'/v2/area-privada.html?redirect={destination}'], (rel, links)
+
+public_js = (ROOT / 'js/v2/public.js').read_text()
+assert "input.addEventListener('search', filterCards)" in public_js
+assert "event.key !== 'Enter'" in public_js
 print(f'V2_UI_REGRESSIONS_OK source_routes={len(module.ROUTES)} static_handlers={handlers} scripts={scripts}')
 
 indicator = BeautifulSoup((ROOT / 'v2/indicadores/buffett.html').read_text(), 'html.parser')
 assert 'valor de mercado das empresas listadas' in indicator.get_text(' ')
 assert indicator.select_one('a[href="#graficos"]') and indicator.select_one('a[href="#metodologia"]')
+assert indicator.select_one('article.chart-card#graficos')
+assert not indicator.select_one('section#graficos')
 fixture = BeautifulSoup('<article><p>O ranking público apresenta ROIC de 77%. Nas carteiras reais brasileiras, são 2 ações com preço médio de R$ 51,65. A análise pública exige margem de segurança.</p><div><b>Variação vs. PM</b><span>+15%</span></div></article>', 'html.parser')
 module.sanitize_public_article(fixture.article)
 text = fixture.get_text(' ')
@@ -100,6 +120,29 @@ fgc = BeautifulSoup((ROOT / 'v2/rankings/renda-fixa-fgc.html').read_text(), 'htm
 assert fgc.select_one('script[src^="/js/v2/fgc.js?"]')
 assert not fgc.select('script[src^="/scripts/fgc-dynamic.js"]')
 assert 'function applyFilters()' not in str(fgc)
+fgc_rows = json.loads((ROOT / 'data/fgc_products.json').read_text())
+assert fgc_rows and not [row for row in fgc_rows if str(row.get('rating', '')).strip() in ('', 'N/A')]
+expected_issuer_ratings = {
+    'Alfa': 'Sem rating público',
+    'Bancoob': 'AAA',
+    'PagBank': 'AAA',
+    'BV': 'AA',
+    'Realize Financeira': 'Sem rating público',
+    'Tribanco': 'A',
+    'NBC': 'AAA',
+    'C6 Bank': 'A',
+    'RNX': 'Sem rating público',
+    'Caruana Financeira': 'BBB',
+    'Facta Financeira': 'Sem rating público',
+    'Mercado Livre': 'AAA',
+    'PAN': 'AAA',
+}
+for issuer, expected in expected_issuer_ratings.items():
+    actual = {row['rating'] for row in fgc_rows if row['emissor'] == issuer}
+    assert actual == {expected}, (issuer, actual, expected)
+updater = (ROOT / 'scripts/update_fgc_ranking.py').read_text()
+assert 'emissor_lower in key_lower' not in updater
+assert 'Emissores sem mapeamento exato de rating' in updater
 # Legacy cache-version changes must not reintroduce a relative-fetch loader.
 fgc_route = next(r for r in module.ROUTES if r['source'] == 'ranking_fgc.html')
 original_extract = module.extract_source

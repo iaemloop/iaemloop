@@ -46,7 +46,61 @@ if os.path.exists(RATINGS_FILE):
         ratings_data = json.load(f)
     print(f"✅ Ratings carregados: {len(ratings_data)} instituições")
 else:
-    print("⚠️  Ratings não encontrados. Campo 'rating' permanecerá 'N/A'")
+    print("⚠️  Ratings não encontrados. Emissores sem classificação ficarão como 'Sem rating público'")
+
+EMISSOR_ALIASES = {
+    'Agibank': 'BANCO AGIBANK S.A.',
+    'BBM': 'BANCO BOCOM BBM S.A.',
+    'BDMG': 'BANCO DE DESENVOLVIMENTO DE MINAS GERAIS S.A. - BDMG',
+    'BMG': 'BANCO BMG S.A.',
+    'BR Partners': 'BR PARTNERS BANCO DE INVESTIMENTO S.A.',
+    'BS2': 'BANCO BS2 S.A.',
+    'BTG Pactual': 'Banco BTG Pactual S.A.',
+    'BV': 'BANCO VOTORANTIM S.A.',
+    'Banco ABC Brasil': 'BANCO ABC BRASIL S.A.',
+    'Banco Industrial do Brasil': 'BANCO INDUSTRIAL DO BRASIL S.A.',
+    'Banco Inter': 'BANCO INTER S.A.',
+    'Banco Seguro': 'BANCO SEGURO S.A.',
+    'Bancoob': 'BANCO COOPERATIVO SICOOB S.A.',
+    'Bari': 'BANCO BARI DE INVESTIMENTOS E FINANCIAMENTOS S.A.',
+    'Bradesco': 'BANCO BRADESCO S.A.',
+    'C6 Bank': 'BANCO C6 S.A.',
+    'Caixa Geral': 'BANCO CAIXA GERAL - BRASIL S.A.',
+    'Caruana Financeira': 'CARUANA S.A. - SOCIEDADE DE CRÉDITO, FINANCIAMENTO E INVESTIMENTO',
+    'China Construction Bank': 'China Construction Bank (Brasil)',
+    'Digimais': 'BANCO DIGIMAIS S.A.',
+    'Fator': 'BANCO FATOR S.A.',
+    'Fibra': 'BANCO FIBRA S.A.',
+    'Haitong': 'HAITONG BANCO DE INVESTIMENTO DO BRASIL S.A.',
+    'Luso Brasileiro': 'BANCO LUSO BRASILEIRO S.A.',
+    'Mercado Livre': 'MERCADO CRÉDITO SOCIEDADE DE CRÉDITO, FINANCIAMENTO E INVESTIMENTO S.A.',
+    'Mercantil': 'BANCO MERCANTIL DO BRASIL S.A. - Banco Mercantil',
+    'NBC': 'NOVO BANCO CONTINENTAL S.A. BANCO MÚLTIPLO',
+    'Omni Banco': 'OMNI BANCO S.A.',
+    'Original': 'BANCO ORIGINAL S.A.',
+    'Ourinvest': 'BANCO OURINVEST S.A.',
+    'PAN': 'BANCO PAN S.A.',
+    'Paraná Banco': 'PARANÁ BANCO S.A.',
+    'Paulista': 'BANCO PAULISTA S.A.',
+    'Pine': 'BANCO PINE S.A.',
+    'Rendimento': 'BANCO RENDIMENTO S.A.',
+    'Rodobens': 'BANCO RODOBENS S.A.',
+    'Topázio': 'BANCO TOPÁZIO S.A.',
+    'Tribanco': 'BANCO TRIÂNGULO S.A.',
+    'Votorantim': 'BANCO VOTORANTIM S.A.',
+}
+
+UNRATED_ISSUERS = {
+    'Alfa',
+    'Facta Financeira',
+    'RNX',
+    'Realize Financeira',
+}
+
+RATING_OVERRIDES = {
+    # Fitch reafirmou AAA(bra) para o PagBank em 19/05/2026.
+    'PagBank': {'fitch': 'AAA', 'moody': None, 'sp': None},
+}
 
 # Carregar dados crus do Yubb
 if not os.path.exists(RAW_FILE):
@@ -57,24 +111,28 @@ if not os.path.exists(RAW_FILE):
 with open(RAW_FILE, 'r', encoding='utf-8') as f:
     produtos_crus = json.load(f)
 
+known_issuers = set(EMISSOR_ALIASES) | set(RATING_OVERRIDES) | UNRATED_ISSUERS | set(ratings_data)
+unknown_issuers = sorted({
+    str(produto.get('emissor', '')).strip()
+    for produto in produtos_crus
+    if produto.get('tem_fgc') and str(produto.get('emissor', '')).strip() not in known_issuers
+})
+if unknown_issuers:
+    raise RuntimeError(
+        'Emissores sem mapeamento exato de rating: ' + ', '.join(unknown_issuers)
+    )
+
 produtos_atualizados = []
 novos_count = 0
 
 def encontrar_rating(emissor):
-    """Busca rating para um emissor no dicionário de ratings"""
-    if not ratings_data:
+    """Busca rating somente por emissor exato ou alias explicitamente validado."""
+    if emissor in RATING_OVERRIDES:
+        return RATING_OVERRIDES[emissor]
+    if emissor in UNRATED_ISSUERS or not ratings_data:
         return None
-    # Busca exata
-    if emissor in ratings_data:
-        return ratings_data[emissor]
-    # Busca case-insensitive e por substring comum
-    emissor_lower = emissor.lower()
-    for key, value in ratings_data.items():
-        key_lower = key.lower()
-        # Se o emissor contém a key ou vice-versa
-        if emissor_lower in key_lower or key_lower in emissor_lower:
-            return value
-    return None
+    canonical = str(EMISSOR_ALIASES.get(emissor, emissor) or '')
+    return ratings_data.get(canonical)
 
 for produto in produtos_crus:
     # A página ranking_fgc.html deve exibir apenas produtos cobertos pelo FGC.
@@ -100,20 +158,16 @@ for produto in produtos_crus:
     rating_info = encontrar_rating(emissor)
     if rating_info:
         # Priorizar: Fitch > Moody's > S&P (ou qualquer disponível)
-        if rating_info.get('fitch'):
+        if rating_info.get('fitch') not in (None, '', '-', 'N/A'):
             produto['rating'] = rating_info['fitch']
-        elif rating_info.get('moody'):
+        elif rating_info.get('moody') not in (None, '', '-', 'N/A'):
             produto['rating'] = rating_info['moody']
-        elif rating_info.get('sp'):
+        elif rating_info.get('sp') not in (None, '', '-', 'N/A'):
             produto['rating'] = rating_info['sp']
         else:
-            # Usar o primeiro valor não nulo
-            for val in rating_info.values():
-                if val:
-                    produto['rating'] = val
-                    break
+            produto['rating'] = 'Sem rating público'
     else:
-        produto['rating'] = 'N/A'
+        produto['rating'] = 'Sem rating público'
     
     produtos_atualizados.append(produto)
 
