@@ -1,6 +1,29 @@
 (function () {
   'use strict';
 
+  // Public navigation must not count as inactivity for an already signed-in
+  // visitor. This timestamp is not authorization; private routes still validate
+  // the session and approval against Supabase under RLS.
+  if (!window.IAEMLOOPAuth && !window.location.pathname.startsWith('/privado/')) {
+    const activityKey = 'iaemloop:last_activity_at';
+    const limit = 12 * 60 * 60 * 1000;
+    let lastWrite = 0;
+    const track = () => {
+      try {
+        const now = Date.now();
+        const last = Number(localStorage.getItem(activityKey));
+        if (!localStorage.getItem('iaemloop-auth-token') || !last || now - last >= limit) return;
+        if (now - lastWrite < 5000) return;
+        localStorage.setItem(activityKey, String(now));
+        lastWrite = now;
+      } catch (_) {}
+    };
+    ['click', 'keydown', 'scroll', 'touchstart', 'mousemove'].forEach((name) => {
+      window.addEventListener(name, track, {passive: true});
+    });
+    track();
+  }
+
   const path = window.location.pathname;
   const items = [
     { href: '/privado/v2/index.html', label: 'Visão geral', icon: '◉', match: /\/privado\/v2\/index\.html$/ },

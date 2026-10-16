@@ -4,50 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow, noarchive">
-  <title>Carteira BESST & Buffett B3 | IA em Loop Privado</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#06080d;--gold:#e4d17f;--border:rgba(228,209,127,.24);--muted:#94a3b8}
-    *{box-sizing:border-box}
-    body{font-family:Inter,system-ui,sans-serif;background:#06080d;color:#e2e8f0;min-height:100vh;margin:0;padding:18px}
-    a{color:var(--gold)}
-    .wrap{max-width:1440px;margin:0 auto}
-    .top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
-    .nav{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-    .pill,.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);background:rgba(228,209,127,.08);color:var(--gold);padding:9px 13px;border-radius:999px;font-weight:800;text-decoration:none}
-    .btn{cursor:pointer}
-    .gate{background:rgba(15,23,42,.86);border:1px solid var(--border);border-radius:18px;padding:24px;margin:18px 0;box-shadow:0 18px 60px rgba(0,0,0,.35)}
-    h1{color:#fff;font-size:clamp(1.8rem,5vw,3rem);margin:0 0 10px}
-    .muted{color:var(--muted);line-height:1.65}
-    .private-content{display:none}
-    html[data-auth="approved"] .private-content{display:block}
-    html[data-auth="approved"] .gate{display:none}
-    .private-status{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-    .frame{width:100%;min-height:calc(100vh - 76px);border:0;border-radius:12px;background:#0c1016;box-shadow:0 18px 60px rgba(0,0,0,.35)}
-  </style>
+  <title>Carteira BESST &amp; Buffett B3 | IA em Loop V2</title>
+  <link rel="stylesheet" href="/css/v2/observatory.css?v=20261016-session2">
+  <link rel="stylesheet" href="/css/v2/custody.css?v=20261016-session2">
 </head>
-<body>
-  <main class="wrap">
-    <div class="top">
-      <div class="nav">
-        <a class="pill" href="index.html">Carteiras em custódia</a>
-      </div>
-      <button class="btn" type="button" onclick="IAEMLOOPAuth.logout()">Sair</button>
-    </div>
+<body class="v2-page v2-custody-page">
+  <main class="wrap custody-shell">
+    <header class="custody-topbar">
+      <a class="v2-brand" href="/privado/v2/index.html"><span class="v2-brand-mark">∞</span><span>IA em Loop<small>Custódia privada · V2</small></span></a>
+      <nav class="custody-actions" aria-label="Navegação da custódia">
+        <a class="pill" href="/privado/v2/minha-carteira.html">Minha carteira</a>
+        <a class="pill" href="/privado/v2/index.html">Observatório</a>
+        <button class="logout" type="button" onclick="IAEMLOOPAuth.logout()">Sair</button>
+      </nav>
+    </header>
 
-    <section class="gate" data-requires-approved-user>
-      <h1>🔒 Login necessário</h1>
-      <p class="muted" data-auth-status>Validando acesso...</p>
-      <a class="btn" href="../area_privada.html?redirect=/privado/carteira_besst.html">Entrar novamente</a>
+    <section class="gate custody-gate" data-requires-approved-user>
+      <p class="v2-kicker">Fronteira privada</p>
+      <h1>Login necessário</h1>
+      <p data-auth-status role="status" aria-live="assertive" aria-atomic="true">Validando sua sessão e aprovação...</p>
+      <a class="btn" href="/v2/area-privada.html?redirect=/privado/carteira_besst.html">Entrar novamente</a>
     </section>
 
-    <section class="private-content" data-private-page="besst_b3">
-      <p class="private-status" data-auth-status></p>
-      <iframe class="frame" title="Carteira BESST & Buffett B3" data-private-frame sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin"></iframe>
+    <section class="private-content custody-workspace" data-private-page="besst_b3">
+      <div class="custody-heading">
+        <div><p class="v2-kicker">Brasil · Qualidade</p><h1>BESST &amp; Buffett B3</h1><p>Custódia individual carregada somente após a validação da sessão aprovada.</p></div>
+        <p class="custody-status" data-auth-status role="status" aria-live="polite">Preparando custódia privada...</p>
+      </div>
+      <div class="custody-frame-wrap" data-custody-loading="true">
+        <div class="custody-loader" aria-hidden="true"><span></span><b>Carregando posições</b></div>
+        <iframe class="frame" title="Carteira BESST &amp; Buffett B3" data-private-frame sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin"></iframe>
+      </div>
     </section>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2"></script>
-  <script src="../js/iaemloop-auth-config.js"></script>
-  <script src="../js/iaemloop-auth.js?v=20261008"></script>
+  <script src="../js/iaemloop-auth-config.js?v=20261016-session2"></script>
+  <script src="../js/v2/auth.js?v=20261016-session2"></script>
+  <script src="../js/v2/custody-shell.js?v=20261016-session2"></script>
 </body>
 </html>

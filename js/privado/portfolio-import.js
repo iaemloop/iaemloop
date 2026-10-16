@@ -153,9 +153,11 @@
         });
         [...byY.keys()].sort((a, b) => b - a).forEach((y) => lines.push(byY.get(y).sort((a, b) => a.x - b.x).map((item) => item.text).join(' ')));
       }
-      return parsePdfText(lines.join('\n'));
+      const rows = parsePdfText(lines.join('\n'));
+      if (!rows.length) throw new Error('Nenhuma posição legível foi encontrada no PDF. PDFs escaneados (somente imagem) não são compatíveis; exporte um PDF com texto ou use CSV, TXT ou XLSX.');
+      return rows;
     }
-    throw new Error('Formato não suportado. Use CSV, XLSX, XLS ou PDF.');
+    throw new Error('Formato não suportado. Use CSV, TXT, XLSX ou PDF.');
   }
 
   function browserController() {

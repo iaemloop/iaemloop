@@ -6,7 +6,7 @@ window.IAEMLOOP_AUTH_CONFIG = {
   approvalEmail: "equipeiaemloop@gmail.com",
   // Sessão deslizante: mantém o login enquanto houver atividade na página.
   // Após 5 minutos sem cliques/toques/teclas/rolagem, força novo login.
-  sessionIdleMinutes: 5,
+  sessionIdleMinutes: 720,
   defaultRedirect: "/privado/index.html",
   pages: {
     hub: "/privado/index.html",

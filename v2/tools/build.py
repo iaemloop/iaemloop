@@ -17,7 +17,7 @@ from bs4 import BeautifulSoup
 ROOT = Path(__file__).resolve().parents[2]
 V2 = ROOT / "v2"
 SITE = "https://iaemloop.com.br"
-ASSET_VERSION = 9
+ASSET_VERSION = 10
 
 ROUTES = [
     {"source":"metodologia_barsi.html","target":"rankings/besst-buffett-b3.html","title":"BESST & Buffett B3","category":"Ranking B3","description":"Dividendos, setores perenes, qualidade e valor intrínseco em uma mesma leitura."},

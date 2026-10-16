@@ -39,7 +39,7 @@ FORBIDDEN_TOKENS = (
     "insertAdjacentHTML",
     "eval(",
 )
-INDEX_LINK_RE = re.compile(r"href\s*=\s*['\"]index\.html(?:[?#][^'\"]*)?['\"]", re.I)
+INDEX_LINK_RE = re.compile(r"href\s*=\s*['\"](?:index\.html|/privado/v2/index\.html)(?:[?#][^'\"]*)?['\"]", re.I)
 
 
 def require(condition: bool, message: str, errors: list[str]) -> None:
