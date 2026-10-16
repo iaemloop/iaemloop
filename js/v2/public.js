@@ -30,12 +30,16 @@
   const empty = document.querySelector('.v2-empty-state');
   if (input && list) {
     const cards = [...list.children];
+    const normalizeSearchText = (value) => value
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase();
     const filterCards = () => {
-      const query = input.value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+      const terms = normalizeSearchText(input.value).trim().split(/\s+/).filter(Boolean);
       let visible = 0;
       cards.forEach((card) => {
-        const haystack = card.textContent.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-        const show = !query || haystack.includes(query);
+        const haystack = normalizeSearchText(card.textContent);
+        const show = terms.every((term) => haystack.includes(term));
         card.hidden = !show;
         if (show) visible += 1;
       });
@@ -48,6 +52,7 @@
       event.preventDefault();
       filterCards();
     });
+    filterCards();
   }
 
   function wrapTable(table) {

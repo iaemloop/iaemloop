@@ -51,6 +51,9 @@ async function fileLike(name, content, type = '') {
   const fakeXlsx = await fileLike('extrato.xlsx', 'not-an-xlsx');
   await assert.rejects(() => importer.rowsFromFile(fakeXlsx), /assinatura XLSX válida/);
 
+  const legacyXls = await fileLike('extrato.xls', 'legacy-binary-sheet');
+  await assert.rejects(() => importer.rowsFromFile(legacyXls), /Use CSV, TXT, XLSX ou PDF/);
+
   console.log('PORTFOLIO_IMPORT_TESTS_OK');
 })().catch((error) => {
   console.error(error);

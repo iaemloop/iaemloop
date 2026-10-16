@@ -8,7 +8,7 @@
 
   const cfg = window.IAEMLOOP_AUTH_CONFIG || {};
   const ACTIVITY_KEY = 'iaemloop:last_activity_at';
-  const DEFAULT_IDLE_MINUTES = 5;
+  const DEFAULT_IDLE_MINUTES = 720;
   const ACTIVITY_WRITE_INTERVAL_MS = 5000;
   let lastActivityWrite = 0;
   let lastActivityMemory = null;
@@ -84,8 +84,9 @@
   }
 
   function idleLimitMs() {
-    const minutes = Number(cfg.sessionIdleMinutes || DEFAULT_IDLE_MINUTES);
-    return Math.max(1, minutes) * 60 * 1000;
+    const configured = Number(cfg.sessionIdleMinutes);
+    const minutes = Number.isFinite(configured) && configured >= 1 ? configured : DEFAULT_IDLE_MINUTES;
+    return minutes * 60 * 1000;
   }
 
   function clearActivity() {
@@ -156,11 +157,8 @@
       });
       return;
     }
-    idleTimer = window.setTimeout(() => {
-      void invalidateSession('Sessão expirada por inatividade. Faça login novamente.', {
-        redirect: true, reason: 'idle'
-      });
-    }, remaining + 50);
+    // Another tab may have renewed activity since this timer was scheduled.
+    idleTimer = window.setTimeout(scheduleIdleExpiry, remaining + 50);
   }
 
   function markActivity(force = false) {
@@ -186,6 +184,12 @@
     ['click', 'keydown', 'scroll', 'touchstart', 'mousemove'].forEach((eventName) => {
       window.addEventListener(eventName, () => markActivity(false), { passive: true });
     });
+    // Persist the last navigation interaction even inside the write throttle.
+    window.addEventListener('pagehide', () => {
+      const last = lastActivityAt();
+      if (last !== null && Date.now() - last < idleLimitMs() && !invalidatingSession) markActivity(true);
+    });
+    window.addEventListener('pageshow', scheduleIdleExpiry);
     window.addEventListener('storage', (event) => {
       if (event.key !== ACTIVITY_KEY) return;
       if (event.newValue === null) {
