@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">GGBR4, Gerdau, margem e fluxo de caixa livre</title>
+  <desc id="desc">Diagrama IA em Loop mostrando GGBR4 entre ranking de outubro, EBITDA, margem e fluxo de caixa livre no segundo trimestre de 2026.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06080D"/><stop offset="0.55" stop-color="#0B1720"/><stop offset="1" stop-color="#19364D"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E4D17F"/><stop offset="1" stop-color="#6EE4EF"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000" flood-opacity="0.35"/></filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1030" cy="100" r="180" fill="#6EE4EF" opacity="0.08"/>
+  <circle cx="130" cy="560" r="220" fill="#E4D17F" opacity="0.07"/>
+  <text x="70" y="82" fill="#E4D17F" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800">IA em Loop • análise educacional</text>
+  <text x="70" y="150" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="850">GGBR4: margem forte</text>
+  <text x="70" y="214" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="850">e o teste do caixa</text>
+  <text x="72" y="266" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="24">O resultado operacional só fecha a tese quando atravessa investimentos e vira caixa livre.</text>
+  <g filter="url(#shadow)"><rect x="70" y="330" width="220" height="130" rx="18" fill="#06080D" fill-opacity="0.72" stroke="#E4D17F" stroke-opacity="0.35"/><text x="96" y="380" fill="#94A3B8" font-family="Inter, Arial" font-size="20" font-weight="700">BESST B3</text><text x="96" y="424" fill="#E4D17F" font-family="Inter, Arial" font-size="34" font-weight="850">#2</text><text x="148" y="424" fill="#CBD5E1" font-family="Inter, Arial" font-size="22">61,0 pontos</text></g>
+  <g filter="url(#shadow)"><rect x="325" y="330" width="220" height="130" rx="18" fill="#06080D" fill-opacity="0.72" stroke="#6EE4EF" stroke-opacity="0.35"/><text x="351" y="380" fill="#94A3B8" font-family="Inter, Arial" font-size="20" font-weight="700">EBITDA ajustado</text><text x="351" y="424" fill="#E4D17F" font-family="Inter, Arial" font-size="34" font-weight="850">R$ 3,43 bi</text></g>
+  <g filter="url(#shadow)"><rect x="580" y="330" width="220" height="130" rx="18" fill="#06080D" fill-opacity="0.72" stroke="#E4D17F" stroke-opacity="0.35"/><text x="606" y="380" fill="#94A3B8" font-family="Inter, Arial" font-size="20" font-weight="700">Margem EBITDA</text><text x="606" y="424" fill="#E4D17F" font-family="Inter, Arial" font-size="34" font-weight="850">19,2%</text></g>
+  <g filter="url(#shadow)"><rect x="835" y="330" width="295" height="130" rx="18" fill="#06080D" fill-opacity="0.72" stroke="#6EE4EF" stroke-opacity="0.35"/><text x="861" y="380" fill="#94A3B8" font-family="Inter, Arial" font-size="20" font-weight="700">Caixa livre 2T26</text><text x="861" y="424" fill="#E4D17F" font-family="Inter, Arial" font-size="34" font-weight="850">R$ 237 mi</text></g>
+  <path d="M114 520 C310 470,455 555,635 508 S935 466,1100 522" fill="none" stroke="url(#gold)" stroke-width="6" stroke-linecap="round" opacity="0.85"/>
+  <text x="70" y="585" fill="#94A3B8" font-family="Inter, Arial" font-size="18">Ranking: retrato de out/26 • Operação: Resultados 2T26 • Conteúdo educacional</text>
+</svg>

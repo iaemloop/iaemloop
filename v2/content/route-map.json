@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15",
+  "generated_at": "2026-10-16",
   "legacy_preserved": true,
   "routes": [
     "/v2/blog/index.html",
@@ -77,6 +77,10 @@
     "/v2/blog/posts/2026-10-02-analise-brk-b-berkshire-lennar-sucessao-capital.html",
     "/v2/blog/posts/2026-10-05-analise-bbas3-banco-do-brasil-credito-valuation.html",
     "/v2/blog/posts/2026-10-07-analise-hon-honeywell-automation-spin-off-valuation.html",
+    "/v2/blog/posts/2026-10-09-analise-sapr11-reprecificacao-tarifa-regulacao.html",
+    "/v2/blog/posts/2026-10-12-analise-amp-ameriprise-patrimonio-fluxos-valuation.html",
+    "/v2/blog/posts/2026-10-14-analise-ggbr4-gerdau-margens-caixa.html",
+    "/v2/blog/posts/2026-10-16-como-avaliar-ranking-mensal-confiavel.html",
     "/v2/blog/posts/selic-caindo-juro-real-focus-2026.html",
     "/v2/index.html",
     "/v2/indicadores/bitcoin.html",
@@ -116,5 +120,5 @@
     "indicador-buffett.html": "/v2/indicadores/buffett.html",
     "bitcoin_landing.html": "/v2/indicadores/bitcoin.html"
   },
-  "blog_posts": 75
+  "blog_posts": 79
 }

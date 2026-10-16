@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Como avaliar a confiabilidade de um ranking mensal</title>
+  <desc id="desc">Diagrama IA em Loop com três datas, dois métodos e um teste de caixa antes de usar um ranking mensal como base para análise.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06080d"/>
+      <stop offset="0.5" stop-color="#101b27"/>
+      <stop offset="1" stop-color="#19364d"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6ee4ef"/>
+      <stop offset="1" stop-color="#e4d17f"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="1040" cy="92" r="230" fill="#6ee4ef" opacity="0.07"/>
+  <circle cx="105" cy="625" r="260" fill="#e4d17f" opacity="0.08"/>
+  <g opacity="0.16" stroke="#e4d17f" stroke-width="1">
+    <path d="M70 115h1060M70 225h1060M70 335h1060M70 445h1060M70 555h1060"/>
+    <path d="M160 65v555M360 65v555M560 65v555M760 65v555M960 65v555"/>
+  </g>
+  <text x="72" y="88" fill="#e4d17f" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="700">IA em Loop • Educação financeira</text>
+  <text x="72" y="150" fill="url(#accent)" font-family="Inter, Arial, sans-serif" font-size="53" font-weight="800">Ranking mensal sob teste</text>
+  <text x="72" y="196" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="24">a posição organiza o estudo — método, datas e caixa sustentam a confiança</text>
+
+  <g transform="translate(72,252)">
+    <rect width="330" height="170" rx="20" fill="#06080d" opacity="0.76" stroke="#e4d17f" stroke-opacity="0.38"/>
+    <text x="24" y="40" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">TRÊS DATAS</text>
+    <text x="24" y="82" fill="#e4d17f" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800">ranking</text>
+    <text x="24" y="116" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="22">balanço • cotação</text>
+    <text x="24" y="148" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="17">fotografias diferentes, leitura explícita</text>
+  </g>
+
+  <g transform="translate(435,252)">
+    <rect width="330" height="170" rx="20" fill="#06080d" opacity="0.76" stroke="#6ee4ef" stroke-opacity="0.34"/>
+    <text x="24" y="40" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">DOIS MÉTODOS</text>
+    <text x="24" y="82" fill="#6ee4ef" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="800">perenidade e valor</text>
+    <text x="24" y="116" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="22">retorno e preço</text>
+    <text x="24" y="148" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="17">convergência não é prova duplicada</text>
+  </g>
+
+  <g transform="translate(798,252)">
+    <rect width="330" height="170" rx="20" fill="#06080d" opacity="0.76" stroke="#e4d17f" stroke-opacity="0.38"/>
+    <text x="24" y="40" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">UM TESTE DE CAIXA</text>
+    <text x="24" y="82" fill="#e4d17f" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800">lucro ≠ caixa livre</text>
+    <text x="24" y="116" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="22">CAPEX • juros • giro</text>
+    <text x="24" y="148" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="17">a ponte precisa ser compreendida</text>
+  </g>
+
+  <g transform="translate(105,488)" filter="url(#glow)">
+    <path d="M0 46H990" fill="none" stroke="#6ee4ef" stroke-width="5" opacity="0.78"/>
+    <circle cx="0" cy="46" r="10" fill="#e4d17f"/>
+    <circle cx="330" cy="46" r="10" fill="#e4d17f"/>
+    <circle cx="660" cy="46" r="10" fill="#e4d17f"/>
+    <circle cx="990" cy="46" r="10" fill="#e4d17f"/>
+  </g>
+  <text x="88" y="590" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="700">Método → temporalidade → integridade → caixa → ciclo → limites</text>
+  <text x="88" y="625" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="18">Um ranking confiável produz perguntas verificáveis, não uma ordem automática de aportes.</text>
+</svg>

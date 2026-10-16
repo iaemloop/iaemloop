@@ -90,9 +90,49 @@
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <priority>0.8</priority>
     <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-10-16-como-avaliar-ranking-mensal-confiavel.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://iaemloop.com.br/assets/blog/2026-10-16-como-avaliar-ranking-mensal-confiavel.svg</image:loc>
+      <image:title>Como avaliar um ranking mensal antes de aportar</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-10-14-analise-ggbr4-gerdau-margens-caixa.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://iaemloop.com.br/assets/blog/2026-10-14-ggbr4-gerdau-margens-caixa.svg</image:loc>
+      <image:title>GGBR4, Gerdau e o teste entre margem e caixa</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-10-12-analise-amp-ameriprise-patrimonio-fluxos-valuation.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://iaemloop.com.br/assets/blog/2026-10-12-amp-ameriprise-patrimonio-fluxos-valuation.svg</image:loc>
+      <image:title>AMP, Ameriprise e o teste entre patrimônio, fluxos e valuation</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://iaemloop.com.br/blog/posts/2026-10-09-analise-sapr11-reprecificacao-tarifa-regulacao.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://iaemloop.com.br/assets/blog/2026-10-09-sapr11-reprecificacao-tarifa-regulacao.svg</image:loc>
+      <image:title>SAPR11, reprecificação, tarifa e regulação</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://iaemloop.com.br/blog/posts/2026-10-07-analise-hon-honeywell-automation-spin-off-valuation.html</loc>
