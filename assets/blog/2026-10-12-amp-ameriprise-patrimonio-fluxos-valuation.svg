@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">AMP, Ameriprise Financial, escala, fluxos e valuation</title>
+  <desc id="desc">Diagrama IA em Loop com rankings, ativos totais, margem, fluxos de gestão de ativos e contrapontos da Ameriprise Financial.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06080d"/>
+      <stop offset="0.48" stop-color="#101b27"/>
+      <stop offset="1" stop-color="#19364d"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6ee4ef"/>
+      <stop offset="1" stop-color="#e4d17f"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="980" cy="110" r="220" fill="#6ee4ef" opacity="0.07"/>
+  <circle cx="150" cy="560" r="230" fill="#e4d17f" opacity="0.08"/>
+  <g opacity="0.18" stroke="#e4d17f" stroke-width="1">
+    <path d="M80 118h1040M80 228h1040M80 338h1040M80 448h1040M80 558h1040"/>
+    <path d="M160 72v545M360 72v545M560 72v545M760 72v545M960 72v545"/>
+  </g>
+  <text x="72" y="92" fill="#e4d17f" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">IA em Loop • Stock EUA</text>
+  <text x="72" y="155" fill="url(#gold)" font-family="Inter, Arial, sans-serif" font-size="58" font-weight="800">AMP: escala versus fluxos</text>
+  <text x="72" y="202" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="25">o P/L remunera a qualidade ou esconde a sensibilidade ao mercado?</text>
+
+  <g transform="translate(72,258)">
+    <rect width="310" height="142" rx="18" fill="#06080d" opacity="0.72" stroke="#e4d17f" stroke-opacity="0.32"/>
+    <text x="24" y="40" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Rankings IA em Loop</text>
+    <text x="24" y="88" fill="#e4d17f" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">#2 / #8</text>
+    <text x="188" y="88" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="21">P/L 13,55x</text>
+    <text x="24" y="120" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="17">BESST &amp; Buffett / Magic Formula</text>
+  </g>
+
+  <g transform="translate(430,258)">
+    <rect width="310" height="142" rx="18" fill="#06080d" opacity="0.72" stroke="#6ee4ef" stroke-opacity="0.30"/>
+    <text x="24" y="40" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Ativos totais 2T26</text>
+    <text x="24" y="88" fill="#6ee4ef" font-family="Inter, Arial, sans-serif" font-size="44" font-weight="800">US$ 1,8 tri</text>
+    <text x="24" y="120" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="17">alta de 14%; receita ajustada +13%</text>
+  </g>
+
+  <g transform="translate(788,258)">
+    <rect width="310" height="142" rx="18" fill="#06080d" opacity="0.72" stroke="#e4d17f" stroke-opacity="0.32"/>
+    <text x="24" y="40" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Teste de qualidade</text>
+    <text x="24" y="88" fill="#e4d17f" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="800">-US$ 6,5 bi</text>
+    <text x="24" y="120" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="17">fluxos líquidos em Asset Management</text>
+  </g>
+
+  <g transform="translate(92,475)" filter="url(#glow)">
+    <path d="M0 70 C130 5, 205 5, 335 70 S535 135, 665 70 S865 5, 995 70" fill="none" stroke="#6ee4ef" stroke-width="6" opacity="0.85"/>
+    <circle cx="0" cy="70" r="9" fill="#e4d17f"/>
+    <circle cx="335" cy="70" r="9" fill="#e4d17f"/>
+    <circle cx="665" cy="70" r="9" fill="#e4d17f"/>
+    <circle cx="995" cy="70" r="9" fill="#e4d17f"/>
+  </g>
+  <text x="92" y="594" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="20">Tese: escala + produtividade + capital; contrapontos: mercado, fluxos e passivos atuariais.</text>
+</svg>

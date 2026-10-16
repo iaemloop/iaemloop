@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Análise educacional IA em Loop sobre SAPR11 e Sanepar: precatório, desconto tarifário, resultado recorrente, investimentos, regulação e risco de reprecificação.">
+    <title>09/10: SAPR11, precatório e o teste regulatório da reprecificação | IA em Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { min-height: 100%; background: #06080D; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(rgba(6, 8, 13, 0.92), rgba(6, 8, 13, 0.92)), url('../../assets/bg-carteiras.jpg') no-repeat center center fixed; background-size: cover; background-color: #06080D; color: #e2e8f0; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 980px; margin: 0 auto; }
+        .back-button { position: fixed; top: 20px; left: 20px; display: inline-flex; align-items: center; gap: 6px; background: rgba(251,191,36,0.9); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; }
+        article { background: rgba(19, 29, 39, 0.78); border-radius: 14px; padding: 34px; border-left: 4px solid #19364D; border: 1px solid rgba(228, 209, 127, 0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h1 { overflow-wrap: anywhere; hyphens: auto; font-size: clamp(2rem, 5vw, 3.05rem); line-height: 1.08; font-weight: 800; background: linear-gradient(135deg, #6EE4EF, #E4D17F); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; }
+        .dek { color: #cbd5e1; font-size: 1.12rem; line-height: 1.75; margin-bottom: 22px; }
+        .meta { display: flex; gap: 8px; flex-wrap: wrap; color: #94a3b8; font-size: 0.86rem; margin-bottom: 30px; }
+        .meta span { background: rgba(228, 209, 127, 0.15); color: #E4D17F; padding: 4px 10px; border-radius: 999px; font-weight: 600; border: 1px solid rgba(228, 209, 127, 0.2); }
+        h2 { color: #fff; font-size: 1.45rem; margin: 34px 0 12px; border-bottom: 2px solid #19364D; padding-bottom: 10px; }
+        h3 { color: #E4D17F; font-size: 1.08rem; margin: 22px 0 8px; }
+        p, li { overflow-wrap: anywhere; color: #cbd5e1; line-height: 1.78; font-size: 1.02rem; }
+        p { margin-bottom: 16px; } ul { padding-left: 22px; margin-bottom: 18px; } li { margin-bottom: 8px; } strong { color: #fff; }
+        a { color: #E4D17F; }
+        .hero-chart { display: block; max-width: 100%; height: auto; width: 100%; border-radius: 14px; border: 1px solid rgba(228, 209, 127, 0.18); background: rgba(6,8,13,.35); box-shadow: 0 12px 30px rgba(0,0,0,.25); margin: 20px 0 8px; }
+        .caption { color: #94a3b8; font-size: .9rem; margin-bottom: 24px; }
+        .callout { background: rgba(6, 8, 13, 0.5); border-left: 4px solid #E4D17F; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .warning { background: rgba(127,29,29,.25); border-left: 4px solid #f87171; border-radius: 8px; padding: 16px; margin: 24px 0; }
+        .scorecard { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+        .scorecard div, .matrix div { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 14px; }
+        .scorecard span { display: block; color: #94a3b8; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; }
+        .scorecard strong { color: #E4D17F; font-size: 1.1rem; }
+        .matrix { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 18px 0; }
+        .mini-table { width:100%; border-collapse: collapse; margin: 18px 0; overflow:hidden; border-radius:10px; }
+        .mini-table th, .mini-table td { padding: 11px 10px; border-bottom: 1px solid rgba(255,255,255,.08); text-align:left; color:#cbd5e1; vertical-align: top; }
+        .mini-table th { color:#E4D17F; background:rgba(6,8,13,.55); font-size:.92rem; }
+        .source-note { background: rgba(6, 8, 13, 0.45); border: 1px solid rgba(228, 209, 127, 0.18); border-radius: 8px; padding: 16px; margin-top: 28px; color: #94a3b8; font-size: 0.94rem; }
+        .footer { text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .editorial-note { display:block; margin-top:8px; font-size:.78rem; color:#526173; }
+        @media (max-width: 768px) { body { padding: 72px 16px 32px; } article { padding: 24px; } .scorecard, .matrix { grid-template-columns: 1fr; } .mini-table { display:block; overflow-x:auto; } }
+    </style>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"09/10: SAPR11, precatório e o teste regulatório da reprecificação","description":"Análise educacional IA em Loop sobre SAPR11 e Sanepar: precatório, desconto tarifário, resultado recorrente, investimentos, regulação e risco de reprecificação.","image":"https://iaemloop.com.br/assets/blog/2026-10-09-sapr11-reprecificacao-tarifa-regulacao.svg","datePublished":"2026-10-09","dateModified":"2026-10-16","author":{"@type":"Organization","name":"IA em Loop"},"publisher":{"@type":"Organization","name":"IA em Loop"},"mainEntityOfPage":"https://iaemloop.com.br/blog/posts/2026-10-09-analise-sapr11-reprecificacao-tarifa-regulacao.html","keywords":["SAPR11","Sanepar","saneamento","precatório","tarifa","Agepar","regulação","reprecificação"]}</script>
+</head>
+<body><a href="../index.html" class="back-button" title="Voltar ao blog">← Blog</a><main class="container"><article>
+<h1>09/10: SAPR11, precatório e o teste regulatório da reprecificação</h1>
+<p class="dek">A Sanepar recebeu um recurso extraordinário bilionário, passou a aplicar desconto no consumo básico e reconheceu um passivo regulatório relevante. Para analisar SAPR11, o desafio é não confundir caixa excepcional, lucro recorrente e decisão política.</p>
+<div class="meta"><span>09/10/2026</span><span>Análise educacional</span><span>SAPR11</span><span>Sanepar</span><span>Ação brasileira</span><span>Saneamento</span><span>Regulação</span><span>8 min</span></div>
+<img class="hero-chart" src="../../assets/blog/2026-10-09-sapr11-reprecificacao-tarifa-regulacao.svg" alt="Diagrama IA em Loop sobre SAPR11, precatório, desconto tarifário, lucro ajustado e risco regulatório">
+<p class="caption">A leitura exige quatro caixas separadas: recurso extraordinário, destinação regulatória, desempenho operacional e expectativas incorporadas na reprecificação.</p>
+
+<h2>Resposta curta: há melhora operacional, mas o precatório não é lucro recorrente</h2>
+<p>A reprecificação de SAPR11 pode refletir uma combinação de resultado operacional, entrada extraordinária de caixa e mudança de percepção sobre riscos. Sem uma manifestação oficial que explique o movimento diário da cotação, porém, não é possível atribuir a alta a um único gatilho.</p>
+<p>O ponto verificável é que o caso envolve cerca de <strong>R$ 4,0 bilhões</strong> ligados a um precatório da União, com ingresso em caixa anterior à data deste texto. A Agepar determinou a destinação integral desse valor à modicidade tarifária: metade por meio de descontos nas faturas e metade por investimentos não onerosos para os usuários. Portanto, o recurso reforça a liquidez, mas não deve ser tratado como uma nova fonte recorrente de receita ou lucro.</p>
+<div class="scorecard"><div><span>Valor em discussão</span><strong>R$ 4,0 bi</strong></div><div><span>Desconto no consumo básico</span><strong>mínimo de 25%</strong></div><div><span>Faixa alcançada</span><strong>até 5 m³</strong></div><div><span>Destinação a descontos</span><strong>50% do valor</strong></div><div><span>Investimentos não onerosos</span><strong>50% do valor</strong></div><div><span>Lucro ajustado 2T26</span><strong>R$ 447,5 mi</strong></div></div>
+
+<h2>O que aconteceu com o precatório e a tarifa</h2>
+<p>Em junho, a Sanepar informou a deliberação da Agepar sobre a destinação integral do recurso à modicidade tarifária. Em agosto, após o indeferimento de recurso administrativo, a companhia comunicou a prorrogação por 30 dias da implementação do desconto e reiterou que continuaria a adotar medidas judiciais.</p>
+<p>Nas contas emitidas a partir de outubro, o desconto passou a ser aplicado automaticamente à faixa de consumo de até 5 m³ por unidade. Segundo a Agepar, o percentual é de <strong>no mínimo 25%</strong>, com possibilidade de variação conforme a categoria tarifária e o padrão de consumo. Isso torna inadequado multiplicar uma única alíquota por toda a receita da companhia para estimar impacto econômico.</p>
+<table class="mini-table"><thead><tr><th>Elemento</th><th>Fato confirmado</th><th>Leitura para a análise</th></tr></thead><tbody><tr><td>Entrada de caixa</td><td>aproximadamente R$ 4,0 bilhões</td><td>evento extraordinário, não repetível por natureza</td></tr><tr><td>Desconto</td><td>mínimo de 25% na faixa até 5 m³</td><td>não equivale a 25% de toda a receita tarifária</td></tr><tr><td>Destinação</td><td>50% em descontos e 50% em investimentos não onerosos</td><td>o benefício econômico depende do tratamento regulatório completo</td></tr><tr><td>Disputa</td><td>a companhia informou manutenção de medidas judiciais</td><td>há incerteza jurídica e regulatória a acompanhar</td></tr></tbody></table>
+
+<h2>O resultado contábil exige duas leituras</h2>
+<p>No 2T26, a Sanepar reportou <strong>prejuízo líquido contábil de R$ 505,2 milhões</strong>. O próprio release atribuiu a diferença em relação ao desempenho ajustado principalmente à complementação da obrigação regulatória ligada ao precatório e à não contabilização de benefícios fiscais de juros sobre capital próprio.</p>
+<p>Excluídos os itens extraordinários destacados pela administração, o trimestre mostrou <strong>lucro líquido ajustado de R$ 447,5 milhões</strong>. O <strong>EBITDA reportado foi de R$ 540,3 milhões</strong> e o <strong>caixa operacional, de R$ 657,5 milhões</strong>. A leitura prudente é dupla: o prejuízo contábil isolado não descreve toda a operação, mas o lucro ajustado também não elimina o compromisso regulatório nem transforma o precatório em criação recorrente de valor.</p>
+<div class="callout"><strong>Leitura prática do IA em Loop</strong><br>A pergunta útil não é se o precatório “vale” R$ 4 bilhões para os acionistas. É quanto da operação recorrente consegue crescer, gerar caixa e remunerar os investimentos depois de considerar a destinação regulatória, a disputa jurídica e as metas de universalização.</div>
+
+<h2>Favoráveis e desfavoráveis</h2><div class="matrix"><div><h3>Favoráveis</h3><p>• Serviço essencial com demanda estrutural.</p><p>• 2T26 ajustado mostrou lucro e geração operacional de caixa relevantes.</p><p>• Parte do precatório será aplicada em investimentos não onerosos aos usuários.</p><p>• O desconto melhora a acessibilidade do consumo básico de água.</p><p>• A separação entre números contábeis e ajustados permite acompanhar melhor a operação.</p></div><div><h3>Desfavoráveis</h3><p>• O precatório é extraordinário e não sustenta crescimento recorrente.</p><p>• A destinação do recurso é objeto de decisão regulatória e disputa judicial.</p><p>• Controle estatal mantém risco político e de alocação de capital.</p><p>• Universalização exige investimentos elevados e execução de longo prazo.</p><p>• Uma alta rápida pode antecipar benefícios antes de eles aparecerem no fluxo de caixa recorrente.</p></div></div>
+
+<h2>O que precisa ser monitorado</h2>
+<table class="mini-table"><thead><tr><th>Ponto</th><th>O que acompanhar</th><th>Por que importa</th></tr></thead><tbody><tr><td>Tarifa</td><td>aplicação efetiva do desconto e próximas decisões da Agepar</td><td>define a velocidade e a forma da modicidade tarifária</td></tr><tr><td>Investimentos</td><td>obras financiadas sem repasse tarifário e execução do capex</td><td>conecta o recurso extraordinário à qualidade e à expansão do serviço</td></tr><tr><td>Operação</td><td>volume, receita, custos, EBITDA e caixa sem efeitos extraordinários</td><td>mostra a capacidade recorrente do negócio</td></tr><tr><td>Judicialização</td><td>andamento das medidas anunciadas pela companhia</td><td>pode alterar tratamento, cronograma ou percepção de risco</td></tr><tr><td>Regulação</td><td>metodologia tarifária e revisão periódica</td><td>afeta retorno regulatório e previsibilidade dos investimentos</td></tr></tbody></table>
+
+<h2>Conclusão</h2>
+<p>A resposta para a pergunta do post é: <strong>a reprecificação só se sustenta se a operação recorrente confirmar crescimento, caixa e disciplina de investimentos</strong>. O precatório melhora a posição financeira no curto prazo, mas tem destinação regulatória definida e não pode ser capitalizado como lucro permanente.</p>
+<p>SAPR11 continua sendo um estudo relevante sobre empresas essenciais e reguladas: o mesmo evento pode beneficiar usuários, financiar infraestrutura, produzir efeitos contábeis expressivos e abrir uma disputa sobre retorno econômico. A margem de segurança não nasce da alta ou da queda da cotação isoladamente; ela depende da distância entre expectativas e resultados recorrentes verificáveis.</p>
+<div class="warning"><strong>Aviso importante:</strong> este conteúdo é educacional e não representa recomendação personalizada de investimento, compra ou venda. Ações envolvem risco de mercado, liquidez, juros, regulação, decisões do controlador, execução de investimentos e resultados específicos da empresa.</div>
+<div class="source-note"><strong>Fontes e critérios:</strong> <a href="https://ri.sanepar.com.br/docs/Fato-Relevante-Sanepar-2026-06-23-HKd9Bg6R.pdf">Fato Relevante da Sanepar de 23/06/2026</a>; <a href="https://ri.sanepar.com.br/docs/Fato-Relevante-Sanepar-2026-08-19-TPKWpwf7.pdf">Fato Relevante de 19/08/2026</a>; <a href="https://www.agepar.pr.gov.br/Noticia/Conta-da-Sanepar-tera-desconto-de-25-partir-de-outubro">comunicado da Agepar sobre o desconto</a>; <a href="https://www.parana.pr.gov.br/aen/Noticia/Sanepar-aplica-desconto-automatico-na-tarifa-e-lanca-fatura-mais-clara-e-moderna">Agência Estadual de Notícias sobre a aplicação em outubro</a>; e <a href="https://ri.sanepar.com.br/docs/Sanepar-2026-06-30-LhNKMDPD.pdf">release de resultados do 2T26</a>. Os valores ajustados seguem as conciliações apresentadas pela companhia. Não foi estimado impacto econômico do desconto além do que as fontes oficiais permitem concluir.</div>
+</article><div class="footer">IA em Loop • Educação financeira com dados, método e transparência<span class="editorial-note">Edição referente a 09/10/2026; revisão editorial e de fontes em 16/10/2026.</span></div></main></body></html>
