@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">GDDY e a infraestrutura para agentes de IA</title>
+  <desc id="desc">Fluxo educacional entre ideia criada por inteligência artificial, domínio e identidade, hospedagem, comércio e comprovação por receita e caixa.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07101a"/><stop offset="1" stop-color="#102b3b"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#6ee4ef"/><stop offset="1" stop-color="#e4d17f"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000" flood-opacity=".35"/></filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="1010" cy="110" r="170" fill="#6ee4ef" opacity=".06"/>
+  <circle cx="150" cy="620" r="240" fill="#e4d17f" opacity=".05"/>
+  <text x="72" y="82" fill="#6ee4ef" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="700" letter-spacing="3">IA EM LOOP · GDDY · 19/10/2026</text>
+  <text x="72" y="145" fill="#ffffff" font-family="Inter,Arial,sans-serif" font-size="46" font-weight="800">Da ideia criada por IA</text>
+  <text x="72" y="200" fill="#e4d17f" font-family="Inter,Arial,sans-serif" font-size="46" font-weight="800">à operação online</text>
+  <text x="72" y="242" fill="#b8c6d3" font-family="Inter,Arial,sans-serif" font-size="22">A tese só se confirma quando integração vira reservas, retenção e caixa.</text>
+  <g filter="url(#shadow)" font-family="Inter,Arial,sans-serif">
+    <g transform="translate(72 300)"><rect width="190" height="170" rx="18" fill="#101d29" stroke="#6ee4ef" stroke-opacity=".55"/><text x="22" y="40" fill="#6ee4ef" font-size="18" font-weight="700">01 · CRIAR</text><text x="22" y="84" fill="#fff" font-size="25" font-weight="800">Código + IA</text><text x="22" y="120" fill="#a9bac8" font-size="17">agentes e</text><text x="22" y="145" fill="#a9bac8" font-size="17">desenvolvedores</text></g>
+    <g transform="translate(286 300)"><rect width="190" height="170" rx="18" fill="#101d29" stroke="#6ee4ef" stroke-opacity=".45"/><text x="22" y="40" fill="#6ee4ef" font-size="18" font-weight="700">02 · IDENTIFICAR</text><text x="22" y="84" fill="#fff" font-size="25" font-weight="800">Domínio + DNS</text><text x="22" y="120" fill="#a9bac8" font-size="17">descoberta, confiança</text><text x="22" y="145" fill="#a9bac8" font-size="17">e autorização</text></g>
+    <g transform="translate(500 300)"><rect width="190" height="170" rx="18" fill="#101d29" stroke="#e4d17f" stroke-opacity=".45"/><text x="22" y="40" fill="#e4d17f" font-size="18" font-weight="700">03 · PUBLICAR</text><text x="22" y="84" fill="#fff" font-size="25" font-weight="800">Hosting + API</text><text x="22" y="120" fill="#a9bac8" font-size="17">segredos, logs,</text><text x="22" y="145" fill="#a9bac8" font-size="17">HTTPS e banco</text></g>
+    <g transform="translate(714 300)"><rect width="190" height="170" rx="18" fill="#101d29" stroke="#e4d17f" stroke-opacity=".55"/><text x="22" y="40" fill="#e4d17f" font-size="18" font-weight="700">04 · OPERAR</text><text x="22" y="84" fill="#fff" font-size="25" font-weight="800">E-mail + comércio</text><text x="22" y="120" fill="#a9bac8" font-size="17">catálogo, pedidos</text><text x="22" y="145" fill="#a9bac8" font-size="17">e clientes</text></g>
+    <g transform="translate(928 300)"><rect width="200" height="170" rx="18" fill="#142532" stroke="url(#accent)" stroke-width="2"/><text x="22" y="40" fill="#fff" font-size="18" font-weight="700">05 · COMPROVAR</text><text x="22" y="84" fill="#e4d17f" font-size="25" font-weight="800">Receita + caixa</text><text x="22" y="120" fill="#a9bac8" font-size="17">adoção, ARPU,</text><text x="22" y="145" fill="#a9bac8" font-size="17">margem e retenção</text></g>
+  </g>
+  <g fill="none" stroke="#6ee4ef" stroke-width="4" opacity=".65"><path d="M262 385h24"/><path d="M476 385h24"/><path d="M690 385h24"/><path d="M904 385h24"/></g>
+  <g fill="#6ee4ef"><path d="M282 378l10 7-10 7z"/><path d="M496 378l10 7-10 7z"/><path d="M710 378l10 7-10 7z"/><path d="M924 378l10 7-10 7z"/></g>
+  <rect x="72" y="520" width="1056" height="90" rx="16" fill="#0b1620" stroke="#ffffff" stroke-opacity=".1"/>
+  <text x="98" y="556" fill="#e4d17f" font-family="Inter,Arial,sans-serif" font-size="19" font-weight="700">O TESTE DE 29/10</text>
+  <text x="98" y="588" fill="#d8e1e8" font-family="Inter,Arial,sans-serif" font-size="20">Aplicações e Comércio · clientes e ARPU · margem · fluxo de caixa livre · dívida e recompras</text>
+  <text x="72" y="646" fill="#708696" font-family="Inter,Arial,sans-serif" font-size="16">Conteúdo educacional. Não é recomendação de investimento.</text>
+</svg>

@@ -37,16 +37,36 @@ ROUTES = [
     {"source":"bitcoin_landing.html","target":"indicadores/bitcoin.html","title":"Guia Bitcoin","category":"Ativo digital","description":"Preço, ciclos e indicadores para estudar Bitcoin sem atalhos narrativos."},
 ]
 
-LEGACY_TO_V2 = {"/" + r["source"]: "/v2/" + r["target"] for r in ROUTES}
-LEGACY_TO_V2.update({
-    "/index.html":"/v2/index.html",
-    "/blog/index.html":"/v2/blog/index.html",
-    "/area_privada.html":"/v2/area-privada.html?redirect=/privado/v2/index.html",
-    "/metodologia_watchlist_eua.html":"/v2/radar/watchlist-buffett-eua.html",
-})
+LEGACY_REDIRECTS = {
+    "/metodologia_barsi.html": "/v2/metodos/besst-buffett.html",
+    "/historico_rankings.html": "/v2/rankings/historico/besst-buffett-b3.html",
+    "/greenblatt_ned_landing_original.html": "/v2/metodos/magic-formula.html",
+    "/historico_rankings_magic_formula.html": "/v2/rankings/historico/magic-formula-b3.html",
+    "/ranking_besst_buffett_dolarizado.html": "/v2/rankings/besst-buffett-eua.html",
+    "/historico_rankings_dolarizados.html": "/v2/rankings/historico/besst-buffett-eua.html",
+    "/ranking_magic_formula_dolarizada.html": "/v2/rankings/magic-formula-eua.html",
+    "/historico_rankings_magic_formula_dolarizada.html": "/v2/rankings/historico/magic-formula-eua.html",
+    "/watchlist_buffett_permanente_eua.html": "/v2/radar/watchlist-buffett-eua.html",
+    "/historico_watchlist_buffett_permanente_eua.html": "/v2/rankings/historico/watchlist-buffett-eua.html",
+    "/ranking_fgc.html": "/v2/rankings/renda-fixa-fgc.html",
+    "/indicador-buffett.html": "/v2/indicadores/buffett.html",
+    "/bitcoin_landing.html": "/v2/indicadores/bitcoin.html",
+    "/blog/index.html": "/v2/blog/index.html",
+    "/area_privada.html": "/v2/area-privada.html?redirect=/privado/v2/index.html",
+    "/metodologia_watchlist_eua.html": "/v2/radar/watchlist-buffett-eua.html",
+    "/barsi.html": "/v2/metodos/besst-buffett.html",
+    "/landpage_final.html": "/v2/metodos/besst-buffett.html",
+    "/greenblatt.html": "/v2/metodos/magic-formula.html",
+    "/greenblatt_landing.html": "/v2/metodos/magic-formula.html",
+    "/greenblatt_ned_landing.html": "/v2/metodos/magic-formula.html",
+    "/bitcoin_landpage.html": "/v2/indicadores/bitcoin.html",
+}
+
+LEGACY_TO_V2 = dict(LEGACY_REDIRECTS)
+LEGACY_TO_V2["/index.html"] = "/"
 
 NAV = [
-    ("Início", "/v2/index.html"),
+    ("Início", "/"),
     ("Métodos", "/v2/metodos/index.html"),
     ("Indicadores", "/v2/indicadores/index.html"),
     ("Rankings", "/v2/rankings/index.html"),
@@ -200,22 +220,60 @@ def sanitize_public_article(article: BeautifulSoup) -> None:
 def nav_html() -> str:
     links = "".join(f'<a href="{href}" data-v2-nav>{label}</a>' for label, href in NAV)
     return f'''<header class="v2-site-nav v2-global-nav">
-      <a class="v2-brand" href="/v2/index.html" aria-label="IA em Loop V2"><span class="v2-brand-mark">∞</span><span>IA em Loop<small>Investment observatory · V2</small></span></a>
+      <a class="v2-brand" href="/" aria-label="IA em Loop"><span class="v2-brand-mark">∞</span><span>IA em Loop<small>Investment observatory</small></span></a>
       <button class="v2-menu-toggle" type="button" aria-expanded="false" aria-controls="v2-main-menu"><span></span><span></span><span></span><b class="sr-only">Abrir menu</b></button>
       <nav class="v2-main-menu" id="v2-main-menu" aria-label="Navegação principal">{links}<a class="v2-primary" href="/v2/area-privada.html?redirect=/privado/v2/index.html">Área privada</a></nav>
     </header>'''
 
 
 def footer_html() -> str:
-    return '''<footer class="v2-footer"><div><a class="v2-brand" href="/v2/index.html"><span class="v2-brand-mark">∞</span><span>IA em Loop<small>Dados, método e skin in the game</small></span></a><p>Conteúdo educacional. Não é recomendação de investimento.</p></div><nav aria-label="Links do rodapé"><a href="/v2/rankings/index.html">Rankings</a><a href="/v2/metodos/index.html">Metodologias</a><a href="/v2/indicadores/index.html">Indicadores</a><a href="/v2/blog/index.html">Blog</a><a href="/index.html">Visual clássico</a></nav></footer>'''
+    return '''<footer class="v2-footer"><div><a class="v2-brand" href="/"><span class="v2-brand-mark">∞</span><span>IA em Loop<small>Dados, método e skin in the game</small></span></a><p>Conteúdo educacional. Não é recomendação de investimento.</p></div><nav aria-label="Links do rodapé"><a href="/v2/rankings/index.html">Rankings</a><a href="/v2/metodos/index.html">Metodologias</a><a href="/v2/indicadores/index.html">Indicadores</a><a href="/v2/blog/index.html">Blog</a></nav></footer>'''
 
 
 def document(title: str, description: str, body: str, extra_head: str = "", body_class: str = "") -> str:
     title = public_text(title) or "Análise de investimentos"
     description = public_text(description) or "Análise educacional do IA em Loop."
     return f'''<!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{html.escape(description, quote=True)}"><title>{html.escape(title)} | IA em Loop V2</title><link rel="stylesheet" href="/css/v2/observatory.css?v={ASSET_VERSION}"><link rel="stylesheet" href="/css/v2/public.css?v={ASSET_VERSION}">{extra_head}</head>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{html.escape(description, quote=True)}"><title>{html.escape(title)} | IA em Loop</title><link rel="stylesheet" href="/css/v2/observatory.css?v={ASSET_VERSION}"><link rel="stylesheet" href="/css/v2/public.css?v={ASSET_VERSION}">{extra_head}</head>
 <body class="v2-page v2-public {body_class}">{nav_html()}<main>{body}</main>{footer_html()}<script src="/js/v2/public.js?v={ASSET_VERSION}"></script><script src="/js/v2/shell.js?v={ASSET_VERSION}"></script></body></html>'''
+
+
+def ensure_canonical(content: str, canonical_path: str) -> str:
+    """Add one canonical URL unless a compatibility page already declares one."""
+    if re.search(r"(?is)<link\b(?=[^>]*\brel=[\"']canonical[\"'])[^>]*>", content):
+        return content
+    canonical = f'<link rel="canonical" href="{SITE}{canonical_path}">'
+    return re.sub(r"(?i)</head>", canonical + "</head>", content, count=1)
+
+
+def apply_legacy_redirect(path: Path, destination: str) -> None:
+    """Keep legacy HTML as build input while redirecting visitors to V2."""
+    if not path.exists():
+        return
+    text = path.read_text(encoding="utf-8")
+    head_match = re.search(r"(?is)<head\b[^>]*>(.*?)</head>", text)
+    if head_match is None:
+        return
+    head = head_match.group(1)
+    head = re.sub(r"(?is)\s*<!-- V2_COMPAT_START -->.*?<!-- V2_COMPAT_END -->\s*", "\n", head)
+    head = re.sub(r"(?is)\s*<link\b(?=[^>]*\brel=[\"']canonical[\"'])[^>]*>\s*", "\n", head)
+    head = re.sub(r"(?is)\s*<meta\b(?=[^>]*\bname=[\"']robots[\"'])[^>]*>\s*", "\n", head)
+    head = re.sub(r"(?is)\s*<meta\b(?=[^>]*\bhttp-equiv=[\"']refresh[\"'])[^>]*>\s*", "\n", head)
+    head = re.sub(r"(?is)\s*<script\b(?=[^>]*\bdata-v2-compat(?:=[\"'][^\"']*[\"'])?)[^>]*>.*?</script>\s*", "\n", head)
+    canonical_path = destination.split("?", 1)[0]
+    block = (
+        "\n  <!-- V2_COMPAT_START -->\n"
+        f'  <link rel="canonical" href="{SITE}{canonical_path}">\n'
+        '  <meta name="robots" content="noindex,follow">\n'
+        f'  <meta http-equiv="refresh" content="0;url={html.escape(destination, quote=True)}">\n'
+        f'  <script data-v2-compat="true">location.replace({json.dumps(destination)});</script>\n'
+        "  <!-- V2_COMPAT_END -->\n"
+    )
+    new_head = head.rstrip() + block
+    rendered = text[:head_match.start(1)] + new_head + text[head_match.end(1):]
+    path.write_text(rendered, encoding="utf-8")
+
+
 
 
 def resolve_url(value: str, source: str, attr: str) -> str:
@@ -465,7 +523,7 @@ def blog_post(post: dict[str, Any]) -> str:
     if source_article:
         sanitize_public_article(source_article)
     article_html = "".join(str(child) for child in source_article.contents) if source_article else inner
-    body = f'''<nav class="v2-breadcrumb" aria-label="Trilha"><a href="/v2/index.html">Início</a><span>/</span><a href="/v2/blog/index.html">Blog</a><span>/</span><span>Artigo</span></nav><article class="v2-content v2-article-content">{article_html}</article><aside class="v2-next-reading"><p class="v2-kicker">Continue explorando</p><h2>Volte ao arquivo completo.</h2><a class="v2-primary" href="/v2/blog/index.html">Ver todas as análises</a></aside>'''
+    body = f'''<nav class="v2-breadcrumb" aria-label="Trilha"><a href="/">Início</a><span>/</span><a href="/v2/blog/index.html">Blog</a><span>/</span><span>Artigo</span></nav><article class="v2-content v2-article-content">{article_html}</article><aside class="v2-next-reading"><p class="v2-kicker">Continue explorando</p><h2>Volte ao arquivo completo.</h2><a class="v2-primary" href="/v2/blog/index.html">Ver todas as análises</a></aside>'''
     return document(str(post["title"]), description, body, body_class="v2-blog-post")
 
 
@@ -480,14 +538,20 @@ def home(posts: list[dict[str, Any]]) -> str:
         card("Renda Fixa FGC","Produtos cobertos pelo FGC comparados com clareza.","/v2/rankings/renda-fixa-fgc.html","Renda fixa","05","cyan"),
         card("Indicadores","Buffett, Bitcoin e leituras de ciclo.","/v2/indicadores/index.html","Contexto","06","blue"),
     ]
-    body = f'''<section class="v2-full-hero"><div class="v2-hero-copy"><p class="v2-kicker">Investimentos com inteligência artificial · skin in the game</p><h1>Dados para pensar.<br><em>Método para decidir.</em></h1><p>Rankings, metodologias, indicadores e análises conectados em um observatório público — com a custódia real protegida na área privada.</p><div class="v2-actions"><a class="v2-primary" href="/v2/rankings/index.html">Explorar rankings</a><a class="v2-secondary" href="/v2/area-privada.html?redirect=/privado/v2/index.html">Entrar na área privada</a></div></div><div class="v2-signal-art"><div class="v2-signal-number">∞</div><p>Observar.<br>Comparar.<br>Reavaliar.</p><span>IA em Loop · V2</span></div></section><section class="v2-ticker"><span>BRASIL</span><b>BESST + BUFFETT</b><span>ESTADOS UNIDOS</span><b>MAGIC FORMULA</b><span>MACRO</span><b>SKIN IN THE GAME</b></section><section class="v2-home-section"><div class="v2-section-title"><p class="v2-kicker">Mapa do observatório</p><h2>Comece por onde sua pergunta está.</h2><p>Cada área tem uma função: selecionar, entender, contextualizar ou acompanhar.</p></div><div class="v2-catalog-grid">{''.join(cards)}</div></section><section class="v2-split-feature"><div><p class="v2-kicker">Método antes do ticker</p><h2>Rankings não são ordens de compra.</h2><p>São pontos de partida auditáveis. A V2 aproxima critérios, históricos e contexto para reduzir decisões por impulso.</p><a class="v2-secondary" href="/v2/metodos/index.html">Entender as metodologias</a></div><div class="v2-principles"><article><b>01</b><h3>Selecionar</h3><p>Filtros quantitativos para encontrar onde vale investigar.</p></article><article><b>02</b><h3>Validar</h3><p>Qualidade, risco, ciclo e valuation antes da execução.</p></article><article><b>03</b><h3>Acompanhar</h3><p>Históricos para distinguir mudança real de ruído mensal.</p></article></div></section><section class="v2-home-section"><div class="v2-section-title"><p class="v2-kicker">Últimas leituras</p><h2>O que está no radar agora.</h2><a href="/v2/blog/index.html">Abrir arquivo completo ↗</a></div><div class="v2-editorial-grid">{latest_cards}</div></section>'''
-    return document("Início", "IA em Loop V2: rankings, metodologias, indicadores, análises e área privada de investimentos.", body, body_class="v2-home")
+    body = f'''<section class="v2-full-hero"><div class="v2-hero-copy"><p class="v2-kicker">Investimentos com inteligência artificial · skin in the game</p><h1>Dados para pensar.<br><em>Método para decidir.</em></h1><p>Rankings, metodologias, indicadores e análises conectados em um observatório público — com a custódia real protegida na área privada.</p><div class="v2-actions"><a class="v2-primary" href="/v2/rankings/index.html">Explorar rankings</a><a class="v2-secondary" href="/v2/area-privada.html?redirect=/privado/v2/index.html">Entrar na área privada</a></div></div><div class="v2-signal-art"><div class="v2-signal-number">∞</div><p>Observar.<br>Comparar.<br>Reavaliar.</p><span>IA em Loop</span></div></section><section class="v2-ticker"><span>BRASIL</span><b>BESST + BUFFETT</b><span>ESTADOS UNIDOS</span><b>MAGIC FORMULA</b><span>MACRO</span><b>SKIN IN THE GAME</b></section><section class="v2-home-section"><div class="v2-section-title"><p class="v2-kicker">Mapa do observatório</p><h2>Comece por onde sua pergunta está.</h2><p>Cada área tem uma função: selecionar, entender, contextualizar ou acompanhar.</p></div><div class="v2-catalog-grid">{''.join(cards)}</div></section><section class="v2-split-feature"><div><p class="v2-kicker">Método antes do ticker</p><h2>Rankings não são ordens de compra.</h2><p>São pontos de partida auditáveis. A plataforma aproxima critérios, históricos e contexto para reduzir decisões por impulso.</p><a class="v2-secondary" href="/v2/metodos/index.html">Entender as metodologias</a></div><div class="v2-principles"><article><b>01</b><h3>Selecionar</h3><p>Filtros quantitativos para encontrar onde vale investigar.</p></article><article><b>02</b><h3>Validar</h3><p>Qualidade, risco, ciclo e valuation antes da execução.</p></article><article><b>03</b><h3>Acompanhar</h3><p>Históricos para distinguir mudança real de ruído mensal.</p></article></div></section><section class="v2-home-section"><div class="v2-section-title"><p class="v2-kicker">Últimas leituras</p><h2>Análises conectadas ao processo.</h2></div><div class="v2-editorial-grid">{latest_cards}</div><a class="v2-text-link" href="/v2/blog/index.html">Abrir todo o blog <span aria-hidden="true">↗</span></a></section>'''
+    return document("Início", "IA em Loop: rankings, metodologias, indicadores, análises e área privada de investimentos.", body, body_class="v2-home")
 
 
 def build() -> None:
     posts = parse_blog_cards()
+    root_home = home(posts)
     outputs: dict[str, str] = {}
-    outputs["index.html"] = home(posts)
+    outputs["index.html"] = document(
+        "Início",
+        "A página inicial do IA em Loop está na raiz do domínio.",
+        '<section class="v2-hub-hero"><h1>IA em Loop</h1><p>Abrindo a página inicial.</p><a href="/">Ir para o início</a></section>',
+        extra_head='<meta name="robots" content="noindex,follow"><link rel="canonical" href="https://iaemloop.com.br/"><meta http-equiv="refresh" content="0;url=/"><script>location.replace("/");</script>',
+    )
 
     ranking_cards = [
         card("BESST & Buffett B3","Ranking atual e histórico mensal.","/v2/rankings/besst-buffett-b3.html","Ações brasileiras","01","lime"),
@@ -500,8 +564,12 @@ def build() -> None:
     outputs["radar/index.html"] = hub("Empresas para acompanhar.","Radar de qualidade","Watchlists são acompanhamento, não rankings ou ordens de compra.",[
         card("Watchlist Buffett EUA","Radar permanente de empresas excepcionais.","/v2/radar/watchlist-buffett-eua.html","Watchlist","01","blue"),
     ],"v2-radar")
-    # Keep existing bookmarks working without indexing the retired route.
-    outputs["rankings/watchlist-buffett-eua.html"] = document("Watchlist Buffett EUA", "A watchlist agora está no Radar.", '<section class="v2-hub-hero"><h1>Watchlist Buffett EUA</h1><a href="/v2/radar/watchlist-buffett-eua.html">Abrir radar Buffett EUA</a></section>', extra_head='<meta name="robots" content="noindex,nofollow,noarchive"><meta http-equiv="refresh" content="0;url=/v2/radar/watchlist-buffett-eua.html">')
+    outputs["rankings/watchlist-buffett-eua.html"] = document(
+        "Watchlist Buffett EUA",
+        "A watchlist agora está no Radar.",
+        '<section class="v2-hub-hero"><h1>Watchlist Buffett EUA</h1><a href="/v2/radar/watchlist-buffett-eua.html">Abrir radar Buffett EUA</a></section>',
+        extra_head='<meta name="robots" content="noindex,follow"><link rel="canonical" href="https://iaemloop.com.br/v2/radar/watchlist-buffett-eua.html"><meta http-equiv="refresh" content="0;url=/v2/radar/watchlist-buffett-eua.html">',
+    )
     method_cards = [
         card("BESST & Buffett","Dividendos, perenidade, moat e margem de segurança.","/v2/metodos/besst-buffett.html","Metodologia","01","lime"),
         card("Magic Formula","Retorno sobre capital e rendimento do lucro.","/v2/metodos/magic-formula.html","Metodologia","02","cyan"),
@@ -515,13 +583,11 @@ def build() -> None:
 
     for route in ROUTES:
         outputs[route["target"]] = source_page(route)
-    # Watchlists belong to Radar, not to the catalogue of methodologies.
-    # Preserve the former URL as a non-indexed compatibility redirect.
     outputs["metodos/watchlist-buffett.html"] = document(
         "Watchlist Buffett EUA",
         "A lista de observação agora está no Radar.",
         '<section class="v2-hub-hero"><h1>Watchlist Buffett EUA</h1><p>Listas de observação ficam no Radar.</p><a href="/v2/radar/watchlist-buffett-eua.html">Abrir Watchlist Buffett EUA</a></section>',
-        extra_head='<meta name="robots" content="noindex,nofollow,noarchive"><link rel="canonical" href="https://iaemloop.com.br/v2/radar/watchlist-buffett-eua.html"><meta http-equiv="refresh" content="0;url=/v2/radar/watchlist-buffett-eua.html">',
+        extra_head='<meta name="robots" content="noindex,follow"><link rel="canonical" href="https://iaemloop.com.br/v2/radar/watchlist-buffett-eua.html"><meta http-equiv="refresh" content="0;url=/v2/radar/watchlist-buffett-eua.html">',
     )
     outputs["blog/index.html"] = blog_index(posts)
     for post in posts:
@@ -530,26 +596,59 @@ def build() -> None:
     for rel, content in outputs.items():
         path = V2 / rel
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text("\n".join(line.rstrip() for line in content.splitlines()), encoding="utf-8")
+        canonical = "/v2/" + rel
+        rendered = ensure_canonical(content, canonical)
+        path.write_text("\n".join(line.rstrip() for line in rendered.splitlines()) + "\n", encoding="utf-8")
+
+    # The root domain is the one canonical home; /v2/index.html remains a redirect.
+    (ROOT / "index.html").write_text(
+        "\n".join(line.rstrip() for line in ensure_canonical(root_home, "/").splitlines()) + "\n",
+        encoding="utf-8",
+    )
+    area_private = V2 / "area-privada.html"
+    if area_private.exists():
+        area_private.write_text(
+            "\n".join(line.rstrip() for line in ensure_canonical(area_private.read_text(encoding="utf-8"), "/v2/area-privada.html").splitlines()) + "\n",
+            encoding="utf-8",
+        )
 
     route_map = {
-        "generated_at":date.today().isoformat(),
-        "legacy_preserved":True,
-        "routes":sorted("/v2/" + rel for rel in outputs),
-        "source_map":{r["source"]:"/v2/" + r["target"] for r in ROUTES},
-        "blog_posts":len(posts),
+        "generated_at": date.today().isoformat(),
+        "canonical_home": "/",
+        "legacy_public": False,
+        "routes": sorted("/v2/" + rel for rel in outputs),
+        "source_map": dict(sorted(LEGACY_REDIRECTS.items())),
+        "blog_posts": len(posts),
     }
     (V2 / "content").mkdir(exist_ok=True)
     (V2 / "content/route-map.json").write_text(json.dumps(route_map, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    sitemap = ['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+
     compatibility_redirects = {
+        "/v2/index.html",
         "/v2/rankings/watchlist-buffett-eua.html",
         "/v2/metodos/watchlist-buffett.html",
+        "/v2/area-privada.html",
     }
-    sitemap.extend(f"  <url><loc>{SITE}{route}</loc></url>" for route in route_map["routes"] if route not in compatibility_redirects)
+    canonical_routes = ["/"] + [route for route in route_map["routes"] if route not in compatibility_redirects]
+    sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    sitemap.extend(f"  <url><loc>{SITE}{route}</loc></url>" for route in canonical_routes)
     sitemap.append("</urlset>")
-    (V2 / "sitemap.xml").write_text("\n".join(sitemap) + "\n", encoding="utf-8")
-    print(f"V2_BUILD_OK pages={len(outputs)} blog_posts={len(posts)}")
+    sitemap_text = "\n".join(sitemap) + "\n"
+    (ROOT / "sitemap.xml").write_text(sitemap_text, encoding="utf-8")
+    (V2 / "sitemap.xml").write_text(sitemap_text, encoding="utf-8")
+
+    # Legacy files remain as non-indexed source material for the generator, but
+    # every visitor is sent to the canonical V2 route.
+    for legacy, destination in LEGACY_REDIRECTS.items():
+        apply_legacy_redirect(ROOT / legacy.lstrip("/"), destination)
+    for post in posts:
+        apply_legacy_redirect(
+            ROOT / str(post["source"]),
+            "/v2/blog/posts/" + str(post["slug"]),
+        )
+
+    print(f"V2_BUILD_OK pages={len(outputs)} blog_posts={len(posts)} canonical_urls={len(canonical_routes)}")
+
 
 
 if __name__ == "__main__":

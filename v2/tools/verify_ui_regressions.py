@@ -13,7 +13,7 @@ assert spec is not None and spec.loader is not None
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 expected_nav = [
-    ('Início', '/v2/index.html'),
+    ('Início', '/'),
     ('Métodos', '/v2/metodos/index.html'),
     ('Indicadores', '/v2/indicadores/index.html'),
     ('Rankings', '/v2/rankings/index.html'),
@@ -70,7 +70,7 @@ assert sorted(history_routes) == sorted([
 ])
 legacy = ROOT / 'v2/rankings/watchlist-buffett-eua.html'
 soup = BeautifulSoup(legacy.read_text(), 'html.parser')
-assert soup.find('meta', attrs={'name': 'robots'})['content'] == 'noindex,nofollow,noarchive'
+assert soup.find('meta', attrs={'name': 'robots'})['content'] == 'noindex,follow'
 assert '/v2/rankings/watchlist-buffett-eua.html' not in (ROOT / 'v2/sitemap.xml').read_text()
 assert not BeautifulSoup((ROOT / 'v2/rankings/index.html').read_text(), 'html.parser').select('a[href="/v2/radar/watchlist-buffett-eua.html"]')
 assert (ROOT / 'v2/radar/watchlist-buffett-eua.html').exists()

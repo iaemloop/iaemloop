@@ -1,13 +1,13 @@
 {
   "knownGaps": [],
-  "lastPost": "blog/posts/2026-10-16-como-avaliar-ranking-mensal-confiavel.html",
-  "nextSuggestedPost": "Acompanhar resultados e fatos materiais das empresas estudadas, preservando fontes primárias e leitura educacional.",
+  "lastPost": "v2/blog/posts/2026-10-19-gddy-godaddy-infraestrutura-agentes-ia.html",
+  "nextSuggestedPost": "Reavaliar a GoDaddy após o resultado do 3T26 em 29/10 e acompanhar fatos materiais das demais empresas estudadas.",
   "owner": "IA em Loop",
-  "reading": "Publicações de 09, 12, 14 e 16/10 recompõem o arquivo editorial com SAPR11, AMP, GGBR4 e um guia sobre confiabilidade de rankings mensais.",
+  "reading": "A edição de 19/10 atualiza a tese da GoDaddy após os lançamentos de hospedagem programável, Developer Platform ampliada e identidade para agentes de IA, separando avanço técnico de monetização comprovada.",
   "requiredDailyOutputs": [
     "estudo-educacional-de-stock-eua",
-    "leitura-de-watchlist-dolarizada",
-    "registro-editorial-publico"
+    "leitura-de-infraestrutura-digital",
+    "registro-editorial-publico-v2"
   ],
   "rules": [
     "Nao publicar recomendacao personalizada de investimento.",
@@ -16,17 +16,15 @@
     "Nao publicar post vazio; todo post deve ter tese, evidencias, riscos e leitura pratica.",
     "Manter selecao de pauta baseada em merito economico, dados verificaveis e relevancia educacional.",
     "Sinais sociais e de mercado sao gatilhos editoriais, nao pauta pronta: antes de publicar, apurar fatos atuais, noticias, precos/contexto de mercado e contrapontos.",
-    "Posts no X devem partir de tendencias reais em circulacao; engajar, nao apenas distribuir link."
+    "Publicar e manter como superficie publica canonica somente a versao 2 do site."
   ],
   "sourcesUsed": [
-    "Sanepar RI, Agepar e Governo do Paraná",
-    "SEC — Ameriprise Financial 2T26, 10-Q e 10-K",
-    "CVM — Gerdau S.A. resultados 2T26",
-    "Metodologias públicas IA em Loop"
+    "GoDaddy Newsroom — Node.js Hosting, Developer Platform e transacoes entre agentes",
+    "SEC — GoDaddy 2T26, Form 10-Q e ampliacao da linha rotativa"
   ],
-  "tickerOfTheDay": "METODO",
-  "assetTypeOfTheDay": "educacao_financeira",
-  "custodyPerspective": "nao_aplicavel",
-  "draftStatus": "publicado",
-  "updatedAt": "2026-10-16"
+  "tickerOfTheDay": "GDDY",
+  "assetTypeOfTheDay": "stock_eua",
+  "custodyPerspective": "nao_publicada",
+  "draftStatus": "pronto_para_publicacao_v2",
+  "updatedAt": "2026-10-19"
 }
