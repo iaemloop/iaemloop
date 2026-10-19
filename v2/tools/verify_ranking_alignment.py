@@ -99,7 +99,7 @@ for alignment in ("center", "left", "right"):
 methods_index = BeautifulSoup((ROOT / "v2/metodos/index.html").read_text(encoding="utf-8"), "html.parser")
 assert not methods_index.select('a[href="/v2/metodos/watchlist-buffett.html"]')
 watchlist_redirect = (ROOT / "v2/metodos/watchlist-buffett.html").read_text(encoding="utf-8")
-assert 'content="noindex,nofollow,noarchive"' in watchlist_redirect
+assert 'content="noindex,follow"' in watchlist_redirect
 assert '/v2/radar/watchlist-buffett-eua.html' in watchlist_redirect
 assert "/v2/metodos/watchlist-buffett.html" not in (ROOT / "v2/sitemap.xml").read_text(encoding="utf-8")
 

@@ -1,6 +1,7 @@
 {
-  "generated_at": "2026-10-16",
-  "legacy_preserved": true,
+  "generated_at": "2026-10-19",
+  "canonical_home": "/",
+  "legacy_public": false,
   "routes": [
     "/v2/blog/index.html",
     "/v2/blog/posts/2026-05-07-briefing-bbas3-crise-ia.html",
@@ -81,6 +82,7 @@
     "/v2/blog/posts/2026-10-12-analise-amp-ameriprise-patrimonio-fluxos-valuation.html",
     "/v2/blog/posts/2026-10-14-analise-ggbr4-gerdau-margens-caixa.html",
     "/v2/blog/posts/2026-10-16-como-avaliar-ranking-mensal-confiavel.html",
+    "/v2/blog/posts/2026-10-19-gddy-godaddy-infraestrutura-agentes-ia.html",
     "/v2/blog/posts/selic-caindo-juro-real-focus-2026.html",
     "/v2/index.html",
     "/v2/indicadores/bitcoin.html",
@@ -106,19 +108,28 @@
     "/v2/rankings/watchlist-buffett-eua.html"
   ],
   "source_map": {
-    "metodologia_barsi.html": "/v2/metodos/besst-buffett.html",
-    "historico_rankings.html": "/v2/rankings/historico/besst-buffett-b3.html",
-    "greenblatt_ned_landing_original.html": "/v2/metodos/magic-formula.html",
-    "historico_rankings_magic_formula.html": "/v2/rankings/historico/magic-formula-b3.html",
-    "ranking_besst_buffett_dolarizado.html": "/v2/rankings/besst-buffett-eua.html",
-    "historico_rankings_dolarizados.html": "/v2/rankings/historico/besst-buffett-eua.html",
-    "ranking_magic_formula_dolarizada.html": "/v2/rankings/magic-formula-eua.html",
-    "historico_rankings_magic_formula_dolarizada.html": "/v2/rankings/historico/magic-formula-eua.html",
-    "watchlist_buffett_permanente_eua.html": "/v2/radar/watchlist-buffett-eua.html",
-    "historico_watchlist_buffett_permanente_eua.html": "/v2/rankings/historico/watchlist-buffett-eua.html",
-    "ranking_fgc.html": "/v2/rankings/renda-fixa-fgc.html",
-    "indicador-buffett.html": "/v2/indicadores/buffett.html",
-    "bitcoin_landing.html": "/v2/indicadores/bitcoin.html"
+    "/area_privada.html": "/v2/area-privada.html?redirect=/privado/v2/index.html",
+    "/barsi.html": "/v2/metodos/besst-buffett.html",
+    "/bitcoin_landing.html": "/v2/indicadores/bitcoin.html",
+    "/bitcoin_landpage.html": "/v2/indicadores/bitcoin.html",
+    "/blog/index.html": "/v2/blog/index.html",
+    "/greenblatt.html": "/v2/metodos/magic-formula.html",
+    "/greenblatt_landing.html": "/v2/metodos/magic-formula.html",
+    "/greenblatt_ned_landing.html": "/v2/metodos/magic-formula.html",
+    "/greenblatt_ned_landing_original.html": "/v2/metodos/magic-formula.html",
+    "/historico_rankings.html": "/v2/rankings/historico/besst-buffett-b3.html",
+    "/historico_rankings_dolarizados.html": "/v2/rankings/historico/besst-buffett-eua.html",
+    "/historico_rankings_magic_formula.html": "/v2/rankings/historico/magic-formula-b3.html",
+    "/historico_rankings_magic_formula_dolarizada.html": "/v2/rankings/historico/magic-formula-eua.html",
+    "/historico_watchlist_buffett_permanente_eua.html": "/v2/rankings/historico/watchlist-buffett-eua.html",
+    "/indicador-buffett.html": "/v2/indicadores/buffett.html",
+    "/landpage_final.html": "/v2/metodos/besst-buffett.html",
+    "/metodologia_barsi.html": "/v2/metodos/besst-buffett.html",
+    "/metodologia_watchlist_eua.html": "/v2/radar/watchlist-buffett-eua.html",
+    "/ranking_besst_buffett_dolarizado.html": "/v2/rankings/besst-buffett-eua.html",
+    "/ranking_fgc.html": "/v2/rankings/renda-fixa-fgc.html",
+    "/ranking_magic_formula_dolarizada.html": "/v2/rankings/magic-formula-eua.html",
+    "/watchlist_buffett_permanente_eua.html": "/v2/radar/watchlist-buffett-eua.html"
   },
-  "blog_posts": 79
+  "blog_posts": 80
 }
