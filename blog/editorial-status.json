@@ -1,12 +1,14 @@
 {
-  "knownGaps": [],
-  "lastPost": "v2/blog/posts/2026-10-19-gddy-godaddy-infraestrutura-agentes-ia.html",
-  "nextSuggestedPost": "Reavaliar a GoDaddy após o resultado do 3T26 em 29/10 e acompanhar fatos materiais das demais empresas estudadas.",
+  "knownGaps": [
+    "O estudo The Buffett Effect e preliminar e ainda pode receber revisoes ou replicacoes."
+  ],
+  "lastPost": "v2/blog/posts/2026-10-21-copiar-buffett-efeito-form-13f.html",
+  "nextSuggestedPost": "Retomar a alternancia com uma empresa brasileira quando houver fato economico incremental e fonte primaria suficiente.",
   "owner": "IA em Loop",
-  "reading": "A edição de 19/10 atualiza a tese da GoDaddy após os lançamentos de hospedagem programável, Developer Platform ampliada e identidade para agentes de IA, separando avanço técnico de monetização comprovada.",
+  "reading": "A edicao de 21/10 usa um novo estudo sobre atencao a gestores reconhecidos para explicar por que o Form 13F e um ponto de partida atrasado, nao uma tese pronta nem promessa de retorno.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-stock-eua",
-    "leitura-de-infraestrutura-digital",
+    "estudo-educacional-de-mercado",
+    "leitura-de-formulario-regulatorio",
     "registro-editorial-publico-v2"
   ],
   "rules": [
@@ -19,12 +21,12 @@
     "Publicar e manter como superficie publica canonica somente a versao 2 do site."
   ],
   "sourcesUsed": [
-    "GoDaddy Newsroom — Node.js Hosting, Developer Platform e transacoes entre agentes",
-    "SEC — GoDaddy 2T26, Form 10-Q e ampliacao da linha rotativa"
+    "Smolinski e Saridevi — The Buffett Effect, working paper de 12/10/2026",
+    "SEC — perguntas frequentes e instrucoes do Form 13F"
   ],
-  "tickerOfTheDay": "GDDY",
-  "assetTypeOfTheDay": "stock_eua",
+  "tickerOfTheDay": "BRK-B",
+  "assetTypeOfTheDay": "educacao_financeira_stocks",
   "custodyPerspective": "nao_publicada",
   "draftStatus": "pronto_para_publicacao_v2",
-  "updatedAt": "2026-10-19"
+  "updatedAt": "2026-10-21"
 }
