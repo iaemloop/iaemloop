@@ -1,11 +1,11 @@
 {
   "knownGaps": [
-    "O estudo The Buffett Effect e preliminar e ainda pode receber revisoes ou replicacoes."
+    "IPCA-15 e uma previa e nao substitui o IPCA fechado de outubro; nenhuma decisao futura do Banco Central pode ser inferida de um unico indice."
   ],
-  "lastPost": "v2/blog/posts/2026-10-21-copiar-buffett-efeito-form-13f.html",
-  "nextSuggestedPost": "Retomar a alternancia com uma empresa brasileira quando houver fato economico incremental e fonte primaria suficiente.",
+  "lastPost": "v2/blog/posts/2026-10-23-ipca15-desacelera-acumulado-sobe-juros.html",
+  "nextSuggestedPost": "Retomar alternancia com um dossie de empresa de ranking brasileiro ou stock americana com dados primarios e contrapontos.",
   "owner": "IA em Loop",
-  "reading": "A edicao de 21/10 usa um novo estudo sobre atencao a gestores reconhecidos para explicar por que o Form 13F e um ponto de partida atrasado, nao uma tese pronta nem promessa de retorno.",
+  "reading": "O IPCA-15 de outubro desacelerou a 0,32% no mes, mas subiu a 4,62% em doze meses; a composicao por grupos exige leitura de risco antes de extrapolar o dado para juros ou ativos.",
   "requiredDailyOutputs": [
     "estudo-educacional-de-mercado",
     "leitura-de-formulario-regulatorio",
@@ -21,12 +21,12 @@
     "Publicar e manter como superficie publica canonica somente a versao 2 do site."
   ],
   "sourcesUsed": [
-    "Smolinski e Saridevi — The Buffett Effect, working paper de 12/10/2026",
-    "SEC — perguntas frequentes e instrucoes do Form 13F"
+    "IBGE — O IPCA-15 e de 0,32% em outubro, divulgacao de 23/10/2026",
+    "IBGE/SIDRA — tabela 7062, series de setembro e outubro de 2026"
   ],
-  "tickerOfTheDay": "BRK-B",
-  "assetTypeOfTheDay": "educacao_financeira_stocks",
+  "tickerOfTheDay": "IPCA-15",
+  "assetTypeOfTheDay": "macroeconomia_br",
   "custodyPerspective": "nao_publicada",
   "draftStatus": "pronto_para_publicacao_v2",
-  "updatedAt": "2026-10-21"
+  "updatedAt": "2026-10-23"
 }
