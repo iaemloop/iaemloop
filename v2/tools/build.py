@@ -524,7 +524,21 @@ def blog_post(post: dict[str, Any]) -> str:
         sanitize_public_article(source_article)
     article_html = "".join(str(child) for child in source_article.contents) if source_article else inner
     body = f'''<nav class="v2-breadcrumb" aria-label="Trilha"><a href="/">Início</a><span>/</span><a href="/v2/blog/index.html">Blog</a><span>/</span><span>Artigo</span></nav><article class="v2-content v2-article-content">{article_html}</article><aside class="v2-next-reading"><p class="v2-kicker">Continue explorando</p><h2>Volte ao arquivo completo.</h2><a class="v2-primary" href="/v2/blog/index.html">Ver todas as análises</a></aside>'''
-    return document(str(post["title"]), description, body, body_class="v2-blog-post")
+    page = document(str(post["title"]), description, body, body_class="v2-blog-post")
+    # Preserve authored social/date metadata when present in the source head.
+    source_head = BeautifulSoup((ROOT / str(post["source"])).read_text(encoding="utf-8"), "html.parser").head
+    canonical = f"{SITE}/v2/blog/posts/{post['slug']}"
+    if source_head and source_head.find("meta", property="article:published_time") and source_head.find("meta", property="og:url", content=canonical):
+        tags = [str(tag) for tag in source_head.find_all("meta", recursive=False)
+                if tag.get("property", "").startswith(("og:", "article:"))]
+        for script in source_head.find_all("script", type="application/ld+json", recursive=False):
+            try:
+                if json.loads(script.string or "").get("@context") == "https://schema.org":
+                    tags.append(str(script))
+            except (ValueError, AttributeError):
+                pass
+        page = page.replace("</head>", "".join(tags) + "</head>", 1)
+    return page
 
 
 def home(posts: list[dict[str, Any]]) -> str:
