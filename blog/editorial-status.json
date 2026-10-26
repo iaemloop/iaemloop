@@ -1,14 +1,14 @@
 {
   "knownGaps": [
-    "IPCA-15 e uma previa e nao substitui o IPCA fechado de outubro; nenhuma decisao futura do Banco Central pode ser inferida de um unico indice."
+    "As medianas do Focus sao expectativas agregadas com data-base 23/10/2026; nao equivalem a IPCA realizado, preco de titulo ou decisao futura do Copom."
   ],
-  "lastPost": "v2/blog/posts/2026-10-23-ipca15-desacelera-acumulado-sobe-juros.html",
-  "nextSuggestedPost": "Retomar alternancia com um dossie de empresa de ranking brasileiro ou stock americana com dados primarios e contrapontos.",
+  "lastPost": "v2/blog/posts/2026-10-26-focus-horizontes-inflacao-selic.html",
+  "nextSuggestedPost": "Retomar dossie de empresa brasileira ou stock americana com fato primario novo, balanço e contrapontos.",
   "owner": "IA em Loop",
-  "reading": "O IPCA-15 de outubro desacelerou a 0,32% no mes, mas subiu a 4,62% em doze meses; a composicao por grupos exige leitura de risco antes de extrapolar o dado para juros ou ativos.",
+  "reading": "No Focus de 23/10, mediana do IPCA de 2026 caiu de 5,22% para 5,19%, a de 2027 subiu de 4,32% para 4,34% e Selic esperada no fim de 2027 caiu de 12,00% para 11,75%; horizontes e natureza dos indicadores nao se confundem.",
   "requiredDailyOutputs": [
     "estudo-educacional-de-mercado",
-    "leitura-de-formulario-regulatorio",
+    "leitura-de-expectativas-macroeconomicas",
     "registro-editorial-publico-v2"
   ],
   "rules": [
@@ -21,12 +21,12 @@
     "Publicar e manter como superficie publica canonica somente a versao 2 do site."
   ],
   "sourcesUsed": [
-    "IBGE — O IPCA-15 e de 0,32% em outubro, divulgacao de 23/10/2026",
-    "IBGE/SIDRA — tabela 7062, series de setembro e outubro de 2026"
+    "Banco Central — Focus Market Readout, data-base 23/10/2026, p. 1",
+    "IBGE — IPCA-15 de outubro, divulgacao 23/10/2026"
   ],
-  "tickerOfTheDay": "IPCA-15",
+  "tickerOfTheDay": "Focus",
   "assetTypeOfTheDay": "macroeconomia_br",
   "custodyPerspective": "nao_publicada",
   "draftStatus": "pronto_para_publicacao_v2",
-  "updatedAt": "2026-10-23"
+  "updatedAt": "2026-10-26"
 }
