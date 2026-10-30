@@ -1,15 +1,15 @@
 {
   "knownGaps": [
-    "Edicao de 28/10 preparada antes do fechamento: sem atribuicao de cotacoes finais ao pregao de 28/10.",
-    "Hipotese de impeachment apenas condicional; nao ha previsao de processo ou resultado institucional."
+    "Liquidacao da emissao de divida esperada para novembro nao confirmada em 30/10/2026.",
+    "Retorno do aporte e motivo da venda de DaVita nao demonstrados pelos documentos."
   ],
-  "lastPost": "v2/blog/posts/2026-10-28-circuit-breaker-eleicao-cambio-cenarios-brasil.html",
-  "nextSuggestedPost": "Acompanhar crise apenas se houver fato incremental de fonte primaria; distinguir fechamento, mercado intradiario e hipotese institucional.",
+  "lastPost": "v2/blog/posts/2026-10-30-berkshire-bending-spoons-aporte-divida-davita.html",
+  "nextSuggestedPost": "Verificar liquidacao da divida e resultados das aquisicoes antes de atualizar a leitura de retorno e risco.",
   "owner": "IA em Loop",
-  "reading": "B3 confirmou circuit breaker em 26/10; Ibovespa fechou em 176.608,23 (-13,88%); em 27/10 fechou em 175.710,05 (-0,51%). Cenarios de continuidade e eventual impeachment estritamente condicionais.",
+  "reading": "SEC: Bending Spoons concluiu aporte da Berkshire em 29/10; notas de subsidiarias precificadas em 28/10 com liquidacao ainda pendente; Form 4 registra venda parcial de DaVita em 27/10.",
   "requiredDailyOutputs": [
-    "estudo-educacional-de-mercado",
-    "leitura-de-expectativas-macroeconomicas",
+    "estudo-educacional-de-stock-eua",
+    "leitura-de-alocacao-e-risco-financeiro",
     "registro-editorial-publico-v2"
   ],
   "rules": [
@@ -22,14 +22,13 @@
     "Publicar e manter como superficie publica canonica somente a versao 2 do site."
   ],
   "sourcesUsed": [
-    "B3 — comunicado circuit breaker de 26/10/2026 e balanços de pregão de 26 e 27/10/2026",
-    "B3 — Manual de Procedimentos Operacionais de Negociacao, secao 13",
-    "Banco Central — PTAX dolar de 26 e 27/10/2026, consulta publica",
-    "Senado Federal — Constituicao, artigos 79, 85 e 86"
+    "SEC — Bending Spoons Form 6-K de 29/10/2026, colocacao privada concluida",
+    "SEC — Bending Spoons Exhibit 99.1 de 28/10/2026, divida precificada",
+    "SEC — Berkshire Hathaway Form 4 de 29/10/2026, venda parcial DaVita"
   ],
-  "tickerOfTheDay": "Ibovespa",
-  "assetTypeOfTheDay": "macroeconomia_br",
+  "tickerOfTheDay": "BRK.B",
+  "assetTypeOfTheDay": "stock_eua",
   "custodyPerspective": "nao_publicada",
   "draftStatus": "pronto_para_publicacao_v2",
-  "updatedAt": "2026-10-28"
+  "updatedAt": "2026-10-30"
 }
