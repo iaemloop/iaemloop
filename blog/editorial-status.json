@@ -1,15 +1,15 @@
 {
   "knownGaps": [
-    "Liquidacao da emissao de divida esperada para novembro nao confirmada em 30/10/2026.",
-    "Retorno do aporte e motivo da venda de DaVita nao demonstrados pelos documentos."
+    "O demonstrativo nao isola o retorno da infraestrutura usada para IA.",
+    "A conversao da carteira contratual em caixa depende de entrega futura."
   ],
-  "lastPost": "v2/blog/posts/2026-10-30-berkshire-bending-spoons-aporte-divida-davita.html",
-  "nextSuggestedPost": "Verificar liquidacao da divida e resultados das aquisicoes antes de atualizar a leitura de retorno e risco.",
+  "lastPost": "v2/blog/posts/2026-11-02-microsoft-nuvem-ia-caixa-capex.html",
+  "nextSuggestedPost": "Revisar conversao de contratos em receita, margem e caixa e novos dados primarios relevantes sem repetir a leitura trimestral.",
   "owner": "IA em Loop",
-  "reading": "SEC: Bending Spoons concluiu aporte da Berkshire em 29/10; notas de subsidiarias precificadas em 28/10 com liquidacao ainda pendente; Form 4 registra venda parcial de DaVita em 27/10.",
+  "reading": "Microsoft 1T fiscal 2027: nuvem cresce e adicoes de imobilizado pagas sobem; lucro GAAP e caixa operacional nao comprovam isoladamente retorno incremental da IA.",
   "requiredDailyOutputs": [
     "estudo-educacional-de-stock-eua",
-    "leitura-de-alocacao-e-risco-financeiro",
+    "leitura-de-nuvem-caixa-e-investimento",
     "registro-editorial-publico-v2"
   ],
   "rules": [
@@ -22,13 +22,11 @@
     "Publicar e manter como superficie publica canonica somente a versao 2 do site."
   ],
   "sourcesUsed": [
-    "SEC — Bending Spoons Form 6-K de 29/10/2026, colocacao privada concluida",
-    "SEC — Bending Spoons Exhibit 99.1 de 28/10/2026, divida precificada",
-    "SEC — Berkshire Hathaway Form 4 de 29/10/2026, venda parcial DaVita"
+    "Microsoft Investor Relations — FY27 Q1 Earnings Release de 28/10/2026 e demonstracao de fluxos de caixa"
   ],
-  "tickerOfTheDay": "BRK.B",
+  "tickerOfTheDay": "MSFT",
   "assetTypeOfTheDay": "stock_eua",
   "custodyPerspective": "nao_publicada",
   "draftStatus": "pronto_para_publicacao_v2",
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-02"
 }
