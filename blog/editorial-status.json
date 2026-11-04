@@ -1,17 +1,13 @@
 {
   "knownGaps": [
-    "O demonstrativo nao isola o retorno da infraestrutura usada para IA.",
-    "A conversao da carteira contratual em caixa depende de entrega futura."
+    "O Form 4 nao identifica o tomador individual da decisao de investimento.",
+    "O preco justo da Sirius XM e a persistencia do caixa futuro nao foram demonstrados."
   ],
-  "lastPost": "v2/blog/posts/2026-11-02-microsoft-nuvem-ia-caixa-capex.html",
-  "nextSuggestedPost": "Revisar conversao de contratos em receita, margem e caixa e novos dados primarios relevantes sem repetir a leitura trimestral.",
+  "lastPost": "v2/blog/posts/2026-11-04-berkshire-sirius-xm-formulario-4.html",
+  "nextSuggestedPost": "Revisar assinantes, caixa e alavancagem nos proximos resultados, sem inferir retorno a partir de compras declaradas.",
   "owner": "IA em Loop",
-  "reading": "Microsoft 1T fiscal 2027: nuvem cresce e adicoes de imobilizado pagas sobem; lucro GAAP e caixa operacional nao comprovam isoladamente retorno incremental da IA.",
-  "requiredDailyOutputs": [
-    "estudo-educacional-de-stock-eua",
-    "leitura-de-nuvem-caixa-e-investimento",
-    "registro-editorial-publico-v2"
-  ],
+  "reading": "Compras incrementais declaradas da Sirius XM e resultados do 3T26: fato societario, resultados operacionais e inferencias separados.",
+  "requiredDailyOutputs": ["leitura-educacional-de-stock-eua", "analise-de-resultado-e-formulario-sec", "registro-editorial-publico-v2"],
   "rules": [
     "Nao publicar recomendacao personalizada de investimento.",
     "Nao inventar fonte, preco, noticia ou fala de terceiros.",
@@ -22,11 +18,12 @@
     "Publicar e manter como superficie publica canonica somente a versao 2 do site."
   ],
   "sourcesUsed": [
-    "Microsoft Investor Relations — FY27 Q1 Earnings Release de 28/10/2026 e demonstracao de fluxos de caixa"
+    "SEC — Berkshire Hathaway e Warren Buffett, Form 4 protocolado em 03/11/2026",
+    "Sirius XM — comunicado de resultados do 3T26 em 29/10/2026, anexo ao Form 8-K"
   ],
-  "tickerOfTheDay": "MSFT",
+  "tickerOfTheDay": "SIRI",
   "assetTypeOfTheDay": "stock_eua",
   "custodyPerspective": "nao_publicada",
   "draftStatus": "pronto_para_publicacao_v2",
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-04"
 }

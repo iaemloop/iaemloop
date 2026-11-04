@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02",
+  "generated_at": "2026-11-04",
   "canonical_home": "/",
   "legacy_public": false,
   "routes": [
@@ -89,6 +89,7 @@
     "/v2/blog/posts/2026-10-28-circuit-breaker-eleicao-cambio-cenarios-brasil.html",
     "/v2/blog/posts/2026-10-30-berkshire-bending-spoons-aporte-divida-davita.html",
     "/v2/blog/posts/2026-11-02-microsoft-nuvem-ia-caixa-capex.html",
+    "/v2/blog/posts/2026-11-04-berkshire-sirius-xm-formulario-4.html",
     "/v2/blog/posts/selic-caindo-juro-real-focus-2026.html",
     "/v2/index.html",
     "/v2/indicadores/bitcoin.html",
@@ -137,5 +138,5 @@
     "/ranking_magic_formula_dolarizada.html": "/v2/rankings/magic-formula-eua.html",
     "/watchlist_buffett_permanente_eua.html": "/v2/radar/watchlist-buffett-eua.html"
   },
-  "blog_posts": 86
+  "blog_posts": 87
 }
