@@ -1,12 +1,12 @@
 {
   "knownGaps": [
-    "O Form 4 nao identifica o tomador individual da decisao de investimento.",
-    "O preco justo da Sirius XM e a persistencia do caixa futuro nao foram demonstrados."
+    "Os resultados do terceiro trimestre da Berkshire ainda nao haviam sido publicados no corte informacional de 06/11/2026.",
+    "Numeros do 2T e do primeiro semestre nao permitem prever desempenho do 3T."
   ],
-  "lastPost": "v2/blog/posts/2026-11-04-berkshire-sirius-xm-formulario-4.html",
-  "nextSuggestedPost": "Revisar assinantes, caixa e alavancagem nos proximos resultados, sem inferir retorno a partir de compras declaradas.",
+  "lastPost": "v2/blog/posts/2026-11-06-berkshire-balanco-3t-guia-leitura.html",
+  "nextSuggestedPost": "Apos a divulgacao do 10-Q do 3T26, reconciliar seguradoras, BNSF, energia, liquidez e alocacao com o trimestre anterior; nao repetir o guia sem evidencia incremental.",
   "owner": "IA em Loop",
-  "reading": "Compras incrementais declaradas da Sirius XM e resultados do 3T26: fato societario, resultados operacionais e inferencias separados.",
+  "reading": "Berkshire anunciou a data do 10-Q do 3T26; roteiro de leitura usa dados documentados do 2T26, sem antecipar resultados.",
   "requiredDailyOutputs": ["leitura-educacional-de-stock-eua", "analise-de-resultado-e-formulario-sec", "registro-editorial-publico-v2"],
   "rules": [
     "Nao publicar recomendacao personalizada de investimento.",
@@ -18,12 +18,12 @@
     "Publicar e manter como superficie publica canonica somente a versao 2 do site."
   ],
   "sourcesUsed": [
-    "SEC — Berkshire Hathaway e Warren Buffett, Form 4 protocolado em 03/11/2026",
-    "Sirius XM — comunicado de resultados do 3T26 em 29/10/2026, anexo ao Form 8-K"
+    "Berkshire Hathaway — comunicado de 04/11/2026 sobre a divulgacao do 3T26",
+    "Berkshire Hathaway — Form 10-Q do periodo encerrado em 30/06/2026"
   ],
-  "tickerOfTheDay": "SIRI",
+  "tickerOfTheDay": "BRK-B",
   "assetTypeOfTheDay": "stock_eua",
   "custodyPerspective": "nao_publicada",
   "draftStatus": "pronto_para_publicacao_v2",
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-06"
 }
