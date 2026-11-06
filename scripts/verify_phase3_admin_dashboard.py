@@ -30,6 +30,11 @@ RPCS = {
     "admin_set_access_status": "uuid, text, text, text",
 }
 FORBIDDEN_BROWSER_TOKENS = ("innerHTML", "insertAdjacentHTML", "srcdoc", "eval(", "private_pages", "diegoremmurd@gmail.com", "diegoremmurd@hotmail.com")
+APPROVED_PRIVATE_PAGE_READS = {
+    AUTH: ".from('private_pages')\n      .select('html,updated_at')\n      .eq('slug', slug)\n      .maybeSingle()",
+    GRAPHICS: ".from('private_pages').select('slug,html').in('slug', PRIVATE_PAGE_SLUGS)",
+    ROOT / "privado" / "graficos_custodia_v2.html": ".from('private_pages').select('slug,html').in('slug', PRIVATE_PAGE_SLUGS)",
+}
 OWNER_EMAIL_TOKENS = ("equipeiaemloop@gmail.com", "diegoremmurd@gmail.com", "diegoremmurd@hotmail.com")
 USER_EMAIL_AUTH_RE = re.compile(
     r"(?:\bif\s*\([^;\n]*(?:(?:context|session)\.)?user\??\.email\b|"
@@ -268,7 +273,13 @@ def sql_errors(raw: str) -> list[str]:
 def browser_errors(sources: dict[Path, str]) -> list[str]:
     errors: list[str] = []
     for path in BROWSER_FILES:
-        folded = sources[path].casefold()
+        reviewed = sources[path]
+        if path in APPROVED_PRIVATE_PAGE_READS:
+            expression = APPROVED_PRIVATE_PAGE_READS[path]
+            require(reviewed.count(expression) == 1,
+                    f"browser:{path.relative_to(ROOT)} must preserve exactly one approved private_pages read", errors)
+            reviewed = reviewed.replace(expression, "", 1)
+        folded = reviewed.casefold()
         for token in FORBIDDEN_BROWSER_TOKENS:
             require(token.casefold() not in folded, f"browser:{path.relative_to(ROOT)} must not contain {token}", errors)
         require(re.search(r"sb_secret_[a-z0-9]{12,}", folded) is None,
@@ -367,6 +378,13 @@ def run_mutation_tests(sql_raw: str, sources: dict[Path, str]) -> list[str]:
     mutated_sources[ADMIN_JS] = sources[ADMIN_JS] + "\nelement.innerHTML = unsafeValue;\n"
     if not any("innerhtml" in message.casefold() for message in browser_errors(mutated_sources)):
         failures.append("self-test:unsafe HTML sink was not rejected")
+
+    for path in APPROVED_PRIVATE_PAGE_READS:
+        mutated_sources = dict(sources)
+        mutated_sources[path] = sources[path] + "\nclient.from('private_pages').delete();\n"
+        if not any("must not contain private_pages" in message and str(path.relative_to(ROOT)) in message
+                   for message in browser_errors(mutated_sources)):
+            failures.append(f"self-test:extra private_pages access was not rejected in {path.relative_to(ROOT)}")
 
     browser_mutations = (
         ("pagination offset", ADMIN_JS, "p_offset: requestedPage * PAGE_SIZE", "p_offset: 0", "real page offsets"),
