@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Ânima no 3T26: crescimento operacional e recuo da geração de caixa gerencial</title>
+  <desc id="desc">A receita subiu 7,9%, o EBITDA ajustado ex-IFRS 16 cresceu 14,6%, e a métrica gerencial geração de caixa da empresa caiu 4%, embora o saldo de caixa e aplicações tenha aumentado. A alavancagem caiu de 2,40 para 2,18 vezes.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#111b2c"/><stop offset="1" stop-color="#0a101a"/></linearGradient></defs>
+  <rect width="1200" height="560" rx="28" fill="url(#bg)"/>
+  <text x="64" y="76" fill="#a8bbd3" font-family="Inter,Arial,sans-serif" font-size="18" letter-spacing="3">ÂNIMA EDUCAÇÃO · 3T26 VS. 3T25</text>
+  <text x="64" y="132" fill="#f2f6fc" font-family="Inter,Arial,sans-serif" font-size="38" font-weight="700">EBITDA sobe; caixa gerencial recua.</text>
+  <text x="64" y="169" fill="#a8bbd3" font-family="Inter,Arial,sans-serif" font-size="19">Indicadores divulgados pela companhia; medidas ajustadas são gerenciais.</text>
+  <g font-family="Inter,Arial,sans-serif">
+    <rect x="64" y="218" width="330" height="220" rx="18" fill="#17243a" stroke="#2c4661"/>
+    <text x="92" y="264" fill="#a8bbd3" font-size="17">RECEITA LÍQUIDA</text>
+    <text x="92" y="333" fill="#70e1bd" font-size="49" font-weight="700">+7,9%</text>
+    <text x="92" y="378" fill="#edf4fa" font-size="23">R$ 1.085,8 mi</text>
+    <text x="92" y="411" fill="#a8bbd3" font-size="16">ante R$ 1.005,9 mi</text>
+
+    <rect x="435" y="218" width="330" height="220" rx="18" fill="#17243a" stroke="#2c4661"/>
+    <text x="463" y="264" fill="#a8bbd3" font-size="17">EBITDA AJUSTADO EX-IFRS 16</text>
+    <text x="463" y="333" fill="#70e1bd" font-size="49" font-weight="700">+14,6%</text>
+    <text x="463" y="378" fill="#edf4fa" font-size="23">R$ 347,3 mi</text>
+    <text x="463" y="411" fill="#a8bbd3" font-size="16">ante R$ 303,0 mi</text>
+
+    <rect x="806" y="218" width="330" height="220" rx="18" fill="#17243a" stroke="#68434a"/>
+    <text x="834" y="264" fill="#a8bbd3" font-size="17">GERAÇÃO DE CAIXA DA EMPRESA</text>
+    <text x="834" y="333" fill="#ff9c8d" font-size="49" font-weight="700">−4,0%</text>
+    <text x="834" y="378" fill="#edf4fa" font-size="23">R$ 396,3 mi</text>
+    <text x="834" y="411" fill="#a8bbd3" font-size="16">ante R$ 412,8 mi</text>
+  </g>
+  <rect x="64" y="468" width="1072" height="54" rx="14" fill="#10231f" stroke="#315a4d"/>
+  <text x="92" y="503" fill="#c1d8cf" font-family="Inter,Arial,sans-serif" font-size="18">ALAVANCAGEM (DÍVIDA LÍQUIDA / EBITDA AJUSTADO EX-IFRS 16 LTM)</text>
+  <text x="1088" y="505" text-anchor="end" fill="#70e1bd" font-family="Inter,Arial,sans-serif" font-size="23" font-weight="700">2,40x → 2,18x</text>
+</svg>
