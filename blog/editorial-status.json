@@ -1,13 +1,14 @@
 {
   "knownGaps": [
-    "Os resultados do terceiro trimestre da Berkshire ainda nao haviam sido publicados no corte informacional de 06/11/2026.",
-    "Numeros do 2T e do primeiro semestre nao permitem prever desempenho do 3T."
+    "O texto nao estima valor justo ou recomendacao para ANIM3; nao inclui cotacao no corte editorial.",
+    "Indicadores gerenciais e explicacoes operacionais foram atribuidos a administracao e nao validados independentemente neste artigo.",
+    "A aquisicao da FMU permanecia sujeita a analise do CADE no release de 05/11/2026."
   ],
-  "lastPost": "v2/blog/posts/2026-11-06-berkshire-balanco-3t-guia-leitura.html",
-  "nextSuggestedPost": "Apos a divulgacao do 10-Q do 3T26, reconciliar seguradoras, BNSF, energia, liquidez e alocacao com o trimestre anterior; nao repetir o guia sem evidencia incremental.",
+  "lastPost": "v2/blog/posts/2026-11-09-anim3-resultado-3t26-caixa-alavancagem.html",
+  "nextSuggestedPost": "A proxima analise empresarial deve ser Stocks EUA, calculada pela sequencia real dos artigos publicados na V2; artigo macro nao altera a alternancia.",
   "owner": "IA em Loop",
-  "reading": "Berkshire anunciou a data do 10-Q do 3T26; roteiro de leitura usa dados documentados do 2T26, sem antecipar resultados.",
-  "requiredDailyOutputs": ["leitura-educacional-de-stock-eua", "analise-de-resultado-e-formulario-sec", "registro-editorial-publico-v2"],
+  "reading": "No 3T26, crescimento de receita e EBITDA ajustado e menor alavancagem coexistem com queda trimestral da geracao de caixa da empresa, contas a receber maiores e desempenhos desiguais entre segmentos.",
+  "requiredDailyOutputs": ["leitura-educacional-de-acao-b3", "analise-de-resultados-e-caixa", "registro-editorial-publico-v2"],
   "rules": [
     "Nao publicar recomendacao personalizada de investimento.",
     "Nao inventar fonte, preco, noticia ou fala de terceiros.",
@@ -18,12 +19,14 @@
     "Publicar e manter como superficie publica canonica somente a versao 2 do site."
   ],
   "sourcesUsed": [
-    "Berkshire Hathaway — comunicado de 04/11/2026 sobre a divulgacao do 3T26",
-    "Berkshire Hathaway — Form 10-Q do periodo encerrado em 30/06/2026"
+    "Ânima Holding S.A. — Divulgação de Resultados do 3T26, publicada em 05/11/2026; fonte primária da administração."
   ],
-  "tickerOfTheDay": "BRK-B",
-  "assetTypeOfTheDay": "stock_eua",
+  "tickerOfTheDay": "ANIM3",
+  "assetTypeOfTheDay": "acao_b3",
   "custodyPerspective": "nao_publicada",
   "draftStatus": "pronto_para_publicacao_v2",
-  "updatedAt": "2026-11-06"
+  "editorialDate": "2026-11-09",
+  "dateModified": "2026-11-10",
+  "informationCutoff": "2026-11-09",
+  "updatedAt": "2026-11-10"
 }
