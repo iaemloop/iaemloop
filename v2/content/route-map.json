@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10",
+  "generated_at": "2026-11-11",
   "canonical_home": "/",
   "legacy_public": false,
   "routes": [
@@ -92,6 +92,7 @@
     "/v2/blog/posts/2026-11-04-berkshire-sirius-xm-formulario-4.html",
     "/v2/blog/posts/2026-11-06-berkshire-balanco-3t-guia-leitura.html",
     "/v2/blog/posts/2026-11-09-anim3-resultado-3t26-caixa-alavancagem.html",
+    "/v2/blog/posts/2026-11-11-uber-corridas-caixa-lucro-3t26.html",
     "/v2/blog/posts/selic-caindo-juro-real-focus-2026.html",
     "/v2/index.html",
     "/v2/indicadores/bitcoin.html",
@@ -140,5 +141,5 @@
     "/ranking_magic_formula_dolarizada.html": "/v2/rankings/magic-formula-eua.html",
     "/watchlist_buffett_permanente_eua.html": "/v2/radar/watchlist-buffett-eua.html"
   },
-  "blog_posts": 89
+  "blog_posts": 90
 }
