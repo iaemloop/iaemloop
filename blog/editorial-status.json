@@ -1,14 +1,14 @@
 {
   "knownGaps": [
-    "O texto nao estima valor justo ou recomendacao para ANIM3; nao inclui cotacao no corte editorial.",
-    "Indicadores gerenciais e explicacoes operacionais foram atribuidos a administracao e nao validados independentemente neste artigo.",
-    "A aquisicao da FMU permanecia sujeita a analise do CADE no release de 05/11/2026."
+    "O artigo nao estima valor justo nem recomenda UBER: nao inclui cotacao no corte editorial.",
+    "Medidas nao GAAP e explicacoes da administracao nao foram auditadas independentemente neste artigo.",
+    "O fluxo de caixa apresentado refere-se aos nove meses acumulados, nao somente ao terceiro trimestre."
   ],
-  "lastPost": "v2/blog/posts/2026-11-09-anim3-resultado-3t26-caixa-alavancagem.html",
-  "nextSuggestedPost": "A proxima analise empresarial deve ser Stocks EUA, calculada pela sequencia real dos artigos publicados na V2; artigo macro nao altera a alternancia.",
+  "lastPost": "v2/blog/posts/2026-11-11-uber-corridas-caixa-lucro-3t26.html",
+  "nextSuggestedPost": "A proxima analise empresarial deve ser Acao B3, calculada pela sequencia real dos artigos publicados na V2; artigo macro nao altera a alternancia.",
   "owner": "IA em Loop",
-  "reading": "No 3T26, crescimento de receita e EBITDA ajustado e menor alavancagem coexistem com queda trimestral da geracao de caixa da empresa, contas a receber maiores e desempenhos desiguais entre segmentos.",
-  "requiredDailyOutputs": ["leitura-educacional-de-acao-b3", "analise-de-resultados-e-caixa", "registro-editorial-publico-v2"],
+  "reading": "Volume de viagens e lucro operacional da Uber cresceram no 3T26, mas efeitos de tributos e investimentos reduziram o lucro liquido; mudanca contabil no Reino Unido limita comparacao direta de receita.",
+  "requiredDailyOutputs": ["leitura-educacional-de-stock-eua", "analise-de-resultados-e-caixa", "registro-editorial-publico-v2"],
   "rules": [
     "Nao publicar recomendacao personalizada de investimento.",
     "Nao inventar fonte, preco, noticia ou fala de terceiros.",
@@ -19,14 +19,14 @@
     "Publicar e manter como superficie publica canonica somente a versao 2 do site."
   ],
   "sourcesUsed": [
-    "Ânima Holding S.A. — Divulgação de Resultados do 3T26, publicada em 05/11/2026; fonte primária da administração."
+    "Uber Technologies, Inc. — Form 10-Q do trimestre encerrado em 30/09/2026, protocolado na SEC em 04/11/2026."
   ],
-  "tickerOfTheDay": "ANIM3",
-  "assetTypeOfTheDay": "acao_b3",
+  "tickerOfTheDay": "UBER",
+  "assetTypeOfTheDay": "stock_eua",
   "custodyPerspective": "nao_publicada",
   "draftStatus": "publicado_v2",
-  "editorialDate": "2026-11-09",
-  "dateModified": "2026-11-10",
-  "informationCutoff": "2026-11-09",
-  "updatedAt": "2026-11-10"
+  "editorialDate": "2026-11-11",
+  "dateModified": "2026-11-11",
+  "informationCutoff": "2026-11-11",
+  "updatedAt": "2026-11-11"
 }
