@@ -1,14 +1,17 @@
 {
   "knownGaps": [
-    "O artigo nao estima valor justo nem recomenda UBER: nao inclui cotacao no corte editorial.",
-    "Medidas nao GAAP e explicacoes da administracao nao foram auditadas independentemente neste artigo.",
-    "O fluxo de caixa apresentado refere-se aos nove meses acumulados, nao somente ao terceiro trimestre."
+    "Nao estima preco justo nem usa cotacao corrente.",
+    "O anuncio florestal nao confirma fechamento ou recebimento; participacao economica e efeitos completos nao estao no comunicado resumido.",
+    "Medidas gerenciais seguem as definicoes da companhia."
   ],
-  "lastPost": "v2/blog/posts/2026-11-11-uber-corridas-caixa-lucro-3t26.html",
-  "nextSuggestedPost": "A proxima analise empresarial deve ser Acao B3, calculada pela sequencia real dos artigos publicados na V2; artigo macro nao altera a alternancia.",
+  "lastPost": "v2/blog/posts/2026-11-13-klabin-acordo-florestal-caixa-divida.html",
+  "nextSuggestedPost": "A proxima analise empresarial deve ser Stock EUA, pela alternancia das publicacoes canonicas V2; artigos macro nao alteram a sequencia.",
   "owner": "IA em Loop",
-  "reading": "Volume de viagens e lucro operacional da Uber cresceram no 3T26, mas efeitos de tributos e investimentos reduziram o lucro liquido; mudanca contabil no Reino Unido limita comparacao direta de receita.",
-  "requiredDailyOutputs": ["leitura-educacional-de-stock-eua", "analise-de-resultados-e-caixa", "registro-editorial-publico-v2"],
+  "reading": "Acordo florestal condicionado e financiamento contratado ampliam alternativas de capital, mas nao comprovam recuperacao do caixa recorrente da Klabin.",
+  "requiredDailyOutputs": [
+    "analise-educacional-acao-b3",
+    "leitura-de-caixa-e-divida"
+  ],
   "rules": [
     "Nao publicar recomendacao personalizada de investimento.",
     "Nao inventar fonte, preco, noticia ou fala de terceiros.",
@@ -19,14 +22,17 @@
     "Publicar e manter como superficie publica canonica somente a versao 2 do site."
   ],
   "sourcesUsed": [
-    "Uber Technologies, Inc. — Form 10-Q do trimestre encerrado em 30/09/2026, protocolado na SEC em 04/11/2026."
+    "Klabin: Comunicado Operacao Florestal, 06/11/2026.",
+    "Klabin: Comunicado Financiamento Term Loan, 09/11/2026.",
+    "Klabin: Resultados 3T26, 28/10/2026, pp. 3, 5-7 e 24-27.",
+    "IA em Loop: historico BESST & Buffett B3, outubro de 2026."
   ],
-  "tickerOfTheDay": "UBER",
-  "assetTypeOfTheDay": "stock_eua",
+  "tickerOfTheDay": "KLBN4",
+  "assetTypeOfTheDay": "acao_b3",
   "custodyPerspective": "nao_publicada",
   "draftStatus": "publicado_v2",
-  "editorialDate": "2026-11-11",
-  "dateModified": "2026-11-11",
-  "informationCutoff": "2026-11-11",
-  "updatedAt": "2026-11-11"
+  "editorialDate": "2026-11-13",
+  "dateModified": "2026-11-13",
+  "informationCutoff": "2026-11-13",
+  "updatedAt": "2026-11-13"
 }
