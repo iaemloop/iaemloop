@@ -1,16 +1,16 @@
 {
   "knownGaps": [
     "Nao estima preco justo nem usa cotacao corrente.",
-    "O anuncio florestal nao confirma fechamento ou recebimento; participacao economica e efeitos completos nao estao no comunicado resumido.",
-    "Medidas gerenciais seguem as definicoes da companhia."
+    "A leitura de catastrofes e reservas exige acompanhamento de novas divulgacoes; o trimestre isolado nao determina a margem futura.",
+    "Medidas e estimativas de reservas seguem as definicoes e premissas da companhia."
   ],
-  "lastPost": "v2/blog/posts/2026-11-13-klabin-acordo-florestal-caixa-divida.html",
-  "nextSuggestedPost": "A proxima analise empresarial deve ser Stock EUA, pela alternancia das publicacoes canonicas V2; artigos macro nao alteram a sequencia.",
+  "lastPost": "v2/blog/posts/2026-11-16-allstate-catastrofes-premios-reservas-3t26.html",
+  "nextSuggestedPost": "A proxima analise empresarial deve ser Acao B3, pela alternancia das publicacoes canonicas V2; artigos macro nao alteram a sequencia.",
   "owner": "IA em Loop",
-  "reading": "Acordo florestal condicionado e financiamento contratado ampliam alternativas de capital, mas nao comprovam recuperacao do caixa recorrente da Klabin.",
+  "reading": "O 3T26 da Allstate exige separar perdas catastroficas, reservas, preco de seguros e capital; o resultado trimestral nao basta para concluir sobre a sustentabilidade da margem.",
   "requiredDailyOutputs": [
-    "analise-educacional-acao-b3",
-    "leitura-de-caixa-e-divida"
+    "analise-educacional-stock-eua",
+    "leitura-de-seguros-e-reservas"
   ],
   "rules": [
     "Nao publicar recomendacao personalizada de investimento.",
@@ -22,17 +22,16 @@
     "Publicar e manter como superficie publica canonica somente a versao 2 do site."
   ],
   "sourcesUsed": [
-    "Klabin: Comunicado Operacao Florestal, 06/11/2026.",
-    "Klabin: Comunicado Financiamento Term Loan, 09/11/2026.",
-    "Klabin: Resultados 3T26, 28/10/2026, pp. 3, 5-7 e 24-27.",
-    "IA em Loop: historico BESST & Buffett B3, outubro de 2026."
+    "Allstate: Form 10-Q do trimestre encerrado em 30/09/2026, protocolado em 04/11/2026.",
+    "Allstate: Form 8-K sobre resultados do 3T26, 04/11/2026.",
+    "Allstate: comunicado mensal de setembro de 2026 sobre perdas catastroficas estimadas."
   ],
-  "tickerOfTheDay": "KLBN4",
-  "assetTypeOfTheDay": "acao_b3",
+  "tickerOfTheDay": "ALL",
+  "assetTypeOfTheDay": "stock_eua",
   "custodyPerspective": "nao_publicada",
   "draftStatus": "publicado_v2",
-  "editorialDate": "2026-11-13",
-  "dateModified": "2026-11-13",
-  "informationCutoff": "2026-11-13",
-  "updatedAt": "2026-11-13"
+  "editorialDate": "2026-11-16",
+  "dateModified": "2026-11-16",
+  "informationCutoff": "2026-11-16",
+  "updatedAt": "2026-11-16"
 }
