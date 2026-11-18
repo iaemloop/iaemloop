@@ -659,11 +659,8 @@ def build() -> None:
     # every visitor is sent to the canonical V2 route.
     for legacy, destination in LEGACY_REDIRECTS.items():
         apply_legacy_redirect(ROOT / legacy.lstrip("/"), destination)
-    for post in posts:
-        apply_legacy_redirect(
-            ROOT / str(post["source"]),
-            "/v2/blog/posts/" + str(post["slug"]),
-        )
+    # Editorial source posts retain their authored article body so the next build
+    # can regenerate V2. Their source heads carry the legacy noindex redirect.
 
     print(f"V2_BUILD_OK pages={len(outputs)} blog_posts={len(posts)} canonical_urls={len(canonical_routes)}")
 
