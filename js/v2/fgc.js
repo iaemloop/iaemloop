@@ -44,7 +44,10 @@
         const hasPublicRating = !/^sem rating público$/i.test(ratingText);
         const rating = badge(ratingText, hasPublicRating ? '#fff1a8' : '#d9e0ea', '#1b2430');
         const indexador = badge(String(product.indexador || '').replace(/\s/g, ''), '#d8f7ff', '#19364d');
-        row.innerHTML = `<td><strong>#${safe(product.rank)}</strong></td><td><strong>${safe(product.produto)} ${fgc}</strong><br><small>${safe(product.emissor)}</small></td><td>${rating}</td><td>${indexador}</td><td>${safe(product.tipo)}</td><td>${safe(product.rent_bruta)}</td><td>${safe(product.rent_liquida)}</td><td>${safe(product.minimo)}</td><td>${safe(product.prazo)}<br><small>${safe(product.prazo_tipo)}</small></td>`;
+        const emissor = String(product.emissor || '');
+        const distribuidor = String(product.distribuidor || '');
+        const oferta = distribuidor && distribuidor !== emissor ? `${emissor} · via ${distribuidor}` : emissor;
+        row.innerHTML = `<td><strong>#${safe(product.rank)}</strong></td><td><strong>${safe(product.produto)} ${fgc}</strong><br><small>${safe(oferta)}</small></td><td>${rating}</td><td>${indexador}</td><td>${safe(product.tipo)}</td><td>${safe(product.rent_bruta)}</td><td>${safe(product.rent_liquida)}</td><td>${safe(product.minimo)}</td><td>${safe(product.prazo)}<br><small>${safe(product.prazo_tipo)}</small></td>`;
         tbody.appendChild(row);
       });
       setupFilters();
