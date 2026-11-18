@@ -1,7 +1,7 @@
-﻿ticker,nome,setor,segmento,classificacao_setor,preco,market_cap,dividend_yield,dividend_rate,p_vpa,p_l,anos_listed,anos_com_dividendos,score
-SANB11,SANTANDER BRUNT,Financial Services,Banks - Regional,PERENE,29.51,158571397120,7.25,2.14,0.87,14.42,20.0,17,71.0
-GGBR4,GERDAU      PN      N1,Basic Materials,Steel,PERENE,25.53,50084810752,3.6,0.92,0.94,22.2,20.0,27,61.0
-PETR4,PETROBRAS   PN      N2,Energy,Oil & Gas Integrated,PERENE,54.22,740834213888,8.0,4.34,1.45,5.17,20.0,19,59.8
-KLBN4,KLABIN S/A  PN      N2,Basic Materials,Paper & Paper Products,PERENE,3.7,22646634496,6.22,0.23,0.48,123.33,20.0,16,58.0
-VIVT3,TELEF BRASILON  EJ,Communication Services,Telecom Services,PERENE,31.86,101812019200,5.9,1.88,1.55,15.47,20.0,18,43.2
-VALE3,VALE        ON      NM,Basic Materials,Other Industrial Metals & Mining,PERENE,70.54,300201508864,6.2,4.37,1.53,26.62,20.0,19,40.3
+ticker,nome,setor,segmento,classificacao_setor,preco,market_cap,dividend_yield,dividend_rate,p_vpa,p_l,anos_listed,anos_com_dividendos,score
+BBDC4,Banco Bradesco PN,Financial Services,Banks - Regional,PERENE,14.41,161347000000.0,10.6,,0.86,6.29,20.0,19,78.4938
+PETR4,Petrobras PN,Energy,Oil & Gas Integrated,PERENE,43.98,566846000000.0,8.29,,1.12,4.04,20.0,19,75.0373
+SANB11,Santander Brasil Units,Financial Services,Banks - Regional,PERENE,28.4,106479000000.0,7.65,,1.07,7.61,20.0,17,68.9813
+GGBR4,Gerdau PN,Basic Materials,Steel,PERENE,24.69,48830400000.0,3.46,,0.89,18.01,20.0,27,62.8985
+VALE3,Vale ON,Basic Materials,Other Industrial Metals & Mining,PERENE,60.34,267859000000.0,9.3,,1.38,122.42,20.0,18,56.4395
+VIVT3,Telefônica Brasil ON,Communication Services,Telecom Services,PERENE,35.89,115801000000.0,7.16,,1.73,16.16,20.0,18,49.3986
