@@ -523,6 +523,10 @@ def blog_post(post: dict[str, Any]) -> str:
     if source_article:
         sanitize_public_article(source_article)
     article_html = "".join(str(child) for child in source_article.contents) if source_article else inner
+    # BeautifulSoup can discard inline source whitespace between strong labels and
+    # their explanatory spans. Preserve a text separator so labels remain readable
+    # even if the shared CSS display rule changes.
+    article_html = article_html.replace("</strong><span", "</strong> <span")
     body = f'''<nav class="v2-breadcrumb" aria-label="Trilha"><a href="/">Início</a><span>/</span><a href="/v2/blog/index.html">Blog</a><span>/</span><span>Artigo</span></nav><article class="v2-content v2-article-content">{article_html}</article><aside class="v2-next-reading"><p class="v2-kicker">Continue explorando</p><h2>Volte ao arquivo completo.</h2><a class="v2-primary" href="/v2/blog/index.html">Ver todas as análises</a></aside>'''
     page = document(str(post["title"]), description, body, body_class="v2-blog-post")
     # Preserve authored social/date metadata when present in the source head.
