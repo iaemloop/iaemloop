@@ -1,0 +1,21 @@
+rank,ticker,empresa,atividade_economica,setor,preco_usd,market_cap_usd,p_l,p_vpa,roe_pct,dividend_yield_pct,score,fonte,data_base
+1,ZTS,Zoetis Inc.,Drug Manufacturers - Specialty & Generic,Healthcare,79.72,32942186496.0,13.111842,10.488094,64.91,2.66,61.0063,yfinance; universo mensal IA em Loop,2026-11-01
+2,MU,"Micron Technology, Inc.",Semiconductors,Technology,884.74,1001015410688.0,11.902865,7.231222,88.26,0.07,60.0486,yfinance; universo mensal IA em Loop,2026-11-01
+3,NVDA,NVIDIA Corporation,Semiconductors,Technology,204.64,4941441662976.0,25.87105,21.57967,117.21,0.49,58.9416,yfinance; universo mensal IA em Loop,2026-11-01
+4,CAT,"Caterpillar, Inc.",Farm & Heavy Construction Machinery,Industrials,622.75,286262525952.0,24.440739,13.308331,56.14,1.05,58.0323,yfinance; universo mensal IA em Loop,2026-11-01
+5,MA,Mastercard Incorporated,Credit Services,Financial Services,638.01,555819073536.0,33.386185,82.39829,231.37,0.55,58.0079,yfinance; universo mensal IA em Loop,2026-11-01
+6,LRCX,Lam Research Corporation,Semiconductor Equipment & Materials,Technology,239.11,299228069888.0,35.634872,21.47566,70.12,0.55,57.7156,yfinance; universo mensal IA em Loop,2026-11-01
+7,V,Visa Inc.,Credit Services,Financial Services,413.59,773002166272.0,33.570618,21.22607,63.51,0.65,57.5994,yfinance; universo mensal IA em Loop,2026-11-01
+8,HON,Honeywell International Inc.,Conglomerates,Industrials,218.33,69197512704.0,10.8244915,3.0909169,44.39,1.28,56.5756,yfinance; universo mensal IA em Loop,2026-11-01
+9,LMT,Lockheed Martin Corporation,Aerospace & Defense,Industrials,636.95,147138412544.0,22.618963,14.558192,80.19,2.26,56.5527,yfinance; universo mensal IA em Loop,2026-11-01
+10,GOOG,Alphabet Inc.,Internet Content & Information,Communication Services,278.22,3420436561920.0,14.52846,5.1862206,44.29,0.32,55.4729,yfinance; universo mensal IA em Loop,2026-11-01
+11,ADP,"Automatic Data Processing, Inc.",Software - Application,Technology,293.84,115996106752.0,26.049646,22.827843,78.94,2.31,54.8733,yfinance; universo mensal IA em Loop,2026-11-01
+12,AMGN,Amgen Inc.,Drug Manufacturers - General,Healthcare,466.01,251939930112.0,28.944721,21.554579,91.47,2.16,53.9583,yfinance; universo mensal IA em Loop,2026-11-01
+13,ORCL,Oracle Corporation,Software - Infrastructure,Technology,130.67,396126224384.0,20.48119,6.392232,41.19,1.53,51.2724,yfinance; universo mensal IA em Loop,2026-11-01
+14,AVGO,Broadcom Inc.,Semiconductors,Technology,326.08,1556585250816.0,41.644955,15.615362,44.24,0.8,51.1509,yfinance; universo mensal IA em Loop,2026-11-01
+15,CL,Colgate-Palmolive Company,Household & Personal Products,Consumer Defensive,95.29,75747975168.0,37.077824,263.9612,231.74,2.22,50.1619,yfinance; universo mensal IA em Loop,2026-11-01
+16,APH,Amphenol Corporation,Electronic Components,Technology,79.3,195812425728.0,34.329006,11.426514,40.08,0.76,49.1492,yfinance; universo mensal IA em Loop,2026-11-01
+17,AXP,American Express Company,Credit Services,Financial Services,319.11,213979840512.0,17.978027,5.9815555,35.93,1.19,48.0323,yfinance; universo mensal IA em Loop,2026-11-01
+18,UNP,Union Pacific Corporation,Railroads,Industrials,304.0,180598964224.0,23.71295,8.204464,38.75,1.87,47.7488,yfinance; universo mensal IA em Loop,2026-11-01
+19,KO,Coca-Cola Company (The),Beverages - Non-Alcoholic,Consumer Defensive,94.08,404722974720.0,27.752213,10.829976,40.59,2.25,46.7146,yfinance; universo mensal IA em Loop,2026-11-01
+20,PGR,Progressive Corporation (The),Insurance - Property & Casualty,Financial Services,231.28,134026764288.0,11.651385,3.8865364,33.24,0.17,46.699,yfinance; universo mensal IA em Loop,2026-11-01

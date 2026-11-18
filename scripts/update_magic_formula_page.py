@@ -3,8 +3,7 @@
 Atualiza a página Magic Formula com as regras editoriais do IA em Loop.
 
 Regras obrigatórias:
-- não incluir varejo;
-- não incluir aviação/companhias aéreas;
+- respeitar o ranking canônico mensal já validado pela metodologia;
 - mostrar setor no ranking;
 - deixar tickers clicáveis;
 - não repetir classes da mesma empresa: se aparecer PETR3/PETR4/PETR11,
@@ -15,8 +14,9 @@ Regras obrigatórias:
 - publicar somente o Top 20 final. O CSV bruto pode ter 30 nomes, mas o site,
   o CSV filtrado e o histórico público da IA em Loop devem parar em 20.
 
-O script usa o CSV bruto quando disponível, aplica as regras e reescreve a seção
-do ranking. Se o CSV bruto não existir, usa a tabela HTML existente como fallback.
+O script prefere o CSV canônico filtrado quando disponível. O ranking Magic
+Formula tem regras próprias e não herda as exclusões editoriais do BESST &
+Buffett B3. Se nenhum CSV existir, usa a tabela HTML existente como fallback.
 """
 
 from __future__ import annotations
@@ -201,6 +201,26 @@ def extract_rows(page_html: str) -> list[dict[str, str]]:
 
 
 def rows_from_csv() -> list[dict[str, str]]:
+    if CSV_OUT.exists():
+        with CSV_OUT.open(newline="", encoding="utf-8-sig") as source:
+            rows = []
+            for row in csv.DictReader(source):
+                ticker = row.get("ticker", "").strip().upper()
+                if not ticker:
+                    continue
+                rows.append(
+                    {
+                        "pos": row.get("pos", ""),
+                        "ticker": ticker,
+                        "setor": row.get("setor", "Não classificado"),
+                        "roic": f'{number(row.get("roic")) * 100:.2f}%',
+                        "ey": f'{number(row.get("ey")) * 100:.2f}%',
+                        "ev_ebit": row.get("ev_ebit", "-"),
+                        "dy": row.get("dy", "-"),
+                        "score": row.get("score", ""),
+                    }
+                )
+            return rows
     if not CSV_IN.exists():
         return []
     rows = []
@@ -210,8 +230,6 @@ def rows_from_csv() -> list[dict[str, str]]:
             if not ticker:
                 continue
             sector = SECTOR_BY_TICKER.get(ticker, "Não classificado")
-            if is_excluded(ticker, sector):
-                continue
             try:
                 roic = float(row.get("roic", 0) or 0)
             except ValueError:
@@ -293,7 +311,7 @@ def replace_table(page_html: str, rows: list[dict[str, str]]) -> str:
     top20 = rows[:20]
     page_html = re.sub(
         r"Dados: Fundamentus \+ yfinance \(.*?\)\. Setores: classificação B3 oficial\. \d+ empresas \(duplicata removida\)\.|Dados: Fundamentus \+ yfinance \(.*?\)\. Setores: classificação IA em Loop\. (?:\d+ empresas|Top 20) após filtros de varejo e aviação\.",
-        f"Dados: Fundamentus + yfinance ({updated}). Setores: classificação IA em Loop. Top 20 após filtros de varejo e aviação.",
+        f"Dados quantitativos ({updated}). Setores: classificação IA em Loop. Top 20 final da metodologia Magic Formula.",
         page_html,
         count=1,
     )
@@ -341,6 +359,8 @@ def replace_table(page_html: str, rows: list[dict[str, str]]) -> str:
 
 
 def update_csv(rows: list[dict[str, str]]) -> None:
+    if CSV_OUT.exists():
+        return
     if not CSV_IN.exists():
         return
     with CSV_IN.open(newline="", encoding="utf-8") as source:
@@ -350,8 +370,6 @@ def update_csv(rows: list[dict[str, str]]) -> None:
         for row in reader:
             ticker = row.get("ticker", "").strip().upper()
             sector = SECTOR_BY_TICKER.get(ticker, "Não classificado")
-            if is_excluded(ticker, sector):
-                continue
             if ticker not in keep_tickers:
                 continue
             row["setor"] = sector
@@ -370,15 +388,13 @@ def update_csv(rows: list[dict[str, str]]) -> None:
 def main() -> None:
     page_html = PAGE.read_text(encoding="utf-8")
     rows = rows_from_csv() or extract_rows(page_html)
-    filtered = [row for row in rows if not is_excluded(row["ticker"], row["setor"])]
-    deduped = dedupe_company_classes(filtered)
+    deduped = dedupe_company_classes(rows)
     top20 = deduped[:20]
     PAGE.write_text(replace_table(page_html, top20), encoding="utf-8")
     update_csv(top20)
-    removed = len(rows) - len(filtered)
-    deduped_removed = len(filtered) - len(deduped)
+    deduped_removed = len(rows) - len(deduped)
     truncated = max(0, len(deduped) - len(top20))
-    print(f"Magic Formula atualizada: {len(top20)} linhas publicadas (Top 20), {removed} excluídas, {deduped_removed} classes duplicadas removidas, {truncated} excedentes fora do site.")
+    print(f"Magic Formula atualizada: {len(top20)} linhas publicadas (Top 20), {deduped_removed} classes duplicadas removidas, {truncated} excedentes fora do site.")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,21 @@
+pos,ticker,setor,roic,ey,ev_ebit,dy,score
+1,LREN3,"Varejo de moda, vestuário e calçados",0.23790000,0.42918455,2.33,-,8
+2,PETR4,Petróleo e gás integrado,0.21410000,0.30303030,3.30,-,17
+3,ASAI3,Atacarejo alimentar,0.22670000,0.28985507,3.45,-,18
+4,CURY3,Construção residencial,0.40160000,0.22371365,4.47,-,22
+5,SEER3,Educação superior privada,0.17500000,0.29411765,3.40,-,27
+6,UGPA3,Distribuição de combustíveis e infraestrutura de energia,0.24870000,0.21321962,4.69,-,28
+7,LEVE3,Autopeças e componentes automotivos,0.34460000,0.18148820,5.51,-,35
+8,CEAB3,Varejo de moda e vestuário,0.14700000,0.36764706,2.72,-,37
+9,TEND3,Construção residencial,0.14000000,0.37453184,2.67,-,37
+10,VBBR3,Distribuição de combustíveis,0.20720000,0.20920502,4.78,-,39
+11,VLID3,Identidade digital e meios de pagamento,0.15490000,0.26455026,3.78,-,39
+12,ANIM3,Educação superior privada,0.15180000,0.26246719,3.81,-,44
+13,VTRU3,Educação superior digital,0.15210000,0.25125628,3.98,-,46
+14,TGMA3,Logística de veículos,0.27770000,0.15408320,6.49,-,48
+15,PGMN3,Varejo farmacêutico,0.12720000,0.29585799,3.38,-,48
+16,VALE3,Mineração de minério de ferro e metais básicos,0.16530000,0.19531250,5.12,-,49
+17,POMO3,Fabricação de carrocerias de ônibus e veículos comerciais,0.15930000,0.18796992,5.32,-,55
+18,CSED3,Educação superior privada,0.12610000,0.25445293,3.93,-,56
+19,MILS3,Locação de máquinas e equipamentos,0.22010000,0.15360983,6.51,-,57
+20,TFCO4,Vestuário esportivo e artigos de corrida,0.25940000,0.14347202,6.97,-,58

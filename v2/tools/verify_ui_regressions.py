@@ -115,7 +115,9 @@ print('V2_DISCLOSURE_AND_RETENTION_REGRESSIONS_OK')
 for name in ('besst-buffett-eua', 'magic-formula-eua'):
     page = BeautifulSoup((ROOT / f'v2/rankings/historico/{name}.html').read_text(), 'html.parser')
     assert not page.select('.kpis,.portfolio-v31-title'), name
-    assert len(page.select('.v2-history-tabs button')) == 4, name
+    tabs = page.select('.v2-history-tabs button')
+    assert len(tabs) >= 5, (name, len(tabs))
+    assert tabs[0].get_text(' ', strip=True) == 'Novembro/2026', name
 fgc = BeautifulSoup((ROOT / 'v2/rankings/renda-fixa-fgc.html').read_text(), 'html.parser')
 assert fgc.select_one('script[src^="/js/v2/fgc.js?"]')
 assert not fgc.select('script[src^="/scripts/fgc-dynamic.js"]')
