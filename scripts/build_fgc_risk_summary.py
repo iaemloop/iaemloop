@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Gera transparência operacional e concentração do ranking FGC."""
 from collections import Counter
+from datetime import datetime
 import json
 from pathlib import Path
 
@@ -14,6 +15,9 @@ for row in rows:
     row.setdefault("liquidez", None)
     row["dados_operacionais_status"] = "carencia_e_liquidez_nao_informadas_pela_fonte"
 DATA.write_text(json.dumps(rows, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+monthly_snapshot = ROOT / "data" / f"fgc_products_{datetime.now().strftime('%Y-%m')}.json"
+if monthly_snapshot.exists():
+    monthly_snapshot.write_text(json.dumps(rows, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 counts = Counter(row.get("emissor") or "Não informado" for row in rows)
 rating_na = sum((row.get("rating") or "N/A") == "N/A" for row in rows)

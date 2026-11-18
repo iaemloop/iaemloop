@@ -125,6 +125,12 @@ if unknown_issuers:
 produtos_atualizados = []
 novos_count = 0
 
+def chave_historica(produto):
+    """Identifica a oferta sem colapsar distribuidores, tipos ou vencimentos."""
+    return " | ".join(str(produto.get(campo, '')).strip() for campo in (
+        'produto', 'emissor', 'distribuidor', 'tipo', 'minimo', 'prazo'
+    ))
+
 def encontrar_rating(emissor):
     """Busca rating somente por emissor exato ou alias explicitamente validado."""
     if emissor in RATING_OVERRIDES:
@@ -140,12 +146,18 @@ for produto in produtos_crus:
         continue
 
     nome = produto['produto']
-    
-    if nome in historico:
+    chave = chave_historica(produto)
+
+    if chave in historico:
+        produto['data_primeira'] = historico[chave]
+    elif nome in historico:
+        # Migração do histórico legado, que usava apenas o nome e colapsava
+        # ofertas distintas do mesmo produto.
         produto['data_primeira'] = historico[nome]
+        historico[chave] = historico[nome]
     else:
         produto['data_primeira'] = hoje_str
-        historico[nome] = hoje_str
+        historico[chave] = hoje_str
         novos_count += 1
     
     # Recalcular is_new
@@ -178,12 +190,19 @@ for i, p in enumerate(produtos_atualizados, 1):
 
 with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
     json.dump(produtos_atualizados, f, ensure_ascii=False, indent=2)
+    f.write('\n')
+
+snapshot_file = os.path.join(DATA_DIR, f'fgc_products_{hoje.strftime("%Y-%m")}.json')
+with open(snapshot_file, 'w', encoding='utf-8') as f:
+    json.dump(produtos_atualizados, f, ensure_ascii=False, indent=2)
+    f.write('\n')
 
 with open(HISTORY_FILE, 'w', encoding='utf-8') as f:
     json.dump(historico, f, ensure_ascii=False, indent=2)
+    f.write('\n')
 
 with open(TIMESTAMP_FILE, 'w', encoding='utf-8') as f:
-    f.write(hoje_str)
+    f.write(hoje_str + '\n')
 
 if os.path.exists(PAGE_FILE):
     with open(PAGE_FILE, 'r', encoding='utf-8') as f:
@@ -210,5 +229,6 @@ print(f"✅ Ranking atualizado em {hoje_str}")
 print(f"📊 Total: {total} produtos")
 print(f"🆕 Novos (primeira aparição < 30 dias): {novos}")
 print(f"💾 Dados salvos em {OUTPUT_FILE}")
+print(f"📦 Snapshot mensal: {snapshot_file}")
 print(f"📜 Histórico salvo em {HISTORY_FILE}")
 print(f"🕐 Timestamp: {TIMESTAMP_FILE}")

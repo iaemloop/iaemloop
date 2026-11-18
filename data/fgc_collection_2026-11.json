@@ -1,0 +1,16 @@
+{
+  "fonte": "Yubb",
+  "fonte_url": "https://yubb.com.br/investimentos/renda-fixa",
+  "consulta": {
+    "ignore": "cookies",
+    "investment_type": "renda-fixa",
+    "months": "12",
+    "principal": "5000.0",
+    "sort_by": "net_return"
+  },
+  "coletado_em": "2026-11-18T15:25:49-03:00",
+  "paginas": 17,
+  "cards_encontrados": 204,
+  "ofertas_unicas": 204,
+  "ofertas_fgc": 201
+}

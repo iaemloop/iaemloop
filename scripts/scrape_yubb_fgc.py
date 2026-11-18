@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Scraper da página de Renda Fixa do Yubb com paginação completa.
-Extrai TODOS os produtos FGC de todas as páginas e gera data/fgc_products_raw.json.
+Extrai TODAS as ofertas FGC de todas as páginas e gera data/fgc_products_raw.json.
 """
 
 import requests
@@ -201,6 +201,7 @@ def extrair_produtos_de_html(html):
         produto = {
             "produto": produto_nome,
             "emissor": emissor,
+            "distribuidor": distribuidor,
             "rating": "N/A",  # Não disponível no card do Yubb
             "indexador": indexador,
             "tipo": tipo.upper(),
@@ -252,6 +253,8 @@ print(f"✅ Total de páginas detectado: {total_paginas}")
 # Coletar produtos de todas as páginas
 todos_produtos = []
 
+coletado_em = datetime.now().astimezone().isoformat(timespec='seconds')
+
 for pagina in range(1, total_paginas + 1):
     if pagina > 1:
         print(f"🔄 Buscando página {pagina}...")
@@ -263,24 +266,55 @@ for pagina in range(1, total_paginas + 1):
             continue
     
     produtos_pagina = extrair_produtos_de_html(response.text)
+    for produto in produtos_pagina:
+        produto["source_page"] = pagina
+        produto["fonte"] = "Yubb"
+        produto["fonte_url"] = build_url(pagina)
+        produto["coletado_em"] = coletado_em
     todos_produtos.extend(produtos_pagina)
     print(f"   → {len(produtos_pagina)} produtos encontrados (total acumulado: {len(todos_produtos)})")
 
-# Remover duplicatas por nome de produto (o Yubb pode repetir entre páginas?)
+# Remover apenas ofertas exatamente duplicadas. O mesmo nome pode aparecer com
+# distribuidor, mínimo, tipo ou vencimento diferentes e deve ser preservado.
 vistos = set()
 produtos_unicos = []
 for p in todos_produtos:
-    nome = p['produto']
-    if nome not in vistos:
-        vistos.add(nome)
+    identidade = (
+        p.get('produto'), p.get('emissor'), p.get('distribuidor'), p.get('tipo'),
+        p.get('rent_liquida'), p.get('minimo'), p.get('prazo'),
+    )
+    if identidade not in vistos:
+        vistos.add(identidade)
         produtos_unicos.append(p)
 
-print(f"\n✅ Total de produtos únicos: {len(produtos_unicos)}")
+print(f"\n✅ Total de ofertas únicas: {len(produtos_unicos)}")
 
 # Salvar dados crus
 os.makedirs(DATA_DIR, exist_ok=True)
 with open(OUTPUT_RAW, 'w', encoding='utf-8') as f:
     json.dump(produtos_unicos, f, ensure_ascii=False, indent=2)
+    f.write('\n')
+
+mes = datetime.now().strftime('%Y-%m')
+snapshot_raw = os.path.join(DATA_DIR, f'fgc_products_raw_{mes}.json')
+with open(snapshot_raw, 'w', encoding='utf-8') as f:
+    json.dump(produtos_unicos, f, ensure_ascii=False, indent=2)
+    f.write('\n')
+
+metadata = {
+    "fonte": "Yubb",
+    "fonte_url": BASE_URL,
+    "consulta": QUERY_PARAMS,
+    "coletado_em": coletado_em,
+    "paginas": total_paginas,
+    "cards_encontrados": len(todos_produtos),
+    "ofertas_unicas": len(produtos_unicos),
+    "ofertas_fgc": sum(1 for produto in produtos_unicos if produto.get('tem_fgc')),
+}
+with open(os.path.join(DATA_DIR, f'fgc_collection_{mes}.json'), 'w', encoding='utf-8') as f:
+    json.dump(metadata, f, ensure_ascii=False, indent=2)
+    f.write('\n')
 
 print(f"📄 Dados salvos em {OUTPUT_RAW}")
+print(f"📦 Snapshot mensal: {snapshot_raw}")
 print("⚠️  Lembre-se de rodar update_fgc_ranking.py para mesclar com histórico e gerar fgc_products.json")

@@ -44,13 +44,16 @@ async function loadFGCData() {
                 : '';
             
             const tr = document.createElement('tr');
+            const oferta = prod.distribuidor && prod.distribuidor !== prod.emissor
+                ? `${prod.emissor} · via ${prod.distribuidor}`
+                : prod.emissor;
             tr.setAttribute('data-indexador', prod.indexador.replace(/\s/g, '').toLowerCase());
             tr.setAttribute('data-prazo', prod.prazo_tipo.toLowerCase());
             tr.innerHTML = `
                 <td style="text-align:center;font-weight:700;color:var(--primary);">#${prod.rank}</td>
                 <td>
                     <strong>${prod.produto}${fgcBadge}</strong><br>
-                    <small style="color:var(--muted)">${prod.emissor}</small>
+                    <small style="color:var(--muted)">${oferta}</small>
                 </td>
                 <td style="text-align:center">${ratingBadge}</td>
                 <td style="text-align:center">${indexadorBadge}</td>
