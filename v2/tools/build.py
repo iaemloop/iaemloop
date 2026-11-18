@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[2]
 V2 = ROOT / "v2"
 SITE = "https://iaemloop.com.br"
 ASSET_VERSION = 10
+FGC_ASSET_VERSION = 20261118
 
 ROUTES = [
     {"source":"metodologia_barsi.html","target":"rankings/besst-buffett-b3.html","title":"BESST & Buffett B3","category":"Ranking B3","description":"Dividendos, setores perenes, qualidade e valor intrínseco em uma mesma leitura."},
@@ -428,7 +429,7 @@ def source_page(route: dict[str, str]) -> str:
         # Match the script path, independent of the legacy cache version.
         for script in list(inner_soup.find_all("script")):
             if str(script.get("src", "")).split("?", 1)[0] == "/scripts/fgc-dynamic.js":
-                script["src"] = f"/js/v2/fgc.js?v={ASSET_VERSION}"
+                script["src"] = f"/js/v2/fgc.js?v={FGC_ASSET_VERSION}"
             elif "function applyFilters()" in (script.string or script.decode_contents()):
                 script.decompose()  # V2 loader owns the filters after rendering rows.
 
