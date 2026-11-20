@@ -1,16 +1,16 @@
 {
   "knownGaps": [
     "Nao estima preco justo nem usa cotacao corrente.",
-    "A leitura de margem, caixa e retorno sobre capital exige acompanhar os proximos resultados; um trimestre isolado nao comprova a sustentabilidade do crescimento.",
-    "Dados por segmento e expectativas futuras dependem das definicoes e premissas divulgadas pela companhia."
+    "A companhia nao separa integralmente o retorno economico de cada investimento em automacao, tecnologia e logistica.",
+    "Guidance e fluxo de caixa livre ajustado seguem definicoes e premissas divulgadas pela administracao."
   ],
-  "lastPost": "v2/blog/posts/2026-11-18-weg-3t26-receita-margem-caixa-capex.html",
-  "nextSuggestedPost": "A proxima analise empresarial deve ser Stock EUA, pela alternancia das publicacoes canonicas V2; artigos macro nao alteram a sequencia.",
+  "lastPost": "v2/blog/posts/2026-11-20-walmart-operacao-ecommerce-caixa-capex.html",
+  "nextSuggestedPost": "A proxima analise empresarial deve ser Acao B3, pela alternancia das publicacoes canonicas V2; artigos macro nao alteram a sequencia.",
   "owner": "IA em Loop",
-  "reading": "O 3T26 da WEG combina receita maior, participacao externa recorde e retorno sobre capital elevado; margem, capital de giro e CAPEX precisam ser lidos separadamente.",
+  "reading": "O trimestre da Walmart combina vendas, e-commerce e lucro operacional maiores com estoque e CAPEX elevados; a tese depende da conversao dos investimentos omnicanal em retorno e caixa livre.",
   "requiredDailyOutputs": [
-    "analise-educacional-acao-b3",
-    "leitura-de-industria-energia-margem-caixa"
+    "analise-educacional-stock-eua",
+    "leitura-de-varejo-digital-margem-caixa"
   ],
   "rules": [
     "Nao publicar recomendacao personalizada de investimento.",
@@ -22,15 +22,15 @@
     "Publicar e manter como superficie publica canonica somente a versao 2 do site."
   ],
   "sourcesUsed": [
-    "WEG: Release de Resultados 3T 2026 e apresentacao de resultados, divulgados em 21/10/2026.",
-    "WEG: Informacoes Trimestrais (ITR) do periodo encerrado em 30/09/2026."
+    "Walmart: comunicado e demonstracoes do terceiro trimestre fiscal de 2027, divulgados em 19/11/2026.",
+    "Walmart: Form 8-K e apresentacao financeira protocolados em 19/11/2026."
   ],
-  "tickerOfTheDay": "WEGE3",
-  "assetTypeOfTheDay": "acao_b3",
+  "tickerOfTheDay": "WMT",
+  "assetTypeOfTheDay": "stock_eua",
   "custodyPerspective": "nao_publicada",
   "draftStatus": "publicado_v2",
-  "editorialDate": "2026-11-18",
-  "dateModified": "2026-11-18",
-  "informationCutoff": "2026-11-18",
-  "updatedAt": "2026-11-18"
+  "editorialDate": "2026-11-20",
+  "dateModified": "2026-11-20",
+  "informationCutoff": "2026-11-20",
+  "updatedAt": "2026-11-20"
 }
