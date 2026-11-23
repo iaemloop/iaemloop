@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-label="Diagrama IA em Loop sobre o Itaú Unibanco: lucro recorrente do 3T26, carteira de crédito, ROE, custo do crédito e patrimônio">
+  <defs>
+    <style>
+      .t{font:600 13px 'Inter',system-ui,sans-serif;fill:#94a3b8;}
+      .b{font:700 15px 'Inter',system-ui,sans-serif;fill:#ffffff;}
+      .m{font:600 14px 'Inter',system-ui,sans-serif;fill:#e4d17f;}
+      .s{font:600 12px 'Inter',system-ui,sans-serif;fill:#cbd5e1;}
+      .box{fill:#131d27;stroke:rgba(228,209,127,0.2);stroke-width:1;rx:10;ry:10;}
+      .accent{stroke:#e4d17f;stroke-width:1.5;}
+    </style>
+  </defs>
+  <rect width="900" height="520" fill="#06080d"/>
+  <g transform="translate(40,30)">
+    <rect x="0" y="0" width="260" height="460" class="box accent"/>
+    <text x="20" y="46" class="b">Resultado recorrente gerencial 3T26</text>
+    <text x="20" y="72" class="b">R$ 12,617 bi</text>
+    <text x="20" y="96" class="s">+1,7% t/t · +6,2% a/a</text>
+    <text x="20" y="126" class="b">Lucro líquido contábil</text>
+    <text x="20" y="150" class="b">R$ 12,3 bi</text>
+    <text x="20" y="174" class="s">+5,8% a/a · lucro por ação R$ 1,11</text>
+    <rect x="0" y="200" width="260" height="100" class="box"/>
+    <text x="20" y="226" class="m">ROE recorrente</text>
+    <text x="20" y="250" class="b">23,6%</text>
+    <text x="20" y="274" class="s">patrimônio líquido: R$ 219,9 bi</text>
+    <text x="20" y="298" class="s">CET1: 12,7% (+0,4 pp t/t)</text>
+    <rect x="0" y="320" width="260" height="140" class="box"/>
+    <text x="20" y="346" class="m">Carteira de crédito total</text>
+    <text x="20" y="370" class="b">R$ 1,544 trilhão</text>
+    <text x="20" y="394" class="s">+2,2% t/t excluindo Colômbia</text>
+    <text x="20" y="418" class="s">+10,9% a/a</text>
+    <text x="20" y="442" class="s">imobiliário, consignado e MPME na frente</text>
+
+    <rect x="320" y="0" width="540" height="210" class="box accent"/>
+    <text x="340" y="46" class="b">Margem financeira e produto bancário</text>
+    <text x="340" y="76" class="m">Margem financeira</text>
+    <text x="340" y="100" class="b">R$ 30,3 bi</text>
+    <text x="340" y="122" class="s">+9,2% a/a</text>
+    <text x="470" y="100" class="b">R$ 48,4 bi</text>
+    <text x="470" y="122" class="s">produto bancário (+11,4% a/a)</text>
+    <text x="340" y="158" class="m">Custo do crédito</text>
+    <text x="340" y="182" class="b">R$ 10,4 bi</text>
+    <text x="340" y="204" class="s">+2,7% t/t · inadimplência >90 dias: 2,0%</text>
+
+    <rect x="320" y="230" width="540" height="230" class="box accent"/>
+    <text x="340" y="266" class="b">O que muda na estrutura</text>
+    <text x="340" y="290" class="m">Saída do varejo PF da Colômbia</text>
+    <text x="340" y="312" class="s">concluída em julho de 2026</text>
+    <text x="340" y="334" class="m">Impacto no trimestre</text>
+    <text x="340" y="358" class="b">prejuízo de R$ 291 mi</text>
+    <text x="340" y="380" class="s">mais R$ 133 mi de amortização de ágio</text>
+    <text x="340" y="410" class="m">Guidance de alíquota IR/CS 2026</text>
+    <text x="340" y="434" class="b">28% a 29%</text>
+    <text x="340" y="458" class="s">revisado de 29,5% a 32,5%</text>
+
+    <rect x="320" y="230" width="220" height="1" fill="rgba(228,209,127,0.2)"/>
+    <rect x="560" y="230" width="280" height="1" fill="rgba(228,209,127,0.2)"/>
+  </g>
+  <text x="40" y="505" class="s">Fonte: resultado e MD&A do Itaú Unibanco do 3T26, divulgados em 03/11/2026 (relações com investidores). Conteúdo educacional, não recomendação de investimento.</text>
+</svg>

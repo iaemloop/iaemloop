@@ -1,16 +1,13 @@
 {
-  "knownGaps": [
-    "Nao estima preco justo nem usa cotacao corrente.",
-    "A companhia nao separa integralmente o retorno economico de cada investimento em automacao, tecnologia e logistica.",
-    "Guidance e fluxo de caixa livre ajustado seguem definicoes e premissas divulgadas pela administracao."
-  ],
-  "lastPost": "v2/blog/posts/2026-11-20-walmart-operacao-ecommerce-caixa-capex.html",
-  "nextSuggestedPost": "A proxima analise empresarial deve ser Acao B3, pela alternancia das publicacoes canonicas V2; artigos macro nao alteram a sequencia.",
+  "knownGaps": [],
+  "lastPost": "v2/blog/posts/2026-11-23-analise-itub4-itau-resultado-3t26-margem-provisoes.html",
+  "nextSuggestedPost": "Alternar para Stock EUA na próxima análise empresarial, respeitando a sequência B3 ↔ EUA; evitar empresas já recentes (WMT, GDDY, BRK-B).",
   "owner": "IA em Loop",
-  "reading": "O trimestre da Walmart combina vendas, e-commerce e lucro operacional maiores com estoque e CAPEX elevados; a tese depende da conversao dos investimentos omnicanal em retorno e caixa livre.",
+  "reading": "A edição de 23/11 analisa o 3T26 do Itaú Unibanco (lucro recorrente R$ 12,6 bi, carteira R$ 1,5 trilhão, ROE 23,6%, provisões e custo do crédito sob pressão), separando fatos do comunicado da empresa de projeções e contrapontos.",
   "requiredDailyOutputs": [
-    "analise-educacional-stock-eua",
-    "leitura-de-varejo-digital-margem-caixa"
+    "estudo-educacional-de-acao-b3",
+    "leitura-de-resultado-bancario-e-credito",
+    "registro-editorial-publico-v2"
   ],
   "rules": [
     "Nao publicar recomendacao personalizada de investimento.",
@@ -22,15 +19,18 @@
     "Publicar e manter como superficie publica canonica somente a versao 2 do site."
   ],
   "sourcesUsed": [
-    "Walmart: comunicado e demonstracoes do terceiro trimestre fiscal de 2027, divulgados em 19/11/2026.",
-    "Walmart: Form 8-K e apresentacao financeira protocolados em 19/11/2026."
+    "Itaú Unibanco — resultado e MD&A do 3° trimestre de 2026, divulgado em 03/11/2026 (relações com investidores)",
+    "UOL/Folhapress — lucro do Itaú no 3T26, 03/11/2026",
+    "Infomoney — Itaú 3T26, 03/11/2026",
+    "Valor Investe — Itaú 3T26, 03/11/2026",
+    "XP Investimentos — comentário sobre o resultado do Itaú no 3T26, novembro de 2026"
   ],
-  "tickerOfTheDay": "WMT",
-  "assetTypeOfTheDay": "stock_eua",
+  "tickerOfTheDay": "ITUB4",
+  "assetTypeOfTheDay": "acao_b3",
   "custodyPerspective": "nao_publicada",
-  "draftStatus": "publicado_v2",
-  "editorialDate": "2026-11-20",
-  "dateModified": "2026-11-20",
-  "informationCutoff": "2026-11-20",
-  "updatedAt": "2026-11-20"
+  "draftStatus": "pronto_para_publicacao_v2",
+  "editorialDate": "2026-11-23",
+  "dateModified": "2026-11-23",
+  "informationCutoff": "2026-11-23",
+  "updatedAt": "2026-11-23"
 }
