@@ -13,56 +13,59 @@
   <g transform="translate(40,30)">
     <!-- Coluna esquerda -->
     <rect x="0" y="0" width="260" height="460" class="box accent"/>
-    <text x="20" y="46" class="b">Resultado recorrente</text>
-    <text x="20" y="62" class="b">gerencial 3T26</text>
-    <text x="20" y="92" class="b">R$ 12,617 bi</text>
-    <text x="20" y="112" class="s">+1,7% t/t · +6,2% a/a</text>
-    <text x="20" y="142" class="b">Lucro líquido</text>
-    <text x="20" y="158" class="b">contábil</text>
-    <text x="20" y="188" class="b">R$ 12,3 bi</text>
-    <text x="20" y="208" class="s">+5,8% a/a · lucro por</text>
-    <text x="20" y="224" class="s">ação R$ 1,11</text>
-    <rect x="0" y="250" width="260" height="100" class="box"/>
-    <text x="20" y="276" class="m">ROE recorrente</text>
-    <text x="20" y="296" class="b">23,6%</text>
-    <text x="20" y="316" class="s">patrimônio líquido:</text>
-    <text x="20" y="332" class="s">R$ 219,9 bi</text>
-    <text x="20" y="352" class="s">CET1: 12,7% (+0,4 pp t/t)</text>
-    <rect x="0" y="370" width="260" height="130" class="box"/>
-    <text x="20" y="392" class="m">Carteira de crédito</text>
-    <text x="20" y="408" class="m">total</text>
-    <text x="20" y="428" class="b">R$ 1,544 trilhão</text>
-    <text x="20" y="444" class="s">+2,2% t/t excluindo Colômbia</text>
-    <text x="20" y="460" class="s">+10,9% a/a</text>
-    <text x="20" y="476" class="s">imobiliário, consignado e MPME na frente</text>
+    <text x="20" y="46" class="b">Resultado</text>
+    <text x="20" y="62" class="b">recorrente</text>
+    <text x="20" y="78" class="b">gerencial 3T26</text>
+    <text x="20" y="104" class="b">R$ 12,617 bi</text>
+    <text x="20" y="120" class="s">+1,7% t/t · +6,2% a/a</text>
+    <text x="20" y="146" class="b">Lucro líquido</text>
+    <text x="20" y="156" class="b">contábil</text>
+    <text x="20" y="172" class="b">R$ 12,3 bi</text>
+    <text x="20" y="192" class="s">+5,8% a/a · por</text>
+    <text x="20" y="208" class="s">ação R$ 1,11</text>
+    <rect x="0" y="230" width="260" height="100" class="box"/>
+    <text x="20" y="256" class="m">ROE recorrente</text>
+    <text x="20" y="272" class="b">23,6%</text>
+    <text x="20" y="292" class="s">patrimônio líquido:</text>
+    <text x="20" y="308" class="s">R$ 219,9 bi</text>
+    <text x="20" y="324" class="s">CET1: 12,7%</text>
+    <rect x="0" y="346" width="260" height="150" class="box"/>
+    <text x="20" y="372" class="m">Carteira de crédito</text>
+    <text x="20" y="388" class="m">total</text>
+    <text x="20" y="404" class="b">R$ 1,544 tri</text>
+    <text x="20" y="420" class="s">+2,2% t/t excl. Colômbia</text>
+    <text x="20" y="436" class="s">+10,9% a/a</text>
+    <text x="20" y="452" class="s">imob., consignado, MPME</text>
 
     <!-- Coluna direita superior -->
     <rect x="320" y="0" width="540" height="210" class="box accent"/>
     <text x="340" y="46" class="b">Margem financeira e</text>
     <text x="340" y="62" class="b">produto bancário</text>
     <text x="340" y="88" class="m">Margem financeira</text>
-    <text x="340" y="108" class="b">R$ 30,3 bi</text>
-    <text x="340" y="128" class="s">+9,2% a/a</text>
-    <text x="470" y="108" class="b">R$ 48,4 bi</text>
-    <text x="470" y="128" class="s">produto bancário (+11,4% a/a)</text>
-    <text x="340" y="154" class="m">Custo do crédito</text>
-    <text x="340" y="174" class="b">R$ 10,4 bi</text>
-    <text x="340" y="194" class="s">+2,7% t/t · inadimplência >90 dias: 2,0%</text>
+    <text x="340" y="104" class="b">R$ 30,3 bi</text>
+    <text x="340" y="120" class="s">+9,2% a/a</text>
+    <text x="470" y="104" class="b">R$ 48,4 bi</text>
+    <text x="470" y="120" class="s">produto bancário (+11,4% a/a)</text>
+    <text x="340" y="146" class="m">Custo do crédito</text>
+    <text x="340" y="162" class="b">R$ 10,4 bi</text>
+    <text x="340" y="178" class="s">+2,7% t/t · >90 dias: 2,0%</text>
 
     <!-- Coluna direita inferior -->
     <rect x="320" y="230" width="540" height="230" class="box accent"/>
-    <text x="340" y="256" class="b">O que muda na estrutura</text>
-    <text x="340" y="274" class="m">Saída do varejo PF da Colômbia</text>
-    <text x="340" y="292" class="s">concluída em julho de 2026</text>
-    <text x="340" y="312" class="m">Impacto no trimestre</text>
-    <text x="340" y="332" class="b">prejuízo de R$ 291 mi</text>
-    <text x="340" y="350" class="s">mais R$ 133 mi de amortização de ágio</text>
-    <text x="340" y="370" class="m">Guidance de alíquota IR/CS 2026</text>
-    <text x="340" y="388" class="b">28% a 29%</text>
-    <text x="340" y="406" class="s">revisado de 29,5% a 32,5%</text>
+    <text x="340" y="256" class="b">O que muda na</text>
+    <text x="340" y="272" class="b">estrutura</text>
+    <text x="340" y="292" class="m">Saída varejo PF Colômbia</text>
+    <text x="340" y="308" class="s">concluída em jul/2026</text>
+    <text x="340" y="328" class="m">Impacto no trimestre</text>
+    <text x="340" y="344" class="b">prejuízo R$ 291 mi</text>
+    <text x="340" y="360" class="s">mais R$ 133 mi ágio</text>
+    <text x="340" y="380" class="m">Guidance alíquota IR/CS</text>
+    <text x="340" y="396" class="m">2026</text>
+    <text x="340" y="412" class="b">28% a 29%</text>
+    <text x="340" y="428" class="s">de 29,5% a 32,5%</text>
 
     <rect x="320" y="230" width="220" height="1" fill="rgba(228,209,127,0.2)"/>
     <rect x="560" y="230" width="280" height="1" fill="rgba(228,209,127,0.2)"/>
   </g>
-  <text x="40" y="505" class="s">Fonte: resultado e MD&amp;A do Itaú Unibanco do 3T26, divulgados em 03/11/2026 (relações com investidores). Conteúdo educacional, não recomendação de investimento.</text>
+  <text x="40" y="508" class="s">Fonte: resultado e MD&amp;A Itaú Unibanco 3T26, 03/11/2026 (RI). Conteúdo educacional, não recomendação de investimento.</text>
 </svg>
