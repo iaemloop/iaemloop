@@ -12,7 +12,7 @@
   <rect width="900" height="520" fill="#06080d"/>
   <g transform="translate(40,30)">
     <!-- Coluna esquerda — uma caixa só, fechada -->
-    <rect x="0" y="0" width="260" height="496" class="box accent"/>
+    <rect x="0" y="0" width="260" height="460" class="box accent"/>
     <text x="20" y="46" class="b">Resultado</text>
     <text x="20" y="62" class="b">recorrente</text>
     <text x="20" y="78" class="b">gerencial 3T26</text>
