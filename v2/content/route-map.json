@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23",
+  "generated_at": "2026-11-25",
   "canonical_home": "/",
   "legacy_public": false,
   "routes": [
@@ -98,6 +98,7 @@
     "/v2/blog/posts/2026-11-18-weg-3t26-receita-margem-caixa-capex.html",
     "/v2/blog/posts/2026-11-20-walmart-operacao-ecommerce-caixa-capex.html",
     "/v2/blog/posts/2026-11-23-analise-itub4-itau-resultado-3t26-margem-provisoes.html",
+    "/v2/blog/posts/2026-11-25-analise-intuit-intu-resultado-1t-fy27-mailchimp.html",
     "/v2/blog/posts/selic-caindo-juro-real-focus-2026.html",
     "/v2/index.html",
     "/v2/indicadores/bitcoin.html",
@@ -146,5 +147,5 @@
     "/ranking_magic_formula_dolarizada.html": "/v2/rankings/magic-formula-eua.html",
     "/watchlist_buffett_permanente_eua.html": "/v2/radar/watchlist-buffett-eua.html"
   },
-  "blog_posts": 95
+  "blog_posts": 96
 }

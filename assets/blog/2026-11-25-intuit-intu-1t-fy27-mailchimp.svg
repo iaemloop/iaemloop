@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520">
+  <defs>
+    <style>
+      .bg { fill: #06080D; }
+      .title { fill: #E4D17F; font: 700 17px 'Inter', sans-serif; }
+      .sub { fill: #94a3b8; font: 400 13px 'Inter', sans-serif; }
+      .big { fill: #FFFFFF; font: 800 28px 'Inter', sans-serif; }
+      .big-label { fill: #94a3b8; font: 400 13px 'Inter', sans-serif; }
+      .change { fill: #6EE4EF; font: 800 13px 'Inter', sans-serif; }
+      .axis { fill: #475569; font: 400 12px 'Inter', sans-serif; }
+      .bar-fy27 { fill: #6EE4EF; }
+      .bar-fy26 { fill: #334155; }
+      .seg-label { fill: #cbd5e1; font: 400 13px 'Inter', sans-serif; }
+      .val27 { fill: #6EE4EF; font: 800 12px 'Inter', sans-serif; }
+      .val26 { fill: #94a3b8; font: 400 11px 'Inter', sans-serif; }
+      .note { fill: #94a3b8; font: 400 12px 'Inter', sans-serif; }
+    </style>
+  </defs>
+  <rect class="bg" width="900" height="520"/>
+
+  <text x="40" y="58" class="title">Intuit — 1T do ano fiscal de 2027</text>
+  <text x="40" y="80" class="sub">Trimestre encerrado em 31/10/2026 · resultados divulgados em 19/11/2026 · Fonte: Intuit (10-Q e comunicado à SEC)</text>
+
+  <g transform="translate(40, 108)">
+    <rect x="0" y="0" width="410" height="150" fill="#111827" stroke="#334155" stroke-width="1" rx="10"/>
+    <text x="20" y="40" class="big">US$ 4,35 bi</text>
+    <text x="20" y="70" class="big-label">Receita líquida total, 1T FY27</text>
+    <text x="20" y="92" class="change">+12% vs 1T FY26 (US$ 3,88 bi)</text>
+    <text x="20" y="114" class="sub">Serviço: US$ 3,93 bi · Produto e outros: US$ 421 mi</text>
+  </g>
+
+  <g transform="translate(460, 108)">
+    <rect x="0" y="0" width="400" height="150" fill="#111827" stroke="#334155" stroke-width="1" rx="10"/>
+    <text x="20" y="40" class="big">US$ 868 mi</text>
+    <text x="20" y="70" class="big-label">Lucro operacional (GAAP), 1T FY27</text>
+    <text x="20" y="92" class="change">+63% vs 1T FY26 (US$ 534 mi)</text>
+    <text x="20" y="114" class="sub">Lucro líquido: US$ 695 mi · Diluição: US$ 2,59 por ação</text>
+  </g>
+
+  <text x="40" y="292" class="title">Receita por linha de negócio — US$ milhões</text>
+  <text x="40" y="310" class="note">Barras verde (1T FY27) e cinza (1T FY26), conforme divulgadas pela Intuit.</text>
+
+  <g transform="translate(0, 332)">
+    <!-- Global Business Solutions -->
+    <text x="30" y="13" class="seg-label">Global Business Solutions</text>
+    <rect x="140" y="4" width="607" height="12" class="bar-fy26"/>
+    <text x="755" y="14" class="val26">2.674</text>
+    <rect x="140" y="20" width="700" height="12" class="bar-fy27"/>
+    <text x="854" y="32" class="val27">3.083</text>
+    <!-- Credit Karma -->
+    <text x="30" y="53" class="seg-label">Credit Karma</text>
+    <rect x="140" y="44" width="148" height="12" class="bar-fy26"/>
+    <text x="296" y="54" class="val26">651</text>
+    <rect x="140" y="60" width="161" height="12" class="bar-fy27"/>
+    <text x="309" y="72" class="val27">708</text>
+    <!-- TurboTax -->
+    <text x="30" y="93" class="seg-label">TurboTax</text>
+    <rect x="140" y="84" width="45" height="12" class="bar-fy26"/>
+    <text x="193" y="94" class="val26">198</text>
+    <rect x="140" y="100" width="45" height="12" class="bar-fy27"/>
+    <text x="193" y="112" class="val27">199</text>
+    <!-- Mailchimp -->
+    <text x="30" y="133" class="seg-label">Mailchimp</text>
+    <rect x="140" y="124" width="72" height="12" class="bar-fy26"/>
+    <text x="220" y="134" class="val26">317</text>
+    <rect x="140" y="140" width="71" height="12" class="bar-fy27"/>
+    <text x="219" y="152" class="val27">313</text>
+  </g>
+
+  <line x1="140" y1="500" x2="840" y2="500" stroke="#334155" stroke-width="1"/>
+  <text x="140" y="516" class="axis">US$ milhões</text>
+  <text x="812" y="516" class="axis" text-anchor="end">máx. US$ 3,08 bi</text>
+</svg>

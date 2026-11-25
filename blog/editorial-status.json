@@ -1,9 +1,9 @@
 {
   "knownGaps": [],
-  "lastPost": "v2/blog/posts/2026-11-23-analise-itub4-itau-resultado-3t26-margem-provisoes.html",
-  "nextSuggestedPost": "Alternar para Stock EUA na próxima análise empresarial, respeitando a sequência B3 ↔ EUA; evitar empresas já recentes (WMT, GDDY, BRK-B).",
+  "lastPost": "v2/blog/posts/2026-11-25-analise-intuit-intu-resultado-1t-fy27-mailchimp.html",
+  "nextSuggestedPost": "Alternar para Ação B3 na próxima análise empresarial, respeitando a sequência B3 ↔ EUA; evitar empresas já recentes (WMT, GDDY, BRK-B, INTU).",
   "owner": "IA em Loop",
-  "reading": "A edição de 23/11 analisa o 3T26 do Itaú Unibanco (lucro recorrente R$ 12,6 bi, carteira R$ 1,5 trilhão, ROE 23,6%, provisões e custo do crédito sob pressão), separando fatos do comunicado da empresa de projeções e contrapontos.",
+  "reading": "A edição de 25/11 analisa o primeiro trimestre do ano fiscal de 2027 da Intuit (encerrado em 31/10/2026): receita líquida de US$ 4,35 bi (+12% a/a), lucro operacional de US$ 868 mi (+63% a/a), lucro líquido de US$ 695 mi, acordo de venda do Mailchimp à Bending Spoons por cerca de US$ 3,68 bi e projeções atualizadas para FY27, com fontes primárias (10-Q e comunicado à SEC).",
   "requiredDailyOutputs": [
     "estudo-educacional-de-acao-b3",
     "leitura-de-resultado-bancario-e-credito",
@@ -19,18 +19,15 @@
     "Publicar e manter como superficie publica canonica somente a versao 2 do site."
   ],
   "sourcesUsed": [
-    "Itaú Unibanco — resultado e MD&A do 3° trimestre de 2026, divulgado em 03/11/2026 (relações com investidores)",
-    "UOL/Folhapress — lucro do Itaú no 3T26, 03/11/2026",
-    "Infomoney — Itaú 3T26, 03/11/2026",
-    "Valor Investe — Itaú 3T26, 03/11/2026",
-    "XP Investimentos — comentário sobre o resultado do Itaú no 3T26, novembro de 2026"
+    "Intuit Inc. — Form 10-Q, trimestre encerrado em 31/10/2026, arquivado na SEC em 19/11/2026 (relacoes com investidores da Intuit)",
+    "Intuit Inc. — comunicado de resultados do 1T do ano fiscal de 2027 e acordo de venda do Mailchimp, 19/11/2026"
   ],
-  "tickerOfTheDay": "ITUB4",
-  "assetTypeOfTheDay": "acao_b3",
+  "tickerOfTheDay": "INTU",
+  "assetTypeOfTheDay": "stock_eua",
   "custodyPerspective": "nao_publicada",
   "draftStatus": "pronto_para_publicacao_v2",
-  "editorialDate": "2026-11-23",
-  "dateModified": "2026-11-23",
-  "informationCutoff": "2026-11-23",
-  "updatedAt": "2026-11-23"
+  "editorialDate": "2026-11-25",
+  "dateModified": "2026-11-25",
+  "informationCutoff": "2026-11-25",
+  "updatedAt": "2026-11-25"
 }
