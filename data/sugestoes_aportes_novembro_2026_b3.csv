@@ -1,0 +1,7 @@
+month,portfolio,method,ticker,security,quantity,suggested_price_brl,suggested_value_brl,currency,source,source_status
+2026-11,BESST & Buffett B3,BESST & Buffett,PETR4,PETROBRAS PN,4,43.10,172.40,BRL,sugestao_aporte_novembro_2026,sugestao
+2026-11,BESST & Buffett B3,BESST & Buffett,PSSA3,PORTO SEGURO ON,3,44.64,133.92,BRL,sugestao_aporte_novembro_2026,sugestao
+2026-11,BESST & Buffett B3,BESST & Buffett,CSMG3,CEMIG ON,3,55.40,166.20,BRL,sugestao_aporte_novembro_2026,sugestao
+2026-11,Magic Formula B3,Magic Formula,UGPA3,ULTRAPAR ON ED NM,5,31.43,157.15,BRL,sugestao_aporte_novembro_2026,sugestao
+2026-11,Magic Formula B3,Magic Formula,PETR4,PETROBRAS PN,4,43.10,172.40,BRL,sugestao_aporte_novembro_2026,sugestao
+2026-11,Magic Formula B3,Magic Formula,POMO3,MARCOPOLO ON PN,47,3.56,167.32,BRL,sugestao_aporte_novembro_2026,sugestao
