@@ -39,6 +39,7 @@ DENY_NAME_PARTS = (
     "real_portfolio_site_summary_2026",
     "compras_b3_",
     "compras_stocks_",
+    "alugueis_acoes_",
     "sobras_aportes_",
     "update_real_carteiras_from_july_notes",
     "update_investment_cost_ledger_from_known_notes",
@@ -71,7 +72,13 @@ TRANSACTION_FIELDS = {
     "fees", "costs", "brokerage_brl", "exchange_fees_brl", "iof_brl",
     "fx_spread_brl", "source_status",
 }
-ALL_SENSITIVE_FIELDS = ASSET_FIELDS | QUANTITY_FIELDS | MONEY_FIELDS | TRANSACTION_FIELDS
+PERSONAL_FIELDS = {
+    "cpf", "cliente_cpf", "cliente_nome", "client_name", "broker_client_id",
+    "account_id", "account_number", "numero_conta", "conta_corretora",
+}
+ALL_SENSITIVE_FIELDS = (
+    ASSET_FIELDS | QUANTITY_FIELDS | MONEY_FIELDS | TRANSACTION_FIELDS | PERSONAL_FIELDS
+)
 
 _LITERAL_FIELD_RE = re.compile(
     r"(?ix)(?:[\"'](?P<quoted>[a-z_][a-z0-9_]*)[\"']|\b(?P<bare>[a-z_][a-z0-9_]*)\b)"
@@ -124,6 +131,8 @@ def delimited_has_custody_payload(text: str, delimiter: str) -> bool:
     except (csv.Error, UnicodeError):
         return False
     fields = {cell.strip().casefold() for cell in header}
+    if fields & PERSONAL_FIELDS:
+        return True
     has_asset = bool(fields & ASSET_FIELDS)
     has_quantity = bool(fields & QUANTITY_FIELDS)
     has_money = bool(fields & MONEY_FIELDS)
@@ -200,6 +209,10 @@ def run_adversarial_tests() -> list[str]:
             "payload.csv": (
                 "ticker,quantity,average_price_brl,broker,note_number,settlement_date\n"
                 "TEST3,7,12.34,Example Broker,987654321,2026-01-02\n"
+            ),
+            "personal.csv": (
+                "cliente_cpf,cliente_nome,broker_client_id,numero_nota\n"
+                "00000000000,Example Client,CLIENT-123,987654321\n"
             ),
             "payload.tsv": (
                 "ticker\tquantity\taverage_price_brl\tbroker\tnote_number\n"
