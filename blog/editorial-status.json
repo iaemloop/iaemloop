@@ -1,12 +1,12 @@
 {
   "knownGaps": [],
-  "lastPost": "v2/blog/posts/2026-11-25-analise-intuit-intu-resultado-1t-fy27-mailchimp.html",
-  "nextSuggestedPost": "Alternar para Ação B3 na próxima análise empresarial, respeitando a sequência B3 ↔ EUA; evitar empresas já recentes (WMT, GDDY, BRK-B, INTU).",
+  "lastPost": "v2/blog/posts/2026-11-27-tims3-tim-3t26-torres-caixa-lucro.html",
+  "nextSuggestedPost": "Alternar para Stock EUA na próxima análise empresarial, respeitando a sequência B3 ↔ EUA; evitar empresas já recentes (WMT, INTU, ALL, UBER e BRK-B).",
   "owner": "IA em Loop",
-  "reading": "A edição de 25/11 analisa o primeiro trimestre do ano fiscal de 2027 da Intuit (encerrado em 31/10/2026): receita líquida de US$ 4,35 bi (+12% a/a), lucro operacional de US$ 868 mi (+63% a/a), lucro líquido de US$ 695 mi, acordo de venda do Mailchimp à Bending Spoons por cerca de US$ 3,68 bi e projeções atualizadas para FY27, com fontes primárias (10-Q e comunicado à SEC).",
+  "reading": "A edição de 27/11 analisa a TIM no 3T26: receita líquida de R$ 7,07 bi (+5,3% a/a), EBITDA normalizado de R$ 3,70 bi (+6,7%), fluxo de caixa operacional gerencial de R$ 1,94 bi (+11,6%) e lucro líquido normalizado de R$ 1,11 bi (-7,8%). O acordo de longo prazo com a SBA abrange cerca de 16% das torres usadas, mas não teve prazo, valor ou economia divulgados.",
   "requiredDailyOutputs": [
     "estudo-educacional-de-acao-b3",
-    "leitura-de-resultado-bancario-e-credito",
+    "leitura-de-resultado-de-telecom-e-infraestrutura",
     "registro-editorial-publico-v2"
   ],
   "rules": [
@@ -19,15 +19,16 @@
     "Publicar e manter como superficie publica canonica somente a versao 2 do site."
   ],
   "sourcesUsed": [
-    "Intuit Inc. — Form 10-Q, trimestre encerrado em 31/10/2026, arquivado na SEC em 19/11/2026 (relacoes com investidores da Intuit)",
-    "Intuit Inc. — comunicado de resultados do 1T do ano fiscal de 2027 e acordo de venda do Mailchimp, 19/11/2026"
+    "TIM S.A. — release de resultados do 3T26, publicado em 09/11/2026",
+    "TIM S.A. — informacoes trimestrais de 30/09/2026, publicadas em 09/11/2026",
+    "TIM S.A. — comunicado sobre acordo de infraestrutura com a SBA, 25/11/2026"
   ],
-  "tickerOfTheDay": "INTU",
-  "assetTypeOfTheDay": "stock_eua",
+  "tickerOfTheDay": "TIMS3",
+  "assetTypeOfTheDay": "acao_b3",
   "custodyPerspective": "nao_publicada",
   "draftStatus": "pronto_para_publicacao_v2",
-  "editorialDate": "2026-11-25",
-  "dateModified": "2026-11-25",
-  "informationCutoff": "2026-11-25",
-  "updatedAt": "2026-11-25"
+  "editorialDate": "2026-11-27",
+  "dateModified": "2026-11-27",
+  "informationCutoff": "2026-11-27",
+  "updatedAt": "2026-11-27"
 }
